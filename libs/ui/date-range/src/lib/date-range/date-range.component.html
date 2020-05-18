@@ -1,0 +1,44 @@
+<div
+  class="c-date-range qa-date-range"
+  fxLayout="row"
+  fxLayoutAlign="start center"
+  fxLayoutGap=".6em"
+>
+  <ts-input
+    class="c-date-range--start qa-date-range-start-datepicker"
+    [dateLocale]="dateLocale"
+    [formControl]="internalStartControl"
+    [label]="startLabel"
+    [maxDate]="startMaxDate$ | async"
+    [minDate]="startMinDate"
+    [startingView]="startingView"
+    [isDisabled]="isDisabled || startDateControl.disabled"
+    [theme]="theme"
+    mask="date"
+    [datepicker]="true"
+    (selected)="startDateSelected($event)"
+    (inputBlur)="startBlur($event)"
+    #start
+  ></ts-input>
+
+  <span class="c-date-range__separator">
+    {{ separator }}
+  </span>
+
+  <ts-input
+    class="c-date-range--end qa-date-range-end-datepicker"
+    [dateLocale]="dateLocale"
+    [formControl]="internalEndControl"
+    [label]="endLabel"
+    [maxDate]="endMaxDate"
+    [minDate]="endMinDate$ | async"
+    [startingView]="startingView"
+    [isDisabled]="isDisabled || endDateControl.disabled"
+    [theme]="theme"
+    mask="date"
+    [datepicker]="true"
+    (selected)="endDateSelected($event)"
+    (inputBlur)="endBlur($event)"
+    #end
+  ></ts-input>
+</div>

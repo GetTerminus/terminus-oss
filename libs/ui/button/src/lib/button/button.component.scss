@@ -1,0 +1,267 @@
+@import "~@terminus/ui-styles/helpers";
+
+
+ts-button {
+  // NOTE: This makes the bottom padding space look better than the default 36px
+  --button-lineHeight: 35px;
+  --button-rotation: 360deg;
+  --button-icon-negative-padding-adjustment: -4px;
+  --button-collapsible-first-icon-adjustment: -.15em;
+
+  // NOTE: All transition durations are based off of the content transition.
+  --button-content-transitionDuration: var(--ts-animation-time-duration-500);
+  --button-icon-transitionDuration-collapse: calc(var(--button-content-transitionDuration) - 100ms);
+  --button-icon-transitionDuration-expand: calc(var(--button-icon-transitionDuration-collapse) - 100ms);
+  --button-label-transitionDuration: calc(var(--button-icon-transitionDuration-expand) - 100ms);
+  --button-color-transitionDuration: calc(var(--button-label-transitionDuration) - 100ms);
+
+  --button-color-transition: color var(--button-color-transitionDuration) var(--ts-animation-easing-ease);
+  --button-background-transition: background var(--button-icon-transitionDuration-collapse) var(--ts-animation-easing-ease);
+  --button-shadow-transition: box-shadow var(--button-icon-transitionDuration-expand) var(--ts-animation-easing-ease);
+  --button-maxWidth-transition: max-width var(--button-content-transitionDuration) var(--ts-animation-easing-ease);
+  --button-icon-transition: transform var(--button-icon-transitionDuration-expand) var(--ts-animation-easing-ease);
+  --button-spinner-transition: opacity var(--button-label-transitionDuration) var(--ts-animation-easing-ease);
+
+  // NOTE: This is to better align with inputs that have extra space above and below
+  --button-margin: 4px 0;
+  --button-padding: 0 var(--ts-space-inline-400);
+  --button-padding-collapsed: 0 6px;
+  --button-border: 1px solid transparent;
+  --button-border-radius: 3px;
+  --button-border-radius-collapsible: 2em;
+
+  --button-backgroundColor-disabled: var(--ts-color-utility-300);
+  --button-backgroundColor-primary: var(--ts-color-primary-500);
+  --button-backgroundColor-accent: var(--ts-color-accent-500);
+  --button-backgroundColor-warn: var(--ts-color-warn-500);
+  --button-color-disabled: var(--ts-color-utility-500);
+  --button-color: var(--ts-color-light);
+  --button-padding-right-progress: 36px;
+  --button-icon-vertical-adjustment: -.15em;
+  --button-icon-horizontal-adjustment: .2em;
+}
+
+// Styles applied when the button is collapsed
+@mixin collapsed {
+  padding: var(--button-padding-collapsed);
+
+  .ts-icon {
+    margin-right: 0;
+  }
+
+  .c-icon {
+    position: relative;
+    transform: rotate(var(--button-rotation));
+    transition-duration: var(--button-icon-transitionDuration-collapse);
+  }
+
+  // collapse the text content
+  .c-button__content {
+    max-width: 0;
+    padding: 0;
+  }
+}
+
+
+//
+// @component
+//  Button
+// @description
+//  A button component
+//
+.ts-button {
+  @include reset;
+  display: inline-block;
+  margin: var(--button-margin);
+
+  // Top level styles should be nested here
+  .c-button {
+    @include typography;
+    border: var(--button-border);
+    border-radius: var(--button-border-radius);
+    color: var(--button-color);
+    line-height: var(--button-lineHeight);
+    // Overwrite material min-width
+    min-width: auto;
+    padding: var(--button-padding);
+    transition: var(--button-color-transition), var(--button-background-transition), var(--button-shadow-transition);
+  }
+
+  // TODO: Sass array of possible themes should be available to all components from a global location
+  // Define all possible themes
+  $themes: primary accent warn;
+  // Loop through using each theme name to create styles
+  @each $theme in $themes {
+    // Theme class sets the colors for standard buttons
+    .c-button--#{$theme} {
+      &:not(.c-button--hollow) {
+        background-color: var(--button-backgroundColor-#{$theme});
+      }
+
+      &[disabled] {
+        background-color: var(--button-backgroundColor-disabled);
+        color: var(--button-color-disabled);
+      }
+
+      // Hollow button
+      &.c-button--hollow {
+        border-color: var(--ts-color-#{$theme}-500);
+        box-shadow: none;
+        color: var(--ts-color-#{$theme}-500);
+
+        &:focus,
+        &:hover {
+          background-color: var(--button-backgroundColor-#{$theme});
+          color: var(--button-color);
+        }
+
+        &[disabled] {
+          background-color: transparent;
+          border-color: var(--ts-color-utility-500);
+          color: var(--ts-color-utility-500);
+        }
+      }
+    }
+  }
+
+  // Target instances nested inside the TsSearchComponent
+  .ts-search & {
+    // Offset to account for space under input for error messages
+    position: relative;
+    top: calc(var(--ts-space-stack-400) * -1);
+  }
+}
+
+
+.c-button {
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  .mat-button-wrapper {
+    // Set up for spinner
+    position: relative;
+    transition: padding 200ms ease-out;
+    will-change: padding, margin;
+  }
+
+  // Class added when progress indicator is shown
+  &.c-button--progress {
+    .mat-button-wrapper {
+      padding-right: var(--button-padding-right-progress);
+    }
+  }
+
+  // Target the prefix icon
+  &__icon {
+    margin-right: var(--button-icon-horizontal-adjustment);
+  }
+
+  // Target any icon inside a button
+  // Adjust icon vertical layout
+  .c-icon {
+    // Fix small vertical alignment issue between icon & text
+    margin-top: var(--button-icon-vertical-adjustment);
+    transition: var(--button-icon-transition);
+    vertical-align: middle;
+    will-change: transform;
+  }
+
+  // Overwrite the Material spinner to fit our layout
+  .c-button__spinner {
+    display: inline-block;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: var(--button-spinner-transition);
+
+    &--active {
+      opacity: 1;
+    }
+
+    circle {
+      stroke: var(--ts-color-utility-500);
+    }
+  }
+
+  // Collapsed and not focused or hovered
+  &.c-button--collapsed {
+    &:not(:hover) {
+      &:not(:focus) {
+        @include collapsed;
+      }
+    }
+  }
+
+  &.c-button--collapsable,
+  &.c-button--collapsible {
+    border-radius: var(--button-border-radius-collapsible);
+
+    // When collapsible AND disabled
+    &[disabled] {
+      &:not(:hover) {
+        &:not(:focus) {
+          @include collapsed;
+        }
+      }
+    }
+
+    // Fix left alignment when button is expanded and an icon is the first item
+    &:hover,
+    &:focus {
+      .c-icon {
+        margin-left: var(--button-collapsible-first-icon-adjustment);
+      }
+    }
+
+    .c-button__content {
+      display: inline-block;
+      max-width: 400px;
+      overflow: hidden;
+      transition: var(--button-maxWidth-transition);
+      white-space: nowrap;
+
+      .ts-icon {
+        margin-left: var(--button-icon-negative-padding-adjustment);
+        margin-right: var(--button-icon-negative-padding-adjustment);
+      }
+    }
+
+    .mat-ripple {
+      border-radius: var(--button-border-radius-collapsible);
+    }
+  }
+}
+
+
+// Target button instances nested inside a TsMenuComponent
+.mat-menu-panel {
+  // Needed for specificity
+  .ts-button {
+    button {
+      &.c-button {
+        --menu-item-color: var(--ts-color-base-black);
+        --menu-item-backgroundColor: transparent;
+        background-color: var(--menu-item-backgroundColor);
+        border-radius: 0;
+        box-shadow: none;
+        color: var(--menu-item-color);
+        text-align: left;
+        transition-duration: var(--ts-animation-time-duration-400);
+        transition-property: background-color, color;
+        transition-timing-function: var(--ts-animation-easing-ease);
+        width: 100%;
+
+        &:focus,
+        &:active,
+        &:hover {
+          --menu-item-backgroundColor: var(--ts-color-utility-100);
+          --menu-item-color: var(--ts-color-primary-500);
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+<form
+  class="c-login-form qa-login-form"
+  [formGroup]="loginForm"
+  fxLayout="column"
+  (keydown.enter)="loginForm?.valid && submission.emit(loginForm?.value)"
+>
+
+  <ts-input
+    label="Email"
+    name="email"
+    type="email"
+    [formControl]="emailControl"
+    [isRequired]="true"
+    [spellcheck]="false"
+    [autocapitalize]="false"
+    autocomplete="email"
+    tabindex="-1"
+    tabIndex="1"
+  ></ts-input>
+
+  <ts-input
+    label="Password"
+    name="password"
+    type="password"
+    [formControl]="passwordControl"
+    [isRequired]="true"
+    autocomplete="current-password"
+    [autocapitalize]="false"
+    [spellcheck]="false"
+    tabindex="-1"
+    tabIndex="2"
+  ></ts-input>
+
+  <ts-checkbox
+    [formControl]="rememberMeControl"
+    tabindex="-1"
+    tabIndex="3"
+    tsVerticalSpacing
+  >
+    Remember me
+  </ts-checkbox>
+
+  <ts-link
+    [destination]="forgotPasswordLink"
+    tsVerticalSpacing
+    tabindex="-1"
+    tabIndex="5"
+  >{{ forgotPasswordText }}</ts-link>
+
+  <div fxLayout="row" fxFlexAlign="end">
+    <ts-button
+      actionName="Submit"
+      buttonType="submit"
+      [showProgress]="inProgress || isRedirecting"
+      [isDisabled]="!loginForm?.valid"
+      (clicked)="submission.emit(loginForm?.value)"
+      tabindex="-1"
+      tabIndex="4"
+    >
+      {{ loginCTA }}
+    </ts-button>
+  </div>
+
+</form>

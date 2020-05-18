@@ -1,0 +1,10 @@
+{
+  "name": "@terminus/ui-logo",
+  "version": "0.0.0-PLACEHOLDER",
+  "peerDependencies": {
+    "@angular/common": "^9.1.0",
+    "@angular/core": "^9.1.0",
+    "@terminus/design-tokens": "^1.0.10",
+    "tslib": "^1.10.0"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "extends": [
+    "config:base",
+    "schedule:monthly"
+  ],
+  "masterIssue": true,
+  "packageRules": [
+    {
+      "packagePatterns": ["^@angular"],
+      "groupName": "Angular Core Packages"
+    },
+    {
+      "packagePatterns": ["jest"],
+      "groupName": "Jest Packages"
+    },
+    {
+      "packagePatterns": ["^@nrwl"],
+      "groupName": "NRWL Packages"
+    },
+    {
+      "packagePatterns": ["^@semantic-release"],
+      "groupName": "SemanticRelease Packages"
+    },
+    {
+      "packagePatterns": ["^@terminus"],
+      "groupName": "Terminus Packages"
+    },
+    {
+      "packagePatterns": ["^text-mask"],
+      "groupName": "TextMask Packages"
+    },
+    {
+      "packagePatterns": ["gulp"],
+      "groupName": "Gulp Packages"
+    },
+    {
+      "packagePatterns": ["lint"],
+      "groupName": "Lint Packages"
+    },
+    {
+      "packagePatterns": ["gulp"],
+      "groupName": "Gulp Packages"
+    }
+  ],
+  "prConcurrentLimit": 0,
+  "prHourlyLimit": 0,
+  "rebaseLabel": "Action: rebase",
+  "rebaseConflictedPrs": false,
+  "rebaseStalePrs": false,
+  "reviewers": ["team:uxe"],
+  "semanticCommits": true,
+  "semanticCommitScope": "Packages",
+  "semanticCommitType": "chore",
+  "stabilityDays": 1,
+  "vulnerabilityAlerts": {
+    "labels": ["Focus: security"],
+    "assignees": ["team:uxe"]
+  }
+}

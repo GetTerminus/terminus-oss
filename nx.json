@@ -1,5 +1,5 @@
 {
-  "npmScope": "terminus-oss",
+  "npmScope": "terminus",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": {
@@ -14,17 +14,168 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
   "projects": {
-    "showcase": {
+    "design-tokens": {
       "tags": []
     },
-    "showcase-e2e": {
+    "showcase-tokens": {
+      "tags": []
+    },
+    "showcase-tokens-e2e": {
       "tags": [],
-      "implicitDependencies": ["showcase"]
+      "implicitDependencies": [
+        "showcase-tokens"
+      ]
+    },
+    "showcase-ui": {
+      "tags": []
+    },
+    "showcase-ui-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "showcase-ui"
+      ]
+    },
+    "ui-autocomplete": {
+      "tags": []
+    },
+    "ui-autofocus": {
+      "tags": []
+    },
+    "ui-button": {
+      "tags": []
+    },
+    "ui-checkbox": {
+      "tags": []
+    },
+    "ui-card": {
+      "tags": []
+    },
+    "ui-chart": {
+      "tags": []
+    },
+    "ui-chip": {
+      "tags": []
+    },
+    "ui-cohort-date-range": {
+      "tags": []
+    },
+    "ui-confirmation": {
+      "tags": []
+    },
+    "ui-copy": {
+      "tags": []
+    },
+    "ui-csv-entry": {
+      "tags": []
+    },
+    "ui-date-range": {
+      "tags": []
+    },
+    "ui-drawer": {
+      "tags": []
+    },
+    "ui-expansion-panel": {
+      "tags": []
+    },
+    "ui-file-upload": {
+      "tags": []
+    },
+    "ui-form-field": {
+      "tags": []
+    },
+    "ui-icon": {
+      "tags": []
+    },
+    "ui-icon-button": {
+      "tags": []
+    },
+    "ui-input": {
+      "tags": []
+    },
+    "ui-link": {
+      "tags": []
+    },
+    "ui-loading-overlay": {
+      "tags": []
+    },
+    "ui-login-form": {
+      "tags": []
+    },
+    "ui-logo": {
+      "tags": []
+    },
+    "ui-menu": {
+      "tags": []
+    },
+    "ui-navigation": {
+      "tags": []
+    },
+    "ui-option": {
+      "tags": []
+    },
+    "ui-paginator": {
+      "tags": []
+    },
+    "ui-pipes": {
+      "tags": []
+    },
+    "ui-popover": {
+      "tags": []
+    },
+    "ui-radio-group": {
+      "tags": []
+    },
+    "ui-scrollbars": {
+      "tags": []
+    },
+    "ui-search": {
+      "tags": []
+    },
+    "ui-select": {
+      "tags": []
+    },
+    "ui-selection-list": {
+      "tags": []
+    },
+    "ui-sort": {
+      "tags": []
+    },
+    "ui-spacing": {
+      "tags": []
+    },
+    "ui-styles": {
+      "tags": []
+    },
+    "ui-table": {
+      "tags": []
+    },
+    "ui-tabs": {
+      "tags": []
+    },
+    "ui-toggle": {
+      "tags": []
+    },
+    "ui-tooltip": {
+      "tags": []
+    },
+    "ui-utilities": {
+      "tags": []
+    },
+    "ui-validation-messages": {
+      "tags": []
+    },
+    "ui-validators": {
+      "tags": []
     }
   }
 }

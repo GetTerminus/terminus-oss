@@ -1,0 +1,119 @@
+// primary view container
+.color {
+  // dummy wrapper for nav so page retains layout
+  .color__nav {
+    padding-top: var(--ts-space-inset-500);
+    width: 80px;
+  }
+
+  nav {
+    --nav-item-width: 30px;
+    position: sticky;
+    right: 16px;
+    top: 90px;
+    // Allow two palettes to appear side by side
+    width: calc(var(--nav-item-width) * 2);
+    z-index: 1;
+
+    a {
+      border-width: 1px;
+      border-style: solid;
+      display: block;
+      height: var(--nav-item-width);
+      transition-property: border-color, box-shadow, transform;
+      transition-timing-function: ease-out;
+      transition-duration: 200ms;
+      width: var(--nav-item-width);
+      z-index: 1;
+
+      &:hover {
+        box-shadow: 0 3px 5px -1px rgba(0,0,0,0.20), 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12);
+        transform: scale(1.3);
+        z-index: 2;
+      }
+    }
+  }
+}
+
+// Container for individual palette
+.palette {
+  --color-block-height: 120px;
+  --grey-background: #EAEAEA;
+  --grey-blue-text-color: #62748C;
+  --title-shadow: 6px 1px 15px -7px black;
+  margin-bottom: var(--ts-space-stack-700);
+  padding: var(--ts-space-inset-500);
+  // Set up for local link location
+  position: relative;
+
+  // <h2> The palette name
+  &__name {
+    margin-bottom: var(--ts-space-stack-500);
+    // Set up for inner link
+    position: relative;
+
+    &::before {
+      color: var(--ts-color-base-palette7-500);
+      content: 'Palette:';
+      display: inline-block;
+      margin-right: var(--ts-space-inline-200);
+    }
+
+    &:focus,
+    &:hover {
+      .palette__link {
+        opacity: 1;
+      }
+    }
+  }
+
+  // <a> The link to the palette
+  &__link {
+    color: var(--ts-color-base-black);
+    opacity: 0;
+    position: absolute;
+    right: 100%;
+    transition-property: opacity, transform;
+    transition-duration: var(--ts-animation-time-duration-200);
+    transition-timing-function: var(--ts-animation-easing-ease);
+
+    &:not(:hover) {
+      transform: scale(.8);
+    }
+
+    &:focus,
+    &:hover {
+      color: var(--ts-color-base-palette1-500);
+      opacity: 1;
+    }
+
+    // <span> Container for svg
+    &-icon {
+      vertical-align: middle;
+    }
+
+    svg {
+      fill: var(--ts-color-base-palette1-500);
+    }
+  }
+
+  // Container for a color within a palette
+  .color {
+    // Set up for local link location
+    position: relative;
+
+    &__display {
+      border-bottom: 1px solid var(--ts-color-base-palette7-300);
+      border-radius: var(--ts-border-radius-base) var(--ts-border-radius-base) 0 0;
+      height: var(--color-block-height);
+
+      h3 {
+        background-color: var(--ts-color-base-white);
+        border-radius: 0 var(--ts-border-radius-base) var(--ts-border-radius-base) 0;
+        box-shadow: var(--title-shadow);
+        padding: var(--ts-space-inset-300);
+        margin-bottom: var(--ts-space-stack-400);
+      }
+    }
+  }
+}

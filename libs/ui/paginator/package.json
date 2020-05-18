@@ -1,0 +1,16 @@
+{
+  "name": "@terminus/ui-paginator",
+  "version": "0.0.0-PLACEHOLDER",
+  "peerDependencies": {
+    "@angular/common": "^9.1.0",
+    "@angular/core": "^9.1.0",
+    "@terminus/design-tokens": "^1.0.10",
+    "@terminus/ngx-tools": "^8.0.5",
+    "@terminus/ui-button": "*",
+    "@terminus/ui-menu": "*",
+    "@terminus/ui-option": "*",
+    "@terminus/ui-selection-list": "*",
+    "@terminus/ui-tooltip": "*",
+    "tslib": "^1.10.0"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@terminus/ui-input",
+  "version": "0.0.0-PLACEHOLDER",
+  "peerDependencies": {
+    "@angular/material": "9.2.3",
+    "@angular/common": "^9.1.0",
+    "@angular/core": "^9.1.0",
+    "@angular/forms": "^9.1.0",
+    "@angular/flex-layout": "~9.0.0-beta.29",
+    "@terminus/design-tokens": "^1.0.10",
+    "@terminus/ui-form-field": "*",
+    "@terminus/ui-icon": "*",
+    "@terminus/ui-pipes": "*",
+    "@terminus/ui-spacing": "*",
+    "@terminus/ui-validation-messages": "*",
+    "@terminus/ui-validators": "*",
+    "date-fns": "^2.13.0",
+    "text-mask-addons": "^3.8.0",
+    "text-mask-core": "^5.1.2",
+    "tslib": "^1.10.0"
+  }
+}

@@ -1,0 +1,58 @@
+<div fxLayout="column">
+  <mat-toolbar fxLayout="row">
+    <h1>
+      <a routerLink="/">
+        Terminus Design Tokens
+      </a>
+    </h1>
+
+    <span fxFlex></span>
+
+    <div>
+      <nav
+        class="nav"
+        fxFlex="row"
+        fxLayoutGap="16px"
+        fxLayoutAlign="start center"
+      >
+        <a
+          class="nav__item"
+          routerLink="color"
+          routerLinkActive="nav__item--active"
+        >Color</a>
+
+        <a
+          class="nav__item"
+          routerLink="typography"
+          routerLinkActive="nav__item--active"
+        >Typography</a>
+      </nav>
+    </div>
+  </mat-toolbar>
+
+  <div
+    fxLayout="row"
+    fxLayoutAlign="space-around center"
+    class="nav__toolbar"
+  >
+    <form [formGroup]="toolbarForm" fxLayout="row" fxLayoutGap="16px">
+      <mat-form-field>
+        <mat-label>Visible references:</mat-label>
+        <mat-select formControlName="selectedReferences" multiple>
+          <mat-option *ngFor="let reference of allPossibleReferences" [value]="reference.value">
+            {{ reference.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Color format:</mat-label>
+        <mat-select formControlName="selectedColorFormat">
+          <mat-option *ngFor="let format of allPossibleColorFormats" [value]="format">
+            {{ format }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+</div>

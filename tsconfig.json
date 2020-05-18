@@ -1,21 +1,289 @@
 {
+  "angularCompilerOptions": {
+    "enableIvy": false
+  },
   "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
+    "allowJs": true,
+    "baseUrl": ".",
     "declaration": false,
-    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "module": "esnext",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
-    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "paths": {
+      "@terminus/design-tokens": [
+        "dist/libs/design-tokens"
+      ],
+      "@terminus/ui-autocomplete": [
+        "dist/libs/ui/autocomplete",
+        "libs/ui/autocomplete/src/index.ts"
+      ],
+      "@terminus/ui-autocomplete/testing": [
+        "dist/libs/ui/autocomplete/testing",
+        "libs/ui/autocomplete/testing/src/index.ts"
+      ],
+      "@terminus/ui-autofocus": [
+        "dist/libs/ui/autofocus",
+        "libs/ui/autofocus/src/index.ts"
+      ],
+      "@terminus/ui-button": [
+        "dist/libs/ui/button",
+        "libs/ui/button/src/index.ts"
+      ],
+      "@terminus/ui-checkbox": [
+        "dist/libs/ui/checkbox",
+        "libs/ui/checkbox/src/index.ts"
+      ],
+      "@terminus/ui-card": [
+        "dist/libs/ui/card",
+        "libs/ui/card/src/index.ts"
+      ],
+      "@terminus/ui-chart": [
+        "dist/libs/ui/chart",
+        "libs/ui/chart/src/index.ts"
+      ],
+      "@terminus/ui-chart/testing": [
+        "dist/libs/ui/chart/testing",
+        "libs/ui/chart/testing/src/index.ts"
+      ],
+      "@terminus/ui-chip": [
+        "dist/libs/ui/chip",
+        "libs/ui/chip/src/index.ts"
+      ],
+      "@terminus/ui-chip/testing": [
+        "dist/libs/ui/chip/testing",
+        "libs/ui/chip/testing/src/index.ts"
+      ],
+      "@terminus/ui-cohort-date-range": [
+        "dist/libs/ui/cohort-date-range",
+        "libs/ui/cohort-date-range/src/index.ts"
+      ],
+      "@terminus/ui-cohort-date-range/testing": [
+        "dist/libs/ui/cohort-date-range/testing",
+        "libs/ui/cohort-date-range/testing/src/index.ts"
+      ],
+      "@terminus/ui-confirmation": [
+        "dist/libs/ui/confirmation",
+        "libs/ui/confirmation/src/index.ts"
+      ],
+      "@terminus/ui-copy": [
+        "dist/libs/ui/copy",
+        "libs/ui/copy/src/index.ts"
+      ],
+      "@terminus/ui-csv-entry": [
+        "dist/libs/ui/csv-entry",
+        "libs/ui/csv-entry/src/index.ts"
+      ],
+      "@terminus/ui-date-range": [
+        "dist/libs/ui/date-range",
+        "libs/ui/date-range/src/index.ts"
+      ],
+      "@terminus/ui-date-range/testing": [
+        "dist/libs/ui/date-range/testing",
+        "libs/ui/date-range/testing/src/index.ts"
+      ],
+      "@terminus/ui-drawer": [
+        "dist/libs/ui/drawer",
+        "libs/ui/drawer/src/index.ts"
+      ],
+      "@terminus/ui-drawer/testing": [
+        "dist/libs/ui/drawer/testing",
+        "libs/ui/drawer/testing/src/index.ts"
+      ],
+      "@terminus/ui-expansion-panel": [
+        "dist/libs/ui/expansion-panel",
+        "libs/ui/expansion-panel/src/index.ts"
+      ],
+      "@terminus/ui-expansion-panel/testing": [
+        "dist/libs/ui/expansion-panel/testing",
+        "libs/ui/expansion-panel/testing/src/index.ts"
+      ],
+      "@terminus/ui-file-upload": [
+        "dist/libs/ui/file-upload",
+        "libs/ui/file-upload/src/index.ts"
+      ],
+      "@terminus/ui-form-field": [
+        "dist/libs/ui/form-field",
+        "libs/ui/form-field/src/index.ts"
+      ],
+      "@terminus/ui-form-field/testing": [
+        "dist/libs/ui/form-field/testing",
+        "libs/ui/form-field/testing/src/index.ts"
+      ],
+      "@terminus/ui-icon": [
+        "dist/libs/ui/icon",
+        "libs/ui/icon/src/index.ts"
+      ],
+      "@terminus/ui-icon-button": [
+        "dist/libs/ui/icon-button",
+        "libs/ui/icon-button/src/index.ts"
+      ],
+      "@terminus/ui-input": [
+        "dist/libs/ui/input",
+        "libs/ui/input/src/index.ts"
+      ],
+      "@terminus/ui-input/testing": [
+        "dist/libs/ui/input/testing",
+        "libs/ui/input/testing/src/index.ts"
+      ],
+      "@terminus/ui-link": [
+        "dist/libs/ui/link",
+        "libs/ui/link/src/index.ts"
+      ],
+      "@terminus/ui-loading-overlay": [
+        "dist/libs/ui/loading-overlay",
+        "libs/ui/loading-overlay/src/index.ts"
+      ],
+      "@terminus/ui-login-form": [
+        "dist/libs/ui/login-form",
+        "libs/ui/login-form/src/index.ts"
+      ],
+      "@terminus/ui-logo": [
+        "dist/libs/ui/logo",
+        "libs/ui/logo/src/index.ts"
+      ],
+      "@terminus/ui-menu": [
+        "dist/libs/ui/menu",
+        "libs/ui/menu/src/index.ts"
+      ],
+      "@terminus/ui-navigation": [
+        "dist/libs/ui/navigation",
+        "libs/ui/navigation/src/index.ts"
+      ],
+      "@terminus/ui-option": [
+        "dist/libs/ui/option",
+        "libs/ui/option/src/index.ts"
+      ],
+      "@terminus/ui-paginator": [
+        "dist/libs/ui/paginator",
+        "libs/ui/paginator/src/index.ts"
+      ],
+      "@terminus/ui-paginator/testing": [
+        "dist/libs/ui/paginator/testing",
+        "libs/ui/paginator/testing/src/index.ts"
+      ],
+      "@terminus/ui-pipes": [
+        "dist/libs/ui/pipes",
+        "libs/ui/pipes/src/index.ts"
+      ],
+      "@terminus/ui-popover": [
+        "dist/libs/ui/popover",
+        "libs/ui/popover/src/index.ts"
+      ],
+      "@terminus/ui-popover/testing": [
+        "dist/libs/ui/popover/testing",
+        "libs/ui/popover/testing/src/index.ts"
+      ],
+      "@terminus/ui-radio-group": [
+        "dist/libs/ui/radio-group",
+        "libs/ui/radio-group/src/index.ts"
+      ],
+      "@terminus/ui-radio-group/testing": [
+        "dist/libs/ui/radio-group/testing",
+        "libs/ui/radio-group/testing/src/index.ts"
+      ],
+      "@terminus/ui-scrollbars": [
+        "dist/libs/ui/scrollbars",
+        "libs/ui/scrollbars/src/index.ts"
+      ],
+      "@terminus/ui-search": [
+        "dist/libs/ui/search",
+        "libs/ui/search/src/index.ts"
+      ],
+      "@terminus/ui-select": [
+        "dist/libs/ui/select",
+        "libs/ui/select/src/index.ts"
+      ],
+      "@terminus/ui-select/testing": [
+        "dist/libs/ui/select/testing",
+        "libs/ui/select/testing/src/index.ts"
+      ],
+      "@terminus/ui-selection-list": [
+        "dist/libs/ui/selection-list",
+        "libs/ui/selection-list/src/index.ts"
+      ],
+      "@terminus/ui-selection-list/testing": [
+        "dist/libs/ui/selection-list/testing",
+        "libs/ui/selection-list/testing/src/index.ts"
+      ],
+      "@terminus/ui-sort": [
+        "dist/libs/ui/sort",
+        "libs/ui/sort/src/index.ts"
+      ],
+      "@terminus/ui-spacing": [
+        "dist/libs/ui/spacing",
+        "libs/ui/spacing/src/index.ts"
+      ],
+      "@terminus/ui/styles": [
+        "dist/libs/ui/styles",
+        "libs/ui/styles/src/index.ts"
+      ],
+      "@terminus/ui-table": [
+        "dist/libs/ui/table",
+        "libs/ui/table/src/index.ts"
+      ],
+      "@terminus/ui-table/testing": [
+        "dist/libs/ui/table/testing",
+        "libs/ui/table/testing/src/index.ts"
+      ],
+      "@terminus/ui-tabs": [
+        "dist/libs/ui/tabs",
+        "libs/ui/tabs/src/index.ts"
+      ],
+      "@terminus/ui-tabs/testing": [
+        "dist/libs/ui/tabs/testing",
+        "libs/ui/tabs/testing/src/index.ts"
+      ],
+      "@terminus/ui/theme": [
+        "dist/libs/ui/theme",
+        "libs/ui/theme/src/terminus-ui.scss"
+      ],
+      "@terminus/ui-toggle": [
+        "dist/libs/ui/toggle",
+        "libs/ui/toggle/src/index.ts"
+      ],
+      "@terminus/ui-tooltip": [
+        "dist/libs/ui/tooltip",
+        "libs/ui/tooltip/src/index.ts"
+      ],
+      "@terminus/ui-tooltip/testing": [
+        "dist/libs/ui/tooltip/testing",
+        "libs/ui/tooltip/testing/src/index.ts"
+      ],
+      "@terminus/ui-utilities": [
+        "dist/libs/ui/utilities",
+        "libs/ui/utilities/src/index.ts"
+      ],
+      "@terminus/ui-validation-messages": [
+        "dist/libs/ui/validation-messages",
+        "libs/ui/validation-messages/src/index.ts"
+      ],
+      "@terminus/ui-validation-messages/testing": [
+        "dist/libs/ui/validation-messages/testing",
+        "libs/ui/tooltip/validation-messages/src/index.ts"
+      ],
+      "@terminus/ui-validators": [
+        "dist/libs/ui/validators",
+        "libs/ui/validators/src/index.ts"
+      ]
+    },
+    "rootDir": ".",
+    "sourceMap": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {}
+    "skipLibCheck": true
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

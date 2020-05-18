@@ -1,0 +1,10 @@
+{
+  "bundlerOptions": {
+    "entryFile": "./libs/ui/styles/src/lib/terminus-ui.scss",
+    "logLevel": "debug",
+    "project": "./",
+    "outFile": "./libs/ui/styles/src/lib/terminus-ui-temp.scss",
+    "rootDir": "./libs/ui/styles/src/",
+    "tilde": true
+  }
+}

@@ -1,0 +1,104 @@
+@import "~@terminus/ui-styles/helpers";
+
+
+.ts-selection-list {
+  // This brings chips above the static trigger
+  --chip-zIndex: 2;
+  cursor: cursor(pointer);
+  display: block;
+
+  &.ts-selection-list--single {
+    .ts-selection-list__input {
+      // ts icon wraps around material icon, which defines width 24px.
+      $MAT_ICON_WIDTH: 24px;
+      width: calc(100% - #{$MAT_ICON_WIDTH});
+    }
+  }
+
+  // NOTE: When chips are added, they increase the vertical height so we need to counteract that here.
+  // We cannot change the outer padding as that will negatively impact the layout when no vales exist.
+  &.ts-selection-list--multiple {
+    --margin-adustment: -3px;
+
+    .ts-chip-collection {
+      margin-bottom: calc(var(--margin-adustment) * 2);
+      margin-top: var(--margin-adustment);
+    }
+  }
+
+  &.ts-selection-list--disabled {
+    .ts-selection-list__input {
+      cursor: cursor(not-allowed);
+    }
+  }
+
+  // Static trigger when user input is not allowed
+  .ts-selection-list__custom-trigger {
+    cursor: cursor(pointer);
+    // This magic number forces the div to fill the same vertical space the input would normally
+    min-height: 19px;
+    // Don't let it fully collapse when empty
+    min-width: 1px;
+  }
+
+  .ts-chip-collection-wrapper {
+    z-index: 1;
+  }
+
+  .ts-chip {
+    z-index: var(--chip-zIndex);
+  }
+}
+
+.ts-selection-list__input-wrap {
+  position: relative;
+
+  > .ts-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+// NOTE: Bottom margin and min-height needed to keep vertical alignment consistent when no chips are present.
+.ts-selection-list__input {
+  --fake-margin: 3px;
+  background: transparent;
+  border: none;
+  color: currentColor;
+  display: inline-block;
+  font: inherit;
+  margin-bottom: var(--fake-margin);
+  max-width: 100%;
+  min-height: 25px;
+  outline: none;
+  padding: 0;
+  // User agent stylesheets set the text-align of inputs explicitly to "start". Those can be
+  // easily overwritten by targeting the input element using a simple CSS selector, but since
+  // the text-align will be applied most of the time on the `ts-form-field` to also align the
+  // placeholder, the alignment should be inherited here.
+  text-align: inherit;
+  // Needed to make last line of the textarea line up with the baseline.
+  vertical-align: bottom;
+
+  // Undo the red box-shadow glow added by Firefox on invalid inputs.
+  // See https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-ui-invalid
+  &:-moz-ui-invalid {
+    box-shadow: none;
+  }
+
+  // Style overrides for the input trigger when in single selection mode
+  .ts-selection-list--single & {
+    margin-bottom: 0;
+    min-height: auto;
+    padding-top: 0;
+  }
+}
+
+
+.cdk-overlay-container {
+  .ts-autocomplete__backdrop {
+    background: transparent;
+  }
+}

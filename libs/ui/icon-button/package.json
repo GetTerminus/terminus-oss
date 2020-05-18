@@ -1,0 +1,11 @@
+{
+  "name": "@terminus/ui-icon-button",
+  "version": "0.0.0-PLACEHOLDER",
+  "peerDependencies": {
+    "@angular/common": "^9.1.0",
+    "@angular/core": "^9.1.0",
+    "@terminus/design-tokens": "^1.0.10",
+    "@terminus/ui-icon": "*",
+    "tslib": "^1.10.0"
+  }
+}

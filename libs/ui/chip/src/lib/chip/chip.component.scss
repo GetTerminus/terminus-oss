@@ -1,0 +1,116 @@
+@import "~@terminus/ui-styles/helpers";
+
+
+.ts-chip {
+  --chip-backgroundColor-hover: #{color(utility)};
+  --chip-backgroundColor: #{color(utility, light)};
+  --chip-borderRadius: 16px;
+  --chip-color: #{color(pure, dark)};
+  --chip-fontSize: 12px;
+  --chip-height: #{spacing(large)};
+  --chip-margin: #{spacing(small, 2)};
+  --chip-padding: 2px 4px 2px 6px;
+  --chip-remove-size: #{spacing(large)};
+  --badge-padding: 2px 4px 2px 4px;
+
+  &:focus,
+  &:hover {
+    &:not(.ts-chip--badge) {
+      .c-chip {
+        &:not(.c-chip--disabled) {
+          --chip-backgroundColor: var(--chip-backgroundColor-hover);
+          transition: opacity 200ms cubic-bezier(.35, 0, .25, 1);
+        }
+      }
+    }
+  }
+
+  &.ts-chip--selected,
+  &.ts-chip--badge {
+    color: color(pure);
+    $themes: primary accent warn;
+
+    @each $theme in $themes {
+      &.ts-chip--#{$theme} {
+        .c-chip {
+          background-color: color(#{$theme});
+        }
+      }
+    }
+
+    .c-chip__remove {
+      color: color(pure);
+    }
+  }
+
+  &.ts-chip--badge {
+    .c-chip {
+      --chip-color: color(pure);
+      padding: var(--badge-padding);
+    }
+  }
+
+  .c-chip {
+    @include typography;
+    align-items: center;
+    background-color: var(--chip-backgroundColor);
+    border-radius: var(--chip-borderRadius);
+    box-sizing: border-box;
+    color: var(--chip-color);
+    display: inline-flex;
+    font-size: var(--chip-fontSize);
+    height: var(--chip-height);
+    margin: 0 var(--chip-margin) var(--chip-margin) var(--chip-margin);
+    overflow: hidden;
+    padding: var(--chip-padding);
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    transform: translateZ(0);
+    transition: background-color 200ms ease-out;
+
+    &.c-chip--removable {
+      padding-right: spacing(large);
+
+      .c-chip__remove {
+        display: block;
+      }
+    }
+
+    &.c-chip--disabled {
+      --chip-color: #{color(utility, dark)};
+      padding: var(--chip-padding);
+      pointer-events: none;
+
+      .c-chip__remove {
+        display: none;
+      }
+    }
+
+    .c-chip__remove {
+      // Needed to remove 1px jump caused on opacity change
+      backface-visibility: hidden;
+      cursor: cursor(pointer);
+      display: none;
+      height: var(--chip-remove-size);
+      opacity: .4;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%) scale(.8);
+      transition: opacity 200ms ease-out;
+      width: var(--chip-remove-size);
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+
+  &:first-of-type {
+    .c-chip {
+      margin-left: 0;
+    }
+  }
+}
+
+

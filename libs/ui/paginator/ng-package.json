@@ -1,0 +1,16 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/libs/ui/paginator",
+  "lib": {
+    "entryFile": "src/index.ts",
+    "umdModuleIds": {
+      "@terminus/ngx-tools/coercion": "terminus.ngxTools.coercion",
+      "@terminus/ngx-tools/utilities": "terminus.ngxTools.utilities",
+      "@terminus/ui-button": "terminus.ui-button",
+      "@terminus/ui-menu": "terminus.ui-menu",
+      "@terminus/ui-option": "terminus.ui-option",
+      "@terminus/ui-selection-list": "terminus.ui-selection-list",
+      "@terminus/ui-tooltip": "terminus.ui-tooltip"
+    }
+  }
+}

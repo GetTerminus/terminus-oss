@@ -1,0 +1,22 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/libs/ui/file-upload",
+  "lib": {
+    "entryFile": "src/index.ts",
+    "umdModuleIds": {
+      "@terminus/ngx-tools/browser": "terminus.ngxTools.browser",
+      "@terminus/ngx-tools/coercion": "terminus.ngxTools.coercion",
+      "@terminus/ngx-tools/keycodes": "terminus.ngxTools.keycodes",
+      "@terminus/ngx-tools/type-guards": "terminus.ngxTools.type-guards",
+      "@terminus/ngx-tools/utilities": "terminus.ngxTools.utilities",
+      "@terminus/ui-button": "terminus.ui-button",
+      "@terminus/ui-icon": "terminus.ui-icon",
+      "@terminus/ui-icon-button": "terminus.ui-icon-button",
+      "@terminus/ui-pipes": "terminus.ui-pipes",
+      "@terminus/ui-spacing": "terminus.ui-spacing",
+      "@terminus/ui-tooltip": "terminus.ui-tooltip",
+      "@terminus/ui-utilities": "terminus.ui-utilities",
+      "@terminus/ui-validation-messages": "terminus.ui-validation-messages"
+    }
+  }
+}

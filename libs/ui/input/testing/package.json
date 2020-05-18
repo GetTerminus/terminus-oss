@@ -1,0 +1,10 @@
+{
+  "ngPackage": {
+    "lib": {
+      "entryFile": "src/index.ts",
+      "umdModuleIds": {
+        "@terminus/ui-form-field": "terminus.ui-form-field"
+      }
+    }
+  }
+}

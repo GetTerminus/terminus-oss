@@ -1,0 +1,8 @@
+@import '~@terminus/ui-styles/terminus-ui.css';
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/helpers';
+
+.foo {
+  cursor: cursor(pointer);
+  color: var(--foo-test);
+}

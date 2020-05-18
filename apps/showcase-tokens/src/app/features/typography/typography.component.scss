@@ -1,0 +1,75 @@
+header {
+  margin-bottom: var(--ts-space-stack-600);
+}
+
+// wrapper for stack
+.stack {
+  margin-bottom: var(--ts-space-stack-800);
+  // Set up for local anchor link
+  position: relative;
+
+  // wrapper for stacks info and display
+  &__info {
+    padding: var(--ts-space-inset-600);
+  }
+}
+
+// wrapper for individual stack content
+.type {
+  --type-display-maxHeight: 400px;
+  --display-bg: var(--ts-color-base-palette7-100);
+
+  &__display {
+    background-color: var(--display-bg);
+    border-left: 1px solid var(--ts-color-base-palette7-300);
+    position: relative;
+    overflow: scroll;
+
+    // ul
+    &-item {
+      --gradient-size: 30px;
+      list-style-type: none;
+      margin: 0;
+      padding: var(--ts-space-inset-400) var(--ts-space-inset-400) var(--gradient-size) var(--ts-space-inset-400);
+
+      &::after {
+        background: linear-gradient(to top, var(--display-bg) 20%, transparent 100%);
+        content: '';
+        display: block;
+        height: var(--gradient-size);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        // Don't cover the scrollbar
+        right: 10px;
+      }
+
+      li {
+        margin-bottom: var(--ts-space-stack-500);
+      }
+
+      h6 {
+        color: var(--ts-color-base-palette7-700);
+        font-size: var(--ts-typography-size-200);
+        margin: var(--ts-space-stack-300) 0;
+      }
+    }
+
+    // div container for demo text
+    &-example {
+      overflow: hidden;
+      padding-left: var(--ts-space-inline-600);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      &::before {
+        display: inline-block;
+        outline: 1px solid green;
+      }
+    }
+  }
+
+  &__definition {
+    background-color: lightcoral;
+  }
+}

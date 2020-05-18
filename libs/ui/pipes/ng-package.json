@@ -1,0 +1,12 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/libs/ui/pipes",
+  "lib": {
+    "entryFile": "src/index.ts",
+    "umdModuleIds": {
+      "@terminus/ngx-tools/type-guards": "terminus.ngxTools.type-guards",
+      "@terminus/ngx-tools/utilities": "terminus.ngxTools.utilities",
+      "date-fns": "dateFns"
+    }
+  }
+}

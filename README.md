@@ -1,84 +1,66 @@
 # TerminusOss
 
-This project was generated using [Nx](https://nx.dev).
+TODO
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>
+## Useful commands
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+```bash
+# Run commands on all projects:
+$ nx run-many --target=test --all
+$ nx run-many --target=lint --all
+$ nx run-many --target=e2e --all
+$ nx run-many --target=build --all
 
-## Quick Start & Documentation
+# Build a single project
+$ nx build my-project
 
-[Nx Documentation](https://nx.dev/angular)
+# View a graph of the dependencies:
+$ nx dep-graph
 
-[10-minute video showing all Nx features](https://nx.dev/angular/getting-started/what-is-nx)
+# Use schematics to generate within a project:
+$ nx g component my-component --project=my-project --export
 
-[Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
+# Serve a project:
+$ nx serve my-project
 
-## Adding capabilities to your workspace
+# Print info about affected files:
+$ nx print-affected
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+# Only run commands on affected projects:
+# Note: You can swap out 'test' for 'lint', 'e2e', 'apps', or 'libs'
+$ nx affected:test
+$ nx affected:test --parallel --maxParallel=5
+$ nx affected:test --only-failed
+$ nx affected:test --all
+$ nx affected:test --base=master --head=HEAD
+$ nx affected:test --base=master~1 --head=master
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+# Generate code coverage:
+$ nx test my-project --code-coverage
 
-Below are some plugins which you can add to your workspace:
+# List installed and available NX plugins:
+$ nx list
 
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
+# Manually linting (until the CLI migrates to ESLint):
+$ yarn run lint:libs
+$ yarn run lint:libs:fix
+$ yarn run lint:apps
+$ yarn run lint:apps:fix
+```
 
-## Generate an application
 
-Run `ng g @nrwl/angular:app my-app` to generate an application.
 
-> You can use any of the plugins above to generate applications as well.
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
 
-## Generate a library
 
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
+## Resources
 
-> You can also use any of the plugins above to generate libraries as well.
+- [Nx Documentation](https://nx.dev/angular)
+- [10-minute video showing all Nx features](https://nx.dev/angular/getting-started/what-is-nx)
+- [Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)  
+- [NX Angular](https://nx.dev/angular/plugins/angular/overview)
+- [NX Jest](https://nx.dev/angular/plugins/jest/overview)
+- [NX Cypress](https://nx.dev/angular/plugins/cypress/overview)
+- [NX Web Elements](https://nx.dev/angular/plugins/web/overview)
+- [NX React](https://nx.dev/angular/plugins/react/overview)
 
-Libraries are sharable across libraries and applications. They can be imported from `@terminus-oss/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.

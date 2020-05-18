@@ -1,0 +1,59 @@
+<div class="typography">
+  <div>
+    <header>
+      <h2>Base Typography</h2>
+    </header>
+  </div>
+
+  <div class="stack" *ngFor="let stack of formatted">
+    <span id="{{ stack.name }}" class="visually-hidden fake-link--large"></span>
+    <h2 class="stack__name">
+      <a
+        class="stack__link"
+        routerLink="."
+        [fragment]="stack.name"
+      >
+        <span aria-hidden="true" class="palette__link-icon" [inlineSVG]="svgAsset"></span>
+        <span class="visually-hidden">Link to item</span>
+      </a>
+      {{ stack.humanName | titlecase }}
+    </h2>
+
+    <div class="stack__info">
+      <div class="type card" fxLayout="row-reverse">
+        <div class="type__display" fxFlex>
+          <ul
+            class="type__display-item"
+            [style.fontFamily]="stack.value"
+          >
+            <li
+              *ngFor="let size of typographySizes"
+              fxLayout="row"
+              fxLayoutAlign="space-between center"
+            >
+              <h6 fxFlex="nogrow">{{ size.value }}</h6>
+
+              <div
+                fxFlex="shrink"
+                class="type__display-example"
+                [style.fontSize]="size.value"
+                [style.lineHeight]="'1em'"
+                title="{{ size.name }}"
+              >
+                {{ demoText }}
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <tsdt-tokens
+          fxFlex="1 1 460px"
+          [item]="stack"
+          [selectedReferences]="settingsService.selectedReferences$ | async"
+        ></tsdt-tokens>
+      </div>
+    </div>
+
+  </div>
+
+</div>

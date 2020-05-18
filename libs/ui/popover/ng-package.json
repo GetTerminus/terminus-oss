@@ -1,0 +1,16 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/libs/ui/popover",
+  "lib": {
+    "entryFile": "src/index.ts",
+    "umdModuleIds": {
+      "@terminus/ngx-tools": "terminus.ngxTools",
+      "@terminus/ngx-tools/browser": "terminus.ngxTools.browser",
+      "@terminus/ngx-tools/type-guards": "terminus.ngxTools.type-guards",
+      "@terminus/ngx-tools/utilities": "terminus.ngxTools.utilities",
+      "@terminus/ngx-tools/keycodes": "terminus.ngxTools.keycodes",
+      "popper.js/dist/esm/popper.js": "Popper",
+      "@terminus/ui-utilities": "terminus.ui-utilities"
+    }
+  }
+}

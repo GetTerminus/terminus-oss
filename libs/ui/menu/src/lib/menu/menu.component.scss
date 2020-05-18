@@ -1,0 +1,97 @@
+@import "~@terminus/ui-styles/helpers";
+
+
+//
+// @component
+//  Menu
+// @description
+//  A dropdown menu component
+//
+.ts-menu {
+  --menu-caret-icon-adjustment: -.4em;
+  @include reset;
+  display: inline-block;
+
+  &--disabled {
+    cursor: not-allowed;
+  }
+
+  // <ts-button> trigger to show the menu
+  ts-button {
+    &[data-disabled='true'] {
+      pointer-events: none;
+    }
+  }
+
+  // Top level styles should be nested here
+  .c-menu {
+    @include typography;
+    max-height: 12rem;
+  }
+}
+
+
+.c-menu {
+  .c-menu__trigger {
+    .mat-button-wrapper {
+      display: inline-block;
+    }
+
+    // vertically align icon for utility menu trigger
+    .c-icon {
+      vertical-align: middle;
+    }
+
+    // For the dropdown caret, lessen the right side whitespace
+    .c-button {
+      .c-menu__caret {
+        margin-right: var(--menu-caret-icon-adjustment);
+      }
+    }
+  }
+}
+
+
+.ts-menu__panel {
+  .mat-menu-content {
+    background-color: var(--ts-color-base-white);
+    // NOTE: Universal selector needed since we don't know what the first child will be
+    > * {
+      display: block;
+    }
+  }
+
+  // Set a background so .cdk-drag items don't have a transparent background
+  .ts-checkbox {
+    background-color: var(--ts-color-base-white);
+  }
+
+  // Drop area
+  .cdk-drag-placeholder {
+    // Match the height of the default checkbox
+    min-height: 50px;
+  }
+}
+
+// NOTE: When being dragged the element is not nested inside the panel
+.ts-checkbox {
+  // Item being dragged
+  &.cdk-drag-preview {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    padding: 0 var(--ts-space-inset-500);
+  }
+}
+
+
+// Target a utility instance within a card
+.c-card {
+  .c-menu {
+    &.c-menu--utility {
+      position: absolute;
+      right: var(--ts-space-inset-200);
+      top: var(--ts-space-inset-200);
+    }
+  }
+}

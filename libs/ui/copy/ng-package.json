@@ -1,0 +1,14 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/libs/ui/copy",
+  "lib": {
+    "entryFile": "src/index.ts",
+    "umdModuleIds": {
+      "@terminus/ngx-tools/browser": "terminus.ngxTools.browser",
+      "@terminus/ngx-tools/coercion": "terminus.ngxTools.coercion",
+      "@terminus/ui-icon": "terminus.ui-icon",
+      "@terminus/ui-tooltip": "terminus.ui-tooltip",
+      "@terminus/ui-utilities": "terminus.ui-utilities"
+    }
+  }
+}

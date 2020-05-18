@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/libs/ui/csv-entry",
+  "lib": {
+    "entryFile": "src/index.ts",
+    "umdModuleIds": {
+      "@terminus/ngx-tools/browser": "terminus.ngxTools.browser",
+      "@terminus/ngx-tools/coercion": "terminus.ngxTools.coercion",
+      "@terminus/ngx-tools/utilities": "terminus.ngxTools.utilities",
+      "@terminus/ui-button": "terminus.ui-utilities",
+      "@terminus/ui-icon": "terminus.ui-utilities",
+      "@terminus/ui-icon-button": "terminus.ui-utilities",
+      "@terminus/ui-spacing": "terminus.ui-utilities",
+      "@terminus/ui-tooltip": "terminus.ui-utilities",
+      "@terminus/ui-utilities": "terminus.ui-utilities"
+    }
+  }
+}

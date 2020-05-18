@@ -1,0 +1,33 @@
+:host {
+  display: block;
+}
+
+.tokens {
+  padding: var(--ts-space-inset-400);
+
+  dt {
+    color: var(--grey-blue-text-color);
+    font-size: var(--ts-typography-size-200);
+
+    &::after {
+      content: ':';
+      display: inline-block;
+    }
+  }
+
+  dd {
+    cursor: copy;
+    font-family: var(--ts-typography-stack-base-monospaced);
+    font-size: var(--ts-typography-size-300);
+    transition: color var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease);
+
+    &:not(:last-of-type) {
+      margin-bottom: var(--ts-space-stack-500);
+    }
+
+    &:focus,
+    &:hover {
+      color: var(--ts-color-base-palette2-500);
+    }
+  }
+}

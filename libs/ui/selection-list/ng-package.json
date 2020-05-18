@@ -1,0 +1,22 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/libs/ui/selection-list",
+  "lib": {
+    "entryFile": "src/index.ts",
+    "umdModuleIds": {
+      "@terminus/ngx-tools/browser": "terminus.ngxTools.browser",
+      "@terminus/ngx-tools/coercion": "terminus.ngxTools.coercion",
+      "@terminus/ngx-tools/keycodes": "terminus.ngxTools.keycodes",
+      "@terminus/ngx-tools/type-guards": "terminus.ngxTools.type-guards",
+      "@terminus/ngx-tools/utilities": "terminus.ngxTools.utilities",
+      "@terminus/ui-checkbox": "terminus.ui-checkbox",
+      "@terminus/ui-chip": "terminus.ui-chip",
+      "@terminus/ui-form-field": "terminus.ui-form-field",
+      "@terminus/ui-icon": "terminus.ui-icon",
+      "@terminus/ui-input": "terminus.ui-input",
+      "@terminus/ui-option": "terminus.ui-option",
+      "@terminus/ui-utilities": "terminus.ui-utilities",
+      "@terminus/ui-validation-messages": "terminus.ui-validation-messages"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import "~@terminus/ui-styles/helpers";
+
+
+//
+// @component
+//  Search form
+// @description
+//  A search form with an input and a button
+//
+.ts-search {
+  @include reset;
+  display: block;
+}
+
+// <form> primary container
+.c-search {
+  ts-button {
+    margin-left: spacing(default);
+  }
+}

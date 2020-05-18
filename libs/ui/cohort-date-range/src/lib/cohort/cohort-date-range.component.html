@@ -1,0 +1,29 @@
+<ts-date-range
+  class="ts-cohort-date-range__date-range"
+  [dateFormGroup]="dateRangeFormGroup"
+  [dateLocale]="dateLocale"
+  [isDisabled]="!allowCustomDates || isDisabled"
+  (dateRangeChange)="cohortDateRangeChange($event)"
+  [startMinDate]="startMinDate"
+  [startMaxDate]="startMaxDate"
+  [endMinDate]="endMinDate"
+  [endMaxDate]="endMaxDate"
+></ts-date-range>
+
+<ts-selection-list
+  label="Select a date range"
+  class="ts-cohort-date-range__select"
+  [isDisabled]="isDisabled"
+  [allowUserInput]="false"
+  [formControl]="cohortControl"
+  [displayFormatter]="formatter"
+  (selectionChange)="selectionChange($event)"
+>
+  <ts-option
+    [value]="option"
+    [option]="option"
+    *ngFor="let option of cohorts; trackBy: trackByFn"
+  >
+    {{ option.display }}
+  </ts-option>
+</ts-selection-list>

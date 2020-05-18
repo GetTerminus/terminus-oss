@@ -1,0 +1,255 @@
+@import "~@terminus/ui-styles/helpers";
+
+
+//
+// @component
+//  Table
+// @description
+//  A table component
+.ts-table {
+  --table-bg: #{color(pure)};
+  --header-bg: #{color(utility, light)};
+  --header-text-color: #{color(pure, dark)};
+  --border-color: #{color(utility, light)};
+  --header-border-color: #{color(utility)};
+  $primary: color(primary);
+  --drop-bg: #{desaturate(lighten($primary, 66%), 70%)};
+  --z-index-base-context: 2;
+  --z-index-resize-background: calc(var(--z-index-base-context) + 1);
+  --z-index-resize-grabber: calc(var(--z-index-resize-background) + 1);
+  --cell-padding: #{spacing(default)};
+  // Must be greater than 40 as that is the length of the generated z-indexes for header cells
+  --sticky-end-z: 50;
+  --grip-vertical-adjustment: 50%;
+  @include reset;
+  @include typography;
+  border-collapse: separate;
+  border-spacing: unset;
+  max-height: 100%;
+  table-layout: fixed;
+  width: 100%;
+
+  &.ts-table--compact {
+    --cell-padding: #{spacing(small, 2)};
+    --grip-vertical-adjustment: calc(50% - 4px);
+  }
+
+  // Class added to all sticky-end cells
+  .ts-table__column--sticky-end {
+    // For the last sticky cell of a row, hide the overflow so that the resize grabber doesn't create extra space past the final cell.
+    &:last-of-type {
+      &.ts-header-cell {
+        overflow: hidden;
+
+        // Move the resizer back into view since we aren't overlapping a following cell
+        .ts-header-cell__resizer {
+          transform: translateX(40%);
+        }
+      }
+    }
+  }
+
+  // Header row
+  .ts-header-row {
+    $increased-weight: bold;
+    @include typography(caption);
+    // NOTE: Adding the background here ensures that no white area is seen during manual column resize.
+    background-color: var(--header-bg);
+    color: var(--header-text-color);
+    font-weight: $increased-weight;
+    transition: background-color 200ms ease-out;
+
+    // NOTE: This is required for the tr background color to be visible.
+    &::after {
+      content: '';
+      display: block;
+    }
+  }
+
+  // Body row
+  .ts-row {
+    border-bottom: 1px solid var(--border-color);
+
+    &:hover {
+      .ts-cell {
+        background-color: var(--drop-bg);
+      }
+    }
+
+    // Workaround for https://goo.gl/pFmjJD in IE 11. Adds a pseudo
+    // element that will stretch the row the correct height. See:
+    // https://connect.microsoft.com/IE/feedback/details/802625
+    &::after {
+      content: '';
+      display: inline-block;
+      min-height: inherit;
+    }
+  }
+
+  // Any cell
+  .ts-header-cell,
+  .ts-cell,
+  .ts-footer-cell {
+    min-height: inherit;
+    position: relative;
+    text-align: left;
+    word-wrap: break-word;
+
+    &.ts-table__column--sticky-end {
+      border-left: 2px solid var(--header-border-color);
+    }
+
+    &.ts-table__column--sticky {
+      &:not(.ts-table__column--sticky-end) {
+        border-right: 2px solid var(--header-border-color);
+      }
+    }
+
+    // Class added if a column should not wrap
+    &.ts-column-no-wrap {
+      white-space: nowrap;
+    }
+
+    &--align-right {
+      text-align: right;
+
+      .ts-sort-header-container {
+        justify-content: flex-end;
+      }
+    }
+
+    &--align-left {
+      text-align: left;
+    }
+
+    &--align-center {
+      text-align: center;
+    }
+  }
+
+  // Body cell
+  .ts-cell,
+  .ts-footer-cell {
+    background-color: var(--table-bg);
+    overflow: hidden;
+    padding: var(--cell-padding);
+    text-overflow: ellipsis;
+    transition: background-color 200ms ease-out;
+    white-space: nowrap;
+
+    &.ts-table__column--sticky {
+      background-color: var(--table-bg);
+    }
+  }
+
+  // Header cell
+  .ts-header-cell {
+    background-color: var(--header-bg);
+    border-color: var(--header-border-color);
+    padding: var(--cell-padding);
+
+    &:not(:last-of-type) {
+      position: relative;
+
+      &::after {
+        background-color: var(--header-border-color);
+        bottom: 0;
+        content: '';
+        display: block;
+        left: calc(100% - 1px);
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        transition: opacity 200ms ease-out;
+        width: 1px;
+        z-index: var(--z-index-base-context);
+      }
+
+      &:focus,
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    // Class added when the column is sorted
+    &.ts-sort-header-sorted {
+      color: color(accent);
+    }
+
+    // Reverse the natural z-index order so that all borders on the right created with box-shadow are visible above the following cell.
+    // Supports up to 40 columns
+    $possible-columns: 40;
+    @for $i from 1 through $possible-columns {
+      &:nth-child(#{$i}) {
+        $z: #{$possible-columns - $i};
+        // NOTE: important needed to overwrite inline styles
+        // stylelint-disable-next-line declaration-no-important
+        z-index: $z !important;
+      }
+    }
+
+    // Raise sticky-end cells above others
+    &.ts-table__column--sticky-end {
+      // NOTE: important needed to overwrite inline styles
+      // stylelint-disable-next-line declaration-no-important
+      z-index: var(--sticky-end-z) !important;
+    }
+
+    // Class added when the user hovers the resize column hit area
+    &.ts-cell--resizing {
+      .ts-header-cell__resizer {
+        opacity: 1;
+
+        &::before {
+          width: 7px;
+        }
+      }
+    }
+
+    // <span> 'Grabber' hit area to resize a column
+    &__resizer {
+      bottom: -1px;
+      cursor: cursor(col-resize);
+      display: block;
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      top: -1px;
+      transform: translateX(50%);
+      transition: opacity 200ms ease-out;
+      width: spacing(large);
+      z-index: calc(var(--z-index-resize-background));
+
+      // Visible container for grabber
+      &::before {
+        background-color: color(primary);
+        bottom: 1px;
+        content: '';
+        display: block;
+        left: 50%;
+        position: absolute;
+        top: 0;
+        transform: translateX(-50%);
+        transition: width 100ms ease-out;
+        width: 1px;
+      }
+
+      // Dots inside grabber
+      &::after {
+        --grabber-icon-font-size: 14px;
+        color: color(utility, xlight);
+        content: '\2026';
+        display: block;
+        font-size: var(--grabber-icon-font-size);
+        height: 11px;
+        left: 50%;
+        position: absolute;
+        top: 30%;
+        transform: rotate(90deg) translate(var(--grip-vertical-adjustment), -3px);
+        z-index: var(--z-index-resize-grabber);
+      }
+    }
+  }
+}

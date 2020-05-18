@@ -1,0 +1,145 @@
+/**
+ * Center child content vertically and horizontally
+ *
+ * @example
+ *  @include center-content;
+ */
+@mixin center-content {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+/**
+ * Return the opposite direction of each direction in a list
+ *
+ * @param $directions
+ *  List of initial directions
+ * @example
+ *  opposite-direction(top);
+ *  opposite-direction(left, bottom);
+ */
+@function opposite-direction($directions) {
+  $opposite-directions: ();
+  $direction-map: (
+    'top': 'bottom',
+    'right': 'left',
+    'bottom': 'top',
+    'left': 'right',
+    'center': 'center',
+    'ltr': 'rtl',
+    'rtl': 'ltr'
+  );
+
+  @each $direction in $directions {
+    $direction: to-lower-case($direction);
+
+    @if map-has-key($direction-map, $direction) {
+      $opposite-directions: append($opposite-directions, unquote(map-get($direction-map, $direction)));
+    } @else {
+      @error 'No opposite direction can be found for `#{$direction}`. Direction omitted.';
+    }
+  }
+
+  @return $opposite-directions;
+}
+
+/**
+ * Pseudo element base styles
+ *
+ * @param $display
+ *  The display value (block/inline/etc)
+ * @param $position
+ *  The position style (absolute/static/etc)
+ * @param $content
+ *  The content value
+ */
+@mixin pseudo(
+  $display: block,
+  $position: absolute,
+  $content: ''
+) {
+  content: $content;
+  display: $display;
+  position: $position;
+}
+
+/**
+ * Control the ratio for responsive elements
+ *
+ * @param $x
+ *  The x ratio
+ * @param $y
+ *  The y ratio
+ * @param $pseudo
+ *  Determine if a pseudo element should be used to control the ratio. Default: true
+ * @param $image
+ *  The image source. Default: null
+ * @example
+ *  @include responsive-ratio(3, 4);
+ *  @include responsive-ratio(20, 9, true, url('/images/landing-hero.jpg'));
+ */
+@mixin responsive-ratio($x, $y, $pseudo: true, $image: null) {
+  $padding: unquote((( $y / $x ) * 100) + '%');
+
+  @if $x == null or $y == null {
+    @error 'Both the x and y ratios must be passed in.';
+  }
+
+  @if $pseudo {
+    &::before {
+      @include pseudo($position: relative);
+      padding-top: $padding;
+      width: 100%;
+    }
+  } @else {
+    padding-top: $padding;
+  }
+
+  @if image != null {
+    background-image: url($image);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+/**
+ * Fill the parent element
+ *
+ * @param $margin
+ *  The amount of space between the edge of the parent. Default: 0
+ * @example
+ *  @include fill-parent;
+ *  @include fill-parent(1em);
+ */
+@mixin take-space($margin: 0) {
+  bottom: $margin;
+  left: $margin;
+  position: absolute;
+  right: $margin;
+  top: $margin;
+}
+
+/**
+ * Make content visually hidden
+ *
+ * @example
+ *  @include visually-hidden;
+ */
+@mixin visually-hidden {
+  $smallest-adjustment: 1px;
+  border: 0;
+  //noinspection CssInvalidPropertyValue
+  clip-path: rect(0, 0, 0, 0);
+  // Not all styles apply to inline elements
+  display: block;
+  height: $smallest-adjustment;
+  margin: -$smallest-adjustment;
+  overflow: hidden;
+  padding: 0;
+  pointer-events: none;
+  position: absolute;
+  visibility: hidden;
+  width: $smallest-adjustment;
+}

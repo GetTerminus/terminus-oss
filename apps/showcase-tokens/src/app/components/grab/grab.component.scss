@@ -1,0 +1,63 @@
+@import '../../scss/helpers';
+
+
+// Primary container
+.grab {
+  --input-backgroundColor: var(--ts-color-base-white);
+  --input-padding-default: 8px;
+  --input-padding-focus: var(--input-padding-default) 48px var(--input-padding-default) var(--input-padding-default);
+  --input-padding: var(--input-padding-default);
+  --button-opacity: 0;
+  --button-pointerEvents: none;
+  --button-padding: 6px;
+  --reveal-animation-duration: var(--ts-animation-time-duration-100);
+  position: relative;
+
+  &:focus,
+  &:hover {
+    --button-opacity: 1;
+    --button-pointerEvents: auto;
+    --input-backgroundColor: var(--ts-color-base-palette7-300);
+    --input-padding: var(--input-padding-focus);
+  }
+
+  &__input {
+    background-color: var(--input-backgroundColor);
+    border: 0;
+    border-radius: var(--ts-border-radius-base);
+    height: 34px;
+    line-height: 1em;
+    padding: var(--input-padding);
+    transition: background-color var(--reveal-animation-duration) var(--ts-animation-easing-easeOut);
+    width: 100%;
+
+    &:focus,
+    &:hover {
+      outline: 0;
+    }
+  }
+
+  &__button {
+    @include button-base;
+    background-color: var(--ts-color-base-palette1-500);
+    border-radius: 3px;
+    color: var(--ts-color-base-white);
+    font-family: var(--ts-typography-stack-base-roboto);
+    font-size: var(--ts-typography-size-200);
+    opacity: var(--button-opacity);
+    padding: var(--button-padding);
+    position: absolute;
+    pointer-events: var(--button-pointerEvents);
+    right: var(--ts-space-inset-200);
+    top: var(--ts-space-inset-200);
+    transition-property: opacity, color;
+    transition-timing-function: var(--ts-animation-easing-easeOut);
+    transition-duration: var(--reveal-animation-duration);
+
+    &:focus,
+    &:hover {
+      background-color: var(--ts-color-base-palette1-700);
+    }
+  }
+}
+

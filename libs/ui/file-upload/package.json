@@ -1,0 +1,19 @@
+{
+  "name": "@terminus/ui-file-upload",
+  "version": "0.0.0-PLACEHOLDER",
+  "peerDependencies": {
+    "@angular/common": "^9.1.0",
+    "@angular/core": "^9.1.0",
+    "@terminus/design-tokens": "^1.0.10",
+    "@terminus/ngx-tools": "^8.0.5",
+    "@terminus/ui-button": "*",
+    "@terminus/ui-icon": "*",
+    "@terminus/ui-icon-button": "*",
+    "@terminus/ui-pipes": "*",
+    "@terminus/ui-spacing": "*",
+    "@terminus/ui-tooltip": "*",
+    "@terminus/ui-utilities": "*",
+    "@terminus/ui-validation-messages": "*",
+    "tslib": "^1.10.0"
+  }
+}

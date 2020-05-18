@@ -1,0 +1,118 @@
+@import "~@terminus/ui-styles/helpers";
+
+
+//
+// @component
+//  Link
+// @description
+//  Basic link styles.
+//
+//  NOTE: Typography/color/size should be inherited from the context.
+//
+.ts-link {
+  @include reset;
+  --link-color: inherit;
+  display: inline-block;
+
+  // Top level styles should be nested here
+  .c-link {
+    color: var(--link-color);
+    display: inline-block;
+    text-decoration: underline;
+    transition: color var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease);
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  // Primary theme
+  &--primary {
+    --link-color: var(--ts-color-primary-500);
+
+    .c-link {
+      &:focus,
+      &:hover {
+        --link-color: var(--ts-color-primary-300);
+      }
+
+      &:visited {
+        --link-color: var(--ts-color-primary-700);
+      }
+    }
+  }
+
+  // Accent theme
+  &--accent {
+    --link-color: var(--ts-color-accent-500);
+
+    .c-link {
+      &:focus,
+      &:hover {
+        --link-color: var(--ts-color-accent-300);
+      }
+
+      &:visited {
+        --link-color: var(--ts-color-accent-700);
+      }
+    }
+  }
+
+  // Warn theme
+  &--warn {
+    --link-color: var(--ts-color-warn-500);
+
+    .c-link {
+      &:focus,
+      &:hover {
+        --link-color: var(--ts-color-warn-300);
+      }
+
+      &:visited {
+        --link-color: var(--ts-color-warn-700);
+      }
+    }
+  }
+}
+
+
+.c-link {
+  // Force the icon to assume the size of its context
+  .mat-icon {
+    &.material-icons {
+      --material-icon-fontSize-override: 1.2em;
+      font-size: var(--material-icon-fontSize-override);
+      height: auto;
+      line-height: 1em;
+      vertical-align: middle;
+      width: auto;
+    }
+  }
+
+  // Target links inside a TsMenuComponent
+  .c-menu & {
+    --menu-margin-adjustment-for-menu: var(--ts-space-stack-300) 0;
+    margin: var(--menu-margin-adjustment-for-menu);
+  }
+
+  // Target links inside a TsMenuComponent
+  .mat-menu-content & {
+    --menu-item-color: var(--ts-color-base-black);
+    --menu-item-backgroundColor: transparent;
+    background-color: var(--menu-item-backgroundColor);
+    color: var(--menu-item-color);
+    display: block;
+    font-weight: $type__weight--base;
+    padding: var(--ts-space-inset-300) var(--ts-space-inset-500);
+    text-decoration: none;
+    transition-duration: var(--ts-animation-time-duration-400);
+    transition-property: background-color, color;
+    transition-timing-function: var(--ts-animation-easing-ease);
+
+    &:focus,
+    &:hover {
+      --menu-item-backgroundColor: var(--ts-color-utility-100);
+      --menu-item-color: var(--ts-color-primary-500);
+    }
+  }
+}
