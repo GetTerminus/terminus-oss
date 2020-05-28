@@ -1,10 +1,7 @@
 {
   "ngPackage": {
     "lib": {
-      "entryFile": "src/index.ts",
-      "umdModuleIds": {
-        "@terminus/ui-input": "terminus.ui-input"
-      }
+      "entryFile": "src/index.ts"
     }
   }
 }

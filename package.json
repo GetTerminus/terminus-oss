@@ -51,7 +51,7 @@
     "docs": "yarn run docs:ts",
     "docs:ci": "yarn run docs:ts --silent",
     "docs:ts": "npx compodoc",
-    "docs:toc": "find . -path ./node_modules -prune -o -path ./dist -prune -o -path ./demo -prune -o -path ./.github -prune -o -path ./.git -prune -o -path ./CHANGELOG.md -prune -o -path ./CODE_OF_CONDUCT.md -prune -o -name '*.md' -print |  xargs npx doctoc --title '**Table of Contents**' --maxlevel 4",
+    "docs:toc": "find . -path ./node_modules -prune -o -path ./dist -prune -o -path ./apps -prune -o -path ./.github -prune -o -path ./.git -prune -o -path ./CHANGELOG.md -prune -o -path ./CODE_OF_CONDUCT.md -prune -o -name '*.md' -print |  xargs npx doctoc --title '**Table of Contents**' --maxlevel 4",
     "////////// Section: Tokens": "==============================",
     "tokens:build": "node libs/design-tokens/index.js",
     "tokens:copy-to-npm": "cp -R dist/libs/design-tokens node_modules/@terminus/design-tokens",
