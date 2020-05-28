@@ -22,8 +22,6 @@ import {
   dispatchMouseEvent,
   typeInElement,
 } from '@terminus/ngx-tools/testing';
-import * as testComponents from '@terminus/ui-autocomplete/testing';
-// eslint-disable-next-line no-duplicate-imports
 import {
   getAllChipInstances,
   getAutocompleteElement,
@@ -37,6 +35,25 @@ import {
 import { TsOptionModule } from '@terminus/ui-option';
 import { getValidationMessageElement } from '@terminus/ui-validation-messages/testing';
 
+import {
+  Autocomplete,
+  AutocompleteAllowMultipleNoReopen,
+  AutocompleteRequired,
+  CustomCharacterCount,
+  CustomDebounce,
+  Debounce,
+  Disabled,
+  HideRequired,
+  Hint,
+  Id,
+  MultipleAutocomplete,
+  OptionError,
+  OptionId,
+  SeededAutocomplete,
+  SeededNgModelAutocomplete,
+  SeededNonArrayAutocomplete,
+  ValidateOnChange,
+} from '../test-components';
 import { TsAutocompleteModule } from '../ui-autocomplete.module';
 
 /**
@@ -58,7 +75,7 @@ function createComponent<T>(component: Type<T>): ComponentFixture<T> {
 
 describe(`TsAutocompleteComponent`, function() {
   test(`should exist`, function() {
-    const fixture = createComponent(testComponents.Autocomplete);
+    const fixture = createComponent(Autocomplete);
     fixture.detectChanges();
 
     expect(fixture.debugElement.query(By.css('.ts-autocomplete'))).toBeTruthy();
@@ -66,7 +83,7 @@ describe(`TsAutocompleteComponent`, function() {
 
   test(`should show a progress indicator`, () => {
     jest.useFakeTimers();
-    const fixture = createComponent<testComponents.Autocomplete>(testComponents.Autocomplete);
+    const fixture = createComponent<Autocomplete>(Autocomplete);
     fixture.detectChanges();
 
     let spinner = fixture.debugElement.query(By.css('.c-autocomplete__spinner'));
@@ -82,7 +99,7 @@ describe(`TsAutocompleteComponent`, function() {
   });
 
   test(`should not open when disabled`, () => {
-    const fixture = createComponent<testComponents.Autocomplete>(testComponents.Autocomplete);
+    const fixture = createComponent<Autocomplete>(Autocomplete);
     fixture.componentInstance.disabled = true;
     fixture.detectChanges();
     const trigger = getAutocompleteTriggerElement(fixture);
@@ -96,7 +113,7 @@ describe(`TsAutocompleteComponent`, function() {
   });
 
   test(`should set the disabled state when called`, () => {
-    const fixture = createComponent(testComponents.Autocomplete);
+    const fixture = createComponent(Autocomplete);
     fixture.detectChanges();
     const instance = getAutocompleteInstance(fixture);
     const autocomplete = fixture.debugElement.query(By.css('.ts-autocomplete')).nativeElement;
@@ -113,7 +130,7 @@ describe(`TsAutocompleteComponent`, function() {
   });
 
   test(`should not open when disabled`, () => {
-    const fixture = createComponent<testComponents.Disabled>(testComponents.Disabled);
+    const fixture = createComponent<Disabled>(Disabled);
     fixture.detectChanges();
     fixture.componentInstance.wasOpened = jest.fn();
     const trigger = getAutocompleteTriggerElement(fixture);
@@ -127,7 +144,7 @@ describe(`TsAutocompleteComponent`, function() {
 
   describe(`chips`, function() {
     test(`should show selections as chips`, () => {
-      const fixture = createComponent(testComponents.SeededAutocomplete);
+      const fixture = createComponent(SeededAutocomplete);
       fixture.detectChanges();
 
       const chip = getChipElement(fixture);
@@ -137,7 +154,7 @@ describe(`TsAutocompleteComponent`, function() {
 
     test(`should allow chips to be removed`, () => {
       jest.useFakeTimers();
-      const fixture = createComponent(testComponents.SeededAutocomplete);
+      const fixture = createComponent(SeededAutocomplete);
       fixture.detectChanges();
 
       let chips = getAllChipInstances(fixture);
@@ -174,7 +191,7 @@ describe(`TsAutocompleteComponent`, function() {
         key: { get: () => KEYS.BACKSPACE.code },
       });
 
-      const fixture = createComponent(testComponents.SeededAutocomplete);
+      const fixture = createComponent(SeededAutocomplete);
       fixture.detectChanges();
       const nativeInput = fixture.nativeElement.querySelector('input');
       let chips = getAllChipInstances(fixture);
@@ -198,7 +215,7 @@ describe(`TsAutocompleteComponent`, function() {
   describe(`debounce`, function() {
     test(`should debounce the stream`, () => {
       jest.useFakeTimers();
-      const fixture = createComponent<testComponents.Debounce>(testComponents.Debounce);
+      const fixture = createComponent<Debounce>(Debounce);
       fixture.componentInstance.change = jest.fn();
       fixture.detectChanges();
       const instance = getAutocompleteInstance(fixture);
@@ -215,7 +232,7 @@ describe(`TsAutocompleteComponent`, function() {
 
     test(`should allow a custom debounce delay`, () => {
       jest.useFakeTimers();
-      const fixture = createComponent<testComponents.CustomDebounce>(testComponents.CustomDebounce);
+      const fixture = createComponent<CustomDebounce>(CustomDebounce);
       fixture.componentInstance.change = jest.fn();
       fixture.detectChanges();
       const instance = getAutocompleteInstance(fixture);
@@ -234,7 +251,7 @@ describe(`TsAutocompleteComponent`, function() {
   describe(`minimumCharacters`, function() {
     test(`should only emit query once past the minimum character count`, () => {
       jest.useFakeTimers();
-      const fixture = createComponent<testComponents.CustomCharacterCount>(testComponents.CustomCharacterCount);
+      const fixture = createComponent<CustomCharacterCount>(CustomCharacterCount);
       fixture.componentInstance.change = jest.fn();
       fixture.detectChanges();
       const instance = getAutocompleteInstance(fixture);
@@ -253,7 +270,7 @@ describe(`TsAutocompleteComponent`, function() {
 
     test(`should allow a custom minimum character count`, () => {
       jest.useFakeTimers();
-      const fixture = createComponent<testComponents.CustomCharacterCount>(testComponents.CustomCharacterCount);
+      const fixture = createComponent<CustomCharacterCount>(CustomCharacterCount);
       fixture.componentInstance.customCount = 1;
       fixture.componentInstance.change = jest.fn();
       fixture.detectChanges();
@@ -274,7 +291,7 @@ describe(`TsAutocompleteComponent`, function() {
 
   test(`should only allow unique queries`, function() {
     jest.useFakeTimers();
-    const fixture = createComponent<testComponents.Debounce>(testComponents.Debounce);
+    const fixture = createComponent<Debounce>(Debounce);
     fixture.componentInstance.change = jest.fn();
     fixture.detectChanges();
     const instance = getAutocompleteInstance(fixture);
@@ -292,7 +309,7 @@ describe(`TsAutocompleteComponent`, function() {
   describe(`duplicate selections`, function() {
     // NOTE: Even though we are simulating a typed query, the list of states is not actually changing.
     test(`should not be allowed by default but should emit an event`, fakeAsync(function() {
-      const fixture = createComponent<testComponents.SeededAutocomplete>(testComponents.SeededAutocomplete);
+      const fixture = createComponent<SeededAutocomplete>(SeededAutocomplete);
       fixture.detectChanges();
       const component = fixture.componentInstance;
       component.duplicate = jest.fn();
@@ -320,7 +337,7 @@ describe(`TsAutocompleteComponent`, function() {
 
     describe(`when allowed`, function() {
       test(`should allow a duplicate selection`, fakeAsync(() => {
-        const fixture = createComponent<testComponents.SeededAutocomplete>(testComponents.SeededAutocomplete);
+        const fixture = createComponent<SeededAutocomplete>(SeededAutocomplete);
         fixture.componentInstance.allowDuplicates = true;
         fixture.detectChanges();
 
@@ -354,7 +371,7 @@ describe(`TsAutocompleteComponent`, function() {
   describe(`trigger`, function() {
     describe(`in single selection mode`, function() {
       test(`should set single value`, fakeAsync(() => {
-        const fixture = createComponent<testComponents.SeededAutocomplete>(testComponents.SeededAutocomplete);
+        const fixture = createComponent<SeededAutocomplete>(SeededAutocomplete);
         fixture.componentInstance.allowMultiple = false;
         fixture.componentInstance.keepOpen = false;
         tick(1000);
@@ -377,7 +394,7 @@ describe(`TsAutocompleteComponent`, function() {
     });
 
     test(`should reset the query when a selection is made`, fakeAsync(function() {
-      const fixture = createComponent(testComponents.AutocompleteAllowMultipleNoReopen);
+      const fixture = createComponent(AutocompleteAllowMultipleNoReopen);
       fixture.detectChanges();
 
       const input = getAutocompleteInput(fixture);
@@ -398,12 +415,12 @@ describe(`TsAutocompleteComponent`, function() {
     }));
 
     test(`should complain and moan if you set a form control that isn't an array`, () => {
-      const fixture = createComponent(testComponents.SeededNonArrayAutocomplete);
+      const fixture = createComponent(SeededNonArrayAutocomplete);
       expect(() => fixture.detectChanges()).toThrowError('form control values must be an array of values');
     });
 
     test(`should seed the autocomplete model(s) after timeout when using ngModel`, fakeAsync(function() {
-      const fixture = createComponent(testComponents.SeededNgModelAutocomplete);
+      const fixture = createComponent(SeededNgModelAutocomplete);
       fixture.detectChanges();
 
       const states = fixture.componentInstance.states;
@@ -416,7 +433,7 @@ describe(`TsAutocompleteComponent`, function() {
     }));
 
     test(`should allow a value seeded by a FormControl`, fakeAsync(function() {
-      const fixture = createComponent(testComponents.AutocompleteAllowMultipleNoReopen);
+      const fixture = createComponent(AutocompleteAllowMultipleNoReopen);
       fixture.detectChanges();
 
       const states = fixture.componentInstance.states;
@@ -433,7 +450,7 @@ describe(`TsAutocompleteComponent`, function() {
     }));
 
     test(`should close the panel if open when getting a blur event that isn't from a selection`, function() {
-      const fixture = createComponent<testComponents.Autocomplete>(testComponents.Autocomplete);
+      const fixture = createComponent<Autocomplete>(Autocomplete);
       fixture.componentInstance.disabled = true;
       fixture.detectChanges();
       const input = getAutocompleteInput(fixture);
@@ -456,7 +473,7 @@ describe(`TsAutocompleteComponent`, function() {
     });
 
     test(`should close the panel if focus on another autocomplete instance`, () => {
-      const fixture = createComponent(testComponents.MultipleAutocomplete);
+      const fixture = createComponent(MultipleAutocomplete);
       fixture.detectChanges();
       const input2 = getAutocompleteInput(fixture, 1);
       const instance = getAutocompleteInstance(fixture);
@@ -474,7 +491,7 @@ describe(`TsAutocompleteComponent`, function() {
 
     test(`should update the overlay position when a chip is removed`, function() {
       jest.useFakeTimers();
-      const fixture = createComponent(testComponents.SeededAutocomplete);
+      const fixture = createComponent(SeededAutocomplete);
       fixture.detectChanges();
       const instance = getAutocompleteInstance(fixture);
       const triggerInstance = instance.autocompleteTrigger;
@@ -495,7 +512,7 @@ describe(`TsAutocompleteComponent`, function() {
 
     describe(`required`, () => {
       test(`should set required if the form control is required`, () => {
-        const fixture = createComponent(testComponents.ValidateOnChange);
+        const fixture = createComponent(ValidateOnChange);
         fixture.detectChanges();
         const component = getAutocompleteElement(fixture);
         const selectTrigger = getAutocompleteTriggerElement(fixture);
@@ -507,7 +524,7 @@ describe(`TsAutocompleteComponent`, function() {
       });
 
       test(`should set required if the form control is required for autocomplete mode`, () => {
-        const fixture = createComponent(testComponents.AutocompleteRequired);
+        const fixture = createComponent(AutocompleteRequired);
         fixture.detectChanges();
         const component = getAutocompleteInput(fixture);
 
@@ -522,7 +539,7 @@ describe(`TsAutocompleteComponent`, function() {
 
     describe(`panel`, function() {
       test(`should support a custom ID`, () => {
-        const fixture = createComponent<testComponents.Autocomplete>(testComponents.Autocomplete);
+        const fixture = createComponent<Autocomplete>(Autocomplete);
         fixture.componentInstance.disabled = true;
         fixture.detectChanges();
         const instance = getAutocompleteInstance(fixture);
@@ -537,7 +554,7 @@ describe(`TsAutocompleteComponent`, function() {
   });
 
   test(`should be able to hide the required marker`, function() {
-    const fixture = createComponent<testComponents.HideRequired>(testComponents.HideRequired);
+    const fixture = createComponent<HideRequired>(HideRequired);
     fixture.detectChanges();
     let marker = fixture.debugElement.query(By.css('.ts-form-field-required-marker'));
     expect(marker).toBeTruthy();
@@ -550,7 +567,7 @@ describe(`TsAutocompleteComponent`, function() {
   });
 
   test(`should support a custom hint`, function() {
-    const fixture = createComponent(testComponents.Hint);
+    const fixture = createComponent(Hint);
     fixture.detectChanges();
     const hintElement = fixture.debugElement.query(By.css('.ts-form-field__hint-wrapper'));
     const contents = fixture.debugElement.query(By.css('.c-input__hint'));
@@ -561,7 +578,7 @@ describe(`TsAutocompleteComponent`, function() {
 
   describe(`ID`, function() {
     test(`should support a custom ID`, () => {
-      const fixture = createComponent(testComponents.Id);
+      const fixture = createComponent(Id);
       fixture.detectChanges();
       const trigger = getAutocompleteTriggerElement(fixture);
 
@@ -569,7 +586,7 @@ describe(`TsAutocompleteComponent`, function() {
     });
 
     test(`should fall back to the UID if no ID is passed in`, () => {
-      const fixture = createComponent<testComponents.Id>(testComponents.Id);
+      const fixture = createComponent<Id>(Id);
       fixture.componentInstance.myId = undefined as any;
       fixture.detectChanges();
       const trigger = getAutocompleteTriggerElement(fixture);
@@ -579,7 +596,7 @@ describe(`TsAutocompleteComponent`, function() {
   });
 
   test(`should show error immediately if validating on change`, function() {
-    const fixture = createComponent(testComponents.ValidateOnChange);
+    const fixture = createComponent(ValidateOnChange);
     fixture.detectChanges();
     const messageContainer = fixture.debugElement.query(By.css('.c-validation-message'));
 
@@ -589,7 +606,7 @@ describe(`TsAutocompleteComponent`, function() {
   describe(`option`, function() {
     test(`should throw error if template is used but no option is passed in`, () => {
       const create = () => {
-        const fixture = createComponent(testComponents.OptionError);
+        const fixture = createComponent(OptionError);
         fixture.detectChanges();
       };
 
@@ -598,7 +615,7 @@ describe(`TsAutocompleteComponent`, function() {
 
     describe(`id`, function() {
       test(`should support custom IDs`, () => {
-        const fixture = createComponent(testComponents.OptionId);
+        const fixture = createComponent(OptionId);
         fixture.detectChanges();
         const option = getOptionInstance(fixture, 0, 1);
 
@@ -606,7 +623,7 @@ describe(`TsAutocompleteComponent`, function() {
       });
 
       test(`should fall back to UID`, () => {
-        const fixture = createComponent(testComponents.OptionId);
+        const fixture = createComponent(OptionId);
         fixture.detectChanges();
         const option = getOptionInstance(fixture, 0, 1);
 
@@ -619,7 +636,7 @@ describe(`TsAutocompleteComponent`, function() {
 
     describe(`getLabel`, function() {
       test(`should return the viewValue`, () => {
-        const fixture = createComponent(testComponents.OptionId);
+        const fixture = createComponent(OptionId);
         fixture.detectChanges();
         const option = getOptionInstance(fixture, 0, 1);
 
@@ -629,7 +646,7 @@ describe(`TsAutocompleteComponent`, function() {
 
     describe(`option`, function() {
       test(`should retrieve the option object`, () => {
-        const fixture = createComponent(testComponents.OptionId);
+        const fixture = createComponent(OptionId);
         fixture.detectChanges();
         const option = getOptionInstance(fixture, 0, 1);
 
@@ -639,7 +656,7 @@ describe(`TsAutocompleteComponent`, function() {
 
     describe(`deselect`, function() {
       test(`should emit event not from user interaction`, () => {
-        const fixture = createComponent<testComponents.OptionId>(testComponents.OptionId);
+        const fixture = createComponent<OptionId>(OptionId);
         fixture.detectChanges();
         const option = getOptionInstance(fixture, 0, 2);
         option.select();
@@ -657,7 +674,7 @@ describe(`TsAutocompleteComponent`, function() {
 
     describe(`checkbox`, function() {
       test(`should not have checkbox in front of an item list`, fakeAsync(() => {
-        const fixture = createComponent(testComponents.AutocompleteAllowMultipleNoReopen);
+        const fixture = createComponent(AutocompleteAllowMultipleNoReopen);
         fixture.detectChanges();
 
         const input = getAutocompleteInput(fixture);
@@ -672,7 +689,7 @@ describe(`TsAutocompleteComponent`, function() {
   });
 
   test('onContainerClick', () => {
-    const fixture = createComponent(testComponents.SeededAutocomplete);
+    const fixture = createComponent(SeededAutocomplete);
     const autocomplete = getAutocompleteInstance(fixture);
     autocomplete.focus = jest.fn();
     autocomplete.onContainerClick();
@@ -680,7 +697,7 @@ describe(`TsAutocompleteComponent`, function() {
   });
 
   test('value getter/setter', () => {
-    const fixture = createComponent(testComponents.SeededAutocomplete);
+    const fixture = createComponent(SeededAutocomplete);
     const autocomplete = getAutocompleteInstance(fixture);
     autocomplete.value = 'testing';
     expect(autocomplete.value).toEqual('testing');

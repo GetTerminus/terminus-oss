@@ -6,8 +6,6 @@ import { ComponentFixture } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { createComponent as createComponentInner } from '@terminus/ngx-tools/testing';
-import * as testComponents from '@terminus/ui-cohort-date-range/testing';
-// eslint-disable-next-line no-duplicate-imports
 import {
   getCohortDebugElement,
   getFormFieldElement,
@@ -18,6 +16,13 @@ import { TsInputComponent } from '@terminus/ui-input';
 import { TsSelectionListChange } from '@terminus/ui-selection-list';
 
 import {
+  Basic,
+  DateConstraints,
+  DefaultCohort,
+  NoCohorts,
+  NoCustomDates,
+} from '../test-components';
+import {
   TsCohortDateRangeComponent,
   TsCohortDateRangeModule,
 } from '../ui-cohort-date-range.module';
@@ -25,7 +30,7 @@ import {
 describe(`TsCohortDateRangeComponent`, () => {
   describe(`id`, () => {
     test(`should allow custom ID and fall back to UID`, () => {
-      const fixture = createComponent<testComponents.Basic>(testComponents.Basic);
+      const fixture = createComponent<Basic>(Basic);
       fixture.detectChanges();
       const debug = getCohortDebugElement(fixture);
       const instance: TsCohortDateRangeComponent = debug.componentInstance;
@@ -42,13 +47,13 @@ describe(`TsCohortDateRangeComponent`, () => {
   });
 
   describe(`allowCustomDates`, () => {
-    let fixture: ComponentFixture<testComponents.Basic>;
-    let hostInstance: testComponents.Basic;
+    let fixture: ComponentFixture<Basic>;
+    let hostInstance: Basic;
     let startInputInstance: TsInputComponent;
     let formFieldElement: HTMLElement;
 
     beforeEach(() => {
-      fixture = createComponent<testComponents.Basic>(testComponents.Basic);
+      fixture = createComponent<Basic>(Basic);
       fixture.detectChanges();
       hostInstance = fixture.componentInstance;
       startInputInstance = getRangeInputInstances(fixture)[0];
@@ -72,7 +77,7 @@ describe(`TsCohortDateRangeComponent`, () => {
 
   describe(`updateSelectOnRangeChange`, () => {
     test(`should do nothing if no cohorts exist`, () => {
-      const fixture = createComponent<testComponents.NoCohorts>(testComponents.NoCohorts);
+      const fixture = createComponent<NoCohorts>(NoCohorts);
       fixture.detectChanges();
       fixture.detectChanges();
       const debug = getCohortDebugElement(fixture);
@@ -89,7 +94,7 @@ describe(`TsCohortDateRangeComponent`, () => {
     });
 
     test(`should update the select to the custom cohort when the range is manually changed`, () => {
-      const fixture = createComponent<testComponents.Basic>(testComponents.Basic);
+      const fixture = createComponent<Basic>(Basic);
       fixture.detectChanges();
       const debug = getCohortDebugElement(fixture);
       const instance: TsCohortDateRangeComponent = debug.componentInstance;
@@ -104,7 +109,7 @@ describe(`TsCohortDateRangeComponent`, () => {
     });
 
     test(`should not update the select when the range is manually changed to a cohort range`, () => {
-      const fixture = createComponent<testComponents.Basic>(testComponents.Basic);
+      const fixture = createComponent<Basic>(Basic);
       fixture.detectChanges();
       const date1 = new Date(2018, 1, 1);
       const date2 = new Date(2018, 2, 1);
@@ -123,7 +128,7 @@ describe(`TsCohortDateRangeComponent`, () => {
 
   describe(`cohorts`, () => {
     test(`should set the active cohort by default`, () => {
-      const fixture = createComponent<testComponents.DefaultCohort>(testComponents.DefaultCohort);
+      const fixture = createComponent<DefaultCohort>(DefaultCohort);
       fixture.detectChanges();
       const debug = getCohortDebugElement(fixture);
       const instance: TsCohortDateRangeComponent = debug.componentInstance;
@@ -134,7 +139,7 @@ describe(`TsCohortDateRangeComponent`, () => {
     });
 
     test(`should not add the custom cohort if custom dates are not allowed`, () => {
-      const fixture = createComponent<testComponents.NoCustomDates>(testComponents.NoCustomDates);
+      const fixture = createComponent<NoCustomDates>(NoCustomDates);
       fixture.detectChanges();
       const debug = getCohortDebugElement(fixture);
       const instance: TsCohortDateRangeComponent = debug.componentInstance;
@@ -142,7 +147,7 @@ describe(`TsCohortDateRangeComponent`, () => {
     });
 
     test(`should add the custom cohort to the end if allowUserInput is true`, () => {
-      const fixture = createComponent<testComponents.Basic>(testComponents.Basic);
+      const fixture = createComponent<Basic>(Basic);
       fixture.detectChanges();
       const debug = getCohortDebugElement(fixture);
       const instance: TsCohortDateRangeComponent = debug.componentInstance;
@@ -154,7 +159,7 @@ describe(`TsCohortDateRangeComponent`, () => {
 
   describe(`select emitters`, function() {
     test(`should emit change event if date range has any changes`, () => {
-      const fixture = createComponent<testComponents.Basic>(testComponents.Basic);
+      const fixture = createComponent<Basic>(Basic);
       const cohortDebugElement = getCohortDebugElement(fixture);
       const cohortInstance: TsCohortDateRangeComponent = cohortDebugElement.componentInstance;
       fixture.detectChanges();
@@ -172,7 +177,7 @@ describe(`TsCohortDateRangeComponent`, () => {
 
   describe(`selectionChange`, () => {
     test(`should set the date range if the cohort selection changes`, () => {
-      const fixture = createComponent<testComponents.DefaultCohort>(testComponents.DefaultCohort);
+      const fixture = createComponent<DefaultCohort>(DefaultCohort);
       fixture.detectChanges();
       const debug = getCohortDebugElement(fixture);
       const instance: TsCohortDateRangeComponent = debug.componentInstance;
@@ -193,28 +198,28 @@ describe(`TsCohortDateRangeComponent`, () => {
 
   describe(`date constraints`, function() {
     test(`should set end min date to provided value`, function() {
-      const fixture = createComponent<testComponents.DateConstraints>(testComponents.DateConstraints);
+      const fixture = createComponent<DateConstraints>(DateConstraints);
       fixture.detectChanges();
       const endInputInstance = getRangeInputInstances(fixture)[1];
       expect(endInputInstance.minDate).toEqual(new Date(2020, 2, 1));
     });
 
     test(`should set end max date to provided value`, function() {
-      const fixture = createComponent<testComponents.DateConstraints>(testComponents.DateConstraints);
+      const fixture = createComponent<DateConstraints>(DateConstraints);
       fixture.detectChanges();
       const endInputInstance = getRangeInputInstances(fixture)[1];
       expect(endInputInstance.maxDate).toEqual(new Date(2020, 2, 25));
     });
 
     test(`should set start min date to provided value`, function() {
-      const fixture = createComponent<testComponents.DateConstraints>(testComponents.DateConstraints);
+      const fixture = createComponent<DateConstraints>(DateConstraints);
       fixture.detectChanges();
       const startInputInstance = getRangeInputInstances(fixture)[0];
       expect(startInputInstance.minDate).toEqual(new Date(2020, 0, 1));
     });
 
     test(`should set start max date to provided value`, function() {
-      const fixture = createComponent<testComponents.DateConstraints>(testComponents.DateConstraints);
+      const fixture = createComponent<DateConstraints>(DateConstraints);
       fixture.detectChanges();
       const startInputInstance = getRangeInputInstances(fixture)[0];
       expect(startInputInstance.maxDate).toEqual(new Date(2020, 0, 25));

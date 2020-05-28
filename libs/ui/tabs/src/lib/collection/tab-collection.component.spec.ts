@@ -18,8 +18,6 @@ import {
   TsTabComponent,
   TsTabsModule,
 } from '@terminus/ui-tabs';
-import * as testComponents from '@terminus/ui-tabs/testing';
-// eslint-disable-next-line no-duplicate-imports
 import {
   getAllTabLabelElements,
   getTabCollectionDebugElement,
@@ -29,6 +27,8 @@ import {
   getTabCollectionInstance,
   getTabLabelElement,
 } from '@terminus/ui-tabs/testing';
+
+import * as testComponents from '../test-components';
 
 const IMPORTS = [
   CommonModule,

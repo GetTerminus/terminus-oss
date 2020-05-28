@@ -9,7 +9,8 @@ import { MatRippleModule } from '@angular/material/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TsTabsModule } from '@terminus/ui-tabs';
-import * as testComponents from '@terminus/ui-tabs/testing';
+
+import * as testComponents from '../test-components';
 
 describe(`TsTabBodyComponent`, function() {
   let fixture: ComponentFixture<testComponents.TabBody>;

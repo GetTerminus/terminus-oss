@@ -45,6 +45,15 @@
         "showcase-ui"
       ]
     },
+    "vr": {
+      "tags": []
+    },
+    "vr-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "vr"
+      ]
+    },
     "ui-autocomplete": {
       "tags": []
     },

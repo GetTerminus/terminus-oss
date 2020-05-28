@@ -23,8 +23,6 @@ import {
   typeInElement,
 } from '@terminus/ngx-tools/testing';
 import { TsOptionModule } from '@terminus/ui-option';
-import * as testComponents from '@terminus/ui-select/testing';
-// eslint-disable-next-line no-duplicate-imports
 import {
   createKeydownEvent,
   getAllOptionInstances,
@@ -38,6 +36,7 @@ import {
   openSelect,
 } from '@terminus/ui-select/testing';
 
+import * as testComponents from '../test-components';
 import { TsSelectModule } from '../ui-select.module';
 
 /**

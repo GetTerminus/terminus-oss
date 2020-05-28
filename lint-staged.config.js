@@ -1,5 +1,4 @@
 const micromatch = require('micromatch');
-const escape = require('shell-quote').quote;
 const IGNORE = [
   'dist/**',
   'docs/**',
@@ -11,38 +10,14 @@ const IGNORE = [
 
 module.exports = {
   // Target all TS & JS files
-  '**/*.{js,ts}': filenames => {
-    filenames = removeDirectories(filenames);
-    const escapedFileNames = filenames.map(filename => `"${escape([filename])}"`).join(' ');
-    return [
-      `eslint --fix ${filenames.map(f => `"${f}"`).join(' ')}`,
-      `git add ${escapedFileNames}`,
-    ]
-  },
+  '**/*.{js,ts}': filenames => [
+    `npx eslint --fix ${removeDirectories(filenames).map(f => `"${f}"`).join(' ')}`,
+  ],
 
   // Target library SCSS files
-  'projects/library/**/!(*.spec).scss': files => {
-    const foo = 2;
-    return [
-      `yarn run library:lint:scss ${files}`,
-    ];
-  },
-
-  // Target demo SCSS files
-  'projects/demo/**/!(*.spec).scss': files => {
-    const foo = 2;
-    return [
-      `yarn run demo:lint:scss ${files}`,
-    ];
-  },
-
-  // Target visual-regression SCSS files
-  'projects/visual-regression/**/!(*.spec).scss': files => {
-    const foo = 2;
-    return [
-      `yarn run vr:lint:scss ${files}`,
-    ];
-  },
+  'libs/**/!(*.spec).scss': files => [
+    `npx stylelint --fix ${files.map(f => `"${f}"`).join(' ')}`,
+  ],
 };
 
 
@@ -57,6 +32,6 @@ const removeDirectories = files => micromatch.not(files, [
   '**/testing/**',
   '**/demo/**',
   '**/cypress/**',
-  '**/visual-regression/**',
+  '**/vr/**',
 ]);
 

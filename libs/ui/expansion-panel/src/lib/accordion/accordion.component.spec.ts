@@ -7,8 +7,6 @@ import {
   createComponent as createComponentInner,
   createKeyboardEvent,
 } from '@terminus/ngx-tools/testing';
-import * as testComponents from '@terminus/ui-expansion-panel/testing';
-// eslint-disable-next-line no-duplicate-imports
 import {
   getAccordionInstance,
   getPanelInstance,
@@ -16,6 +14,12 @@ import {
   togglePanel,
 } from '@terminus/ui-expansion-panel/testing';
 
+import {
+  Accordion,
+  AccordionDestroyed,
+  AccordionMulti,
+  HideToggleAccordion,
+} from '../test-components';
 import { TsExpansionPanelModule } from '../ui-expansion-panel.module';
 
 /**
@@ -28,7 +32,7 @@ const createComponent = <T>(component: Type<T>): ComponentFixture<T> => createCo
 
 describe(`TsAccordionComponent`, function() {
   test(`should be able to enforce a single panel open at a time`, function() {
-    const fixture = createComponent<testComponents.Accordion>(testComponents.Accordion);
+    const fixture = createComponent<Accordion>(Accordion);
     fixture.detectChanges();
     const panel1 = getPanelInstance(fixture);
     const panel2 = getPanelInstance(fixture, 1);
@@ -48,7 +52,7 @@ describe(`TsAccordionComponent`, function() {
   });
 
   test(`should allow multiple panels to be open`, function() {
-    const fixture = createComponent<testComponents.AccordionMulti>(testComponents.AccordionMulti);
+    const fixture = createComponent<AccordionMulti>(AccordionMulti);
     fixture.detectChanges();
     const panel1 = getPanelInstance(fixture);
     const panel2 = getPanelInstance(fixture, 1);
@@ -68,7 +72,7 @@ describe(`TsAccordionComponent`, function() {
   });
 
   test(`should be able to open or close all panels when multi is true`, function() {
-    const fixture = createComponent<testComponents.AccordionMulti>(testComponents.AccordionMulti);
+    const fixture = createComponent<AccordionMulti>(AccordionMulti);
     fixture.detectChanges();
     const accordion = getAccordionInstance(fixture);
     const panel1 = getPanelInstance(fixture);
@@ -89,7 +93,7 @@ describe(`TsAccordionComponent`, function() {
   });
 
   test(`should be able to hide all toggle icons`, function() {
-    const fixture = createComponent<testComponents.HideToggleAccordion>(testComponents.HideToggleAccordion);
+    const fixture = createComponent<HideToggleAccordion>(HideToggleAccordion);
     fixture.detectChanges();
     const triggerElement1: HTMLElement = getTriggerElement(fixture);
     const toggleIcon1 = triggerElement1.querySelector('.ts-expansion-panel__indicator');
@@ -102,7 +106,7 @@ describe(`TsAccordionComponent`, function() {
 
   describe(`Keyboard controls`, function() {
     test(`should focus first trigger when HOME is used and the last when END is used`, function() {
-      const fixture = createComponent<testComponents.Accordion>(testComponents.Accordion);
+      const fixture = createComponent<Accordion>(Accordion);
       fixture.detectChanges();
       const trigger1 = getTriggerElement(fixture);
       const trigger2 = getTriggerElement(fixture, 1);
@@ -133,7 +137,7 @@ describe(`TsAccordionComponent`, function() {
     // NOTE: ngx-tools `createKeyboardEvent` function seems to generate an event
     // where `event.metaKey` is true which does not work for this test.
     test(`should toggle a panel when SPACE or ENTER is used`, function() {
-      const fixture = createComponent<testComponents.Accordion>(testComponents.Accordion);
+      const fixture = createComponent<Accordion>(Accordion);
       fixture.detectChanges();
       const panel1 = getPanelInstance(fixture);
       const trigger1 = getTriggerElement(fixture);
@@ -169,7 +173,7 @@ describe(`TsAccordionComponent`, function() {
 
   describe(`Events`, function() {
     test(`should emit when destroyed`, function() {
-      const fixture = createComponent<testComponents.AccordionDestroyed>(testComponents.AccordionDestroyed);
+      const fixture = createComponent<AccordionDestroyed>(AccordionDestroyed);
       fixture.detectChanges();
       const host = fixture.componentInstance;
       host.destroyed = jest.fn();

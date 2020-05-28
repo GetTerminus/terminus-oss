@@ -2,8 +2,8 @@ import { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { createComponent } from '@terminus/ngx-tools/testing';
-import * as testComponents from '@terminus/ui-validation-messages/testing';
 
+import * as testComponents from '../test-components';
 import { TsValidationMessagesModule } from '../ui-validation-messages.module';
 import { TsValidationMessagesComponent } from './validation-messages.component';
 

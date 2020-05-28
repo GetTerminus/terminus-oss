@@ -1,3 +1,13 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [TerminusOss](#terminusoss)
+  - [Useful commands](#useful-commands)
+  - [Resources](#resources)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # TerminusOss
 
 TODO
@@ -6,13 +16,21 @@ TODO
 
 ```bash
 # Run commands on all projects:
+# NOTE: Currently there is no command to build all libraries only - when running all, 
+#   all libraries and all applications will be built.
 $ nx run-many --target=test --all
-$ nx run-many --target=lint --all
 $ nx run-many --target=e2e --all
 $ nx run-many --target=build --all
 
 # Build a single project
 $ nx build my-project
+
+# Linting
+# NOTE: Currently we cannot use the built in NX lint tools as they still rely on TSLint. For now we
+# rely on custom commands:
+$ yarn run lint[:fix]
+$ yarn run libraries:lint[:fix]
+$ yarn run apps:lint[:fix]
 
 # View a graph of the dependencies:
 $ nx dep-graph
@@ -46,6 +64,9 @@ $ yarn run lint:libs
 $ yarn run lint:libs:fix
 $ yarn run lint:apps
 $ yarn run lint:apps:fix
+
+# Help
+$ yarn run help
 ```
 
 

@@ -8,8 +8,6 @@ import {
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { createComponent as createComponentInner } from '@terminus/ngx-tools/testing';
-import * as testComponents from '@terminus/ui-expansion-panel/testing';
-// eslint-disable-next-line no-duplicate-imports
 import {
   getPanelActionRow,
   getPanelBodyContentElement,
@@ -23,6 +21,20 @@ import {
   togglePanel,
 } from '@terminus/ui-expansion-panel/testing';
 
+import {
+  ActionRow,
+  CustomDefaults,
+  CustomHeights,
+  DefaultOpen,
+  DeferredContent,
+  DisabledPanel,
+  Events,
+  HideToggle,
+  ProgrammaticControl,
+  SinglePanel,
+  TransparentModePanel,
+  TriggerTitleDescription,
+} from '../test-components';
 import { TsExpansionPanelModule } from '../ui-expansion-panel.module';
 
 /**
@@ -36,7 +48,7 @@ const createComponent = <T>(component: Type<T>): ComponentFixture<T> => createCo
 describe(`TsExpansionPanelComponent`, function() {
   describe(`Single panel`, function() {
     test(`should defer rendering content when ng-template is used`, fakeAsync(function() {
-      const fixture = createComponent<testComponents.DeferredContent>(testComponents.DeferredContent);
+      const fixture = createComponent<DeferredContent>(DeferredContent);
       fixture.detectChanges();
       const body = getPanelBodyContentElement(fixture);
 
@@ -52,7 +64,7 @@ describe(`TsExpansionPanelComponent`, function() {
     }));
 
     test(`should be able to default to open`, function() {
-      const fixture = createComponent<testComponents.DefaultOpen>(testComponents.DefaultOpen);
+      const fixture = createComponent<DefaultOpen>(DefaultOpen);
       fixture.detectChanges();
       const triggerElement: HTMLElement = getTriggerElement(fixture);
       const panelContainerElement: HTMLElement = getPanelElement(fixture);
@@ -65,7 +77,7 @@ describe(`TsExpansionPanelComponent`, function() {
     });
 
     test(`should be able to disable the panel via input`, function() {
-      const fixture = createComponent<testComponents.DisabledPanel>(testComponents.DisabledPanel);
+      const fixture = createComponent<DisabledPanel>(DisabledPanel);
       fixture.detectChanges();
       const triggerElement: HTMLElement = getTriggerElement(fixture);
       const panel = getPanelInstance(fixture);
@@ -75,7 +87,7 @@ describe(`TsExpansionPanelComponent`, function() {
     });
 
     test(`should support an action row below panel content`, function() {
-      const fixture = createComponent<testComponents.ActionRow>(testComponents.ActionRow);
+      const fixture = createComponent<ActionRow>(ActionRow);
       fixture.detectChanges();
       const row = getPanelActionRow(fixture);
 
@@ -84,7 +96,7 @@ describe(`TsExpansionPanelComponent`, function() {
     });
 
     test(`should be able to programmatically open, close and toggle`, function() {
-      const fixture = createComponent<testComponents.ProgrammaticControl>(testComponents.ProgrammaticControl);
+      const fixture = createComponent<ProgrammaticControl>(ProgrammaticControl);
       fixture.detectChanges();
       const panel = getPanelInstance(fixture);
 
@@ -106,7 +118,7 @@ describe(`TsExpansionPanelComponent`, function() {
     });
 
     test(`should be able to programmatically control disabled panels`, function() {
-      const fixture = createComponent<testComponents.DisabledPanel>(testComponents.DisabledPanel);
+      const fixture = createComponent<DisabledPanel>(DisabledPanel);
       fixture.detectChanges();
       const panel = getPanelInstance(fixture);
       const triggerElement: HTMLElement = getTriggerElement(fixture);
@@ -121,7 +133,7 @@ describe(`TsExpansionPanelComponent`, function() {
     });
 
     test(`should call focus monitor when panel closes while it has focus`, function() {
-      const fixture = createComponent<testComponents.DefaultOpen>(testComponents.DefaultOpen);
+      const fixture = createComponent<DefaultOpen>(DefaultOpen);
       fixture.detectChanges();
       const trigger = getTriggerInstance(fixture);
       const panel = getPanelInstance(fixture);
@@ -134,7 +146,7 @@ describe(`TsExpansionPanelComponent`, function() {
     });
 
     test(`should not have shadow when transparent mode is set`, () => {
-      const fixture = createComponent<testComponents.TransparentModePanel>(testComponents.TransparentModePanel);
+      const fixture = createComponent<TransparentModePanel>(TransparentModePanel);
       fixture.detectChanges();
       const triggerElement: HTMLElement = getTriggerElement(fixture);
       const panelContainerElement: HTMLElement = getPanelElement(fixture);
@@ -145,7 +157,7 @@ describe(`TsExpansionPanelComponent`, function() {
 
     describe(`Events`, function() {
       test(`should emit opened and closed events`, function() {
-        const fixture = createComponent<testComponents.Events>(testComponents.Events);
+        const fixture = createComponent<Events>(Events);
         fixture.detectChanges();
         const host = fixture.componentInstance;
         host.opened = jest.fn();
@@ -162,7 +174,7 @@ describe(`TsExpansionPanelComponent`, function() {
       });
 
       test(`should emit events when animations finish`, function() {
-        const fixture = createComponent<testComponents.Events>(testComponents.Events);
+        const fixture = createComponent<Events>(Events);
         fixture.detectChanges();
         const host = fixture.componentInstance;
         host.afterCollapse = jest.fn();
@@ -180,7 +192,7 @@ describe(`TsExpansionPanelComponent`, function() {
       });
 
       test(`should emit when destroyed`, function() {
-        const fixture = createComponent<testComponents.Events>(testComponents.Events);
+        const fixture = createComponent<Events>(Events);
         fixture.detectChanges();
         const host = fixture.componentInstance;
         const panel = getPanelInstance(fixture);
@@ -194,7 +206,7 @@ describe(`TsExpansionPanelComponent`, function() {
 
   describe(`Panel trigger`, function() {
     test(`should support title and descriptions`, function() {
-      const fixture = createComponent<testComponents.TriggerTitleDescription>(testComponents.TriggerTitleDescription);
+      const fixture = createComponent<TriggerTitleDescription>(TriggerTitleDescription);
       fixture.detectChanges();
       const title = getTriggerTitleElement(fixture);
       const description = getTriggerDescriptionElement(fixture);
@@ -204,7 +216,7 @@ describe(`TsExpansionPanelComponent`, function() {
     });
 
     test(`should have customizable collapsed and expanded heights`, fakeAsync(function() {
-      const fixture = createComponent<testComponents.CustomHeights>(testComponents.CustomHeights);
+      const fixture = createComponent<CustomHeights>(CustomHeights);
       fixture.detectChanges();
       const triggerElement: HTMLElement = getTriggerElement(fixture);
 
@@ -225,7 +237,7 @@ describe(`TsExpansionPanelComponent`, function() {
     }));
 
     test(`should be able to set custom heights & toggle visibility via provider configuration`, fakeAsync(function() {
-      const fixture = createComponent<testComponents.CustomDefaults>(testComponents.CustomDefaults);
+      const fixture = createComponent<CustomDefaults>(CustomDefaults);
       fixture.detectChanges();
       const triggerElement: HTMLElement = getTriggerElement(fixture);
 
@@ -249,7 +261,7 @@ describe(`TsExpansionPanelComponent`, function() {
     }));
 
     test(`should be able to hide the toggle icon`, function() {
-      const fixture = createComponent<testComponents.HideToggle>(testComponents.HideToggle);
+      const fixture = createComponent<HideToggle>(HideToggle);
       fixture.detectChanges();
       const triggerElement: HTMLElement = getTriggerElement(fixture);
       const toggleIcon = triggerElement.querySelector('.ts-expansion-panel__indicator');
@@ -258,7 +270,7 @@ describe(`TsExpansionPanelComponent`, function() {
     });
 
     test(`should pass program through to focus monitor`, function() {
-      const fixture = createComponent<testComponents.SinglePanel>(testComponents.SinglePanel);
+      const fixture = createComponent<SinglePanel>(SinglePanel);
       fixture.detectChanges();
       const trigger = getTriggerInstance(fixture);
       trigger['focusMonitor'].focusVia = jest.fn();
@@ -273,7 +285,7 @@ describe(`TsExpansionPanelComponent`, function() {
 
   describe(`Accessibility`, function() {
     test(`should have the correct role and aria labels on triggers`, function() {
-      const fixture = createComponent<testComponents.SinglePanel>(testComponents.SinglePanel);
+      const fixture = createComponent<SinglePanel>(SinglePanel);
       fixture.detectChanges();
       const triggerElement = getTriggerElement(fixture);
 
@@ -282,7 +294,7 @@ describe(`TsExpansionPanelComponent`, function() {
     });
 
     test(`should have the correct role and aria labels on panels`, function() {
-      const fixture = createComponent<testComponents.SinglePanel>(testComponents.SinglePanel);
+      const fixture = createComponent<SinglePanel>(SinglePanel);
       fixture.detectChanges();
       const panelDebugElement = getPanelDebugElement(fixture);
       const panelElement = panelDebugElement.nativeElement.querySelector('.ts-expansion-panel__content');
@@ -299,7 +311,7 @@ describe(`TsExpansionPanelComponent`, function() {
 
   describe(`contentContainsFocus`, function() {
     test(`should return false if the panel doesn't exist`, function() {
-      const fixture = createComponent<testComponents.SinglePanel>(testComponents.SinglePanel);
+      const fixture = createComponent<SinglePanel>(SinglePanel);
       fixture.detectChanges();
       const panel = getPanelInstance(fixture);
       panel.panelBody = undefined as any;

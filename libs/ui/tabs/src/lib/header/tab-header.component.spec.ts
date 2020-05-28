@@ -25,7 +25,8 @@ import {
   TsTabInkBarComponent,
   TsTabLabelWrapperDirective,
 } from '@terminus/ui-tabs';
-import * as testComponents from '@terminus/ui-tabs/testing';
+
+import * as testComponents from '../test-components';
 
 /**
  * Create fake keydown event

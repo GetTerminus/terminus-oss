@@ -30,14 +30,13 @@ import {
   typeInElement,
 } from '@terminus/ngx-tools/testing';
 import { TsFormFieldComponent } from '@terminus/ui-form-field';
-import * as TestComponents from '@terminus/ui-input/testing';
-// eslint-disable-next-line no-duplicate-imports
 import {
   getInputElement,
   getInputInstance,
   sendInput,
 } from '@terminus/ui-input/testing';
 
+import * as TestComponents from '../test-components';
 import { TsInputModule } from '../ui-input.module';
 
 describe(`TsInputComponent`, function() {
