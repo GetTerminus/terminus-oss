@@ -1,11 +1,7 @@
 import { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import {
-  TsFormFieldComponent,
-  TsLabelDirective,
-} from '@terminus/ui-form-field';
-import { TsInputComponent } from '@terminus/ui-input';
+import { TsFormFieldComponent } from '@terminus/ui-form-field';
 import { TsUILibraryError } from '@terminus/ui-utilities';
 
 /**
@@ -17,7 +13,7 @@ import { TsUILibraryError } from '@terminus/ui-utilities';
 export function getAllFormFieldInstances(fixture: ComponentFixture<any>): TsFormFieldComponent[] {
   const debugElements = fixture.debugElement.queryAll(By.directive(TsFormFieldComponent));
   if (!debugElements) {
-    throw new TsUILibraryError(`'getAllFormFieldInstances' found no inputs`);
+    throw new TsUILibraryError(`'getAllFormFieldInstances' found no form field components`);
   }
   return debugElements.map(i => i.componentInstance);
 }
@@ -26,8 +22,8 @@ export function getAllFormFieldInstances(fixture: ComponentFixture<any>): TsForm
  * Get a TsFormFieldComponent instance
  *
  * @param fixture - The component fixture
- * @param index - The index of the input to return
- * @returns The TsInputComponent instance
+ * @param index - The index of the form field to return
+ * @returns The TsFormFieldComponent instance
  */
 export function getFormFieldInstance(fixture: ComponentFixture<any>, index = 0): TsFormFieldComponent {
   const all = getAllFormFieldInstances(fixture);

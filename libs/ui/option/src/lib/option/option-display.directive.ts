@@ -9,7 +9,5 @@ import {
  */
 @Directive({ selector: '[tsOptionDisplay]' })
 export class TsOptionDisplayDirective {
-  constructor(
-    public elementRef: ElementRef,
-  ) {}
+  constructor(public elementRef: ElementRef) {}
 }
