@@ -1,0 +1,18 @@
+# Targeting all titles so that this label is added to every PR
+"PR: awaiting review":
+  title: '[\s\S]*'
+
+"Size: XS":
+  size-below: 20
+"Size: S":
+  size-above: 20
+  size-below: 60
+"Size: M":
+  size-above: 60
+  size-below: 140
+"Size: L":
+  size-above: 140
+  size-below: 400
+"Size: XL":
+  size-above: 400
+
