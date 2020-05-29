@@ -4,7 +4,6 @@ import { By } from '@angular/platform-browser';
 
 import { TsCohortDateRangeComponent } from '@terminus/ui-cohort-date-range';
 
-import { TsCohortDateRangeTestComponent } from './test-components';
 
 /* eslint-disable max-len */
 
@@ -15,7 +14,7 @@ import { TsCohortDateRangeTestComponent } from './test-components';
  * @returns DebugElement
  */
 export const getFormFieldElement =
-  (fixture: ComponentFixture<TsCohortDateRangeTestComponent>): HTMLElement => fixture.debugElement.query(By.css('.ts-form-field')).nativeElement;
+  (fixture: ComponentFixture<any>): HTMLElement => fixture.debugElement.query(By.css('.ts-form-field')).nativeElement;
 
 /**
  * Get the DebugElement for a TsCohortDateRangeComponent
@@ -24,8 +23,9 @@ export const getFormFieldElement =
  * @returns The DebugElement
  */
 export const getCohortDebugElement =
-  (fixture: ComponentFixture<TsCohortDateRangeTestComponent>): DebugElement => fixture.debugElement.query(By.directive(TsCohortDateRangeComponent));
+  (fixture: ComponentFixture<any>): DebugElement => fixture.debugElement.query(By.directive(TsCohortDateRangeComponent));
 
+// TODO: Move to select test helpers
 /**
  * Get the trigger element for a {@link TsSelectComponent} inside a {@link TsCohortDateRangeComponent}
  *
@@ -33,5 +33,5 @@ export const getCohortDebugElement =
  * @returns The element
  */
 export const getSelectTriggerElement =
-  (fixture: ComponentFixture<TsCohortDateRangeTestComponent>): HTMLElement => fixture.debugElement.query(By.css('.ts-select-trigger')).nativeElement as HTMLElement;
+  (fixture: ComponentFixture<any>): HTMLElement => fixture.debugElement.query(By.css('.ts-select-trigger')).nativeElement as HTMLElement;
 

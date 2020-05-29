@@ -20,7 +20,7 @@ sed -i.bak "/\/\*.*\*\//d;/\/\*/,/\*\// d" libs/ui/styles/src/helpers-generated.
 sed -i.bak '/\/\//d' libs/ui/styles/src/helpers-generated.scss
 
 echo "Cleaning generated SCSS before conversion.."
-sass-convert -i libs/ui/styles/src/helpers-generated.scss
+npx sass-convert -i libs/ui/styles/src/helpers-generated.scss
 
 echo "Bundling CSS.."
 npx node-sass-chokidar --source-map true libs/ui/styles/src/lib/terminus-ui.scss -o libs/ui/styles/src --importer=node_modules/node-sass-tilde-importer

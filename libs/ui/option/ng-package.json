@@ -5,10 +5,7 @@
     "entryFile": "src/index.ts",
     "umdModuleIds": {
       "@terminus/ngx-tools/keycodes": "terminus.ngxTools.keycodes",
-      "@terminus/ui-checkbox": "terminus.ui-checkbox",
-      "@terminus/ui-form-field": "terminus.ui-form-field",
-      "@terminus/ui-icon": "terminus.ui-icon",
-      "@terminus/ui-input": "terminus.ui-input"
+      "@terminus/ui-checkbox": "terminus.ui-checkbox"
     }
   }
 }

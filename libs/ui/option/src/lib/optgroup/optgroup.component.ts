@@ -12,7 +12,6 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-
 import { TsCheckboxComponent } from '@terminus/ui-checkbox';
 
 import {

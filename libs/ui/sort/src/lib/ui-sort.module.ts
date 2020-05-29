@@ -1,13 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-
 import { TsIconModule } from '@terminus/ui-icon';
 
 import { TS_SORT_HEADER_INTL_PROVIDER } from './sort-header/sort-header-intl';
 import { TsSortHeaderComponent } from './sort-header/sort-header.component';
 import { TsSortDirective } from './sort/sort.directive';
-
 
 export * from './sort-header/sort-animations';
 export * from './sort-header/sort-header-intl';
