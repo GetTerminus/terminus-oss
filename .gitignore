@@ -4,6 +4,10 @@
 /dist
 /tmp
 /out-tsc
+/libs/ui/styles/src/terminus-ui.css
+/libs/ui/styles/src/terminus-ui.css.map
+/libs/ui/styles/src/helpers-generated.scss
+/libs/ui/styles/src/helpers-generated.scss.bak
 
 # dependencies
 /node_modules

@@ -220,7 +220,7 @@
         "dist/libs/ui/spacing",
         "libs/ui/spacing/src/index.ts"
       ],
-      "@terminus/ui/styles": [
+      "@terminus/ui-styles": [
         "dist/libs/ui/styles",
         "libs/ui/styles/src/index.ts"
       ],

@@ -193,7 +193,6 @@
     "postcss-cli": "^7.1.1",
     "remap-istanbul": "0.13.0",
     "rimraf": "3.0.2",
-    "sass-convert": "^0.5.2",
     "sass-module-importer": "1.4.0",
     "sass-true": "5.0.0",
     "scss-bundle": "3.1.2",
