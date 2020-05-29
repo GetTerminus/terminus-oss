@@ -1,12 +1,7 @@
 <h1>Confirmation</h1>
 
-[![CI/CD Status][github-action-badge]][github-action-link]  
-[![Codecov][codecov-badge]][codecov-project]  
-[![MIT License][license-image]][license-url]  
-<br>  
-[![NPM version][npm-version-image]][npm-package]  
-[![Github release][gh-release-badge]][gh-releases]  
-[![Library size][file-size-badge]][raw-distribution-js]
+[![CI/CD Status][github-action-badge]][github-action-link] [![Codecov][codecov-badge]][codecov-project] [![MIT License][license-image]][license-url]  
+[![NPM version][npm-version-image]][npm-package] [![Github release][gh-release-badge]][gh-releases] [![Library size][file-size-badge]][raw-distribution-js]
 
 This directive can be attached to any `<ts-button>` to enable a confirmation step before triggering
 the button's action.

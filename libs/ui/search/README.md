@@ -1,12 +1,7 @@
 <h1>Search</h1>
 
-[![CI/CD Status][github-action-badge]][github-action-link]  
-[![Codecov][codecov-badge]][codecov-project]  
-[![MIT License][license-image]][license-url]  
-<br>  
-[![NPM version][npm-version-image]][npm-package]  
-[![Github release][gh-release-badge]][gh-releases]  
-[![Library size][file-size-badge]][raw-distribution-js]
+[![CI/CD Status][github-action-badge]][github-action-link] [![Codecov][codecov-badge]][codecov-project] [![MIT License][license-image]][license-url]  
+[![NPM version][npm-version-image]][npm-package] [![Github release][gh-release-badge]][gh-releases] [![Library size][file-size-badge]][raw-distribution-js]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
