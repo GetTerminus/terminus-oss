@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-
-import { TsIconModule } from '@terminus/ui-icon';
-
 
 import { TsAutofocusModule } from '@terminus/ui-autofocus';
 import { TsButtonModule } from '@terminus/ui-button';
 import { TsCheckboxModule } from '@terminus/ui-checkbox';
+import { TsIconModule } from '@terminus/ui-icon';
+import { TsInputModule } from '@terminus/ui-input';
 import { TsLinkModule } from '@terminus/ui-link';
-import { ComponentsComponent } from './components/components.component';
-import { AppComponent } from './app.component';
+
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ComponentsComponent } from './components/components.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     AppRoutingModule,
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -29,7 +31,7 @@ import { AppRoutingModule } from './app-routing.module';
     TsButtonModule,
     TsCheckboxModule,
     TsIconModule,
-    TsIconModule,
+    TsInputModule,
     TsLinkModule,
   ],
   providers: [],
