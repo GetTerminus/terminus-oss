@@ -2285,8 +2285,7 @@
               "!libs/ui/spacing/**"
             ],
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/spacing/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/spacing/**/!(*.spec).scss'" }
+              { "command": "yarn run lint:ts 'libs/ui/spacing/**/*.{js,ts}'" }
             ]
           }
         },

@@ -666,9 +666,9 @@ describe(`TsAutocompleteComponent`, function() {
         option.deselect();
         fixture.detectChanges();
 
-        expect(option['emitSelectionChangeEvent'].mock.calls.length).toEqual(1);
+        expect((option['emitSelectionChangeEvent'] as jest.Mock).mock.calls.length).toEqual(1);
         // Verify it was not called with the boolean
-        expect(option['emitSelectionChangeEvent'].mock.calls[0]).toEqual([]);
+        expect((option['emitSelectionChangeEvent'] as jest.Mock).mock.calls[0]).toEqual([]);
       });
     });
 

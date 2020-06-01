@@ -1,5 +1,5 @@
 name: PR Labeler
-on: pull_request
+on: deployment_status
 jobs:
   build:
     runs-on: ubuntu-latest

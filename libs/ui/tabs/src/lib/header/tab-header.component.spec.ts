@@ -703,7 +703,7 @@ describe(`TsTabHeaderComponent`, function() {
         hostComponent.tabHeader.labelWrappers = undefined as any;
         hostComponent.tabHeader['scrollTo'] = jest.fn();
 
-        expect(hostComponent.tabHeader['scrollToLabel']()).toEqual(undefined);
+        expect(hostComponent.tabHeader['scrollToLabel'](void 0 as any)).toEqual(undefined);
         expect(hostComponent.tabHeader['scrollTo']).not.toHaveBeenCalled();
       });
     });

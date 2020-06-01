@@ -1,5 +1,5 @@
 name: Auto Assign PR to Author
-on: [pull_request]
+on: [deployment_status]
 jobs:
   assignAuthor:
     runs-on: ubuntu-latest

@@ -1,5 +1,5 @@
 name: Label Approved PRs
-on: pull_request_review
+on: deployment_status
 jobs:
   labelWhenApproved:
     name: Label when approved
