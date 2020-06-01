@@ -2,3 +2,6 @@
 @import 'style-helpers/theme';
 @import '../helpers-generated';
 @import 'generated-classes';
+
+// Include our custom theme
+@include angular-material-theme($ts-app-theme);
