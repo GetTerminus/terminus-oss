@@ -108,7 +108,7 @@
     "@ngrx/effects": "9.1.2",
     "@ngrx/store": "9.1.2",
     "@nrwl/angular": "9.3.0",
-    "@terminus/design-tokens": "1.0.10",
+    "@terminus/design-tokens": "./dist/libs/design-tokens",
     "@terminus/ngx-tools": "8.0.5",
     "@terminus/ui-styles": "./dist/libs/ui/styles",
     "@w11k/ngx-componentdestroyed": "5.0.2",

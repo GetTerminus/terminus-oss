@@ -5,7 +5,6 @@
 # Exit when any command fails
 set -e
 
-
 echo "Creating destination directory.."
 mkdir -p dist/libs/ui/styles
 
@@ -28,3 +27,12 @@ cp libs/ui/styles/src/terminus-ui.css dist/libs/ui/styles/terminus-ui.css
 echo "Copying non-CSS files to destination.."
 cp libs/ui/styles/README.md dist/libs/ui/styles
 cp libs/ui/styles/package.json dist/libs/ui/styles
+
+echo "Cleaning up files.."
+rm libs/ui/styles/src/helpers-generated.scss
+rm libs/ui/styles/src/helpers-generated.scss.bak
+rm libs/ui/styles/src/terminus-ui.css
+rm libs/ui/styles/src/terminus-ui.css.map
+
+echo "Copying files to node_modules.."
+npx cpr dist/libs/ui/styles node_modules/@terminus/ui-styles --overwrite
