@@ -130,7 +130,7 @@
 @mixin visually-hidden {
   $smallest-adjustment: 1px;
   border: 0;
-  //noinspection CssInvalidPropertyValue
+  // noinspection CssInvalidPropertyValue
   clip-path: rect(0, 0, 0, 0);
   // Not all styles apply to inline elements
   display: block;

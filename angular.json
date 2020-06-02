@@ -91,8 +91,7 @@
               "!apps/showcase-tokens/**"
             ],
             "commands": [
-              { "command": "yarn run lint:ts 'apps/showcase-tokens/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'apps/showcase-tokens/**/!(*.spec).scss'" }
+              { "command": "yarn run lint:ts 'apps/showcase-tokens/**/*.{js,ts}'" }
             ]
           }
         },
@@ -136,8 +135,7 @@
               "!apps/showcase-tokens-e2e/**"
             ],
             "commands": [
-              { "command": "yarn run lint:ts 'apps/showcase-tokens-e2e/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'apps/showcase-tokens-e2e/**/!(*.spec).scss'" }
+              { "command": "yarn run lint:ts 'apps/showcase-tokens-e2e/**/*.{js,ts}'" }
             ]
           }
         }
@@ -233,8 +231,7 @@
               "!apps/showcase-ui/**"
             ],
             "commands": [
-              { "command": "yarn run lint:ts 'apps/showcase-ui/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'apps/showcase-ui/**/!(*.spec).scss'" }
+              { "command": "yarn run lint:ts 'apps/showcase-ui/**/*.{js,ts}'" }
             ]
           }
         },
@@ -278,8 +275,7 @@
               "!apps/showcase-ui-e2e/**"
             ],
             "commands": [
-              { "command": "yarn run lint:ts 'apps/showcase-ui-e2e/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'apps/showcase-ui-e2e/**/!(*.spec).scss'" }
+              { "command": "yarn run lint:ts 'apps/showcase-ui-e2e/**/*.{js,ts}'" }
             ]
           }
         }
@@ -418,8 +414,7 @@
               "!apps/vr-e2e/**"
             ],
             "commands": [
-              { "command": "yarn run lint:ts 'apps/vr-e2e/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'apps/vr-e2e/**/!(*.spec).scss'" }
+              { "command": "yarn run lint:ts 'apps/vr-e2e/**/*.{js,ts}'" }
             ]
           }
         }
