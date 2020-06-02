@@ -1,6 +1,17 @@
 {
   "name": "@terminus/ui-input",
   "version": "0.0.0-PLACEHOLDER",
+  "license": "MIT",
+  "author": "@terminus",
+  "private": false,
+  "homepage": "https://github.com/GetTerminus/terminus-oss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GetTerminus/terminus-oss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GetTerminus/terminus-oss/issues"
+  },
   "peerDependencies": {
     "@angular/material": "9.2.3",
     "@angular/common": "^9.1.0",
