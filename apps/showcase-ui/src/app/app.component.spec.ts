@@ -1,11 +1,15 @@
-import { TestBed, async } from '@angular/core/testing';
-
-import { AppComponent } from './app.component';
+import {
+  TestBed,
+  async,
+} from '@angular/core/testing';
 
 import { TsButtonModule } from '@terminus/ui-button';
 import { TsCheckboxModule } from '@terminus/ui-checkbox';
 import { TsIconModule } from '@terminus/ui-icon';
+import { TsInputModule } from '@terminus/ui-input';
 import { TsLinkModule } from '@terminus/ui-link';
+
+import { AppComponent } from './app.component';
 
 describe(`AppComponent`, () => {
   beforeEach(async(() => {
@@ -15,6 +19,7 @@ describe(`AppComponent`, () => {
         TsLinkModule,
         TsButtonModule,
         TsIconModule,
+        TsInputModule,
       ],
       declarations: [AppComponent],
     }).compileComponents();

@@ -24,7 +24,7 @@ jobs:
   # Build affected projects
   #
   affected_build:
-    name: Compile all affected projects
+    name: Compile affected projects
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -59,14 +59,14 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: built-libs
-          path: dist/libs
+          path: dist/
         if: env.SHOULD_RUN == 'true'
 
   #
   # Test affected projects
   #
   affected_test:
-    name: Test Library
+    name: Test affected projects
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -104,14 +104,14 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: code-coverage-report
-          path: coverage/lcov-report
+          path: coverage/
         if: env.SHOULD_RUN == 'true'
 
   #
   # Lint affected projects
   #
   affected_lint:
-    name: Lint
+    name: Lint affected projects
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -139,6 +139,6 @@ jobs:
         if: env.SHOULD_RUN == 'true'
       - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
-      - name: Lint all library files
+      - name: Lint files
         run: yarn nx affected:lint --base=origin/master --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'

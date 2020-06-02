@@ -374,8 +374,7 @@
               "!apps/vr/**"
             ],
             "commands": [
-              { "command": "yarn run lint:ts 'apps/vr/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'apps/vr/**/!(*.spec).scss'" }
+              { "command": "yarn run lint:ts 'apps/vr/**/*.{js,ts}'" }
             ]
           }
         },
