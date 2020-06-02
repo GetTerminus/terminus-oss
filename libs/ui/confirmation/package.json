@@ -13,12 +13,15 @@
     "url": "https://github.com/GetTerminus/terminus-oss/issues"
   },
   "peerDependencies": {
+    "@angular/cdk": "^9.1.0",
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
+    "@angular/flex-layout": "~9.0.0-beta.29",
     "@terminus/design-tokens": "^1.0.10",
     "@terminus/ngx-tools": "^8.0.5",
-    "@terminus/ui-button": "*",
-    "@terminus/ui-spacing": "*",
+    "@terminus/ui-button": "^0.0.1",
+    "@terminus/ui-spacing": "^0.0.1",
+    "rxjs": "^6.5.0",
     "tslib": "^1.10.0"
   }
 }

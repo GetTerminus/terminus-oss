@@ -1,6 +1,6 @@
 {
   "name": "@terminus/ui-chart",
-  "version": "0.0.1",
+  "version": "0.0.0-PLACEHOLDER",
   "license": "MIT",
   "author": "@terminus",
   "private": false,
@@ -17,9 +17,10 @@
     "@amcharts/amcharts4-geodata": "^4.1.14",
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
+    "@angular/platform-browser": "^9.1.0",
     "@terminus/design-tokens": "^1.0.10",
     "@terminus/ngx-tools": "^8.0.5",
-    "@terminus/ui-utilities": "*",
+    "@terminus/ui-utilities": "^0.0.1",
     "tslib": "^1.10.0"
   }
 }

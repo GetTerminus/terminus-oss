@@ -39,7 +39,7 @@ module.exports = {
   scopes: [
     { name: 'CI' },
     { name: 'DesignTokens' },
-    { name: 'Packages' },
+    { name: 'Dependencies' },
     { name: 'Showcase' },
     { name: 'UI' },
     { name: 'Utility' },

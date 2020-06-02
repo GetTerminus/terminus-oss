@@ -15,8 +15,14 @@
   "peerDependencies": {
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
+    "@angular/animations": "^9.1.0",
+    "@angular/cdk": "^9.1.0",
+    "@angular/flex-layout": "~9.0.0-beta.29",
+    "@angular/material": "^9.1.0",
+    "@angular/platform-browser": "^9.1.0",
     "@terminus/design-tokens": "^1.0.10",
     "@terminus/ngx-tools": "^8.0.5",
+    "rxjs": "^6.5.0",
     "tslib": "^1.10.0"
   }
 }

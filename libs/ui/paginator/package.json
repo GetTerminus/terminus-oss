@@ -15,13 +15,16 @@
   "peerDependencies": {
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
+    "@angular/flex-layout": "~9.0.0-beta.29",
+    "@angular/forms": "^9.1.0",
+    "@angular/platform-browser": "^9.1.0",
     "@terminus/design-tokens": "^1.0.10",
     "@terminus/ngx-tools": "^8.0.5",
-    "@terminus/ui-button": "*",
-    "@terminus/ui-menu": "*",
-    "@terminus/ui-option": "*",
-    "@terminus/ui-selection-list": "*",
-    "@terminus/ui-tooltip": "*",
+    "@terminus/ui-button": "^0.0.1",
+    "@terminus/ui-menu": "^0.0.1",
+    "@terminus/ui-option": "^0.0.1",
+    "@terminus/ui-selection-list": "^0.0.1",
+    "@terminus/ui-tooltip": "^0.0.1",
     "tslib": "^1.10.0"
   }
 }

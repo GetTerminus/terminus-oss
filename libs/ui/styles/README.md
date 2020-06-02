@@ -1,7 +1,7 @@
 <h1>Styles</h1>
 
 [![CI/CD Status][github-action-badge]][github-action-link] [![Codecov][codecov-badge]][codecov-project] [![MIT License][license-image]][license-url]  
-[![NPM version][npm-version-image]][npm-package] [![Github release][gh-release-badge]][gh-releases] [![Library size][file-size-badge]][raw-distribution-js]
+[![NPM version][npm-version-image]][npm-package] [![Github release][gh-release-badge]][gh-releases] [![Library size][file-size-badge]][raw-distribution-css]
 
 A collection of base CSS for the UI library and a collection of SCSS mixins and functions.
 
@@ -52,5 +52,5 @@ Import helper mixins in any SCSS file that needs access:
 [gh-releases]:         https://github.com/GetTerminus/terminus-ui/releases/
 [github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/CI%20Release/badge.svg
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
-[file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-styles/bundles/terminus-ui-styles.umd.min.js?compression=gzip
-[raw-distribution-js]: https://unpkg.com/@terminus/ui-styles/bundles/terminus-ui-styles.umd.js
+[file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-styles/terminus-ui.css?compression=gzip
+[raw-distribution-css]: https://unpkg.com/@terminus/ui-styles/terminus-ui.css

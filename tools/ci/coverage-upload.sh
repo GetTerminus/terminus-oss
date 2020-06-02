@@ -15,11 +15,9 @@
 #   upload_coverage path/to/coverage/dir
 #
 upload_coverage () {
-  FILES=$(find $1 -name 'coverage-final.json')
+  FILES=$(find "$1" -name 'coverage-final.json')
   PREFIX=$1
   SUFFIX='/coverage-final.json'
-  echo $PREFIX
-  echo $SUFFIX
 
   for FILE in $FILES
   do
@@ -30,7 +28,7 @@ upload_coverage () {
     # Remove the remaining slash prefix
     TAG=${TAG//\/}
     echo "Uploading coverage for \"$FILE\" tagged as \"$TAG\""
-    bash <(curl https://codecov.io/bash) -f $FILE -F $TAG || echo "Codecov failed to upload coverage for $FILE"
+    bash <(curl https://codecov.io/bash) -f "$FILE" -F "$TAG" || echo "Codecov failed to upload coverage for $FILE"
   done
 }
 
@@ -38,5 +36,5 @@ upload_coverage () {
 LOCATIONS=('coverage/libs/ui' 'coverage/apps')
 
 for L in "${LOCATIONS[@]}"; do
-  upload_coverage $L
+  upload_coverage "$L"
 done

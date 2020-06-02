@@ -15,9 +15,11 @@
   "peerDependencies": {
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
+    "@angular/forms": "^9.1.0",
+    "@angular/material": "^9.1.0",
     "@terminus/design-tokens": "^1.0.10",
     "@terminus/ngx-tools": "^8.0.5",
-    "@terminus/ui-utilities": "*",
+    "@terminus/ui-utilities": "^0.0.1",
     "tslib": "^1.10.0"
   }
 }
