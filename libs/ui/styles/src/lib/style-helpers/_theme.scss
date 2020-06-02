@@ -1,6 +1,5 @@
-@import "color";
+@import 'color';
 @import '~@angular/material/theming';
-@include mat-core;
 
 $ts-default-primary: mat-palette($ts-material-primary, 500, 100, 700);
 $ts-default-accent:  mat-palette($ts-material-accent, 500, 100, 700);

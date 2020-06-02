@@ -1,19 +1,35 @@
 {
   "name": "@terminus/ui-file-upload",
   "version": "0.0.0-PLACEHOLDER",
+  "license": "MIT",
+  "author": "@terminus",
+  "private": false,
+  "homepage": "https://github.com/GetTerminus/terminus-oss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GetTerminus/terminus-oss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GetTerminus/terminus-oss/issues"
+  },
   "peerDependencies": {
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
+    "@angular/forms": "^9.1.0",
+    "@angular/platform-browser": "^9.1.0",
+    "@angular/flex-layout": "~9.0.0-beta.29",
+    "@angular/material": "^9.1.0",
     "@terminus/design-tokens": "^1.0.10",
     "@terminus/ngx-tools": "^8.0.5",
-    "@terminus/ui-button": "*",
-    "@terminus/ui-icon": "*",
-    "@terminus/ui-icon-button": "*",
-    "@terminus/ui-pipes": "*",
-    "@terminus/ui-spacing": "*",
-    "@terminus/ui-tooltip": "*",
-    "@terminus/ui-utilities": "*",
-    "@terminus/ui-validation-messages": "*",
+    "@terminus/ui-button": "^0.0.1",
+    "@terminus/ui-icon": "^0.0.1",
+    "@terminus/ui-icon-button": "^0.0.1",
+    "@terminus/ui-pipes": "^0.0.1",
+    "@terminus/ui-spacing": "^0.0.1",
+    "@terminus/ui-tooltip": "^0.0.1",
+    "@terminus/ui-utilities": "^0.0.1",
+    "@terminus/ui-validation-messages": "^0.0.1",
+    "rxjs": "^6.5.0",
     "tslib": "^1.10.0"
   }
 }

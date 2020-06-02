@@ -12,22 +12,206 @@ coverage:
       unit:
         flags: unit
 
+comment:
+  layout: "reach, diff, flags, files"
+  behavior: default
+
+
 flags:
-  unit:
+  # Apps:
+  showcase-tokens:
     paths:
-      - terminus-ui/
+      - apps/showcase-tokens/
+  showcase-ui:
+    paths:
+      - apps/showcase-ui/
+
+  # Libs:
+  autocomplete:
+    paths:
+      - libs/ui/autocomplete/
+    carryforward: true
+  autofocus:
+    paths:
+      - libs/ui/autofocus/
+    carryforward: true
+  button:
+    paths:
+      - libs/ui/button/
+    carryforward: true
+  card:
+    paths:
+      - libs/ui/card/
+    carryforward: true
+  chart:
+    paths:
+      - libs/ui/chart/
+    carryforward: true
+  checkbox:
+    paths:
+      - libs/ui/checkbox/
+    carryforward: true
+  chip:
+    paths:
+      - libs/ui/chip/
+    carryforward: true
+  cohort-date-range:
+    paths:
+      - libs/ui/cohort-date-range/
+    carryforward: true
+  confirmation:
+    paths:
+      - libs/ui/confirmation/
+    carryforward: true
+  copy:
+    paths:
+      - libs/ui/copy/
+    carryforward: true
+  csv-entry:
+    paths:
+      - libs/ui/csv-entry/
+    carryforward: true
+  date-range:
+    paths:
+      - libs/ui/date-range/
+    carryforward: true
+  drawer:
+    paths:
+      - libs/ui/drawer/
+    carryforward: true
+  expxansion-panel:
+    paths:
+      - libs/ui/expansion-panel/
+    carryforward: true
+  file-upload:
+    paths:
+      - libs/ui/file-upload/
+    carryforward: true
+  form-field:
+    paths:
+      - libs/ui/form-field/
+    carryforward: true
+  icon:
+    paths:
+      - libs/ui/icon/
+    carryforward: true
+  icon-button:
+    paths:
+      - libs/ui/icon-button/
+    carryforward: true
+  input:
+    paths:
+      - libs/ui/input/
+    carryforward: true
+  link:
+    paths:
+      - libs/ui/link/
+    carryforward: true
+  loading-overlay:
+    paths:
+      - libs/ui/loading-overlay/
+    carryforward: true
+  login-form:
+    paths:
+      - libs/ui/login-form/
+    carryforward: true
+  logo:
+    paths:
+      - libs/ui/logo/
+    carryforward: true
+  menu:
+    paths:
+      - libs/ui/menu/
+    carryforward: true
+  navigation:
+    paths:
+      - libs/ui/navigation/
+    carryforward: true
+  option:
+    paths:
+      - libs/ui/option/
+    carryforward: true
+  paginator:
+    paths:
+      - libs/ui/paginator/
+    carryforward: true
+  pipes:
+    paths:
+      - libs/ui/pipes/
+    carryforward: true
+  popover:
+    paths:
+      - libs/ui/popover/
+    carryforward: true
+  radio-group:
+    paths:
+      - libs/ui/radio-group/
+    carryforward: true
+  scrollbars:
+    paths:
+      - libs/ui/scrollbars/
+    carryforward: true
+  seach:
+    paths:
+      - libs/ui/search/
+    carryforward: true
+  select:
+    paths:
+      - libs/ui/select/
+    carryforward: true
+  selection-list:
+    paths:
+      - libs/ui/selection-list/
+    carryforward: true
+  sort:
+    paths:
+      - libs/ui/sort/
+    carryforward: true
+  spacing:
+    paths:
+      - libs/ui/spacing/
+    carryforward: true
+  styles:
+    paths:
+      - libs/ui/styles/
+    carryforward: true
+  table:
+    paths:
+      - libs/ui/table/
+    carryforward: true
+  tabs:
+    paths:
+      - libs/ui/tabs/
+    carryforward: true
+  toggle:
+    paths:
+      - libs/ui/toggle/
+    carryforward: true
+  tooltip:
+    paths:
+      - libs/ui/tooltip/
+    carryforward: true
+  utilities:
+    paths:
+      - libs/ui/utilities/
+    carryforward: true
+  validation-messages:
+    paths:
+      - libs/ui/validation-messages/
+    carryforward: true
+  validators:
+    paths:
+      - libs/ui/validators/
+    carryforward: true
 
 ignore:
   - "coverage"
   - "dist"
-  - "build"
   - "docs"
-  # TODO: Remove 'integration' from this list when enabling integration tests
-  - "integration"
   - "node_modules"
   - "out-tsc"
-  - "demo/app"
+  - "apps/vr"
   - "tooling"
-  - "terminus-ui/src/**/*.spec.ts"
-  - "terminus-ui/src/**/*.mock.ts"
+  - "libs/**/*.spec.ts"
+  - "libs/**/*.mock.ts"
 

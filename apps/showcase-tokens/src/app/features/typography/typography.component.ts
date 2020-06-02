@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import TOKENS_TREE from '@terminus/design-tokens/js/design-tokens-tree';
 
 import { SettingsService } from '../../services/settings.service';

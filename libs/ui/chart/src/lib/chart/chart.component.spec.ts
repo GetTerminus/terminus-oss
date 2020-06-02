@@ -107,7 +107,7 @@ describe(`ChartComponent`, function() {
       tick();
       const component = getChartInstance(fixture);
       component.chart.dispose = jest.fn();
-      component['createChart']();
+      component['createChart'](void 0 as any);
 
       expect(component.chart.dispose).toHaveBeenCalled();
     }));

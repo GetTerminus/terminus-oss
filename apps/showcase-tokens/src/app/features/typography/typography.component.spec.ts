@@ -1,10 +1,13 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+} from '@angular/core/testing';
 import { BehaviorSubject } from 'rxjs';
 
-import { TypographyComponent } from './typography.component';
-
 import { TokensService } from '../../services/tokens.service';
+import { TypographyComponent } from './typography.component';
 
 export class TokensServiceMock {
   tokens$ = new BehaviorSubject<Record<string, any>>({

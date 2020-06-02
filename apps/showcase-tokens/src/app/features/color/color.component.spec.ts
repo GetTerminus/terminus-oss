@@ -1,18 +1,16 @@
 import { APP_BASE_HREF } from '@angular/common';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import {
   async,
   ComponentFixture,
   TestBed,
 } from '@angular/core/testing';
-import {
-  Injectable,
-  NO_ERRORS_SCHEMA,
-} from '@angular/core';
 import { RouterModule } from '@angular/router';
-import TOKENS_TREE from '@terminus/design-tokens/js/design-tokens-tree';
 import { BehaviorSubject } from 'rxjs';
-import { TokensService } from '../../services/tokens.service';
 
+import TOKENS_TREE from '@terminus/design-tokens/js/design-tokens-tree';
+
+import { TokensService } from '../../services/tokens.service';
 import { ColorComponent } from './color.component';
 
 export class TokensServiceMock {

@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
-import TOKENS_TREE from '@terminus/design-tokens/js/design-tokens-tree';
 import { BehaviorSubject } from 'rxjs';
+
+import TOKENS_TREE from '@terminus/design-tokens/js/design-tokens-tree';
 
 @Injectable({ providedIn: 'root' })
 export class TokensService {
   public tokens$ = new BehaviorSubject<Record<string, any>|null>(null);
 
-  constructor() { }
+  constructor() {
+    this.updateTokens();
+  }
 
   /**
    * Update the tokens stream with the latest tokens

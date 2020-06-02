@@ -1,0 +1,11 @@
+name: Auto Assign PR to Author
+on: [deployment_status]
+jobs:
+  assignAuthor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign PR to Author
+        uses: samspills/assign-pr-to-author@v1.0
+        if: github.event_name == 'pull_request' && github.event.action == 'opened' && github.repository == 'GetTerminus/terminus-ui'
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'

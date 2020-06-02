@@ -1,4 +1,4 @@
-@import "~@terminus/ui-styles/helpers";
+@import '~@terminus/ui-styles/helpers';
 
 //
 // @component
@@ -12,7 +12,7 @@
 
   // Top level styles should be nested here
   .c-validation-message {
-    @include typography('caption');
+    @include typography(caption);
     color: color(warn);
     z-index: z(tooltip);
   }

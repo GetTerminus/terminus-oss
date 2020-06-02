@@ -1,9 +1,9 @@
 module.exports = {
   clearMocks: true,
   coverageReporters: [
+    'json',
     'html',
     // [
-    //   'jest-junit',
     //   {
     //     outputDirectory: '/coverage/junit/',
     //     outputName: 'report.xml',
@@ -27,3 +27,7 @@ module.exports = {
     '/node_modules/(?!@ngrx|popper)',
   ],
 };
+
+
+// [coverage-badge]: https://codecov.io/gh/ethereumjs/ethereumjs-vm/branch/master/graph/badge.svg
+// [account-coverage-badge]: https://codecov.io/gh/ethereumjs/ethereumjs-vm/branch/master/graph/badge.svg?flag=account

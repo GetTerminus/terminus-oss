@@ -1,13 +1,25 @@
 {
   "name": "@terminus/ui-menu",
   "version": "0.0.0-PLACEHOLDER",
+  "license": "MIT",
+  "author": "@terminus",
+  "private": false,
+  "homepage": "https://github.com/GetTerminus/terminus-oss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GetTerminus/terminus-oss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GetTerminus/terminus-oss/issues"
+  },
   "peerDependencies": {
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
+    "@angular/material": "^9.1.0",
     "@terminus/design-tokens": "^1.0.10",
     "@terminus/ngx-tools": "^8.0.5",
-    "@terminus/ui-button": "*",
-    "@terminus/ui-icon": "*",
+    "@terminus/ui-button": "^0.0.1",
+    "@terminus/ui-icon": "^0.0.1",
     "tslib": "^1.10.0"
   }
 }

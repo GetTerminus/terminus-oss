@@ -276,10 +276,10 @@ describe(`TsExpansionPanelComponent`, function() {
       trigger['focusMonitor'].focusVia = jest.fn();
 
       trigger.focus();
-      expect(trigger['focusMonitor'].focusVia.mock.calls[0][1]).toEqual('program');
+      expect((trigger['focusMonitor'].focusVia as jest.Mock).mock.calls[0][1]).toEqual('program');
 
       trigger.focus('keyboard');
-      expect(trigger['focusMonitor'].focusVia.mock.calls[1][1]).toEqual('keyboard');
+      expect((trigger['focusMonitor'].focusVia as jest.Mock).mock.calls[1][1]).toEqual('keyboard');
     });
   });
 

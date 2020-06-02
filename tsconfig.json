@@ -266,7 +266,7 @@
       ],
       "@terminus/ui-validation-messages/testing": [
         "dist/libs/ui/validation-messages/testing",
-        "libs/ui/tooltip/validation-messages/src/index.ts"
+        "libs/ui/validation-messages/testing/src/index.ts"
       ],
       "@terminus/ui-validators": [
         "dist/libs/ui/validators",

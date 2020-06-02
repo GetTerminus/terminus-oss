@@ -656,7 +656,8 @@ describe(`TsInputComponent`, function() {
         instance['autofillMonitor'].stopMonitoring = jest.fn();
 
         expect(instance.autofilled).toEqual(false);
-        instance['autofillMonitor'].fireMockFillEvent();
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+        (instance['autofillMonitor'] as any).fireMockFillEvent();
         fixture.detectChanges();
         tick(1000);
         fixture.detectChanges();

@@ -1,0 +1,144 @@
+name: PR CI
+on: pull_request
+
+jobs:
+  #
+  # Cancel any workflows that would be duplicated by this run
+  #
+  cleanup-runs:
+    name: Cancel Duplicates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - run: |
+          git fetch --no-tags --prune --depth=5 origin master
+      - uses: rokroskar/workflow-run-cleanup-action@master
+        env:
+          GITHUB_TOKEN: "${{ secrets.GH_TOKEN }}"
+    if: "!startsWith(github.ref, 'refs/tags/') && github.ref != 'refs/heads/master'"
+
+  #
+  # Build affected projects
+  #
+  affected_build:
+    name: Compile affected projects
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - run: |
+          git fetch --no-tags --prune --depth=5 origin master
+      - name: Check last commit message
+        id: skip
+        uses: atlwendy/retrieve-commit-messages-from-pr@v2
+      - name: Set SHOULD_RUN flag
+        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+        if: env.SHOULD_RUN == 'true'
+      - name: Cache node_modules
+        id: cache_node_modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+        if: env.SHOULD_RUN == 'true'
+      - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile --non-interactive
+      - name: Build affected projects
+        run: yarn nx affected:build --prod --base=origin/master --head=${{ github.event.pull_request.head.ref }}
+        if: env.SHOULD_RUN == 'true'
+      - name: Upload built files
+        uses: actions/upload-artifact@v1
+        with:
+          name: built-libs
+          path: dist/
+        if: env.SHOULD_RUN == 'true'
+
+  #
+  # Test affected projects
+  #
+  affected_test:
+    name: Test affected projects
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - run: |
+          git fetch --no-tags --prune --depth=5 origin master
+      - name: Check last commit message
+        id: skip
+        uses: atlwendy/retrieve-commit-messages-from-pr@v2
+      - name: Set SHOULD_RUN flag
+        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+        if: env.SHOULD_RUN == 'true'
+      - name: Cache node_modules
+        id: cache_node_modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+        if: env.SHOULD_RUN == 'true'
+      - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile --non-interactive
+      - name: Test affected projects
+        run: yarn nx affected:test --base=origin/master --head=${{ github.event.pull_request.head.ref }} --codeCoverage
+        if: env.SHOULD_RUN == 'true'
+      - name: Upload coverage results to CodeCov
+        run: tools/ci/coverage-upload.sh
+        if: env.SHOULD_RUN == 'true'
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v1
+        with:
+          name: code-coverage-report
+          path: coverage/
+        if: env.SHOULD_RUN == 'true'
+
+  #
+  # Lint affected projects
+  #
+  affected_lint:
+    name: Lint affected projects
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - run: |
+          git fetch --no-tags --prune --depth=5 origin master
+      - name: Check last commit message
+        id: skip
+        uses: atlwendy/retrieve-commit-messages-from-pr@v2
+      - name: Set SHOULD_RUN flag
+        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+        if: env.SHOULD_RUN == 'true'
+      - name: Cache node_modules
+        id: cache_node_modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+        if: env.SHOULD_RUN == 'true'
+      - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile --non-interactive
+      - name: Lint files
+        run: yarn nx affected:lint --base=origin/master --head=${{ github.event.pull_request.head.ref }}
+        if: env.SHOULD_RUN == 'true'
