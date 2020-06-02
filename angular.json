@@ -32,15 +32,13 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/design-tokens/",
               "fileReplacements": [
                 {
                   "replace": "apps/showcase-tokens/src/environments/environment.ts",
                   "with": "apps/showcase-tokens/src/environments/environment.prod.ts"
                 }
               ],
-              "options": {
-                "baseHref": "/design-tokens/"
-              },
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -176,15 +174,13 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "https://getterminus.github.io/ui-demos-release/",
               "fileReplacements": [
                 {
                   "replace": "apps/showcase-ui/src/environments/environment.ts",
                   "with": "apps/showcase-ui/src/environments/environment.prod.ts"
                 }
               ],
-              "options": {
-                "baseHref": "https://getterminus.github.io/ui-demos-release/"
-              },
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
