@@ -67,7 +67,22 @@
     "tokens:watch:copy": "yarn run tokens:build:copy && chokidar \"libs/design-tokens/src/lib/**/*.js\" -c \"yarn run tokens:build:copy\"",
     "tokens:remove-existing-install": "rm -rf node_modules/@terminus/design-tokens",
     "tokens:prepare-release": "yarn run tokens:build && yarn run tokens:showcase:build:ci",
-    "tokens:showcase:build:ci": "nx build showcase-tokens"
+    "tokens:showcase:build:ci": "nx build showcase-tokens",
+    "//////// Section: Showcase ui integration: ": "==============================",
+    "showcaseui:start": "nx serve showcase-ui",
+    "libraries:test:cypress": "cypress run --spec 'cypress/integration/spin-up.js'",
+    "libraries:test:integration": "yarn start-server-and-test showcaseui:start http://localhost:4200 libraries:test:cypress",
+    "//////// Section: VisualRegression App": "==============================",
+    "vr:start": "nx serve vr",
+    "vr:start:prod": "yarn run vr:start --prod",
+    "vr:build": "nx build vr",
+    "vr:build:prod": "yarn run vr:build --prod",
+    "vr:build:ci": "yarn run vr:build:prod --progress false",
+    "vr:test": "jest --config jest.vr.config.js",
+    "vr:test:ci": "yarn run vr:test --runInBand --coverage",
+    "vr:test:ci:local": "yarn run vr:test --coverage",
+    "vr:test:regression": "yarn start-server-and-test vr:start http://localhost:4200 vr:percy:run",
+    "vr:percy:run": "percy exec -- cypress run --spec 'cypress/integration/visual-regression/*.js'"
   },
   "husky": {
     "hooks": {

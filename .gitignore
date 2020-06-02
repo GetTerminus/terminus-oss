@@ -42,3 +42,6 @@ testem.log
 .DS_Store
 Thumbs.db
 *.bak
+
+# Cypress videos/snapshots
+/cypress/videos/
