@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-
 import { TsValidationMessagesModule } from '@terminus/ui-validation-messages';
 
 import { TsFormFieldComponent } from './form-field/form-field.component';
@@ -15,7 +14,6 @@ export * from './prefix.directive';
 export * from './suffix.directive';
 export * from './form-field/form-field-control';
 export * from './label.directive';
-
 
 @NgModule({
   imports: [

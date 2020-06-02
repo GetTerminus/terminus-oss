@@ -6,9 +6,7 @@ import { TsInputModule } from '@terminus/ui-input';
 
 import { TsDateRangeComponent } from './date-range/date-range.component';
 
-
 export * from './date-range/date-range.component';
-
 
 @NgModule({
   imports: [

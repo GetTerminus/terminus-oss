@@ -1,7 +1,13 @@
+import { APP_BASE_HREF } from '@angular/common';
 import {
   TestBed,
   async,
 } from '@angular/core/testing';
+import {
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { TsButtonModule } from '@terminus/ui-button';
 import { TsCheckboxModule } from '@terminus/ui-checkbox';
@@ -15,6 +21,9 @@ describe(`AppComponent`, () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule.forRoot([]),
         TsCheckboxModule,
         TsLinkModule,
         TsButtonModule,
@@ -22,27 +31,16 @@ describe(`AppComponent`, () => {
         TsInputModule,
       ],
       declarations: [AppComponent],
+      providers: [{
+        provide: APP_BASE_HREF,
+        useValue: '/',
+      }],
     }).compileComponents();
   }));
 
-  test(`should create the app`, () => {
+  test(`should exist`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  test(`should have as title 'showcase'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('showcase');
-  });
-
-  test(`should render title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain(
-      'Welcome to showcase!',
-    );
   });
 });

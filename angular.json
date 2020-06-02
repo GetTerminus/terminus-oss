@@ -231,7 +231,7 @@
               "!apps/showcase-ui/**"
             ],
             "commands": [
-              { "command": "yarn run lint:ts 'apps/showcase-ui/**/*.{js,ts}'" }
+              { "command": "npx eslint 'apps/showcase-ui/**/*.{js,ts}'" }
             ]
           }
         },

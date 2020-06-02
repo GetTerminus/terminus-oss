@@ -28,7 +28,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private titleService: Title,
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.router.events.pipe(
       untilComponentDestroyed(this),
       filter(event => event instanceof NavigationEnd),
