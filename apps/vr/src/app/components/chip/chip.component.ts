@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import {
   TsChipCollectionChange,
   TsChipCollectionOrientation,
@@ -7,7 +8,7 @@ import {
 
 
 @Component({
-  selector: 'demo-chip',
+  selector: 'app-chip',
   templateUrl: './chip.component.html',
 })
 export class ChipComponent {

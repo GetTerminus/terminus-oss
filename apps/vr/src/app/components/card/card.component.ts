@@ -1,6 +1,9 @@
 import {
-  AfterViewInit, Component, ViewChild,
+  AfterViewInit,
+  Component,
+  ViewChild,
 } from '@angular/core';
+
 import {
   TsCardBorderOptions, TsCardComponent,
 } from '@terminus/ui-card';
@@ -9,7 +12,7 @@ import {
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements AfterViewInit {
   supportsInteraction = false;
@@ -24,11 +27,11 @@ export class CardComponent implements AfterViewInit {
   ngAfterViewInit() {
     // Default the card to 100px height for demo purposes
     const innerCard = document.getElementById(this.transitionCard.id);
-    innerCard!.style.height = '100px';
+    innerCard.style.height = '100px';
   }
 
   changeCardHeight() {
     const innerCard = document.getElementById(this.transitionCard.id);
-    innerCard!.style.height = (innerCard!.style.height === '100px') ? '200px' : '100px';
+    innerCard.style.height = (innerCard.style.height === '100px') ? '200px' : '100px';
   }
 }
