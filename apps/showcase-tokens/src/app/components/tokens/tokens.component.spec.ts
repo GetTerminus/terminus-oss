@@ -1,12 +1,14 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+} from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { GrabComponent } from '../grab/grab.component';
 import { ClipboardModule } from 'ngx-clipboard';
 
-import { TokensComponent } from './tokens.component';
-
 import { ColorFormatPipe } from '../../pipes/color-format.pipe';
+import { GrabComponent } from '../grab/grab.component';
+import { TokensComponent } from './tokens.component';
 
 describe(`TokensComponent`, () => {
   let component: TokensComponent;

@@ -146,8 +146,9 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 
 [[source]][test-helpers-src]
 
-| Function                |
-|------------------------|
+|        Function         |
+|-------------------------|
+| `getFormFieldElement`   |
 | `getCohortDebugElement` |
 
 
