@@ -9,8 +9,12 @@ jobs:
     name: Cancel Duplicates
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - run: |
+          git fetch --no-tags --prune --depth=5 origin master
       - uses: rokroskar/workflow-run-cleanup-action@master
         env:
           GITHUB_TOKEN: "${{ secrets.GH_TOKEN }}"
@@ -23,8 +27,12 @@ jobs:
     name: Compile Library
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - run: |
+          git fetch --no-tags --prune --depth=5 origin master
       - name: Check last commit message
         id: skip
         uses: atlwendy/retrieve-commit-messages-from-pr@v2
@@ -61,8 +69,12 @@ jobs:
     name: Test Library
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - run: |
+          git fetch --no-tags --prune --depth=5 origin master
       - name: Check last commit message
         id: skip
         uses: atlwendy/retrieve-commit-messages-from-pr@v2
@@ -102,8 +114,12 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - run: |
+          git fetch --no-tags --prune --depth=5 origin master
       - name: Check last commit message
         id: skip
         uses: atlwendy/retrieve-commit-messages-from-pr@v2
