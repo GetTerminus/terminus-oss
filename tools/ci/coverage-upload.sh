@@ -27,6 +27,9 @@ upload_coverage () {
     TAG=${TAG%"$SUFFIX"}
     # Remove the remaining slash prefix
     TAG=${TAG//\/}
+    # Convert dash-case to camelCase
+    TAG=$(echo "$TAG" | perl -pe 's/-(.)/\u$1/g')
+    
     echo "Uploading coverage for \"$FILE\" tagged as \"$TAG\""
     bash <(curl https://codecov.io/bash) -f "$FILE" -F "$TAG" || echo "Codecov failed to upload coverage for $FILE"
   done
