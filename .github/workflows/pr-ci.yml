@@ -85,8 +85,8 @@ jobs:
       - name: Test affected projects
         run: nx affected:test --base=master --head=HEAD --codeCoverage
         if: env.SHOULD_RUN == 'true'
-      - name: Upload coverage results
-        run: bash <(curl -s https://codecov.io/bash)
+      - name: Upload coverage results to CodeCov
+        run: tools/ci/coverage-upload.sh
         if: env.SHOULD_RUN == 'true'
       - name: Archive code coverage results
         uses: actions/upload-artifact@v1
@@ -124,7 +124,7 @@ jobs:
       - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: Lint all library files
-        run: nx affected:lint
+        run: nx affected:lint --base=master --head=HEAD
         if: env.SHOULD_RUN == 'true'
 
   #
