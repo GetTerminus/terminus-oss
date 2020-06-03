@@ -43,19 +43,9 @@ jobs:
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
-
-        # OLD cache code
-#      - name: Cache node_modules
-#        id: cache_node_modules
-#        uses: actions/cache@v1
-#        with:
-#          path: node_modules
-#          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
-#        if: env.SHOULD_RUN == 'true'
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
-
       - name: Cache node modules
         id: cache_node_modules
         uses: actions/cache@v2
@@ -63,32 +53,36 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
+            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+            ${{ runner.os }}-yarn-
             ${{ runner.os }}-
         if: env.SHOULD_RUN == 'true'
-
-#      - name: CHECK for NX cache
-#        run: |
-#          if [ -d "node_modules/.cache/nx" ]; then
-#            # Will enter here if $DIRECTORY exists, even if it contains spaces
-#          fi
-
       - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
-
       - name: Build affected projects
         run: yarn nx affected:build --prod --base=origin/master --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'
-
       - name: Upload NX Cache
         uses: actions/upload-artifact@v2
         with:
           name: nx-cache
           path: node_modules/.cache/nx/*
         if: env.SHOULD_RUN == 'true'
+
+      - name: Cache NX Cache
+        id: cache_nnx
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-nx
+        with:
+          path: node_modules/.cache/nx
+          key: ${{ runner.os }}-nx-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-nx-${{ env.cache-name }}-
+            ${{ runner.os }}-nx-
+            ${{ runner.os }}-
 
       - name: Upload built files
         uses: actions/upload-artifact@v2
@@ -133,9 +127,9 @@ jobs:
 #        run: yarn nx affected:test --base=origin/master --head=${{ github.event.pull_request.head.ref }} --codeCoverage
         run: yarn nx run-many --all --target test --codeCoverage
         if: env.SHOULD_RUN == 'true'
-#      - name: Upload coverage results to CodeCov
-#        run: tools/ci/coverage-upload.sh
-#        if: env.SHOULD_RUN == 'true'
+      - name: Upload coverage results to CodeCov
+        run: tools/ci/coverage-upload.sh
+        if: env.SHOULD_RUN == 'true'
       - name: Archive code coverage results
         uses: actions/upload-artifact@v2
         with:
