@@ -198,59 +198,59 @@ jobs:
   #
   # Release affected packages
   #
-  affected_release:
-    name: Release affected packages
-    needs: [affected_build, affected_test, affected_lint]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 0
-      - run: |
-          git fetch --no-tags --prune --depth=5 origin master
-      - name: Check last commit message
-        id: skip
-        uses: atlwendy/retrieve-commit-messages-from-pr@v2
-      - name: Set SHOULD_RUN flag
-        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
-      - name: Set up Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-        if: env.SHOULD_RUN == 'true'
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache Yarn
-        id: cache_yarn
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-yarn
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-${{ env.cache-name }}-
-            ${{ runner.os }}-yarn-
-            ${{ runner.os }}-
-        if: env.SHOULD_RUN == 'true'
-      - name: Cache NODE
-        id: cache_node
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-node-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ env.cache-name }}-
-            ${{ runner.os }}-node-
-            ${{ runner.os }}-
-        if: env.SHOULD_RUN == 'true'
-      - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile --non-interactive
+#  affected_release:
+#    name: Release affected packages
+#    needs: [affected_build, affected_test, affected_lint]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#        with:
+#          ref: ${{ github.event.pull_request.head.ref }}
+#          fetch-depth: 0
+#      - run: |
+#          git fetch --no-tags --prune --depth=5 origin master
+#      - name: Check last commit message
+#        id: skip
+#        uses: atlwendy/retrieve-commit-messages-from-pr@v2
+#      - name: Set SHOULD_RUN flag
+#        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
+#      - name: Set up Node
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: 12.x
+#        if: env.SHOULD_RUN == 'true'
+#      - name: Get yarn cache directory path
+#        id: yarn-cache-dir-path
+#        run: echo "::set-output name=dir::$(yarn cache dir)"
+#      - name: Cache Yarn
+#        id: cache_yarn
+#        uses: actions/cache@v2
+#        env:
+#          cache-name: cache-yarn
+#        with:
+#          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+#          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+#          restore-keys: |
+#            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+#            ${{ runner.os }}-yarn-
+#            ${{ runner.os }}-
+#        if: env.SHOULD_RUN == 'true'
+#      - name: Cache NODE
+#        id: cache_node
+#        uses: actions/cache@v2
+#        env:
+#          cache-name: cache-node
+#        with:
+#          path: |
+#            **/node_modules
+#          key: ${{ runner.os }}-node-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+#          restore-keys: |
+#            ${{ runner.os }}-node-${{ env.cache-name }}-
+#            ${{ runner.os }}-node-
+#            ${{ runner.os }}-
+#        if: env.SHOULD_RUN == 'true'
+#      - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
+#        run: yarn install --frozen-lockfile --non-interactive
 
 
 
