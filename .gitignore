@@ -8,6 +8,7 @@
 /libs/ui/styles/src/terminus-ui.css.map
 /libs/ui/styles/src/helpers-generated.scss
 /libs/ui/styles/src/helpers-generated.scss.bak
+/.jest-cache
 
 # dependencies
 /node_modules
