@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import {
-  TsNavigationItem,
-  TsNavigationPayload,
-} from '@terminus/ui-navigation';
-import {
   Observable,
   of,
 } from 'rxjs';
+
+import {
+  TsNavigationItem,
+  TsNavigationPayload,
+} from '@terminus/ui-navigation';
 
 
 const NAV_ITEMS_MOCK: TsNavigationItem[] = [

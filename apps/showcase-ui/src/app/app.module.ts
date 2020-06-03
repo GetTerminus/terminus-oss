@@ -9,16 +9,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
+import {
+  TsDocumentService,
+  TsWindowService,
+} from '@terminus/ngx-tools/browser';
 import { TsAutofocusModule } from '@terminus/ui-autofocus';
 import { TsButtonModule } from '@terminus/ui-button';
 import { TsCheckboxModule } from '@terminus/ui-checkbox';
 import { TsIconModule } from '@terminus/ui-icon';
 import { TsInputModule } from '@terminus/ui-input';
 import { TsLinkModule } from '@terminus/ui-link';
-import {
-  TsDocumentService,
-  TsWindowService,
-} from '@terminus/ngx-tools/browser';
 import { TsOptionModule } from '@terminus/ui-option';
 import { TsSelectionListModule } from '@terminus/ui-selection-list';
 

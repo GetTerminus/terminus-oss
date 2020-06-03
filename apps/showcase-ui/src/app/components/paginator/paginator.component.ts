@@ -3,6 +3,7 @@ import {
   Component,
   ViewChild,
 } from '@angular/core';
+
 import {
   TsPaginatorComponent,
   TsPaginatorMenuItem,

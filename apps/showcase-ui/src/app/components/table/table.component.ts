@@ -19,6 +19,18 @@ import {
   DomSanitizer,
   SafeHtml,
 } from '@angular/platform-browser';
+import {
+  merge,
+  Observable,
+  of,
+} from 'rxjs';
+import {
+  catchError,
+  map,
+  startWith,
+  switchMap,
+} from 'rxjs/operators';
+
 import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
 import {
   TsPaginatorComponent,
@@ -32,17 +44,6 @@ import {
   TsTableDataSource,
   TsTableDensity,
 } from '@terminus/ui-table';
-import {
-  merge,
-  Observable,
-  of,
-} from 'rxjs';
-import {
-  catchError,
-  map,
-  startWith,
-  switchMap,
-} from 'rxjs/operators';
 
 /**
  * Extend the TsColumn interface with properties our component needs

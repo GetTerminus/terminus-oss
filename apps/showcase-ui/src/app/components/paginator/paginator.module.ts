@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 import { TsCardModule } from '@terminus/ui-card';
 import { TsPaginatorModule } from '@terminus/ui-paginator';
 import { TsSpacingModule } from '@terminus/ui-spacing';

@@ -5,14 +5,15 @@ import {
   Validators,
 } from '@angular/forms';
 import {
+  Observable,
+  of,
+} from 'rxjs';
+
+import {
   TsRadioChange,
   TsRadioFormatFn,
   TsRadioOption,
 } from '@terminus/ui-radio-group';
-import {
-  Observable,
-  of,
-} from 'rxjs';
 
 
 const DEMO_ITEMS: TsRadioOption[] = [

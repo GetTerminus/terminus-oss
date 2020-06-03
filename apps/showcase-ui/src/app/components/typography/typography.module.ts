@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+
 import { TsCardModule } from '@terminus/ui-card';
 
 import { TypographyRoutingModule } from './typography-routing.module';

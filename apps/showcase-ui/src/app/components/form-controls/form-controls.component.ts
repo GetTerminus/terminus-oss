@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { TsOption } from '@terminus/ui-option';
 
 export interface MyOption extends TsOption {

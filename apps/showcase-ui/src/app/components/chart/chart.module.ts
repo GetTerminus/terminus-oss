@@ -8,6 +8,7 @@ import am4themes_material from '@amcharts/amcharts4/themes/animated';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 import { TsCardModule } from '@terminus/ui-card';
 import {
   TS_AMCHARTS_TOKEN,

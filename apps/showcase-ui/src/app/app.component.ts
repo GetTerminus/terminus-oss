@@ -9,11 +9,12 @@ import {
   NavigationEnd,
   Router,
 } from '@angular/router';
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
 import {
   filter,
   map,
 } from 'rxjs/operators';
+
+import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
 
 
 @Component({

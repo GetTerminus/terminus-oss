@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+
 import { TsCardModule } from '@terminus/ui-card';
 import { TsPipesModule } from '@terminus/ui-pipes';
 import { TsSpacingModule } from '@terminus/ui-spacing';

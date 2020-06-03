@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 import { TsButtonModule } from '@terminus/ui-button';
 import { TsCardModule } from '@terminus/ui-card';
 import { TsCheckboxModule } from '@terminus/ui-checkbox';

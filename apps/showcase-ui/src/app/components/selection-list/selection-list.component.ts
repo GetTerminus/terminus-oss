@@ -4,13 +4,14 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
-import { TsSelectionListChange } from '@terminus/ui-selection-list';
 import {
   BehaviorSubject,
   Observable,
 } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import { TsSelectionListChange } from '@terminus/ui-selection-list';
 
 import {
   State,

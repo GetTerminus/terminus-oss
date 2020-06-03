@@ -5,16 +5,17 @@ import {
   Validators,
 } from '@angular/forms';
 import {
-  TsCohortDateRangeChanged,
-  TsDateCohort,
-} from '@terminus/ui-cohort-date-range';
-import {
   endOfDay,
   startOfDay,
   startOfMonth,
   subDays,
   subMonths,
 } from 'date-fns';
+
+import {
+  TsCohortDateRangeChanged,
+  TsDateCohort,
+} from '@terminus/ui-cohort-date-range';
 
 const currentDate: Date = new Date();
 

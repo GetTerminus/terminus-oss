@@ -4,8 +4,9 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { TsTabCollectionComponent } from '@terminus/ui-tabs';
 import { BehaviorSubject } from 'rxjs';
+
+import { TsTabCollectionComponent } from '@terminus/ui-tabs';
 
 
 @Component({

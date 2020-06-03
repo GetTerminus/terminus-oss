@@ -6,12 +6,13 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
-import { TsChipCollectionComponent } from '@terminus/ui-chip';
 import {
   BehaviorSubject,
   Observable,
 } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+import { TsChipCollectionComponent } from '@terminus/ui-chip';
 
 
 export interface State {

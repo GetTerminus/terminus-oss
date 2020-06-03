@@ -13,19 +13,19 @@ import {
   Routes,
 } from '@angular/router';
 import {
-  untilComponentDestroyed,
-  VERSION as NGX_VERSION,
-} from '@terminus/ngx-tools/utilities';
-import { TsSelectionListChange } from '@terminus/ui-selection-list';
-import { VERSION as UI_VERSION } from '@terminus/ui-utilities';
-import {
   BehaviorSubject,
   Observable,
 } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { orderArrayByProperty } from '../utilities/orderArrayByProperty';
+import {
+  untilComponentDestroyed,
+  VERSION as NGX_VERSION,
+} from '@terminus/ngx-tools/utilities';
+import { TsSelectionListChange } from '@terminus/ui-selection-list';
+import { VERSION as UI_VERSION } from '@terminus/ui-utilities';
 
+import { orderArrayByProperty } from '../utilities/orderArrayByProperty';
 import { componentsList } from './components.constant';
 
 
