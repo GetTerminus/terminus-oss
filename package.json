@@ -82,7 +82,9 @@
     "vr:test:ci": "yarn run vr:test --runInBand --coverage",
     "vr:test:ci:local": "yarn run vr:test --coverage",
     "vr:test:regression": "yarn start-server-and-test vr:start http://localhost:4200 vr:percy:run",
-    "vr:percy:run": "percy exec -- cypress run --spec 'cypress/integration/visual-regression/*.js'"
+    "vr:percy:run": "percy exec -- cypress run --spec 'cypress/integration/visual-regression/*.js'",
+    "////////// Section: Release": "==============================",
+    "deploy-tokens-showcase": "ng deploy --repo=https://github.com/GetTerminus/design-tokens.git --name=\"benjamincharity\" --email=ben@benjamincharity.com\n"
   },
   "husky": {
     "hooks": {
@@ -124,6 +126,7 @@
     "@ngrx/effects": "9.1.2",
     "@ngrx/store": "9.1.2",
     "@nrwl/angular": "9.3.0",
+    "@nrwl/nx-cloud": "^9.3.2",
     "@terminus/design-tokens": "1.0.10",
     "@terminus/ngx-tools": "8.0.5",
     "@terminus/ui-styles": "0.0.1",
@@ -169,6 +172,7 @@
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
     "all-contributors-cli": "6.14.2",
+    "angular-cli-ghpages": "^0.6.2",
     "autoprefixer": "9.8.0",
     "chalk-cli": "4.1.0",
     "chokidar-cli": "2.1.0",

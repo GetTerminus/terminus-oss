@@ -1,4 +1,4 @@
-name: PR CI
+name: "PR CI"
 on: pull_request
 
 jobs:
@@ -79,22 +79,10 @@ jobs:
       - name: Build affected projects
         run: yarn nx affected:build --prod --base=origin/master --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'
-      - name: Cache NX Cache
-        id: cache_nnx
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-nx
-        with:
-          path: node_modules/.cache/nx
-          key: ${{ runner.os }}-nx-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-nx-${{ env.cache-name }}-
-            ${{ runner.os }}-nx-
-            ${{ runner.os }}-
       - name: Upload built files
         uses: actions/upload-artifact@v2
         with:
-          name: built-libs
+          name: built-projects
           path: dist/*
         if: env.SHOULD_RUN == 'true'
 
@@ -281,10 +269,10 @@ jobs:
 #      - if: env.SHOULD_RUN == 'true'
 #        run: yarn add start-server-and-test
 #      - name: Download built library
-#        uses: actions/download-artifact@v1
+#        uses: actions/download-artifact@v2
 #        with:
-#          name: built-libs
-#          path: dist/
+#          name: built-projects
+#          path: dist/*
 #        if: env.SHOULD_RUN == 'true'
 #      - name: Run integration test
 #        run: yarn libraries:test:integration
@@ -348,10 +336,10 @@ jobs:
 #      - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
 #        run: yarn install --frozen-lockfile --non-interactive
 #      - name: Download built library
-#        uses: actions/download-artifact@v1
+#        uses: actions/download-artifact@v2
 #        with:
-#          name: built-libs
-#          path: dist/
+#          name: built-projects
+#          path: dist/*
 #        if: env.SHOULD_RUN == 'true'
 #      - name: Run regression test
 #        uses: percy/exec-action@v0.3.0
