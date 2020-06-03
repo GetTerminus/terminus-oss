@@ -169,7 +169,7 @@ jobs:
             ${{ runner.os }}-
 
       - name: Deploy affected projects
-        run: yarn nx affected:deploy --base=origin/master --head=${{ github.event.pull_request.head.ref }}
+        run: yarn nx affected --target=deploy --base=origin/master --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'
 
   #

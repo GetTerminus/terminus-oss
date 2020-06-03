@@ -126,6 +126,7 @@
     "@ngrx/effects": "9.1.2",
     "@ngrx/store": "9.1.2",
     "@nrwl/angular": "9.3.0",
+    "@nrwl/nx-cloud": "^9.3.2",
     "@terminus/design-tokens": "1.0.10",
     "@terminus/ngx-tools": "8.0.5",
     "@terminus/ui-styles": "0.0.1",
