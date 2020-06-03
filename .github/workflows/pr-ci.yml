@@ -103,6 +103,7 @@ jobs:
   #
   affected_deploy:
     name: TEMP deploy affected
+    needs: [affected_build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
