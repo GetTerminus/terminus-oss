@@ -79,18 +79,18 @@ jobs:
       - name: Build affected projects
         run: yarn nx affected:build --prod --base=origin/master --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'
-      - name: Cache NX Cache
-        id: cache_nx
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-nx
-        with:
-          path: node_modules/.cache/nx
-          key: ${{ runner.os }}-nx-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-nx-${{ env.cache-name }}-
-            ${{ runner.os }}-nx-
-            ${{ runner.os }}-
+#      - name: Cache NX Cache
+#        id: cache_nx
+#        uses: actions/cache@v2
+#        env:
+#          cache-name: cache-nx
+#        with:
+#          path: node_modules/.cache/nx
+#          key: ${{ runner.os }}-nx-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+#          restore-keys: |
+#            ${{ runner.os }}-nx-${{ env.cache-name }}-
+#            ${{ runner.os }}-nx-
+#            ${{ runner.os }}-
       - name: Upload built files
         uses: actions/upload-artifact@v2
         with:
