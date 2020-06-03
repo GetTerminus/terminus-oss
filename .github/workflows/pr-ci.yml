@@ -54,7 +54,9 @@ jobs:
         env:
           cache-name: cache-yarn
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            **/node_modules
           key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-${{ env.cache-name }}-
@@ -66,12 +68,6 @@ jobs:
         run: yarn install --frozen-lockfile --non-interactive
       - name: Build affected projects
         run: yarn nx affected:build --prod --base=origin/master --head=${{ github.event.pull_request.head.ref }}
-        if: env.SHOULD_RUN == 'true'
-      - name: Upload NX Cache
-        uses: actions/upload-artifact@v2
-        with:
-          name: nx-cache
-          path: node_modules/.cache/nx/*
         if: env.SHOULD_RUN == 'true'
 
       - name: Cache NX Cache
