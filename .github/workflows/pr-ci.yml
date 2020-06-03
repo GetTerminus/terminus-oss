@@ -189,6 +189,9 @@ jobs:
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
       - name: Cache Yarn
         id: cache_yarn
         uses: actions/cache@v2
