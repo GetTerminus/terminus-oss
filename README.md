@@ -25,51 +25,52 @@ The monorepo that contains all Terminus open-source libraries and tools.
 ## Packages
 
 
-|                      Package                      |                        Description                        |               Demo               |                 Docs                 |
-|---------------------------------------------------|-----------------------------------------------------------|----------------------------------|--------------------------------------|
-| ui-autocomplete                                   | Deprecated. See `selection-list`                          | [Demo][demo-autocomplete]        | [Docs][docs-autocomplete]            |
-| [ui-autofocus][src-autofocus]                     | Focus a focusable element on load                         | [Demo][demo-autofocus]           | [Docs][docs-autofocus]               |
-| badge                                             | See `chip`                                                | [Demo][demo-chip]                |                                      |
-| [ui-button][src-button]                           |                                                           | [Demo][demo-button]              | [Docs][docs-button]                  |
-| [ui-card][src-card]                               | Presentational card                                       | [Demo][demo-card]                | [Docs][docs-card]                    |
-| [ui-chart][src-chart]                             | Charts, graphs etc                                        | [Demo][demo-chart]               | [Docs][docs-chart]                   |
-| [ui-chip][src-chip]                               | Chip                                                      | [Demo][demo-chip]                | [Docs][docs-chip]                    |
-| [ui-checkbox][src-checkbox]                       |                                                           | [Demo][demo-checkbox]            | [Docs][docs-checkbox]                |
-| [ui-cohort-date-range][src-cohort-date-range]     | CohortDateRange                                           | [Demo][demo-cohort-date-range]   | [Docs][docs-cohort-date-range]       |
-| [ui-confirmation][src-confirmation]               | Add a confirmation step to any `ts-button`                | [Demo][demo-confirmation]        | [Docs][docs-confirmation]            |
-| [ui-copy][src-copy]                               | Component to easily copy string values                    | [Demo][demo-copy]                | [Docs][docs-copy]                    |
-| [ui-csv-entry][src-csv-entry]                     | Manually enter CSV values                                 | [Demo][demo-csv-entry]           | [Docs][docs-csv-entry]               |
-| [ui-datepicker][src-input]                        | See `TsInputComponent`                                    | [Demo][demo-input]               | [Docs][docs-input]                   |
-| [ui-date-range][src-date-range]                   | Dual inputs with calendar pop-ups                         | [Demo][demo-date-range]          | [Docs][docs-date-range]              |
-| [ui-drawer][src-drawer]                           | Slide-out drawer panel                                    | [Demo][demo-drawer]              | [Docs][docs-drawer]                  |
-| [ui-expansion-panel][src-expansion-panel]         | Expansion panel with accordion & stepper functionality    | [Demo][demo-expansion-panel]     | [Docs][docs-expansion-panel]         |
-| [ui-file-upload][src-file-upload]                 | File upload with drag and drop                            | [Demo][demo-file-upload]         | [Docs][docs-file-upload]             |
-| [ui-icon][src-icon]                               | Supported icons: https://material.io/icons                | [Demo][demo-icon]                | [Docs][docs-icon]                    |
-| [ui-icon-button][src-icon-button]                 | Icon only button                                          | [Demo][demo-icon-button]         | [Docs][docs-icon-button]             |
-| [ui-input][src-input]                             | Input with masking, datepicker, etc                       | [Demo][demo-input]               | [Docs][docs-input]                   |
-| [ui-link][src-link]                               |                                                           | [Demo][demo-link]                | [Docs][docs-link]                    |
-| [ui-loading overlay][src-loading-overlay]         | Overlay with loading spinner                              | [Demo][demo-loading-overlay]     | [Docs][docs-loading-overlay]         |
-| [ui-login form][src-login-form]                   | Email/password with 'remember me' checkbox                | [Demo][demo-log-in-form]         | [Docs][docs-login-form]              |
-| [ui-logo][src-logo]                               | Variations of the official logo, certain colors available | [Demo][demo-logo]                | [Docs][docs-logo]                    |
-| [ui-menu][src-menu]                               |                                                           | [Demo][demo-menu]                | [Docs][docs-menu]                    |
-| [ui-navigation][src-navigation]                   | Global navigation menu                                    | [Demo][demo-navigation]          | [Docs][docs-navigation]              |
-| [ui-paginator][src-paginator]                     | Paging controls for collections                           | [Demo][demo-paginator]           | [Docs][docs-paginator]               |
-| [ui-pipes][src-pipes]                             | A collection of pipes for Angular                         | [Demo][demo-pipes]               | [Docs][docs-pipes]                   |
-| [ui-popover][src-popover]                         | Popover with templates                                    | [Demo][demo-popover]             | [Docs][docs-popover]                 |
-| [ui-radio-group][src-radio-group]                 |                                                           | [Demo][demo-radio-group]         | [Docs][docs-radio-group]             |
-| [ui-scrollbars][src-scrollbars]                   | Custom scrollbars for both axis'                          | [Demo][demo-scrollbars]          | [Docs][docs-scrollbars]              |
-| [ui-search][src-search]                           | Input with search capabilities                            | [Demo][demo-search]              | [Docs][docs-search]                  |
-| select                                            | Deprecated. See `selection-list`                          | [Demo][demo-select]              | [Docs][docs-select]                  |
-| [ui-selection-list][src-selection-list]           | Classic select dropdown / autocomplete                    | [Demo][demo-selection-list]      | [Docs][docs-selection-list]          |
-| [ui-spacing][src-spacing]                         | Helpers for consistent spacing                            | [Demo][demo-spacing]             | [Docs][docs-spacing]                 |
-| [ui-sort][src-sort]                               | Used by `table` for column sorting                        | <small>(see table demo)</small>  | [Docs][docs-sort]                    |
-| [ui-table][src-table]                             |                                                           | [Demo][demo-table]               | [Docs][docs-table]                   |
-| [ui-tabs][src-tabs]                               | Horizontal tab interface                                  | [Demo][demo-tabs]                | [Docs][docs-tabs]                    |
-| textarea                                          | See `input`                                               | <small>(see input demo)</small>  |                                      |
-| [ui-toggle][src-toggle]                           | Toggle switch                                             | [Demo][demo-toggle]              | [Docs][docs-toggle]                  |
-| [ui-tooltip][src-tooltip]                         | Simple tooltip                                            | [Demo][demo-tooltip]             | [Docs][docs-tooltip]                 |
-| [ui-validation-messages][src-validation-messages] | A component to display form validation errors             | [Demo][demo-validation-messages] | [Docs][docs-validation-messages]     |
-| [ui-validators][src-validators]                   | A collection of form validators                           | [Demo][demo-validators]          | [Docs][docs-validators]              |
+|                      Package                      |                        Description                        |               Demo               |                 Docs                 |                   Legacy Code                     |
+|---------------------------------------------------|-----------------------------------------------------------|----------------------------------|--------------------------------------|---------------------------------------------------|
+| [ui-autocomplete][src-autocomplete]               | Deprecated. See `selection-list`                          | [Demo][demo-autocomplete]        | [Docs][docs-autocomplete]            | [Legacy Code][legacy-src-autocomplete]            |
+| [ui-autofocus][src-autofocus]                     | Focus a focusable element on load                         | [Demo][demo-autofocus]           | [Docs][docs-autofocus]               | [Legacy Code][legacy-src-autofocus]               | 
+| badge                                             | See `chip`                                                | [Demo][demo-chip]                |                                      | [Legacy Code][legacy-src-chip]                    |
+| [ui-button][src-button]                           |                                                           | [Demo][demo-button]              | [Docs][docs-button]                  | [Legacy Code][legacy-src-button]                  |
+| [ui-card][src-card]                               | Presentational card                                       | [Demo][demo-card]                | [Docs][docs-card]                    | [Legacy Code][legacy-src-card]                    |
+| [ui-chart][src-chart]                             | Charts, graphs etc                                        | [Demo][demo-chart]               | [Docs][docs-chart]                   | [Legacy Code][legacy-src-chart]                   |
+| [ui-chip][src-chip]                               | Chip                                                      | [Demo][demo-chip]                | [Docs][docs-chip]                    | [Legacy Code][legacy-src-chip]                    |
+| [ui-checkbox][src-checkbox]                       |                                                           | [Demo][demo-checkbox]            | [Docs][docs-checkbox]                | [Legacy Code][legacy-src-checkbox]                |
+| [ui-cohort-date-range][src-cohort-date-range]     | CohortDateRange                                           | [Demo][demo-cohort-date-range]   | [Docs][docs-cohort-date-range]       | [Legacy Code][legacy-src-cohort-date-range]       |
+| [ui-confirmation][src-confirmation]               | Add a confirmation step to any `ts-button`                | [Demo][demo-confirmation]        | [Docs][docs-confirmation]            | [Legacy Code][legacy-src-confirmation]            |
+| [ui-copy][src-copy]                               | Component to easily copy string values                    | [Demo][demo-copy]                | [Docs][docs-copy]                    | [Legacy Code][legacy-src-copy]                    |
+| [ui-csv-entry][src-csv-entry]                     | Manually enter CSV values                                 | [Demo][demo-csv-entry]           | [Docs][docs-csv-entry]               | [Legacy Code][legacy-src-csv-entry]               |
+| [ui-datepicker][src-input]                        | See `TsInputComponent`                                    | [Demo][demo-input]               | [Docs][docs-input]                   | [Legacy Code][legacy-src-input]                   |
+| [ui-date-range][src-date-range]                   | Dual inputs with calendar pop-ups                         | [Demo][demo-date-range]          | [Docs][docs-date-range]              | [Legacy Code][legacy-src-date-range]              |
+| [ui-drawer][src-drawer]                           | Slide-out drawer panel                                    | [Demo][demo-drawer]              | [Docs][docs-drawer]                  | [Legacy Code][legacy-src-drawer]                  |
+| [ui-expansion-panel][src-expansion-panel]         | Expansion panel with accordion & stepper functionality    | [Demo][demo-expansion-panel]     | [Docs][docs-expansion-panel]         | [Legacy Code][legacy-src-expansion-panel]         |
+| [ui-file-upload][src-file-upload]                 | File upload with drag and drop                            | [Demo][demo-file-upload]         | [Docs][docs-file-upload]             | [Legacy Code][legacy-src-file-upload]             |
+| [ui-icon][src-icon]                               | Supported icons: https://material.io/icons                | [Demo][demo-icon]                | [Docs][docs-icon]                    | [Legacy Code][legacy-src-icon]                    |
+| [ui-icon-button][src-icon-button]                 | Icon only button                                          | [Demo][demo-icon-button]         | [Docs][docs-icon-button]             | [Legacy Code][legacy-src-icon-button]             |
+| [ui-input][src-input]                             | Input with masking, datepicker, etc                       | [Demo][demo-input]               | [Docs][docs-input]                   | [Legacy Code][legacy-src-input]                   |
+| [ui-link][src-link]                               |                                                           | [Demo][demo-link]                | [Docs][docs-link]                    | [Legacy Code][legacy-src-link]                    |
+| [ui-loading overlay][src-loading-overlay]         | Overlay with loading spinner                              | [Demo][demo-loading-overlay]     | [Docs][docs-loading-overlay]         | [Legacy Code][legacy-src-loading-overlay]         |
+| [ui-login form][src-login-form]                   | Email/password with 'remember me' checkbox                | [Demo][demo-log-in-form]         | [Docs][docs-login-form]              | [Legacy Code][legacy-src-login-form]              |
+| [ui-logo][src-logo]                               | Variations of the official logo, certain colors available | [Demo][demo-logo]                | [Docs][docs-logo]                    | [Legacy Code][legacy-src-logo]                    |
+| [ui-menu][src-menu]                               |                                                           | [Demo][demo-menu]                | [Docs][docs-menu]                    | [Legacy Code][legacy-src-menu]                    |
+| [ui-navigation][src-navigation]                   | Global navigation menu                                    | [Demo][demo-navigation]          | [Docs][docs-navigation]              | [Legacy Code][legacy-src-navigation]              |
+| [ui-paginator][src-paginator]                     | Paging controls for collections                           | [Demo][demo-paginator]           | [Docs][docs-paginator]               | [Legacy Code][legacy-src-paginator]               |
+| [ui-pipes][src-pipes]                             | A collection of pipes for Angular                         | [Demo][demo-pipes]               | [Docs][docs-pipes]                   | [Legacy Code][legacy-src-pipes]                   |
+| [ui-popover][src-popover]                         | Popover with templates                                    | [Demo][demo-popover]             | [Docs][docs-popover]                 | [Legacy Code][legacy-src-popover]                 |
+| [ui-radio-group][src-radio-group]                 |                                                           | [Demo][demo-radio-group]         | [Docs][docs-radio-group]             | [Legacy Code][legacy-src-radio-group]             |
+| [ui-scrollbars][src-scrollbars]                   | Custom scrollbars for both axis'                          | [Demo][demo-scrollbars]          | [Docs][docs-scrollbars]              | [Legacy Code][legacy-src-scrollbars]              |
+| [ui-search][src-search]                           | Input with search capabilities                            | [Demo][demo-search]              | [Docs][docs-search]                  | [Legacy Code][legacy-src-search]                  |
+| [ui-select][src-select]                           | Deprecated. See `selection-list`                          | [Demo][demo-select]              | [Docs][docs-select]                  | [Legacy Code][legacy-src-select]                  |
+| [ui-selection-list][src-selection-list]           | Classic select dropdown / autocomplete                    | [Demo][demo-selection-list]      | [Docs][docs-selection-list]          | [Legacy Code][legacy-src-selection-list]          |
+| [ui-spacing][src-spacing]                         | Helpers for consistent spacing                            | [Demo][demo-spacing]             | [Docs][docs-spacing]                 | [Legacy Code][legacy-src-spacing]                 |
+| [ui-sort][src-sort]                               | Used by `table` for column sorting                        | <small>(see table demo)</small>  | [Docs][docs-sort]                    | [Legacy Code][legacy-src-sort]                    |
+| [ui-styles][src-styles]                           | A collection of base CSS, SCSS mixins and functions.      |                                  | [Docs][docs-styles]                  |                                                   |
+| [ui-table][src-table]                             |                                                           | [Demo][demo-table]               | [Docs][docs-table]                   | [Legacy Code][legacy-src-table]                   |
+| [ui-tabs][src-tabs]                               | Horizontal tab interface                                  | [Demo][demo-tabs]                | [Docs][docs-tabs]                    | [Legacy Code][legacy-src-tabs]                    |
+| textarea                                          | See `input`                                               | <small>(see input demo)</small>  |                                      |                                                   |
+| [ui-toggle][src-toggle]                           | Toggle switch                                             | [Demo][demo-toggle]              | [Docs][docs-toggle]                  | [Legacy Code][legacy-src-toggle]                  |
+| [ui-tooltip][src-tooltip]                         | Simple tooltip                                            | [Demo][demo-tooltip]             | [Docs][docs-tooltip]                 | [Legacy Code][legacy-src-tooltip]                 |
+| [ui-validation-messages][src-validation-messages] | A component to display form validation errors             | [Demo][demo-validation-messages] | [Docs][docs-validation-messages]     | [Legacy Code][legacy-src-validation-messages]     |
+| [ui-validators][src-validators]                   | A collection of form validators                           | [Demo][demo-validators]          | [Docs][docs-validators]              | [Legacy Code][legacy-src-validators]              |
 
 
 
@@ -179,6 +180,7 @@ $ yarn run help
 [zenhub-url]:       https://github.com/GetTerminus/terminus-oss#zenhub
 
 <!-- Source Directories -->
+[src-autocomplete]:        https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/autocomplete/
 [src-autofocus]:           https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/autofocus/
 [src-button]:              https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/button/
 [src-card]:                https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/card/
@@ -208,15 +210,60 @@ $ yarn run help
 [src-radio-group]:         https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/radio-group/
 [src-scrollbars]:          https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/scrollbars/
 [src-search]:              https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/search/
+[src-select]:              https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/select/
 [src-selection-list]:      https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/selection-list/
 [src-sort]:                https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/sort/
 [src-spacing]:             https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/spacing/
+[src-styles]:              https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/styles/
 [src-table]:               https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/table/
 [src-tabs]:                https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/tabs/
 [src-toggle]:              https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/toggle/
 [src-tooltip]:             https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/tooltip/
 [src-validation-messages]: https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/validation-messages/
 [src-validators]:          https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/validators/
+
+<!-- Legacy source code -->
+
+[legacy-src-autocomplete]:        https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/autocomplete/
+[legacy-src-autofocus]:           https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/autofocus/
+[legacy-src-button]:              https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/button/
+[legacy-src-card]:                https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/card/
+[legacy-src-chart]:               https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/chart/
+[legacy-src-checkbox]:            https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/checkbox/
+[legacy-src-chip]:                https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/chip/
+[legacy-src-cohort-date-range]:   https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/cohort-date-range/
+[legacy-src-confirmation]:        https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/confirmation/
+[legacy-src-copy]:                https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/copy/
+[legacy-src-csv-entry]:           https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/csv-entry/
+[legacy-src-date-range]:          https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/date-range/
+[legacy-src-drawer]:              https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/drawer/
+[legacy-src-expansion-panel]:     https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/expansion-panel/
+[legacy-src-file-upload]:         https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/file-upload/
+[legacy-src-icon-button]:         https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/icon-button/
+[legacy-src-icon]:                https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/icon/
+[legacy-src-input]:               https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/input/
+[legacy-src-link]:                https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/link/
+[legacy-src-loading-overlay]:     https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/loading-overlay/
+[legacy-src-login-form]:          https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/login-form/
+[legacy-src-logo]:                https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/logo/
+[legacy-src-menu]:                https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/menu/
+[legacy-src-navigation]:          https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/navigation/
+[legacy-src-paginator]:           https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/paginator/
+[legacy-src-pipes]:               https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/pipes/
+[legacy-src-popover]:             https://github.com/Getterminus/terminus-ui/blob/release/projects/library/popover/
+[legacy-src-radio-group]:         https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/radio-group/
+[legacy-src-scrollbars]:          https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/scrollbars/
+[legacy-src-search]:              https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/search/
+[legacy-src-select]:              https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/select/
+[legacy-src-selection-list]:      https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/selection-list/
+[legacy-src-sort]:                https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/sort/
+[legacy-src-spacing]:             https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/spacing/
+[legacy-src-table]:               https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/table/
+[legacy-src-tabs]:                https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/tabs/
+[legacy-src-toggle]:              https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/toggle/
+[legacy-src-tooltip]:             https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/tooltip/
+[legacy-src-validation-messages]: https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/validation-messages/
+[legacy-src-validators]:          https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/validators/
 
 <!-- TODO: Verify links are still correct after the move -->
 <!-- Demos -->
@@ -297,6 +344,7 @@ $ yarn run help
 [docs-selection-list]:      http://uilibrary-docs.terminus.ninja/release/components/TsSelectionListComponent.html
 [docs-sort]:                http://uilibrary-docs.terminus.ninja/release/directives/TsSortDirective.html
 [docs-spacing]:             http://uilibrary-docs.terminus.ninja/release/directives/TsVerticalSpacingDirective.html
+[docs-styles]:              https://github.com/GetTerminus/terminus-oss/tree/master/libs/ui/styles
 [docs-table]:               http://uilibrary-docs.terminus.ninja/release/components/TsTableComponent.html
 [docs-tabs]:                http://uilibrary-docs.terminus.ninja/release/components/TsTabCollectionComponent.html
 [docs-toggle]:              http://uilibrary-docs.terminus.ninja/release/components/TsToggleComponent.html
