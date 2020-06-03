@@ -130,7 +130,8 @@ jobs:
       - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: Test affected projects
-        run: yarn nx affected:test --base=origin/master --head=${{ github.event.pull_request.head.ref }} --codeCoverage
+#        run: yarn nx affected:test --base=origin/master --head=${{ github.event.pull_request.head.ref }} --codeCoverage
+        run: yarn nx run-many --all --target test --codeCoverage
         if: env.SHOULD_RUN == 'true'
 #      - name: Upload coverage results to CodeCov
 #        run: tools/ci/coverage-upload.sh
