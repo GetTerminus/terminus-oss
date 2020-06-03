@@ -84,17 +84,17 @@ jobs:
         if: env.SHOULD_RUN == 'true'
 
       - name: Upload NX Cache
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: nx-cache
-          path: node_modules/.cache/nx
+          path: node_modules/.cache/nx/*
         if: env.SHOULD_RUN == 'true'
 
       - name: Upload built files
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: built-libs
-          path: dist/
+          path: dist/*
         if: env.SHOULD_RUN == 'true'
 
   #
@@ -136,10 +136,10 @@ jobs:
 #        run: tools/ci/coverage-upload.sh
 #        if: env.SHOULD_RUN == 'true'
       - name: Archive code coverage results
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: code-coverage-report
-          path: coverage/
+          path: coverage/*
         if: env.SHOULD_RUN == 'true'
 
   #
