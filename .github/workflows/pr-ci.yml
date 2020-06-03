@@ -97,9 +97,9 @@ jobs:
       - name: Test affected projects
         run: yarn nx affected:test --base=origin/master --head=${{ github.event.pull_request.head.ref }} --codeCoverage
         if: env.SHOULD_RUN == 'true'
-      - name: Upload coverage results to CodeCov
-        run: tools/ci/coverage-upload.sh
-        if: env.SHOULD_RUN == 'true'
+#      - name: Upload coverage results to CodeCov
+#        run: tools/ci/coverage-upload.sh
+#        if: env.SHOULD_RUN == 'true'
       - name: Archive code coverage results
         uses: actions/upload-artifact@v1
         with:

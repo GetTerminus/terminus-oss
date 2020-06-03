@@ -1,0 +1,64 @@
+@import '~@terminus/design-tokens/css/design-tokens.css';
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/terminus-ui.css';
+@import '~@terminus/ui-styles/helpers';
+
+header {
+  --bg-header: #eee;
+  --padding: 1em;
+  --black: color(pure, dark);
+  --offset-for-label: -4px;
+  background-color: var(--bg-header);
+  left: 0;
+  padding: var(--padding);
+  position: sticky;
+  right: 0;
+  top: 0;
+  z-index: z(global-header);
+
+  .versions {
+    color: rgba(var(--black), .6);
+    font-size: 12px;
+    line-height: 1.4em;
+
+    strong {
+      color: var(--black);
+    }
+  }
+
+  ::ng-deep {
+    ts-selection-list {
+      margin-top: var(--offset-for-label);
+    }
+
+    .ts-form-field {
+      .ts-form-field__wrapper {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .deprecated {
+    --deprecated-red-color: #e33f26;
+    --deprecated-red-background-color: #fbe2e2;
+    background-color: var(--deprecated-red-background-color);
+    border: 1px dotted var(--deprecated-red-color);
+    border-radius: 5px;
+    display: inline-block;
+    padding: 2em;
+    transition: color 200ms ease-out;
+
+    h2 {
+      color: var(--deprecated-red-color);
+    }
+
+    a {
+      &:focus,
+      &:hover {
+        color: darkred;
+      }
+    }
+  }
+}

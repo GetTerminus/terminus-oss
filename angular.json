@@ -55,8 +55,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "60kb",
+                  "maximumError": "100kb"
                 }
               ]
             }
@@ -195,8 +195,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "60kb",
+                  "maximumError": "100kb"
                 }
               ]
             }
@@ -231,7 +231,7 @@
               "!apps/showcase-ui/**"
             ],
             "commands": [
-              { "command": "yarn run lint:ts 'apps/showcase-ui/**/*.{js,ts}'" }
+              { "command": "npx eslint 'apps/showcase-ui/**/*.{js,ts}'" }
             ]
           }
         },
@@ -334,8 +334,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "60kb",
+                  "maximumError": "100kb"
                 }
               ]
             }

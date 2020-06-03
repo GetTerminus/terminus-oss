@@ -1,0 +1,13 @@
+.example-container {
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.truncate {
+  display: block;
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-word;
+}
