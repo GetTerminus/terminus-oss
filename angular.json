@@ -103,6 +103,15 @@
             "passWithNoTests": true,
             "setupFile": "apps/showcase-tokens/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "repo": "https://github.com/GetTerminus/design-tokens.git",
+            "baseHref": "/design-tokens/",
+            "name": "Benjamin Charity",
+            "email": "ben@benjamincharity.com"
+          }
         }
       }
     },

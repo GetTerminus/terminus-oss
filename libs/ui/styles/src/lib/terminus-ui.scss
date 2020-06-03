@@ -13,3 +13,8 @@ $ts-app-theme: mat-light-theme($ts-default-primary, $ts-default-accent, $ts-defa
 
 // Include our custom theme
 @include angular-material-theme($ts-app-theme);
+
+.fake-change {
+  color: var(--ts-color-base-white);
+  content: '1';
+}
