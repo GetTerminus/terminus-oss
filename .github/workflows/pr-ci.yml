@@ -56,7 +56,6 @@ jobs:
         with:
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            **/node_modules
           key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-${{ env.cache-name }}-
@@ -64,8 +63,24 @@ jobs:
             ${{ runner.os }}-
         if: env.SHOULD_RUN == 'true'
 
-      - if: env.SHOULD_RUN == 'true' && steps.cache_yarn.outputs.cache-hit != 'true'
+      - name: Cache NODE
+        id: cache_node
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-node-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.cache-name }}-
+            ${{ runner.os }}-node-
+            ${{ runner.os }}-
+        if: env.SHOULD_RUN == 'true'
+
+      - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
+
       - name: Build affected projects
         run: yarn nx affected:build --prod --base=origin/master --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'
@@ -132,8 +147,24 @@ jobs:
             ${{ runner.os }}-
         if: env.SHOULD_RUN == 'true'
 
-      - if: env.SHOULD_RUN == 'true' && steps.cache_yarn.outputs.cache-hit != 'true'
+      - name: Cache NODE
+        id: cache_node
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-node-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.cache-name }}-
+            ${{ runner.os }}-node-
+            ${{ runner.os }}-
+        if: env.SHOULD_RUN == 'true'
+
+      - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
+
       - name: Test affected projects
 #        run: yarn nx affected:test --base=origin/master --head=${{ github.event.pull_request.head.ref }} --codeCoverage
         run: yarn nx run-many --target=test --projects=ui-button,ui-card --codeCoverage
