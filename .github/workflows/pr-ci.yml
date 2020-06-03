@@ -43,14 +43,16 @@ jobs:
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
+
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache node modules
-        id: cache_node_modules
+
+      - name: Cache Yarn
+        id: cache_yarn
         uses: actions/cache@v2
         env:
-          cache-name: cache-node-modules
+          cache-name: cache-yarn
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
@@ -59,7 +61,8 @@ jobs:
             ${{ runner.os }}-yarn-
             ${{ runner.os }}-
         if: env.SHOULD_RUN == 'true'
-      - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
+
+      - if: env.SHOULD_RUN == 'true' && steps.cache_yarn.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: Build affected projects
         run: yarn nx affected:build --prod --base=origin/master --head=${{ github.event.pull_request.head.ref }}
@@ -114,18 +117,40 @@ jobs:
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
-      - name: Cache node_modules
-        id: cache_node_modules
-        uses: actions/cache@v1
+
+      - name: Cache NX Cache
+        id: cache_nnx
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-nx
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          path: node_modules/.cache/nx
+          key: ${{ runner.os }}-nx-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-nx-${{ env.cache-name }}-
+            ${{ runner.os }}-nx-
+            ${{ runner.os }}-
+
+
+      - name: Cache Yarn
+        id: cache_yarn
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-yarn
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-
         if: env.SHOULD_RUN == 'true'
-      - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
+
+      - if: env.SHOULD_RUN == 'true' && steps.cache_yarn.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: Test affected projects
 #        run: yarn nx affected:test --base=origin/master --head=${{ github.event.pull_request.head.ref }} --codeCoverage
-        run: yarn nx run-many --all --target test --codeCoverage
+        run: yarn nx run-many --target=test --projects=ui-button,ui-card --codeCoverage
         if: env.SHOULD_RUN == 'true'
       - name: Upload coverage results to CodeCov
         run: tools/ci/coverage-upload.sh
@@ -160,14 +185,21 @@ jobs:
 #        with:
 #          node-version: 12.x
 #        if: env.SHOULD_RUN == 'true'
-#      - name: Cache node_modules
-#        id: cache_node_modules
-#        uses: actions/cache@v1
+#      - name: Cache Yarn
+#        id: cache_yarn
+#        uses: actions/cache@v2
+#        env:
+#          cache-name: cache-yarn
 #        with:
-#          path: node_modules
-#          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+#          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+#          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+#          restore-keys: |
+#            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+#            ${{ runner.os }}-yarn-
+#            ${{ runner.os }}-
 #        if: env.SHOULD_RUN == 'true'
-#      - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
+#
+#      - if: env.SHOULD_RUN == 'true' && steps.cache_yarn.outputs.cache-hit != 'true'
 #        run: yarn install --frozen-lockfile --non-interactive
 #      - name: Lint files
 #        run: yarn nx affected:lint --base=origin/master --head=${{ github.event.pull_request.head.ref }}
