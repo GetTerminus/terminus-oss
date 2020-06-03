@@ -52,6 +52,9 @@ jobs:
 #          path: node_modules
 #          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
 #        if: env.SHOULD_RUN == 'true'
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Cache node modules
         id: cache_node_modules
@@ -59,7 +62,7 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          path: node_modules
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
@@ -142,35 +145,35 @@ jobs:
   #
   # Lint affected projects
   #
-  affected_lint:
-    name: Lint affected projects
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 0
-      - run: |
-          git fetch --no-tags --prune --depth=5 origin master
-      - name: Check last commit message
-        id: skip
-        uses: atlwendy/retrieve-commit-messages-from-pr@v2
-      - name: Set SHOULD_RUN flag
-        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
-      - name: Set up Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-        if: env.SHOULD_RUN == 'true'
-      - name: Cache node_modules
-        id: cache_node_modules
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
-        if: env.SHOULD_RUN == 'true'
-      - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile --non-interactive
-      - name: Lint files
-        run: yarn nx affected:lint --base=origin/master --head=${{ github.event.pull_request.head.ref }}
-        if: env.SHOULD_RUN == 'true'
+#  affected_lint:
+#    name: Lint affected projects
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#        with:
+#          ref: ${{ github.event.pull_request.head.ref }}
+#          fetch-depth: 0
+#      - run: |
+#          git fetch --no-tags --prune --depth=5 origin master
+#      - name: Check last commit message
+#        id: skip
+#        uses: atlwendy/retrieve-commit-messages-from-pr@v2
+#      - name: Set SHOULD_RUN flag
+#        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
+#      - name: Set up Node
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: 12.x
+#        if: env.SHOULD_RUN == 'true'
+#      - name: Cache node_modules
+#        id: cache_node_modules
+#        uses: actions/cache@v1
+#        with:
+#          path: node_modules
+#          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+#        if: env.SHOULD_RUN == 'true'
+#      - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
+#        run: yarn install --frozen-lockfile --non-interactive
+#      - name: Lint files
+#        run: yarn nx affected:lint --base=origin/master --head=${{ github.event.pull_request.head.ref }}
+#        if: env.SHOULD_RUN == 'true'
