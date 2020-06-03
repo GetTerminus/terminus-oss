@@ -118,19 +118,9 @@ jobs:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
 
-      - name: Cache NX Cache
-        id: cache_nnx
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-nx
-        with:
-          path: node_modules/.cache/nx
-          key: ${{ runner.os }}-nx-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-nx-${{ env.cache-name }}-
-            ${{ runner.os }}-nx-
-            ${{ runner.os }}-
-
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Cache Yarn
         id: cache_yarn
