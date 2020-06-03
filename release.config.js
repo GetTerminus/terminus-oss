@@ -57,7 +57,11 @@ module.exports = {
       },
     ],
     publish: [
-      '@semantic-release/npm',
+      // '@semantic-release/npm',
+      // {
+      //   path: '@semantic-release/npm',
+      //   pkgRoot: 'dist/library',
+      // },
       // {
       //   path: '@semantic-release/github',
       //   assets: [
