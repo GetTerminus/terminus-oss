@@ -5,8 +5,8 @@ The monorepo that contains all Terminus open-source libraries and tools.
 [![Release CI][github-badge-release]][github-ci-link] [![codecov][codecov-badge]][codecov-project]
 [![DavidDM][david-badge]][david-link] [![DavidDM Dev][david-dev-badge]][david-link]
 
-[![semantic-release][semantic-release-badge]][semantic-release] [![Renovate][renovate-badge]][renovate-link] [![MIT
-License][license-image]][license-url] [![ZenHub][zenhub-image]][zenhub-url]
+[![MIT License][license-badge]][license-url] [![semantic-release][semantic-release-badge]][semantic-release]
+[![Renovate][renovate-badge]][renovate-link] [![ZenHub][zenhub-image]][zenhub-url]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -174,6 +174,7 @@ $ yarn run help
 [david-badge]:            https://david-dm.org/GetTerminus/terminus-oss.svg
 [david-link]:             https://david-dm.org/GetTerminus/terminus-oss?view=list
 [license-url]:            https://github.com/GetTerminus/terminus-ui/blob/release/LICENSE
+[license-badge]:          http://img.shields.io/badge/license-MIT-blue.svg
 [zenhub-image]:           https://dxssrr2j0sq4w.cloudfront.net/3.2.0/img/external/zenhub-badge.png
 [zenhub-url]:             https://github.com/GetTerminus/terminus-oss#zenhub
 [github-badge-release]:   https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg

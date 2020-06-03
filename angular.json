@@ -28,7 +28,8 @@
             "styles": [
               "apps/showcase-tokens/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "baseHref": "/design-tokens/"
           },
           "configurations": {
             "production": {
@@ -46,19 +47,7 @@
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "60kb",
-                  "maximumError": "100kb"
-                }
-              ]
+              "buildOptimizer": true
             }
           }
         },
@@ -109,8 +98,10 @@
           "options": {
             "repo": "https://github.com/GetTerminus/design-tokens.git",
             "baseHref": "/design-tokens/",
-            "name": "Benjamin Charity",
-            "email": "ben@benjamincharity.com"
+            "name": "terminus-devops",
+            "email": "devops@terminus.com",
+            "dryRun": false,
+            "noSilent": true
           }
         }
       }
@@ -195,19 +186,7 @@
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "60kb",
-                  "maximumError": "100kb"
-                }
-              ]
+              "buildOptimizer": true
             }
           }
         },
@@ -251,6 +230,14 @@
             "tsConfig": "apps/showcase-ui/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "apps/showcase-ui/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "tools/ci/demos-deploy.sh" }
+            ]
           }
         }
       }
@@ -334,19 +321,7 @@
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "60kb",
-                  "maximumError": "100kb"
-                }
-              ]
+              "buildOptimizer": true
             }
           }
         },
@@ -459,6 +434,14 @@
             "passWithNoTests": true
           }
         },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/design-tokens && yarn run semantic-release)" }
+            ]
+          }
+        },
         "build": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -514,6 +497,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/autocomplete/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/autocomplete && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -563,6 +554,14 @@
             "tsConfig": "libs/ui/autofocus/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/autofocus/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/autofocus && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -615,6 +614,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/button/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/button && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -665,6 +672,14 @@
             "tsConfig": "libs/ui/checkbox/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/checkbox/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/checkbox && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -717,6 +732,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/card/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/card && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -767,6 +790,14 @@
             "tsConfig": "libs/ui/chart/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/chart/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/chart && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -819,6 +850,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/chip/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/chip && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -869,6 +908,14 @@
             "tsConfig": "libs/ui/cohort-date-range/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/cohort-date-range/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/cohort-date-range && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -921,6 +968,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/confirmation/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/confirmation && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -971,6 +1026,14 @@
             "tsConfig": "libs/ui/copy/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/copy/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/copy && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -1023,6 +1086,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/csv-entry/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/csv-entry && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -1073,6 +1144,14 @@
             "tsConfig": "libs/ui/date-range/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/date-range/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/date-range && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -1125,6 +1204,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/drawer/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/drawer && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -1175,6 +1262,14 @@
             "tsConfig": "libs/ui/expansion-panel/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/expansion-panel/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/expansion-panel && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -1227,6 +1322,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/file-upload/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/file-upload && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -1277,6 +1380,14 @@
             "tsConfig": "libs/ui/form-field/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/form-field/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/form-field && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -1329,6 +1440,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/icon/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/icon && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -1379,6 +1498,14 @@
             "tsConfig": "libs/ui/icon-button/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/icon-button/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/icon-button && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -1431,6 +1558,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/input/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/input && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -1481,6 +1616,14 @@
             "tsConfig": "libs/ui/link/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/link/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/link && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -1533,6 +1676,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/loading-overlay/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/loading-overlay && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -1583,6 +1734,14 @@
             "tsConfig": "libs/ui/login-form/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/login-form/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/login-form && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -1635,6 +1794,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/logo/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/logo && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -1685,6 +1852,14 @@
             "tsConfig": "libs/ui/menu/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/menu/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/menu && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -1737,6 +1912,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/navigation/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/navigation && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -1787,6 +1970,14 @@
             "tsConfig": "libs/ui/option/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/option/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/option && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -1839,6 +2030,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/paginator/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/paginator && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -1888,6 +2087,14 @@
             "tsConfig": "libs/ui/pipes/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/pipes/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/pipes && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -1940,6 +2147,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/popover/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/popover && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -1990,6 +2205,14 @@
             "tsConfig": "libs/ui/radio-group/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/radio-group/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/radio-group && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -2042,6 +2265,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/scrollbars/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/scrollbars && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -2092,6 +2323,14 @@
             "tsConfig": "libs/ui/search/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/search/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/search && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -2144,6 +2383,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/select/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/select && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -2194,6 +2441,14 @@
             "tsConfig": "libs/ui/selection-list/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/selection-list/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/selection-list && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -2246,6 +2501,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/sort/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/sort && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -2295,6 +2558,14 @@
             "tsConfig": "libs/ui/spacing/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/spacing/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/spacing && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -2357,7 +2628,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/styles && yarn run semantic-release --no-ci --dry-run)" }
+              { "command": "(cd libs/ui/styles && yarn run semantic-release)" }
             ]
           }
         }
@@ -2411,6 +2682,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/table/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/table && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -2461,6 +2740,14 @@
             "tsConfig": "libs/ui/tabs/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/tabs/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/tabs && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -2513,6 +2800,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/toggle/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/toggle && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -2564,6 +2859,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/tooltip/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/tooltip && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -2613,6 +2916,14 @@
             "tsConfig": "libs/ui/utilities/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/utilities/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/utilities && yarn run semantic-release)" }
+            ]
           }
         }
       },
@@ -2665,6 +2976,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/validation-messages/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/validation-messages && yarn run semantic-release)" }
+            ]
+          }
         }
       },
       "schematics": {
@@ -2714,6 +3033,14 @@
             "tsConfig": "libs/ui/validators/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/validators/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "(cd libs/ui/validators && yarn run semantic-release)" }
+            ]
           }
         }
       },
