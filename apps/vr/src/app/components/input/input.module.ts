@@ -5,6 +5,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+
 import { TsInputModule } from '@terminus/ui-input';
 
 import { InputRoutingModule } from './input-routing.module';

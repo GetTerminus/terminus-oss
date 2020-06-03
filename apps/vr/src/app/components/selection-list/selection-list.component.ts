@@ -4,13 +4,14 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
-import { TsOption } from '@terminus/ui-option';
 import {
   BehaviorSubject,
   Observable,
 } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import { TsOption } from '@terminus/ui-option';
 
 
 interface State extends TsOption {
