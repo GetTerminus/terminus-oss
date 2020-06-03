@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['semantic-release-monorepo'],
-  branches: ['master', 'pr-workflow'],
+  branches: ['master', 'tokens-release-flow-v2'],
   plugins: [
     [
       '@semantic-release/release-notes-generator',
@@ -42,8 +42,7 @@ module.exports = {
   publish: [
     {
       path: '@semantic-release/npm',
-      npmPublish: true,
-      pkgRoot: 'dist/library',
+      // pkgRoot: 'dist/library',
     },
     {
       path: '@semantic-release/github',
