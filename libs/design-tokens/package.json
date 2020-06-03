@@ -1,0 +1,21 @@
+{
+  "name": "@terminus/design-tokens",
+  "version": "0.0.0-PLACEHOLDER",
+  "description": "The collection of Terminus design tokens.",
+  "license": "MIT",
+  "author": "@terminus",
+  "private": false,
+  "homepage": "https://github.com/GetTerminus/design-tokens",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GetTerminus/design-tokens.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GetTerminus/design-tokens/issues"
+  },
+  "main": "js/design-tokens.js",
+  "style": "css/design-tokens.css",
+  "publishConfig": {
+    "tag": "next"
+  }
+}

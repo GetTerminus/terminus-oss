@@ -4,7 +4,17 @@
 # Deploy demos
 #
 
+# shellcheck disable=SC1090
 . ~/.bashrc
+
+# Likely starting at `/home/runner/work/terminus-oss/terminus-oss` so we need to go up one
+cd ../
+
+echo "CURRENT PATH:"
+pwd
+
+# Clone the ui demos
+git clone git@github.com:GetTerminus/ui-demos-release.git
 
 # Enter the demos repo
 cd ui-demos-release || exit
@@ -17,7 +27,7 @@ echo "CURRENT PATH:"
 pwd
 
 # Move new files into the cloned repo
-mv -f -v ../dist/demo/* .
+mv -f -v ../terminus-oss/dist/apps/showcase-ui/* .
 
 # Clone the index.html file as 404.html to support deep linking
 cp index.html 404.html
@@ -29,7 +39,7 @@ git config user.name "terminus-devops"
 
 # Commit new files
 git add .
-git commit -m "Update via CircleCI: release"
+git commit -m "Update via CI release"
 
 # Push quietly to prevent showing the token in log
 git push -q https://"${GH_TOKEN}"@github.com/GetTerminus/ui-demos-release.git master
