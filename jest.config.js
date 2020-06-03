@@ -1,14 +1,9 @@
 module.exports = {
+  cacheDirectory: `${__dirname}/.jest-cache`,
   clearMocks: true,
   coverageReporters: [
     'json',
     'html',
-    // [
-    //   {
-    //     outputDirectory: '/coverage/junit/',
-    //     outputName: 'report.xml',
-    //   },
-    // ],
   ],
   moduleFileExtensions: ['ts', 'js', 'html'],
   moduleNameMapper: {

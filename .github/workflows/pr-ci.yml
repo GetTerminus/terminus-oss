@@ -43,23 +43,59 @@ jobs:
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
-      - name: Cache node_modules
-        id: cache_node_modules
-        uses: actions/cache@v1
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache Yarn
+        id: cache_yarn
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-yarn
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-
         if: env.SHOULD_RUN == 'true'
-      - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
+      - name: Cache NODE
+        id: cache_node
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-node-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.cache-name }}-
+            ${{ runner.os }}-node-
+            ${{ runner.os }}-
+        if: env.SHOULD_RUN == 'true'
+      - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: Build affected projects
         run: yarn nx affected:build --prod --base=origin/master --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'
+      - name: Cache NX Cache
+        id: cache_nnx
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-nx
+        with:
+          path: node_modules/.cache/nx
+          key: ${{ runner.os }}-nx-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-nx-${{ env.cache-name }}-
+            ${{ runner.os }}-nx-
+            ${{ runner.os }}-
       - name: Upload built files
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: built-libs
-          path: dist/
+          path: dist/*
         if: env.SHOULD_RUN == 'true'
 
   #
@@ -85,26 +121,49 @@ jobs:
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
-      - name: Cache node_modules
-        id: cache_node_modules
-        uses: actions/cache@v1
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache Yarn
+        id: cache_yarn
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-yarn
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-
         if: env.SHOULD_RUN == 'true'
-      - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
+      - name: Cache NODE
+        id: cache_node
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-node-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.cache-name }}-
+            ${{ runner.os }}-node-
+            ${{ runner.os }}-
+        if: env.SHOULD_RUN == 'true'
+      - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: Test affected projects
         run: yarn nx affected:test --base=origin/master --head=${{ github.event.pull_request.head.ref }} --codeCoverage
         if: env.SHOULD_RUN == 'true'
-#      - name: Upload coverage results to CodeCov
-#        run: tools/ci/coverage-upload.sh
-#        if: env.SHOULD_RUN == 'true'
+      - name: Upload coverage results to CodeCov
+        run: tools/ci/coverage-upload.sh
+        if: env.SHOULD_RUN == 'true'
       - name: Archive code coverage results
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: code-coverage-report
-          path: coverage/
+          path: coverage/*
         if: env.SHOULD_RUN == 'true'
 
   #
@@ -130,15 +189,174 @@ jobs:
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
-      - name: Cache node_modules
-        id: cache_node_modules
-        uses: actions/cache@v1
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache Yarn
+        id: cache_yarn
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-yarn
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-
         if: env.SHOULD_RUN == 'true'
-      - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
+      - name: Cache NODE
+        id: cache_node
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-node-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.cache-name }}-
+            ${{ runner.os }}-node-
+            ${{ runner.os }}-
+        if: env.SHOULD_RUN == 'true'
+      - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: Lint files
         run: yarn nx affected:lint --base=origin/master --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'
+
+# TODO: re-enable these before final release
+#  #
+#  # Run integration test
+#  #
+#  integration_test:
+#    name: Run integration test
+#    needs: affected_build
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout repo
+#        uses: actions/checkout@v2
+#      - name: Check last commit message
+#        id: skip
+#        uses: atlwendy/retrieve-commit-messages-from-pr@v2
+#      - name: Set SHOULD_RUN flag
+#        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
+#      - name: Set up Node
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: 12.x
+#        if: env.SHOULD_RUN == 'true'
+#      - name: Get yarn cache directory path
+#        id: yarn-cache-dir-path
+#        run: echo "::set-output name=dir::$(yarn cache dir)"
+#      - name: Cache Yarn
+#        id: cache_yarn
+#        uses: actions/cache@v2
+#        env:
+#          cache-name: cache-yarn
+#        with:
+#          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+#          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+#          restore-keys: |
+#            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+#            ${{ runner.os }}-yarn-
+#            ${{ runner.os }}-
+#        if: env.SHOULD_RUN == 'true'
+#      - name: Cache NODE
+#        id: cache_node
+#        uses: actions/cache@v2
+#        env:
+#          cache-name: cache-node
+#        with:
+#          path: |
+#            **/node_modules
+#          key: ${{ runner.os }}-node-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+#          restore-keys: |
+#            ${{ runner.os }}-node-${{ env.cache-name }}-
+#            ${{ runner.os }}-node-
+#            ${{ runner.os }}-
+#        if: env.SHOULD_RUN == 'true'
+#      - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
+#        run: yarn install --frozen-lockfile --non-interactive
+#      - if: env.SHOULD_RUN == 'true'
+#        run: yarn add start-server-and-test
+#      - name: Download built library
+#        uses: actions/download-artifact@v1
+#        with:
+#          name: built-libs
+#          path: dist/
+#        if: env.SHOULD_RUN == 'true'
+#      - name: Run integration test
+#        run: yarn libraries:test:integration
+#        if: env.SHOULD_RUN == 'true'
+#
+#  #
+#  # Run regression test
+#  #
+#  regression_test:
+#    name: Visual regression tests
+#    needs: affected_build
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout repo
+#        uses: actions/checkout@v2
+#      - name: Get pusher name
+#        run: echo ::set-env name=author::${{ github.event.pull_request.user.login }}
+#      - name: Check last commit message
+#        id: skip
+#        uses: atlwendy/retrieve-commit-messages-from-pr@master
+#      - name: Set SHOULD_RUN flag
+#        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
+#        if: "! contains(env.author, 'renovate')"
+#      - name: Set up Node
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: 12.x
+#        if: env.SHOULD_RUN == 'true'
+#      - if: env.SHOULD_RUN == 'true'
+#        run: yarn add start-server-and-test
+#      - name: Get yarn cache directory path
+#        id: yarn-cache-dir-path
+#        run: echo "::set-output name=dir::$(yarn cache dir)"
+#      - name: Cache Yarn
+#        id: cache_yarn
+#        uses: actions/cache@v2
+#        env:
+#          cache-name: cache-yarn
+#        with:
+#          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+#          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+#          restore-keys: |
+#            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+#            ${{ runner.os }}-yarn-
+#            ${{ runner.os }}-
+#        if: env.SHOULD_RUN == 'true'
+#      - name: Cache NODE
+#        id: cache_node
+#        uses: actions/cache@v2
+#        env:
+#          cache-name: cache-node
+#        with:
+#          path: |
+#            **/node_modules
+#          key: ${{ runner.os }}-node-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+#          restore-keys: |
+#            ${{ runner.os }}-node-${{ env.cache-name }}-
+#            ${{ runner.os }}-node-
+#            ${{ runner.os }}-
+#        if: env.SHOULD_RUN == 'true'
+#      - if: env.SHOULD_RUN == 'true' && steps.cache_node_modules.outputs.cache-hit != 'true'
+#        run: yarn install --frozen-lockfile --non-interactive
+#      - name: Download built library
+#        uses: actions/download-artifact@v1
+#        with:
+#          name: built-libs
+#          path: dist/
+#        if: env.SHOULD_RUN == 'true'
+#      - name: Run regression test
+#        uses: percy/exec-action@v0.3.0
+#        with:
+#          custom-command: yarn run vr:test:regression
+#        env:
+#          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+#        if: env.SHOULD_RUN == 'true'
