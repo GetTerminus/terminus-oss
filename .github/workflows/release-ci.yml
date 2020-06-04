@@ -131,10 +131,18 @@ jobs:
         run: yarn affected:apps --base=origin/master
       - name: Build affected projects
         run: yarn nx run-many --all --target build --prod
+      - name: Get sha of last tag
+        id: get-sha
+        run: |
+          latesttag=$(git describe --abbrev=0)
+          echo "Latest tag: \"${latesttag}\""
+          latestsha=$(git show-ref -s ${latesttag})
+          echo "Latest sha: \"${latestsha}\""
+          echo "::set-output name=latestsha::$latestsha"
       - name: Deploy affected projects
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: yarn nx affected --target=deploy --base=origin/master
+        run: yarn nx affected --target=deploy --base=${{ steps.get-sha.outputs.latestsha }}
       - name: Upload built files
         uses: actions/upload-artifact@v2
         with:
