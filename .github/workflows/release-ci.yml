@@ -163,6 +163,7 @@ jobs:
       - name: Deploy affected projects
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn nx affected --target=deploy --base=${{ steps.get-sha.outputs.latestsha }}
       - name: Upload built files
         uses: actions/upload-artifact@v2
