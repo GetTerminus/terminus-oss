@@ -6,7 +6,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import {
-  FormControl, ValidationErrors,
+  FormControl,
+  ValidationErrors,
 } from '@angular/forms';
 
 import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';

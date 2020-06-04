@@ -13,9 +13,10 @@
   "bugs": {
     "url": "https://github.com/GetTerminus/terminus-oss/issues"
   },
-  "main": "js/design-tokens.js",
-  "style": "css/design-tokens.css",
   "publishConfig": {
+    "access": "public",
     "tag": "next"
-  }
+  },
+  "main": "js/design-tokens.js",
+  "style": "css/design-tokens.css"
 }

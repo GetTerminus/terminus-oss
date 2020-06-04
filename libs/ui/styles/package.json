@@ -12,6 +12,10 @@
   "bugs": {
     "url": "https://github.com/GetTerminus/terminus-oss/issues"
   },
+  "publishConfig": {
+    "access": "public",
+    "tag": "next"
+  },
   "styles": "helpers.scss",
   "peerDependencies": {
     "@terminus/design-tokens": "^1.0.10",

@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['semantic-release-monorepo'],
-  branches: ['master', 'tokens-release-flow-v2'],
+  branches: ['master'],
   monorepo: {
     plugins: [
       '@semantic-release/commit-analyzer',
@@ -24,9 +24,7 @@ module.exports = {
       ],
       [
         '@semantic-release/changelog',
-        {
-          changelogFile: 'CHANGELOG.md',
-        },
+        { changelogFile: 'CHANGELOG.md' },
       ],
       '@semantic-release/npm',
       [
@@ -43,7 +41,7 @@ module.exports = {
       '@semantic-release/changelog',
       '@semantic-release/npm',
       '@semantic-release/git',
-      // '@semantic-release/github',
+      '@semantic-release/github',
     ],
     prepare: [
       {
@@ -55,20 +53,6 @@ module.exports = {
         // eslint-disable-next-line no-template-curly-in-string
         message: 'Add ${nextRelease.version} release notes [skip ci]',
       },
-    ],
-    publish: [
-      // '@semantic-release/npm',
-      // {
-      //   path: '@semantic-release/npm',
-      //   pkgRoot: 'dist/library',
-      // },
-      // {
-      //   path: '@semantic-release/github',
-      //   assets: [
-      //     'CHANGELOG.md',
-      //   ],
-      //   npmPublish: false,
-      // },
     ],
   },
 }

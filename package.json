@@ -35,8 +35,7 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "styles:release": "yarn --cwd libs/ui/styles run semantic-release -e semantic-release-monorepo",
-    "////////// Section: Custom ESLint": "==============================",
+    "////////// Section: Custom Lint": "==============================",
     "lint:ts": "npx eslint",
     "lint:ts:fix": "yarn run lint:ts --fix",
     "lint:scss": "npx stylelint",
@@ -100,6 +99,7 @@
     }
   },
   "publishConfig": {
+    "access": "public",
     "tag": "next"
   },
   "engines": {

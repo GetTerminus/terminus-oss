@@ -20,12 +20,6 @@ const creditCardMessage = `Invalid credit card number.`;
 const passwordMessage = `Password must be between 6 and 100 characters, and contain a number.`;
 
 
-/*
- * TODO: The consuming app will need a way to pass in the error messages config object so that
- * localization is supported. See https://github.com/GetTerminus/terminus-ui/issues/403
- */
-
-
 /**
  * Define a service that offers custom validators
  */
@@ -41,7 +35,6 @@ export class TsValidationMessagesService {
    * @param validatorValue - The value of the validator
    * @returns The error message
    */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public getValidatorErrorMessage(validatorName: string, validatorValue?: ValidationErrors): string {
     const config: { [key: string]: string } = {
       // Standard responses:

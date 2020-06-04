@@ -62,11 +62,6 @@ module.exports = {
         700: { value: '#757575' },
         900: { value: '#3e3c43' },
       },
-      fakePalette: {
-        500: { value: '#ff0' },
-        600: { value: '#f00' },
-        700: { value: '#000' },
-      },
     },
   },
 };
