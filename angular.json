@@ -438,7 +438,8 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/design-tokens && npx semantic-release && git fetch --tags)" }
+              { "command": "git pull && git fetch --tags" },
+              { "command": "(cd libs/design-tokens && npx semantic-release)" }
             ]
           }
         },
