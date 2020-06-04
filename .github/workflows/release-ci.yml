@@ -5,15 +5,29 @@ on:
       - 'master'
       - 'v[0-9]+.[0-9]+.[0-9]+'
 
-# 1) build library
-# 2) test library
-# 3) lint all files
-# 4) build demos
-# 5) publish library
-# 6) generate docs
-# 7) deploy docs
-# 8) deploy demos
+# Note: 'affected' packages are determined by files changes since the last tag
+# 1) test affected packages
+# 2) lint affected packages
+# 3) build & release affected packages
 jobs:
+  #
+  # Cancel any workflows that would be duplicated by this run
+  #
+  cleanup-runs:
+    name: Cancel Duplicates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - run: |
+          git fetch --no-tags --prune --depth=5 origin master
+      - uses: rokroskar/workflow-run-cleanup-action@master
+        env:
+          GITHUB_TOKEN: "${{ secrets.GH_TOKEN }}"
+    if: "!startsWith(github.ref, 'refs/tags/') && github.ref != 'refs/heads/master'"
+
   #
   # Test affected projects
   #
