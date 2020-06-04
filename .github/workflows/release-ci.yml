@@ -127,17 +127,14 @@ jobs:
         run: yarn install --frozen-lockfile --non-interactive
       - name: List affected LIBS
         run: yarn affected:libs --base=origin/master
-        if: env.SHOULD_RUN == 'true'
       - name: List affected APPS
         run: yarn affected:apps --base=origin/master
-        if: env.SHOULD_RUN == 'true'
       - name: Build affected projects
         run: yarn nx run-many --all --target build --prod
       - name: Deploy affected projects
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: yarn nx affected --target=deploy --base=origin/master
-        if: env.SHOULD_RUN == 'true'
       - name: Upload built files
         uses: actions/upload-artifact@v2
         with:
@@ -158,16 +155,10 @@ jobs:
           fetch-depth: 0
       - run: |
           git fetch --no-tags --prune --depth=5 origin master
-      - name: Check last commit message
-        id: skip
-        uses: atlwendy/retrieve-commit-messages-from-pr@v2
-      - name: Set SHOULD_RUN flag
-        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-        if: env.SHOULD_RUN == 'true'
       - name: Cache NODE
         id: cache_node
         uses: actions/cache@v2
@@ -181,15 +172,13 @@ jobs:
             ${{ runner.os }}-node-${{ env.cache-name }}-
             ${{ runner.os }}-node-
             ${{ runner.os }}-
-        if: env.SHOULD_RUN == 'true'
-      - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
+      - if: steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
 
       - name: Deploy affected projects
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: yarn nx affected --target=deploy --base=origin/master
-        if: env.SHOULD_RUN == 'true'
 
 
 
