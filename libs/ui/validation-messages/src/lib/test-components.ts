@@ -6,6 +6,7 @@ import {
 import { FormControl } from '@angular/forms';
 
 import {
+  TsValidationMessageFactory,
   TsValidationMessagesComponent,
   TsValidationMessagesModule,
 } from '@terminus/ui-validation-messages';
@@ -15,12 +16,21 @@ import {
     <ts-validation-messages
       [control]="controlForm"
       [validateOnChange]="validateOnChange"
+      [messagesFactory]="myFactory"
     ></ts-validation-messages>
   `,
 })
 export class Basic {
-  public controlForm: FormControl | undefined;
-  public validateOnChange = false;
+  controlForm: FormControl | undefined;
+  myFactory: TsValidationMessageFactory | undefined;
+  validateOnChange = false;
+
+  @ViewChild(TsValidationMessagesComponent, { static: true })
+  public validationMessagesComponent!: TsValidationMessagesComponent;
+
+  public setFactory = () => {
+    this.myFactory = (a, b) => 'My message.';
+  };
 }
 
 @Component({
@@ -40,16 +50,31 @@ export class TestHostComponent {
   public validateOnChange = false;
 }
 
+@Component({
+  template: `
+    <ts-validation-messages
+      [control]="controlForm"
+      [messagesFactory]="myFactory"
+    ></ts-validation-messages>
+  `,
+})
+export class MessageFactory {
+  public controlForm: FormControl | undefined;
+
+  @ViewChild(TsValidationMessagesComponent)
+  public validationMessagesComponent!: TsValidationMessagesComponent;
+  myFactory: TsValidationMessageFactory = (a, b) => 'My message.';
+}
+
 /**
  * NOTE: Currently all exported Components must belong to a module.
  * So this is our useless module to avoid the build error.
  */
 @NgModule({
-  imports: [
-    TsValidationMessagesModule,
-  ],
+  imports: [TsValidationMessagesModule],
   declarations: [
     Basic,
+    MessageFactory,
     TestHostComponent,
   ],
 })
