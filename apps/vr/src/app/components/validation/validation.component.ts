@@ -14,7 +14,7 @@ import { TsValidatorsService } from '@terminus/ui-validators';
 
 
 @Component({
-  selector: 'demo-validation',
+  selector: 'app-validation',
   styleUrls: ['./validation.component.scss'],
   templateUrl: './validation.component.html',
 })
@@ -45,6 +45,10 @@ export class ValidationComponent implements OnInit {
   customValidationMessage = 'Sorry, only Hotmail or MySpace addresses supported';
   emailMessageFactory: TsValidationMessageFactory = (a, b) => (a ? this.customValidationMessage : null);
   myForm: FormGroup = this.formBuilder.group({
+    passwordCustom: [
+      null,
+      [this.validatorsService.password()],
+    ],
     emailCustom: [
       null,
       [this.validatorsService.email()],
@@ -151,6 +155,7 @@ export class ValidationComponent implements OnInit {
     }
 
     if (greaterThanInUse && greaterThanSource) {
+      console.log('greaterThanSource: ', greaterThanSource);
       greaterThanInUse.setValidators([
         this.validatorsService.greaterThan(greaterThanSource),
       ]);
@@ -162,4 +167,3 @@ export class ValidationComponent implements OnInit {
     console.log('DEMO: form value: ', v);
   }
 }
-

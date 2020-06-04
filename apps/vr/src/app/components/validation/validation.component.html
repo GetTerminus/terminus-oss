@@ -1,21 +1,10 @@
 <form [formGroup]="myForm" novalidate>
-
-  <ts-card tsVerticalSpacing>
+  <div class="page">
     <h3 tsVerticalSpacing>
       Demo controls
     </h3>
 
-    <p>
-      Note: You must leave the input for the validation to trigger.
-    </p>
-
-    <button (click)="log(myForm.value)">
-      Log form value
-    </button>
-  </ts-card>
-
-  <ts-card tsVerticalSpacing>
-    <h3 tsCardTitle>Custom validation message</h3>
+    <h3>Custom validation message</h3>
 
     <ts-input
       [formControl]="myForm.get('emailCustom')"
@@ -28,10 +17,9 @@
         tsCustomValidationMessage
       ></ts-validation-messages>
     </ts-input>
-  </ts-card>
 
-  <ts-card tsVerticalSpacing>
-    <h3 tsCardTitle>Email</h3>
+
+    <h3>Email</h3>
 
     <div fxLayout="row" [fxLayoutGap]="flexGap">
 <pre fxFlex>
@@ -40,7 +28,7 @@ foo@bar.co
 foo@bar.baz.net
 </pre>
 
-<pre fxFlex>
+      <pre fxFlex>
 // Invalid emails:
 foo
 foo@
@@ -55,12 +43,10 @@ foo@bar.c
       label="Email"
       type="email"
     ></ts-input>
-  </ts-card>
 
 
-  <ts-card tsVerticalSpacing>
 
-    <h3 tsCardTitle>Password</h3>
+    <h3>Password</h3>
 
     <div fxLayout="row" [fxLayoutGap]="flexGap">
 <pre fxFlex>
@@ -71,7 +57,7 @@ V9Cpp7RGB9
 FQ49j6BQ2BqerBnFMkeL7hfMw83fVsseAMV9xDJrTWd9J8xNFQ49j6BQ2BqerBnFMkeL7hfMw83fVsseAMV9xDJrTWd9J8xsdN
 </pre>
 
-<pre fxFlex>
+      <pre fxFlex>
 // Invalid passwords:
 MA9Lv
 xnhoQzDwAv
@@ -82,15 +68,17 @@ FQ49j6BQ2BqerBnFMkeL7hfMw83fVsseAMV9xDJrTWd9J8xsdNFQ49j6BQ2BqerBnFMkeL7hfMw83fVs
     </div>
 
     <ts-input
-      [formControl]="myForm.get('password')"
+      [formControl]="myForm.get('passwordCustom')"
       label="Password"
-    ></ts-input>
-  </ts-card>
+    >
+      <ts-validation-messages
+        [control]="myForm.get('passwordCustom')"
+        tsCustomValidationMessage
+      ></ts-validation-messages>
+    </ts-input>
 
 
-  <ts-card tsVerticalSpacing>
-
-    <h3 tsCardTitle>Credit Card</h3>
+    <h3>Credit Card</h3>
 
     <div fxLayout="row" [fxLayoutGap]="flexGap">
 <pre fxFlex>
@@ -101,7 +89,7 @@ FQ49j6BQ2BqerBnFMkeL7hfMw83fVsseAMV9xDJrTWd9J8xsdNFQ49j6BQ2BqerBnFMkeL7hfMw83fVs
 378282246310005
 </pre>
 
-<pre fxFlex>
+      <pre fxFlex>
 // Invalid card numbers:
 1234
 e
@@ -116,11 +104,8 @@ test@test.com
       label="Credit Card Number"
     ></ts-input>
 
-  </ts-card>
 
-
-  <ts-card tsVerticalSpacing>
-    <h3 tsCardTitle tsVerticalSpacing="small--0">Date (min/max)</h3>
+    <h3  tsVerticalSpacing="small--0">Date (min/max)</h3>
 
     <ts-input
       datepicker="date"
@@ -129,14 +114,12 @@ test@test.com
       [formControl]="myForm.get('date')"
       hint="Date must be between 1/5/2018 and 1/25/2018"
     ></ts-input>
-  </ts-card>
 
 
-  <div fxLayout="row" [fxLayoutGap]="flexGap">
+    <div fxLayout="row" [fxLayoutGap]="flexGap">
 
-    <div fxFlex>
-      <ts-card tsVerticalSpacing>
-        <h3 tsCardTitle tsVerticalSpacing="small--0">Less Than</h3>
+      <div fxFlex>
+        <h3 tsVerticalSpacing="small--0">Less Than</h3>
 
         <ts-input
           [formControl]="myForm.get('lessThan')"
@@ -144,12 +127,10 @@ test@test.com
           type="number"
           hint="Must be less than 10"
         ></ts-input>
-      </ts-card>
-    </div>
+      </div>
 
-    <div fxFlex>
-      <ts-card tsVerticalSpacing>
-        <h3 tsCardTitle tsVerticalSpacing="small--0">Greater Than</h3>
+      <div fxFlex>
+        <h3 tsVerticalSpacing="small--0">Greater Than</h3>
 
         <ts-input
           [formControl]="myForm.get('greaterThan')"
@@ -157,17 +138,15 @@ test@test.com
           type="number"
           hint="Must be greater than 10"
         ></ts-input>
-      </ts-card>
+      </div>
+
     </div>
 
-  </div>
 
+    <div fxLayout="row" [fxLayoutGap]="flexGap">
 
-  <div fxLayout="row" [fxLayoutGap]="flexGap">
-
-    <div fxFlex>
-      <ts-card tsVerticalSpacing>
-        <h3 tsCardTitle tsVerticalSpacing="small--0">isInRange (min/max)</h3>
+      <div fxFlex>
+        <h3 tsVerticalSpacing="small--0">isInRange (min/max)</h3>
 
         <ts-input
           label="Is In Range"
@@ -175,41 +154,33 @@ test@test.com
           [formControl]="myForm.get('isInRange')"
           hint="Number must be between 10 and 100"
         ></ts-input>
-      </ts-card>
+      </div>
     </div>
-  </div>
 
-  <div fxLayout="row" [fxLayoutGap]="flexGap">
+    <div fxLayout="row" [fxLayoutGap]="flexGap">
 
-    <div fxFlex>
-      <ts-card tsVerticalSpacing>
-        <h3 tsCardTitle tsVerticalSpacing="small--0">Contains lowercase</h3>
+      <div fxFlex>
+        <h3 tsVerticalSpacing="small--0">Contains lowercase</h3>
 
         <ts-input [formControl]="myForm.get('lowercase')" hint="Must contain at least 4 lowercase"></ts-input>
-      </ts-card>
-    </div>
+      </div>
 
-    <div fxFlex>
-      <ts-card tsVerticalSpacing>
-        <h3 tsCardTitle tsVerticalSpacing="small--0">Contains uppercase</h3>
+      <div fxFlex>
+        <h3 tsVerticalSpacing="small--0">Contains uppercase</h3>
 
         <ts-input [formControl]="myForm.get('uppercase')" hint="Must contain at least 4 uppercase"></ts-input>
-      </ts-card>
-    </div>
+      </div>
 
-    <div fxFlex>
-      <ts-card tsVerticalSpacing>
-        <h3 tsCardTitle tsVerticalSpacing="small--0">Contains numbers</h3>
+      <div fxFlex>
+        <h3 tsVerticalSpacing="small--0">Contains numbers</h3>
 
         <ts-input [formControl]="myForm.get('numbers')" hint="Must contain at least 4 numbers"></ts-input>
-      </ts-card>
+      </div>
+
     </div>
 
-  </div>
 
-
-  <ts-card tsVerticalSpacing>
-    <h3 tsCardTitle>Url</h3>
+    <h3 >Url</h3>
 
     <div fxLayout="row" [fxLayoutGap]="flexGap">
 <pre fxFlex>
@@ -224,7 +195,7 @@ http://foo.bar/?q=Test%20URL-encoded%20stuff
 http://223.255.255.254
 </pre>
 
-<pre fxFlex>
+      <pre fxFlex>
 // Invalid URLs:
 http://
 http://foo.bar?q=Spaces should be encoded
@@ -240,10 +211,8 @@ http:// shouldfail.com
       [formControl]="myForm.get('url')"
       label="Url"
     ></ts-input>
-  </ts-card>
 
-  <ts-card tsVerticalSpacing>
-    <h3 tsCardTitle>Domain</h3>
+    <h3>Domain</h3>
 
     <div fxLayout="row" [fxLayoutGap]="flexGap">
 <pre fxFlex>
@@ -258,7 +227,7 @@ http:// shouldfail.com
   223.255.255.254
   </pre>
 
-<pre fxFlex>
+      <pre fxFlex>
   // Invalid domains:
   http://
   http://foo.bar?q=Spaces should be encoded
@@ -270,10 +239,8 @@ http:// shouldfail.com
     </div>
 
     <ts-input [formControl]="myForm.get('domain')" label="Domain"></ts-input>
-  </ts-card>
 
-  <ts-card tsVerticalSpacing>
-    <h3 tsCardTitle tsVerticalSpacing>
+    <h3 tsVerticalSpacing>
       Compare two form controls
     </h3>
 
@@ -289,11 +256,8 @@ http:// shouldfail.com
         label="Input 2"
       ></ts-input>
     </div>
-  </ts-card>
 
-
-  <ts-card tsVerticalSpacing>
-    <h3 tsCardTitle tsVerticalSpacing>
+    <h3 tsVerticalSpacing>
       Example using a control as a validation source
     </h3>
 
@@ -314,11 +278,9 @@ http:// shouldfail.com
         type="number"
       ></ts-input>
     </div>
-  </ts-card>
 
 
-  <ts-card tsVerticalSpacing>
-    <h3 tsCardTitle tsVerticalSpacing>
+    <h3  tsVerticalSpacing>
       Verify value is in a collection
     </h3>
     <div fxLayout="row" fxLayoutGap="2em" tsVerticalSpacing>
@@ -347,6 +309,5 @@ http:// shouldfail.com
         </div>
       </div>
     </div>
-  </ts-card>
-
+  </div>
 </form>

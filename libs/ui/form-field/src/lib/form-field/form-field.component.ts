@@ -8,7 +8,8 @@ import {
   ContentChildren,
   ElementRef,
   Input,
-  NgZone, OnDestroy,
+  NgZone,
+  OnDestroy,
   QueryList,
   ViewChild,
   ViewEncapsulation,
@@ -86,6 +87,11 @@ const OUTLINE_GAP_PADDING = 5;
 })
 export class TsFormFieldComponent implements AfterContentInit, AfterContentChecked, AfterViewInit, OnDestroy {
   /**
+   * Whether there is custom validation message defined
+   */
+  public customValidationMessage = false;
+
+  /**
    * Store a reference to the document object
    */
   private document: Document;
@@ -147,6 +153,12 @@ export class TsFormFieldComponent implements AfterContentInit, AfterContentCheck
    */
   @ViewChild('labelElement', { static: true })
   public labelElement!: ElementRef;
+
+  /**
+   * Access validation wrapper element
+   */
+  @ViewChild('validationWrapper')
+  public wrapperElement!: ElementRef;
 
   /**
    * Access any prefix children
@@ -290,6 +302,10 @@ export class TsFormFieldComponent implements AfterContentInit, AfterContentCheck
    */
   public ngAfterContentChecked(): void {
     this.confirmControlExists();
+    this.customValidationMessage = this.wrapperElement
+      && this.wrapperElement.nativeElement
+      && this.wrapperElement.nativeElement.textContent;
+    this.changeDetectorRef.detectChanges();
 
     if (this.outlineGapCalculationNeeded) {
       this.updateOutlineGap();

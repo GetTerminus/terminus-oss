@@ -117,4 +117,54 @@ describe(`TsValidationMessagesComponent`, function() {
       expect(validationMessageEl.id).toEqual('foo');
     });
   });
+
+  describe(`messageFactory`, () => {
+    let component: testComponents.MessageFactory;
+    let fixture: ComponentFixture<testComponents.MessageFactory>;
+    let validationMessageEl: HTMLElement;
+
+    beforeEach(() => {
+      fixture = createComponent(testComponents.MessageFactory, [], [TsValidationMessagesModule]);
+      component = fixture.componentInstance;
+      const ERROR = { valid: false };
+      const control = {
+        touched: true,
+        errors: { invalidEmail: ERROR },
+      } as any;
+      component.controlForm = control;
+      fixture.detectChanges();
+      validationMessageEl = fixture.debugElement.query(By.css('.c-validation-message')).nativeElement as HTMLElement;
+    });
+
+    test(`should be used if it is passed in`, () => {
+      expect(validationMessageEl.textContent?.trim()).toEqual('My message.');
+    });
+  });
+
+  describe(`change detection`, () => {
+    let component: testComponents.Basic;
+    let fixture: ComponentFixture<testComponents.Basic>;
+    let validationMessageInstance: TsValidationMessagesComponent;
+
+    beforeEach(() => {
+      fixture = createComponent(testComponents.Basic, [], [TsValidationMessagesModule]);
+      component = fixture.componentInstance;
+    });
+
+    test.todo('test change detector should be triggered');
+    // change detector isn't being triggered by this spec
+    // test(`should call change detection detect on control status changes`, () => {
+    //   validationMessageInstance = component.validationMessagesComponent;
+    //   validationMessageInstance['changeDetectorRef'].detectChanges = jest.fn();
+    //   component.controlForm = new FormControl();
+    //   console.log('component: ', Object.keys(component));
+    //
+    //   component.setFactory();
+    //   (<EventEmitter<any>> component.controlForm.statusChanges).emit('INVALID');
+    //   fixture.detectChanges();
+    //   validationMessageInstance.control?.markAsDirty();
+    //   fixture.detectChanges();
+    //   expect(validationMessageInstance['changeDetectorRef'].detectChanges).toHaveBeenCalled();
+    // });
+  });
 });

@@ -25,8 +25,8 @@ import { ValidationComponent } from './validation.component';
     TsInputModule,
     TsSpacingModule,
     TsValidatorsModule,
-    TsValidationMessagesModule,
     ValidationRoutingModule,
+    TsValidationMessagesModule,
   ],
   declarations: [
     ValidationComponent,

@@ -4,6 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { TsValidationMessagesModule } from '@terminus/ui-validation-messages';
 
+import { TsCustomValidationDirective } from './form-field/custom-validation.directive';
 import { TsFormFieldComponent } from './form-field/form-field.component';
 import { TsLabelDirective } from './label.directive';
 import { TsPrefixDirective } from './prefix.directive';
@@ -14,6 +15,7 @@ export * from './prefix.directive';
 export * from './suffix.directive';
 export * from './form-field/form-field-control';
 export * from './label.directive';
+export * from './form-field/custom-validation.directive';
 
 @NgModule({
   imports: [
@@ -22,12 +24,14 @@ export * from './label.directive';
     TsValidationMessagesModule,
   ],
   declarations: [
+    TsCustomValidationDirective,
     TsFormFieldComponent,
     TsLabelDirective,
     TsPrefixDirective,
     TsSuffixDirective,
   ],
   exports: [
+    TsCustomValidationDirective,
     TsFormFieldComponent,
     TsLabelDirective,
     TsPrefixDirective,
