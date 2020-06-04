@@ -65,7 +65,10 @@ module.exports = {
       {
         path: '@semantic-release/github',
         assets: [
-          'CHANGELOG.md',
+          {
+            path: 'CHANGELOG.md',
+            label: 'CHANGELOG',
+          },
         ],
         npmPublish: false,
       },
