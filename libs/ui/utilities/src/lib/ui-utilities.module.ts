@@ -8,7 +8,6 @@ export * from './merge/merge';
 export * from './reactive-form-base/reactive-form-base.component';
 export * from './strip-control-characters/strip-control-characters';
 export * from './types/style-theme.types';
-export * from './version/version';
 
 
 /**
