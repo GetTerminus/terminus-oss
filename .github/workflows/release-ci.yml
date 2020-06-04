@@ -49,8 +49,16 @@ jobs:
             ${{ runner.os }}-
       - if: steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
+      - name: Get sha of last tag
+        id: get-sha
+        run: |
+          latesttag=$(git describe --abbrev=0)
+          echo "Latest tag: \"${latesttag}\""
+          latestsha=$(git show-ref -s ${latesttag})
+          echo "Latest sha: \"${latestsha}\""
+          echo "::set-output name=latestsha::$latestsha"
       - name: Test affected projects
-        run: yarn nx run-many --all --target test --codeCoverage
+        run: yarn nx affected --target=test --codeCoverage --base=${{ steps.get-sha.outputs.latestsha }}
       - name: Upload coverage results to CodeCov
         run: tools/ci/coverage-upload.sh
       - name: Archive code coverage results
@@ -94,8 +102,16 @@ jobs:
             ${{ runner.os }}-
       - if: steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
+      - name: Get sha of last tag
+        id: get-sha
+        run: |
+          latesttag=$(git describe --abbrev=0)
+          echo "Latest tag: \"${latesttag}\""
+          latestsha=$(git show-ref -s ${latesttag})
+          echo "Latest sha: \"${latestsha}\""
+          echo "::set-output name=latestsha::$latestsha"
       - name: Lint files
-        run: yarn nx run-many --all --target lint
+        run: yarn nx affected --target=lint --base=${{ steps.get-sha.outputs.latestsha }}
 
   #
   # Build affected projects
@@ -128,12 +144,6 @@ jobs:
             ${{ runner.os }}-
       - if: steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
-      - name: List affected LIBS
-        run: yarn affected:libs --base=origin/master
-      - name: List affected APPS
-        run: yarn affected:apps --base=origin/master
-      - name: Build affected projects
-        run: yarn nx run-many --all --target build --prod
       - name: Get sha of last tag
         id: get-sha
         run: |
@@ -142,6 +152,14 @@ jobs:
           latestsha=$(git show-ref -s ${latesttag})
           echo "Latest sha: \"${latestsha}\""
           echo "::set-output name=latestsha::$latestsha"
+      - name: List affected LIBS
+        run: yarn affected:libs --base=${{ steps.get-sha.outputs.latestsha }}
+      - name: List affected APPS
+        run: yarn affected:apps --base=${{ steps.get-sha.outputs.latestsha }}
+      - name: Build affected projects
+        run: yarn nx affected --target=build --prod --base=${{ steps.get-sha.outputs.latestsha }}
+      - name: Install semantic-release globallly
+        run: yarn global add semantic-release
       - name: Deploy affected projects
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
