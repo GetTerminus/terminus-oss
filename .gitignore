@@ -9,6 +9,7 @@
 /libs/ui/styles/src/helpers-generated.scss
 /libs/ui/styles/src/helpers-generated.scss.bak
 /.jest-cache
+/report*.json
 
 # dependencies
 /node_modules

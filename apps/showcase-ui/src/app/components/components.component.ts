@@ -23,7 +23,6 @@ import {
   VERSION as NGX_VERSION,
 } from '@terminus/ngx-tools/utilities';
 import { TsSelectionListChange } from '@terminus/ui-selection-list';
-import { VERSION as UI_VERSION } from '@terminus/ui-utilities';
 
 import { orderArrayByProperty } from '../utilities/orderArrayByProperty';
 import { componentsList } from './components.constant';
@@ -37,7 +36,6 @@ import { componentsList } from './components.constant';
 export class ComponentsComponent implements OnInit, OnDestroy {
   public components = orderArrayByProperty(componentsList, 'path');
   public path = '';
-  public uiVersion = UI_VERSION;
   public ngxVersion = NGX_VERSION;
   public ngVersion = NG_VERSION;
   public matVersion = MAT_VERSION;
