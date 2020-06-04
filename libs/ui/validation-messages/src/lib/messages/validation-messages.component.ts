@@ -132,12 +132,10 @@ export class TsValidationMessagesComponent implements OnDestroy {
   @Input()
   public validateImmediately = false;
 
-
   constructor(
     private validationMessageService: TsValidationMessagesService,
     private changeDetectorRef: ChangeDetectorRef,
   ) {}
-
 
   /**
    * Needed for untilComponentDestroyed
