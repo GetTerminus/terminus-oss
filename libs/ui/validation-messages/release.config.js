@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['release-config.js'],
+  extends: ['/home/runner/work/terminus-oss/terminus-oss/release-config.js'],
 };
