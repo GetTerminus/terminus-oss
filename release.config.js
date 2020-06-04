@@ -57,5 +57,18 @@ module.exports = {
         message: 'Add ${nextRelease.version} release notes [skip ci]',
       },
     ],
+    publish: [
+      {
+        path: '@semantic-release/npm',
+        npmPublish: true,
+      },
+      {
+        path: '@semantic-release/github',
+        assets: [
+          'CHANGELOG.md',
+        ],
+        npmPublish: false,
+      },
+    ],
   },
 }

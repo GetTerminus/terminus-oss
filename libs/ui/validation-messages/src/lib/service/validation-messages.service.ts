@@ -3,7 +3,6 @@ import { ValidationErrors } from '@angular/forms';
 
 import { TsDatePipe } from '@terminus/ui-pipes';
 
-
 /**
  * Define the error message for an invalid email
  */
@@ -18,7 +17,6 @@ const creditCardMessage = `Invalid credit card number.`;
  * Define the error message for an invalid password
  */
 const passwordMessage = `Password must be between 6 and 100 characters, and contain a number.`;
-
 
 /**
  * Define a service that offers custom validators
