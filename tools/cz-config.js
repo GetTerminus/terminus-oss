@@ -87,8 +87,8 @@ module.exports = {
     { name: 'DesignTokens' },
 
     // Applications
-    { name: 'Showcase UI' },
-    { name: 'Showcase Tokens' },
+    { name: 'ShowcaseUI' },
+    { name: 'ShowcaseTokens' },
 
     // Dev
     { name: 'CI' },
