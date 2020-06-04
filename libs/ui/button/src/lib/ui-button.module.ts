@@ -8,9 +8,7 @@ import { TsIconModule } from '@terminus/ui-icon';
 
 import { TsButtonComponent } from './button/button.component';
 
-
 export * from './button/button.component';
-
 
 @NgModule({
   imports: [
