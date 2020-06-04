@@ -5,13 +5,13 @@
   "license": "MIT",
   "author": "@terminus",
   "private": false,
-  "homepage": "https://github.com/GetTerminus/design-tokens",
+  "homepage": "https://github.com/GetTerminus/terminus-oss",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GetTerminus/design-tokens.git"
+    "url": "https://github.com/GetTerminus/terminus-oss.git"
   },
   "bugs": {
-    "url": "https://github.com/GetTerminus/design-tokens/issues"
+    "url": "https://github.com/GetTerminus/terminus-oss/issues"
   },
   "main": "js/design-tokens.js",
   "style": "css/design-tokens.css",
