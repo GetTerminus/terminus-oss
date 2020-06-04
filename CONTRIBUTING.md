@@ -93,13 +93,13 @@ Before you submit your Pull Request (PR) consider the following guidelines:
   feature branch to ensure clear, concise commits)
 - Push your branch to GitHub:
     - `git push my-fork 312-my-fix-branch`
-- In GitHub, send a pull request to `terminus-ui:release`.
+- In GitHub, send a pull request to `terminus-oss:master`.
 - If we suggest changes then:
   - Make the required updates.
   - Re-run all test suites to ensure tests are still passing.
   - Re-run all linters.
   - Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
-      1. `git rebase release -i`
+      1. `git rebase master -i`
       1. `git push -f`
 
 That's it! Thank you for your contribution! :pray:
@@ -112,12 +112,12 @@ main (upstream) repository:
 
 - Delete the remote branch on GitHub either through the GitHub web UI or your local shell:
     - `git push my-fork --delete 312-my-fix-branch`
-- Check out the `release` branch:
-    - `git checkout release -f`
+- Check out the `master` branch:
+    - `git checkout master -f`
 - Delete the local branch:
     - `git branch -D 312-my-fix-branch`
-- Update your `release` with the latest upstream version:
-    - `git pull --ff upstream release`
+- Update your `master` with the latest upstream version:
+    - `git pull --ff upstream master`
 
 
 ### Coding Rules & Workflow
@@ -131,12 +131,12 @@ To ensure consistency throughout the source code, keep these rules in mind as yo
 
 
 
-[coc]: https://github.com/GetTerminus/terminus-ui/blob/release/CODE_OF_CONDUCT.md
-[github]: https://github.com/GetTerminus/terminus-ui/
-[demo]: http://uilibrary-demo.terminus.ninja/release
-[issues]: https://github.com/GetTerminus/terminus-ui/issues
-[issues-create]: https://github.com/GetTerminus/terminus-ui/issues/new
-[pulls]: https://github.com/GetTerminus/terminus-ui/pulls
-[dev-docs]: https://github.com/GetTerminus/terminus-ui/blob/release/DEVELOPMENT.md
-[commit]: https://github.com/GetTerminus/terminus-ui/blob/release/DEVELOPMENT.md#committing
+[coc]: https://github.com/GetTerminus/terminus-oss/blob/master/CODE_OF_CONDUCT.md
+[github]: https://github.com/GetTerminus/terminus-oss/
+[demo]: http://uilibrary-demo.terminus.ninja/master
+[issues]: https://github.com/GetTerminus/terminus-oss/issues
+[issues-create]: https://github.com/GetTerminus/terminus-oss/issues/new
+[pulls]: https://github.com/GetTerminus/terminus-oss/pulls
+[dev-docs]: https://github.com/GetTerminus/terminus-oss/blob/master/DEVELOPMENT.md
+[commit]: https://github.com/GetTerminus/terminus-oss/blob/master/DEVELOPMENT.md#committing
 [starter-app]: https://github.com/GetTerminus/ui-stackblitz-starter
