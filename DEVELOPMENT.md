@@ -5,8 +5,9 @@
 **Table of Contents**
 
 - [Developing](#developing)
-  - [Demos](#demos)
-- [Adding a Component](#adding-a-component)
+  - [Showcase-ui](#showcase-ui)
+  - [vr](#vr)
+- [Adding a Component for UI Library](#adding-a-component-for-ui-library)
   - [Branching](#branching)
     - [Naming](#naming)
     - [Workflow](#workflow)
@@ -36,33 +37,31 @@
 ## Developing
 
 ```bash
-# Build the library
-$ yarn run library:build
+# Build everything
+$ nx run-many --target=build --all
 
-# Build and watch library files for changes
-$ yarn run library:build:watch
+# Build a single project
+$ nx build ui-button
+$ nx build ui-button --with-deps
 
 # Run TypeScript and SCSS linters
-$ yarn run library:lint
+$ yarn run libraries:lint[:fix]
+$ yarn run apps:lint[:fix]
 
-# Run all TypeScript tests
-$ yarn run library:test
+# Only run commands on affected projects:
+# Note: You can swap out 'test' for 'lint', 'e2e', 'apps', or 'libs'
+$ nx affected:test
+$ nx affected:test --parallel --maxParallel=5
+$ nx affected:test --only-failed
+$ nx affected:test --all
+$ nx affected:test --base=master --head=HEAD
+$ nx affected:test --base=master~1 --head=master
 
-# Run all TypeScript tests and output coverage
-$ yarn run library:test:ci:local
+# Generate code coverage:
+$ nx test my-project --code-coverage
 
-# Start the demo project and watch demo and lib files for changes
-# (don't forget to build the library first!)
-$ yarn run demo:start
-
-# Test the demo app
-$ yarn run demo:test
-
-# Lint the demo app
-$ yarn run demo:lint
-
-# Create a commit with a helpful CLI tool
-$ yarn run cm
+# Start the showcase ui project
+$ nx serve showcase-ui
 
 # Add yourself as a contributor
 # See contribution types here: http://bnj.bz/3C1S0A0d1c3U
@@ -73,17 +72,27 @@ $ yarn run contributors:generate
 > Check [package.json][pkg-json] for all available commands
 
 
-### Demos
+### Showcase-ui
 
-1. `yarn install && yarn run library:build && yarn run demo:start`
+1. `nx build showcase-ui && nx serve showcase-ui`
 2. Navigate to `http://localhost:4200/components/`
 3. Select a component from the menu (top right)
 
-![Demos Screenshot](https://user-images.githubusercontent.com/270193/35576969-67e0eab6-05ae-11e8-9c38-7d44bcf2c848.png)
+![Showcase UI Screenshot](https://user-images.githubusercontent.com/270193/35576969-67e0eab6-05ae-11e8-9c38-7d44bcf2c848.png)
 
-## Adding a Component
+### vr
 
-1. Create a directory using the component name: `projects/library/button/`
+1. `nx build vr && nx serve vr`
+2. `npx cypress open` if actively develop on visual regression tests.
+3. `yarn run vr:percy:run` to trigger visual regression tests on command line.
+
+All cypress scripts live under `cypress/integration/`. Visual regression related tests are located at `cypress/integration/visual-regression/`.
+Currently each component has its own test file. The HTML and Typescript files that are used to build visual regression pages are stored at 
+`apps/vr/src/app/components`.
+
+## Adding a Component for UI Library
+
+1. Create a directory using the component name: `libs/ui/button/`
     - Necessary files:
       - `button.module.ts`
           - Class name: `TsButtonModule`
@@ -100,7 +109,7 @@ $ yarn run contributors:generate
 
 ### Branching
 
-Note: Our base branch, `release`, is **always deployable**.
+Note: Our base branch, `master`, is **always deployable**.
 
 #### Naming
 
@@ -122,9 +131,9 @@ Note: Our base branch, `release`, is **always deployable**.
 
 ##### Beginning a feature
 
-1. Checkout `release`
-1. Pull `release`
-1. Create a feature branch from `release` (see [branch naming](#naming))
+1. Checkout `master`
+1. Pull `master`
+1. Create a feature branch from `master` (see [branch naming](#naming))
 
 ##### Working on a feature
 
@@ -137,13 +146,13 @@ Note: Our base branch, `release`, is **always deployable**.
 
 ##### Finish a feature
 
-1. If there are conflicts, merge `release` into the feature branch
+1. If there are conflicts, merge `master` into the feature branch
     - Only do this if there are conflicts
     - See [Pull Requests](#pull-requests) for more information
 1. Verify **all** [linters](#linting) run successfully
 1. Verify all [tests](#testing) are passing **and** code coverage did not decrease (bonus points if
    it increases)
-1. If you haven't yet, create a pull request from the feature branch into `release`
+1. If you haven't yet, create a pull request from the feature branch into `master`
 1. Add as much [information into the pull request body](#pull-requests) as possible
 1. Request a review
 
@@ -155,7 +164,7 @@ Hotfixes follow the same strategy as features.
 
 ### Committing
 
-When code gets merged to `release`, many of our projects are automatically versioned and released. In
+When code gets merged to `master`, many of our projects are automatically versioned and released. In
 order to give our tooling the information it needs, we write our commit messages in a specific
 format. This has the added benefit of improving the readability of our commit history.
 
@@ -226,7 +235,7 @@ Look at the scripts section in the project's `package.json` for the command to r
 
 ### Pull Requests
 
-When it is time merge a branch into `release`, create a pull request from the feature into `release`.
+When it is time merge a branch into `master`, create a pull request from the feature into `master`.
 
 1. At the top of the pull request, link to the original issue.
     - If the [ZenHub][zenhub] extension is installed in your browser, you can attach an issue to the
@@ -239,11 +248,11 @@ When it is time merge a branch into `release`, create a pull request from the fe
    while the work is in progress. Include `WIP: ` at the beginning of the pull request title, add
    the `DO NOT MERGE` label so that it is not accidentally merged and `cc/ @mention` anyone that
    should take a look.
-1. There are two options to check for merge conflicts between your branch and release:
-    - Create a pull request against release. (Note: This will cause any associated CI service to
+1. There are two options to check for merge conflicts between your branch and master:
+    - Create a pull request against master. (Note: This will cause any associated CI service to
       begin building the feature branch on every push)
     - Use GitHub's compare view:
-    `https://github.com/GetTerminus/terminus-ui/compare/your-branch-name...release`
+    `https://github.com/GetTerminus/terminus-oss/compare/your-branch-name...master`
 1. The pull request body, just like the issue body, is the **single source of truth**. Any
    discussions, decisions or relevant information should be added to the pull request body
    immediately.
@@ -251,12 +260,12 @@ When it is time merge a branch into `release`, create a pull request from the fe
 
 ### Releasing
 
-Releases are handled automatically when code is merged to `release`. Never merge code to `release` that is
+Releases are handled automatically when code is merged to `master`. Never merge code to `master` that is
 not production ready!
 
-1. [Semantic Release][semantic-release] looks at all commits since the last tag on `release`.
+1. [Semantic Release][semantic-release] looks at all commits since the last tag on `master`.
 1. Based on those commits it will [bump the version number appropriately][semver].
-1. A changelog is generated in the release notes on [Github][ui-github].
+1. A changelog is generated in the release notes on [Github][oss-github].
 1. The new version is published to [NPM][ui-npm] under the `next` tag.
 1. When the new functionality is verified, it is tagged as `latest`:
     - `npm dist-tag add @terminus/ui@<version to promote> latest`
@@ -389,7 +398,7 @@ the table of contents.
 
 ## Releases
 
-Any code merged to the `release` branch gets published under the `next` tag:
+Any code merged to the `master` branch gets published under the `next` tag:
 
 ```bash
 $ yarn add @terminus/ui@next
@@ -507,7 +516,7 @@ public foo;
 1. Do not close an issue until it is fully complete, which means code has been merged, tested, all
    issue trackers are updated, and any documentation is written and merged.
 1. When closing an issue, leave a comment explaining why you are closing the issue.
-1. If you notice that the tests for the `release` branch of any project are failing (red) or broken
+1. If you notice that the tests for the `master` branch of any project are failing (red) or broken
    (green as a false positive), fixing this takes priority over everything else development related,
    since everything we do while test are broken may break functionality, or introduce new bugs and
    security issues. If the problem cannot be fixed by you within a few hours, because if it is too
@@ -520,20 +529,17 @@ public foo;
 
 <!-- LINKS -->
 
-[compodoc-badge]: https://rawgit.com/GetTerminus/terminus-ui/release/docs/typescript/images/coverage-badge.svg
 [docs-url]: http://uilibrary-docs.terminus.ninja/release/
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg
 [license-url]: LICENSE
 [npm-url]: https://npmjs.org/package/@terminus/ui
 [npm-version-image]: http://img.shields.io/npm/v/@terminus/ui.svg
-[circle-badge]: https://circleci.com/gh/GetTerminus/terminus-ui/tree/release.svg?style=shield
-[circle-link]: https://circleci.com/gh/GetTerminus/terminus-ui/tree/release
 [greenkeeper-badge]: https://badges.greenkeeper.io/GetTerminus/terminus-ui.svg
 [greenkeeper]: https://greenkeeper.io/
 [semantic-release-badge]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
 [semantic-release]: https://github.com/semantic-release/semantic-release
 [codecov-badge]: https://codecov.io/gh/GetTerminus/terminus-ui/branch/release/graph/badge.svg
-[codecov-project]: https://codecov.io/gh/GetTerminus/terminus-ui
+[codecov-project]: https://codecov.io/gh/GetTerminus/terminus-oss
 [file-size-badge]: http://img.badgesize.io/https://unpkg.com/@terminus/ui/bundles/ui.umd.min.js?compression=gzip
 [raw-distribution-js]: https://unpkg.com/@terminus/ui/bundles/ui.umd.min.js
 [commitizen]: https://github.com/commitizen
@@ -548,17 +554,16 @@ public foo;
 [semantic-release-video]: https://youtu.be/tc2UgG5L7WM
 [markdown]: https://daringfireball.net/projects/markdown/syntax
 [conventional-changelog]: https://github.com/conventional-changelog/conventional-changelog/blob/v0.5.3/conventions/angular.md
-[commitizen-cli]: https://github.com/commitizen/cz-cli
 [validate-commit-msg]: https://github.com/kentcdodds/validate-commit-msg
 [ui-npm]: https://www.npmjs.com/package/@terminus/ui
-[ui-github]: https://github.com/GetTerminus/terminus-ui
+[oss-github]: https://github.com/GetTerminus/terminus-oss
 [semver]: http://semver.org/
 [component-demo-screenshot]: https://user-images.githubusercontent.com/270193/28672864-f05b73cc-72ae-11e7-8ead-efd1ee008f43.png
 [unpkg-terminus]: https://unpkg.com/@terminus/ui/
-[pkg-json]: https://github.com/GetTerminus/terminus-ui/blob/release/package.json
+[pkg-json]: https://github.com/GetTerminus/terminus-oss/blob/master/package.json
 [jest]: https://facebook.github.io/jest/
 [zenhub]: https://www.zenhub.com/
 [eslint-config]: https://github.com/GetTerminus/eslint-config-frontend
 [tslint-config]: https://github.com/GetTerminus/tslint-config-frontend
 [stylelint-config]: https://github.com/GetTerminus/stylelint-config-frontend
-[promote-script]: https://github.com/GetTerminus/terminus-ui/blob/release/tooling/ci/promote-next-and-deploy.sh
+[promote-script]: https://github.com/GetTerminus/terminus-oss/blob/master/tooling/ci/promote-next-and-deploy.sh

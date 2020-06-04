@@ -81,7 +81,10 @@
     "vr:test:ci": "yarn run vr:test --runInBand --coverage",
     "vr:test:ci:local": "yarn run vr:test --coverage",
     "vr:test:regression": "yarn start-server-and-test vr:start http://localhost:4200 vr:percy:run",
-    "vr:percy:run": "percy exec -- cypress run --spec 'cypress/integration/visual-regression/*.js'"
+    "vr:percy:run": "percy exec -- cypress run --spec 'cypress/integration/visual-regression/*.js'",
+    "///////// Section: Utilities": "================================",
+    "cm": "npx git-cz",
+    "contributors:add": "npx all-contributors add"
   },
   "husky": {
     "hooks": {
