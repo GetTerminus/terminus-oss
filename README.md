@@ -2,15 +2,11 @@
 
 The monorepo that contains all Terminus open-source libraries and tools.
 
-[![CircleCI][circle-badge]][circle-link]
-[![codecov][codecov-badge]][codecov-project]
-[![DavidDM][david-badge]][david-link]
-[![DavidDM Dev][david-dev-badge]][david-link]
-<br>
-[![semantic-release][semantic-release-badge]][semantic-release]
-[![Renovate][renovate-badge]][renovate-link]
-[![MIT License][license-image]][license-url]
-[![ZenHub][zenhub-image]][zenhub-url]
+[![Release CI][github-badge-release]][github-ci-link] [![codecov][codecov-badge]][codecov-project]
+[![DavidDM][david-badge]][david-link] [![DavidDM Dev][david-dev-badge]][david-link]
+
+[![semantic-release][semantic-release-badge]][semantic-release] [![Renovate][renovate-badge]][renovate-link] [![MIT
+License][license-image]][license-url] [![ZenHub][zenhub-image]][zenhub-url]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -24,55 +20,57 @@ The monorepo that contains all Terminus open-source libraries and tools.
 
 ## Packages
 
+|                      Package                      |                        Description                        |               Demo               |               Docs               |                  Legacy Code                  |                 Coverage                 |
+|---------------------------------------------------|-----------------------------------------------------------|----------------------------------|----------------------------------|-----------------------------------------------|------------------------------------------|
+| [ui-autocomplete][src-autocomplete]               | Deprecated. See `selection-list`                          | [Demo][demo-autocomplete]        | [Docs][docs-autocomplete]        | [Legacy Code][legacy-src-autocomplete]        | ![codecov][cov-badge-autocomplete]       |
+| [ui-autofocus][src-autofocus]                     | Focus a focusable element on load                         | [Demo][demo-autofocus]           | [Docs][docs-autofocus]           | [Legacy Code][legacy-src-autofocus]           | ![codecov][cov-badge-autofocus]          |
+| badge                                             | See `chip`                                                | [Demo][demo-chip]                |                                  | [Legacy Code][legacy-src-chip]                |                                          |
+| [ui-button][src-button]                           |                                                           | [Demo][demo-button]              | [Docs][docs-button]              | [Legacy Code][legacy-src-button]              | ![codecov][cov-badge-button]             |
+| [ui-card][src-card]                               | Presentational card                                       | [Demo][demo-card]                | [Docs][docs-card]                | [Legacy Code][legacy-src-card]                | ![codecov][cov-badge-card]               |
+| [ui-chart][src-chart]                             | Charts, graphs etc                                        | [Demo][demo-chart]               | [Docs][docs-chart]               | [Legacy Code][legacy-src-chart]               | ![codecov][cov-badge-chart]              |
+| [ui-chip][src-chip]                               | Chip                                                      | [Demo][demo-chip]                | [Docs][docs-chip]                | [Legacy Code][legacy-src-chip]                | ![codecov][cov-badge-chip]               |
+| [ui-checkbox][src-checkbox]                       |                                                           | [Demo][demo-checkbox]            | [Docs][docs-checkbox]            | [Legacy Code][legacy-src-checkbox]            | ![codecov][cov-badge-checkbox]           |
+| [ui-cohort-date-range][src-cohort-date-range]     | CohortDateRange                                           | [Demo][demo-cohort-date-range]   | [Docs][docs-cohort-date-range]   | [Legacy Code][legacy-src-cohort-date-range]   | ![codecov][cov-badge-cohortDateRange]    |
+| [ui-confirmation][src-confirmation]               | Add a confirmation step to any `ts-button`                | [Demo][demo-confirmation]        | [Docs][docs-confirmation]        | [Legacy Code][legacy-src-confirmation]        | ![codecov][cov-badge-confirmation]       |
+| [ui-copy][src-copy]                               | Component to easily copy string values                    | [Demo][demo-copy]                | [Docs][docs-copy]                | [Legacy Code][legacy-src-copy]                | ![codecov][cov-badge-copy]               |
+| [ui-csv-entry][src-csv-entry]                     | Manually enter CSV values                                 | [Demo][demo-csv-entry]           | [Docs][docs-csv-entry]           | [Legacy Code][legacy-src-csv-entry]           | ![codecov][cov-badge-csvEntry]           |
+| [ui-datepicker][src-input]                        | See `TsInputComponent`                                    | [Demo][demo-input]               | [Docs][docs-input]               | [Legacy Code][legacy-src-input]               | ![codecov][cov-badge-input]              |
+| [ui-date-range][src-date-range]                   | Dual inputs with calendar pop-ups                         | [Demo][demo-date-range]          | [Docs][docs-date-range]          | [Legacy Code][legacy-src-date-range]          | ![codecov][cov-badge-dateRange]          |
+| [ui-drawer][src-drawer]                           | Slide-out drawer panel                                    | [Demo][demo-drawer]              | [Docs][docs-drawer]              | [Legacy Code][legacy-src-drawer]              | ![codecov][cov-badge-drawer]             |
+| [ui-expansion-panel][src-expansion-panel]         | Expansion panel with accordion & stepper functionality    | [Demo][demo-expansion-panel]     | [Docs][docs-expansion-panel]     | [Legacy Code][legacy-src-expansion-panel]     | ![codecov][cov-badge-expansionPanel]     |
+| [ui-file-upload][src-file-upload]                 | File upload with drag and drop                            | [Demo][demo-file-upload]         | [Docs][docs-file-upload]         | [Legacy Code][legacy-src-file-upload]         | ![codecov][cov-badge-fileUpload]         |
+| [ui-icon][src-icon]                               | Supported icons: https://material.io/icons                | [Demo][demo-icon]                | [Docs][docs-icon]                | [Legacy Code][legacy-src-icon]                | ![codecov][cov-badge-icon]               |
+| [ui-icon-button][src-icon-button]                 | Icon only button                                          | [Demo][demo-icon-button]         | [Docs][docs-icon-button]         | [Legacy Code][legacy-src-icon-button]         | ![codecov][cov-badge-iconButton]         |
+| [ui-input][src-input]                             | Input with masking, datepicker, etc                       | [Demo][demo-input]               | [Docs][docs-input]               | [Legacy Code][legacy-src-input]               | ![codecov][cov-badge-input]              |
+| [ui-link][src-link]                               |                                                           | [Demo][demo-link]                | [Docs][docs-link]                | [Legacy Code][legacy-src-link]                | ![codecov][cov-badge-link]               |
+| [ui-loading overlay][src-loading-overlay]         | Overlay with loading spinner                              | [Demo][demo-loading-overlay]     | [Docs][docs-loading-overlay]     | [Legacy Code][legacy-src-loading-overlay]     | ![codecov][cov-badge-loadingOverlay]     |
+| [ui-login form][src-login-form]                   | Email/password with 'remember me' checkbox                | [Demo][demo-log-in-form]         | [Docs][docs-login-form]          | [Legacy Code][legacy-src-login-form]          | ![codecov][cov-badge-loginForm]          |
+| [ui-logo][src-logo]                               | Variations of the official logo, certain colors available | [Demo][demo-logo]                | [Docs][docs-logo]                | [Legacy Code][legacy-src-logo]                | ![codecov][cov-badge-logo]               |
+| [ui-menu][src-menu]                               |                                                           | [Demo][demo-menu]                | [Docs][docs-menu]                | [Legacy Code][legacy-src-menu]                | ![codecov][cov-badge-menu]               |
+| [ui-navigation][src-navigation]                   | Global navigation menu                                    | [Demo][demo-navigation]          | [Docs][docs-navigation]          | [Legacy Code][legacy-src-navigation]          | ![codecov][cov-badge-navigation]         |
+| [ui-paginator][src-paginator]                     | Paging controls for collections                           | [Demo][demo-paginator]           | [Docs][docs-paginator]           | [Legacy Code][legacy-src-paginator]           | ![codecov][cov-badge-paginator]          |
+| [ui-pipes][src-pipes]                             | A collection of pipes for Angular                         | [Demo][demo-pipes]               | [Docs][docs-pipes]               | [Legacy Code][legacy-src-pipes]               | ![codecov][cov-badge-pipes]              |
+| [ui-popover][src-popover]                         | Popover with templates                                    | [Demo][demo-popover]             | [Docs][docs-popover]             | [Legacy Code][legacy-src-popover]             | ![codecov][cov-badge-popover]            |
+| [ui-radio-group][src-radio-group]                 |                                                           | [Demo][demo-radio-group]         | [Docs][docs-radio-group]         | [Legacy Code][legacy-src-radio-group]         | ![codecov][cov-badge-radioGroup]         |
+| [ui-scrollbars][src-scrollbars]                   | Custom scrollbars for both axis'                          | [Demo][demo-scrollbars]          | [Docs][docs-scrollbars]          | [Legacy Code][legacy-src-scrollbars]          | ![codecov][cov-badge-scrollbars]         |
+| [ui-search][src-search]                           | Input with search capabilities                            | [Demo][demo-search]              | [Docs][docs-search]              | [Legacy Code][legacy-src-search]              | ![codecov][cov-badge-search]             |
+| [ui-select][src-select]                           | Deprecated. See `selection-list`                          | [Demo][demo-select]              | [Docs][docs-select]              | [Legacy Code][legacy-src-select]              | ![codecov][cov-badge-select]             |
+| [ui-selection-list][src-selection-list]           | Classic select dropdown / autocomplete                    | [Demo][demo-selection-list]      | [Docs][docs-selection-list]      | [Legacy Code][legacy-src-selection-list]      | ![codecov][cov-badge-selectionList]      |
+| [ui-spacing][src-spacing]                         | Helpers for consistent spacing                            | [Demo][demo-spacing]             | [Docs][docs-spacing]             | [Legacy Code][legacy-src-spacing]             | ![codecov][cov-badge-spacing]            |
+| [ui-sort][src-sort]                               | Used by `table` for column sorting                        | <small>(see table demo)</small>  | [Docs][docs-sort]                | [Legacy Code][legacy-src-sort]                | ![codecov][cov-badge-sort]               |
+| [ui-styles][src-styles]                           | A collection of base CSS, SCSS mixins and functions.      |                                  | [Docs][docs-styles]              |                                               |                                          |
+| [ui-table][src-table]                             |                                                           | [Demo][demo-table]               | [Docs][docs-table]               | [Legacy Code][legacy-src-table]               | ![codecov][cov-badge-table]              |
+| [ui-tabs][src-tabs]                               | Horizontal tab interface                                  | [Demo][demo-tabs]                | [Docs][docs-tabs]                | [Legacy Code][legacy-src-tabs]                | ![codecov][cov-badge-tabs]               |
+| textarea                                          | See `input`                                               | <small>(see input demo)</small>  |                                  |                                               |                                          |
+| [ui-toggle][src-toggle]                           | Toggle switch                                             | [Demo][demo-toggle]              | [Docs][docs-toggle]              | [Legacy Code][legacy-src-toggle]              | ![codecov][cov-badge-toggle]             |
+| [ui-tooltip][src-tooltip]                         | Simple tooltip                                            | [Demo][demo-tooltip]             | [Docs][docs-tooltip]             | [Legacy Code][legacy-src-tooltip]             | ![codecov][cov-badge-tooltip]            |
+| [ui-validation-messages][src-validation-messages] | A component to display form validation errors             | [Demo][demo-validation-messages] | [Docs][docs-validation-messages] | [Legacy Code][legacy-src-validation-messages] | ![codecov][cov-badge-validationMessages] |
+| [ui-validators][src-validators]                   | A collection of form validators                           | [Demo][demo-validators]          | [Docs][docs-validators]          | [Legacy Code][legacy-src-validators]          | ![codecov][cov-badge-validators]         |
 
-|                      Package                      |                        Description                        |               Demo               |                 Docs                 |                   Legacy Code                     |
-|---------------------------------------------------|-----------------------------------------------------------|----------------------------------|--------------------------------------|---------------------------------------------------|
-| [ui-autocomplete][src-autocomplete]               | Deprecated. See `selection-list`                          | [Demo][demo-autocomplete]        | [Docs][docs-autocomplete]            | [Legacy Code][legacy-src-autocomplete]            |
-| [ui-autofocus][src-autofocus]                     | Focus a focusable element on load                         | [Demo][demo-autofocus]           | [Docs][docs-autofocus]               | [Legacy Code][legacy-src-autofocus]               | 
-| badge                                             | See `chip`                                                | [Demo][demo-chip]                |                                      | [Legacy Code][legacy-src-chip]                    |
-| [ui-button][src-button]                           |                                                           | [Demo][demo-button]              | [Docs][docs-button]                  | [Legacy Code][legacy-src-button]                  |
-| [ui-card][src-card]                               | Presentational card                                       | [Demo][demo-card]                | [Docs][docs-card]                    | [Legacy Code][legacy-src-card]                    |
-| [ui-chart][src-chart]                             | Charts, graphs etc                                        | [Demo][demo-chart]               | [Docs][docs-chart]                   | [Legacy Code][legacy-src-chart]                   |
-| [ui-chip][src-chip]                               | Chip                                                      | [Demo][demo-chip]                | [Docs][docs-chip]                    | [Legacy Code][legacy-src-chip]                    |
-| [ui-checkbox][src-checkbox]                       |                                                           | [Demo][demo-checkbox]            | [Docs][docs-checkbox]                | [Legacy Code][legacy-src-checkbox]                |
-| [ui-cohort-date-range][src-cohort-date-range]     | CohortDateRange                                           | [Demo][demo-cohort-date-range]   | [Docs][docs-cohort-date-range]       | [Legacy Code][legacy-src-cohort-date-range]       |
-| [ui-confirmation][src-confirmation]               | Add a confirmation step to any `ts-button`                | [Demo][demo-confirmation]        | [Docs][docs-confirmation]            | [Legacy Code][legacy-src-confirmation]            |
-| [ui-copy][src-copy]                               | Component to easily copy string values                    | [Demo][demo-copy]                | [Docs][docs-copy]                    | [Legacy Code][legacy-src-copy]                    |
-| [ui-csv-entry][src-csv-entry]                     | Manually enter CSV values                                 | [Demo][demo-csv-entry]           | [Docs][docs-csv-entry]               | [Legacy Code][legacy-src-csv-entry]               |
-| [ui-datepicker][src-input]                        | See `TsInputComponent`                                    | [Demo][demo-input]               | [Docs][docs-input]                   | [Legacy Code][legacy-src-input]                   |
-| [ui-date-range][src-date-range]                   | Dual inputs with calendar pop-ups                         | [Demo][demo-date-range]          | [Docs][docs-date-range]              | [Legacy Code][legacy-src-date-range]              |
-| [ui-drawer][src-drawer]                           | Slide-out drawer panel                                    | [Demo][demo-drawer]              | [Docs][docs-drawer]                  | [Legacy Code][legacy-src-drawer]                  |
-| [ui-expansion-panel][src-expansion-panel]         | Expansion panel with accordion & stepper functionality    | [Demo][demo-expansion-panel]     | [Docs][docs-expansion-panel]         | [Legacy Code][legacy-src-expansion-panel]         |
-| [ui-file-upload][src-file-upload]                 | File upload with drag and drop                            | [Demo][demo-file-upload]         | [Docs][docs-file-upload]             | [Legacy Code][legacy-src-file-upload]             |
-| [ui-icon][src-icon]                               | Supported icons: https://material.io/icons                | [Demo][demo-icon]                | [Docs][docs-icon]                    | [Legacy Code][legacy-src-icon]                    |
-| [ui-icon-button][src-icon-button]                 | Icon only button                                          | [Demo][demo-icon-button]         | [Docs][docs-icon-button]             | [Legacy Code][legacy-src-icon-button]             |
-| [ui-input][src-input]                             | Input with masking, datepicker, etc                       | [Demo][demo-input]               | [Docs][docs-input]                   | [Legacy Code][legacy-src-input]                   |
-| [ui-link][src-link]                               |                                                           | [Demo][demo-link]                | [Docs][docs-link]                    | [Legacy Code][legacy-src-link]                    |
-| [ui-loading overlay][src-loading-overlay]         | Overlay with loading spinner                              | [Demo][demo-loading-overlay]     | [Docs][docs-loading-overlay]         | [Legacy Code][legacy-src-loading-overlay]         |
-| [ui-login form][src-login-form]                   | Email/password with 'remember me' checkbox                | [Demo][demo-log-in-form]         | [Docs][docs-login-form]              | [Legacy Code][legacy-src-login-form]              |
-| [ui-logo][src-logo]                               | Variations of the official logo, certain colors available | [Demo][demo-logo]                | [Docs][docs-logo]                    | [Legacy Code][legacy-src-logo]                    |
-| [ui-menu][src-menu]                               |                                                           | [Demo][demo-menu]                | [Docs][docs-menu]                    | [Legacy Code][legacy-src-menu]                    |
-| [ui-navigation][src-navigation]                   | Global navigation menu                                    | [Demo][demo-navigation]          | [Docs][docs-navigation]              | [Legacy Code][legacy-src-navigation]              |
-| [ui-paginator][src-paginator]                     | Paging controls for collections                           | [Demo][demo-paginator]           | [Docs][docs-paginator]               | [Legacy Code][legacy-src-paginator]               |
-| [ui-pipes][src-pipes]                             | A collection of pipes for Angular                         | [Demo][demo-pipes]               | [Docs][docs-pipes]                   | [Legacy Code][legacy-src-pipes]                   |
-| [ui-popover][src-popover]                         | Popover with templates                                    | [Demo][demo-popover]             | [Docs][docs-popover]                 | [Legacy Code][legacy-src-popover]                 |
-| [ui-radio-group][src-radio-group]                 |                                                           | [Demo][demo-radio-group]         | [Docs][docs-radio-group]             | [Legacy Code][legacy-src-radio-group]             |
-| [ui-scrollbars][src-scrollbars]                   | Custom scrollbars for both axis'                          | [Demo][demo-scrollbars]          | [Docs][docs-scrollbars]              | [Legacy Code][legacy-src-scrollbars]              |
-| [ui-search][src-search]                           | Input with search capabilities                            | [Demo][demo-search]              | [Docs][docs-search]                  | [Legacy Code][legacy-src-search]                  |
-| [ui-select][src-select]                           | Deprecated. See `selection-list`                          | [Demo][demo-select]              | [Docs][docs-select]                  | [Legacy Code][legacy-src-select]                  |
-| [ui-selection-list][src-selection-list]           | Classic select dropdown / autocomplete                    | [Demo][demo-selection-list]      | [Docs][docs-selection-list]          | [Legacy Code][legacy-src-selection-list]          |
-| [ui-spacing][src-spacing]                         | Helpers for consistent spacing                            | [Demo][demo-spacing]             | [Docs][docs-spacing]                 | [Legacy Code][legacy-src-spacing]                 |
-| [ui-sort][src-sort]                               | Used by `table` for column sorting                        | <small>(see table demo)</small>  | [Docs][docs-sort]                    | [Legacy Code][legacy-src-sort]                    |
-| [ui-styles][src-styles]                           | A collection of base CSS, SCSS mixins and functions.      |                                  | [Docs][docs-styles]                  |                                                   |
-| [ui-table][src-table]                             |                                                           | [Demo][demo-table]               | [Docs][docs-table]                   | [Legacy Code][legacy-src-table]                   |
-| [ui-tabs][src-tabs]                               | Horizontal tab interface                                  | [Demo][demo-tabs]                | [Docs][docs-tabs]                    | [Legacy Code][legacy-src-tabs]                    |
-| textarea                                          | See `input`                                               | <small>(see input demo)</small>  |                                      |                                                   |
-| [ui-toggle][src-toggle]                           | Toggle switch                                             | [Demo][demo-toggle]              | [Docs][docs-toggle]                  | [Legacy Code][legacy-src-toggle]                  |
-| [ui-tooltip][src-tooltip]                         | Simple tooltip                                            | [Demo][demo-tooltip]             | [Docs][docs-tooltip]                 | [Legacy Code][legacy-src-tooltip]                 |
-| [ui-validation-messages][src-validation-messages] | A component to display form validation errors             | [Demo][demo-validation-messages] | [Docs][docs-validation-messages]     | [Legacy Code][legacy-src-validation-messages]     |
-| [ui-validators][src-validators]                   | A collection of form validators                           | [Demo][demo-validators]          | [Docs][docs-validators]              | [Legacy Code][legacy-src-validators]              |
-
-
+|                  App                   |             Description              |                                   |
+|----------------------------------------|--------------------------------------|-----------------------------------|
+| [UI Showcase][src-showcase-ui]         | Various live demos                   | [Visit Site][url-showcase-ui]     |
+| [Tokens Showcase][src-showcase-tokens] | Live reference for our design tokens | [Visit Site][url-showcase-tokens] |
 
 
 
@@ -157,27 +155,31 @@ $ yarn run help
 
 
 <!-- Links -->
-[codecov]:          https://codecov.io
-[commitizen]:       https://github.com/commitizen
-[doctoc]:           https://github.com/thlorenz/doctoc
-[semantic-release]: https://github.com/semantic-release/semantic-release
-[nx-angular]:       https://nx.dev/angular
-[nx-video]:         https://nx.dev/angular/getting-started/what-is-nx
-[nx-jest]:          https://nx.dev/angular/plugins/jest/overview
-[nx-cypress]:       https://nx.dev/angular/plugins/cypress/overview
-[nx-web-elements]:  https://nx.dev/angular/plugins/web/overview
-[nx-react]:         https://nx.dev/angular/plugins/react/overview
-
-[codecov-project]:  https://codecov.io/gh/GetTerminus/terminus-ui
-[circle-link]:      https://circleci.com/gh/GetTerminus/terminus-oss/tree/master
-[renovate-badge]:   https://img.shields.io/badge/renovate-enabled-brightgreen.svg
-[renovate-link]:    https://renovatebot.com
-[david-dev-badge]:  https://david-dm.org/GetTerminus/terminus-oss/dev-status.svg
-[david-badge]:      https://david-dm.org/GetTerminus/terminus-oss.svg
-[david-link]:       https://david-dm.org/GetTerminus/terminus-oss?view=list
-[license-url]:      https://github.com/GetTerminus/terminus-ui/blob/release/LICENSE
-[zenhub-image]:     https://dxssrr2j0sq4w.cloudfront.net/3.2.0/img/external/zenhub-badge.png
-[zenhub-url]:       https://github.com/GetTerminus/terminus-oss#zenhub
+[codecov]:                https://codecov.io
+[commitizen]:             https://github.com/commitizen
+[doctoc]:                 https://github.com/thlorenz/doctoc
+[semantic-release]:       https://github.com/semantic-release/semantic-release
+[semantic-release-badge]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+[nx-angular]:             https://nx.dev/angular
+[nx-video]:               https://nx.dev/angular/getting-started/what-is-nx
+[nx-jest]:                https://nx.dev/angular/plugins/jest/overview
+[nx-cypress]:             https://nx.dev/angular/plugins/cypress/overview
+[nx-web-elements]:        https://nx.dev/angular/plugins/web/overview
+[nx-react]:               https://nx.dev/angular/plugins/react/overview
+[codecov-project]:        https://codecov.io/gh/GetTerminus/terminus-oss
+[codecov-badge]:          https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg
+[renovate-badge]:         https://img.shields.io/badge/renovate-enabled-brightgreen.svg
+[renovate-link]:          https://renovatebot.com
+[david-dev-badge]:        https://david-dm.org/GetTerminus/terminus-oss/dev-status.svg
+[david-badge]:            https://david-dm.org/GetTerminus/terminus-oss.svg
+[david-link]:             https://david-dm.org/GetTerminus/terminus-oss?view=list
+[license-url]:            https://github.com/GetTerminus/terminus-ui/blob/release/LICENSE
+[zenhub-image]:           https://dxssrr2j0sq4w.cloudfront.net/3.2.0/img/external/zenhub-badge.png
+[zenhub-url]:             https://github.com/GetTerminus/terminus-oss#zenhub
+[github-badge-release]:   https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
+[github-ci-link]:         https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22Release+CI%22
+[url-showcase-ui]:        https://getterminus.github.io/ui-demos-release/components
+[url-showcase-tokens]:    https://getterminus.github.io/design-tokens/color
 
 <!-- Source Directories -->
 [src-autocomplete]:        https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/autocomplete/
@@ -221,9 +223,10 @@ $ yarn run help
 [src-tooltip]:             https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/tooltip/
 [src-validation-messages]: https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/validation-messages/
 [src-validators]:          https://github.com/GetTerminus/terminus-oss/blob/master/libs/ui/validators/
+[src-showcase-ui]:         https://github.com/GetTerminus/terminus-oss/blob/master/apps/showcase-ui/
+[src-showcase-tokens]:     https://github.com/GetTerminus/terminus-oss/blob/master/apps/showcase-tokens/
 
 <!-- Legacy source code -->
-
 [legacy-src-autocomplete]:        https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/autocomplete/
 [legacy-src-autofocus]:           https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/autofocus/
 [legacy-src-button]:              https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/button/
@@ -351,3 +354,46 @@ $ yarn run help
 [docs-tooltip]:             http://uilibrary-docs.terminus.ninja/release/components/TsTooltipComponent.html
 [docs-validation-messages]: http://uilibrary-docs.terminus.ninja/release/injectables/TsValidationMessagesComponent.html
 [docs-validators]:          http://uilibrary-docs.terminus.ninja/release/injectables/TsValidatorsService.html
+
+<!-- Coverage Badges -->
+[cov-badge-autocomplete]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=autocomplete
+[cov-badge-autofocus]:          https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=autofocus
+[cov-badge-button]:             https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=button
+[cov-badge-card]:               https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=card
+[cov-badge-chart]:              https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=chart
+[cov-badge-checkbox]:           https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=checkbox
+[cov-badge-chip]:               https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=chip
+[cov-badge-cohortDateRange]:    https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=cohortDateRange
+[cov-badge-confirmation]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=confirmation
+[cov-badge-copy]:               https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=copy
+[cov-badge-csvEntry]:           https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=csvEntry
+[cov-badge-dateRange]:          https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=dateRange
+[cov-badge-drawer]:             https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=drawer
+[cov-badge-expansionPanel]:     https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=expansionPanel
+[cov-badge-fileUpload]:         https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=fileUpload
+[cov-badge-iconButton]:         https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=iconButton
+[cov-badge-icon]:               https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=icon
+[cov-badge-input]:              https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=input
+[cov-badge-link]:               https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=link
+[cov-badge-loadingOverlay]:     https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=loadingOverlay
+[cov-badge-loginForm]:          https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=loginForm
+[cov-badge-logo]:               https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=logo
+[cov-badge-menu]:               https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=menu
+[cov-badge-navigation]:         https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=navigation
+[cov-badge-paginator]:          https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=paginator
+[cov-badge-pipes]:              https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=pipes
+[cov-badge-popover]:            https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=popover
+[cov-badge-radioGroup]:         https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=radioGroup
+[cov-badge-scrollbars]:         https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=scrollbars
+[cov-badge-search]:             https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=search
+[cov-badge-select]:             https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=select
+[cov-badge-selectionList]:      https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=selectionList
+[cov-badge-sort]:               https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=sort
+[cov-badge-spacing]:            https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=spacing
+[cov-badge-table]:              https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=table
+[cov-badge-tabs]:               https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=tabs
+[cov-badge-toggle]:             https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=toggle
+[cov-badge-tooltip]:            https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=tooltip
+[cov-badge-validationMessages]: https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=validationMessages
+[cov-badge-validators]:         https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg?flag=validators
+
