@@ -34,21 +34,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache Yarn
-        id: cache_yarn
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-yarn
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-${{ env.cache-name }}-
-            ${{ runner.os }}-yarn-
-            ${{ runner.os }}-
       - name: Cache NODE
         id: cache_node
         uses: actions/cache@v2
@@ -94,21 +79,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache Yarn
-        id: cache_yarn
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-yarn
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-${{ env.cache-name }}-
-            ${{ runner.os }}-yarn-
-            ${{ runner.os }}-
       - name: Cache NODE
         id: cache_node
         uses: actions/cache@v2
@@ -155,8 +125,12 @@ jobs:
             ${{ runner.os }}-
       - if: steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
-      - name: List affected projects
-        run: yarn affected
+      - name: List affected LIBS
+        run: yarn affected:libs --base=origin/master
+        if: env.SHOULD_RUN == 'true'
+      - name: List affected APPS
+        run: yarn affected:apps --base=origin/master
+        if: env.SHOULD_RUN == 'true'
       - name: Build affected projects
         run: yarn nx run-many --all --target build --prod
       - name: Deploy affected projects
@@ -194,22 +168,6 @@ jobs:
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache Yarn
-        id: cache_yarn
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-yarn
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-${{ env.cache-name }}-
-            ${{ runner.os }}-yarn-
-            ${{ runner.os }}-
-        if: env.SHOULD_RUN == 'true'
       - name: Cache NODE
         id: cache_node
         uses: actions/cache@v2
@@ -227,6 +185,11 @@ jobs:
       - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
 
+      - name: Deploy affected projects
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: yarn nx affected --target=deploy --base=origin/master
+        if: env.SHOULD_RUN == 'true'
 
 
 
