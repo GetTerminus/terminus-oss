@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['../../../release-config.js'],
+  extends: ['release-config.js'],
 };
