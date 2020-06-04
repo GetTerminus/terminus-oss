@@ -8,13 +8,13 @@
 . ~/.bashrc
 
 # Likely starting at `/home/runner/work/terminus-oss/terminus-oss` so we need to go up one
-cd ../
+#cd ../
 
 echo "CURRENT PATH:"
 pwd
 
 # Clone the ui demos
-git clone git@github.com:GetTerminus/ui-demos-release.git
+#git clone git@github.com:GetTerminus/ui-demos-release.git
 
 # Enter the demos repo
 cd ui-demos-release || exit
@@ -27,7 +27,7 @@ echo "CURRENT PATH:"
 pwd
 
 # Move new files into the cloned repo
-mv -f -v ../terminus-oss/dist/apps/showcase-ui/* .
+mv -f -v ../dist/apps/showcase-ui/* .
 
 # Clone the index.html file as 404.html to support deep linking
 cp index.html 404.html

@@ -172,6 +172,14 @@ jobs:
         run: yarn affected:apps --base=${{ steps.get-sha.outputs.latestsha }}
       - name: Build affected projects
         run: yarn nx affected --target=build --prod --base=${{ steps.get-sha.outputs.latestsha }}
+
+      - name: Checkout ui-demos-release repo
+        uses: actions/checkout@v2
+        with:
+          repository: GetTerminus/ui-demos-release
+          token: ${{ secrets.GH_TOKEN }}
+          path: /home/runner/work/terminus-oss/terminus-oss/ui-demos-release
+
       - name: Install semantic-release globallly
         run: yarn global add semantic-release
       - name: Deploy affected projects
