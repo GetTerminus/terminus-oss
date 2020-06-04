@@ -101,7 +101,7 @@
             "name": "terminus-devops",
             "email": "devops@terminus.com",
             "dryRun": false,
-            "noSilent": true
+            "noSilent": false
           }
         }
       }

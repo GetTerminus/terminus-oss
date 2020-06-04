@@ -65,6 +65,7 @@ module.exports = {
       fakePalette: {
         500: { value: '#ff0' },
         600: { value: '#f00' },
+        700: { value: '#000' },
       },
     },
   },
