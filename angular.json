@@ -3040,7 +3040,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn --cwd libs/ui/validation-messages run semantic-release --dry-run --no-ci" }
+              { "command": "yarn --cwd libs/ui/validation-messages run semantic-release" }
             ]
           }
         }
