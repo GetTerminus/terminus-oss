@@ -171,7 +171,7 @@ jobs:
       - name: List affected APPS
         run: yarn affected:apps --base=${{ steps.get-sha.outputs.latestsha }}
       - name: Build styles before all packages
-        run: yarn nx build ui-styles --prod
+        run: yarn nx build ui-styles --prod --nx-skip-cache
       - name: Build affected projects
         run: yarn nx affected --target=build --withDeps --prod --base=${{ steps.get-sha.outputs.latestsha }}
       - name: Checkout ui-demos-release repo
