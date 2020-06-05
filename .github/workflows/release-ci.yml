@@ -170,6 +170,8 @@ jobs:
         run: yarn affected:libs --base=${{ steps.get-sha.outputs.latestsha }}
       - name: List affected APPS
         run: yarn affected:apps --base=${{ steps.get-sha.outputs.latestsha }}
+      - name: Build styles before all packages
+        run: yarn nx build ui-styles --prod
       - name: Build affected projects
         run: yarn nx affected --target=build --withDeps --prod --base=${{ steps.get-sha.outputs.latestsha }}
       - name: Checkout ui-demos-release repo

@@ -329,6 +329,9 @@ jobs:
       - name: List affected APPS
         run: yarn affected:apps --base=origin/master
         if: env.SHOULD_RUN == 'true'
+      - name: Build styles before all packages
+        run: yarn nx build ui-styles --prod
+        if: env.SHOULD_RUN == 'true'
       - name: Build affected projects
         run: yarn nx affected:build --prod --withDeps --base=origin/master --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'
