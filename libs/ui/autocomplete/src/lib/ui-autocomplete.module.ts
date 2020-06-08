@@ -29,7 +29,9 @@ export * from './autocomplete/autocomplete.component';
 export * from './autocomplete-panel/autocomplete-panel.component';
 export * from './autocomplete-panel/autocomplete-trigger.directive';
 
+
 /* eslint-disable deprecation/deprecation */
+
 // @deprecated Please use `TsSelectionListModule`
 @NgModule({
   imports: [
