@@ -4,7 +4,7 @@ module.exports = {
     {
       path: '@semantic-release/npm',
       npmPublish: true,
-      pkgRoot: '/dist/libs/ui/autocomplete',
+      pkgRoot: 'dist/libs/ui/autocomplete',
     },
   ],
 };
