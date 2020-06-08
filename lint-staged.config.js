@@ -11,12 +11,12 @@ const IGNORE = [
 module.exports = {
   // Target all TS & JS files
   '**/*.{js,ts}': filenames => [
-    // `npx eslint --fix ${removeDirectories(filenames).map(f => `"${f}"`).join(' ')}`,
+    `eslint --fix ${removeDirectories(filenames).map(f => `"${f}"`).join(' ')}`,
   ],
 
   // Target library SCSS files
   'libs/**/!(*.spec).scss': files => [
-    `npx stylelint --fix ${files.map(f => `"${f}"`).join(' ')}`,
+    `stylelint --fix ${files.map(f => `"${f}"`).join(' ')}`,
   ],
 };
 
