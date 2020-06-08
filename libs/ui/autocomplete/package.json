@@ -16,6 +16,7 @@
     "access": "public",
     "tag": "next"
   },
+  "files": ["dist/libs/ui/autocomplete"],
   "peerDependencies": {
     "@angular/cdk": "^9.1.0",
     "@angular/common": "^9.1.0",

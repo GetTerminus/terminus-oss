@@ -10,7 +10,6 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-
 import { TsCheckboxModule } from '@terminus/ui-checkbox';
 import { TsChipModule } from '@terminus/ui-chip';
 import { TsFormFieldModule } from '@terminus/ui-form-field';
@@ -25,7 +24,6 @@ import {
   TsAutocompleteTriggerDirective,
 } from './autocomplete-panel/autocomplete-trigger.directive';
 import { TsAutocompleteComponent } from './autocomplete/autocomplete.component';
-
 
 export * from './autocomplete/autocomplete.component';
 export * from './autocomplete-panel/autocomplete-panel.component';
