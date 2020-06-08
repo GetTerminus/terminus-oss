@@ -41,16 +41,16 @@ Import helper mixins in any SCSS file that needs access:
 
 
 <!-- Links -->
-[tokens]:              ../../design-tokens/
-[license-url]:         https://github.com/GetTerminus/terminus-oss/blob/master/LICENSE
-[license-image]:       http://img.shields.io/badge/license-MIT-blue.svg
-[codecov-project]:     https://codecov.io/gh/GetTerminus/terminus-oss
-[codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg
-[npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-styles.svg
-[npm-package]:         https://www.npmjs.com/package/@terminus/ui-styles
-[gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg
-[gh-releases]:         https://github.com/GetTerminus/terminus-ui/releases/
-[github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/CI%20Release/badge.svg
-[github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
-[file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-styles/terminus-ui.css?compression=gzip
+[tokens]:               ../../design-tokens/
+[license-url]:          https://github.com/GetTerminus/terminus-oss/blob/master/LICENSE
+[license-image]:        http://img.shields.io/badge/license-MIT-blue.svg
+[codecov-project]:      https://codecov.io/gh/GetTerminus/terminus-oss
+[codecov-badge]:        https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg
+[npm-version-image]:    http://img.shields.io/npm/v/@terminus/ui-styles.svg
+[npm-package]:          https://www.npmjs.com/package/@terminus/ui-styles
+[gh-release-badge]:     https://img.shields.io/github/release/GetTerminus/terminus-oss.svg
+[gh-releases]:          https://github.com/GetTerminus/terminus-ui/releases/
+[github-action-badge]:  https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
+[github-action-link]:   https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
+[file-size-badge]:      http://img.badgesize.io/https://unpkg.com/@terminus/ui-styles/terminus-ui.css?compression=gzip
 [raw-distribution-css]: https://unpkg.com/@terminus/ui-styles/terminus-ui.css
