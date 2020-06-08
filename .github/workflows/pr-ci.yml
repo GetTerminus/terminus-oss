@@ -43,22 +43,6 @@ jobs:
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache Yarn
-        id: cache_yarn
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-yarn
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-${{ env.cache-name }}-
-            ${{ runner.os }}-yarn-
-            ${{ runner.os }}-
-        if: env.SHOULD_RUN == 'true'
       - name: Cache NODE
         id: cache_node
         uses: actions/cache@v2
@@ -111,22 +95,6 @@ jobs:
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache Yarn
-        id: cache_yarn
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-yarn
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-${{ env.cache-name }}-
-            ${{ runner.os }}-yarn-
-            ${{ runner.os }}-
-        if: env.SHOULD_RUN == 'true'
       - name: Cache NODE
         id: cache_node
         uses: actions/cache@v2
@@ -167,22 +135,6 @@ jobs:
 #        uses: actions/setup-node@v1
 #        with:
 #          node-version: 12.x
-#        if: env.SHOULD_RUN == 'true'
-#      - name: Get yarn cache directory path
-#        id: yarn-cache-dir-path
-#        run: echo "::set-output name=dir::$(yarn cache dir)"
-#      - name: Cache Yarn
-#        id: cache_yarn
-#        uses: actions/cache@v2
-#        env:
-#          cache-name: cache-yarn
-#        with:
-#          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-#          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-#          restore-keys: |
-#            ${{ runner.os }}-yarn-${{ env.cache-name }}-
-#            ${{ runner.os }}-yarn-
-#            ${{ runner.os }}-
 #        if: env.SHOULD_RUN == 'true'
 #      - name: Cache NODE
 #        id: cache_node
@@ -237,22 +189,6 @@ jobs:
 #        if: env.SHOULD_RUN == 'true'
 #      - if: env.SHOULD_RUN == 'true'
 #        run: yarn add start-server-and-test
-#      - name: Get yarn cache directory path
-#        id: yarn-cache-dir-path
-#        run: echo "::set-output name=dir::$(yarn cache dir)"
-#      - name: Cache Yarn
-#        id: cache_yarn
-#        uses: actions/cache@v2
-#        env:
-#          cache-name: cache-yarn
-#        with:
-#          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-#          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-#          restore-keys: |
-#            ${{ runner.os }}-yarn-${{ env.cache-name }}-
-#            ${{ runner.os }}-yarn-
-#            ${{ runner.os }}-
-#        if: env.SHOULD_RUN == 'true'
 #      - name: Cache NODE
 #        id: cache_node
 #        uses: actions/cache@v2
