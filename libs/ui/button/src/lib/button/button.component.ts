@@ -72,9 +72,6 @@ const DEFAULT_COLLAPSE_DELAY_MS = 4000;
 /**
  * A presentational component to render a button
  *
- * #### QA CSS CLASSES
- * - `qa-button`: Placed on the button element used for this component
- *
  * @example
  * <ts-button
  *              actionName="Submit"
