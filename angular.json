@@ -2629,7 +2629,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/styles && npx semantic-release --debug)" }
+              { "command": "(cd libs/ui/styles && npx semantic-release)" }
             ]
           }
         }
