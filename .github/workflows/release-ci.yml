@@ -14,7 +14,7 @@ jobs:
   # Cancel any workflows that would be duplicated by this run
   #
   cleanup-runs:
-    name: Cancel Duplicates
+    name: "Cancel Duplicates"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -32,7 +32,7 @@ jobs:
   # Test affected projects
   #
   affected_test:
-    name: Test affected projects
+    name: "Test affected projects"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -85,7 +85,7 @@ jobs:
   # Lint affected projects
   #
   affected_lint:
-    name: Lint affected projects
+    name: "Lint affected projects"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -131,7 +131,7 @@ jobs:
   # Build affected projects
   #
   affected_build:
-    name: Compile affected projects
+    name: "Compile & release affected projects"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
