@@ -62,7 +62,6 @@ import { TsUILibraryError } from '@terminus/ui-utilities';
 
 import { TsAutocompletePanelComponent } from './autocomplete-panel.component';
 
-
 /**
  * The following style constants are necessary to save here in order to properly calculate the scrollTop of the panel.
  * Because we are not actually focusing the active item, scroll must be handled manually.
@@ -93,7 +92,6 @@ export const TS_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY_PROVIDER = {
 
 // Unique ID for each instance
 let nextUniqueId = 0;
-
 
 /**
  * A directive that adds autocomplete trigger functionality to an input. Used in {@link TsSelectComponent}.

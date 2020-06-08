@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['semantic-release-monorepo'],
+  extends: ['../../../release.config.js'],
   publish: [
     {
       path: '@semantic-release/npm',
