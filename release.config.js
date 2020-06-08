@@ -18,10 +18,12 @@ module.exports = {
           commitsSort: ['subject', 'scope'],
         },
       }],
-      '@semantic-release/changelog',
+      ['@semantic-release/changelog', {
+        changelogFile: './CHANGELOG.md',
+      }],
       ['@semantic-release/npm', { addChannel: 'next' }],
       ['@semantic-release/git', {
-        assets: ['CHANGELOG.md', 'package.json', 'packages/*/*/package.json'],
+        assets: ['CHANGELOG.md'],
         // eslint-disable-next-line no-template-curly-in-string
         message: 'Build: ${nextRelease.gitTag} [skip ci]',
       }],
