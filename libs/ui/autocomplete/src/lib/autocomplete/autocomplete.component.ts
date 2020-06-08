@@ -59,12 +59,11 @@ import {
 } from '../autocomplete-panel/autocomplete-panel.component';
 import { TsAutocompleteTriggerDirective } from '../autocomplete-panel/autocomplete-trigger.directive';
 
+export class TsAutocompleteSelectedEvent extends MatAutocompleteSelectedEvent {}
 
 // Unique ID for each instance
 // @internal
 let nextUniqueId = 0;
-
-export class TsAutocompleteSelectedEvent extends MatAutocompleteSelectedEvent {}
 
 const DEFAULT_MINIMUM_CHARACTER_COUNT = 2;
 const DEFAULT_DEBOUNCE_DELAY = 200;
