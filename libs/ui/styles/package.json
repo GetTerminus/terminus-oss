@@ -17,9 +17,9 @@
     "tag": "next"
   },
   "files": [
+    "../../../dist/libs/ui/styles/helpers.scss",
+    "../../../dist/libs/ui/styles/terminus-ui.css",
     "package.json",
-    "helpers.scss",
-    "terminus-ui.css",
     "README.md"
   ],
   "styles": "helpers.scss",
