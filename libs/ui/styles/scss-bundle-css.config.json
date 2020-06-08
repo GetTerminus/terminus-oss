@@ -3,8 +3,8 @@
     "entryFile": "./libs/ui/styles/src/lib/terminus-ui.scss",
     "logLevel": "debug",
     "project": "./",
-    "outFile": "./libs/ui/styles/src/lib/terminus-ui-temp.scss",
-    "rootDir": "./libs/ui/styles/src/",
+    "outFile": "./libs/ui/styles/terminus-ui-temp.scss",
+    "rootDir": "./libs/ui/styles/",
     "tilde": true
   }
 }

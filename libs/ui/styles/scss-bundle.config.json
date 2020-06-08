@@ -2,8 +2,8 @@
   "bundlerOptions": {
     "entryFile": "./libs/ui/styles/src/lib/index.scss",
     "project": "./",
-    "outFile": "./libs/ui/styles/src/helpers-generated.scss",
-    "rootDir": "./libs/ui/styles/src/",
+    "outFile": "./libs/ui/styles/helpers-generated.scss",
+    "rootDir": "./libs/ui/styles/",
     "tilde": true
   }
 }
