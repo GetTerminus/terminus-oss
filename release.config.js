@@ -1,16 +1,23 @@
 module.exports = {
   extends: ['semantic-release-monorepo'],
   branches: ['master'],
+  monorepo: {
+    analyzeCommits: [
+      '@semantic-release/commit-analyzer',
+    ],
+    generateNotes: [
+      ['@semantic-release/release-notes-generator', {
+        preset: 'angular',
+        parserOpts: {
+          noteKeywords: ['BREAKING CHANGE', 'BREAKING CHANGES', 'BREAKING'],
+        },
+        writerOpts: {
+          commitsSort: ['subject', 'scope'],
+        },
+      }],
+    ],
+  },
   plugins: [
-    ['@semantic-release/release-notes-generator', {
-      preset: 'angular',
-      parserOpts: {
-        noteKeywords: ['BREAKING CHANGE', 'BREAKING CHANGES', 'BREAKING'],
-      },
-      writerOpts: {
-        commitsSort: ['subject', 'scope'],
-      },
-    }],
     ['@semantic-release/changelog', {
       changelogFile: 'CHANGELOG.md',
     }],
