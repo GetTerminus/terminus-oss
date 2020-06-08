@@ -1,7 +1,6 @@
 {
   "npmScope": "terminus",
   "implicitDependencies": {
-    "angular.json": "*",
     "package.json": {
       "dependencies": "*",
       "devDependencies": "*"
