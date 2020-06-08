@@ -17,7 +17,7 @@ module.exports = {
       }],
       ['@semantic-release/npm', { addChannel: 'next' }],
       ['@semantic-release/git', {
-        assets: ['CHANGELOG.md'],
+        assets: ['./CHANGELOG.md'],
         // eslint-disable-next-line no-template-curly-in-string
         message: 'Build: ${nextRelease.gitTag} [skip ci]',
       }],
