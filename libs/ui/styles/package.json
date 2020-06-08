@@ -16,6 +16,12 @@
     "access": "public",
     "tag": "next"
   },
+  "files": [
+    "package.json",
+    "helpers.scss",
+    "terminus-ui.css",
+    "README.md"
+  ],
   "styles": "helpers.scss",
   "peerDependencies": {
     "@terminus/design-tokens": "^1.0.10",
