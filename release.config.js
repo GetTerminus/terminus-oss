@@ -13,11 +13,11 @@ module.exports = {
         },
       }],
       ['@semantic-release/changelog', {
-        changelogFile: './CHANGELOG.md',
+        changelogFile: 'CHANGELOG.md',
       }],
       ['@semantic-release/npm', { addChannel: 'next' }],
       ['@semantic-release/git', {
-        assets: ['./CHANGELOG.md'],
+        assets: ['CHANGELOG.md'],
         // eslint-disable-next-line no-template-curly-in-string
         message: 'Build: ${nextRelease.gitTag} [skip ci]',
       }],
@@ -29,12 +29,26 @@ module.exports = {
       '@semantic-release/git',
       '@semantic-release/github',
     ],
+    prepare: [
+      {
+        path: '@semantic-release/changelog',
+        changelogFile: 'CHANGELOG.md',
+      },
+      {
+        path: '@semantic-release/git',
+        // eslint-disable-next-line no-template-curly-in-string
+        message: 'Add ${nextRelease.version} release notes [skip ci]',
+      },
+    ],
     publish: [
       {
         path: '@semantic-release/npm',
         npmPublish: true,
       },
-      '@semantic-release/github',
+      {
+        path: '@semantic-release/github',
+        assets: ['CHANGELOG.md'],
+      },
     ],
   },
 }
