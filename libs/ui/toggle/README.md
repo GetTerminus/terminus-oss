@@ -30,7 +30,7 @@ A simple toggle, or 'switch', component.
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-toggle
 [gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg
 [gh-releases]:         https://github.com/GetTerminus/terminus-ui/releases/
-[github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/CI%20Release/badge.svg
+[github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-toggle/bundles/terminus-ui-toggle.umd.min.js?compression=gzip
 [raw-distribution-js]: https://unpkg.com/@terminus/ui-toggle/bundles/terminus-ui-toggle.umd.js
