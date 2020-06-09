@@ -1,6 +1,6 @@
 {
   "name": "@terminus/design-tokens",
-  "version": "0.0.0-PLACEHOLDER",
+  "version": "2.0.0",
   "description": "The collection of Terminus design tokens.",
   "license": "MIT",
   "author": "@terminus",
