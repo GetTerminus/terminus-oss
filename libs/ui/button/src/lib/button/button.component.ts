@@ -34,7 +34,6 @@ export type TsButtonActionTypes
   | 'Reset'
 ;
 
-
 /**
  * Define the allowed {@link TsButtonComponent} action types
  */
@@ -43,7 +42,6 @@ export type TsButtonFunctionTypes
   | 'search'
   | 'submit'
 ;
-
 
 /**
  * Define the allowed {@link TsButtonComponent} format types
