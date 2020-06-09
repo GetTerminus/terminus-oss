@@ -180,20 +180,11 @@ jobs:
           repository: GetTerminus/ui-demos-release
           token: ${{ secrets.GH_TOKEN }}
           path: /home/runner/work/terminus-oss/terminus-oss/ui-demos-release
-#      - name: Install semantic-release globallly
-#        run: yarn global add semantic-release
-#      - name: Deploy affected projects
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-#          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-#        run: yarn nx affected --target=deploy --base=${{ steps.get-sha.outputs.latestsha }}
       - name: Update credentials
         run: |
           git config credential.helper 'cache --timeout=120'
           git config user.email "devops@terminus.com"
           git config user.name "terminus-devops"
-#          npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
-#          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - name: Set NPMRC
         run: |
           cp tools/ci/.ci-npmrc .npmrc
