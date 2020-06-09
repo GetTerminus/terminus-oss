@@ -1,4 +1,3 @@
-
 import { async, TestBed } from '@angular/core/testing';
 
 import { TsCardModule } from './ui-card.module';
