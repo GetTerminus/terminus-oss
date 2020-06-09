@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@1.0.2...@terminus/ui-card@1.0.3) (2020-06-09)
+
+
+### Bug Fixes
+
+* **Card:** trigger release ([74450bd](https://github.com/GetTerminus/terminus-oss/commit/74450bdeb656ef0f2937437f17d69cc9e77d3426))
+
+
+
+
+
 ## 1.0.2 (2020-06-09)
 
 
