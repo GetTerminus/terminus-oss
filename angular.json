@@ -503,7 +503,6 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "echo dist/libs/ui/autocomplete/*/" },
               { "command": "(cd libs/ui/autocomplete && npx semantic-release)" }
             ]
           }

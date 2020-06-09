@@ -93,6 +93,7 @@ export const TS_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY_PROVIDER = {
 // Unique ID for each instance
 let nextUniqueId = 0;
 
+
 /**
  * A directive that adds autocomplete trigger functionality to an input. Used in {@link TsSelectComponent}.
  *
@@ -679,7 +680,6 @@ export class TsAutocompleteTriggerDirective<ValueType = string> implements Contr
     });
   }
 
-
   /**
    * Get the overlay position strategy
    *
@@ -708,7 +708,6 @@ export class TsAutocompleteTriggerDirective<ValueType = string> implements Contr
     return this.positionStrategy;
   }
 
-
   /**
    * Return the panel width
    *
@@ -718,14 +717,12 @@ export class TsAutocompleteTriggerDirective<ValueType = string> implements Contr
     return this.getHostWidth();
   }
 
-
   /**
    * Resets the active item to -1 so arrow events will activate the correct options, or to 0 if the consumer opted into it
    */
   private resetActiveItem(): void {
     this.autocompletePanel.keyManager.setActiveItem(-1);
   }
-
 
   /**
    * If the label has been manually elevated, return it to its normal state
@@ -737,7 +734,6 @@ export class TsAutocompleteTriggerDirective<ValueType = string> implements Contr
       this.manuallyFloatingLabel = false;
     }
   }
-
 
   /**
    * Scroll to an option
@@ -763,7 +759,6 @@ export class TsAutocompleteTriggerDirective<ValueType = string> implements Contr
     this.autocompletePanel.setScrollTop(newScrollPosition);
   }
 
-
   /**
    * Set the value of the trigger
    *
@@ -786,7 +781,6 @@ export class TsAutocompleteTriggerDirective<ValueType = string> implements Contr
     }
   }
 
-
   /**
    * This method closes the panel, and if a value is specified, also sets the associated control to that value.
    * It will also mark the control as dirty if this interaction stemmed from the user.
@@ -802,7 +796,6 @@ export class TsAutocompleteTriggerDirective<ValueType = string> implements Contr
 
     this.closePanel();
   }
-
 
   /**
    * This method listens to a stream of panel closing actions and resets the stream every time the option list changes
