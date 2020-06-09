@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/GetTerminus/terminus-oss/compare/v2.0.0...v2.0.1) (2020-06-09)
+
+
+### Bug Fixes
+
+* **Autocomplete:** test publish ([7c4081d](https://github.com/GetTerminus/terminus-oss/commit/7c4081d251d8c1ec9c088e87fbc03603c829289e))
+
 # [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/v[secure]...v2.0.0) (2020-06-08)
 
 
