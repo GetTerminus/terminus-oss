@@ -187,6 +187,11 @@ jobs:
 #          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 #          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 #        run: yarn nx affected --target=deploy --base=${{ steps.get-sha.outputs.latestsha }}
+      - name: Update git credentials
+        run: |
+          git config credential.helper 'cache --timeout=120'
+          git config user.email "devops@terminus.com"
+          git config user.name "terminus-devops"
       - name: Deploy affected projects
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
