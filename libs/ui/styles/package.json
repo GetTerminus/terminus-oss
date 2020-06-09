@@ -1,6 +1,6 @@
 {
   "name": "@terminus/ui-styles",
-  "version": "0.0.0-PLACEHOLDER.1",
+  "version": "1.0.5",
   "license": "MIT",
   "author": "@terminus",
   "private": false,
@@ -27,6 +27,5 @@
   "peerDependencies": {
     "@angular/material": "^9.1.0",
     "@terminus/design-tokens": "^1.0.10"
-  },
-  "gitHead": "d49f3b8491ebd349c2f20750bfa5e8a367ae50ab"
+  }
 }

@@ -1,7 +1,8 @@
 module.exports = {
+  extends: ['semantic-release-monorepo'],
   branches: ['master'],
-  // commitPaths: ['./libs/', './apps/'],
-  plugins: [
+  commitPaths: ['./libs/', './apps/'],
+  monorepo: [
     '@semantic-release/commit-analyzer',
     ['@semantic-release/release-notes-generator', {
       preset: 'angular',
@@ -12,6 +13,8 @@ module.exports = {
         commitsSort: ['subject', 'scope'],
       },
     }],
+  ],
+  plugins: [
     '@semantic-release/git',
   ],
   verifyConditions: [

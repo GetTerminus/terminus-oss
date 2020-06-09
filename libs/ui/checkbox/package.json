@@ -1,6 +1,6 @@
 {
   "name": "@terminus/ui-checkbox",
-  "version": "1.0.3",
+  "version": "1.0.1",
   "license": "MIT",
   "author": "@terminus",
   "private": false,
@@ -27,6 +27,5 @@
     "@terminus/ngx-tools": "^8.0.5",
     "@terminus/ui-utilities": "^0.0.1",
     "tslib": "^1.10.0"
-  },
-  "gitHead": "d49f3b8491ebd349c2f20750bfa5e8a367ae50ab"
+  }
 }
