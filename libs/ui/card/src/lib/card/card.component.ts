@@ -9,7 +9,6 @@ import {
 
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
-
 /**
  * Define the allowed aspect ratios. Used in {@link TsCardComponent}
  */
@@ -20,7 +19,6 @@ export type TsAspectRatioTypes
   | '5:4'
   | '1:1'
 ;
-
 
 /**
  * Define allowed border sides. Used in {@link TsCardComponent}. Border color determined by the theme.
@@ -33,12 +31,10 @@ export type TsCardBorderOptions
   | 'bottom'
 ;
 
-
 /**
  * Unique ID for each instance
  */
 let nextUniqueId = 0;
-
 
 /**
  * A presentational component to render a card
