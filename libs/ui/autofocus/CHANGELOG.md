@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-autofocus@1.0.2...@terminus/ui-autofocus@1.0.3) (2020-06-09)
+
+
+### Bug Fixes
+
+* **Autofocus:** trigger release ([d4ee7c0](https://github.com/GetTerminus/terminus-oss/commit/d4ee7c02f8c404b0ffd6f46caead66b31acc8bbc))
+
+
+
+
+
 ## 1.0.2 (2020-06-09)
 
 
