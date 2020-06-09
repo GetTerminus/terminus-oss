@@ -49,7 +49,6 @@ class TestHostComponent implements OnInit, OnDestroy {
   ngOnDestroy() { }
 }
 
-
 describe(`TsButtonComponent`, function() {
   let component: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
