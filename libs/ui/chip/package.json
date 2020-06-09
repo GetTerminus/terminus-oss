@@ -14,7 +14,8 @@
   },
   "publishConfig": {
     "access": "public",
-    "tag": "next"
+    "tag": "next",
+    "directory": "../../../dist/libs/ui/chip"
   },
   "peerDependencies": {
     "@angular/cdk": "^9.1.0",

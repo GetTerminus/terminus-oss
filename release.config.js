@@ -1,20 +1,19 @@
 module.exports = {
   branches: ['master'],
-  commitPaths: ['./libs/', './apps/'],
-  plugins: {
-    analyzeCommits: ['@semantic-release/commit-analyzer'],
-    generateNotes: [
-      ['@semantic-release/release-notes-generator', {
-        preset: 'angular',
-        parserOpts: {
-          noteKeywords: ['BREAKING CHANGE', 'BREAKING CHANGES', 'BREAKING'],
-        },
-        writerOpts: {
-          commitsSort: ['subject', 'scope'],
-        },
-      }],
-    ],
-  },
+  // commitPaths: ['./libs/', './apps/'],
+  plugins: [
+    '@semantic-release/commit-analyzer',
+    ['@semantic-release/release-notes-generator', {
+      preset: 'angular',
+      parserOpts: {
+        noteKeywords: ['BREAKING CHANGE', 'BREAKING CHANGES', 'BREAKING'],
+      },
+      writerOpts: {
+        commitsSort: ['subject', 'scope'],
+      },
+    }],
+    '@semantic-release/git',
+  ],
   verifyConditions: [
     '@semantic-release/changelog',
     '@semantic-release/npm',

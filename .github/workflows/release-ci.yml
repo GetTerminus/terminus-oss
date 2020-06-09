@@ -180,13 +180,18 @@ jobs:
           repository: GetTerminus/ui-demos-release
           token: ${{ secrets.GH_TOKEN }}
           path: /home/runner/work/terminus-oss/terminus-oss/ui-demos-release
-      - name: Install semantic-release globallly
-        run: yarn global add semantic-release
+#      - name: Install semantic-release globallly
+#        run: yarn global add semantic-release
+#      - name: Deploy affected projects
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+#          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+#        run: yarn nx affected --target=deploy --base=${{ steps.get-sha.outputs.latestsha }}
       - name: Deploy affected projects
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn nx affected --target=deploy --base=${{ steps.get-sha.outputs.latestsha }}
+        run: yarn publish:libs
       - name: Upload built files
         uses: actions/upload-artifact@v2
         with:

@@ -15,7 +15,8 @@
   },
   "publishConfig": {
     "access": "public",
-    "tag": "next"
+    "tag": "next",
+    "directory": "../../../dist/libs/design-tokens"
   },
   "main": "js/design-tokens.js",
   "style": "css/design-tokens.css"
