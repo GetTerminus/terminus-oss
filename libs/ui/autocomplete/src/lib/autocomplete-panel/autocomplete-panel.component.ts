@@ -177,7 +177,6 @@ export class TsAutocompletePanelComponent implements AfterContentInit {
     this.setVisibility();
   }
 
-
   /**
    * Emit the `select` event
    *
@@ -188,7 +187,6 @@ export class TsAutocompletePanelComponent implements AfterContentInit {
     this.optionSelected.emit(event);
   }
 
-
   /**
    * Return the panel's scrollTop
    *
@@ -197,7 +195,6 @@ export class TsAutocompletePanelComponent implements AfterContentInit {
   public getScrollTop(): number {
     return this.panel ? this.panel.nativeElement.scrollTop : 0;
   }
-
 
   /**
    * Set the panel scrollTop.
@@ -212,7 +209,6 @@ export class TsAutocompletePanelComponent implements AfterContentInit {
       this.panel.nativeElement.scrollTop = scrollTop;
     }
   }
-
 
   /**
    * Set the visibility of the panel based on whether options exist
