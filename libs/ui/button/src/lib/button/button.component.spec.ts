@@ -417,7 +417,6 @@ describe(`TsButtonComponent`, function() {
 
     test(`should set isCollapsed and trigger change detection after the delay`, () => {
       jest.useFakeTimers();
-
       const DELAY = 100;
       buttonComponent['collapseWithDelay'](DELAY);
       jest.advanceTimersByTime(2000);
