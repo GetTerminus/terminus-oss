@@ -1,6 +1,6 @@
 {
   "name": "@terminus/ui-styles",
-  "version": "0.0.0-PLACEHOLDER",
+  "version": "0.0.0-PLACEHOLDER.0",
   "license": "MIT",
   "author": "@terminus",
   "private": false,
@@ -25,7 +25,7 @@
   ],
   "styles": "helpers.scss",
   "peerDependencies": {
-    "@terminus/design-tokens": "^1.0.10",
-    "@angular/material": "^9.1.0"
+    "@angular/material": "^9.1.0",
+    "@terminus/design-tokens": "^1.0.10"
   }
 }

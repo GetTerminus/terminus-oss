@@ -1,6 +1,6 @@
 {
   "name": "@terminus/ui-expansion-panel",
-  "version": "0.0.0-PLACEHOLDER",
+  "version": "0.0.0-PLACEHOLDER.0",
   "license": "MIT",
   "author": "@terminus",
   "private": false,
@@ -18,11 +18,11 @@
     "directory": "../../../dist/libs/ui/expansion-panel"
   },
   "peerDependencies": {
+    "@angular/animations": "^9.1.0",
     "@angular/cdk": "^9.1.0",
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
     "@angular/platform-browser": "^9.1.0",
-    "@angular/animations": "^9.1.0",
     "@terminus/design-tokens": "^1.0.10",
     "@terminus/ngx-tools": "^8.0.5",
     "rxjs": "^6.5.0",

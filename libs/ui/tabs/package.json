@@ -1,6 +1,6 @@
 {
   "name": "@terminus/ui-tabs",
-  "version": "0.0.0-PLACEHOLDER",
+  "version": "0.0.0-PLACEHOLDER.0",
   "license": "MIT",
   "author": "@terminus",
   "private": false,
@@ -18,10 +18,10 @@
     "directory": "../../../dist/libs/ui/tabs"
   },
   "peerDependencies": {
-    "@angular/common": "^9.1.0",
-    "@angular/core": "^9.1.0",
     "@angular/animations": "^9.1.0",
     "@angular/cdk": "^9.1.0",
+    "@angular/common": "^9.1.0",
+    "@angular/core": "^9.1.0",
     "@angular/flex-layout": "~9.0.0-beta.29",
     "@angular/material": "^9.1.0",
     "@angular/platform-browser": "^9.1.0",
