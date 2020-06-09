@@ -30,23 +30,23 @@ import { TsButtonComponent } from './button.component';
   `,
 })
 class TestHostComponent implements OnInit, OnDestroy {
-  public disabled!: boolean;
-  public collapsed!: boolean;
-  public showProgress!: boolean;
-  public collapseDelay!: number | undefined;
-  public format!: string;
-  public iconName!: string | undefined;
-  public theme!: string;
-  public myId = 'foo';
+  disabled!: boolean;
+  collapsed!: boolean;
+  showProgress!: boolean;
+  collapseDelay!: number | undefined;
+  format!: string;
+  iconName!: string | undefined;
+  theme!: string;
+  myId = 'foo';
 
   @ViewChild(TsButtonComponent, { static: true })
-  public buttonComponent!: TsButtonComponent;
+  buttonComponent!: TsButtonComponent;
 
-  public changed = jest.fn();
-  public clicked = jest.fn();
-  public COLLAPSE_DEFAULT_DELAY = undefined;
-  public ngOnInit() { }
-  public ngOnDestroy() { }
+  changed = jest.fn();
+  clicked = jest.fn();
+  COLLAPSE_DEFAULT_DELAY = undefined;
+  ngOnInit() { }
+  ngOnDestroy() { }
 }
 
 describe(`TsButtonComponent`, function() {
