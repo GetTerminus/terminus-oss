@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@1.0.6...@terminus/ui-button@1.0.7) (2020-06-09)
+
+
+### Bug Fixes
+
+* **Button:** trigger 3 ([ac11312](https://github.com/GetTerminus/terminus-oss/commit/ac11312f716926da51918a5de3271e4ea3a32c75))
+* **Button:** trigger again ([142ba6f](https://github.com/GetTerminus/terminus-oss/commit/142ba6f079be141dab1ab4280cdf95065aff447b))
+
+
+
+
+
 ## [1.0.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@1.0.5...@terminus/ui-button@1.0.6) (2020-06-09)
 
 
