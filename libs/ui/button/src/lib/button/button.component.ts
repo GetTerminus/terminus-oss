@@ -326,7 +326,6 @@ export class TsButtonComponent implements OnInit, OnDestroy {
     }
   }
 
-
   /**
    * Clear any existing timeout
    */
@@ -336,7 +335,6 @@ export class TsButtonComponent implements OnInit, OnDestroy {
       this.windowService.nativeWindow.clearTimeout(this.collapseTimeoutId);
     }
   }
-
 
   /**
    * Handle button clicks
@@ -355,7 +353,6 @@ export class TsButtonComponent implements OnInit, OnDestroy {
     }
   }
 
-
   /**
    * Collapse the button after a delay
    *
@@ -370,7 +367,6 @@ export class TsButtonComponent implements OnInit, OnDestroy {
       this.changeDetectorRef.detectChanges();
     }, delay);
   }
-
 
   /**
    * Update button classes (theme|format)

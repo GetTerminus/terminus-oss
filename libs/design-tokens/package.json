@@ -19,5 +19,6 @@
     "directory": "../../../dist/libs/design-tokens"
   },
   "main": "js/design-tokens.js",
-  "style": "css/design-tokens.css"
+  "style": "css/design-tokens.css",
+  "gitHead": "d49f3b8491ebd349c2f20750bfa5e8a367ae50ab"
 }

@@ -30,5 +30,6 @@
     "@terminus/ui-tooltip": "^0.0.1",
     "rxjs": "^6.5.0",
     "tslib": "^1.10.0"
-  }
+  },
+  "gitHead": "d49f3b8491ebd349c2f20750bfa5e8a367ae50ab"
 }
