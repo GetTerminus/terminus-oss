@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/design-tokens@3.0.0...@terminus/design-tokens@3.0.1) (2020-06-09)
+
+
+### Bug Fixes
+
+* **Button:** update ([a47f307](https://github.com/GetTerminus/terminus-oss/commit/a47f30757b9216d6ee76788c117e76eacf5289e5))
+
+
+
+
+
 # 3.0.0 (2020-06-09)
 
 
