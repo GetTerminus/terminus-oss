@@ -37,7 +37,7 @@
     "help": "nx help",
     "postversion": "yarn run affected:build",
     "publish:libs": "lerna publish --dist-tag next",
-    "semantic-release": "lerna exec --ci --concurrency 1 -- npx --no-install semantic-release -e semantic-release-monorepo --tag-format='${LERNA_PACKAGE_NAME}-v\\${version}'",
+    "semantic-release": "lerna exec --ci --concurrency 1 \"npx --no-install semantic-release -e semantic-release-monorepo --tag-format='${LERNA_PACKAGE_NAME}-v\\${version}'\"",
     "version-bump": "lerna publish --skip-git --skip-npm",
     "////////// Section: Custom Lint": "==============================",
     "lint:ts": "npx eslint",
