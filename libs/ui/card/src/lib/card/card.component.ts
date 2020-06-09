@@ -75,6 +75,13 @@ export class TsCardComponent {
   public aspectRatioPadding!: string;
 
   /**
+   * Getter to return a border class if the border is set
+   */
+  public get borderClass(): string {
+    return (!this.border || this.border === 'none') ? '' : `c-card--border-${this.border}`;
+  }
+
+  /**
    * Define if the card should conform to a fixed aspect ratio
    *
    * @param value - The aspect ratio. See {@link TsAspectRatioTypes} for possible values.
@@ -162,12 +169,5 @@ export class TsCardComponent {
    */
   @Input()
   public utilityMenuTemplate: TemplateRef<ElementRef> | undefined;
-
-  /**
-   * Getter to return a border class if the border is set
-   */
-  public get borderClass(): string {
-    return (!this.border || this.border === 'none') ? '' : `c-card--border-${this.border}`;
-  }
 
 }
