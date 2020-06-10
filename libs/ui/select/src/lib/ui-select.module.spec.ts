@@ -1,5 +1,7 @@
-
-import { async, TestBed } from '@angular/core/testing';
+import {
+  async,
+  TestBed,
+} from '@angular/core/testing';
 
 import { TsSelectModule } from './ui-select.module';
 
@@ -7,8 +9,7 @@ describe(`TsSelectModule`, () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [TsSelectModule],
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   test(`should exist`, () => {

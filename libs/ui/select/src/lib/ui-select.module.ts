@@ -10,7 +10,6 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatRippleModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-
 import { TsCheckboxModule } from '@terminus/ui-checkbox';
 import { TsFormFieldModule } from '@terminus/ui-form-field';
 import { TsIconModule } from '@terminus/ui-icon';
@@ -21,13 +20,11 @@ import { TsValidationMessagesModule } from '@terminus/ui-validation-messages';
 import { TsSelectComponent } from './select/select.component';
 import { TsSelectTriggerComponent } from './trigger/select-trigger.component';
 
-
 /* eslint-disable deprecation/deprecation */
 
 export * from './select/select.component';
 export * from './trigger/select-trigger.component';
 export * from './select-animations';
-
 
 // @deprecated Please use `TsSelectionListModule`
 @NgModule({
