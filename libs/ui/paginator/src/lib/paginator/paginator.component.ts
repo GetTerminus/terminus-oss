@@ -19,7 +19,6 @@ import { inputHasChanged } from '@terminus/ngx-tools/utilities';
 import { TsSelectionListChange } from '@terminus/ui-selection-list';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
-
 /**
  * Define the allowed keys and types for an item passed to the {@link TsMenuComponent} within a
  * {@link TsPaginatorComponent}
