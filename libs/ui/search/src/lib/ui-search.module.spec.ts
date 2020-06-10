@@ -1,5 +1,7 @@
-
-import { async, TestBed } from '@angular/core/testing';
+import {
+  async,
+  TestBed,
+} from '@angular/core/testing';
 
 import { TsSearchModule } from './ui-search.module';
 
@@ -7,8 +9,7 @@ describe(`TsSearchModule`, () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [TsSearchModule],
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   test(`should exist`, () => {
