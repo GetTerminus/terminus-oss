@@ -1,6 +1,6 @@
 {
   "name": "@terminus/ui-paginator",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "author": "@terminus",
   "private": false,
@@ -18,11 +18,11 @@
     "directory": "../../../dist/libs/ui/paginator"
   },
   "peerDependencies": {
+    "@angular/cdk": "^9.1.0",
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
     "@angular/flex-layout": "~9.0.0-beta.29",
     "@angular/forms": "^9.1.0",
-    "@angular/cdk": "^9.1.0",
     "@angular/material": "^9.1.0",
     "@angular/platform-browser": "^9.1.0",
     "@terminus/design-tokens": "^1.0.10",

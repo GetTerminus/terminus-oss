@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-select@1.0.3...@terminus/ui-select@1.0.4) (2020-06-10)
+
+
+### Bug Fixes
+
+* **Select:** update peer deps ([3948070](https://github.com/GetTerminus/terminus-oss/commit/3948070989065b20564587e77bf05b2370cd34b3))
+
+
+
+
+
 ## 1.0.3 (2020-06-09)
 
 
