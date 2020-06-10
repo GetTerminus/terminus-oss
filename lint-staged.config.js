@@ -11,7 +11,7 @@ const IGNORE = [
 ];
 
 module.exports = {
-  '**/*.{ts,js,json}': files => {
+  '**/*.{ts,js}': files => {
     const match = micromatch.not(files, IGNORE);
     return [
       `eslint --fix ${match.join(' ')}`,
