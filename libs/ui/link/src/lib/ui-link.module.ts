@@ -6,7 +6,6 @@ import { TsIconModule } from '@terminus/ui-icon';
 
 import { TsLinkComponent } from './link/link.component';
 
-
 export * from './link/link.component';
 
 
