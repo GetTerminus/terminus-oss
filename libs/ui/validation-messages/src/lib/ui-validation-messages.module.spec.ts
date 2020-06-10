@@ -1,5 +1,7 @@
-
-import { async, TestBed } from '@angular/core/testing';
+import {
+  async,
+  TestBed,
+} from '@angular/core/testing';
 
 import { TsValidationMessagesModule } from './ui-validation-messages.module';
 
@@ -7,8 +9,7 @@ describe(`TsValidationMessagesModule`, () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [TsValidationMessagesModule],
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   test(`should exist`, () => {

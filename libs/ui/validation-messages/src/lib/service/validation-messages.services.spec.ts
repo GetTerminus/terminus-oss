@@ -10,7 +10,7 @@ describe(`TsValidationMessagesService`, function() {
     service = new TsValidationMessagesService(datePipe);
   });
 
-  it(`should exist`, () => {
+  test(`should exist`, () => {
     expect(service).toBeTruthy();
   });
 
