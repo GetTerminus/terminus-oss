@@ -9,7 +9,6 @@ import {
 import { MatRippleModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-
 import { TsCheckboxModule } from '@terminus/ui-checkbox';
 import { TsChipModule } from '@terminus/ui-chip';
 import { TsFormFieldModule } from '@terminus/ui-form-field';
@@ -24,7 +23,6 @@ import {
   TS_SELECTION_LIST_SCROLL_STRATEGY_FACTORY_PROVIDER,
   TsSelectionListTriggerDirective,
 } from './trigger/selection-list-trigger.directive';
-
 
 export * from './selection-list/selection-list.component';
 export * from './selection-list-panel/selection-list-panel.component';
