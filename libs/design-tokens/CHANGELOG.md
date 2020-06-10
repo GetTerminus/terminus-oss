@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/design-tokens@2.0.2...@terminus/design-tokens@2.0.3) (2020-06-10)
+
+
+### Reverts
+
+* **DesignTokens:** revert border radius change ([829509a](https://github.com/GetTerminus/terminus-oss/commit/829509a3247180e336f196200a96096f1e5dd57e))
+
+
+
+
+
 ## [2.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/design-tokens@2.0.1...@terminus/design-tokens@2.0.2) (2020-06-10)
 
 
