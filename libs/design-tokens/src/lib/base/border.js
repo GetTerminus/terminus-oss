@@ -1,7 +1,7 @@
 module.exports = {
   border: {
     radius: {
-      base: { value: '4px' },
+      base: { value: '3px' },
       circle: {
         value: '50%',
         type: 'percent',
