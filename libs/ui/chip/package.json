@@ -24,10 +24,10 @@
     "@angular/forms": "^9.1.0",
     "@angular/material": "^9.1.0",
     "@angular/platform-browser": "^9.1.0",
-    "@terminus/design-tokens": "^1.0.10",
+    "@terminus/design-tokens": "^2.0.2",
     "@terminus/ngx-tools": "^8.0.5",
-    "@terminus/ui-icon": "^0.0.1",
-    "@terminus/ui-utilities": "^0.0.1",
+    "@terminus/ui-icon": "^1.0.0",
+    "@terminus/ui-utilities": "^1.0.0",
     "rxjs": "^6.5.0",
     "tslib": "^1.10.0"
   }

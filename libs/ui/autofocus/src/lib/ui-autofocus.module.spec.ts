@@ -1,5 +1,7 @@
-
-import { async, TestBed } from '@angular/core/testing';
+import {
+  async,
+  TestBed,
+} from '@angular/core/testing';
 
 import { TsAutofocusModule } from './ui-autofocus.module';
 
@@ -7,8 +9,7 @@ describe('UiAutofocusModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [TsAutofocusModule],
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   test(`should exist`, () => {
