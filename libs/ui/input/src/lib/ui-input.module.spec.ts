@@ -1,5 +1,7 @@
-
-import { async, TestBed } from '@angular/core/testing';
+import {
+  async,
+  TestBed,
+} from '@angular/core/testing';
 
 import { TsInputModule } from './ui-input.module';
 
@@ -7,8 +9,7 @@ describe(`TsInputModule`, () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [TsInputModule],
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   test(`should exist`, () => {
