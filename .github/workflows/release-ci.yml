@@ -142,7 +142,8 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
       - name: Cache NODE
         id: cache_node
         uses: actions/cache@v2
@@ -185,17 +186,17 @@ jobs:
           git config credential.helper 'cache --timeout=120'
           git config user.email "devops@terminus.com"
           git config user.name "terminus-devops"
-      - name: Set NPM
-        run: |
-          npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-          npm config set scope "@terminus"
-          npm config list
+#      - name: Set NPM
+#        run: |
+#          npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
+#          npm config set scope "@terminus"
+#          npm config list
       - name: Deploy affected projects
+        run: yarn run publish:libs
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn run publish:libs
       - name: Upload built files
         uses: actions/upload-artifact@v2
         with:
