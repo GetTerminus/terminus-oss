@@ -1,5 +1,7 @@
-
-import { async, TestBed } from '@angular/core/testing';
+import {
+  async,
+  TestBed,
+} from '@angular/core/testing';
 
 import { TsTabsModule } from './ui-tabs.module';
 
@@ -7,8 +9,7 @@ describe(`TsTabsModule`, () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [TsTabsModule],
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   test(`should exist`, () => {
