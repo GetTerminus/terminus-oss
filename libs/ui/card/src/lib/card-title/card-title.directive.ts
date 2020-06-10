@@ -16,7 +16,6 @@ import {
 
 import { TsCardComponent } from '../card/card.component';
 
-
 @Directive({ selector: '[tsCardTitle]' })
 export class TsCardTitleDirective {
   /**
@@ -49,9 +48,7 @@ export class TsCardTitleDirective {
    *
    * @param parent
    */
-  constructor(
-    @Optional() @Host() @SkipSelf() parent: TsCardComponent,
-  ) {
+  constructor(@Optional() @Host() @SkipSelf() parent: TsCardComponent) {
     if (!(parent instanceof TsCardComponent) && isDevMode()) {
       throw new TsUILibraryError(`The 'tsCardTitle' directive must be inside a <ts-card> component.`);
     }

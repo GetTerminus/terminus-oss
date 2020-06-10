@@ -190,13 +190,12 @@ jobs:
           npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
           npm config set scope "@terminus"
           npm config list
-#          cp tools/ci/.ci-npmrc .npmrc
       - name: Deploy affected projects
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn run publish:libs --verbose
+        run: yarn run publish:libs
       - name: Upload built files
         uses: actions/upload-artifact@v2
         with:
