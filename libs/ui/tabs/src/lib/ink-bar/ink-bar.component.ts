@@ -6,7 +6,6 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-
 /**
  * The ink bar is used to display and animate the line underneath the current active tab label
  *

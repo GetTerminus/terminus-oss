@@ -18,10 +18,8 @@ import { Subject } from 'rxjs';
 import { TsTabContentDirective } from './../body/tab-content.directive';
 import { TsTabLabelDirective } from './../label/tab-label.directive';
 
-
 // Unique ID for each instance
 let nextUniqueId = 0;
-
 
 /**
  * An individual tab component

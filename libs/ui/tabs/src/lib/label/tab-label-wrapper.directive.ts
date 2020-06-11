@@ -4,7 +4,6 @@ import {
   Input,
 } from '@angular/core';
 
-
 /**
  * Used in the `ts-tab-collection` view to display tab labels
  *
