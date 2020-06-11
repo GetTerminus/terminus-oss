@@ -1,5 +1,7 @@
-
-import { async, TestBed } from '@angular/core/testing';
+import {
+  async,
+  TestBed,
+} from '@angular/core/testing';
 
 import { TsLoginFormModule } from './ui-login-form.module';
 
@@ -7,8 +9,7 @@ describe(`TsLoginFormModule`, () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [TsLoginFormModule],
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   test(`should exist`, () => {

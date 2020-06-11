@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 import { TsButtonModule } from '@terminus/ui-button';
 import { TsCheckboxModule } from '@terminus/ui-checkbox';
 import { TsInputModule } from '@terminus/ui-input';
@@ -12,7 +11,6 @@ import { TsSpacingModule } from '@terminus/ui-spacing';
 import { TsValidatorsService } from '@terminus/ui-validators';
 
 import { TsLoginFormComponent } from './form/login-form.component';
-
 
 export * from './form/login-form.component';
 
