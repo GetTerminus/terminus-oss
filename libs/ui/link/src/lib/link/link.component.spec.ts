@@ -27,14 +27,14 @@ import { TsLinkComponent } from './link.component';
   `,
 })
 class TestHostComponent {
-  public destination!: undefined | string | string[];
-  public fragment!: undefined | string;
-  public isExternal!: boolean;
-  public tabIndex!: number | undefined;
-  public theme: TsStyleThemeTypes = 'primary';
+  destination!: undefined | string | string[];
+  fragment!: undefined | string;
+  isExternal!: boolean;
+  tabIndex!: number | undefined;
+  theme: TsStyleThemeTypes = 'primary';
 
   @ViewChild(TsLinkComponent, { static: true })
-  public linkComponent!: TsLinkComponent;
+  linkComponent!: TsLinkComponent;
 }
 
 describe(`TsLinkComponent`, function() {

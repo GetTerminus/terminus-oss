@@ -8,7 +8,6 @@ import {
 import { isString } from '@terminus/ngx-tools/type-guards';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
-
 /**
  * This is the link UI Component
  *
@@ -43,11 +42,6 @@ import { TsStyleThemeTypes } from '@terminus/ui-utilities';
   exportAs: 'tsLink',
 })
 export class TsLinkComponent {
-  /**
-   * Define the icon for external links
-   */
-  public externalIcon = `open_in_new`;
-
   /**
    * Define the route needed when only using a fragment
    */
