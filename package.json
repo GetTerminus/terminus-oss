@@ -36,7 +36,7 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "////////// Section: Release": "==============================",
-    "publish:libs": "lerna publish --dist-tag next",
+    "publish:libs": "lerna publish --dist-tag next --from-package",
     "semantic-release": "lerna exec --stream --ci --concurrency 1 \"npx --no-install semantic-release --tag-format='${LERNA_PACKAGE_NAME}-v\\${version}'\"",
     "version-bump": "lerna publish --skip-git --skip-npm",
     "postversion-bump": "yarn run affected:build",

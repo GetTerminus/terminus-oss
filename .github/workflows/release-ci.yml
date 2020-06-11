@@ -154,20 +154,12 @@ jobs:
         run: tools/ci/get-latest-sha.sh
       - name: List affected LIBS
         run: yarn affected:libs --base=${{ steps.get-sha.outputs.latestsha }}
-        env:
-          NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
       - name: List affected APPS
         run: yarn affected:apps --base=${{ steps.get-sha.outputs.latestsha }}
-        env:
-          NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
       - name: Build styles before all packages
         run: yarn nx build ui-styles --prod --skip-nx-cache
-        env:
-          NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
       - name: Build affected projects
         run: yarn nx affected --target=build --withDeps --prod --base=${{ steps.get-sha.outputs.latestsha }}
-        env:
-          NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
       - name: Checkout ui-demos-release repo
         uses: actions/checkout@v2
         with:
@@ -182,7 +174,8 @@ jobs:
       - name: Bump version for affected projects
         run: yarn run version-bump
       - name: Deploy affected projects
-        run: yarn nx affected --target=deploy --prod --base=${{ steps.get-sha.outputs.latestsha }}
+        run: yarn run publish:libs
+        #run: yarn nx affected --target=deploy --prod --base=${{ steps.get-sha.outputs.latestsha }}
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
