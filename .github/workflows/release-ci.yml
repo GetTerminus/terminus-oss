@@ -44,10 +44,13 @@ jobs:
       - name: Check last commit message
         id: skip
         uses: atlwendy/retrieve-commit-messages-from-pr@v2
+      - name: Set SHOULD_RUN flag
+        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
+        if: env.SHOULD_RUN == 'true'
       - name: Cache NODE
         id: cache_node
         uses: actions/cache@v2
@@ -61,17 +64,21 @@ jobs:
             ${{ runner.os }}-node-${{ env.cache-name }}-
             ${{ runner.os }}-node-
             ${{ runner.os }}-
-      - if: steps.cache_node.outputs.cache-hit != 'true'
+        if: env.SHOULD_RUN == 'true'
+      - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: Test affected projects
         run: yarn nx affected --target=test --codeCoverage
+        if: env.SHOULD_RUN == 'true'
       - name: Upload coverage results to CodeCov
         run: tools/ci/coverage-upload.sh
+        if: env.SHOULD_RUN == 'true'
       - name: Archive code coverage results
         uses: actions/upload-artifact@v2
         with:
           name: code-coverage-report
           path: coverage/*
+        if: env.SHOULD_RUN == 'true'
 
   #
   # Lint affected projects
@@ -89,10 +96,13 @@ jobs:
       - name: Check last commit message
         id: skip
         uses: atlwendy/retrieve-commit-messages-from-pr@v2
+      - name: Set SHOULD_RUN flag
+        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
+        if: env.SHOULD_RUN == 'true'
       - name: Cache NODE
         id: cache_node
         uses: actions/cache@v2
@@ -106,10 +116,12 @@ jobs:
             ${{ runner.os }}-node-${{ env.cache-name }}-
             ${{ runner.os }}-node-
             ${{ runner.os }}-
-      - if: steps.cache_node.outputs.cache-hit != 'true'
+        if: env.SHOULD_RUN == 'true'
+      - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: Lint files
         run: yarn nx affected --target=lint
+        if: env.SHOULD_RUN == 'true'
 
   #
   # Build affected projects
@@ -123,11 +135,17 @@ jobs:
           fetch-depth: 0
       - run: |
           git fetch --tags --prune --depth=50 origin master
+      - name: Check last commit message
+        id: skip
+        uses: atlwendy/retrieve-commit-messages-from-pr@v2
+      - name: Set SHOULD_RUN flag
+        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
+        if: env.SHOULD_RUN == 'true'
       - name: Cache NODE
         id: cache_node
         uses: actions/cache@v2
@@ -141,42 +159,53 @@ jobs:
             ${{ runner.os }}-node-${{ env.cache-name }}-
             ${{ runner.os }}-node-
             ${{ runner.os }}-
-      - if: steps.cache_node.outputs.cache-hit != 'true'
+        if: env.SHOULD_RUN == 'true'
+      - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: List affected LIBS
         run: yarn affected:libs
+        if: env.SHOULD_RUN == 'true'
       - name: List affected APPS
         run: yarn affected:apps
+        if: env.SHOULD_RUN == 'true'
       - name: Build styles before all packages
         run: yarn nx build ui-styles --prod --skip-nx-cache
+        if: env.SHOULD_RUN == 'true'
       - name: Build affected projects
         run: yarn nx affected --target=build --withDeps --prod
+        if: env.SHOULD_RUN == 'true'
       - name: Checkout ui-demos-release repo
         uses: actions/checkout@v2
         with:
           repository: GetTerminus/ui-demos-release
           token: ${{ secrets.GH_TOKEN }}
           path: /home/runner/work/terminus-oss/terminus-oss/ui-demos-release
+        if: env.SHOULD_RUN == 'true'
       - name: Update credentials
         run: |
           git config credential.helper 'cache --timeout=120'
           git config user.email "devops@terminus.com"
           git config user.name "terminus-devops"
+        if: env.SHOULD_RUN == 'true'
       - name: Bump version for affected projects
         run: yarn run version-bump
+        if: env.SHOULD_RUN == 'true'
       - name: Commit changes
         run: |
           git add .
           git commit -m "chore(release): Lerna version bump [skip ci]"
           git push
+        if: env.SHOULD_RUN == 'true'
       - name: Deploy affected projects
         run: yarn run publish:libs
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: env.SHOULD_RUN == 'true'
       - name: Upload built files
         uses: actions/upload-artifact@v2
         with:
           name: built-projects
           path: dist/*
+        if: env.SHOULD_RUN == 'true'

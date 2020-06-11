@@ -38,7 +38,7 @@
     "////////// Section: Release": "==============================",
     "publish:libs": "lerna publish from-package --dist-tag next",
     "semantic-release": "lerna exec --stream --ci --concurrency 1 \"npx --no-install semantic-release --tag-format='${LERNA_PACKAGE_NAME}-v\\${version}'\"",
-    "version-bump": "lerna publish --no-git-tag-version --no-push --skip-npm",
+    "version-bump": "lerna version",
     "postversion-bump": "yarn run affected:build",
     "////////// Section: Custom Lint": "==============================",
     "lint:ts": "npx eslint",
