@@ -7,7 +7,6 @@ import { TsIconModule } from '@terminus/ui-icon';
 
 import { TsIconButtonComponent } from './icon-button/icon-button.component';
 
-
 export * from './icon-button/icon-button.component';
 
 
