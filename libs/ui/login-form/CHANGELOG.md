@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-login-form@1.0.3...@terminus/ui-login-form@1.0.4) (2020-06-11)
+
+
+### Bug Fixes
+
+* **LoginForm:** trigger release ([2aaf05a](https://github.com/GetTerminus/terminus-oss/commit/2aaf05a78d860cbce860d3cebe26c4ed25a38f48))
+
+
+
+
+
 ## 1.0.3 (2020-06-10)
 
 

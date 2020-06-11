@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-loading-overlay@1.0.3...@terminus/ui-loading-overlay@1.0.5) (2020-06-11)
+
+
+### Bug Fixes
+
+* **LoadingOverlay:** trigger release ([2c900d0](https://github.com/GetTerminus/terminus-oss/commit/2c900d072ee4cfb24b271d478f3adfd2af06aa45))
+
+
+
+
+
 ## [1.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-loading-overlay@1.0.3...@terminus/ui-loading-overlay@1.0.4) (2020-06-11)
 
 

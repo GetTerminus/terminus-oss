@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-spacing@1.0.3...@terminus/ui-spacing@1.0.5) (2020-06-11)
+
+
+### Bug Fixes
+
+* **Spacing:** trigger release ([8d6d61e](https://github.com/GetTerminus/terminus-oss/commit/8d6d61e3c8e18b688528e60be53200a89ae95037))
+
+
+
+
+
 ## [1.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-spacing@1.0.3...@terminus/ui-spacing@1.0.4) (2020-06-11)
 
 
