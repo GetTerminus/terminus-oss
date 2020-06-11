@@ -180,7 +180,7 @@ jobs:
           git config user.email "devops@terminus.com"
           git config user.name "terminus-devops"
       - name: Deploy affected projects
-        run: yarn run publish:libs
+        run: yarn run version-bump && yarn run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
