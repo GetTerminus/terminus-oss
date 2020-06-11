@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tabs@1.0.4...@terminus/ui-tabs@1.0.5) (2020-06-11)
+
+
+### Bug Fixes
+
+* **Tabs:** trigger release ([76ed686](https://github.com/GetTerminus/terminus-oss/commit/76ed68633fb409ebe169f20a3f320dd3bd56bec1))
+
+
+
+
+
 ## [1.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tabs@1.0.3...@terminus/ui-tabs@1.0.4) (2020-06-10)
 
 
