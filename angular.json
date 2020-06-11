@@ -439,7 +439,7 @@
           "options": {
             "commands": [
               { "command": "git pull && git fetch --tags" },
-              { "command": "(cd libs/design-tokens && npx semantic-release)" }
+              { "command": "(cd libs/design-tokens && yarn run semantic-release)" }
             ]
           }
         },
@@ -503,7 +503,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/autocomplete && npx semantic-release)" }
+              { "command": "(cd libs/ui/autocomplete && yarn run semantic-release)" }
             ]
           }
         }
@@ -561,7 +561,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/autofocus && npx semantic-release)" }
+              { "command": "(cd libs/ui/autofocus && yarn run semantic-release)" }
             ]
           }
         }
@@ -620,7 +620,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/button && npx semantic-release)" }
+              { "command": "(cd libs/ui/button && yarn run semantic-release)" }
             ]
           }
         }
@@ -679,7 +679,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/checkbox && npx semantic-release)" }
+              { "command": "(cd libs/ui/checkbox && yarn run semantic-release)" }
             ]
           }
         }
@@ -738,7 +738,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/card && npx semantic-release)" }
+              { "command": "(cd libs/ui/card && yarn run semantic-release)" }
             ]
           }
         }
@@ -797,7 +797,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/chart && npx semantic-release)" }
+              { "command": "(cd libs/ui/chart && yarn run semantic-release)" }
             ]
           }
         }
@@ -856,7 +856,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/chip && npx semantic-release)" }
+              { "command": "(cd libs/ui/chip && yarn run semantic-release)" }
             ]
           }
         }
@@ -915,7 +915,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/cohort-date-range && npx semantic-release)" }
+              { "command": "(cd libs/ui/cohort-date-range && yarn run semantic-release)" }
             ]
           }
         }
@@ -974,7 +974,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/confirmation && npx semantic-release)" }
+              { "command": "(cd libs/ui/confirmation && yarn run semantic-release)" }
             ]
           }
         }
@@ -1033,7 +1033,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/copy && npx semantic-release)" }
+              { "command": "(cd libs/ui/copy && yarn run semantic-release)" }
             ]
           }
         }
@@ -1092,7 +1092,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/csv-entry && npx semantic-release)" }
+              { "command": "(cd libs/ui/csv-entry && yarn run semantic-release)" }
             ]
           }
         }
@@ -1151,7 +1151,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/date-range && npx semantic-release)" }
+              { "command": "(cd libs/ui/date-range && yarn run semantic-release)" }
             ]
           }
         }
@@ -1210,7 +1210,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/drawer && npx semantic-release)" }
+              { "command": "(cd libs/ui/drawer && yarn run semantic-release)" }
             ]
           }
         }
@@ -1269,7 +1269,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/expansion-panel && npx semantic-release)" }
+              { "command": "(cd libs/ui/expansion-panel && yarn run semantic-release)" }
             ]
           }
         }
@@ -1328,7 +1328,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/file-upload && npx semantic-release)" }
+              { "command": "(cd libs/ui/file-upload && yarn run semantic-release)" }
             ]
           }
         }
@@ -1387,7 +1387,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/form-field && npx semantic-release)" }
+              { "command": "(cd libs/ui/form-field && yarn run semantic-release)" }
             ]
           }
         }
@@ -1446,7 +1446,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/icon && npx semantic-release)" }
+              { "command": "(cd libs/ui/icon && yarn run semantic-release)" }
             ]
           }
         }
@@ -1505,7 +1505,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/icon-button && npx semantic-release)" }
+              { "command": "(cd libs/ui/icon-button && yarn run semantic-release)" }
             ]
           }
         }
@@ -1564,7 +1564,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/input && npx semantic-release)" }
+              { "command": "(cd libs/ui/input && yarn run semantic-release)" }
             ]
           }
         }
@@ -1623,7 +1623,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/link && npx semantic-release)" }
+              { "command": "(cd libs/ui/link && yarn run semantic-release)" }
             ]
           }
         }
@@ -1682,7 +1682,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/loading-overlay && npx semantic-release)" }
+              { "command": "(cd libs/ui/loading-overlay && yarn run semantic-release)" }
             ]
           }
         }
@@ -1741,7 +1741,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/login-form && npx semantic-release)" }
+              { "command": "(cd libs/ui/login-form && yarn run semantic-release)" }
             ]
           }
         }
@@ -1800,7 +1800,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/logo && npx semantic-release)" }
+              { "command": "(cd libs/ui/logo && yarn run semantic-release)" }
             ]
           }
         }
@@ -1859,7 +1859,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/menu && npx semantic-release)" }
+              { "command": "(cd libs/ui/menu && yarn run semantic-release)" }
             ]
           }
         }
@@ -1918,7 +1918,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/navigation && npx semantic-release)" }
+              { "command": "(cd libs/ui/navigation && yarn run semantic-release)" }
             ]
           }
         }
@@ -1977,7 +1977,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/option && npx semantic-release)" }
+              { "command": "(cd libs/ui/option && yarn run semantic-release)" }
             ]
           }
         }
@@ -2036,7 +2036,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/paginator && npx semantic-release)" }
+              { "command": "(cd libs/ui/paginator && yarn run semantic-release)" }
             ]
           }
         }
@@ -2094,7 +2094,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/pipes && npx semantic-release)" }
+              { "command": "(cd libs/ui/pipes && yarn run semantic-release)" }
             ]
           }
         }
@@ -2153,7 +2153,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/popover && npx semantic-release)" }
+              { "command": "(cd libs/ui/popover && yarn run semantic-release)" }
             ]
           }
         }
@@ -2212,7 +2212,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/radio-group && npx semantic-release)" }
+              { "command": "(cd libs/ui/radio-group && yarn run semantic-release)" }
             ]
           }
         }
@@ -2271,7 +2271,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/scrollbars && npx semantic-release)" }
+              { "command": "(cd libs/ui/scrollbars && yarn run semantic-release)" }
             ]
           }
         }
@@ -2330,7 +2330,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/search && npx semantic-release)" }
+              { "command": "(cd libs/ui/search && yarn run semantic-release)" }
             ]
           }
         }
@@ -2389,7 +2389,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/select && npx semantic-release)" }
+              { "command": "(cd libs/ui/select && yarn run semantic-release)" }
             ]
           }
         }
@@ -2448,7 +2448,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/selection-list && npx semantic-release)" }
+              { "command": "(cd libs/ui/selection-list && yarn run semantic-release)" }
             ]
           }
         }
@@ -2507,7 +2507,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/sort && npx semantic-release)" }
+              { "command": "(cd libs/ui/sort && yarn run semantic-release)" }
             ]
           }
         }
@@ -2565,7 +2565,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/spacing && npx semantic-release)" }
+              { "command": "(cd libs/ui/spacing && yarn run semantic-release)" }
             ]
           }
         }
@@ -2629,7 +2629,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/styles && npx semantic-release --debug)" }
+              { "command": "(cd libs/ui/styles && yarn run semantic-release)" }
             ]
           }
         }
@@ -2688,7 +2688,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/table && npx semantic-release)" }
+              { "command": "(cd libs/ui/table && yarn run semantic-release)" }
             ]
           }
         }
@@ -2747,7 +2747,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/tabs && npx semantic-release)" }
+              { "command": "(cd libs/ui/tabs && yarn run semantic-release)" }
             ]
           }
         }
@@ -2806,7 +2806,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/toggle && npx semantic-release)" }
+              { "command": "(cd libs/ui/toggle && yarn run semantic-release)" }
             ]
           }
         }
@@ -2865,7 +2865,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/tooltip && npx semantic-release)" }
+              { "command": "(cd libs/ui/tooltip && yarn run semantic-release)" }
             ]
           }
         }
@@ -2923,7 +2923,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/utilities && npx semantic-release)" }
+              { "command": "(cd libs/ui/utilities && yarn run semantic-release)" }
             ]
           }
         }
@@ -2982,7 +2982,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/validation-messages && npx semantic-release)" }
+              { "command": "(cd libs/ui/validation-messages && yarn run semantic-release)" }
             ]
           }
         }
