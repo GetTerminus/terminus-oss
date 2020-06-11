@@ -197,10 +197,7 @@ jobs:
         run: yarn run version-bump
         if: env.SHOULD_RUN == 'true'
       - name: Commit changes
-        run: |
-          git add .
-          git commit -m "chore(release): Lerna version bump [skip ci]"
-          git push
+        run: tools/ci/commit-after-lerna.sh
         if: env.SHOULD_RUN == 'true'
       - name: Deploy affected projects
         run: yarn run publish:libs
