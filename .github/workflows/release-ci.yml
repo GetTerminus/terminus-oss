@@ -63,11 +63,8 @@ jobs:
             ${{ runner.os }}-
       - if: steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
-      - name: Get sha of last tag
-        id: get-sha
-        run: tools/ci/get-latest-sha.sh
       - name: Test affected projects
-        run: yarn nx affected --target=test --codeCoverage --base=${{ steps.get-sha.outputs.latestsha }}
+        run: yarn nx affected --target=test --codeCoverage
       - name: Upload coverage results to CodeCov
         run: tools/ci/coverage-upload.sh
       - name: Archive code coverage results
@@ -111,11 +108,8 @@ jobs:
             ${{ runner.os }}-
       - if: steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
-      - name: Get sha of last tag
-        id: get-sha
-        run: tools/ci/get-latest-sha.sh
       - name: Lint files
-        run: yarn nx affected --target=lint --base=${{ steps.get-sha.outputs.latestsha }}
+        run: yarn nx affected --target=lint
 
   #
   # Build affected projects
@@ -149,17 +143,14 @@ jobs:
             ${{ runner.os }}-
       - if: steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
-      - name: Get sha of last tag
-        id: get-sha
-        run: tools/ci/get-latest-sha.sh
       - name: List affected LIBS
-        run: yarn affected:libs --base=${{ steps.get-sha.outputs.latestsha }}
+        run: yarn affected:libs
       - name: List affected APPS
-        run: yarn affected:apps --base=${{ steps.get-sha.outputs.latestsha }}
+        run: yarn affected:apps
       - name: Build styles before all packages
         run: yarn nx build ui-styles --prod --skip-nx-cache
       - name: Build affected projects
-        run: yarn nx affected --target=build --withDeps --prod --base=${{ steps.get-sha.outputs.latestsha }}
+        run: yarn nx affected --target=build --withDeps --prod
       - name: Checkout ui-demos-release repo
         uses: actions/checkout@v2
         with:
