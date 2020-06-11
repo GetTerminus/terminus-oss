@@ -41,11 +41,13 @@ jobs:
           fetch-depth: 0
       - run: |
           git fetch --tags --prune --depth=50 origin master
-      - name: Check last commit message
-        id: skip
-        uses: atlwendy/retrieve-commit-messages-from-pr@v2
       - name: Set SHOULD_RUN flag
-        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
+        run: |
+          if [[ "${{github.event.head_commit.message}}" =~ (skip\ ci|ci\ skip) ]]; then
+            echo "::set-env name=SHOULD_RUN::false"
+          else
+            echo "::set-env name=SHOULD_RUN::true"
+          fi
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
@@ -93,11 +95,13 @@ jobs:
           fetch-depth: 0
       - run: |
           git fetch --tags --prune --depth=50 origin master
-      - name: Check last commit message
-        id: skip
-        uses: atlwendy/retrieve-commit-messages-from-pr@v2
       - name: Set SHOULD_RUN flag
-        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
+        run: |
+          if [[ "${{github.event.head_commit.message}}" =~ (skip\ ci|ci\ skip) ]]; then
+            echo "::set-env name=SHOULD_RUN::false"
+          else
+            echo "::set-env name=SHOULD_RUN::true"
+          fi
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
@@ -135,11 +139,13 @@ jobs:
           fetch-depth: 0
       - run: |
           git fetch --tags --prune --depth=50 origin master
-      - name: Check last commit message
-        id: skip
-        uses: atlwendy/retrieve-commit-messages-from-pr@v2
       - name: Set SHOULD_RUN flag
-        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
+        run: |
+          if [[ "${{github.event.head_commit.message}}" =~ (skip\ ci|ci\ skip) ]]; then
+            echo "::set-env name=SHOULD_RUN::false"
+          else
+            echo "::set-env name=SHOULD_RUN::true"
+          fi
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
