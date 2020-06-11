@@ -35,6 +35,7 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
+    "build:all": "nx run-many --all --target build --withDeps --prod",
     "////////// Section: Release": "==============================",
     "publish:libs": "lerna publish from-package --dist-tag next",
     "semantic-release": "lerna exec --stream --ci --concurrency 1 \"npx --no-install semantic-release --tag-format='${LERNA_PACKAGE_NAME}-v\\${version}'\"",

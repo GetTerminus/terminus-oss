@@ -179,7 +179,7 @@ jobs:
         if: env.SHOULD_RUN == 'true'
       - name: "Build affected projects"
         #run: yarn nx affected --target=build --withDeps --prod
-        run: nx run-many --all --target build --withDeps
+        run: yarn run build:all
         if: env.SHOULD_RUN == 'true'
       - name: "Checkout ui-demos-release repo"
         uses: actions/checkout@v2
