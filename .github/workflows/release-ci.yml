@@ -177,6 +177,7 @@ jobs:
         run: |
           git add .
           git commit -m "chore(release): Lerna version bump [skip ci]"
+          git push
       - name: Deploy affected projects
         run: yarn run publish:libs
         env:
