@@ -179,8 +179,10 @@ jobs:
           git config credential.helper 'cache --timeout=120'
           git config user.email "devops@terminus.com"
           git config user.name "terminus-devops"
+      - name: Bump version for affected projects
+        run: yarn run version-bump
       - name: Deploy affected projects
-        run: yarn run version-bump && yarn run semantic-release
+        run: yarn nx affected --target=deploy --prod --base=${{ steps.get-sha.outputs.latestsha }}
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
