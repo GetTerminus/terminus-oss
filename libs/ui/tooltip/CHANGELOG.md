@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tooltip@1.0.3...@terminus/ui-tooltip@1.0.4) (2020-06-11)
+
+
+### Bug Fixes
+
+* **Tooltip:** trigger release ([2dfd435](https://github.com/GetTerminus/terminus-oss/commit/2dfd435814060e55ce7ec84d9a71ba5f481948a4))
+
+
+
+
+
 ## 1.0.3 (2020-06-10)
 
 
