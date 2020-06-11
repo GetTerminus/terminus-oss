@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-toggle@1.0.3...@terminus/ui-toggle@1.0.4) (2020-06-11)
+
+
+### Bug Fixes
+
+* **Toggle:** trigger release ([60fa5ef](https://github.com/GetTerminus/terminus-oss/commit/60fa5ef61be12a40b317b2fb44c7930eadd0d287))
+
+
+
+
+
 ## 1.0.3 (2020-06-10)
 
 
