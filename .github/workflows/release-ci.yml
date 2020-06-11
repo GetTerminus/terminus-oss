@@ -139,20 +139,20 @@ jobs:
           fetch-depth: 0
       - run: |
           git fetch --tags --prune --depth=50 origin master
-      - name: Set SHOULD_RUN flag
+      - name: "Set SHOULD_RUN flag"
         run: |
           if [[ "${{github.event.head_commit.message}}" =~ (skip\ ci|ci\ skip) ]]; then
             echo "::set-env name=SHOULD_RUN::false"
           else
             echo "::set-env name=SHOULD_RUN::true"
           fi
-      - name: Set up Node
+      - name: "Set up Node"
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
         if: env.SHOULD_RUN == 'true'
-      - name: Cache NODE
+      - name: "Cache NODE"
         id: cache_node
         uses: actions/cache@v2
         env:
@@ -168,45 +168,46 @@ jobs:
         if: env.SHOULD_RUN == 'true'
       - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
-      - name: List affected LIBS
+      - name: "List affected LIBS"
         run: yarn affected:libs
         if: env.SHOULD_RUN == 'true'
-      - name: List affected APPS
+      - name: "List affected APPS"
         run: yarn affected:apps
         if: env.SHOULD_RUN == 'true'
-      - name: Build styles before all packages
+      - name: "Build styles before all packages"
         run: yarn nx build ui-styles --prod --skip-nx-cache
         if: env.SHOULD_RUN == 'true'
-      - name: Build affected projects
-        run: yarn nx affected --target=build --withDeps --prod
+      - name: "Build affected projects"
+        #run: yarn nx affected --target=build --withDeps --prod
+        run: nx run-many --all --target build --withDeps
         if: env.SHOULD_RUN == 'true'
-      - name: Checkout ui-demos-release repo
+      - name: "Checkout ui-demos-release repo"
         uses: actions/checkout@v2
         with:
           repository: GetTerminus/ui-demos-release
           token: ${{ secrets.GH_TOKEN }}
           path: /home/runner/work/terminus-oss/terminus-oss/ui-demos-release
         if: env.SHOULD_RUN == 'true'
-      - name: Update credentials
+      - name: "Update credentials"
         run: |
           git config credential.helper 'cache --timeout=120'
           git config user.email "devops@terminus.com"
           git config user.name "terminus-devops"
         if: env.SHOULD_RUN == 'true'
-      - name: Bump version for affected projects
+      - name: "Bump version for affected projects"
         run: yarn run version-bump
         if: env.SHOULD_RUN == 'true'
-      - name: Commit changes
+      - name: "Commit changes"
         run: tools/ci/commit-after-lerna.sh
         if: env.SHOULD_RUN == 'true'
-      - name: Deploy affected projects
+      - name: "Deploy affected projects"
         run: yarn run publish:libs
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         if: env.SHOULD_RUN == 'true'
-      - name: Upload built files
+      - name: "Upload built files"
         uses: actions/upload-artifact@v2
         with:
           name: built-projects
