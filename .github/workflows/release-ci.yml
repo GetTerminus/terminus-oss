@@ -65,12 +65,7 @@ jobs:
         run: yarn install --frozen-lockfile --non-interactive
       - name: Get sha of last tag
         id: get-sha
-        run: |
-          latesttag=$(git describe --abbrev=0 --tags)
-          echo "Latest tag: \"${latesttag}\""
-          latestsha=$(git show-ref -s ${latesttag})
-          echo "Latest sha: \"${latestsha}\""
-          echo "::set-output name=latestsha::$latestsha"
+        run: tools/ci/get-latest-sha.sh
       - name: Test affected projects
         run: yarn nx affected --target=test --codeCoverage --base=${{ steps.get-sha.outputs.latestsha }}
       - name: Upload coverage results to CodeCov
@@ -118,12 +113,7 @@ jobs:
         run: yarn install --frozen-lockfile --non-interactive
       - name: Get sha of last tag
         id: get-sha
-        run: |
-          latesttag=$(git describe --abbrev=0 --tags)
-          echo "Latest tag: \"${latesttag}\""
-          latestsha=$(git show-ref -s ${latesttag})
-          echo "Latest sha: \"${latestsha}\""
-          echo "::set-output name=latestsha::$latestsha"
+        run: tools/ci/get-latest-sha.sh
       - name: Lint files
         run: yarn nx affected --target=lint --base=${{ steps.get-sha.outputs.latestsha }}
 
@@ -161,12 +151,7 @@ jobs:
         run: yarn install --frozen-lockfile --non-interactive
       - name: Get sha of last tag
         id: get-sha
-        run: |
-          latesttag=$(git describe --abbrev=0 --tags)
-          echo "Latest tag: \"${latesttag}\""
-          latestsha=$(git show-ref -s ${latesttag})
-          echo "Latest sha: \"${latestsha}\""
-          echo "::set-output name=latestsha::$latestsha"
+        run: tools/ci/get-latest-sha.sh
       - name: List affected LIBS
         run: yarn affected:libs --base=${{ steps.get-sha.outputs.latestsha }}
         env:
