@@ -173,9 +173,12 @@ jobs:
           git config user.name "terminus-devops"
       - name: Bump version for affected projects
         run: yarn run version-bump
+      - name: Commit changes
+        run: |
+          git add .
+          git commit -m "chore(release): Lerna version bump [skip ci]"
       - name: Deploy affected projects
         run: yarn run publish:libs
-        #run: yarn nx affected --target=deploy --prod --base=${{ steps.get-sha.outputs.latestsha }}
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
