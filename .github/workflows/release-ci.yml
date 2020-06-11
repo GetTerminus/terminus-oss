@@ -178,8 +178,7 @@ jobs:
         run: yarn nx build ui-styles --prod --skip-nx-cache
         if: env.SHOULD_RUN == 'true'
       - name: "Build affected projects"
-        #run: yarn nx affected --target=build --withDeps --prod
-        run: yarn run build:all
+        run: yarn nx affected --target=build --withDeps --prod
         if: env.SHOULD_RUN == 'true'
       - name: "Checkout ui-demos-release repo"
         uses: actions/checkout@v2
@@ -206,10 +205,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        if: env.SHOULD_RUN == 'true'
-      - name: "Upload built files"
-        uses: actions/upload-artifact@v2
-        with:
-          name: built-projects
-          path: dist/*
         if: env.SHOULD_RUN == 'true'
