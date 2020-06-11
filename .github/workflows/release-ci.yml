@@ -197,11 +197,7 @@ jobs:
         run: yarn run version-bump
         if: env.SHOULD_RUN == 'true'
       - name: "Bump bumped projects"
-        run: |
-          tools/ci/lerna-output-changed-projects.sh
-          export CHANGED_PROJECTS="$(node tools/ci/json-to-projects-list.js)"
-          echo "Building: $CHANGED_PROJECTS"
-          yarn run build:changed
+        run: tools/ci/lerna-output-changed-projects.sh
         if: env.SHOULD_RUN == 'true'
       - name: "Commit changes"
         run: tools/ci/commit-after-lerna.sh
