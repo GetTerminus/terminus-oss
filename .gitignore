@@ -15,6 +15,7 @@
 /libs/ui/styles/helpers.scss
 /.jest-cache
 /report*.json
+CHANGED.json
 
 # dependencies
 /node_modules
