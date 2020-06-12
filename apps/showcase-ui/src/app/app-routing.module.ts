@@ -8,7 +8,6 @@ import {
 import { ComponentsComponent } from './components/components.component';
 import { componentsList } from './components/components.constant';
 
-
 const routerOptions: ExtraOptions = { anchorScrolling: 'enabled' };
 
 const routes: Routes = [
@@ -28,4 +27,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, routerOptions)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -16,6 +16,8 @@
 /.jest-cache
 /report*.json
 CHANGED.json
+/docs
+/documentation
 
 # dependencies
 /node_modules
