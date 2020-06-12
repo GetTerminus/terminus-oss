@@ -196,8 +196,8 @@ jobs:
       - name: "Bump version for affected projects"
         run: yarn run version-bump
         if: env.SHOULD_RUN == 'true'
-      - name: "Bump bumped projects"
-        run: tools/ci/lerna-output-changed-projects.sh
+      - name: "Build bumped projects"
+        run: tools/ci/lerna-build-changed-projects.sh
         if: env.SHOULD_RUN == 'true'
       - name: "Commit changes"
         run: tools/ci/commit-after-lerna.sh
