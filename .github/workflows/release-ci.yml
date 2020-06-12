@@ -199,6 +199,9 @@ jobs:
       - name: "Build bumped projects"
         run: tools/ci/lerna-build-changed-projects.sh
         if: env.SHOULD_RUN == 'true'
+      - name: "TEMP Build all projects"
+        run: yarn run build:all
+        if: env.SHOULD_RUN == 'true'
       - name: "Commit changes"
         run: tools/ci/commit-after-lerna.sh
         if: env.SHOULD_RUN == 'true'
