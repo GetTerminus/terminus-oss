@@ -185,7 +185,7 @@ jobs:
         with:
           repository: GetTerminus/ui-demos-release
           token: ${{ secrets.GH_TOKEN }}
-          path: /home/runner/work/terminus-oss/ui-demos-release
+          path: /home/runner/work/terminus-oss/terminus-oss/ui-demos-release
         if: env.SHOULD_RUN == 'true'
       - name: "Update credentials"
         run: |
