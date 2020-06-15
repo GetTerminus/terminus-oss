@@ -27,7 +27,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private titleService: Title,
-  ) { }
+  ) {}
 
   public ngOnInit(): void {
     this.router.events.pipe(
@@ -48,5 +48,5 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {}
+  public ngOnDestroy(): void {}
 }
