@@ -7,8 +7,8 @@
 # shellcheck disable=SC1090
 . ~/.bashrc
 
-# Likely starting at `/home/runner/work/terminus-oss/terminus-oss` so we need to go up one
-#cd ../
+# Likely starting at `/home/runner/work/terminus-oss/terminus-oss/t-oss` so we need to go up one
+cd ../
 
 echo "CURRENT PATH:"
 pwd

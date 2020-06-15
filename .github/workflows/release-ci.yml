@@ -141,6 +141,8 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
           path: /home/runner/work/terminus-oss/terminus-oss/ui-demos-release
         if: env.SHOULD_RUN == 'true'
+      - name: "Enter OSS directory"
+        run: cd t-oss
       - name: "Set up Node"
         uses: actions/setup-node@v1
         with:
