@@ -41,14 +41,14 @@ jobs:
           fetch-depth: 0
       - run: |
           git fetch --tags --prune --depth=50 origin master
-      - name: Set SHOULD_RUN flag
+      - name: "Set SHOULD_RUN flag"
         run: tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
-      - name: Set up Node
+      - name: "Set up Node"
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
-      - name: Cache NODE
+      - name: "Cache NODE"
         id: cache_node
         uses: actions/cache@v2
         env:
@@ -64,13 +64,13 @@ jobs:
         if: env.SHOULD_RUN == 'true'
       - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
-      - name: Test affected projects
+      - name: "Test affected projects"
         run: yarn nx affected --target=test --codeCoverage
         if: env.SHOULD_RUN == 'true'
-      - name: Upload coverage results to CodeCov
+      - name: "Upload coverage results to CodeCov"
         run: tools/ci/coverage-upload.sh
         if: env.SHOULD_RUN == 'true'
-      - name: Archive code coverage results
+      - name: "Archive code coverage results"
         uses: actions/upload-artifact@v2
         with:
           name: code-coverage-report
@@ -90,19 +90,14 @@ jobs:
           fetch-depth: 0
       - run: |
           git fetch --tags --prune --depth=50 origin master
-      - name: Set SHOULD_RUN flag
-        run: |
-          if [[ "${{github.event.head_commit.message}}" =~ (skip\ ci|ci\ skip) ]]; then
-            echo "::set-env name=SHOULD_RUN::false"
-          else
-            echo "::set-env name=SHOULD_RUN::true"
-          fi
-      - name: Set up Node
+      - name: "Set SHOULD_RUN flag"
+        run: tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
+      - name: "Set up Node"
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
-      - name: Cache NODE
+      - name: "Cache NODE"
         id: cache_node
         uses: actions/cache@v2
         env:
@@ -118,7 +113,7 @@ jobs:
         if: env.SHOULD_RUN == 'true'
       - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
-      - name: Lint files
+      - name: "Lint files"
         run: yarn nx affected --target=lint
         if: env.SHOULD_RUN == 'true'
 
@@ -135,15 +130,7 @@ jobs:
       - run: |
           git fetch --tags --prune --depth=50 origin master
       - name: "Set SHOULD_RUN flag"
-        run: |
-          OG_MESSAGE=${{github.event.head_commit.message}}
-          MESSAGE=$(echo $OG_MESSAGE | tr -d '"'")
-          echo "$MESSAGE"
-          if [[ "$MESSAGE" =~ (skip\ ci|ci\ skip) ]]; then
-            echo "::set-env name=SHOULD_RUN::false"
-          else
-            echo "::set-env name=SHOULD_RUN::true"
-          fi
+        run: tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
       - name: "Set up Node"
         uses: actions/setup-node@v1
         with:
