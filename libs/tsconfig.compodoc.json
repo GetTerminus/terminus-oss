@@ -9,9 +9,6 @@
       "dom"
     ]
   },
-  "include": [
-    "libs/**/*"
-  ],
   "exclude": [
     "**/*.spec.ts",
     "**/*.mock.ts",
