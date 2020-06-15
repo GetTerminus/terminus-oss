@@ -55,7 +55,7 @@ flags:
     paths:
       - libs/ui/chip/
     carryforward: true
-  cohort-date-range:
+  cohortDateRange:
     paths:
       - libs/ui/cohort-date-range/
     carryforward: true
@@ -67,11 +67,11 @@ flags:
     paths:
       - libs/ui/copy/
     carryforward: true
-  csv-entry:
+  csvEntry:
     paths:
       - libs/ui/csv-entry/
     carryforward: true
-  date-range:
+  dateRange:
     paths:
       - libs/ui/date-range/
     carryforward: true
@@ -79,15 +79,15 @@ flags:
     paths:
       - libs/ui/drawer/
     carryforward: true
-  expxansion-panel:
+  expxansionPanel:
     paths:
       - libs/ui/expansion-panel/
     carryforward: true
-  file-upload:
+  fileUpload:
     paths:
       - libs/ui/file-upload/
     carryforward: true
-  form-field:
+  formField:
     paths:
       - libs/ui/form-field/
     carryforward: true
@@ -95,7 +95,7 @@ flags:
     paths:
       - libs/ui/icon/
     carryforward: true
-  icon-button:
+  iconButton:
     paths:
       - libs/ui/icon-button/
     carryforward: true
@@ -107,11 +107,11 @@ flags:
     paths:
       - libs/ui/link/
     carryforward: true
-  loading-overlay:
+  loadingOverlay:
     paths:
       - libs/ui/loading-overlay/
     carryforward: true
-  login-form:
+  loginForm:
     paths:
       - libs/ui/login-form/
     carryforward: true
@@ -143,7 +143,7 @@ flags:
     paths:
       - libs/ui/popover/
     carryforward: true
-  radio-group:
+  radioGroup:
     paths:
       - libs/ui/radio-group/
     carryforward: true
@@ -159,7 +159,7 @@ flags:
     paths:
       - libs/ui/select/
     carryforward: true
-  selection-list:
+  selectionList:
     paths:
       - libs/ui/selection-list/
     carryforward: true
@@ -195,7 +195,7 @@ flags:
     paths:
       - libs/ui/utilities/
     carryforward: true
-  validation-messages:
+  validationMessages:
     paths:
       - libs/ui/validation-messages/
     carryforward: true
