@@ -61,7 +61,7 @@
     "predocs": "yarn run docs:toc",
     "docs": "yarn run docs:ts",
     "docs:ci": "yarn run docs:ts --silent",
-    "docs:ts": "npx compodoc",
+    "docs:ts": "npx compodoc -p libs/tsconfig.compodoc.json -d docs/ -s ABORTING_MALLOC=0",
     "docs:toc": "find . -path ./node_modules -prune -o -path ./dist -prune -o -path ./apps -prune -o -path ./.github -prune -o -path ./.git -prune -o -path ./**/CHANGELOG.md -prune -o -path ./CODE_OF_CONDUCT.md -prune -o -name '*.md' -print |  xargs npx doctoc --title '**Table of Contents**' --maxlevel 4",
     "////////// Section: Tokens": "==============================",
     "tokens:build": "node libs/design-tokens/index.js",

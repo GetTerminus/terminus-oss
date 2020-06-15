@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  },
+  "include": [
+    "libs/**/*"
+  ],
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.mock.ts",
+    "**/testing/**",
+    "**/test-setup.ts",
+    "**/test-components.ts"
+  ]
+}
