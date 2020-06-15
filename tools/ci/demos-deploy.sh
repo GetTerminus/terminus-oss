@@ -27,7 +27,7 @@ echo "CURRENT PATH:"
 pwd
 
 # Move new files into the cloned repo
-mv -f -v ../dist/apps/showcase-ui/* .
+mv -f -v ../t-oss/dist/apps/showcase-ui/* .
 
 # Clone the index.html file as 404.html to support deep linking
 cp index.html 404.html

@@ -129,10 +129,18 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+          path: /home/runner/work/terminus-oss/terminus-oss/t-oss
       - run: |
           git fetch --tags --prune --depth=50 origin master
       - name: "Set SHOULD_RUN flag"
         run: tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
+      - name: "Checkout ui-demos-release repo"
+        uses: actions/checkout@v2
+        with:
+          repository: GetTerminus/ui-demos-release
+          token: ${{ secrets.GH_TOKEN }}
+          path: /home/runner/work/terminus-oss/terminus-oss/ui-demos-release
+        if: env.SHOULD_RUN == 'true'
       - name: "Set up Node"
         uses: actions/setup-node@v1
         with:
@@ -166,13 +174,6 @@ jobs:
         if: env.SHOULD_RUN == 'true'
       - name: "Build affected projects"
         run: yarn nx affected --target=build --withDeps --prod
-        if: env.SHOULD_RUN == 'true'
-      - name: "Checkout ui-demos-release repo"
-        uses: actions/checkout@v2
-        with:
-          repository: GetTerminus/ui-demos-release
-          token: ${{ secrets.GH_TOKEN }}
-          path: /home/runner/work/terminus-oss/terminus-oss/ui-demos-release
         if: env.SHOULD_RUN == 'true'
       - name: "Update credentials"
         run: |
