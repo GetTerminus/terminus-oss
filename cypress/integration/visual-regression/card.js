@@ -46,10 +46,11 @@ describe(`Card Component`, () => {
 
   describe(`utility menu`, () => {
     it(`should show utility menu when clicked`, () => {
-      cy.get('#ts-card-1 > .ts-menu > .c-menu > .mat-focus-indicator > .mat-button-wrapper > .ts-icon > .mat-icon').click({ force: true }).then(() => {
-        cy.get('.mat-menu-panel').contains('My menu item');
-        cy.percySnapshot('utility');
-      });
+      cy.get('#ts-card-1 > .ts-menu > .c-menu > .mat-focus-indicator > .mat-button-wrapper > .ts-icon > .mat-icon').click({ force: true })
+        .then(() => {
+          cy.get('.mat-menu-panel').contains('My menu item');
+          cy.percySnapshot('utility');
+        });
     });
 
   })

@@ -38,7 +38,7 @@ describe(`Input`, () => {
 
     it(`should show disabled mode if set to disabled`, () => {
       cy.get('.page > :nth-child(4)').click().then(() => {
-       cy.get('#ts-input-2').should('be.disabled');
+        cy.get('#ts-input-2').should('be.disabled');
         cy.percySnapshot('disableMode');
       })
     })

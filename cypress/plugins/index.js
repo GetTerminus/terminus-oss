@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+// / <reference types="cypress" />
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
 //
@@ -20,7 +20,7 @@ module.exports = (on, config) => {
   // `config` is the resolved Cypress config
 }
 
-let percyHealthCheck = require('@percy/cypress/task');
+const percyHealthCheck = require('@percy/cypress/task');
 
 module.exports = (on, config) => {
   on('task', percyHealthCheck);
