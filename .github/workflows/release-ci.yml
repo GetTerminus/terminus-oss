@@ -67,8 +67,6 @@ jobs:
       - name: "Test affected projects"
         run: yarn nx affected --target=test --codeCoverage
         if: env.SHOULD_RUN == 'true'
-      - name: "TEMP Test all projects"
-        run: yarn run test:all
       - name: "Upload coverage results to CodeCov"
         run: tools/ci/coverage-upload.sh
         if: env.SHOULD_RUN == 'true'
@@ -144,7 +142,9 @@ jobs:
           path: /home/runner/work/terminus-oss/terminus-oss/ui-demos-release
         if: env.SHOULD_RUN == 'true'
       - name: "Enter OSS directory"
-        run: cd t-oss
+        run: |
+          cd t-oss/
+          pwd
       - name: "Set up Node"
         uses: actions/setup-node@v1
         with:
