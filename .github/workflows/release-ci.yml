@@ -42,7 +42,7 @@ jobs:
       - run: |
           git fetch --tags --prune --depth=50 origin master
       - name: Set SHOULD_RUN flag
-        run: tools/ci/set-should-run-flag.sh
+        run: tools/ci/set-should-run-flag.sh ${{github.event.head_commit.message}}
       - name: Set up Node
         uses: actions/setup-node@v1
         with:

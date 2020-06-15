@@ -2,8 +2,7 @@
 
 . ~/.bashrc
 
-# shellcheck disable=SC2154
-OG_MESSAGE=${{github.event.head_commit.message}}
+OG_MESSAGE=$1
 echo "Original commit Message: $OG_MESSAGE"
 
 MESSAGE=$(echo "$OG_MESSAGE" | sed -E "s/\\\"/\\'/g")
