@@ -168,7 +168,7 @@ jobs:
       - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: "List affected LIBS"
-        run: yarn affected:libs
+        run: yarn --cwd t-oss/ affected:libs
         if: env.SHOULD_RUN == 'true'
       - name: "List affected APPS"
         run: yarn affected:apps
