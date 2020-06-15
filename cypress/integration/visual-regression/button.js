@@ -1,7 +1,7 @@
 describe(`Button Component`, () => {
   beforeEach(() => {
     cy.visit('http://localhost:4200/components/button');
-  });
+  })
 
   describe(`button`, () => {
     it(`should load the page`, () => {

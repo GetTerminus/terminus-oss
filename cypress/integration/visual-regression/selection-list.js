@@ -21,7 +21,7 @@ describe(`Selection List`, () => {
 
     describe(`manual input`, () => {
       it(`should allow users input in multi selection`, () => {
-        cy.get('#ts-selection-list-0').click().then((c) => {
+        cy.get('#ts-selection-list-0').click().then(c => {
           cy.percySnapshot('multi drop down menu');
           cy.get('#ts-selection-list-0').type('{downarrow}{enter}');
           cy.get('.ts-selection-list--multiple > .ts-form-field > .ts-form-field__wrapper > .ts-form-field__container').contains('Alaska');
