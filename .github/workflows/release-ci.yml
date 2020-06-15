@@ -135,7 +135,7 @@ jobs:
           git fetch --tags --prune --depth=50 origin master
           cd ../
       - name: "Set SHOULD_RUN flag"
-        run: tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
+        run: t-oss/tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
       - name: "Checkout ui-demos-release repo"
         uses: actions/checkout@v2
         with:
