@@ -67,6 +67,8 @@ jobs:
       - name: "Test affected projects"
         run: yarn nx affected --target=test --codeCoverage
         if: env.SHOULD_RUN == 'true'
+      - name: "TEMP Test all projects"
+        run: yarn run test:all
       - name: "Upload coverage results to CodeCov"
         run: tools/ci/coverage-upload.sh
         if: env.SHOULD_RUN == 'true'
