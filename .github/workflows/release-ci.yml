@@ -42,15 +42,7 @@ jobs:
       - run: |
           git fetch --tags --prune --depth=50 origin master
       - name: Set SHOULD_RUN flag
-        run: |
-          OG_MESSAGE=${{github.event.head_commit.message}}
-          MESSAGE=$(echo $OG_MESSAGE | tr -d '"'")
-          echo "$MESSAGE"
-          if [[ "$MESSAGE" =~ (skip\ ci|ci\ skip) ]]; then
-            echo "::set-env name=SHOULD_RUN::false"
-          else
-            echo "::set-env name=SHOULD_RUN::true"
-          fi
+        run: tools/ci/set-should-run-flag.sh
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
