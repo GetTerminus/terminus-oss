@@ -131,7 +131,9 @@ jobs:
           fetch-depth: 0
           path: /home/runner/work/terminus-oss/terminus-oss/t-oss
       - run: |
+          cd t-oss
           git fetch --tags --prune --depth=50 origin master
+          cd ../
       - name: "Set SHOULD_RUN flag"
         run: tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
       - name: "Checkout ui-demos-release repo"
