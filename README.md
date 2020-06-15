@@ -14,6 +14,7 @@ The monorepo that contains all Terminus open-source libraries and tools.
 
 - [Packages](#packages)
   - [Live Demos](#live-demos)
+  - [Generated Documentation](#generated-documentation)
 - [Resources](#resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -76,7 +77,9 @@ The monorepo that contains all Terminus open-source libraries and tools.
 
 [https://getterminus.github.io/ui-demos-release/components](https://getterminus.github.io/ui-demos-release/components)
 
+### Generated Documentation
 
+[http://uilibrary-docs.terminus.ninja/master](http://uilibrary-docs.terminus.ninja/master)
 
 ## Resources
 
