@@ -5,6 +5,13 @@ const DISABLED = 'off';
 module.exports = {
   root: true,
   extends: ['@terminus/eslint-config-frontend'],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 2020,
+    project: './tsconfig.json',
+    sourceType: 'module',
+    tsconfigRootDir: './',
+  },
   rules: {
     'jsdoc/require-jsdoc': SEVERITY,
     // TODO: Move this rule back to base ruleset
@@ -103,6 +110,7 @@ module.exports = {
       files: [
         'apps/*-e2e/**/*.ts',
         'tools/**/*',
+        'cypress/**/*',
       ],
       plugins: ['cypress'],
       env: {
