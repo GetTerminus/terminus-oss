@@ -43,7 +43,10 @@ jobs:
           git fetch --tags --prune --depth=50 origin master
       - name: Set SHOULD_RUN flag
         run: |
-          if [[ "${{github.event.head_commit.message}}" =~ (skip\ ci|ci\ skip) ]]; then
+          OG_MESSAGE=${{github.event.head_commit.message}}
+          MESSAGE=$(echo $OG_MESSAGE | tr -d '"'")
+          echo "$MESSAGE"
+          if [[ "$MESSAGE" =~ (skip\ ci|ci\ skip) ]]; then
             echo "::set-env name=SHOULD_RUN::false"
           else
             echo "::set-env name=SHOULD_RUN::true"
@@ -141,7 +144,10 @@ jobs:
           git fetch --tags --prune --depth=50 origin master
       - name: "Set SHOULD_RUN flag"
         run: |
-          if [[ "${{github.event.head_commit.message}}" =~ (skip\ ci|ci\ skip) ]]; then
+          OG_MESSAGE=${{github.event.head_commit.message}}
+          MESSAGE=$(echo $OG_MESSAGE | tr -d '"'")
+          echo "$MESSAGE"
+          if [[ "$MESSAGE" =~ (skip\ ci|ci\ skip) ]]; then
             echo "::set-env name=SHOULD_RUN::false"
           else
             echo "::set-env name=SHOULD_RUN::true"
