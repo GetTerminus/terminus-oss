@@ -227,5 +227,4 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           SOURCE_DIR: './docs'
           DEST_DIR: ${{ github.ref }}
-        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
