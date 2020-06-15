@@ -142,14 +142,12 @@ jobs:
           repository: GetTerminus/ui-demos-release
           token: ${{ secrets.GH_TOKEN }}
           path: ./ui-demos-release
-        working-directory: ${{ env.demos-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Set up Node"
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
-        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Cache NODE"
         id: cache_node
@@ -164,7 +162,6 @@ jobs:
             ${{ runner.os }}-node-${{ env.cache-name }}-
             ${{ runner.os }}-node-
             ${{ runner.os }}-
-        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
