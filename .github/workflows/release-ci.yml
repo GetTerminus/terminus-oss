@@ -123,33 +123,33 @@ jobs:
   affected_build:
     name: "Compile & release affected projects"
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./t-oss
+      demos-directory: ./ui-demos-release
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          path: /home/runner/work/terminus-oss/terminus-oss/t-oss
-      - run: |
-          cd t-oss
-          git fetch --tags --prune --depth=50 origin master
-          cd ../
+          path: ./t-oss
+      - run: git fetch --tags --prune --depth=50 origin master
+        working-directory: ${{ env.working-directory }}
       - name: "Set SHOULD_RUN flag"
-        run: t-oss/tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
+        run: tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
+        working-directory: ${{ env.working-directory }}
       - name: "Checkout ui-demos-release repo"
         uses: actions/checkout@v2
         with:
           repository: GetTerminus/ui-demos-release
           token: ${{ secrets.GH_TOKEN }}
-          path: /home/runner/work/terminus-oss/terminus-oss/ui-demos-release
+          path: ./ui-demos-release
+        working-directory: ${{ env.demos-directory }}
         if: env.SHOULD_RUN == 'true'
-      - name: "Enter OSS directory"
-        run: |
-          cd t-oss/
-          pwd
       - name: "Set up Node"
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
+        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Cache NODE"
         id: cache_node
@@ -164,38 +164,49 @@ jobs:
             ${{ runner.os }}-node-${{ env.cache-name }}-
             ${{ runner.os }}-node-
             ${{ runner.os }}-
+        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
+        working-directory: ${{ env.working-directory }}
       - name: "List affected LIBS"
-        run: yarn --cwd t-oss/ affected:libs
+        run: yarn affected:libs
+        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "List affected APPS"
         run: yarn affected:apps
+        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Build styles before all packages"
         run: yarn nx build ui-styles --prod --skip-nx-cache
+        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Build affected projects"
         run: yarn nx affected --target=build --withDeps --prod
+        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Update credentials"
         run: |
           git config credential.helper 'cache --timeout=120'
           git config user.email "devops@terminus.com"
           git config user.name "terminus-devops"
+        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Bump version for affected projects"
         run: yarn run version-bump
+        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Build bumped projects"
         run: tools/ci/lerna-build-changed-projects.sh
+        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "TEMP Build all projects"
         run: yarn run build:all
+        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Commit changes"
         run: tools/ci/commit-after-lerna.sh
+        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Deploy affected projects"
         run: yarn run publish:libs
@@ -203,9 +214,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Generate & Upload documentation"
         run: yarn run docs:ci
+        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - uses: jakejarvis/s3-sync-action@master
         with:
@@ -217,4 +230,5 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           SOURCE_DIR: './docs'
           DEST_DIR: ${{ github.ref }}
+        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
