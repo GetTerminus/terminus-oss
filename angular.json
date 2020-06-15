@@ -476,14 +476,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/autocomplete/tsconfig.lib.json",
-              "libs/ui/autocomplete/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/autocomplete/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/autocomplete/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/autocomplete/**/!(*.spec).scss'" }
@@ -535,14 +527,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/autofocus/tsconfig.lib.json",
-              "libs/ui/autofocus/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/autofocus/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/autofocus/**/*.{js,ts}'" }
             ]
@@ -593,14 +577,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/button/tsconfig.lib.json",
-              "libs/ui/button/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/button/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/button/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/button/**/!(*.spec).scss'" }
@@ -652,14 +628,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/checkbox/tsconfig.lib.json",
-              "libs/ui/checkbox/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/checkbox/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/checkbox/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/checkbox/**/!(*.spec).scss'" }
@@ -711,14 +679,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/card/tsconfig.lib.json",
-              "libs/ui/card/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/card/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/card/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/card/**/!(*.spec).scss'" }
@@ -770,14 +730,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/chart/tsconfig.lib.json",
-              "libs/ui/chart/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/chart/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/chart/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/chart/**/!(*.spec).scss'" }
@@ -829,14 +781,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/chip/tsconfig.lib.json",
-              "libs/ui/chip/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/chip/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/chip/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/chip/**/!(*.spec).scss'" }
@@ -888,14 +832,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/cohort-date-range/tsconfig.lib.json",
-              "libs/ui/cohort-date-range/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/cohort-date-range/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/cohort-date-range/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/cohort-date-range/**/!(*.spec).scss'" }
@@ -947,14 +883,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/confirmation/tsconfig.lib.json",
-              "libs/ui/confirmation/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/confirmation/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/confirmation/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/confirmation/**/!(*.spec).scss'" }
@@ -1006,14 +934,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/copy/tsconfig.lib.json",
-              "libs/ui/copy/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/copy/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/copy/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/copy/**/!(*.spec).scss'" }
@@ -1065,14 +985,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/csv-entry/tsconfig.lib.json",
-              "libs/ui/csv-entry/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/csv-entry/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/csv-entry/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/csv-entry/**/!(*.spec).scss'" }
@@ -1124,14 +1036,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/date-range/tsconfig.lib.json",
-              "libs/ui/date-range/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/date-range/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/date-range/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/date-range/**/!(*.spec).scss'" }
@@ -1183,14 +1087,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/drawer/tsconfig.lib.json",
-              "libs/ui/drawer/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/drawer/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/drawer/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/drawer/**/!(*.spec).scss'" }
@@ -1242,14 +1138,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/expansion-panel/tsconfig.lib.json",
-              "libs/ui/expansion-panel/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/expansion-panel/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/expansion-panel/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/expansion-panel/**/!(*.spec).scss'" }
@@ -1301,14 +1189,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/file-upload/tsconfig.lib.json",
-              "libs/ui/file-upload/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/file-upload/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/file-upload/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/file-upload/**/!(*.spec).scss'" }
@@ -1360,14 +1240,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/form-field/tsconfig.lib.json",
-              "libs/ui/form-field/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/form-field/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/form-field/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/form-field/**/!(*.spec).scss'" }
@@ -1419,14 +1291,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/icon/tsconfig.lib.json",
-              "libs/ui/icon/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/icon/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/icon/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/icon/**/!(*.spec).scss'" }
@@ -1478,14 +1342,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/icon-button/tsconfig.lib.json",
-              "libs/ui/icon-button/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/icon-button/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/icon-button/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/icon-button/**/!(*.spec).scss'" }
@@ -1537,14 +1393,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/input/tsconfig.lib.json",
-              "libs/ui/input/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/input/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/input/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/input/**/!(*.spec).scss'" }
@@ -1596,14 +1444,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/link/tsconfig.lib.json",
-              "libs/ui/link/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/link/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/link/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/link/**/!(*.spec).scss'" }
@@ -1655,14 +1495,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/loading-overlay/tsconfig.lib.json",
-              "libs/ui/loading-overlay/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/loading-overlay/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/loading-overlay/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/loading-overlay/**/!(*.spec).scss'" }
@@ -1714,14 +1546,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/login-form/tsconfig.lib.json",
-              "libs/ui/login-form/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/login-form/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/login-form/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/login-form/**/!(*.spec).scss'" }
@@ -1773,14 +1597,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/logo/tsconfig.lib.json",
-              "libs/ui/logo/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/logo/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/logo/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/logo/**/!(*.spec).scss'" }
@@ -1832,14 +1648,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/menu/tsconfig.lib.json",
-              "libs/ui/menu/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/menu/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/menu/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/menu/**/!(*.spec).scss'" }
@@ -1891,14 +1699,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/navigation/tsconfig.lib.json",
-              "libs/ui/navigation/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/navigation/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/navigation/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/navigation/**/!(*.spec).scss'" }
@@ -1950,14 +1750,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/option/tsconfig.lib.json",
-              "libs/ui/option/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/option/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/option/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/option/**/!(*.spec).scss'" }
@@ -2009,14 +1801,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/paginator/tsconfig.lib.json",
-              "libs/ui/paginator/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/paginator/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/paginator/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/paginator/**/!(*.spec).scss'" }
@@ -2068,14 +1852,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/pipes/tsconfig.lib.json",
-              "libs/ui/pipes/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/pipes/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/pipes/**/*.{js,ts}'" }
             ]
@@ -2126,14 +1902,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/popover/tsconfig.lib.json",
-              "libs/ui/popover/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/popover/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/popover/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/popover/**/!(*.spec).scss'" }
@@ -2185,14 +1953,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/radio-group/tsconfig.lib.json",
-              "libs/ui/radio-group/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/radio-group/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/radio-group/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/radio-group/**/!(*.spec).scss'" }
@@ -2244,14 +2004,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/scrollbars/tsconfig.lib.json",
-              "libs/ui/scrollbars/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/scrollbars/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/scrollbars/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/scrollbars/**/!(*.spec).scss'" }
@@ -2303,14 +2055,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/search/tsconfig.lib.json",
-              "libs/ui/search/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/search/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/search/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/search/**/!(*.spec).scss'" }
@@ -2362,14 +2106,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/select/tsconfig.lib.json",
-              "libs/ui/select/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/select/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/select/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/select/**/!(*.spec).scss'" }
@@ -2421,14 +2157,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/selection-list/tsconfig.lib.json",
-              "libs/ui/selection-list/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/selection-list/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/selection-list/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/selection-list/**/!(*.spec).scss'" }
@@ -2480,14 +2208,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/sort/tsconfig.lib.json",
-              "libs/ui/sort/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/sort/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/sort/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/sort/**/!(*.spec).scss'" }
@@ -2539,14 +2259,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/spacing/tsconfig.lib.json",
-              "libs/ui/spacing/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/spacing/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/spacing/**/*.{js,ts}'" }
             ]
@@ -2603,16 +2315,8 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/styles/tsconfig.lib.json",
-              "libs/ui/styles/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/styles/**"
-            ],
             "commands": [
-              { "command": "yarn run lint:scss 'libs/ui/styles/**/!(*.spec).scss'" }
+              { "command": "yarn run lint:scss 'libs/ui/styles/**/!(helper*).scss'" }
             ]
           }
         },
@@ -2661,14 +2365,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/table/tsconfig.lib.json",
-              "libs/ui/table/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/table/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/table/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/table/**/!(*.spec).scss'" }
@@ -2720,14 +2416,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/tabs/tsconfig.lib.json",
-              "libs/ui/tabs/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/tabs/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/tabs/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/tabs/**/!(*.spec).scss'" }
@@ -2779,14 +2467,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/toggle/tsconfig.lib.json",
-              "libs/ui/toggle/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/toggle/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/toggle/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/toggle/**/!(*.spec).scss'" }
@@ -2838,14 +2518,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/tooltip/tsconfig.lib.json",
-              "libs/ui/tooltip/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/tooltip/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/tooltip/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/tooltip/**/!(*.spec).scss'" }
@@ -2897,14 +2569,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/utilities/tsconfig.lib.json",
-              "libs/ui/utilities/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/utilities/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/utilities/**/*.{js,ts}'" }
             ]
@@ -2955,14 +2619,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/validation-messages/tsconfig.lib.json",
-              "libs/ui/validation-messages/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/validation-messages/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/validation-messages/**/*.{js,ts}'" },
               { "command": "yarn run lint:scss 'libs/ui/validation-messages/**/!(*.spec).scss'" }
@@ -3014,14 +2670,6 @@
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "tsConfig": [
-              "libs/ui/validators/tsconfig.lib.json",
-              "libs/ui/validators/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/validators/**"
-            ],
             "commands": [
               { "command": "yarn run lint:ts 'libs/ui/validators/**/*.{js,ts}'" }
             ]

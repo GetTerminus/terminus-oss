@@ -6,3 +6,5 @@ e2e
 node_modules
 .DS_Store
 **/*.d.ts
+.git
+.jest-cache

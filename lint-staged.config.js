@@ -14,7 +14,7 @@ module.exports = {
   '**/*.{ts,js}': files => {
     const match = micromatch.not(files, IGNORE);
     return [
-      `eslint --fix ${match.join(' ')}`,
+      `node --max_old_space_size=8192 node_modules/eslint/bin/eslint.js --fix ${match.join(' ')}`,
     ]
   },
 
