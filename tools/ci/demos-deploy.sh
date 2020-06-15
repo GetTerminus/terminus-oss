@@ -44,4 +44,4 @@ git commit -m "Update via CI release"
 # Push quietly to prevent showing the token in log
 git push -q https://"${GH_TOKEN}"@github.com/GetTerminus/ui-demos-release.git master
 
-cd -
+cd - || exit

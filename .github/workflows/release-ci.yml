@@ -126,6 +126,7 @@ jobs:
     env:
       working-directory: ./t-oss
       demos-directory: ./ui-demos-release
+      docs-publish-directory: ./t-oss/docs
     steps:
       - uses: actions/checkout@v2
         with:
@@ -220,7 +221,7 @@ jobs:
       - name: TEST
         run: |
           pwd
-          ls -R | true
+          ls -R || true
       - uses: jakejarvis/s3-sync-action@master
         with:
           args: --acl public-read --cache-control "max-age=86400" --follow-symlinks --delete
@@ -229,6 +230,6 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-          SOURCE_DIR: 'ts-oss/docs'
+          SOURCE_DIR: ${{ env.docs-publish-directory }}
           DEST_DIR: ${{ github.ref }}
         if: env.SHOULD_RUN == 'true'
