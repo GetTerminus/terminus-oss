@@ -7,14 +7,11 @@
 # shellcheck disable=SC1090
 . ~/.bashrc
 
-# Likely starting at `/home/runner/work/terminus-oss/terminus-oss/t-oss` so we need to go up one
+# Likely starting at `/home/runner/work/terminus-oss/terminus-oss/t-oss` so we need to go back one
 cd ../
 
 echo "CURRENT PATH:"
 pwd
-
-# Clone the ui demos
-#git clone git@github.com:GetTerminus/ui-demos-release.git
 
 # Enter the demos repo
 cd ui-demos-release || exit
