@@ -5,8 +5,10 @@
 **Table of Contents**
 
 - [Developing](#developing)
+  - [General commands](#general-commands)
   - [Showcase-ui](#showcase-ui)
-  - [vr](#vr)
+  - [Visual Regression (vr)](#visual-regression-vr)
+  - [Setting up NX cloud](#setting-up-nx-cloud)
 - [Adding a Component for UI Library](#adding-a-component-for-ui-library)
   - [Branching](#branching)
     - [Naming](#naming)
@@ -18,7 +20,6 @@
   - [Testing](#testing)
   - [Pull Requests](#pull-requests)
   - [Releasing](#releasing)
-    - [Promoting Releases](#promoting-releases)
   - [Code Comments](#code-comments)
     - [JSDoc Tags](#jsdoc-tags)
   - [Usage Docs](#usage-docs)
@@ -36,17 +37,16 @@
 
 ## Developing
 
+### General commands
+
 ```bash
-# Build everything
+# Run a task for all projects:
 $ nx run-many --target=build --all
+$ nx run-many --target=<test|lint|build|build> --all
 
-# Build a single project
-$ nx build ui-button
-$ nx build ui-button --with-deps
-
-# Run TypeScript and SCSS linters
-$ yarn run libraries:lint[:fix]
-$ yarn run apps:lint[:fix]
+# Run a task for a single project:
+$ nx build ui-button [--with-deps]
+$ nx <test|lint|build|deploy> ui-button [--with-deps]
 
 # Only run commands on affected projects:
 # Note: You can swap out 'test' for 'lint', 'e2e', 'apps', or 'libs'
@@ -58,9 +58,9 @@ $ nx affected:test --base=master --head=HEAD
 $ nx affected:test --base=master~1 --head=master
 
 # Generate code coverage:
-$ nx test my-project --code-coverage
+$ nx test my-project --codeCoverage
 
-# Start the showcase ui project
+# Serve an application:
 $ nx serve showcase-ui
 
 # Add yourself as a contributor
@@ -69,7 +69,15 @@ $ yarn run contributors:add [your-github-handle] [contribution-type]
 $ yarn run contributors:generate
 ```
 
-> Check [package.json][pkg-json] for all available commands
+Alternatively, a user can be added as a contributor through a GitHub comment. e.g.
+
+```
+@all-contributors please add @user for docs and tests
+```
+
+See the [bot usage docs][all-contrib-bot] for more.
+
+> :bulb: Check [package.json][pkg-json] for all available commands
 
 
 ### Showcase-ui
@@ -80,32 +88,36 @@ $ yarn run contributors:generate
 
 ![Showcase UI Screenshot](https://user-images.githubusercontent.com/270193/35576969-67e0eab6-05ae-11e8-9c38-7d44bcf2c848.png)
 
-### vr
+### Visual Regression (vr)
 
 1. `nx build vr && nx serve vr`
-2. `npx cypress open` if actively develop on visual regression tests.
+2. `npx cypress open` to actively develop on visual regression tests.
 3. `yarn run vr:percy:run` to trigger visual regression tests on command line.
 
 All cypress scripts live under `cypress/integration/`. Visual regression related tests are located at `cypress/integration/visual-regression/`.
 Currently each component has its own test file. The HTML and Typescript files that are used to build visual regression pages are stored at 
 `apps/vr/src/app/components`.
 
+### Setting up NX cloud
+
+We leverage [NX cloud][nx-cloud] to share our build, test, & lint caches across local and CI runs.
+
+To enable the cache locally, an environment variable must be made available:
+
+```
+# NOTE: The token can be found in the UXE 1Password vault
+NX_CLOUD_AUTH_TOKEN=<TOKEN>
+```
+
 ## Adding a Component for UI Library
 
-1. Create a directory using the component name: `libs/ui/button/`
-    - Necessary files:
-      - `button.module.ts`
-          - Class name: `TsButtonModule`
-      - `button.component.ts`
-          - Class name: `TsButtonComponent`
-      - `button.component.scss`
-      - `button.component.html`
-1. Import **and** export `button.component.ts` inside `button.module.ts`
-1. Add `TsButtonComponent` to the exports **and** declarations of `button.module.ts`.
-1. Comment all methods, constants & `@Input`s using the supported [JSDoc style][compodoc_comments].
-1. Add a usage example in the component documentation with every possible input and output included.
-1. Update the status for the component in the components table.
+1. Create a new package using NX
+   -  `nx g lib my-lib --skip-package-json --publishable --style scss`
+2. Comment all methods, constants & `@Input`s using the supported [JSDoc style][compodoc_comments].
+3. Add installation and usage examples in the component documentation with every possible input and output included.
+4. Add the component to the [primary README's packages table][packages-table].
 
+See the [official NX docs][nx-angular-docs] for more information.
 
 ### Branching
 
@@ -183,8 +195,8 @@ and then construct the commit in the proper format for you. The prompt will allo
 from a list of types and then a list of scopes. This is much easier than trying to remember all
 possible scopes.
 
-> Optional: Installing [committizen][commitizen-cli] (`yarn add -g committizen`) will allow you
-> to run `git cz` or even alias to your preferred git command.
+> Optional: Installing teh committizen cli tool (`yarn add -g committizen`) will allow you to run `git cz` or even alias
+> to your preferred git command.
 
 You **must** use one of the defined types since the types have specific meaning to the automatic
 versioning tool.
@@ -260,37 +272,21 @@ When it is time merge a branch into `master`, create a pull request from the fea
 
 ### Releasing
 
-Releases are handled automatically when code is merged to `master`. Never merge code to `master` that is
-not production ready!
+Releases are handled automatically when code is merged to `master`. Never merge code to `master` that is not ready for
+consumers!
 
 1. [Semantic Release][semantic-release] looks at all commits since the last tag on `master`.
-1. Based on those commits it will [bump the version number appropriately][semver].
-1. A changelog is generated in the release notes on [Github][oss-github].
-1. The new version is published to [NPM][ui-npm] under the `next` tag.
-1. When the new functionality is verified, it is tagged as `latest`:
-    - `npm dist-tag add @terminus/ui@<version to promote> latest`
+2. Based on those commits it will [bump the version number appropriately][semver].
+3. The package changelog is generated on [Github][oss-github].
+4. The new version is published to [NPM][ui-npm] under the `next` tag.
+5. When the new functionality is verified, it is tagged as `latest`:
+   -  `npm dist-tag add @terminus/ui-<package>@<version to promote> latest`
 
 > NOTE: currently `yarn tag` outputs an error even though the tagging seems to work. Because of
 > this, we will continue using NPM for tagging.
 
-You can view the currently published files using the [unpkg CDN][unpkg-terminus].
-
-#### Promoting Releases
-
-By default all releases are tagged as `@next` on NPM. This allows us to test the release with consumer partners before
-promoting for all consumers. To promote the most recent `@next` release to `@latest`, run the release script prefixed
-with a valid GitHub token:
-
-```bash
-# NOTE: This is meant to be run from the repo root - not on CI.
-# Pass your GitHub token as `GH_TOKEN` with the call:
-$ GH_TOKEN=[YOUR_TOKEN] tooling/ci/promote-next-and-deploy.sh
-```
-
-> NOTE: A personal GitHub token can be generated by visiting
-> [https://github.com/settings/tokens](https://github.com/settings/tokens).
-
-See the [full script][promote-script] for more context.
+You can view published files using the [unpkg CDN][unpkg]. An example link:
+`https://unpkg.com/browse/@terminus/ui-button@1.0.8/`
 
 ### Code Comments
 
@@ -527,43 +523,22 @@ public foo;
 🎉 Happy Coding! 🎉
 
 
-<!-- LINKS -->
-
-[docs-url]: http://uilibrary-docs.terminus.ninja/release/
-[license-image]: http://img.shields.io/badge/license-MIT-blue.svg
-[license-url]: LICENSE
-[npm-url]: https://npmjs.org/package/@terminus/ui
-[npm-version-image]: http://img.shields.io/npm/v/@terminus/ui.svg
-[greenkeeper-badge]: https://badges.greenkeeper.io/GetTerminus/terminus-ui.svg
-[greenkeeper]: https://greenkeeper.io/
-[semantic-release-badge]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+<!-- Links -->
 [semantic-release]: https://github.com/semantic-release/semantic-release
-[codecov-badge]: https://codecov.io/gh/GetTerminus/terminus-ui/branch/release/graph/badge.svg
-[codecov-project]: https://codecov.io/gh/GetTerminus/terminus-oss
-[file-size-badge]: http://img.badgesize.io/https://unpkg.com/@terminus/ui/bundles/ui.umd.min.js?compression=gzip
-[raw-distribution-js]: https://unpkg.com/@terminus/ui/bundles/ui.umd.min.js
-[commitizen]: https://github.com/commitizen
-[commitizen_vsc]: https://github.com/commitizen
-[saucelab_platforms]: https://saucelabs.com/platforms
-[compodoc]: https://compodoc.github.io/website/
 [compodoc_comments]: https://compodoc.github.io/website/guides/comments.html
-[doctoc]: https://github.com/thlorenz/doctoc
-[codecov]: https://codecov.io
-[codecov_browser]: https://docs.codecov.io/docs/browser-extension
-[semantic-release]: https://github.com/semantic-release/semantic-release
 [semantic-release-video]: https://youtu.be/tc2UgG5L7WM
-[markdown]: https://daringfireball.net/projects/markdown/syntax
-[conventional-changelog]: https://github.com/conventional-changelog/conventional-changelog/blob/v0.5.3/conventions/angular.md
 [validate-commit-msg]: https://github.com/kentcdodds/validate-commit-msg
 [ui-npm]: https://www.npmjs.com/package/@terminus/ui
 [oss-github]: https://github.com/GetTerminus/terminus-oss
 [semver]: http://semver.org/
-[component-demo-screenshot]: https://user-images.githubusercontent.com/270193/28672864-f05b73cc-72ae-11e7-8ead-efd1ee008f43.png
-[unpkg-terminus]: https://unpkg.com/@terminus/ui/
+[unpkg]: https://unpkg.com/  
 [pkg-json]: https://github.com/GetTerminus/terminus-oss/blob/master/package.json
 [jest]: https://facebook.github.io/jest/
 [zenhub]: https://www.zenhub.com/
 [eslint-config]: https://github.com/GetTerminus/eslint-config-frontend
 [tslint-config]: https://github.com/GetTerminus/tslint-config-frontend
 [stylelint-config]: https://github.com/GetTerminus/stylelint-config-frontend
-[promote-script]: https://github.com/GetTerminus/terminus-oss/blob/master/tooling/ci/promote-next-and-deploy.sh
+[nx-angular-docs]: https://nx.dev/react/plugins/angular/schematics/library
+[packages-table]: https://github.com/GetTerminus/terminus-oss/blob/master/README.md#packages
+[all-contrib-bot]: https://allcontributors.org/docs/en/bot/usage
+[nx-cloud]: https://nx.app/
