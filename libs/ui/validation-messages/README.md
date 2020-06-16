@@ -5,10 +5,57 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Installation](#installation)
+- [Usage](#usage)
+
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-TODO
+## Installation
 
+```
+$ yarn add @terminus/design-tokens @terminus/ngx-tools @terminus/ui-pipes date-fns @terminus/ui-validation-messages
+# or
+$ npm install @terminus/design-tokens @terminus/ngx-tools @terminus/ui-pipes date-fns @terminus/ui-validation-messages -S
+```
+
+Include the module:
+
+```typescript
+@NgModule({
+  imports: [
+    TsValidationMessagesModule,
+    ...
+  ],
+  ...
+})
+export class MyModule {}
+
+```
+
+
+## Usage
+
+This component was initially for internal use, but has been extended to support custom validation messages. Now a custom
+instance of this component can be passed in to override the existing validation messages.
+
+```
+<ts-validation-messages
+  <!-- This should be the same FormControl passed to the outer form component -->
+  [control]="myEmailControl"
+  <!-- This is the function that will determine the messaging for errors -->
+  [messagesFactory]="emailMessageFactory"
+  <!-- This directive is needed to help the parent TsFormField find the custom messages -->
+  tsCustomValidationMessage
+></ts-validation-messages>
+```
+
+```typescript
+import { TsValidationMessageFactory } from '@terminus/ui-validation-messages';
+...
+emailMessageFactory: TsValidationMessageFactory = (a, b) => (a ? 'My custom message!' : null);
+```
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/master/LICENSE
