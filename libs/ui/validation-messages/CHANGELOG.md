@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.6 (2020-06-16)
+
+
+### Bug Fixes
+
+* **Tooltip:** trigger release ([2dfd435](https://github.com/GetTerminus/terminus-oss/commit/2dfd435814060e55ce7ec84d9a71ba5f481948a4))
+
+
+
+
+
 ## [1.0.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-validation-messages@1.0.4...@terminus/ui-validation-messages@1.0.5) (2020-06-10)
 
 
