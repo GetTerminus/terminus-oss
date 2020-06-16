@@ -33,6 +33,7 @@ let nextUniqueId = 0;
  *              id="my-id"
  *              [validateOnChange]="true"
  *              [validateImmediately]="false"
+ *              [messagesFactory]="myFunc"
  * ></ts-validation-messages>
  *
  * <example-url>https://getterminus.github.io/ui-demos-release/components/validation</example-url>
