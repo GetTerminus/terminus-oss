@@ -254,10 +254,10 @@ jobs:
       - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: List affected LIBS
-        run: yarn affected:libs --base=origin/master
+        run: yarn affected:libs --base=origin/master --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'
       - name: List affected APPS
-        run: yarn affected:apps --base=origin/master
+        run: yarn affected:apps --base=origin/master --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'
       - name: Build styles before all packages
         run: yarn nx build ui-styles --prod --skip-nx-cache
