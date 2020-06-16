@@ -77,12 +77,11 @@
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "jestConfig": "apps/showcase-tokens/jest.config.js",
-            "tsConfig": "apps/showcase-tokens/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "apps/showcase-tokens/src/test-setup.ts"
+            "commands": [
+              { "command": "echo 'Skipping showcase-tokens tests'" }
+            ]
           }
         },
         "deploy": {
@@ -201,12 +200,11 @@
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "jestConfig": "apps/showcase-ui/jest.config.js",
-            "tsConfig": "apps/showcase-ui/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "apps/showcase-ui/src/test-setup.ts"
+            "commands": [
+              { "command": "echo 'Skipping showcase-ui tests'" }
+            ]
           }
         },
         "deploy": {
@@ -374,11 +372,11 @@
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "jestConfig": "libs/design-tokens/jest.config.js",
-            "tsConfig": "libs/design-tokens/tsconfig.spec.json",
-            "passWithNoTests": true
+            "commands": [
+              { "command": "echo 'Skipping design-tokens tests'" }
+            ]
           }
         },
         "deploy": {

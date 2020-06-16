@@ -1,7 +1,17 @@
 module.exports = {
   cacheDirectory: `${__dirname}/.jest-cache`,
   clearMocks: true,
+  collectCoverageFrom: [
+    `**/*.{ts,js}`,
+    `libs/**/*.ts`,
+    `!**/*.module.ts`,
+    `!**/testing/**`,
+    `!**/index.ts`,
+    '!**/node_modules/**',
+    '!**/vendor/**',
+  ],
   coverageReporters: [
+    'text',
     'json',
     'html',
   ],
@@ -15,11 +25,16 @@ module.exports = {
     '**/+(*.)+(spec|test).+(ts|js)?(x)',
     '**/jest-mocks/*',
   ],
+  testPathPattern: '^(libs|specs)/**/*.spec.ts',
   transform: {
     '^.+\\.(ts|js|html)$': 'ts-jest',
   },
   transformIgnorePatterns: [
     '/node_modules/(?!@ngrx|popper)',
+  ],
+  roots: [
+    `${__dirname}/libs`,
+    `${__dirname}/specs`,
   ],
 };
 

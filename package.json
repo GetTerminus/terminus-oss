@@ -154,6 +154,9 @@
     "tslib": "1.10.0",
     "zone.js": "0.10.3"
   },
+  "resolutions": {
+    "cypress": "4.6.0"
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.901.8",
     "@angular-devkit/build-ng-packagr": "0.901.8",
@@ -202,8 +205,8 @@
     "codelyzer": "5.0.1",
     "commitizen": "4.1.2",
     "cpr": "3.0.1",
-    "cypress": "4.3.0",
-    "cz-customizable": "6.2.0",
+    "cypress": "4.6.0",
+    "cz-customizable": "^6.2.0",
     "doctoc": "1.4.0",
     "dotenv": "8.2.0",
     "eslint": "6.8.0",

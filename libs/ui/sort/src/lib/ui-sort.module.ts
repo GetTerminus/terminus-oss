@@ -11,6 +11,7 @@ export * from './sort-header/sort-animations';
 export * from './sort-header/sort-header-intl';
 export * from './sort-header/sort-header.component';
 export * from './sort/sort.directive';
+export * from './sort-errors';
 
 
 /**
