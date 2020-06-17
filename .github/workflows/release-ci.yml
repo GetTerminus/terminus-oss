@@ -64,8 +64,19 @@ jobs:
         if: env.SHOULD_RUN == 'true'
       - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
+      - name: "Set NX affected base"
+        run: tools/ci/set-nx-base.sh
+        if: env.SHOULD_RUN == 'true'
+      - name: "List affected LIBS"
+        run: yarn affected:libs --base=${{ env.NX_BASE }}
+        working-directory: ${{ env.working-directory }}
+        if: env.SHOULD_RUN == 'true'
+      - name: "List affected APPS"
+        run: yarn affected:apps --base=${{ env.NX_BASE }}
+        working-directory: ${{ env.working-directory }}
+        if: env.SHOULD_RUN == 'true'
       - name: "Test affected projects"
-        run: yarn nx affected --target=test --codeCoverage --base=origin/master
+        run: yarn nx codeCoverage --target=test --codeCoverage --base=${{ env.NX_BASE }}
         if: env.SHOULD_RUN == 'true'
       - name: "Upload coverage results to CodeCov"
         run: tools/ci/coverage-upload.sh
@@ -113,8 +124,11 @@ jobs:
         if: env.SHOULD_RUN == 'true'
       - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
+      - name: "Set NX affected base"
+        run: tools/ci/set-nx-base.sh
+        if: env.SHOULD_RUN == 'true'
       - name: "Lint files"
-        run: yarn nx affected --target=lint --base=origin/master
+        run: yarn nx affected --target=lint --base=${{ env.NX_BASE }}
         if: env.SHOULD_RUN == 'true'
 
   #
@@ -123,6 +137,7 @@ jobs:
   affected_build:
     name: "Compile & release affected projects"
     runs-on: ubuntu-latest
+    needs: [affected_test, affected_lint]
     env:
       working-directory: ./t-oss
       demos-directory: ./ui-demos-release
@@ -167,12 +182,15 @@ jobs:
       - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
         working-directory: ${{ env.working-directory }}
+      - name: "Set NX affected base"
+        run: tools/ci/set-nx-base.sh
+        if: env.SHOULD_RUN == 'true'
       - name: "List affected LIBS"
-        run: yarn affected:libs --base=origin/master
+        run: yarn affected:libs --base=${{ env.NX_BASE }}
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "List affected APPS"
-        run: yarn affected:apps --base=origin/master
+        run: yarn affected:apps --base=${{ env.NX_BASE }}
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Build styles before all packages"
@@ -180,7 +198,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Build affected projects"
-        run: yarn nx affected --target=build --withDeps --prod --base=origin/master
+        run: yarn nx affected --target=build --withDeps --prod --base=${{ env.NX_BASE }}
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Update credentials"
@@ -213,6 +231,11 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         working-directory: ${{ env.working-directory }}
+        if: env.SHOULD_RUN == 'true'
+      - name: "Tag latest release as successful"
+        run: |
+          git push --delete origin master-last-successful-release
+          git tag -a master-last-successful-release -m "CI: Tagged as last successful release"
         if: env.SHOULD_RUN == 'true'
       - name: "Generate & Upload documentation"
         run: yarn run docs:ci
