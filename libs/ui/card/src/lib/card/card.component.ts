@@ -19,6 +19,13 @@ export type TsAspectRatioTypes
   | '5:4'
   | '1:1'
 ;
+export const tsCardAspectRatioTypes: TsAspectRatioTypes[] = [
+  '16:9',
+  '4:3',
+  '3:2',
+  '5:4',
+  '1:1',
+];
 
 /**
  * Define allowed border sides. Used in {@link TsCardComponent}. Border color determined by the theme.
@@ -28,8 +35,14 @@ export type TsCardBorderOptions
   | 'left'
   | 'right'
   | 'top'
-  | 'bottom'
-;
+  | 'bottom';
+export const tsCardBorderOptionsList: TsCardBorderOptions[] = [
+  'none',
+  'left',
+  'right',
+  'top',
+  'bottom',
+];
 
 /**
  * Unique ID for each instance
