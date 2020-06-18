@@ -40,6 +40,10 @@
     {
       "packagePatterns": ["gulp"],
       "groupName": "Gulp Packages"
+    },
+    {
+      "packagePatterns": ["storybook"],
+      "groupName": "Storybook Packages"
     }
   ],
   "prConcurrentLimit": 0,
