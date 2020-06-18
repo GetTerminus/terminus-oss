@@ -38,7 +38,10 @@ module.exports = {
   overrides: [
     // TypeScript and Angular specific rules
     {
-      files: ['libs/**/*.ts'],
+      files: [
+        'libs/**/*.ts',
+        'stories/**/*.ts',
+      ],
       parserOptions: {
         project: './tsconfig.json',
         tsconfigRootDir: __dirname,
