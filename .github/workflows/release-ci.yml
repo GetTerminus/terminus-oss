@@ -68,11 +68,11 @@ jobs:
         run: tools/ci/set-nx-base.sh
         if: env.SHOULD_RUN == 'true'
       - name: "List affected LIBS"
-        run: yarn affected:libs --base=${{ env.NX_BASE }}
+        run: node --max_old_space_size=8192 node_modules/@nrwl/cli/bin/nx.js affected:libs --base=${{ env.NX_BASE }}
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "List affected APPS"
-        run: yarn affected:apps --base=${{ env.NX_BASE }}
+        run: node --max_old_space_size=8192 node_modules/@nrwl/cli/bin/nx.js affected:apps --base=${{ env.NX_BASE }}
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Test affected projects"
@@ -186,11 +186,11 @@ jobs:
         run: tools/ci/set-nx-base.sh
         if: env.SHOULD_RUN == 'true'
       - name: "List affected LIBS"
-        run: yarn affected:libs --base=${{ env.NX_BASE }}
+        run: node --max_old_space_size=8192 node_modules/@nrwl/cli/bin/nx.js affected:libs --base=${{ env.NX_BASE }}
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "List affected APPS"
-        run: yarn affected:apps --base=${{ env.NX_BASE }}
+        run: node --max_old_space_size=8192 node_modules/@nrwl/cli/bin/nx.js affected:apps --base=${{ env.NX_BASE }}
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Build styles before all packages"
@@ -198,7 +198,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Build affected projects"
-        run: yarn nx affected --target=build --withDeps --prod --base=${{ env.NX_BASE }}
+        run: node --max_old_space_size=8192 node_modules/@nrwl/cli/bin/nx.js affected --target=build --withDeps --prod --base=${{ env.NX_BASE }}
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Update credentials"
