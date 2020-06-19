@@ -372,11 +372,11 @@
           }
         },
         "test": {
-          "builder": "@nrwl/workspace:run-commands",
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "commands": [
-              { "command": "echo 'Skipping design-tokens tests'" }
-            ]
+            "jestConfig": "libs/design-tokens/jest.config.js",
+            "tsConfig": "libs/design-tokens/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         },
         "deploy": {

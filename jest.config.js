@@ -32,12 +32,4 @@ module.exports = {
   transformIgnorePatterns: [
     '/node_modules/(?!@ngrx|popper)',
   ],
-  roots: [
-    `${__dirname}/libs`,
-    `${__dirname}/specs`,
-  ],
 };
-
-
-// [coverage-badge]: https://codecov.io/gh/ethereumjs/ethereumjs-vm/branch/master/graph/badge.svg
-// [account-coverage-badge]: https://codecov.io/gh/ethereumjs/ethereumjs-vm/branch/master/graph/badge.svg?flag=account
