@@ -21,6 +21,7 @@ documentation/
 
 # dependencies
 /node_modules
+.cache
 
 # IDEs and editors
 /.idea
@@ -30,8 +31,6 @@ documentation/
 *.launch
 .settings/
 *.sublime-workspace
-
-# IDE - VSCode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
