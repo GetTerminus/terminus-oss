@@ -237,6 +237,7 @@ jobs:
         run: |
           git push --delete origin master-last-successful-release
           git tag -a master-last-successful-release -m "CI: Tagged as last successful release"
+        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Generate & Upload documentation"
         run: yarn run docs:ci
@@ -246,6 +247,7 @@ jobs:
         run: |
           pwd
           ls -R || true
+        working-directory: ${{ env.working-directory }}
       - uses: jakejarvis/s3-sync-action@master
         with:
           args: --acl public-read --cache-control "max-age=86400" --follow-symlinks --delete
@@ -256,4 +258,5 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           SOURCE_DIR: ${{ env.docs-publish-directory }}
           DEST_DIR: ${{ github.ref }}
+        working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
