@@ -154,9 +154,6 @@
     "tslib": "1.10.0",
     "zone.js": "0.10.3"
   },
-  "resolutions": {
-    "cypress": "4.6.0"
-  },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.901.8",
     "@angular-devkit/build-ng-packagr": "0.901.8",
@@ -249,5 +246,9 @@
     "tslint": "6.1.2",
     "typescript": "3.8.3",
     "validate-commit-msg": "2.14.0"
+  },
+  "resolutions": {
+    "cypress": "4.6.0",
+    "execa": "^2.0.0"
   }
 }
