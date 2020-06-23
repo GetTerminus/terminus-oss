@@ -72,11 +72,11 @@ jobs:
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "List affected APPS"
-        run: node --max_old_space_size=8192 node_modules/@nrwl/cli/bin/nx.js affected:apps --base=${{ env.NX_BASE }}
+        run: yarn run affected:apps --base=${{ env.NX_BASE }} --head=origin/master
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Test affected projects"
-        run: yarn nx codeCoverage --target=test --codeCoverage --base=${{ env.NX_BASE }}
+        run: yarn nx codeCoverage --target=test --codeCoverage --base=${{ env.NX_BASE }} --head=origin/master
         if: env.SHOULD_RUN == 'true'
       - name: "Upload coverage results to CodeCov"
         run: tools/ci/coverage-upload.sh
@@ -128,7 +128,7 @@ jobs:
         run: tools/ci/set-nx-base.sh
         if: env.SHOULD_RUN == 'true'
       - name: "Lint files"
-        run: yarn nx affected --target=lint --base=${{ env.NX_BASE }}
+        run: yarn nx affected --target=lint --base=${{ env.NX_BASE }} --head=origin/master
         if: env.SHOULD_RUN == 'true'
 
   #
@@ -186,11 +186,11 @@ jobs:
         run: tools/ci/set-nx-base.sh
         if: env.SHOULD_RUN == 'true'
       - name: "List affected LIBS"
-        run: node --max_old_space_size=8192 node_modules/@nrwl/cli/bin/nx.js affected:libs --base=${{ env.NX_BASE }}
+        run: yarn run affected:libs --base=${{ env.NX_BASE }} --head=origin/master
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "List affected APPS"
-        run: node --max_old_space_size=8192 node_modules/@nrwl/cli/bin/nx.js affected:apps --base=${{ env.NX_BASE }}
+        run: yarn run affected:apps --base=${{ env.NX_BASE }} --head=origin/master
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Build styles before all packages"
@@ -198,7 +198,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Build affected projects"
-        run: node --max_old_space_size=8192 node_modules/@nrwl/cli/bin/nx.js affected --target=build --withDeps --prod --base=${{ env.NX_BASE }}
+        run: yarn run affected --target=build --withDeps --prod --base=${{ env.NX_BASE }} --head=origin/master
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Update credentials"
