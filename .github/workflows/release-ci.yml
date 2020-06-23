@@ -76,7 +76,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Test affected projects"
-        run: yarn nx codeCoverage --target=test --codeCoverage --base=${{ env.NX_BASE }} --head=origin/master
+        run: yarn nx affected --target=test --codeCoverage --base=${{ env.NX_BASE }} --head=origin/master
         if: env.SHOULD_RUN == 'true'
       - name: "Upload coverage results to CodeCov"
         run: tools/ci/coverage-upload.sh
