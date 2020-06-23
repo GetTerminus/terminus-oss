@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.9 (2020-06-23)
+
+
+### Bug Fixes
+
+* **Card:** export type arrays ([af3db96](https://github.com/GetTerminus/terminus-oss/commit/af3db96e08182f7d1044e220e80c26cc41f249cf))
+
+
+
+
+
 ## [1.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@1.0.7...@terminus/ui-card@1.0.8) (2020-06-10)
 
 
