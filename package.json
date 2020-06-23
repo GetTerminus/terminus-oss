@@ -21,7 +21,7 @@
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
     "affected:apps": "nx affected:apps",
-    "affected:libs": "nx affected:libs",
+    "affected:libs": "nx affected:libs --max-buffer=10000000",
     "affected:build": "nx affected:build",
     "affected:e2e": "nx affected:e2e",
     "affected:test": "nx affected:test",
