@@ -235,7 +235,10 @@ jobs:
         if: env.SHOULD_RUN == 'true'
       - name: "Tag latest release as successful"
         run: |
+          echo "Deleting last release tag from local and remote.."
+          git tag -d master-last-successful-release
           git push --delete origin master-last-successful-release
+          echo "Creating new latest release tag.."
           git tag -a master-last-successful-release -m "CI: Tagged as last successful release"
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
