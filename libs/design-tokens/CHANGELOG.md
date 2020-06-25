@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.8 (2020-06-25)
+
+
+### Bug Fixes
+
+* **CI:** trigger full test run ([0f6e284](https://github.com/GetTerminus/terminus-oss/commit/0f6e284ea60cb8479975a866c6e1d8ed02fed9aa))
+* **DesignTokens:** use tsconfig ([59fd532](https://github.com/GetTerminus/terminus-oss/commit/59fd5326121f7a4037066cd4858ce60837b71e9e))
+
+
+
+
+
 ## [2.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/design-tokens@2.0.3...@terminus/design-tokens@2.0.7) (2020-06-11)
 
 **Note:** Version bump only for package @terminus/design-tokens
