@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/design-tokens@2.0.8...@terminus/design-tokens@2.0.9) (2020-06-25)
+
+
+### Bug Fixes
+
+* **DesignTokens:** only emit declarations ([66832c3](https://github.com/GetTerminus/terminus-oss/commit/66832c3594baa0cb53a9a6acbef77f3284130c3e))
+
+
+
+
+
 ## 2.0.8 (2020-06-25)
 
 
