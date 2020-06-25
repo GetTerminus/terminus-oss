@@ -4,10 +4,10 @@
     "allowJs": true,
     "baseUrl": ".",
     "declaration": true,
-    "lib": ["es2017"],
+    "emitDeclarationOnly": true,
+    "lib": ["es2017", "dom"],
     "module": "esnext",
     "moduleResolution": "node",
-    "rootDir": ".",
     "target": "es2015"
   },
   "include": ["../../dist/libs/design-tokens/js/*.js"]
