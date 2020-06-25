@@ -217,6 +217,11 @@ jobs:
         run: tools/ci/lerna-build-changed-projects.sh
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
+      # TODO: This should not be needed
+      - name: "Build all projects"
+        run: yarn run build:all
+        working-directory: ${{ env.working-directory }}
+        if: env.SHOULD_RUN == 'true'
       - name: "Commit changes"
         run: tools/ci/commit-after-lerna.sh
         working-directory: ${{ env.working-directory }}
