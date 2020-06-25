@@ -217,10 +217,6 @@ jobs:
         run: tools/ci/lerna-build-changed-projects.sh
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
-      - name: "TEMP Build all projects"
-        run: yarn run build:all
-        working-directory: ${{ env.working-directory }}
-        if: env.SHOULD_RUN == 'true'
       - name: "Commit changes"
         run: tools/ci/commit-after-lerna.sh
         working-directory: ${{ env.working-directory }}
@@ -246,11 +242,6 @@ jobs:
         run: yarn run docs:ci
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
-      - name: TEST
-        run: |
-          pwd
-          ls -R || true
-        working-directory: ${{ env.working-directory }}
       - uses: jakejarvis/s3-sync-action@master
         with:
           args: --acl public-read --cache-control "max-age=86400" --follow-symlinks --delete

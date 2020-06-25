@@ -65,7 +65,7 @@
     "docs:toc": "find . -path ./node_modules -prune -o -path ./dist -prune -o -path ./apps -prune -o -path ./.github -prune -o -path ./.git -prune -o -path ./**/CHANGELOG.md -prune -o -path ./CODE_OF_CONDUCT.md -prune -o -name '*.md' -print |  xargs npx doctoc --title '**Table of Contents**' --maxlevel 4",
     "////////// Section: Tokens": "==============================",
     "tokens:build": "node libs/design-tokens/index.js",
-    "tokens:generate-typings": "node --max-old-space-size=6144 node_modules/.bin/tsc --declaration --emitDeclarationOnly --allowJs dist/libs/design-tokens/js/design-tokens.js dist/libs/design-tokens/js/design-tokens-tree.js",
+    "tokens:generate-typings": "node --max-old-space-size=6144 node_modules/.bin/tsc -p libs/design-tokens/tsconfig-typings.json",
     "tokens:copy-to-npm": "cp -R dist/libs/design-tokens node_modules/@terminus/design-tokens",
     "tokens:build:copy": "yarn run tokens:build && yarn copy-to-npm",
     "posttokens:build": "yarn run tokens:copy-files && yarn run tokens:generate-typings",
