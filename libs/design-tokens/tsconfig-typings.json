@@ -10,5 +10,6 @@
     "moduleResolution": "node",
     "target": "es2015"
   },
-  "include": ["../../dist/libs/design-tokens/js/*.js"]
+  "include": ["../../dist/libs/design-tokens/js/*.js"],
+  "exclude": ["../../node_modules"]
 }
