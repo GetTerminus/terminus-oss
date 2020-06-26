@@ -10,5 +10,6 @@
     "moduleResolution": "node",
     "target": "es2015"
   },
-  "include": [".temp/*.js"]
+  "include": [".temp/*.js"],
+  "types" : []
 }
