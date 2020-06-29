@@ -35,6 +35,8 @@ echo "Copying generated JS token files to source dir.."
 cp "$FILE1" "$FILE2" "$FILE3" "$FILE4" "$TOKEN_SRC"
 
 echo "Generate typings.."
+# NOTE: We need to move these types or TypeScript will throw error about 'Subsequent variable declarations must have the same type'.
+# This is due to a conflict between Mocha (via Cypress) and Jest
 mv node_modules/@types/mocha ./TEMP_MOCHA
 node --max-old-space-size=6144 node_modules/.bin/tsc -p libs/design-tokens/tsconfig-typings.json
 mv ./TEMP_MOCHA node_modules/@types/mocha
