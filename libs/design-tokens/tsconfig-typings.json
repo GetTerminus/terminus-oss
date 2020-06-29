@@ -11,5 +11,6 @@
     "target": "es2015"
   },
   "include": [".temp/*.js"],
-  "types" : []
+  "exclude": ["node_modules"],
+  "types" : ["node"]
 }
