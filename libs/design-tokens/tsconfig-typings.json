@@ -11,6 +11,16 @@
     "target": "es2015"
   },
   "include": [".temp/*.js"],
-  "exclude": ["node_modules"],
-  "types" : ["node"]
+  "exclude": [
+    ".jest-cache",
+    ".storybook",
+    "node_modules",
+    "cypress",
+    "apps",
+    "libs/ui",
+    "specs",
+    "stories",
+    "tools"
+  ],
+  "types" : []
 }

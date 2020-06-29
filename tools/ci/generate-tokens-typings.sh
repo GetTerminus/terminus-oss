@@ -35,7 +35,9 @@ echo "Copying generated JS token files to source dir.."
 cp "$FILE1" "$FILE2" "$FILE3" "$FILE4" "$TOKEN_SRC"
 
 echo "Generate typings.."
+mv node_modules/@types/mocha ./TEMP_MOCHA
 node --max-old-space-size=6144 node_modules/.bin/tsc -p libs/design-tokens/tsconfig-typings.json --types ["node"]
+mv ./TEMP_MOCHA node_modules/@types/mocha
 
 echo "Moving typings to package dist.."
 find "$TOKEN_SRC" -maxdepth 1 ! -type d ! -name '*.js' -exec mv {} "$TOKEN_DIST" \;
