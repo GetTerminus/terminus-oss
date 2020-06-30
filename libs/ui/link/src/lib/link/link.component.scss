@@ -1,17 +1,6 @@
-@import '~@terminus/ui-styles/helpers';
-
-
-//
-// @component
-//  Link
-// @description
-//  Basic link styles.
-//
-//  NOTE: Typography/color/size should be inherited from the context.
-//
 .ts-link {
-  @include reset;
   --link-color: inherit;
+  --link-fontWeight: 400;
   display: inline-block;
 
   // Top level styles should be nested here
@@ -102,7 +91,7 @@
     background-color: var(--menu-item-backgroundColor);
     color: var(--menu-item-color);
     display: block;
-    font-weight: $type__weight--base;
+    font-weight: var(--link-fontWeight);
     padding: var(--ts-space-inset-300) var(--ts-space-inset-500);
     text-decoration: none;
     transition-duration: var(--ts-animation-time-duration-400);
