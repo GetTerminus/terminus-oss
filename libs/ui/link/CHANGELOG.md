@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-link@1.0.9...@terminus/ui-link@1.0.10) (2020-06-30)
+
+
+### Bug Fixes
+
+* **Link:** enforce noopener for external links ([03b406a](https://github.com/GetTerminus/terminus-oss/commit/03b406a68163aca1574945f39d6e6fe5106764cf)), closes [#131](https://github.com/GetTerminus/terminus-oss/issues/131)
+
+
+
+
+
 ## 1.0.9 (2020-06-23)
 
 **Note:** Version bump only for package @terminus/ui-link
