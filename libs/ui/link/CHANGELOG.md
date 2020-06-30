@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.12](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-link@1.0.11...@terminus/ui-link@1.0.12) (2020-06-30)
+
+
+### Bug Fixes
+
+* **Link:** trigger release ([2c9632a](https://github.com/GetTerminus/terminus-oss/commit/2c9632afcf7e59a19d47f119d93b34f17c19c4f3))
+
+
+
+
+
 ## [1.0.11](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-link@1.0.10...@terminus/ui-link@1.0.11) (2020-06-30)
 
 
