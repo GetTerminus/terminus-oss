@@ -62,7 +62,7 @@ describe(`TsLinkComponent`, function() {
       component.isExternal = false;
       component.destination = ['/#'];
 
-      expect(link.classList).toContain('qa-link-internal');
+      expect(link.classList).toContain('c-link--internal');
     });
 
     describe(`fragment`, function() {
@@ -94,8 +94,9 @@ describe(`TsLinkComponent`, function() {
       fixture.detectChanges();
       link = fixture.debugElement.query(By.css('.c-link')).nativeElement;
 
-      expect(link.classList).toContain('qa-link-external');
+      expect(link.classList).toContain('c-link--external');
       expect(link.children[0].textContent).toContain('open_in_new');
+      expect(link.getAttribute('rel')).toEqual('noopener');
     });
   });
 
@@ -105,12 +106,12 @@ describe(`TsLinkComponent`, function() {
       component.isExternal = true;
       fixture.detectChanges();
       emailLink = fixture.debugElement.query(By.css('.c-link')).nativeElement;
-      expect(emailLink.classList).toContain('qa-link-external');
+      expect(emailLink.classList).toContain('c-link--external');
 
       component.destination = 'tel: 18003256789';
       fixture.detectChanges();
       link = fixture.debugElement.query(By.css('.c-link')).nativeElement;
-      expect(link.classList).toContain('qa-link-external');
+      expect(link.classList).toContain('c-link--external');
 
       const externalLink = fixture.debugElement.query(By.css('.ts-icon'));
       expect(externalLink).toBeFalsy();

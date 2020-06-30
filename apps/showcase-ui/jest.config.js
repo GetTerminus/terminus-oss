@@ -1,5 +1,5 @@
 module.exports = {
-  extends: '../../jest.config.js',
+  preset: '../../jest.config.js',
   coverageDirectory: '../../coverage/apps/showcase-ui',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
