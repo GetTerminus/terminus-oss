@@ -8,7 +8,6 @@ import { TsLinkComponent } from './link/link.component';
 
 export * from './link/link.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
