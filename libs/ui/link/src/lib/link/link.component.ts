@@ -9,7 +9,7 @@ import { isString } from '@terminus/ngx-tools/type-guards';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 /**
- * This is the link UI Component
+ * Standard link component
  *
  * @example
  * <ts-link
