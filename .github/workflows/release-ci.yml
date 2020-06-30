@@ -235,17 +235,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Tag latest release as successful"
-        run: |
-          echo "Fetch all tags.."
-          git fetch -p origin
-          echo "Delete local tag.."
-          git tag -d last-successful-release
-          echo "Delete remote tag.."
-          git push --delete origin last-successful-release || true
-          echo "Creating new release tag.."
-          git tag -a last-successful-release -m "CI: Tagged as last successful release"
-          echo "Push new tag.."
-          git push origin last-successful-release
+        run: tools/ci/update-release-tag.sh
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Generate & Upload documentation"
