@@ -237,10 +237,11 @@ jobs:
       - name: "Tag latest release as successful"
         run: |
           echo "Deleting last release tag from local and remote.."
-          git tag -d master-last-successful-release || true
-          git push --delete origin master-last-successful-release || true
+          git fetch -p origin
+          git push --delete origin last-successful-release || true
           echo "Creating new latest release tag.."
-          git tag -a master-last-successful-release -m "CI: Tagged as last successful release"
+          git tag -a last-successful-release -m "CI: Tagged as last successful release"
+          git push origin last-successful-release
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Generate & Upload documentation"
