@@ -21,6 +21,7 @@ import { TsLoadingOverlayComponent } from './overlay/loading-overlay.component';
 
 /**
  * The tsLoadingOverlay UI Directive.
+ *
  * Provides a spinner overlay to demonstrate loading for async data.
  *
  * @example
@@ -101,6 +102,7 @@ export class TsLoadingOverlayDirective implements OnInit, OnDestroy {
     }
   }
 
+  // noinspection JSMethodCanBeStatic
   /**
    * Return the correct position
    *
@@ -110,5 +112,4 @@ export class TsLoadingOverlayDirective implements OnInit, OnDestroy {
   private determinePosition(position: string): string {
     return (position === 'relative' || position === 'absolute') ? position : 'relative';
   }
-
 }
