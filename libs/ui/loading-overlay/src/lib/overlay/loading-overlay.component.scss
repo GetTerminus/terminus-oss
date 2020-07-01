@@ -1,10 +1,13 @@
 @import '~@terminus/ui-styles/helpers';
 
+:host {
+  --loading-overlay-backgroundColor: var(--ts-color-base-white);
+  --loading-overlay-backgroundColor-opaque: transparentize(var(--ts-color-base-white), .2);
+  --loading-overlay-offset: 187;
+  --loading-overlay-duration: 1.4s;
+  --loading-overlay-stroke-color: var(--ts-color-primary-500);
+}
 
-$overlay-color: color(pure);
-$overlay-color-opaque: transparentize($overlay-color, .2);
-$offset: 187;
-$duration: 1.4s;
 
 @keyframes rotator {
   0% {
@@ -18,16 +21,16 @@ $duration: 1.4s;
 
 @keyframes dash {
   0% {
-    stroke-dashoffset: $offset;
+    stroke-dashoffset: var(--loading-overlay-offset);
   }
 
   50% {
-    stroke-dashoffset: $offset / 4;
+    stroke-dashoffset: var(--loading-overlay-offset) / 4;
     transform: rotate(135deg);
   }
 
   100% {
-    stroke-dashoffset: $offset;
+    stroke-dashoffset: var(--loading-overlay-offset);
     transform: rotate(450deg);
   }
 }
@@ -44,7 +47,7 @@ $duration: 1.4s;
   .c-loading-overlay {
     align-content: center;
     align-items: center;
-    background-color: $overlay-color-opaque;
+    background-color: var(--loading-overlay-backgroundColor-opaque);
     bottom: 0;
     display: flex;
     justify-content: center;
@@ -64,13 +67,13 @@ $duration: 1.4s;
   }
 
   &__spinner {
-    animation: rotator $duration linear infinite;
+    animation: rotator var(--loading-overlay-duration) linear infinite;
   }
 
   .path {
-    animation: dash $duration ease-in-out infinite;
-    stroke: color(primary);
-    stroke-dasharray: $offset;
+    animation: dash var(--loading-overlay-duration) ease-in-out infinite;
+    stroke: var(--loading-overlay-stroke-color);
+    stroke-dasharray: var(--loading-overlay-offset);
     stroke-dashoffset: 0;
     transform-origin: center;
   }
