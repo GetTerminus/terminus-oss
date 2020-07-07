@@ -3,9 +3,7 @@ const SEVERITY = 'error';
 const DISABLED = 'off';
 
 module.exports = {
-  extends: [
-    'plugin:import/typescript',
-  ],
+  extends: ['plugin:import/typescript'],
 
   // Enable specific environments/globals
   env: {
@@ -624,9 +622,7 @@ module.exports = {
   overrides: [
     // TypeScript and Angular specific rules
     {
-      files: [
-        '*.ts',
-      ],
+      files: ['*.ts'],
       plugins: [
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/ROADMAP.md
         '@typescript-eslint',
@@ -642,9 +638,7 @@ module.exports = {
       },
       settings: {
         'import/parsers': {
-          '@typescript-eslint/parser': [
-            '.ts',
-          ],
+          '@typescript-eslint/parser': ['.ts'],
         },
         'import/resolver': {
           'node': true,
@@ -837,9 +831,7 @@ module.exports = {
         '@typescript-eslint/no-magic-numbers': DISABLED,
         'no-multiple-empty-lines': [
           SEVERITY,
-          {
-            max: 1,
-          },
+          { max: 1 },
         ],
         'no-underscore-dangle': DISABLED,
         'padded-blocks': [
@@ -851,13 +843,9 @@ module.exports = {
 
     // HTML files
     {
-      files: [
-        '**/*.component.html',
-      ],
+      files: ['**/*.component.html'],
       parser: '@angular-eslint/template-parser',
-      plugins: [
-        '@angular-eslint/template',
-      ],
+      plugins: ['@angular-eslint/template'],
     },
   ],
 };
