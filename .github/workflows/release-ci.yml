@@ -165,20 +165,22 @@ jobs:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
         if: env.SHOULD_RUN == 'true'
-      - name: "Cache deps"
-        id: cache_deps
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-deps
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-${{ env.cache-name }}-
-            ${{ runner.os }}-yarn-
-            ${{ runner.os }}-
-        if: env.SHOULD_RUN == 'true'
+# NOTE: Commented out due to issue with NX. I can verify NX is installed, but we get an 'NX not found' message.
+# This only happens in the release action - not the PR action. And only happens in this last step.
+#      - name: "Cache deps"
+#        id: cache_deps
+#        uses: actions/cache@v2
+#        env:
+#          cache-name: cache-deps
+#        with:
+#          path: |
+#            **/node_modules
+#          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+#          restore-keys: |
+#            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+#            ${{ runner.os }}-yarn-
+#            ${{ runner.os }}-
+#        if: env.SHOULD_RUN == 'true'
       - if: env.SHOULD_RUN == 'true' && steps.cache_deps.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
         working-directory: ${{ env.working-directory }}
@@ -186,18 +188,6 @@ jobs:
         run: tools/ci/set-nx-base.sh
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
-
-      - name: "TEMP check for nx"
-        run: |
-          yarn why @nrwl/cli
-          npx nx
-        working-directory: ${{ env.working-directory }}
-        if: env.SHOULD_RUN == 'true'
-      - name: "TEMP Reinstall NX"
-        run: yarn add @nrwl/cli
-        working-directory: ${{ env.working-directory }}
-        if: env.SHOULD_RUN == 'true'
-
       - name: "List affected LIBS"
         run: yarn run affected:libs --base=${{ env.NX_BASE }} --head=origin/release
         working-directory: ${{ env.working-directory }}
