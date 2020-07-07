@@ -23,9 +23,11 @@ The monorepo that contains all Terminus open-source libraries and tools.
 
 |                      Package                      |                        Description                        |               Demo               |               Docs               |                  Legacy Code                  |                 Coverage                 |                            Version                            |
 |---------------------------------------------------|-----------------------------------------------------------|----------------------------------|----------------------------------|-----------------------------------------------|------------------------------------------|---------------------------------------------------------------|
+| [design-tokens][src-tokens]                       | Terminus design tokens in CSS/SCSS/JS/JSON form           | [Demo][demo-tokens]              |                                  | [Legacy Code][legacy-src-tokens]              |                                          | ![Design Tokens latest][badge-latest-tokens]                  |
+| [eslint-config-frontend][src-eslint-config]       | ESLint configuration for front-end repos                  |                                  | [Docs][docs-eslint-config]       | [Legacy Code][legacy-src-eslint-config]       |                                          | ![ESLint config latest][badge-latest-eslint-config]           |
 | [ui-autocomplete][src-autocomplete]               | Deprecated. See `selection-list`                          | [Demo][demo-autocomplete]        | [Docs][docs-autocomplete]        | [Legacy Code][legacy-src-autocomplete]        | ![codecov][cov-badge-autocomplete]       | ![Autocomplete latest][badge-latest-autocomplete]             |
 | [ui-autofocus][src-autofocus]                     | Focus a focusable element on load                         | [Demo][demo-autofocus]           | [Docs][docs-autofocus]           | [Legacy Code][legacy-src-autofocus]           | ![codecov][cov-badge-autofocus]          | ![autofocus latest][badge-latest-autofocus]                   |
-| badge                                             | See `chip`                                                | [Demo][demo-chip]                |                                  | [Legacy Code][legacy-src-chip]                |                                          |                                                               |
+| ui-badge                                          | See `chip`                                                | [Demo][demo-chip]                |                                  | [Legacy Code][legacy-src-chip]                |                                          |                                                               |
 | [ui-button][src-button]                           |                                                           | [Demo][demo-button]              | [Docs][docs-button]              | [Legacy Code][legacy-src-button]              | ![codecov][cov-badge-button]             | ![button latest][badge-latest-button]                         |
 | [ui-card][src-card]                               | Presentational card                                       | [Demo][demo-card]                | [Docs][docs-card]                | [Legacy Code][legacy-src-card]                | ![codecov][cov-badge-card]               | ![card latest][badge-latest-card]                             |
 | [ui-chart][src-chart]                             | Charts, graphs etc                                        | [Demo][demo-chart]               | [Docs][docs-chart]               | [Legacy Code][legacy-src-chart]               | ![codecov][cov-badge-chart]              | ![chart latest][badge-latest-chart]                           |
@@ -35,7 +37,7 @@ The monorepo that contains all Terminus open-source libraries and tools.
 | [ui-confirmation][src-confirmation]               | Add a confirmation step to any `ts-button`                | [Demo][demo-confirmation]        | [Docs][docs-confirmation]        | [Legacy Code][legacy-src-confirmation]        | ![codecov][cov-badge-confirmation]       | ![confirmation latest][badge-latest-confirmation]             |
 | [ui-copy][src-copy]                               | Component to easily copy string values                    | [Demo][demo-copy]                | [Docs][docs-copy]                | [Legacy Code][legacy-src-copy]                | ![codecov][cov-badge-copy]               | ![copy latest][badge-latest-copy]                             |
 | [ui-csv-entry][src-csv-entry]                     | Manually enter CSV values                                 | [Demo][demo-csv-entry]           | [Docs][docs-csv-entry]           | [Legacy Code][legacy-src-csv-entry]           | ![codecov][cov-badge-csvEntry]           | ![csvEntry latest][badge-latest-csvEntry]                     |
-| datepicker                                        | See [`TsInputComponent`][src-input]                       | [Demo][demo-input]               | [Docs][docs-input]               |                                               |                                          |                                                               |
+| ui-datepicker                                     | See [`TsInputComponent`][src-input]                       | [Demo][demo-input]               | [Docs][docs-input]               |                                               |                                          |                                                               |
 | [ui-date-range][src-date-range]                   | Dual inputs with calendar pop-ups                         | [Demo][demo-date-range]          | [Docs][docs-date-range]          | [Legacy Code][legacy-src-date-range]          | ![codecov][cov-badge-dateRange]          | ![dateRange latest][badge-latest-dateRange]                   |
 | [ui-drawer][src-drawer]                           | Slide-out drawer panel                                    | [Demo][demo-drawer]              | [Docs][docs-drawer]              | [Legacy Code][legacy-src-drawer]              | ![codecov][cov-badge-drawer]             | ![drawer latest][badge-latest-drawer]                         |
 | [ui-expansion-panel][src-expansion-panel]         | Expansion panel with accordion & stepper functionality    | [Demo][demo-expansion-panel]     | [Docs][docs-expansion-panel]     | [Legacy Code][legacy-src-expansion-panel]     | ![codecov][cov-badge-expansionPanel]     | ![expansionPanel latest][badge-latest-expansionPanel]         |
@@ -62,7 +64,7 @@ The monorepo that contains all Terminus open-source libraries and tools.
 | [ui-styles][src-styles]                           | A collection of base CSS, SCSS mixins and functions.      |                                  | [Docs][docs-styles]              |                                               |                                          | ![styles latest][badge-latest-styles]                         |
 | [ui-table][src-table]                             | Datatable w/pinning, sorting, resizing                    | [Demo][demo-table]               | [Docs][docs-table]               | [Legacy Code][legacy-src-table]               | ![codecov][cov-badge-table]              | ![table latest][badge-latest-table]                           |
 | [ui-tabs][src-tabs]                               | Horizontal tab interface                                  | [Demo][demo-tabs]                | [Docs][docs-tabs]                | [Legacy Code][legacy-src-tabs]                | ![codecov][cov-badge-tabs]               | ![tabs latest][badge-latest-tabs]                             |
-| textarea                                          | See `input`                                               | <small>(see input demo)</small>  |                                  |                                               |                                          |                                                               |
+| ui-textarea                                       | See `input`                                               | <small>(see input demo)</small>  |                                  |                                               |                                          |                                                               |
 | [ui-toggle][src-toggle]                           | Toggle switch                                             | [Demo][demo-toggle]              | [Docs][docs-toggle]              | [Legacy Code][legacy-src-toggle]              | ![codecov][cov-badge-toggle]             | ![toggle latest][badge-latest-toggle]                         |
 | [ui-tooltip][src-tooltip]                         | Simple tooltip                                            | [Demo][demo-tooltip]             | [Docs][docs-tooltip]             | [Legacy Code][legacy-src-tooltip]             | ![codecov][cov-badge-tooltip]            | ![tooltip latest][badge-latest-tooltip]                       |
 | [ui-validation-messages][src-validation-messages] | A component to display form validation errors             | [Demo][demo-validation-messages] | [Docs][docs-validation-messages] | [Legacy Code][legacy-src-validation-messages] | ![codecov][cov-badge-validationMessages] | ![validationMessages latest][badge-latest-validationMessages] |
@@ -75,7 +77,7 @@ The monorepo that contains all Terminus open-source libraries and tools.
 
 ### Live Demos
 
-[https://getterminus.github.io/ui-demos-release/components](https://getterminus.github.io/ui-demos-release/components)
+See the 'demos' column in the [table above](#packages).
 
 ### Generated Documentation
 
@@ -125,6 +127,8 @@ The monorepo that contains all Terminus open-source libraries and tools.
 [url-showcase-tokens]:    https://getterminus.github.io/design-tokens/color
 
 <!-- Source Directories -->
+[src-tokens]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/design-tokens/
+[src-eslint-config]:       https://github.com/GetTerminus/terminus-oss/blob/release/libs/eslint-config-frontend/
 [src-autocomplete]:        https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/autocomplete/
 [src-autofocus]:           https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/autofocus/
 [src-button]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/button/
@@ -170,6 +174,8 @@ The monorepo that contains all Terminus open-source libraries and tools.
 [src-showcase-tokens]:     https://github.com/GetTerminus/terminus-oss/blob/release/apps/showcase-tokens/
 
 <!-- Legacy source code -->
+[legacy-src-tokens]:              https://github.com/GetTerminus/design-tokens
+[legacy-src-eslint-config]:       https://github.com/GetTerminus/eslint-config-frontend
 [legacy-src-autocomplete]:        https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/autocomplete/
 [legacy-src-autofocus]:           https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/autofocus/
 [legacy-src-button]:              https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/button/
@@ -213,6 +219,7 @@ The monorepo that contains all Terminus open-source libraries and tools.
 
 <!-- TODO: Verify links are still correct after the move -->
 <!-- Demos -->
+[demo-tokens]:              https://getterminus.github.io/design-tokens
 [demo-autocomplete]:        https://getterminus.github.io/ui-demos-release/components/autocomplete
 [demo-autofocus]:           https://getterminus.github.io/ui-demos-release/components/autofocus
 [demo-button]:              https://getterminus.github.io/ui-demos-release/components/button
@@ -256,6 +263,7 @@ The monorepo that contains all Terminus open-source libraries and tools.
 
 <!-- TODO: Verify links are still correct after the move -->
 <!-- TS Primary Docs -->
+[docs-eslint-config]:       https://github.com/GetTerminus/terminus-oss/blob/release/libs/eslint-config-frontend/README.md
 [docs-autocomplete]:        http://uilibrary-docs.terminus.ninja/release/components/TsAutocompleteComponent.html
 [docs-autofocus]:           http://uilibrary-docs.terminus.ninja/release/directives/TsAutofocusDirective.html
 [docs-button]:              http://uilibrary-docs.terminus.ninja/release/components/TsButtonComponent.html
@@ -341,6 +349,8 @@ The monorepo that contains all Terminus open-source libraries and tools.
 [cov-badge-validators]:         https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=validators
 
 <!-- Version Badges -->
+[badge-latest-tokens]: https://img.shields.io/npm/v/@terminus/design-tokens/latest?color=%2345aaf2
+[badge-latest-eslint-config]: https://img.shields.io/npm/v/@terminus/eslint-config-frontend/latest?color=%2345aaf2
 [badge-latest-autocomplete]: https://img.shields.io/npm/v/@terminus/ui-autocomplete/latest?color=%2345aaf2
 [badge-latest-autofocus]: https://img.shields.io/npm/v/@terminus/ui-autofocus/latest?color=%2345aaf2
 [badge-latest-button]: https://img.shields.io/npm/v/@terminus/ui-button/latest?color=%2345aaf2
