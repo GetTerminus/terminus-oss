@@ -25,9 +25,7 @@
               "apps/showcase-tokens/src/favicon.ico",
               "apps/showcase-tokens/src/assets"
             ],
-            "styles": [
-              "apps/showcase-tokens/src/styles.scss"
-            ],
+            "styles": ["apps/showcase-tokens/src/styles.scss"],
             "scripts": [],
             "baseHref": "/design-tokens/"
           },
@@ -72,7 +70,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'apps/showcase-tokens/**/*.{js,ts}'" }
+              {
+                "command": "yarn run lint:ts 'apps/showcase-tokens/**/*.{js,ts}'"
+              }
             ]
           }
         },
@@ -120,7 +120,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'apps/showcase-tokens-e2e/**/*.{js,ts}'" }
+              {
+                "command": "yarn run lint:ts 'apps/showcase-tokens-e2e/**/*.{js,ts}'"
+              }
             ]
           }
         }
@@ -150,9 +152,7 @@
               "apps/showcase-ui/src/favicon.ico",
               "apps/showcase-ui/src/assets"
             ],
-            "styles": [
-              "apps/showcase-ui/src/styles.scss"
-            ],
+            "styles": ["apps/showcase-ui/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -196,7 +196,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "npx eslint 'apps/showcase-ui/**/*.{js,ts}'" }
+              {
+                "command": "npx eslint 'apps/showcase-ui/**/*.{js,ts}'"
+              }
             ]
           }
         },
@@ -212,7 +214,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "tools/ci/demos-deploy.sh" }
+              {
+                "command": "tools/ci/demos-deploy.sh"
+              }
             ]
           }
         }
@@ -240,7 +244,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'apps/showcase-ui-e2e/**/*.{js,ts}'" }
+              {
+                "command": "yarn run lint:ts 'apps/showcase-ui-e2e/**/*.{js,ts}'"
+              }
             ]
           }
         }
@@ -266,13 +272,8 @@
             "polyfills": "apps/vr/src/polyfills.ts",
             "tsConfig": "apps/vr/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/vr/src/favicon.ico",
-              "apps/vr/src/assets"
-            ],
-            "styles": [
-              "apps/vr/src/styles.scss"
-            ],
+            "assets": ["apps/vr/src/favicon.ico", "apps/vr/src/assets"],
+            "styles": ["apps/vr/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -315,7 +316,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'apps/vr/**/*.{js,ts}'" }
+              {
+                "command": "yarn run lint:ts 'apps/vr/**/*.{js,ts}'"
+              }
             ]
           }
         },
@@ -352,7 +355,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'apps/vr-e2e/**/*.{js,ts}'" }
+              {
+                "command": "yarn run lint:ts 'apps/vr-e2e/**/*.{js,ts}'"
+              }
             ]
           }
         }
@@ -368,7 +373,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/design-tokens/**/*.{js,ts}'" }
+              {
+                "command": "yarn run lint:ts 'libs/design-tokens/**/*.{js,ts}'"
+              }
             ]
           }
         },
@@ -384,8 +391,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "git pull && git fetch --tags" },
-              { "command": "(cd libs/design-tokens && yarn run semantic-release)" }
+              {
+                "command": "git pull && git fetch --tags"
+              },
+              {
+                "command": "(cd libs/design-tokens && yarn run semantic-release)"
+              }
             ]
           }
         },
@@ -423,8 +434,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/autocomplete/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/autocomplete/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/autocomplete/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/autocomplete/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -441,7 +456,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/autocomplete && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/autocomplete && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -474,7 +491,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/autofocus/**/*.{js,ts}'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/autofocus/**/*.{js,ts}'"
+              }
             ]
           }
         },
@@ -491,7 +510,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/autofocus && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/autofocus && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -524,8 +545,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/button/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/button/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/button/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/button/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -542,7 +567,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/button && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/button && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -575,8 +602,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/checkbox/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/checkbox/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/checkbox/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/checkbox/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -593,7 +624,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/checkbox && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/checkbox && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -626,8 +659,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/card/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/card/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/card/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/card/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -644,7 +681,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/card && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/card && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -677,8 +716,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/chart/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/chart/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/chart/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/chart/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -695,7 +738,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/chart && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/chart && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -728,8 +773,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/chip/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/chip/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/chip/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/chip/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -746,7 +795,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/chip && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/chip && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -779,8 +830,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/cohort-date-range/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/cohort-date-range/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/cohort-date-range/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/cohort-date-range/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -797,7 +852,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/cohort-date-range && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/cohort-date-range && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -830,8 +887,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/confirmation/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/confirmation/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/confirmation/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/confirmation/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -848,7 +909,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/confirmation && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/confirmation && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -881,8 +944,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/copy/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/copy/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/copy/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/copy/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -899,7 +966,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/copy && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/copy && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -932,8 +1001,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/csv-entry/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/csv-entry/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/csv-entry/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/csv-entry/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -950,7 +1023,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/csv-entry && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/csv-entry && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -983,8 +1058,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/date-range/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/date-range/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/date-range/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/date-range/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1001,7 +1080,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/date-range && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/date-range && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1034,8 +1115,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/drawer/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/drawer/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/drawer/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/drawer/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1052,7 +1137,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/drawer && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/drawer && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1085,8 +1172,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/expansion-panel/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/expansion-panel/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/expansion-panel/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/expansion-panel/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1103,7 +1194,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/expansion-panel && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/expansion-panel && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1136,8 +1229,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/file-upload/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/file-upload/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/file-upload/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/file-upload/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1154,7 +1251,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/file-upload && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/file-upload && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1187,8 +1286,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/form-field/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/form-field/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/form-field/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/form-field/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1205,7 +1308,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/form-field && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/form-field && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1238,8 +1343,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/icon/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/icon/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/icon/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/icon/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1256,7 +1365,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/icon && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/icon && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1289,8 +1400,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/icon-button/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/icon-button/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/icon-button/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/icon-button/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1307,7 +1422,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/icon-button && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/icon-button && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1340,8 +1457,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/input/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/input/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/input/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/input/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1358,7 +1479,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/input && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/input && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1391,8 +1514,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/link/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/link/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/link/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/link/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1409,7 +1536,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/link && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/link && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1442,8 +1571,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/loading-overlay/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/loading-overlay/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/loading-overlay/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/loading-overlay/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1460,7 +1593,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/loading-overlay && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/loading-overlay && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1493,8 +1628,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/login-form/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/login-form/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/login-form/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/login-form/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1511,7 +1650,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/login-form && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/login-form && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1544,8 +1685,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/logo/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/logo/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/logo/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/logo/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1562,7 +1707,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/logo && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/logo && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1595,8 +1742,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/menu/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/menu/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/menu/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/menu/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1613,7 +1764,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/menu && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/menu && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1646,8 +1799,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/navigation/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/navigation/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/navigation/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/navigation/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1664,7 +1821,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/navigation && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/navigation && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1697,8 +1856,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/option/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/option/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/option/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/option/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1715,7 +1878,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/option && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/option && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1748,8 +1913,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/paginator/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/paginator/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/paginator/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/paginator/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1766,7 +1935,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/paginator && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/paginator && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1799,7 +1970,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/pipes/**/*.{js,ts}'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/pipes/**/*.{js,ts}'"
+              }
             ]
           }
         },
@@ -1816,7 +1989,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/pipes && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/pipes && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1849,8 +2024,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/popover/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/popover/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/popover/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/popover/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1867,7 +2046,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/popover && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/popover && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1900,8 +2081,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/radio-group/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/radio-group/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/radio-group/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/radio-group/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1918,7 +2103,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/radio-group && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/radio-group && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -1951,8 +2138,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/scrollbars/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/scrollbars/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/scrollbars/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/scrollbars/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -1969,7 +2160,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/scrollbars && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/scrollbars && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -2002,8 +2195,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/search/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/search/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/search/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/search/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -2020,7 +2217,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/search && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/search && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -2053,8 +2252,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/select/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/select/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/select/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/select/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -2071,7 +2274,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/select && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/select && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -2104,8 +2309,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/selection-list/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/selection-list/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/selection-list/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/selection-list/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -2122,7 +2331,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/selection-list && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/selection-list && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -2155,8 +2366,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/sort/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/sort/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/sort/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/sort/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -2173,7 +2388,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/sort && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/sort && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -2206,7 +2423,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/spacing/**/*.{js,ts}'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/spacing/**/*.{js,ts}'"
+              }
             ]
           }
         },
@@ -2223,7 +2442,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/spacing && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/spacing && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -2262,7 +2483,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:scss 'libs/ui/styles/**/!(helper*).scss'" }
+              {
+                "command": "yarn run lint:scss 'libs/ui/styles/**/!(helper*).scss'"
+              }
             ]
           }
         },
@@ -2279,7 +2502,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/styles && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/styles && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -2312,8 +2537,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/table/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/table/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/table/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/table/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -2330,7 +2559,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/table && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/table && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -2363,8 +2594,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/tabs/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/tabs/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/tabs/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/tabs/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -2381,7 +2616,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/tabs && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/tabs && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -2414,8 +2651,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/toggle/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/toggle/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/toggle/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/toggle/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -2432,7 +2673,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/toggle && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/toggle && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -2465,8 +2708,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/tooltip/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/tooltip/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/tooltip/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/tooltip/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -2483,7 +2730,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/tooltip && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/tooltip && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -2516,7 +2765,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/utilities/**/*.{js,ts}'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/utilities/**/*.{js,ts}'"
+              }
             ]
           }
         },
@@ -2533,7 +2784,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/utilities && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/utilities && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -2566,8 +2819,12 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/validation-messages/**/*.{js,ts}'" },
-              { "command": "yarn run lint:scss 'libs/ui/validation-messages/**/!(*.spec).scss'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/validation-messages/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/validation-messages/**/!(*.spec).scss'"
+              }
             ]
           }
         },
@@ -2584,7 +2841,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "(cd libs/ui/validation-messages && yarn run semantic-release)" }
+              {
+                "command": "(cd libs/ui/validation-messages && yarn run semantic-release)"
+              }
             ]
           }
         }
@@ -2617,7 +2876,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn run lint:ts 'libs/ui/validators/**/*.{js,ts}'" }
+              {
+                "command": "yarn run lint:ts 'libs/ui/validators/**/*.{js,ts}'"
+              }
             ]
           }
         },
@@ -2634,7 +2895,9 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              { "command": "yarn --cwd libs/ui/validation-messages run semantic-release" }
+              {
+                "command": "yarn --cwd libs/ui/validation-messages run semantic-release"
+              }
             ]
           }
         }
@@ -2642,6 +2905,42 @@
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
+        }
+      }
+    },
+    "eslint-config-frontend": {
+      "root": "libs/eslint-config-frontend",
+      "sourceRoot": "libs/eslint-config-frontend/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run lint:ts 'libs/eslint-config-frontend/**/*.{js,ts}'"
+              }
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/eslint-config-frontend/jest.config.js",
+            "tsConfig": "libs/eslint-config-frontend/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "(cd libs/eslint-config-frontend && yarn run semantic-release)"
+              }
+            ]
+          }
         }
       }
     }

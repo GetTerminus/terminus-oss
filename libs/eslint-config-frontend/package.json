@@ -1,0 +1,10 @@
+{
+  "name": "@terminus/eslint-config-frontend",
+  "description": "Terminus shared ESLint configuration",
+  "version": "2.0.3",
+  "main": "rules.js",
+  "files": [
+    "rules.js",
+    "README.md"
+  ]
+}
