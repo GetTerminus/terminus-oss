@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-loading-overlay@1.0.7...@terminus/ui-loading-overlay@1.0.8) (2020-07-07)
+
+
+### Bug Fixes
+
+* **LoadingOverlay:** convert to use css properties ([04bb478](https://github.com/GetTerminus/terminus-oss/commit/04bb478a5b4b1a19c9ce75cba627414d6c85931c)), closes [#114](https://github.com/GetTerminus/terminus-oss/issues/114)
+
+
+
+
+
 ## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-loading-overlay@1.0.6...@terminus/ui-loading-overlay@1.0.7) (2020-07-07)
 
 **Note:** Version bump only for package @terminus/ui-loading-overlay
