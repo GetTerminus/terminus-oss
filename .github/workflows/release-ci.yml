@@ -186,6 +186,14 @@ jobs:
         run: tools/ci/set-nx-base.sh
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
+      - name: "TEMP check for nx"
+        run: yarn why @nrwl/workspace
+        working-directory: ${{ env.working-directory }}
+        if: env.SHOULD_RUN == 'true'
+      - name: "Verify NX installed"
+        run: yarn global add @nrwl/cli
+        working-directory: ${{ env.working-directory }}
+        if: env.SHOULD_RUN == 'true'
       - name: "List affected LIBS"
         run: yarn run affected:libs --base=${{ env.NX_BASE }} --head=origin/release
         working-directory: ${{ env.working-directory }}
