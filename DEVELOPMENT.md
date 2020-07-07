@@ -54,8 +54,8 @@ $ nx affected:test
 $ nx affected:test --parallel --maxParallel=5
 $ nx affected:test --only-failed
 $ nx affected:test --all
-$ nx affected:test --base=master --head=HEAD
-$ nx affected:test --base=master~1 --head=master
+$ nx affected:test --base=release --head=HEAD
+$ nx affected:test --base=release~1 --head=release
 
 # Generate code coverage:
 $ nx test my-project --codeCoverage
@@ -121,7 +121,7 @@ See the [official NX docs][nx-angular-docs] for more information.
 
 ### Branching
 
-Note: Our base branch, `master`, is **always deployable**.
+Note: Our base branch, `release`, is **always deployable**.
 
 #### Naming
 
@@ -143,9 +143,9 @@ Note: Our base branch, `master`, is **always deployable**.
 
 ##### Beginning a feature
 
-1. Checkout `master`
-1. Pull `master`
-1. Create a feature branch from `master` (see [branch naming](#naming))
+1. Checkout `release`
+2. Pull `release`
+3. Create a feature branch from `release` (see [branch naming](#naming))
 
 ##### Working on a feature
 
@@ -158,13 +158,13 @@ Note: Our base branch, `master`, is **always deployable**.
 
 ##### Finish a feature
 
-1. If there are conflicts, merge `master` into the feature branch
+1. If there are conflicts, merge `release` into the feature branch
     - Only do this if there are conflicts
     - See [Pull Requests](#pull-requests) for more information
 1. Verify **all** [linters](#linting) run successfully
 1. Verify all [tests](#testing) are passing **and** code coverage did not decrease (bonus points if
    it increases)
-1. If you haven't yet, create a pull request from the feature branch into `master`
+4. If you haven't yet, create a pull request from the feature branch into `release`
 1. Add as much [information into the pull request body](#pull-requests) as possible
 1. Request a review
 
@@ -176,9 +176,9 @@ Hotfixes follow the same strategy as features.
 
 ### Committing
 
-When code gets merged to `master`, many of our projects are automatically versioned and released. In
-order to give our tooling the information it needs, we write our commit messages in a specific
-format. This has the added benefit of improving the readability of our commit history.
+When code gets merged to `release`, many of our projects are automatically versioned and released. In order to give our
+tooling the information it needs, we write our commit messages in a specific format. This has the added benefit of
+improving the readability of our commit history.
 
 ```
 # The format:
@@ -247,7 +247,7 @@ Look at the scripts section in the project's `package.json` for the command to r
 
 ### Pull Requests
 
-When it is time merge a branch into `master`, create a pull request from the feature into `master`.
+When it is time merge a branch into `release`, create a pull request from the feature into `release`.
 
 1. At the top of the pull request, link to the original issue.
     - If the [ZenHub][zenhub] extension is installed in your browser, you can attach an issue to the
@@ -260,11 +260,10 @@ When it is time merge a branch into `master`, create a pull request from the fea
    while the work is in progress. Include `WIP: ` at the beginning of the pull request title, add
    the `DO NOT MERGE` label so that it is not accidentally merged and `cc/ @mention` anyone that
    should take a look.
-1. There are two options to check for merge conflicts between your branch and master:
-    - Create a pull request against master. (Note: This will cause any associated CI service to
-      begin building the feature branch on every push)
-    - Use GitHub's compare view:
-    `https://github.com/GetTerminus/terminus-oss/compare/your-branch-name...master`
+6. There are two options to check for merge conflicts between your branch and release:
+   -  Create a pull request against release. (Note: This will cause any associated CI service to begin building the feature
+      branch on every push)
+   -  Use GitHub's compare view: `https://github.com/GetTerminus/terminus-oss/compare/your-branch-name...release`
 1. The pull request body, just like the issue body, is the **single source of truth**. Any
    discussions, decisions or relevant information should be added to the pull request body
    immediately.
@@ -272,10 +271,10 @@ When it is time merge a branch into `master`, create a pull request from the fea
 
 ### Releasing
 
-Releases are handled automatically when code is merged to `master`. Never merge code to `master` that is not ready for
+Releases are handled automatically when code is merged to `release`. Never merge code to `release` that is not ready for
 consumers!
 
-1. [Semantic Release][semantic-release] looks at all commits since the last tag on `master`.
+1. [Semantic Release][semantic-release] looks at all commits since the last tag on `release`.
 2. Based on those commits it will [bump the version number appropriately][semver].
 3. The package changelog is generated on [Github][oss-github].
 4. The new version is published to [NPM][ui-npm] under the `next` tag.
@@ -394,7 +393,7 @@ the table of contents.
 
 ## Releases
 
-Any code merged to the `master` branch gets published under the `next` tag:
+Any code merged to the `release` branch gets published under the `next` tag:
 
 ```bash
 $ yarn add @terminus/ui@next
@@ -512,7 +511,7 @@ public foo;
 1. Do not close an issue until it is fully complete, which means code has been merged, tested, all
    issue trackers are updated, and any documentation is written and merged.
 1. When closing an issue, leave a comment explaining why you are closing the issue.
-1. If you notice that the tests for the `master` branch of any project are failing (red) or broken
+1. If you notice that the tests for the `release` branch of any project are failing (red) or broken
    (green as a false positive), fixing this takes priority over everything else development related,
    since everything we do while test are broken may break functionality, or introduce new bugs and
    security issues. If the problem cannot be fixed by you within a few hours, because if it is too
@@ -532,13 +531,13 @@ public foo;
 [oss-github]: https://github.com/GetTerminus/terminus-oss
 [semver]: http://semver.org/
 [unpkg]: https://unpkg.com/  
-[pkg-json]: https://github.com/GetTerminus/terminus-oss/blob/master/package.json
+[pkg-json]: https://github.com/GetTerminus/terminus-oss/blob/release/package.json
 [jest]: https://facebook.github.io/jest/
 [zenhub]: https://www.zenhub.com/
 [eslint-config]: https://github.com/GetTerminus/eslint-config-frontend
 [tslint-config]: https://github.com/GetTerminus/tslint-config-frontend
 [stylelint-config]: https://github.com/GetTerminus/stylelint-config-frontend
 [nx-angular-docs]: https://nx.dev/react/plugins/angular/schematics/library
-[packages-table]: https://github.com/GetTerminus/terminus-oss/blob/master/README.md#packages
+[packages-table]: https://github.com/GetTerminus/terminus-oss/blob/release/README.md#packages
 [all-contrib-bot]: https://allcontributors.org/docs/en/bot/usage
 [nx-cloud]: https://nx.app/

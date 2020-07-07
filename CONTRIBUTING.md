@@ -1,6 +1,6 @@
 <!--
   Many thanks to the Material team as much of this was lifted from the Material contribution doc:
-  https://github.com/angular/material2/blob/master/CONTRIBUTING.md
+  https://github.com/angular/material2/blob/release/CONTRIBUTING.md
 -->
 
 <h1> Contributing to Terminus/UI</h1>
@@ -32,16 +32,16 @@ Help us keep Terminus open and inclusive. Please read and follow our [Code of Co
 ## Question or Problem?
 
 If you find a bug in the source code or a mistake in the documentation, you can help us by
-[submitting an issue](#submit-issue) to our [GitHub repository][github]. Including an issue
+[submitting an issue](#submitting-an-issue) to our [GitHub repository][github]. Including an issue
 -reproduction (via our [starter app][starter-app]) is the absolute best way to help the team quickly diagnose the problem.
 Screenshots are also helpful.
 
-You can help the team even more and [submit a Pull Request](#submit-pr) with a fix! :pray:
+You can help the team even more and [submit a Pull Request](#submitting-a-pull-request-pr) with a fix! :pray:
 
 
 ## Want a Feature?
 
-You can *request* a new feature by [submitting an issue](#submit-issue) to our [GitHub
+You can *request* a new feature by [submitting an issue](#submitting-an-issue) to our [GitHub
 repository][github]. If you would like to *implement* a new feature, please submit an issue with a
 proposal for your work first, to be sure that we can use it.  Please consider what kind of change it
 is:
@@ -49,7 +49,7 @@ is:
 - For a **Major Feature**, first open an issue and outline your proposal so that it can be
   discussed. This will also allow us to better coordinate our efforts, prevent duplication of work,
   and help you to craft the change so that it is successfully accepted into the project.
-- **Small Features** can be crafted and directly [submitted as a Pull Request](#submit-pr).
+- **Small Features** can be crafted and directly [submitted as a Pull Request](#submitting-a-pull-request-pr).
 
 
 ## Submitting an Issue
@@ -93,13 +93,13 @@ Before you submit your Pull Request (PR) consider the following guidelines:
   feature branch to ensure clear, concise commits)
 - Push your branch to GitHub:
     - `git push my-fork 312-my-fix-branch`
-- In GitHub, send a pull request to `terminus-oss:master`.
+- In GitHub, send a pull request to `terminus-oss:release`.
 - If we suggest changes then:
   - Make the required updates.
   - Re-run all test suites to ensure tests are still passing.
   - Re-run all linters.
   - Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
-      1. `git rebase master -i`
+    1.   `git rebase release -i`
       1. `git push -f`
 
 That's it! Thank you for your contribution! :pray:
@@ -112,12 +112,12 @@ main (upstream) repository:
 
 - Delete the remote branch on GitHub either through the GitHub web UI or your local shell:
     - `git push my-fork --delete 312-my-fix-branch`
-- Check out the `master` branch:
-    - `git checkout master -f`
+- Check out the `release` branch:
+  -   `git checkout release -f`
 - Delete the local branch:
     - `git branch -D 312-my-fix-branch`
-- Update your `master` with the latest upstream version:
-    - `git pull --ff upstream master`
+- Update your `release` with the latest upstream version:
+  -   `git pull --ff upstream release`
 
 
 ### Coding Rules & Workflow
@@ -131,12 +131,11 @@ To ensure consistency throughout the source code, keep these rules in mind as yo
 
 
 
-[coc]: https://github.com/GetTerminus/terminus-oss/blob/master/CODE_OF_CONDUCT.md
+[coc]: https://github.com/GetTerminus/terminus-oss/blob/release/CODE_OF_CONDUCT.md
 [github]: https://github.com/GetTerminus/terminus-oss/
-[demo]: http://uilibrary-demo.terminus.ninja/master
 [issues]: https://github.com/GetTerminus/terminus-oss/issues
 [issues-create]: https://github.com/GetTerminus/terminus-oss/issues/new
 [pulls]: https://github.com/GetTerminus/terminus-oss/pulls
-[dev-docs]: https://github.com/GetTerminus/terminus-oss/blob/master/DEVELOPMENT.md
-[commit]: https://github.com/GetTerminus/terminus-oss/blob/master/DEVELOPMENT.md#committing
+[dev-docs]: https://github.com/GetTerminus/terminus-oss/blob/release/DEVELOPMENT.md
+[commit]: https://github.com/GetTerminus/terminus-oss/blob/release/DEVELOPMENT.md#committing
 [starter-app]: https://github.com/GetTerminus/ui-stackblitz-starter
