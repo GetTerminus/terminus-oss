@@ -10,16 +10,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2017", "dom"],
     "module": "esnext",
     "moduleResolution": "node",
     "paths": {
-      "@terminus/design-tokens": [
-        "dist/libs/design-tokens"
-      ],
+      "@terminus/design-tokens": ["dist/libs/design-tokens"],
       "@terminus/ui-autocomplete": [
         "dist/libs/ui/autocomplete",
         "libs/ui/autocomplete/src/index.ts"
@@ -40,10 +35,7 @@
         "dist/libs/ui/checkbox",
         "libs/ui/checkbox/src/index.ts"
       ],
-      "@terminus/ui-card": [
-        "dist/libs/ui/card",
-        "libs/ui/card/src/index.ts"
-      ],
+      "@terminus/ui-card": ["dist/libs/ui/card", "libs/ui/card/src/index.ts"],
       "@terminus/ui-chart": [
         "dist/libs/ui/chart",
         "libs/ui/chart/src/index.ts"
@@ -52,10 +44,7 @@
         "dist/libs/ui/chart/testing",
         "libs/ui/chart/testing/src/index.ts"
       ],
-      "@terminus/ui-chip": [
-        "dist/libs/ui/chip",
-        "libs/ui/chip/src/index.ts"
-      ],
+      "@terminus/ui-chip": ["dist/libs/ui/chip", "libs/ui/chip/src/index.ts"],
       "@terminus/ui-chip/testing": [
         "dist/libs/ui/chip/testing",
         "libs/ui/chip/testing/src/index.ts"
@@ -72,10 +61,7 @@
         "dist/libs/ui/confirmation",
         "libs/ui/confirmation/src/index.ts"
       ],
-      "@terminus/ui-copy": [
-        "dist/libs/ui/copy",
-        "libs/ui/copy/src/index.ts"
-      ],
+      "@terminus/ui-copy": ["dist/libs/ui/copy", "libs/ui/copy/src/index.ts"],
       "@terminus/ui-csv-entry": [
         "dist/libs/ui/csv-entry",
         "libs/ui/csv-entry/src/index.ts"
@@ -116,10 +102,7 @@
         "dist/libs/ui/form-field/testing",
         "libs/ui/form-field/testing/src/index.ts"
       ],
-      "@terminus/ui-icon": [
-        "dist/libs/ui/icon",
-        "libs/ui/icon/src/index.ts"
-      ],
+      "@terminus/ui-icon": ["dist/libs/ui/icon", "libs/ui/icon/src/index.ts"],
       "@terminus/ui-icon-button": [
         "dist/libs/ui/icon-button",
         "libs/ui/icon-button/src/index.ts"
@@ -132,10 +115,7 @@
         "dist/libs/ui/input/testing",
         "libs/ui/input/testing/src/index.ts"
       ],
-      "@terminus/ui-link": [
-        "dist/libs/ui/link",
-        "libs/ui/link/src/index.ts"
-      ],
+      "@terminus/ui-link": ["dist/libs/ui/link", "libs/ui/link/src/index.ts"],
       "@terminus/ui-loading-overlay": [
         "dist/libs/ui/loading-overlay",
         "libs/ui/loading-overlay/src/index.ts"
@@ -144,14 +124,8 @@
         "dist/libs/ui/login-form",
         "libs/ui/login-form/src/index.ts"
       ],
-      "@terminus/ui-logo": [
-        "dist/libs/ui/logo",
-        "libs/ui/logo/src/index.ts"
-      ],
-      "@terminus/ui-menu": [
-        "dist/libs/ui/menu",
-        "libs/ui/menu/src/index.ts"
-      ],
+      "@terminus/ui-logo": ["dist/libs/ui/logo", "libs/ui/logo/src/index.ts"],
+      "@terminus/ui-menu": ["dist/libs/ui/menu", "libs/ui/menu/src/index.ts"],
       "@terminus/ui-navigation": [
         "dist/libs/ui/navigation",
         "libs/ui/navigation/src/index.ts"
@@ -212,10 +186,7 @@
         "dist/libs/ui/selection-list/testing",
         "libs/ui/selection-list/testing/src/index.ts"
       ],
-      "@terminus/ui-sort": [
-        "dist/libs/ui/sort",
-        "libs/ui/sort/src/index.ts"
-      ],
+      "@terminus/ui-sort": ["dist/libs/ui/sort", "libs/ui/sort/src/index.ts"],
       "@terminus/ui-spacing": [
         "dist/libs/ui/spacing",
         "libs/ui/spacing/src/index.ts"
@@ -232,10 +203,7 @@
         "dist/libs/ui/table/testing",
         "libs/ui/table/testing/src/index.ts"
       ],
-      "@terminus/ui-tabs": [
-        "dist/libs/ui/tabs",
-        "libs/ui/tabs/src/index.ts"
-      ],
+      "@terminus/ui-tabs": ["dist/libs/ui/tabs", "libs/ui/tabs/src/index.ts"],
       "@terminus/ui-tabs/testing": [
         "dist/libs/ui/tabs/testing",
         "libs/ui/tabs/testing/src/index.ts"
@@ -271,19 +239,17 @@
       "@terminus/ui-validators": [
         "dist/libs/ui/validators",
         "libs/ui/validators/src/index.ts"
+      ],
+      "@terminus/eslint-config-frontend": [
+        "libs/eslint-config-frontend/src/index.ts"
       ]
     },
     "rootDir": ".",
     "sourceMap": true,
     "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "typeRoots": ["node_modules/@types"],
     "skipDefaultLibCheck": true,
     "skipLibCheck": true
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }
