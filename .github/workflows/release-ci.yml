@@ -165,20 +165,20 @@ jobs:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
         if: env.SHOULD_RUN == 'true'
-#      - name: "Cache NODE"
-#        id: cache_node
-#        uses: actions/cache@v2
-#        env:
-#          cache-name: cache-node
-#        with:
-#          path: |
-#            **/node_modules
-#          key: ${{ runner.os }}-node-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-#          restore-keys: |
-#            ${{ runner.os }}-node-${{ env.cache-name }}-
-#            ${{ runner.os }}-node-
-#            ${{ runner.os }}-
-#        if: env.SHOULD_RUN == 'true'
+      - name: "Cache NODE"
+        id: cache_node
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-node-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.cache-name }}-
+            ${{ runner.os }}-node-
+            ${{ runner.os }}-
+        if: env.SHOULD_RUN == 'true'
       - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
         working-directory: ${{ env.working-directory }}
@@ -198,14 +198,14 @@ jobs:
         run: yarn nx build ui-styles --prod --skip-nx-cache
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
-      - name: "TEMP: Build ALL projects"
-        run: yarn run build:all --skip-nx-cache
-        working-directory: ${{ env.working-directory }}
-        if: env.SHOULD_RUN == 'true'
-#      - name: "Build affected projects"
-#        run: yarn run affected --target=build --withDeps --prod --base=${{ env.NX_BASE }} --head=origin/release
+#      - name: "TEMP: Build ALL projects"
+#        run: yarn run build:all --skip-nx-cache
 #        working-directory: ${{ env.working-directory }}
 #        if: env.SHOULD_RUN == 'true'
+      - name: "Build affected projects"
+        run: yarn run affected --target=build --withDeps --prod --base=${{ env.NX_BASE }} --head=origin/release
+        working-directory: ${{ env.working-directory }}
+        if: env.SHOULD_RUN == 'true'
       - name: "Update credentials"
         run: |
           git config credential.helper 'cache --timeout=120'
