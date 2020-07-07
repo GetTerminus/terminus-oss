@@ -1080,7 +1080,7 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
    * On some versions of iOS the caret gets stuck in the wrong place when holding down the delete
    * key. In order to get around this we need to "jiggle" the caret loose. Since this bug only
    * exists on iOS, we only bother to install the listener on iOS.
-   * https://github.com/angular/material2/blob/master/src/lib/input/input.ts
+   * https://github.com/angular/material2/blob/release/src/lib/input/input.ts
    */
   private fixIOSCaretBug(): void {
     this.ngZone.runOutsideAngular(() => {

@@ -102,12 +102,12 @@ It defaults to `false`.
 
 <!-- Links -->
 [popper]:              https://github.com/popperjs/popper.js
-[popper-docs]:         https://github.com/popperjs/popper.js/blob/master/docs/_includes/popper-documentation.md
-[popper-placements]:   https://github.com/FezVrasta/popper.js/blob/master/packages/popper/src/methods/placements.js
-[license-url]:         https://github.com/GetTerminus/terminus-oss/blob/master/LICENSE
+[popper-docs]:         https://github.com/popperjs/popper.js/blob/release/docs/_includes/popper-documentation.md
+[popper-placements]:   https://github.com/FezVrasta/popper.js/blob/release/packages/popper/src/methods/placements.js
+[license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE
 [license-image]:       http://img.shields.io/badge/license-MIT-blue.svg
 [codecov-project]:     https://codecov.io/gh/GetTerminus/terminus-oss
-[codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg
+[codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
 [npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-popover.svg
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-popover
 [gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg

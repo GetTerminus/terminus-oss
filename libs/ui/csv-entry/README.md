@@ -135,10 +135,10 @@ Allowed directions are: `ltr`, `rtl`.
 
 
 <!-- Links -->
-[license-url]:         https://github.com/GetTerminus/terminus-oss/blob/master/LICENSE
+[license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE
 [license-image]:       http://img.shields.io/badge/license-MIT-blue.svg
 [codecov-project]:     https://codecov.io/gh/GetTerminus/terminus-oss
-[codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg
+[codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
 [npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-csv-entry.svg
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-csv-entry
 [gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg

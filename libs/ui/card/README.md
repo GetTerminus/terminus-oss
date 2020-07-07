@@ -111,10 +111,10 @@ This will push the opacity of the card contents back and add a lock icon in the 
 
 
 <!-- Links -->
-[license-url]:         https://github.com/GetTerminus/terminus-oss/blob/master/LICENSE
+[license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE
 [license-image]:       http://img.shields.io/badge/license-MIT-blue.svg
 [codecov-project]:     https://codecov.io/gh/GetTerminus/terminus-oss
-[codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg
+[codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
 [npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-card.svg
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-card
 [gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg

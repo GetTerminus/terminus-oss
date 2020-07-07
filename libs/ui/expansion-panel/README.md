@@ -288,7 +288,7 @@ accordion will hide the toggle icon for *all panels within*.
 The action row is useful when an accordion is functioning as a stepper. Controls added within the action row will be right aligned as panel
 controls.
 
-> NOTE: See [Accordion as a stepper](https://github.com/GetTerminus/terminus-ui/blob/master/projects/library/expansion-panel/src/expansion-panel.component.md#accordion-as-a-stepper) for a complete example.
+> NOTE: See [Accordion as a stepper](https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/expansion-panel/src/expansion-panel.component.md#accordion-as-a-stepper) for a complete example.
 
 ```html
 <ts-expansion-panel>
@@ -353,10 +353,10 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 
 <!-- Links -->
 [test-helpers-src]:    testing/src/test-helpers.ts
-[license-url]:         https://github.com/GetTerminus/terminus-oss/blob/master/LICENSE
+[license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE
 [license-image]:       http://img.shields.io/badge/license-MIT-blue.svg
 [codecov-project]:     https://codecov.io/gh/GetTerminus/terminus-oss
-[codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/master/graph/badge.svg
+[codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
 [npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-button.svg
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-button
 [gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg
