@@ -199,7 +199,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "TEMP: Build ALL projects"
-        run: yarn run build:all
+        run: yarn run build:all --skip-nx-cache
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
 #      - name: "Build affected projects"

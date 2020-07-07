@@ -21,6 +21,7 @@ FILE1='dist/libs/design-tokens/js/design-tokens.js'
 FILE2='dist/libs/design-tokens/js/design-tokens-tree.js'
 FILE3='dist/libs/design-tokens/js/library-design-tokens.js'
 FILE4='dist/libs/design-tokens/js/library-design-tokens-tree.js'
+MOCHA_DIR='node_modules/@types/mocha'
 
 if [ -d "$TOKEN_SRC" ]
 then
@@ -34,12 +35,20 @@ fi
 echo "Copying generated JS token files to source dir.."
 cp "$FILE1" "$FILE2" "$FILE3" "$FILE4" "$TOKEN_SRC"
 
-echo "Generate typings.."
 # NOTE: We need to move these types or TypeScript will throw error about 'Subsequent variable declarations must have the same type'.
 # This is due to a conflict between Mocha (via Cypress) and Jest
-mv node_modules/@types/mocha ./TEMP_MOCHA
-node --max-old-space-size=6144 node_modules/.bin/tsc -p libs/design-tokens/tsconfig-typings.json
-mv ./TEMP_MOCHA node_modules/@types/mocha
+if [ -d "$MOCHA_DIR" ]
+then
+    echo "Mocha exists in node_modules, moving temporarily.."
+    mv "$MOCHA_DIR" ./TEMP_MOCHA
+    echo "Generate typings.."
+    node --max-old-space-size=6144 node_modules/.bin/tsc -p libs/design-tokens/tsconfig-typings.json
+    mv ./TEMP_MOCHA "$MOCHA_DIR"
+else
+    echo "Mocha directory not found in node_modules.."
+    echo "Generate typings.."
+    node --max-old-space-size=6144 node_modules/.bin/tsc -p libs/design-tokens/tsconfig-typings.json
+fi
 
 echo "Moving typings to package dist.."
 find "$TOKEN_SRC" -maxdepth 1 ! -type d ! -name '*.js' -exec mv {} "$TOKEN_DIST" \;
