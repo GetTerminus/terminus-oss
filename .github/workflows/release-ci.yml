@@ -190,7 +190,7 @@ jobs:
       - name: "TEMP check for nx"
         run: |
           yarn why @nrwl/cli
-          nx
+          npx nx
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "TEMP Reinstall NX"
