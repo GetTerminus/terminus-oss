@@ -48,21 +48,21 @@ jobs:
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
-      - name: "Cache NODE"
-        id: cache_node
+      - name: "Cache deps"
+        id: cache_deps
         uses: actions/cache@v2
         env:
-          cache-name: cache-node
+          cache-name: cache-deps
         with:
           path: |
             **/node_modules
-          key: ${{ runner.os }}-node-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-${{ env.cache-name }}-
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+            ${{ runner.os }}-yarn-
             ${{ runner.os }}-
         if: env.SHOULD_RUN == 'true'
-      - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
+      - if: env.SHOULD_RUN == 'true' && steps.cache_deps.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: "Set NX affected base"
         run: tools/ci/set-nx-base.sh
@@ -108,21 +108,21 @@ jobs:
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
-      - name: "Cache NODE"
-        id: cache_node
+      - name: "Cache deps"
+        id: cache_deps
         uses: actions/cache@v2
         env:
-          cache-name: cache-node
+          cache-name: cache-deps
         with:
           path: |
             **/node_modules
-          key: ${{ runner.os }}-node-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-${{ env.cache-name }}-
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+            ${{ runner.os }}-yarn-
             ${{ runner.os }}-
         if: env.SHOULD_RUN == 'true'
-      - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
+      - if: env.SHOULD_RUN == 'true' && steps.cache_deps.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: "Set NX affected base"
         run: tools/ci/set-nx-base.sh
@@ -165,21 +165,21 @@ jobs:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
         if: env.SHOULD_RUN == 'true'
-      - name: "Cache NODE"
-        id: cache_node
+      - name: "Cache deps"
+        id: cache_deps
         uses: actions/cache@v2
         env:
-          cache-name: cache-node
+          cache-name: cache-deps
         with:
           path: |
             **/node_modules
-          key: ${{ runner.os }}-node-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-${{ env.cache-name }}-
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+            ${{ runner.os }}-yarn-
             ${{ runner.os }}-
         if: env.SHOULD_RUN == 'true'
-      - if: env.SHOULD_RUN == 'true' && steps.cache_node.outputs.cache-hit != 'true'
+      - if: env.SHOULD_RUN == 'true' && steps.cache_deps.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
         working-directory: ${{ env.working-directory }}
       - name: "Set NX affected base"
