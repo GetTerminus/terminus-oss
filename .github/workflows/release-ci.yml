@@ -21,8 +21,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      - run: |
-          git fetch --no-tags --prune --depth=5 origin release
+      - run: git fetch --no-tags --prune --depth=5 origin release
       - uses: rokroskar/workflow-run-cleanup-action@master
         env:
           GITHUB_TOKEN: "${{ secrets.GH_TOKEN }}"
@@ -39,8 +38,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      - run: |
-          git fetch --tags --prune --depth=50 origin release
+      - run: git fetch --tags --prune --depth=50 origin release
       - name: "Set SHOULD_RUN flag"
         run: tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
       - name: "Set up Node"
@@ -96,8 +94,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      - run: |
-          git fetch --tags --prune --depth=50 origin release
+      - run: git fetch --tags --prune --depth=50 origin release
       - name: "Set SHOULD_RUN flag"
         run: tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
       - name: "Set up Node"
@@ -238,7 +235,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Deploy affected apps"
-        run: yarn run affected --target=deploy
+        run: nx affected --target=deploy --base=${{ env.NX_BASE }} --head=origin/release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -277,18 +274,15 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      - run: git fetch --no-tags --prune --depth=5 origin release
-      - name: Check last commit message
-        id: skip
-        uses: atlwendy/retrieve-commit-messages-from-pr@v2
-      - name: Set SHOULD_RUN flag
-        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
+      - run: git fetch --tags --prune --depth=50 origin release
+      - name: "Set SHOULD_RUN flag"
+        run: tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
-      - name: Cache deps
+      - name: "Cache deps"
         id: cache_deps
         uses: actions/cache@v2
         env:
