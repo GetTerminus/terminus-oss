@@ -73,8 +73,6 @@
     "tokens:watch": "yarn run build && chokidar \"libs/design-tokens/src/lib/**/*.js\" -c \"yarn run tokens:build\"",
     "tokens:watch:copy": "yarn run tokens:build:copy && chokidar \"libs/design-tokens/src/lib/**/*.js\" -c \"yarn run tokens:build:copy\"",
     "tokens:remove-existing-install": "rm -rf node_modules/@terminus/design-tokens",
-    "tokens:prepare-release": "yarn run tokens:build && yarn run tokens:showcase:build:ci",
-    "tokens:showcase:build:ci": "nx build showcase-tokens",
     "//////// Section: Custom builds: ": "==============================",
     "eslint:build": "tools/ci/prepare-eslint-build.sh",
     "stylelint:build": "tools/ci/prepare-stylelint-build.sh",

@@ -137,8 +137,7 @@ jobs:
   affected_build:
     name: "Compile & release affected projects"
     runs-on: ubuntu-latest
-    # TODO: undo
-#    needs: [affected_test, affected_lint]
+    needs: [affected_test, affected_lint]
     env:
       working-directory: ./t-oss
       demos-directory: ./ui-demos-release
@@ -231,15 +230,6 @@ jobs:
         if: env.SHOULD_RUN == 'true'
       - name: "Commit changes"
         run: tools/ci/commit-after-lerna.sh
-        working-directory: ${{ env.working-directory }}
-        if: env.SHOULD_RUN == 'true'
-      - name: "Log LINT dist contents"
-        run: |
-          ls dist/libs/eslint-config-frontend
-          ls dist/libs/stylelint-config-frontend
-          ls /home/runner/work/terminus-oss/terminus-oss || true
-          ls /home/runner/work/terminus-oss/terminus-oss/t-oss || true
-          cat /home/runner/work/terminus-oss/terminus-oss/t-oss/dist/libs/eslint-config-frontend/package.json || 'echo "nope 1"'
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Deploy affected libs"

@@ -21,6 +21,6 @@
   "publishConfig": {
     "access": "public",
     "tag": "next",
-    "directory": "../../../dist/libs/eslint-config-frontend"
+    "directory": "../../dist/libs/eslint-config-frontend"
   }
 }

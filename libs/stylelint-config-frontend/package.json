@@ -20,6 +20,6 @@
   "publishConfig": {
     "access": "public",
     "tag": "next",
-    "directory": "../../../dist/libs/stylelint-config-frontend"
+    "directory": "../../dist/libs/stylelint-config-frontend"
   }
 }
