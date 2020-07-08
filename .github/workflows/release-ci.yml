@@ -232,6 +232,12 @@ jobs:
         run: tools/ci/commit-after-lerna.sh
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
+      - name: "Log LINT dist contents"
+        run: |
+          ls dist/libs/eslint-config-frontend
+          ls dist/libs/stylelint-config-frontend
+        working-directory: ${{ env.working-directory }}
+        if: env.SHOULD_RUN == 'true'
       - name: "Deploy affected libs"
         run: yarn run publish:libs
         env:
