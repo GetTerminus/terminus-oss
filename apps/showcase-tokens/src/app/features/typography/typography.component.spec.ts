@@ -12,7 +12,10 @@ import { TypographyComponent } from './typography.component';
 export class TokensServiceMock {
   tokens$ = new BehaviorSubject<Record<string, any>>({
     stack: { base: {} },
-    typography: { size: {} },
+    typography: {
+      stack: { base: {} },
+      size: {},
+    },
   });
 }
 
