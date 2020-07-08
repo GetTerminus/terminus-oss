@@ -2911,6 +2911,7 @@
     "eslint-config-frontend": {
       "root": "libs/eslint-config-frontend",
       "sourceRoot": "libs/eslint-config-frontend/src",
+      "prefix": "terminus",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -2938,6 +2939,16 @@
             "commands": [
               {
                 "command": "(cd libs/eslint-config-frontend && yarn run semantic-release)"
+              }
+            ]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run eslint:build"
               }
             ]
           }

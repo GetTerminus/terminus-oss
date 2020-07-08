@@ -2,9 +2,25 @@
   "name": "@terminus/eslint-config-frontend",
   "description": "Terminus shared ESLint configuration",
   "version": "2.1.0",
+  "license": "MIT",
+  "author": "@terminus",
+  "private": false,
+  "homepage": "https://github.com/GetTerminus/terminus-oss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GetTerminus/terminus-oss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GetTerminus/terminus-oss/issues"
+  },
   "main": "rules.js",
   "files": [
     "rules.js",
     "README.md"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public",
+    "tag": "next",
+    "directory": "../../../dist/libs/eslint-config-frontend"
+  }
 }
