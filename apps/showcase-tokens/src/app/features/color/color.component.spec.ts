@@ -8,7 +8,7 @@ import {
 import { RouterModule } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
-import TOKENS_TREE from '@terminus/design-tokens/js/design-tokens-tree';
+import * as TOKENS_TREE from '@terminus/design-tokens/js/design-tokens-tree';
 
 import { TokensService } from '../../services/tokens.service';
 import { ColorComponent } from './color.component';
