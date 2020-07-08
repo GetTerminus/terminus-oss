@@ -3781,10 +3781,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@terminus/design-tokens@2.0.7":
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@terminus/design-tokens/-/design-tokens-2.0.7.tgz#027c1a18e13647e937c99a49e04b319db9b42834"
-  integrity sha512-pKcLTh+krgXGa/K0eYw8yw9YZVodZalPC4fVw2j5vO0C5c8jRKpukUulS8OZwk7gXJ0f9iGgRSVAXU2jvRGN/g==
+"@terminus/design-tokens@2.0.16":
+  version "2.0.16"
+  resolved "https://registry.yarnpkg.com/@terminus/design-tokens/-/design-tokens-2.0.16.tgz#1765421195aefc90c77584ca45fd997529c16f9c"
+  integrity sha512-WmxibWKI+nRitjdeHxxB4ODH009jyX3dxV2HT2CQ7NELNDeddxtJLezvHSXYjureU5U/qk64M+WFNmtMQytV7g==
 
 "@terminus/eslint-config-frontend@2.0.3":
   version "2.0.3"
