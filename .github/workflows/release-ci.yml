@@ -240,7 +240,6 @@ jobs:
           ls /home/runner/work/terminus-oss/terminus-oss || true
           ls /home/runner/work/terminus-oss/terminus-oss/t-oss || true
           cat /home/runner/work/terminus-oss/terminus-oss/t-oss/dist/libs/eslint-config-frontend/package.json || 'echo "nope 1"'
-          cat /home/runner/work/terminus-oss/terminus-oss/dist/libs/eslint-config-frontend/package.json || 'echo "nope 2"'
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Deploy affected libs"
