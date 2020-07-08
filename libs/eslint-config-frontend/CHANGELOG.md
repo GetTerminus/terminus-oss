@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/eslint-config-frontend@2.1.0...@terminus/eslint-config-frontend@2.2.0) (2020-07-08)
+
+
+### Bug Fixes
+
+* **ESLintConfig:** add build command ([b38ada9](https://github.com/GetTerminus/terminus-oss/commit/b38ada91d034ebe18b96f46b603b13b0ccbca5c0))
+
+
+### Features
+
+* **StylelintConfig:** move package into monorepo ([d04111f](https://github.com/GetTerminus/terminus-oss/commit/d04111fe906a8ed91cf17a659ac0bcb24ee4910f))
+
+
+
+
+
 # 2.1.0 (2020-07-07)
 
 
