@@ -77,6 +77,7 @@
     "tokens:showcase:build:ci": "nx build showcase-tokens",
     "//////// Section: Custom builds: ": "==============================",
     "eslint:build": "tools/ci/prepare-eslint-build.sh",
+    "stylelint:build": "tools/ci/prepare-stylelint-build.sh",
     "//////// Section: Showcase ui integration: ": "==============================",
     "showcaseui:start": "nx serve showcase-ui",
     "libraries:test:cypress": "cypress run --spec 'cypress/integration/spin-up.js'",

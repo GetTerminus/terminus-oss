@@ -86,6 +86,7 @@ module.exports = {
     // Non-UI packages
     { name: 'DesignTokens' },
     { name: 'ESLintConfig' },
+    { name: 'StylelintConfig' },
 
     // Applications
     { name: 'ShowcaseUI' },
