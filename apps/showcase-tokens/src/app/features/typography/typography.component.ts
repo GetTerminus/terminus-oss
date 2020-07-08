@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import TOKENS_TREE from '@terminus/design-tokens/js/design-tokens-tree';
-
 import { SettingsService } from '../../services/settings.service';
 import { TokensService } from '../../services/tokens.service';
 import { jsonPathToString } from '../../utilities/jsonPathToString';
@@ -28,7 +26,7 @@ export class TypographyComponent {
     public settingsService: SettingsService,
     private tokensService: TokensService,
   ) {
-    this.formatted = TypographyComponent.formatTypographyStacks(this.tokensService.tokens$.getValue().stack.base);
+    this.formatted = TypographyComponent.formatTypographyStacks(this.tokensService.tokens$.getValue().typography.stack.base);
     this.typographySizes = objToArray(this.tokensService.tokens$.getValue().typography.size);
   }
 

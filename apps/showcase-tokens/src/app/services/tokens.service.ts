@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import TOKENS_TREE from '@terminus/design-tokens/js/design-tokens-tree';
+import * as TOKENS_TREE from '@terminus/design-tokens/js/design-tokens-tree';
 
 @Injectable({ providedIn: 'root' })
 export class TokensService {
