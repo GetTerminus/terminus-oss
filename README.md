@@ -25,6 +25,7 @@ The monorepo that contains all Terminus open-source libraries and tools.
 |---------------------------------------------------|-----------------------------------------------------------|----------------------------------|----------------------------------|-----------------------------------------------|------------------------------------------|---------------------------------------------------------------|
 | [design-tokens][src-tokens]                       | Terminus design tokens in CSS/SCSS/JS/JSON form           | [Demo][demo-tokens]              |                                  | [Legacy Code][legacy-src-tokens]              |                                          | ![Design Tokens latest][badge-latest-tokens]                  |
 | [eslint-config-frontend][src-eslint-config]       | ESLint configuration for front-end repos                  |                                  | [Docs][docs-eslint-config]       | [Legacy Code][legacy-src-eslint-config]       |                                          | ![ESLint config latest][badge-latest-eslint-config]           |
+| [stylelint-config-frontend][src-stylelint-config] | StyleLint configuration for front-end repos               |                                  | [Docs][docs-stylelint-config]    | [Legacy Code][legacy-src-stylelint-config]    |                                          | ![StyleLint config latest][badge-latest-stylelint-config]     |
 | [ui-autocomplete][src-autocomplete]               | Deprecated. See `selection-list`                          | [Demo][demo-autocomplete]        | [Docs][docs-autocomplete]        | [Legacy Code][legacy-src-autocomplete]        | ![codecov][cov-badge-autocomplete]       | ![Autocomplete latest][badge-latest-autocomplete]             |
 | [ui-autofocus][src-autofocus]                     | Focus a focusable element on load                         | [Demo][demo-autofocus]           | [Docs][docs-autofocus]           | [Legacy Code][legacy-src-autofocus]           | ![codecov][cov-badge-autofocus]          | ![autofocus latest][badge-latest-autofocus]                   |
 | ui-badge                                          | See `chip`                                                | [Demo][demo-chip]                |                                  | [Legacy Code][legacy-src-chip]                |                                          |                                                               |
@@ -129,6 +130,7 @@ See the 'demos' column in the [table above](#packages).
 <!-- Source Directories -->
 [src-tokens]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/design-tokens/
 [src-eslint-config]:       https://github.com/GetTerminus/terminus-oss/blob/release/libs/eslint-config-frontend/
+[src-stylelint-config]:    https://github.com/GetTerminus/terminus-oss/blob/release/libs/stylelint-config-frontend/
 [src-autocomplete]:        https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/autocomplete/
 [src-autofocus]:           https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/autofocus/
 [src-button]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/button/
@@ -176,6 +178,7 @@ See the 'demos' column in the [table above](#packages).
 <!-- Legacy source code -->
 [legacy-src-tokens]:              https://github.com/GetTerminus/design-tokens
 [legacy-src-eslint-config]:       https://github.com/GetTerminus/eslint-config-frontend
+[legacy-src-stylelint-config]:    https://github.com/GetTerminus/stylelint-config-frontend
 [legacy-src-autocomplete]:        https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/autocomplete/
 [legacy-src-autofocus]:           https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/autofocus/
 [legacy-src-button]:              https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/button/
@@ -217,7 +220,6 @@ See the 'demos' column in the [table above](#packages).
 [legacy-src-validation-messages]: https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/validation-messages/
 [legacy-src-validators]:          https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/validators/
 
-<!-- TODO: Verify links are still correct after the move -->
 <!-- Demos -->
 [demo-tokens]:              https://getterminus.github.io/design-tokens
 [demo-autocomplete]:        https://getterminus.github.io/ui-demos-release/components/autocomplete
@@ -261,9 +263,9 @@ See the 'demos' column in the [table above](#packages).
 [demo-validation-messages]: https://getterminus.github.io/ui-demos-release/components/validation-messages
 [demo-validators]:          https://getterminus.github.io/ui-demos-release/components/validation
 
-<!-- TODO: Verify links are still correct after the move -->
 <!-- TS Primary Docs -->
 [docs-eslint-config]:       https://github.com/GetTerminus/terminus-oss/blob/release/libs/eslint-config-frontend/README.md
+[docs-stylelint-config]:    https://github.com/GetTerminus/terminus-oss/blob/release/libs/stylelint-config-frontend/README.md
 [docs-autocomplete]:        http://uilibrary-docs.terminus.ninja/release/components/TsAutocompleteComponent.html
 [docs-autofocus]:           http://uilibrary-docs.terminus.ninja/release/directives/TsAutofocusDirective.html
 [docs-button]:              http://uilibrary-docs.terminus.ninja/release/components/TsButtonComponent.html
@@ -349,46 +351,47 @@ See the 'demos' column in the [table above](#packages).
 [cov-badge-validators]:         https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=validators
 
 <!-- Version Badges -->
-[badge-latest-tokens]: https://img.shields.io/npm/v/@terminus/design-tokens/latest?color=%2345aaf2
-[badge-latest-eslint-config]: https://img.shields.io/npm/v/@terminus/eslint-config-frontend/latest?color=%2345aaf2
-[badge-latest-autocomplete]: https://img.shields.io/npm/v/@terminus/ui-autocomplete/latest?color=%2345aaf2
-[badge-latest-autofocus]: https://img.shields.io/npm/v/@terminus/ui-autofocus/latest?color=%2345aaf2
-[badge-latest-button]: https://img.shields.io/npm/v/@terminus/ui-button/latest?color=%2345aaf2
-[badge-latest-card]: https://img.shields.io/npm/v/@terminus/ui-card/latest?color=%2345aaf2
-[badge-latest-chart]: https://img.shields.io/npm/v/@terminus/ui-chart/latest?color=%2345aaf2
-[badge-latest-chip]: https://img.shields.io/npm/v/@terminus/ui-chip/latest?color=%2345aaf2
-[badge-latest-checkbox]: https://img.shields.io/npm/v/@terminus/ui-checkbox/latest?color=%2345aaf2
-[badge-latest-cohortDateRange]: https://img.shields.io/npm/v/@terminus/ui-cohort-date-range/latest?color=%2345aaf2
-[badge-latest-confirmation]: https://img.shields.io/npm/v/@terminus/ui-confirmation/latest?color=%2345aaf2
-[badge-latest-copy]: https://img.shields.io/npm/v/@terminus/ui-copy/latest?color=%2345aaf2
-[badge-latest-csvEntry]: https://img.shields.io/npm/v/@terminus/ui-csv-entry/latest?color=%2345aaf2
-[badge-latest-dateRange]: https://img.shields.io/npm/v/@terminus/ui-date-range/latest?color=%2345aaf2
-[badge-latest-drawer]: https://img.shields.io/npm/v/@terminus/ui-drawer/latest?color=%2345aaf2
-[badge-latest-expansionPanel]: https://img.shields.io/npm/v/@terminus/ui-expansion-panel/latest?color=%2345aaf2
-[badge-latest-fileUpload]: https://img.shields.io/npm/v/@terminus/ui-file-upload/latest?color=%2345aaf2
-[badge-latest-icon]: https://img.shields.io/npm/v/@terminus/ui-icon/latest?color=%2345aaf2
-[badge-latest-iconButton]: https://img.shields.io/npm/v/@terminus/ui-icon-button/latest?color=%2345aaf2
-[badge-latest-input]: https://img.shields.io/npm/v/@terminus/ui-input/latest?color=%2345aaf2
-[badge-latest-link]: https://img.shields.io/npm/v/@terminus/ui-link/latest?color=%2345aaf2
-[badge-latest-loadingOverlay]: https://img.shields.io/npm/v/@terminus/ui-loading-overlay/latest?color=%2345aaf2
-[badge-latest-loginForm]: https://img.shields.io/npm/v/@terminus/ui-login-form/latest?color=%2345aaf2
-[badge-latest-logo]: https://img.shields.io/npm/v/@terminus/ui-logo/latest?color=%2345aaf2
-[badge-latest-menu]: https://img.shields.io/npm/v/@terminus/ui-menu/latest?color=%2345aaf2
-[badge-latest-navigation]: https://img.shields.io/npm/v/@terminus/ui-navigation/latest?color=%2345aaf2
-[badge-latest-paginator]: https://img.shields.io/npm/v/@terminus/ui-paginator/latest?color=%2345aaf2
-[badge-latest-pipes]: https://img.shields.io/npm/v/@terminus/ui-pipes/latest?color=%2345aaf2
-[badge-latest-popover]: https://img.shields.io/npm/v/@terminus/ui-popover/latest?color=%2345aaf2
-[badge-latest-radioGroup]: https://img.shields.io/npm/v/@terminus/ui-radio-group/latest?color=%2345aaf2
-[badge-latest-scrollbars]: https://img.shields.io/npm/v/@terminus/ui-scrollbars/latest?color=%2345aaf2
-[badge-latest-search]: https://img.shields.io/npm/v/@terminus/ui-search/latest?color=%2345aaf2
-[badge-latest-select]: https://img.shields.io/npm/v/@terminus/ui-select/latest?color=%2345aaf2
-[badge-latest-selectionList]: https://img.shields.io/npm/v/@terminus/ui-selection-list/latest?color=%2345aaf2
-[badge-latest-spacing]: https://img.shields.io/npm/v/@terminus/ui-spacing/latest?color=%2345aaf2
-[badge-latest-sort]: https://img.shields.io/npm/v/@terminus/ui-sort/latest?color=%2345aaf2
-[badge-latest-styles]: https://img.shields.io/npm/v/@terminus/ui-styles/latest?color=%2345aaf2
-[badge-latest-table]: https://img.shields.io/npm/v/@terminus/ui-table/latest?color=%2345aaf2
-[badge-latest-tabs]: https://img.shields.io/npm/v/@terminus/ui-tabs/latest?color=%2345aaf2
-[badge-latest-toggle]: https://img.shields.io/npm/v/@terminus/ui-toggle/latest?color=%2345aaf2
-[badge-latest-tooltip]: https://img.shields.io/npm/v/@terminus/ui-tooltip/latest?color=%2345aaf2
+[badge-latest-tokens]:             https://img.shields.io/npm/v/@terminus/design-tokens/latest?color=%2345aaf2
+[badge-latest-eslint-config]:      https://img.shields.io/npm/v/@terminus/eslint-config-frontend/latest?color=%2345aaf2
+[badge-latest-stylelint-config]:   https://img.shields.io/npm/v/@terminus/stylelint-config-frontend/latest?color=%2345aaf2
+[badge-latest-autocomplete]:       https://img.shields.io/npm/v/@terminus/ui-autocomplete/latest?color=%2345aaf2
+[badge-latest-autofocus]:          https://img.shields.io/npm/v/@terminus/ui-autofocus/latest?color=%2345aaf2
+[badge-latest-button]:             https://img.shields.io/npm/v/@terminus/ui-button/latest?color=%2345aaf2
+[badge-latest-card]:               https://img.shields.io/npm/v/@terminus/ui-card/latest?color=%2345aaf2
+[badge-latest-chart]:              https://img.shields.io/npm/v/@terminus/ui-chart/latest?color=%2345aaf2
+[badge-latest-chip]:               https://img.shields.io/npm/v/@terminus/ui-chip/latest?color=%2345aaf2
+[badge-latest-checkbox]:           https://img.shields.io/npm/v/@terminus/ui-checkbox/latest?color=%2345aaf2
+[badge-latest-cohortDateRange]:    https://img.shields.io/npm/v/@terminus/ui-cohort-date-range/latest?color=%2345aaf2
+[badge-latest-confirmation]:       https://img.shields.io/npm/v/@terminus/ui-confirmation/latest?color=%2345aaf2
+[badge-latest-copy]:               https://img.shields.io/npm/v/@terminus/ui-copy/latest?color=%2345aaf2
+[badge-latest-csvEntry]:           https://img.shields.io/npm/v/@terminus/ui-csv-entry/latest?color=%2345aaf2
+[badge-latest-dateRange]:          https://img.shields.io/npm/v/@terminus/ui-date-range/latest?color=%2345aaf2
+[badge-latest-drawer]:             https://img.shields.io/npm/v/@terminus/ui-drawer/latest?color=%2345aaf2
+[badge-latest-expansionPanel]:     https://img.shields.io/npm/v/@terminus/ui-expansion-panel/latest?color=%2345aaf2
+[badge-latest-fileUpload]:         https://img.shields.io/npm/v/@terminus/ui-file-upload/latest?color=%2345aaf2
+[badge-latest-icon]:               https://img.shields.io/npm/v/@terminus/ui-icon/latest?color=%2345aaf2
+[badge-latest-iconButton]:         https://img.shields.io/npm/v/@terminus/ui-icon-button/latest?color=%2345aaf2
+[badge-latest-input]:              https://img.shields.io/npm/v/@terminus/ui-input/latest?color=%2345aaf2
+[badge-latest-link]:               https://img.shields.io/npm/v/@terminus/ui-link/latest?color=%2345aaf2
+[badge-latest-loadingOverlay]:     https://img.shields.io/npm/v/@terminus/ui-loading-overlay/latest?color=%2345aaf2
+[badge-latest-loginForm]:          https://img.shields.io/npm/v/@terminus/ui-login-form/latest?color=%2345aaf2
+[badge-latest-logo]:               https://img.shields.io/npm/v/@terminus/ui-logo/latest?color=%2345aaf2
+[badge-latest-menu]:               https://img.shields.io/npm/v/@terminus/ui-menu/latest?color=%2345aaf2
+[badge-latest-navigation]:         https://img.shields.io/npm/v/@terminus/ui-navigation/latest?color=%2345aaf2
+[badge-latest-paginator]:          https://img.shields.io/npm/v/@terminus/ui-paginator/latest?color=%2345aaf2
+[badge-latest-pipes]:              https://img.shields.io/npm/v/@terminus/ui-pipes/latest?color=%2345aaf2
+[badge-latest-popover]:            https://img.shields.io/npm/v/@terminus/ui-popover/latest?color=%2345aaf2
+[badge-latest-radioGroup]:         https://img.shields.io/npm/v/@terminus/ui-radio-group/latest?color=%2345aaf2
+[badge-latest-scrollbars]:         https://img.shields.io/npm/v/@terminus/ui-scrollbars/latest?color=%2345aaf2
+[badge-latest-search]:             https://img.shields.io/npm/v/@terminus/ui-search/latest?color=%2345aaf2
+[badge-latest-select]:             https://img.shields.io/npm/v/@terminus/ui-select/latest?color=%2345aaf2
+[badge-latest-selectionList]:      https://img.shields.io/npm/v/@terminus/ui-selection-list/latest?color=%2345aaf2
+[badge-latest-spacing]:            https://img.shields.io/npm/v/@terminus/ui-spacing/latest?color=%2345aaf2
+[badge-latest-sort]:               https://img.shields.io/npm/v/@terminus/ui-sort/latest?color=%2345aaf2
+[badge-latest-styles]:             https://img.shields.io/npm/v/@terminus/ui-styles/latest?color=%2345aaf2
+[badge-latest-table]:              https://img.shields.io/npm/v/@terminus/ui-table/latest?color=%2345aaf2
+[badge-latest-tabs]:               https://img.shields.io/npm/v/@terminus/ui-tabs/latest?color=%2345aaf2
+[badge-latest-toggle]:             https://img.shields.io/npm/v/@terminus/ui-toggle/latest?color=%2345aaf2
+[badge-latest-tooltip]:            https://img.shields.io/npm/v/@terminus/ui-tooltip/latest?color=%2345aaf2
 [badge-latest-validationMessages]: https://img.shields.io/npm/v/@terminus/ui-validation-messages/latest?color=%2345aaf2
-[badge-latest-validators]: https://img.shields.io/npm/v/@terminus/ui-validators/latest?color=%2345aaf2
+[badge-latest-validators]:         https://img.shields.io/npm/v/@terminus/ui-validators/latest?color=%2345aaf2

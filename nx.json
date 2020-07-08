@@ -180,6 +180,9 @@
     },
     "eslint-config-frontend": {
       "tags": []
+    },
+    "stylelint-config-frontend": {
+      "tags": []
     }
   }
 }

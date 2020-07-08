@@ -1,0 +1,25 @@
+{
+  "name": "@terminus/stylelint-config-frontend",
+  "version": "1.1.6",
+  "license": "MIT",
+  "author": "@terminus",
+  "private": false,
+  "homepage": "https://github.com/GetTerminus/terminus-oss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GetTerminus/terminus-oss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GetTerminus/terminus-oss/issues"
+  },
+  "main": "rules.js",
+  "files": [
+    "rules.js",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "tag": "next",
+    "directory": "../../../dist/libs/stylelint-config-frontend"
+  }
+}

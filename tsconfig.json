@@ -242,6 +242,9 @@
       ],
       "@terminus/eslint-config-frontend": [
         "libs/eslint-config-frontend/src/index.ts"
+      ],
+      "@terminus/stylelint-config-frontend": [
+        "libs/stylelint-config-frontend/src/index.ts"
       ]
     },
     "rootDir": ".",

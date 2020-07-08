@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/libs/stylelint-config-frontend",
+  "assets": [
+    "README.md",
+    "rules.js"
+  ],
+  "lib": {
+    "entryFile": "src/lib/rules.js"
+  }
+}

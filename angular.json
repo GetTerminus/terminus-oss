@@ -2954,6 +2954,53 @@
           }
         }
       }
+    },
+    "stylelint-config-frontend": {
+      "root": "libs/stylelint-config-frontend",
+      "sourceRoot": "libs/stylelint-config-frontend/src",
+      "prefix": "terminus",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run lint:ts 'libs/stylelint-config-frontend/**/*.{js,ts}'"
+              }
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/stylelint-config-frontend/jest.config.js",
+            "tsConfig": "libs/stylelint-config-frontend/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "(cd libs/stylelint-config-frontend && yarn run semantic-release)"
+              }
+            ]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run stylelint:build"
+              }
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
