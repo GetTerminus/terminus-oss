@@ -9,13 +9,30 @@ The collection of design tokens for Terminus applications.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+- [Usage](#usage)
 - [Formats](#formats)
   - [CSS custom properties](#css-custom-properties)
-  - [Sass variables](#sass-variables)
+  - [Sass variables or map](#sass-variables-or-map)
   - [JavaScript constants](#javascript-constants)
   - [JSON](#json)
+- [Updates](#updates)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Installation
+
+```bash
+# Install the tokens package in an existing project:
+$ yarn add @terminus/design-tokens 
+```
+
+## Usage
+
+Currently there are two sets of tokens being generated:
+
+1. Base Tokens: The lowest level of token, abstracted away from specific applications.
+2. Library Tokens: Tokens generated for the UI Library.
 
 ## Formats
 
@@ -31,14 +48,21 @@ Tokens are available in the following formats:
 }
 ```
 
-### Sass variables
-
+### Sass variables or map
 
 ```scss
 @import '~@terminus/design-tokens/css/design-tokens.scss';
 
 .foo {
   margin-bottom: $ts-space-stack-500;
+}
+
+// OR:
+
+@import '~@terminus/design-tokens/css/design-tokens.map.scss';
+
+.foo {
+  margin-bottom: map.get($tokens, "ts-space-stack-500");
 }
 ```
 
@@ -61,6 +85,17 @@ import TOKENS_TREE from '@terminus/design-tokens/js/design-tokens-tree';
 
 const MARGIN_BOTTOM = TOKENS_TREE.space.stack.600.value;
 ```
+
+## Updates
+
+The tokens are automatically published via our CI process with version control bumps controlled by the commits included.
+
+| Action                                                 |  Commit Type   | Version Change |
+|:-------------------------------------------------------|----------------|:---------------|
+| A token is moved, removed, or renamed                  | BreakingChange | `1.x.x`        |
+| A new token is added                                   | Feature        | `x.1.x`        |
+| A tokens value is changed or other attributes modified | Fix            | `x.x.1`        |
+| Documentation changes, refactor, etc                   | Chore          | `none`         |
 
 
 <!-- Links -->
