@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../../dist/libs/eslint-config-frontend",
+  "dest": "../../dist/libs/eslint-config-frontend",
   "assets": [
     "README.md",
     "rules.js"

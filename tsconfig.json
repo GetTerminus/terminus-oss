@@ -241,9 +241,11 @@
         "libs/ui/validators/src/index.ts"
       ],
       "@terminus/eslint-config-frontend": [
+        "dist/libs/eslint-config-frontend",
         "libs/eslint-config-frontend/src/index.ts"
       ],
       "@terminus/stylelint-config-frontend": [
+        "dist/libs/stylelint-config-frontend",
         "libs/stylelint-config-frontend/src/index.ts"
       ]
     },
