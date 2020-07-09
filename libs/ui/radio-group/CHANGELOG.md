@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@1.0.5...@terminus/ui-radio-group@1.1.0) (2020-07-09)
+
+
+### Features
+
+* **DesignTokens:** add all existing typography styles ([e0c8b8e](https://github.com/GetTerminus/terminus-oss/commit/e0c8b8e9065ac584d6f1908981aaf29b5ae17118))
+
+
+
+
+
 ## [1.0.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@1.0.4...@terminus/ui-radio-group@1.0.5) (2020-07-07)
 
 **Note:** Version bump only for package @terminus/ui-radio-group
