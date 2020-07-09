@@ -280,6 +280,7 @@ jobs:
   #
   upload_code_coverage:
     name: "Upload code coverage"
+    needs: [affected_test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
