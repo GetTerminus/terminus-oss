@@ -139,7 +139,7 @@
     "@ngrx/effects": "9.2.0",
     "@ngrx/store": "9.2.0",
     "@popperjs/core": "2.0.0",
-    "@terminus/design-tokens": "2.0.16",
+    "@terminus/design-tokens": "2.1.0",
     "@terminus/ngx-tools": "8.0.5",
     "@terminus/ui-styles": "1.0.6",
     "@w11k/ngx-componentdestroyed": "5.0.2",

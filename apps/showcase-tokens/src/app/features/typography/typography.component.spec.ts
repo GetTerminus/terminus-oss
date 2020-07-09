@@ -15,6 +15,7 @@ export class TokensServiceMock {
     typography: {
       stack: { base: {} },
       size: {},
+      compound: {},
     },
   });
 }

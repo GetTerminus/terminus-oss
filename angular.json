@@ -26,8 +26,7 @@
               "apps/showcase-tokens/src/assets"
             ],
             "styles": ["apps/showcase-tokens/src/styles.scss"],
-            "scripts": [],
-            "baseHref": ""
+            "scripts": []
           },
           "configurations": {
             "production": {

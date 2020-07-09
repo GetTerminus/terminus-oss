@@ -1,4 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 
 import { TsdtColorFormat } from '../../pipes/color-format.pipe';
 import { SettingsService } from '../../services/settings.service';
@@ -49,13 +53,8 @@ export class TokensComponent implements OnInit {
   @Input()
   public isColor = false;
 
+  constructor(private settingsService: SettingsService) {}
 
-  constructor(
-    private settingsService: SettingsService,
-  ) { }
-
-
-  ngOnInit() {
-  }
+  public ngOnInit(): void {}
 
 }
