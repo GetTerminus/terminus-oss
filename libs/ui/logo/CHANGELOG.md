@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-logo@1.0.5...@terminus/ui-logo@1.0.6) (2020-07-09)
+
+
+### Bug Fixes
+
+* **Logo:** use css custom properties ([9643b30](https://github.com/GetTerminus/terminus-oss/commit/9643b301cdb1ef7dd1b392e533804bc616b663a0)), closes [#115](https://github.com/GetTerminus/terminus-oss/issues/115)
+
+
+
+
+
 ## [1.0.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-logo@1.0.4...@terminus/ui-logo@1.0.5) (2020-07-07)
 
 **Note:** Version bump only for package @terminus/ui-logo
