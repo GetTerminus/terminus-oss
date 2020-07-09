@@ -2,7 +2,7 @@ module.exports = {
   typography: {
     family: {
       base: {
-        roboto: { value: 'roboto' },
+        roboto: { value: 'Roboto' },
         monospaced: { value: '\'Roboto Mono\'' },
       },
     },
