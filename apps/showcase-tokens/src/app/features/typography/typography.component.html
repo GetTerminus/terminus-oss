@@ -56,4 +56,48 @@
 
   </div>
 
+  <div class="stack" *ngFor="let stack of compoundStyles">
+    <span id="{{ stack.jsName }}" class="visually-hidden fake-link--large"></span>
+    <h2 class="stack__name">
+      <a
+        class="stack__link"
+        routerLink="."
+        [fragment]="stack.jsName"
+      >
+        <span aria-hidden="true" class="palette__link-icon" [inlineSVG]="svgAsset"></span>
+        <span class="visually-hidden">Link to item</span>
+      </a>
+      {{ stack.humanName | titlecase }}
+    </h2>
+
+    <div class="stack__info">
+      <div class="type card" fxLayout="row-reverse">
+        <div class="type__display" fxFlex>
+          <ul class="type__display-item">
+            <li
+              fxLayout="row"
+              fxLayoutAlign="space-between center"
+            >
+              <div
+                fxFlex="shrink"
+                class="type__display-example"
+                title="{{ stack.value }}"
+                [ngStyle]="{'font': stack.value}"
+              >
+                {{ demoText }}
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <tsdt-tokens
+          fxFlex="1 1 460px"
+          [item]="stack"
+          [selectedReferences]="settingsService.selectedReferences$ | async"
+        ></tsdt-tokens>
+      </div>
+    </div>
+
+  </div>
+
 </div>

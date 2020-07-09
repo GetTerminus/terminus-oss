@@ -21,6 +21,7 @@ export class TypographyComponent {
   public svgAsset = '/assets/chain.svg';
   public demoText = `The quick brown fox jumps over the lazy dog`;
   public typographySizes: Record<string, any>[];
+  public compoundStyles: Record<string, any>[];
 
   constructor(
     public settingsService: SettingsService,
@@ -28,6 +29,7 @@ export class TypographyComponent {
   ) {
     this.formatted = TypographyComponent.formatTypographyStacks(this.tokensService.tokens$.getValue().typography.stack.base);
     this.typographySizes = objToArray(this.tokensService.tokens$.getValue().typography.size);
+    this.compoundStyles = TypographyComponent.formatTypographyStacks(this.tokensService.tokens$.getValue().typography.compound);
   }
 
   /**
