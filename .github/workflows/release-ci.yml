@@ -235,7 +235,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Deploy affected apps"
-        run: yarn nx affected:apps --target=deploy --base=${{ env.NX_BASE }} --head=origin/release
+        run: yarn run affected --target=deploy --base=${{ env.NX_BASE }} --head=origin/release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -269,6 +269,7 @@ jobs:
     name: "Upload code coverage"
     needs: [affected_test]
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v2
         with:
