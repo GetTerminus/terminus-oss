@@ -1,13 +1,18 @@
 @import '~@terminus/ui-styles/helpers';
 
-:host {
+:root {
   --loading-overlay-backgroundColor: var(--ts-color-base-white);
-  --loading-overlay-backgroundColor-opaque: transparentize(var(--ts-color-base-white), .2);
+  // TODO: Formalize opaque tokens
+  // stylelint-disable plugin/stylelint-no-indistinguishable-colors
+  --loading-overlay-backgroundColor-opaque: rgba(250, 250, 250, .8);
   --loading-overlay-offset: 187;
   --loading-overlay-duration: 1.4s;
   --loading-overlay-stroke-color: var(--ts-color-primary-500);
 }
 
+:host {
+  display: block;
+}
 
 @keyframes rotator {
   0% {
@@ -35,15 +40,7 @@
   }
 }
 
-
-//
-// @component
-//  Loading Overlay
-// @description
-//  A loading overlay with spinner.
 .ts-loading-overlay {
-  @include reset;
-
   .c-loading-overlay {
     align-content: center;
     align-items: center;
