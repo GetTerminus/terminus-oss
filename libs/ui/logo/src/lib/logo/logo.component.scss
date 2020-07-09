@@ -1,20 +1,10 @@
-@import '~@terminus/ui-styles/helpers';
-
-
-//
-// @component
-//  Logo
-// @description
-//  Styles for the logo component
-//
 .ts-logo {
-  $logo-gray: #44525e;
-  @include reset;
+  --logo-gray: #44525e;
 
   &.ts-logo--black {
     svg {
       path {
-        fill: color(pure, dark);
+        fill: var(--ts-color-dark);
       }
     }
   }
@@ -22,7 +12,7 @@
   &.ts-logo--gray {
     svg {
       path {
-        fill: $logo-gray;
+        fill: var(--logo-gray);
       }
     }
   }
