@@ -235,7 +235,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Deploy affected apps"
-        run: nx affected --target=deploy --base=${{ env.NX_BASE }} --head=origin/release
+        run: yarn nx affected:apps --target=deploy --base=${{ env.NX_BASE }} --head=origin/release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
