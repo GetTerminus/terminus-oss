@@ -28,7 +28,6 @@ export * from './selection-list/selection-list.component';
 export * from './selection-list-panel/selection-list-panel.component';
 export * from './trigger/selection-list-trigger.directive';
 
-
 @NgModule({
   imports: [
     CommonModule,
