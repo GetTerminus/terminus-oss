@@ -1,4 +1,3 @@
-
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
@@ -20,4 +19,4 @@ export * from './popover-options';
     TsPopoverTriggerDirective,
   ],
 })
-export class TsPopoverModule { }
+export class TsPopoverModule {}

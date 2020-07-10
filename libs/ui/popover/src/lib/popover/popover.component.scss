@@ -1,17 +1,15 @@
 @import '~@terminus/ui-styles/helpers';
 
-
 .popover__container {
-  $PLACEMENT_MARGIN: 5px;
-  $POSITION_ADJUSTMENT: -5px;
-
+  --popover-placement-margin: 5px;
+  --popover-position-adjust: -5px;
   @include elevation-element(snackbar);
-  background-color: color(pure);
-  padding: spacing(default);
+  background-color: var(--ts-color-base-white);
+  padding: var(--ts-space-inset-500);
   position: absolute;
 
   .popover__arrow {
-    border-color: color(pure);
+    border-color: var(--ts-color-base-white);
     border-style: solid;
     height: 0;
     position: absolute;
@@ -29,56 +27,63 @@
   }
 
   &[data-popper-placement^='top'] {
-    margin-bottom: $PLACEMENT_MARGIN;
+    margin-bottom: var(--popover-placement-margin);
+
     .popover__arrow {
       border-bottom-color: transparent;
       border-left-color: transparent;
       border-right-color: transparent;
-      border-width: $PLACEMENT_MARGIN $PLACEMENT_MARGIN 0;
-      bottom: $POSITION_ADJUSTMENT;
-      left: calc(50% - 5px);
+      border-width: var(--popover-placement-margin) var(--popover-placement-margin) 0;
+      bottom: var(--popover-position-adjust);
+      left: calc(50% - var(--popover-placement-margin));
       margin-bottom: 0;
       margin-top: 0;
     }
   }
+
   &[data-popper-placement^='bottom'] {
-    margin-top: $PLACEMENT_MARGIN;
+    margin-top: var(--popover-placement-margin);
+
     .popover__arrow {
       border-left-color: transparent;
       border-right-color: transparent;
       border-top-color: transparent;
-      border-width: 0 $PLACEMENT_MARGIN $PLACEMENT_MARGIN;
+      border-width: 0 var(--popover-placement-margin) var(--popover-placement-margin);
       left: calc(50% - 5px);
       margin-bottom: 0;
       margin-top: 0;
-      top: $POSITION_ADJUSTMENT;
+      top: var(--popover-position-adjust);
     }
   }
+
   &[data-popper-placement^='right'] {
-    margin-left: $PLACEMENT_MARGIN;
+    margin-left: var(--popover-placement-margin);
+
     .popover__arrow {
       border-bottom-color: transparent;
       border-left-color: transparent;
       border-top-color: transparent;
-      border-width: $PLACEMENT_MARGIN $PLACEMENT_MARGIN $PLACEMENT_MARGIN 0;
-      left: $POSITION_ADJUSTMENT;
+      border-width: var(--popover-placement-margin) var(--popover-placement-margin) var(--popover-placement-margin) 0;
+      left: var(--popover-position-adjust);
       margin-left: 0;
       margin-right: 0;
-      top: calc(50% - 5px);
+      top: calc(50% - var(--popover-placement-margin));
     }
   }
+
   &[data-popper-placement^='left'] {
     display: block;
-    margin-right: $PLACEMENT_MARGIN;
+    margin-right: var(--popover-placement-margin);
+
     .popover__arrow {
       border-bottom-color: transparent;
       border-right-color: transparent;
       border-top-color: transparent;
-      border-width: $PLACEMENT_MARGIN 0 $PLACEMENT_MARGIN $PLACEMENT_MARGIN;
+      border-width: var(--popover-placement-margin) 0 var(--popover-placement-margin) var(--popover-placement-margin);
       margin-left: 0;
       margin-right: 0;
-      right: $POSITION_ADJUSTMENT;
-      top: calc(50% - 5px);
+      right: var(--popover-position-adjust);
+      top: calc(50% - var(--popover-placement-margin));
     }
   }
 }
