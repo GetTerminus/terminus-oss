@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@1.1.0...@terminus/ui-radio-group@1.1.1) (2020-07-10)
+
+
+### Bug Fixes
+
+* **RadioGroup:** move to custom css properties ([48ccd6c](https://github.com/GetTerminus/terminus-oss/commit/48ccd6ca5cfaa94edf006226b2e74079efb28779)), closes [#121](https://github.com/GetTerminus/terminus-oss/issues/121)
+
+
+
+
+
 # [1.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@1.0.5...@terminus/ui-radio-group@1.1.0) (2020-07-09)
 
 
