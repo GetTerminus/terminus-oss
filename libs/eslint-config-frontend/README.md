@@ -140,5 +140,5 @@ module.exports = {
 [github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/eslint-config-frontend/src/lib/rules.js?compression=gzip
-[raw-distribution-js]: https://unpkg.com/@terminus/eslint-config-frontend@*/
+[raw-distribution-js]: https://unpkg.com/@terminus/eslint-config-frontend@*/rules.js
 [eslint-file-overrides]:  https://eslint.org/docs/user-guide/configuring#disabling-rules-only-for-a-group-of-files
