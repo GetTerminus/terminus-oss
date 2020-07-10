@@ -20,11 +20,9 @@ import { KEYS } from '@terminus/ngx-tools/keycodes';
 import { isUndefined } from '@terminus/ngx-tools/type-guards';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
-
 // Unique ID for each instance
 // @internal
 let nextUniqueId = 0;
-
 
 /**
  * Represents an event fired on an individual {@link TsChipComponent}
@@ -309,13 +307,11 @@ export class TsChipComponent implements FocusableOption, OnDestroy {
   @Output()
   public readonly selectionChange = new EventEmitter<TsChipSelectionChange>();
 
-
   constructor(
     public elementRef: ElementRef<HTMLElement>,
     private ngZone: NgZone,
     private documentService: TsDocumentService,
   ) {}
-
 
   /**
    * Alert consumers about destruction
@@ -323,7 +319,6 @@ export class TsChipComponent implements FocusableOption, OnDestroy {
   public ngOnDestroy(): void {
     this.destroyed.emit({ chip: this });
   }
-
 
   /**
    * Emit the 'clicked' event
@@ -335,7 +330,6 @@ export class TsChipComponent implements FocusableOption, OnDestroy {
     this.clicked.emit(new TsChipClickEvent(this, event));
   }
 
-
   /**
    * Select the chip
    */
@@ -345,7 +339,6 @@ export class TsChipComponent implements FocusableOption, OnDestroy {
       this.dispatchSelectionChange();
     }
   }
-
 
   /**
    * Deselect the chip
@@ -357,7 +350,6 @@ export class TsChipComponent implements FocusableOption, OnDestroy {
     }
   }
 
-
   /**
    * Toggles the current selected state of this chip.
    */
@@ -366,7 +358,6 @@ export class TsChipComponent implements FocusableOption, OnDestroy {
     this.dispatchSelectionChange();
     return this.selected;
   }
-
 
   /**
    * Allows for programmatic focusing of the chip.
@@ -379,7 +370,6 @@ export class TsChipComponent implements FocusableOption, OnDestroy {
       this.onFocus.next(new TsChipEvent(this));
     }
   }
-
 
   /**
    * Allows for programmatic removal of the chip. Called by the {@link TsChipCollectionComponent} when the DELETE or BACKSPACE keys are
@@ -402,7 +392,6 @@ export class TsChipComponent implements FocusableOption, OnDestroy {
       event.stopPropagation();
     }
   }
-
 
   /**
    * Handles click events on the chip.
@@ -427,7 +416,6 @@ export class TsChipComponent implements FocusableOption, OnDestroy {
       event.stopPropagation();
     }
   }
-
 
   /**
    * Handle custom key presses.
@@ -459,7 +447,6 @@ export class TsChipComponent implements FocusableOption, OnDestroy {
     event.preventDefault();
   }
 
-
   /**
    * Defer marking the chip as not focused until the next time the zone stabilizes.
    */
@@ -475,7 +462,6 @@ export class TsChipComponent implements FocusableOption, OnDestroy {
       });
   }
 
-
   /**
    * When selection change action dispatched, emit selectionChange eventEmitter.
    */
@@ -483,4 +469,3 @@ export class TsChipComponent implements FocusableOption, OnDestroy {
     this.selectionChange.emit(new TsChipSelectionChange(this, this.selected));
   }
 }
-

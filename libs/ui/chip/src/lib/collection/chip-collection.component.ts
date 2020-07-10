@@ -57,7 +57,6 @@ export class TsChipCollectionChange {
   ) { }
 }
 
-
 /**
  * Component that is used to group {@link TsChipComponent} instances
  *
@@ -366,7 +365,6 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
   @Output()
   public readonly tabUpdateFocus = new EventEmitter<void>();
 
-
   constructor(
     protected elementRef: ElementRef<HTMLElement>,
     private changeDetectorRef: ChangeDetectorRef,
@@ -377,14 +375,12 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
     });
   }
 
-
   /**
    * Initialize the selection model
    */
   public ngOnInit(): void {
     this.selectionModel = new SelectionModel<TsChipComponent>(this.allowMultipleSelections, undefined, false);
   }
-
 
   /**
    * Initialize the key manager and listen for chip changes
@@ -422,7 +418,6 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
     });
   }
 
-
   /**
    * Trigger an initial sync after the content has loaded
    */
@@ -432,12 +427,10 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
     });
   }
 
-
   /**
    * Needed for untilComponentDestroyed
    */
   public ngOnDestroy() { }
-
 
   /**
    * When blurred, mark the field as touched when focus moved outside the chip collection.
@@ -448,7 +441,6 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
       this.keyManager.setActiveItem(-1);
     }
   }
-
 
   /**
    * Focuses the first non-disabled chip in this chip collection, or the associated input when there are no eligible chips.
@@ -463,7 +455,6 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
       this.keyManager.setFirstItemActive();
     }
   }
-
 
   /**
    * Pass events to the keyboard manager.
@@ -504,7 +495,6 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
     }
   }
 
-
   /**
    * Utility to for whether input field is empty
    *
@@ -516,10 +506,8 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
       const input = element as HTMLInputElement;
       return !input.value;
     }
-
     return false;
   }
-
 
   /**
    * Check the tab index as you should not be allowed to focus an empty list.
@@ -530,7 +518,6 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
     // If we have 0 chips, we should not allow keyboard focus
     this.tabIndex = this._userTabIndex || (this.chips.length === 0 ? -1 : 0);
   }
-
 
   /**
    * If the amount of chips changed, we need to update the key manager state and focus the next closest chip.
@@ -549,7 +536,6 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
     this.lastDestroyedChipIndex = null;
   }
 
-
   /**
    * Emits change event to set the model value.
    */
@@ -561,7 +547,6 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
     this.changeDetectorRef.markForCheck();
   }
 
-
   /**
    * Utility to ensure all indexes are valid.
    *
@@ -572,7 +557,6 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
     return index >= 0 && index < this.chips.length;
   }
 
-
   /**
    * Reset all the chips subscription
    */
@@ -581,7 +565,6 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
     this.listenToChipsSelection();
     this.listenToChipsRemoved();
   }
-
 
   /**
    * Listens to user-generated selection events on each chip.
@@ -603,7 +586,6 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
     });
   }
 
-
   /**
    * Listens to user-generated selection events on each chip.
    */
@@ -622,7 +604,6 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
     });
   }
 
-
   /**
    * Listens to remove events on each chip.
    */
@@ -640,7 +621,6 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
       this.removed.emit(new TsChipEvent(chip));
     });
   }
-
 
   /**
    * Syncs the collection's state with the individual chips.
