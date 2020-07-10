@@ -182,5 +182,4 @@ export class TsCardComponent {
    */
   @Input()
   public utilityMenuTemplate: TemplateRef<ElementRef> | undefined;
-
 }
