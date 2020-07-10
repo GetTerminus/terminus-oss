@@ -1,10 +1,7 @@
-@import '~@terminus/ui-styles/helpers';
-
-
 .ts-selection-list {
   // This brings chips above the static trigger
   --chip-zIndex: 2;
-  cursor: cursor(pointer);
+  cursor: pointer;
   display: block;
 
   &.ts-selection-list--single {
@@ -28,13 +25,13 @@
 
   &.ts-selection-list--disabled {
     .ts-selection-list__input {
-      cursor: cursor(not-allowed);
+      cursor: not-allowed;
     }
   }
 
   // Static trigger when user input is not allowed
   .ts-selection-list__custom-trigger {
-    cursor: cursor(pointer);
+    cursor: pointer;
     // This magic number forces the div to fill the same vertical space the input would normally
     min-height: 19px;
     // Don't let it fully collapse when empty
