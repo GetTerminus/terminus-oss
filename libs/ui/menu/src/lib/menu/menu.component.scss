@@ -1,15 +1,7 @@
-@import '~@terminus/ui-styles/helpers';
-
-
-//
-// @component
-//  Menu
-// @description
-//  A dropdown menu component
-//
 .ts-menu {
   --menu-caret-icon-adjustment: -.4em;
-  @include reset;
+  --menu-maxHeight: 12rem;
+  --menu-drag-placeholder-minHeight: 50px;
   display: inline-block;
 
   &--disabled {
@@ -25,8 +17,8 @@
 
   // Top level styles should be nested here
   .c-menu {
-    @include typography;
-    max-height: 12rem;
+    font: var(--ts-typography-compound-body);
+    max-height: var(--menu-maxHeight);
   }
 }
 
@@ -69,7 +61,7 @@
   // Drop area
   .cdk-drag-placeholder {
     // Match the height of the default checkbox
-    min-height: 50px;
+    min-height: var(--menu-drag-placeholder-minHeight);
   }
 }
 
