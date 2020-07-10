@@ -1,6 +1,3 @@
-@import '~@terminus/ui-styles/helpers';
-
-
 .ts-cohort-date-range {
   --cohort-selection-list-minWidth: 200px;
   display: block;
@@ -16,6 +13,6 @@
 .ts-date-range {
   &.ts-cohort-date-range__date-range {
     display: inline-block;
-    margin-right: spacing(large);
+    margin-right: var(--ts-space-inline-600);
   }
 }
