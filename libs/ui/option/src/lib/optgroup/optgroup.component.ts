@@ -26,10 +26,8 @@ import {
   TsOptionParentComponent,
 } from '../option/option.component';
 
-
 // Unique ID for each instance
 let nextUniqueId = 0;
-
 
 /**
  * Component that is used to group instances of {@link TsOptionComponent}s

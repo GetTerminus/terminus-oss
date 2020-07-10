@@ -91,7 +91,6 @@ export function someOptionsAreSelected(options: QueryList<TsOptionComponent>): b
   return someSelected && !allSelected;
 }
 
-
 /**
  * Toggle the selected state of all options
  *

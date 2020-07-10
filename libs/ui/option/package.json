@@ -24,7 +24,7 @@
     "@angular/forms": "^9.1.0",
     "@angular/material": "^9.1.0",
     "@angular/platform-browser": "^9.1.0",
-    "@terminus/design-tokens": "^2.0.2",
+    "@terminus/design-tokens": "^2.1.0",
     "@terminus/ngx-tools": "^8.0.5",
     "@terminus/ui-checkbox": "^1.0.0",
     "rxjs": "^6.5.0",
