@@ -1,23 +1,13 @@
 @import '~@terminus/ui-styles/helpers';
 
 
-$margin__vertical: .2em;
-$margin__horizontal: $margin__vertical * 2;
-$radius: 3px;
-/*
- * TODO: We are manually adjusting the ripple in multiple places now. We should abstract this out.
- * https://github.com/GetTerminus/terminus-ui/issues/1653
-*/
-$ripple-opacity: .4;
-$black: color(pure, dark);
-$primary: darken(color(primary), 10%);
-$accent: darken(color(accent), 10%);
-$warn: darken(color(warn), 10%);
-$ripple-black: rgba($black, $ripple-opacity);
-$ripple-primary: rgba($primary, $ripple-opacity);
-$ripple-accent: rgba($accent, $ripple-opacity);
-$ripple-warn: rgba($warn, $ripple-opacity);
-$icon-padding: .25em .3em .25em .4em;
+:root {
+  --copy-marginY: .2em;
+  --copy-marginX: calc(var(--copy-marginY) * 2);
+  --copy-radius: var(--ts-border-radius-base);
+  --copy-icon-padding: .25em .3em .25em .4em;
+  --copy-icon-minWidth: 35px;
+}
 
 //
 // @component
@@ -25,14 +15,22 @@ $icon-padding: .25em .3em .25em .4em;
 // @description
 //
 .ts-copy {
-  @include reset;
+  $ripple-opacity: .4;
+  $black: color(pure, dark);
+  $primary: darken(color(primary), 10%);
+  $accent: darken(color(accent), 10%);
+  $warn: darken(color(warn), 10%);
+  $ripple-black: rgba($black, $ripple-opacity);
+  $ripple-primary: rgba($primary, $ripple-opacity);
+  $ripple-accent: rgba($accent, $ripple-opacity);
+  $ripple-warn: rgba($warn, $ripple-opacity);
   display: block;
   max-width: 100%;
 
   // Top level styles should be nested here
   .c-copy {
-    @include typography;
-    color: color(utility, dark);
+    color: var(--ts-color-utility-700);
+    font: var(--ts-typography-compound-body);
     position: relative;
   }
 
@@ -52,7 +50,7 @@ $icon-padding: .25em .3em .25em .4em;
   &--accent {
     .c-copy {
       .c-copy__icon {
-        background-color: color(accent);
+        background-color: var(--ts-color-accent-500);
       }
     }
 
@@ -66,7 +64,7 @@ $icon-padding: .25em .3em .25em .4em;
   &--warn {
     .c-copy {
       .c-copy__icon {
-        background-color: color(warn);
+        background-color: var(--ts-color-warn-500);
       }
     }
 
@@ -81,23 +79,23 @@ $icon-padding: .25em .3em .25em .4em;
   // Format support
   //
   &--standard {
-    background-color: color(utility, xlight);
-    border: 1px solid color(utility, light);
-    border-radius: $radius;
-    transition: border-color 200ms ease-in-out 50ms;
+    background-color: var(--ts-color-utility-100);
+    border: 1px solid var(--ts-color-utility-300);
+    border-radius: var(--copy-radius);
+    transition: border-color var(--ts-animation-time-duration-200) ease-in-out var(--ts-animation-time-delay-100);
 
     // Adding tabindex to the element allows focus, but we don't need the visual indicator
     &:focus {
-      border: 1px solid color(utility);
+      border: 1px solid var(--ts-color-utility-500);
       outline: 0;
-      transition-delay: 0;
+      transition-delay: var(--ts-animation-time-delay-0);
     }
   }
 
   &--minimal {
     .c-copy__content {
-      line-height: 24px;
-      padding: $icon-padding;
+      line-height: var(--ts-typography-lineHeight-400);
+      padding: var(--copy-icon-padding);
     }
 
     .c-copy {
@@ -138,12 +136,11 @@ $icon-padding: .25em .3em .25em .4em;
 .c-copy {
   // <div> Container for text content
   .c-copy__content {
-    $icon-width: 35px;
     @include hidden-scrollbars;
     align-items: center;
     justify-content: center;
-    line-height: 32px;
-    min-width: $icon-width;
+    line-height: var(--ts-typography-lineHeight-500);
+    min-width: var(--copy-icon-minWidth);
     overflow: hidden;
     white-space: nowrap;
 
@@ -155,7 +152,7 @@ $icon-padding: .25em .3em .25em .4em;
     .c-tooltip {
       display: block;
       overflow: hidden;
-      padding: $margin__vertical 0 $margin__vertical $margin__horizontal;
+      padding: var(--copy-marginY) 0 var(--copy-marginY) var(--copy-marginX);
       text-overflow: ellipsis;
     }
   }
@@ -168,7 +165,7 @@ $icon-padding: .25em .3em .25em .4em;
     position: absolute;
     right: $offset-for-border-standard;
     top: $offset-for-border-standard;
-    transition: opacity 200ms ease-out;
+    transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
 
     .ts-tooltip {
       height: 100%;
@@ -182,17 +179,14 @@ $icon-padding: .25em .3em .25em .4em;
 
   // <div> The container for the icon
   .c-copy__icon {
-    $vertical-margin: calc(#{-$margin__vertical} - 1px);
-    $horizontal-margin: calc(#{-$margin__horizontal} - 1px);
-
-    @include cursor(pointer);
-    background-color: color(primary);
-    border-radius: $radius;
+    background-color: var(--ts-color-primary-500);
+    border-radius: var(--copy-radius);
     bottom: 0;
-    color: color(pure);
+    color: var(--ts-color-base-white);
+    cursor: pointer;
     height: 100%;
-    padding: $icon-padding;
-    transition: background-color 200ms ease-in;
+    padding: var(--copy-icon-padding);
+    transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeIn);
   }
 
   // Adjust icon alignment
@@ -202,7 +196,7 @@ $icon-padding: .25em .3em .25em .4em;
 
   .ts-copy--standard & {
     .c-copy__icon {
-      border-radius: 0 $radius $radius 0;
+      border-radius: 0 var(--copy-radius) var(--copy-radius) 0;
     }
   }
 }
