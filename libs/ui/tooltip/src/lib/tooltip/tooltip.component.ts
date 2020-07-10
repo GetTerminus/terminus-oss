@@ -29,7 +29,6 @@ export const allowedTooltipTypes: TsTooltipPositionTypes[] = [
   'after',
 ];
 
-
 /**
  * This is the tooltip UI Component
  *

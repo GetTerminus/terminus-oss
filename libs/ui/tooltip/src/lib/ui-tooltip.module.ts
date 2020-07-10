@@ -6,7 +6,6 @@ import { TsTooltipComponent } from './tooltip/tooltip.component';
 
 export * from './tooltip/tooltip.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
