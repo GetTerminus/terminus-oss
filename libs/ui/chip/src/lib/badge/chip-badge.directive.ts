@@ -7,7 +7,6 @@ import {
 
 import { TsChipComponent } from '../chip/chip.component';
 
-
 @Directive({ selector: '[tsChipBadge]' })
 export class TsChipBadgeDirective implements OnInit {
 
@@ -22,5 +21,4 @@ export class TsChipBadgeDirective implements OnInit {
     this.parent.isSelectable = false;
     this.elementRef.nativeElement.classList.add('ts-chip--badge');
   }
-
 }

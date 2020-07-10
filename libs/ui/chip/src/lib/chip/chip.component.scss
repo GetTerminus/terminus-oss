@@ -1,16 +1,13 @@
-@import '~@terminus/ui-styles/helpers';
-
-
 .ts-chip {
-  --chip-backgroundColor-hover: #{color(utility)};
-  --chip-backgroundColor: #{color(utility, light)};
+  --chip-backgroundColor-hover: var(--ts-color-utility-500);
+  --chip-backgroundColor: var(--ts-color-utility-300);
   --chip-borderRadius: 16px;
-  --chip-color: #{color(pure, dark)};
-  --chip-fontSize: 12px;
-  --chip-height: #{spacing(large)};
-  --chip-margin: #{spacing(small, 2)};
+  --chip-color: var(--ts-color-base-black);
+  --chip-fontSize: var(--ts-typography-size-200);
+  --chip-height: 24px;
+  --chip-margin: var(--ts-space-inset-200);
   --chip-padding: 2px 4px 2px 6px;
-  --chip-remove-size: #{spacing(large)};
+  --chip-remove-size: 24px;
   --badge-padding: 2px 4px 2px 4px;
 
   &:focus,
@@ -19,7 +16,7 @@
       .c-chip {
         &:not(.c-chip--disabled) {
           --chip-backgroundColor: var(--chip-backgroundColor-hover);
-          transition: opacity 200ms cubic-bezier(.35, 0, .25, 1);
+          transition: opacity var(--ts-animation-time-duration-200) cubic-bezier(.35, 0, .25, 1);
         }
       }
     }
@@ -27,37 +24,37 @@
 
   &.ts-chip--selected,
   &.ts-chip--badge {
-    color: color(pure);
+    color: var(--ts-color-base-white);
     $themes: primary accent warn;
 
     @each $theme in $themes {
       &.ts-chip--#{$theme} {
         .c-chip {
-          background-color: color(#{$theme});
+          background-color: var(--ts-color-#{$theme}-500);
         }
       }
     }
 
     .c-chip__remove {
-      color: color(pure);
+      color: var(--ts-color-base-white);
     }
   }
 
   &.ts-chip--badge {
     .c-chip {
-      --chip-color: color(pure);
+      --chip-color: var(--ts-color-base-white);
       padding: var(--badge-padding);
     }
   }
 
   .c-chip {
-    @include typography;
     align-items: center;
     background-color: var(--chip-backgroundColor);
     border-radius: var(--chip-borderRadius);
     box-sizing: border-box;
     color: var(--chip-color);
     display: inline-flex;
+    font: var(--ts-typography-compound-body);
     font-size: var(--chip-fontSize);
     height: var(--chip-height);
     margin: 0 var(--chip-margin) var(--chip-margin) var(--chip-margin);
@@ -66,10 +63,10 @@
     position: relative;
     -webkit-tap-highlight-color: transparent;
     transform: translateZ(0);
-    transition: background-color 200ms ease-out;
+    transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
 
     &.c-chip--removable {
-      padding-right: spacing(large);
+      padding-right: var(--ts-space-inset-600);
 
       .c-chip__remove {
         display: block;
@@ -77,7 +74,7 @@
     }
 
     &.c-chip--disabled {
-      --chip-color: #{color(utility, dark)};
+      --chip-color: var(--ts-color-utility-700);
       padding: var(--chip-padding);
       pointer-events: none;
 
@@ -89,7 +86,7 @@
     .c-chip__remove {
       // Needed to remove 1px jump caused on opacity change
       backface-visibility: hidden;
-      cursor: cursor(pointer);
+      cursor: pointer;
       display: none;
       height: var(--chip-remove-size);
       opacity: .4;
@@ -97,7 +94,7 @@
       right: 0;
       top: 50%;
       transform: translateY(-50%) scale(.8);
-      transition: opacity 200ms ease-out;
+      transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
       width: var(--chip-remove-size);
 
       &:hover {
@@ -112,5 +109,3 @@
     }
   }
 }
-
-
