@@ -20,7 +20,6 @@ import {
   TsUILibraryError,
 } from '@terminus/ui-utilities';
 
-
 /**
  * The possible display formats for {@link TsCopyComponent}
  */
@@ -29,7 +28,6 @@ export type TsCopyDisplayFormat
   | 'minimal'
   | 'icon'
 ;
-
 
 /**
  * A component to facilitate the easy copying of text
@@ -142,18 +140,10 @@ export class TsCopyComponent {
   @Input()
   public theme: TsStyleThemeTypes = 'primary';
 
-
-  /**
-   * Inject services
-   *
-   * @param documentService
-   * @param windowService
-   */
   constructor(
     private documentService: TsDocumentService,
     private windowService: TsWindowService,
   ) {}
-
 
   /**
    * Return the inner text content
