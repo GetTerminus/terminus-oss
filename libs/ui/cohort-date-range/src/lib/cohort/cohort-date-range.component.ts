@@ -23,7 +23,6 @@ import {
   TsSelectionListComponent,
 } from '@terminus/ui-selection-list';
 
-
 /**
  * Represents the range for a {@link TsDateCohort}
  */
@@ -65,7 +64,6 @@ let nextUniqueId = 0;
 
 /**
  * This is the cohort-date-range UI Component
- *
  *
  * @example
  * <ts-cohort-date-range
