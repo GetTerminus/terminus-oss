@@ -16,7 +16,6 @@ import { TsPaginatorComponent } from './paginator/paginator.component';
 
 export * from './paginator/paginator.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
