@@ -51,7 +51,6 @@ const DEFAULT_MAX_PREFERRED_RECORDS = 100;
 // eslint-disable-next-line @typescript-eslint/no-magic-numbers
 const DEFAULT_RECORDS_PER_PAGE_OPTIONS = [10, 20, 50];
 
-
 /**
  * A paginator component
  *
@@ -617,7 +616,6 @@ export class TsPaginatorComponent implements OnChanges, AfterViewInit {
     return paginatorArray.sort((a: TsPaginatorMenuItem, b: TsPaginatorMenuItem): number => {
       const first: number = coerceNumberProperty(a.value);
       const second: number = coerceNumberProperty(b.value);
-
       return (first < second) ? -1 : 1;
     });
   }

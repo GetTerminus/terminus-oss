@@ -1,44 +1,37 @@
 @import '~@terminus/ui-styles/helpers';
 
-
-//
-// @component
-//  Paginator
-// @description
-//  A component to show paginator controls
-//
 .ts-paginator {
-  @include reset;
   display: inline-block;
 
   // Top level styles should be nested here
   .c-paginator {
-    @include typography;
     display: inline-block;
+    font: var(--ts-typography-compound-body);
   }
 }
 
 // <div> primary wrapper
 .c-paginator {
+  --paginator-message-spacing: .4em 0;
+  --paginator-current-page-margin: var(--ts-space-inline-200);
+
   // <div> container for the message about too many records
   .c-paginator__message {
-    $message-spacing: .4em 0;
-    @include typography('caption');
-    color: color(utility, dark);
-    margin: $message-spacing;
+    color: var(--ts-color-utility-700);
+    font: var(--ts-typography-compound-caption);
+    margin: var(--paginator-message-spacing);
     text-align: right;
   }
 
   // <div> container for current page in simple mode
   .c-paginator__current-page {
-    $button-margin: 4px;
     $width-to-match-menu: 8em;
     display: inline-block;
     // Center vertically
     line-height: 2.6em;
     // Match margin added to buttons
-    margin-right: $button-margin;
-    margin-top: $button-margin;
+    margin-right: var(--paginator-current-page-margin);
+    margin-top: var(--paginator-current-page-margin);
     text-align: center;
     // Add a width so the layout is close to the original
     width: $width-to-match-menu;
@@ -50,6 +43,6 @@
 
   .ts-button,
   .ts-selection-list {
-    margin-right: spacing(small, 2);
+    margin-right: var(--ts-space-inline-200);
   }
 }
