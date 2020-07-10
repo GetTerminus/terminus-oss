@@ -8,7 +8,6 @@ import { TsOptgroupComponent } from './optgroup/optgroup.component';
 import { TsOptionDisplayDirective } from './option/option-display.directive';
 import { TsOptionComponent } from './option/option.component';
 
-
 export * from './option/option.component';
 export * from './option-utilities';
 export * from './option/option-display.directive';

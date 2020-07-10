@@ -1,24 +1,17 @@
 @import '~@terminus/ui-styles/helpers';
 
-
-//
-// @component
-//  Optgroup
-// @description
-//  An optgroup for a select menu
-//
 .ts-optgroup {
   display: block;
 
   &.ts-optgroup--disabled {
-    color: color(utility, dark);
+    color: var(--ts-color-utility-700);
   }
 
   .ts-optgroup-label {
-    @include typography(body, 2);
     @include truncate-overflow;
-    color: color(utility);
+    color: var(--ts-color-utility-500);
     display: block;
-    padding-left: spacing(small);
+    font: var(--ts-typography-compound-body2);
+    padding-left: var(--ts-space-inline-400);
   }
 }
