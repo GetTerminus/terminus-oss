@@ -53,5 +53,4 @@ export class TsCardTitleDirective {
       throw new TsUILibraryError(`The 'tsCardTitle' directive must be inside a <ts-card> component.`);
     }
   }
-
 }

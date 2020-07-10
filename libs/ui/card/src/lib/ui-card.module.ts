@@ -10,8 +10,6 @@ import { TsCardComponent } from './card/card.component';
 export * from './card/card.component';
 export * from './card-title/card-title.directive';
 
-export const foo = () => true;
-
 @NgModule({
   imports: [
     CommonModule,
