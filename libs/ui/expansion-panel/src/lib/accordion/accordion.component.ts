@@ -38,10 +38,6 @@ import {
  *               <ts-expansion-panel>
  *                 ...
  *               </ts-expansion-panel>
- *
- *               <ts-expansion-panel>
- *                 ...
- *               </ts-expansion-panel>
  * </ts-accordion>
  *
  * <example-url>https://getterminus.github.io/ui-demos-release/components/expansion-panel</example-url>
