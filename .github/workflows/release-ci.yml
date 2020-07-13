@@ -14,18 +14,14 @@ jobs:
   # Cancel any workflows that would be duplicated by this run
   #
   cancel_duplicate_runs:
-    name: "Cancel Duplicates"
+    name: 'Cancel Duplicate Runs'
     runs-on: ubuntu-latest
+    timeout-minutes: 3
     steps:
-      - uses: actions/checkout@v2
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.4.0
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 0
-      - run: git fetch --no-tags --prune --depth=5 origin release
-      - uses: rokroskar/workflow-run-cleanup-action@master
-        env:
-          GITHUB_TOKEN: "${{ secrets.GH_TOKEN }}"
-    if: "!startsWith(github.ref, 'refs/tags/') && github.ref != 'refs/heads/release'"
+          access_token: ${{ github.GH_TOKEN }}
 
   #
   # Test affected projects
