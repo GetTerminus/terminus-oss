@@ -5,16 +5,15 @@ jobs:
   #
   # Cancel any workflows that would be duplicated by this run
   #
-  cleanup-runs:
-    name: Cancel Duplicates
+  cancel_duplicate_runs:
+    name: "Cancel Duplicates"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      - run: |
-          git fetch --no-tags --prune --depth=5 origin release
+      - run: git fetch --no-tags --prune --depth=5 origin release
       - uses: rokroskar/workflow-run-cleanup-action@master
         env:
           GITHUB_TOKEN: "${{ secrets.GH_TOKEN }}"
@@ -25,6 +24,7 @@ jobs:
   #
   affected_test:
     name: "Test affected projects"
+    needs: [cancel_duplicate_runs]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -75,6 +75,7 @@ jobs:
   affected_lint:
     name: "Lint affected projects"
     runs-on: ubuntu-latest
+    needs: [cancel_duplicate_runs]
     steps:
       - uses: actions/checkout@v2
         with:
