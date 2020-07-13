@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/eslint-config-frontend@2.2.4...@terminus/eslint-config-frontend@2.2.5) (2020-07-13)
+
+**Note:** Version bump only for package @terminus/eslint-config-frontend
+
+
+
+
+
 ## [2.2.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/eslint-config-frontend@2.2.3...@terminus/eslint-config-frontend@2.2.4) (2020-07-13)
 
 
