@@ -8,23 +8,18 @@
 
   <span fxFlex></span>
 
-  <div class="versions" fxLayout="row" fxLayoutGap="1em">
-    <div fxLayout="column" fxLayoutAlign="start stretch">
-      <div>
-        @terminus/ngx-tools:
-        <strong>{{ ngxVersion.full }}</strong>
-      </div>
+  <div class="versions" fxLayout="column">
+    <div>
+      Last build:
+      <strong>INJECTED_TIME</strong><br>
     </div>
-
-    <div fxLayout="column" fxLayoutAlign="start stretch">
-      <div>
-        @angular/*:
-        <strong>{{ ngVersion.full }}</strong>
-      </div>
-      <div>
-        @angular/material:
-        <strong>{{ matVersion.full }}</strong>
-      </div>
+    <div>
+      Run ID:
+      <strong>INJECTED_BUILD_REF</strong><br>
+    </div>
+    <div>
+      Build SHA:
+      <strong>INJECTED_SHA</strong><br>
     </div>
   </div>
 

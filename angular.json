@@ -214,6 +214,9 @@
           "options": {
             "commands": [
               {
+                "command": "tools/ci/release-inject-ci-info.sh"
+              },
+              {
                 "command": "tools/ci/demos-deploy.sh"
               }
             ]
