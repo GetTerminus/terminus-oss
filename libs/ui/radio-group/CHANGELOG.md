@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@1.1.1...@terminus/ui-radio-group@1.1.2) (2020-07-13)
+
+
+### Bug Fixes
+
+* **RadioGroup:** correct tokens dep version ([eb4eb8f](https://github.com/GetTerminus/terminus-oss/commit/eb4eb8fe06dc91dcf9bde4d20be54a3544f98df3))
+
+
+
+
+
 ## [1.1.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@1.1.0...@terminus/ui-radio-group@1.1.1) (2020-07-10)
 
 

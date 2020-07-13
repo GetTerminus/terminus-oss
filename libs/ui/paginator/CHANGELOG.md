@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.9 (2020-07-13)
+
+
+### Bug Fixes
+
+* **ESLintConfig:** add build command ([b38ada9](https://github.com/GetTerminus/terminus-oss/commit/b38ada91d034ebe18b96f46b603b13b0ccbca5c0))
+* **Paginator:** use css custom properties ([f4d180e](https://github.com/GetTerminus/terminus-oss/commit/f4d180ef51c4a00c218c46a3c94cc64b4a164f3d)), closes [#119](https://github.com/GetTerminus/terminus-oss/issues/119)
+
+
+
+
+
 ## [1.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@1.0.7...@terminus/ui-paginator@1.0.8) (2020-07-07)
 
 **Note:** Version bump only for package @terminus/ui-paginator

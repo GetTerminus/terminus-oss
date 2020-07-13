@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.6 (2020-07-13)
+
+
+### Bug Fixes
+
+* **ESLintConfig:** add build command ([b38ada9](https://github.com/GetTerminus/terminus-oss/commit/b38ada91d034ebe18b96f46b603b13b0ccbca5c0))
+* **Option:** use css custom properties ([4346b1d](https://github.com/GetTerminus/terminus-oss/commit/4346b1dd24e582b899143a691aa1141588125231)), closes [#118](https://github.com/GetTerminus/terminus-oss/issues/118)
+
+
+
+
+
 ## [1.0.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-option@1.0.4...@terminus/ui-option@1.0.5) (2020-07-07)
 
 **Note:** Version bump only for package @terminus/ui-option

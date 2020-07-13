@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.7 (2020-07-13)
+
+
+### Bug Fixes
+
+* **ESLintConfig:** add build command ([b38ada9](https://github.com/GetTerminus/terminus-oss/commit/b38ada91d034ebe18b96f46b603b13b0ccbca5c0))
+* **Tooltip:** use css custom properties ([013bbd2](https://github.com/GetTerminus/terminus-oss/commit/013bbd26fe548e357c863b1295fa76480a81cbb8)), closes [#126](https://github.com/GetTerminus/terminus-oss/issues/126)
+
+
+
+
+
 ## [1.0.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tooltip@1.0.5...@terminus/ui-tooltip@1.0.6) (2020-07-07)
 
 **Note:** Version bump only for package @terminus/ui-tooltip

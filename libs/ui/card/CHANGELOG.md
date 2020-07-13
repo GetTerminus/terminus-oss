@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.11 (2020-07-13)
+
+
+### Bug Fixes
+
+* **Card:** use css custom properties ([f01f004](https://github.com/GetTerminus/terminus-oss/commit/f01f004fe7887f7b1859b79b3a39d736c9196e0c)), closes [#101](https://github.com/GetTerminus/terminus-oss/issues/101)
+* **ESLintConfig:** add build command ([b38ada9](https://github.com/GetTerminus/terminus-oss/commit/b38ada91d034ebe18b96f46b603b13b0ccbca5c0))
+
+
+
+
+
 ## [1.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@1.0.9...@terminus/ui-card@1.0.10) (2020-07-07)
 
 **Note:** Version bump only for package @terminus/ui-card
