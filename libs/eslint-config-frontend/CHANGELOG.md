@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/eslint-config-frontend@2.2.3...@terminus/eslint-config-frontend@2.2.4) (2020-07-13)
+
+
+### Bug Fixes
+
+* **ESLintConfig:** consider stories files as spec files ([00f5ebf](https://github.com/GetTerminus/terminus-oss/commit/00f5ebf560885c390595d76f7eaeabd8c254f463))
+
+
+
+
+
 ## [2.2.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/eslint-config-frontend@2.2.2...@terminus/eslint-config-frontend@2.2.3) (2020-07-08)
 
 **Note:** Version bump only for package @terminus/eslint-config-frontend
