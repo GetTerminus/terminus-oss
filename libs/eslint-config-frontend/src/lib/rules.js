@@ -809,6 +809,8 @@ module.exports = {
         '**/test-helpers.ts',
         // Test component files:
         '**/test-components.ts',
+        // Storybook files:
+        '**/stories.ts',
       ],
       env: {
         jest: true,
