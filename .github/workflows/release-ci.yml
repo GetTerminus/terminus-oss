@@ -219,6 +219,7 @@ jobs:
         run: yarn run version-bump
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
+      # NOTE: Building again here is needed since Lerna bumps the versions in the source files.
       - name: "Build bumped projects"
         run: tools/ci/lerna-build-changed-projects.sh
         working-directory: ${{ env.working-directory }}

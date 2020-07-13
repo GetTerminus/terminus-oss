@@ -13,8 +13,11 @@ if [[ -n "$LERNA_OUTPUT" ]]; then
   cat CHANGED.json
 
   export CHANGED_PROJECTS="$(node json-to-projects-list.js)"
-  echo "Building: $CHANGED_PROJECTS"
+  echo "Building: $CHANGED_PROJECTS.."
   yarn run build:changed
+
+  echo "Building schematics for: $CHANGED_PROJECTS.."
+  yarn run build:schematics:changed
 else
   echo "No changed projects found."
 fi

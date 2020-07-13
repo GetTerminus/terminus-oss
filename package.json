@@ -42,6 +42,7 @@
     "////////// Section: Release": "==============================",
     "publish:libs": "lerna publish from-package --dist-tag next",
     "build:changed": "nx run-many --target=build --projects=${CHANGED_PROJECTS}",
+    "build:schematics:changed": "nx run-many --target=build-schematics --projects=${CHANGED_PROJECTS}",
     "semantic-release": "lerna exec --stream --ci --concurrency 1 \"npx --no-install semantic-release --tag-format='${LERNA_PACKAGE_NAME}-v\\${version}'\"",
     "version-bump": "lerna version",
     "////////// Section: Custom Lint": "==============================",
