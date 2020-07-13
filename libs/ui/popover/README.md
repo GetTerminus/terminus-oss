@@ -9,6 +9,9 @@ Popover component is designed to pop up simple or complex content based on a use
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Packages that need to be installed](#packages-that-need-to-be-installed)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
 - [popper.js](#popperjs)
   - [popper.js documentation](#popperjs-documentation)
 - [Usage](#usage)
@@ -18,6 +21,33 @@ Popover component is designed to pop up simple or complex content based on a use
   - [Events](#events)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Installation
+
+### Packages that need to be installed
+
+  * @angular/cdk
+  * @angular/common
+  * @angular/core
+  * @angular/flex-layout
+  * @angular/forms
+  * @angular/platform-browser
+  * @popperjs/core
+  * @terminus/design-tokens
+  * @terminus/ngx-tools
+  * @terminus/ui-utilities
+  * @terminus/ui-popover
+  * date-fns
+
+Using `ng add` command can help getting all the dependencies installed:
+
+```bash
+    ng add @terminus/ui-popover
+```
+
+### Modules that need to be in NgModule
+
+  * TsPopoverModule
 
 ## popper.js
 

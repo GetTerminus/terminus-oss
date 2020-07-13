@@ -7,12 +7,42 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Packages that need to be installed](#packages-that-need-to-be-installed)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
 - [Available pipes](#available-pipes)
 - [Usage](#usage)
   - [HTML](#html)
   - [Class](#class)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Installation
+
+### Packages that need to be installed
+
+  * @angular/cdk
+  * @angular/common
+  * @angular/core
+  * @angular/flex-layout
+  * @angular/forms
+  * @angular/platform-browser
+  * @terminus/design-tokens
+  * @terminus/ngx-tools
+  * @terminus/ui-utilities
+  * @terminus/ui-pipes
+  * date-fns: ^2.14.0
+
+Using `ng add` command can help getting all the dependencies installed:
+
+```bash
+    ng add @terminus/ui-pipes
+```
+
+### Modules that need to be in NgModule
+
+  * TsPipesModule
+
 
 ## Available pipes
 

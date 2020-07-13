@@ -7,10 +7,49 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Packages that need to be installed](#packages-that-need-to-be-installed)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
 - [Usage](#usage)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+## Installation
+
+### Packages that need to be installed
+
+   *  @angular/cdk
+   *  @angular/common
+   *  @angular/core
+   *  @angular/flex-layout
+   *  @angular/forms
+   *  @angular/platform-browser
+   *  @terminus/design-tokens
+   *  @terminus/ngx-tools
+   *  @terminus/ui-utilities
+   *  @terminus/ui-login-form
+   *  @terminus/ui-button
+   *  @terminus/ui-checkbox
+   *  @terminus/ui-input
+   *  @terminus/ui-link
+   *  @terminus/ui-spacing
+   *  @terminus/ui-validators
+   *  @terminus/ui-form-field
+   *  @terminus/ui-pipes
+   *  @terminus/ui-validation-messages
+   *  text-mask-addons
+   *  text-mask-core
+   *  date-fns
+
+Using `ng add` command can help getting all the dependencies installed:
+
+```bash
+    ng add @terminus/ui-login-form
+```
+
+### Modules that need to be in NgModule
+
+  * TsLoginFormModule
 
 ## Usage
 

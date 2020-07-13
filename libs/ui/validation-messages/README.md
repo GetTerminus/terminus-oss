@@ -8,19 +8,39 @@
 **Table of Contents**
 
 - [Installation](#installation)
+  - [Packages that need to be installed](#packages-that-need-to-be-installed)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
 - [Usage](#usage)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Installation
 
+### Packages that need to be installed
+
+  * @angular/cdk
+  * @angular/common
+  * @angular/core
+  * @angular/flex-layout
+  * @angular/forms
+  * @angular/material
+  * @angular/platform-browser
+  * @terminus/design-tokens
+  * @terminus/ngx-tools
+  * @terminus/ui-pipes
+  * @terminus/ui-utilities
+  * @terminus/ui-validation-messages
+  * @terminus/ui-validators
+  * date-fns
+
+Or use `ng add`
 ```
-$ yarn add @terminus/design-tokens @terminus/ngx-tools @terminus/ui-pipes date-fns @terminus/ui-validation-messages
-# or
-$ npm install @terminus/design-tokens @terminus/ngx-tools @terminus/ui-pipes date-fns @terminus/ui-validation-messages -S
+ng add @terminus/ui-validation-messages
 ```
 
-Include the module:
+### Modules that need to be in NgModule
+
+  * TsValidationMessagesModule
 
 ```typescript
 @NgModule({

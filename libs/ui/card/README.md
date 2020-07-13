@@ -7,6 +7,9 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [Links to be added](#links-to-be-added)
 - [Usage](#usage)
   - [Interactivity](#interactivity)
   - [Centered content](#centered-content)
@@ -16,6 +19,32 @@
   - [Disabled Card](#disabled-card)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Installation
+
+  * @angular/material
+  * @terminus/design-tokens
+  * @terminus/ngx-tools
+  * @terminus/ui-card
+  * @terminus/ui-icon
+  * @terminus/ui-utilities
+  
+  Using `ng add` command can help getting all the dependencies installed:
+  ```bash
+    ng add @terminus/ui-card
+  ```
+
+### Modules that need to be in NgModule
+
+  * TsCardModule
+  
+### Links to be added
+
+In order to have material icons shown up correctly, add this to the top level html
+
+```html
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
 
 ## Usage
 

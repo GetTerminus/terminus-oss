@@ -23,6 +23,7 @@
   - [Code Comments](#code-comments)
     - [JSDoc Tags](#jsdoc-tags)
   - [Usage Docs](#usage-docs)
+  - [Schematics](#schematics)
 - [Releases](#releases)
 - [Code Style](#code-style)
   - [Lint configurations](#lint-configurations)
@@ -390,6 +391,15 @@ When the documentation published, this usage doc will be automatically consumed 
 When editing or creating usage documentation, add headlines and appropriate content, then run `yarn run docs:toc` to update (or generate)
 the table of contents.
 
+### Schematics
+
+Schematics is used to provide installation help. With that consumer can add each individual package via:
+```
+ $ ng add @terminus/ui-input
+```
+When creating a new component, add one folder named `schematics` under the component. Go to `schematics/ng-add/` folder, create the main file, `index.ts`. Then add `ngAdd` function in `index.ts`.
+
+If there is any change to an existing package's `package.json` dependency block, make sure update that in `schematics/ng-add/index.ts`.
 
 ## Releases
 

@@ -7,12 +7,44 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Packages that need to be installed](#packages-that-need-to-be-installed)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [Links to be added](#links-to-be-added)
 - [Usage](#usage)
   - [Theme](#theme)
   - [Accessibility](#accessibility)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+## Installation
+
+### Packages that need to be installed
+
+  * @angular/material
+  * @terminus/design-tokens
+  * @terminus/ngx-tools
+  * @terminus/ui-icon
+  * @terminus/ui-icon-button
+  * @terminus/ui-utilities
+  
+Using `ng add` command can help getting all the dependencies installed:
+
+```bash
+    ng add @terminus/ui-icon-button
+```
+
+### Modules that need to be in NgModule
+
+  * TsIconButtonModule
+
+### Links to be added
+
+In order to have material icons shown up correctly, add this to the top level html
+
+```html
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
 
 ## Usage
 

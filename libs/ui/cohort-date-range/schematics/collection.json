@@ -1,0 +1,9 @@
+{
+  "$schema": "../../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "ng-add": {
+      "description": "Add required package to the cohort date range.",
+      "factory": "./ng-add/index#ngAdd"
+    }
+  }
+}

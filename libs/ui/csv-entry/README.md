@@ -7,6 +7,10 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Packages that need to be installed](#packages-that-need-to-be-installed)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [Styles to be added](#styles-to-be-added)
 - [Usage](#usage)
   - [Column count](#column-count)
   - [Row count](#row-count)
@@ -19,6 +23,47 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+## Installation
+
+### Packages that need to be installed
+
+   * @angular/cdk
+   * @angular/common
+   * @angular/core
+   * @angular/flex-layout
+   * @angular/forms
+   * @angular/material
+   * @angular/platform-browser
+   * @terminus/design-tokens
+   * @terminus/ngx-tools
+   * @terminus/ui-button
+   * @terminus/ui-icon
+   * @terminus/ui-icon-button
+   * @terminus/ui-spacing
+   * @terminus/ui-tooltip
+   * @terminus/ui-utilities
+   * @terminus/ui-csv-entry
+   * date-fns
+
+
+Using `ng add` command can help getting all the dependencies installed:
+
+```bash
+    ng add @terminus/ui-csv-entry
+```
+
+### Modules that need to be in NgModule
+
+  * TsCSVEntryModule
+
+### Styles to be added
+
+ At top level `styles.scss`, add these styles:
+
+```css
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/terminus-ui.css';
+```
 
 ## Usage
 

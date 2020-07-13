@@ -17,6 +17,12 @@
     "tag": "next",
     "directory": "../../../dist/libs/ui/copy"
   },
+  "scripts": {
+    "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:collection": "cp schematics/collection.json ../../../dist/libs/ui/copy/schematics/collection.json",
+    "postbuild": "npm run copy:collection"
+  },
+  "schematics": "./schematics/collection.json",
   "peerDependencies": {
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
@@ -28,5 +34,11 @@
     "@terminus/ui-tooltip": "^1.0.0",
     "@terminus/ui-utilities": "^1.0.0",
     "tslib": "^1.10.0"
-  }
+  },
+  "scripts": {
+    "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:collection": "cp schematics/collection.json ../../../dist/libs/ui/copy/schematics/collection.json",
+    "postbuild": "npm run copy:collection"
+  },
+  "schematics": "./schematics/collection.json"
 }

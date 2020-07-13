@@ -11,6 +11,11 @@ NOTE: This component does not support a `FormControl`; it is a simple collection
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Packages that need to be included](#packages-that-need-to-be-included)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [Styles to be added](#styles-to-be-added)
+  - [Links to be added](#links-to-be-added)
 - [Usage](#usage)
   - [Using the DOM as value](#using-the-dom-as-value)
   - [Theme](#theme)
@@ -25,6 +30,45 @@ NOTE: This component does not support a `FormControl`; it is a simple collection
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+## Installation
+
+### Packages that need to be included
+
+  * @angular/cdk
+  * @angular/material
+  * @terminus/design-tokens
+  * @terminus/ngx-tools
+  * @terminus/ui-chip
+  * @terminus/ui-icon
+  * @terminus/ui-utilities
+  * @terminus/ui-styles
+  * date-fns
+  
+  Using `ng add` command can help getting all the dependencies installed:
+  ```bash
+    ng add @terminus/ui-chip
+  ```
+  
+### Modules that need to be in NgModule
+
+  * TsChipModule
+  
+### Styles to be added
+
+On top level `styles.css`, add these styles:
+
+```css
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/terminus-ui.css';
+```
+
+### Links to be added
+
+In order to have material icons shown up correctly, add this to the top level `index.html`
+
+```css
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
 
 ## Usage
 

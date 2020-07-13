@@ -9,6 +9,10 @@ A drag'n'drop file upload component.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Packages that need to be installed](#packages-that-need-to-be-installed)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [Links to be added](#links-to-be-added)
 - [Usage](#usage)
   - [`TsSelectedFile`](#tsselectedfile)
   - [File types](#file-types)
@@ -21,6 +25,48 @@ A drag'n'drop file upload component.
   - [Handle multiple files](#handle-multiple-files)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Installation
+
+### Packages that need to be installed
+
+  *  @angular/cdk
+  *  @angular/common
+  *  @angular/core
+  *  @angular/flex-layout
+  *  @angular/forms
+  *  @angular/material
+  *  @angular/platform-browser
+  *  @terminus/design-tokens
+  *  @terminus/ngx-tools
+  *  @terminus/ui-button
+  *  @terminus/ui-file-upload
+  *  @terminus/ui-icon
+  *  @terminus/ui-icon-button
+  *  @terminus/ui-pipes
+  *  @terminus/ui-spacing
+  *  @terminus/ui-tooltip
+  *  @terminus/ui-utilities
+  *  @terminus/ui-validation-messages
+  *  date-fns
+  
+Using `ng add` command can help getting all the dependencies installed:
+
+```bash
+    ng add @terminus/ui-file-upload
+```
+
+### Modules that need to be in NgModule
+
+  * TsFileUploadModule
+
+### Links to be added
+
+In order to have material icons shown up correctly, add this to the top level html
+
+```html
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
 
 
 ## Usage

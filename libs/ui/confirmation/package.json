@@ -17,6 +17,12 @@
     "tag": "next",
     "directory": "../../../dist/libs/ui/confirmation"
   },
+  "scripts": {
+    "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:collection": "cp schematics/collection.json ../../../dist/libs/ui/confirmation/schematics/collection.json",
+    "postbuild": "npm run copy:collection"
+  },
+  "schematics": "./schematics/collection.json",
   "peerDependencies": {
     "@angular/cdk": "^9.1.0",
     "@angular/common": "^9.1.0",

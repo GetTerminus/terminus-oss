@@ -7,6 +7,10 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Packages that need to be installed](#packages-that-need-to-be-installed)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [Styles to be added](#styles-to-be-added)
 - [Usage](#usage)
   - [Event driven](#event-driven)
   - [Date range boundaries](#date-range-boundaries)
@@ -17,6 +21,51 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+## Installation
+
+### Packages that need to be installed
+
+  * @angular/cdk
+  * @angular/common
+  * @angular/core
+  * @angular/flex-layout
+  * @angular/forms
+  * @angular/material
+  * @angular/platform-browser
+  * @terminus/design-tokens
+  * @terminus/ngx-tools
+  * @terminus/ui-form-field
+  * @terminus/ui-icon
+  * @terminus/ui-input
+  * @terminus/ui-pipes
+  * @terminus/ui-validation-messages
+  * @terminus/ui-validators
+  * @terminus/ui-spacing
+  * @terminus/ui-utilities
+  * @terminus/ui-date-range
+  * text-mask-core
+  * text-mask-addons
+  * date-fns
+
+
+Using `ng add` command can help getting all the dependencies installed:
+
+```bash
+    ng add @terminus/ui-date-range
+```
+
+### Modules that need to be in NgModule
+
+  * TsDateRangeModule
+
+### Styles to be added
+
+ At top level `styles.scss`, add these styles:
+
+```css
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/terminus-ui.css';
+```
 
 ## Usage
 
