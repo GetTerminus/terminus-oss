@@ -161,9 +161,7 @@ Expansion panel with transparent mode on has no box shadow and padding on the si
     Here is my trigger!
   </ts-expansion-panel-trigger>
 
-  <ng-template tsExpansionPanelContent>
-    Here is my deferred template!
-  </ng-template>
+  <p>And here is my standard panel content.</p>
 </ts-expansion-panel>
 ```
 
@@ -197,7 +195,7 @@ Custom heights can be set for a trigger's collapsed and/or expanded state.
     expandedHeight="200px"
   >Panel Trigger (100px -> 200px)</ts-expansion-panel-trigger>
 
-  And here is my standard panel content.
+  <p>And here is my standard panel content.</p>
 </ts-expansion-panel>
 ```
 

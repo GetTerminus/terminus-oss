@@ -1,5 +1,16 @@
 {
   "extends": "../tsconfig.json",
-  "exclude": ["../**/test.ts", "../**/*.spec.ts"],
-  "include": ["../libs/**/*.ts"]
+  "exclude": [
+    "../**/test.ts",
+    "../**/*.spec.ts"
+  ],
+  "include": [
+    "../libs/**/*.ts"
+  ],
+  "paths": {
+    "@terminus/ui-expansion-panel": [
+      "libs/ui/expansion-panel/src/index.ts",
+      "dist/libs/expansion-panel"
+    ]
+  }
 }
