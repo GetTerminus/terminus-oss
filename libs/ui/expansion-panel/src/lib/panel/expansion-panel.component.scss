@@ -1,38 +1,37 @@
-@import '~@terminus/ui-styles/helpers';
-
-
 .ts-expansion-panel {
-  $border-radius: 4px;
-  @include cdk-high-contrast {
-    outline: solid 1px;
-  }
-  background: color(pure);
-  border-radius: $border-radius;
+  --ep-borderRadius: var(--ts-border-radius-base);
+  --ep-panel-background: var(--ts-color-base-white);
+  --ep-panel-color: var(--ts-color-base-black);
+  --ep-panel-footer-border-color: var(--ts-color-utility-300);
+  // stylelint-disable-next-line plugin/stylelint-no-indistinguishable-colors
+  --ep-panel-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+  --ep-panel-transition:
+    margin var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeIn),
+    box-shadow 280ms var(--ts-animation-easing-easeIn);
+  background: var(--ep-panel-background);
+  border-radius: var(--ep-borderRadius);
   box-sizing: content-box;
-  color: color(pure, dark);
+  color: var(--ep-panel-color);
   display: block;
   margin: 0;
   overflow: hidden;
-  transition:
-    margin 225ms $g-animation-fast-out-slow-in-timing-function,
-    box-shadow g-elevation-transition-duration $g-animation-fast-out-slow-in-timing-function;
+  transition: var(--ep-panel-transition);
 
   &.ts-expansion-panel--shadow {
-    // stylelint-disable-next-line plugin/stylelint-no-indistinguishable-colors
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    box-shadow: var(--ep-panel-shadow);
   }
 
   .ts-accordion & {
     border-radius: 0;
 
     &:first-of-type {
-      border-top-left-radius: $border-radius;
-      border-top-right-radius: $border-radius;
+      border-top-left-radius: var(--ep-borderRadius);
+      border-top-right-radius: var(--ep-borderRadius);
     }
 
     &:last-of-type {
-      border-bottom-left-radius: $border-radius;
-      border-bottom-right-radius: $border-radius;
+      border-bottom-left-radius: var(--ep-borderRadius);
+      border-bottom-right-radius: var(--ep-borderRadius);
     }
   }
 
@@ -49,7 +48,7 @@
 
 .ts-expansion-panel--shadow {
   .ts-expansion-panel__body {
-    padding: 0 spacing(large) spacing(default);
+    padding: 0 var(--ts-space-inset-600) var(--ts-space-inset-500);
   }
 }
 
@@ -60,14 +59,14 @@
 }
 
 .ts-expansion-panel__action-row {
-  border-top: 1px solid color(utility, light);
+  border-top: 1px solid var(--ep-panel-footer-border-color);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding: spacing(default) spacing(small, 1) spacing(default) spacing(large);
+  padding: var(--ts-space-inset-500) var(--ts-space-inset-300) var(--ts-space-inset-500) var(--ts-space-inset-600);
 
   .ts-button {
-    margin-left: spacing(small, 1);
+    margin-left: var(--ts-space-inline-300);
   }
 }
 
