@@ -1,16 +1,15 @@
-@import '~@terminus/ui-styles/helpers';
-
-
 .ts-expansion-panel__trigger {
-  @include typography(body);
+  --ep-arrow-inner-spacing: 3px;
+  --ep-trigger-marginRight: 32px;
   align-items: center;
   border-radius: inherit;
   display: flex;
   flex-direction: row;
-  padding: 0 spacing(large);
+  font: var(--ts-typography-compound-body);
+  padding: 0 var(--ts-space-inset-600);
 
   &.ts-expansion-panel__trigger--transparent {
-    padding: 0;
+    padding: 0 2px 0 0;
   }
 
   &:focus,
@@ -26,7 +25,7 @@
   }
 
   &[aria-disabled='true'] {
-    color: color(utility, light);
+    color: var(--ts-color-utility-300);
 
     .ts-expansion-panel__trigger-title,
     .ts-expansion-panel__trigger-description {
@@ -35,7 +34,7 @@
   }
 
   &:not([aria-disabled='true']) {
-    cursor: cursor(pointer);
+    cursor: pointer;
   }
 }
 
@@ -46,7 +45,7 @@
       &:not([aria-disabled='true']) {
         .ts-expansion-panel__trigger {
           &:hover {
-            background: color(pure);
+            background: var(--ts-color-base-white);
           }
         }
       }
@@ -65,11 +64,11 @@
 .ts-expansion-panel__trigger-description {
   display: flex;
   flex-grow: 0;
-  margin-right: spacing(large, 1);
+  margin-right: var(--ep-trigger-marginRight);
 }
 
 .ts-expansion-panel__trigger-description {
-  color: color(utility, dark);
+  color: var(--ts-color-utility-700);
   flex-grow: 2;
 }
 
@@ -78,16 +77,18 @@
  * additional nodes in the template.
  */
 .ts-expansion-panel__indicator {
-  $arrow-inner-spacing: 3px;
+  --ts-ep-custom-trigger-padding: 3px;
+  width: 10px;
 
   &::after {
     border-style: solid;
     border-width: 0 2px 2px 0;
-    color: color(utility);
+    color: var(--ts-color-utility-500);
     content: '';
     display: inline-block;
-    padding: $arrow-inner-spacing;
+    padding: var(--ts-ep-custom-trigger-padding);
     transform: rotate(45deg);
+    transform-origin: center;
     vertical-align: middle;
   }
 }
@@ -99,7 +100,7 @@
         &.cdk-keyboard-focused,
         &.cdk-program-focused,
         &:hover {
-          background: color(utility, xlight);
+          background: var(--ts-color-utility-100);
         }
       }
     }
