@@ -7,14 +7,65 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Packages that need to be installed:](#packages-that-need-to-be-installed)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [Styles to be added](#styles-to-be-added)
 - [Usage](#usage)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+## Installation
+
+### Packages that need to be installed:
+
+  * @angular/cdk
+  * @angular/material
+  * @terminus/ngx-tools
+  * @terminus/design-tokens
+  * @terminus/ui-button
+  * @terminus/ui-icon
+  * @terminus/ui-utilities
+  * @terminus/ui-styles
+  * date-fns
+  
+  Using `ng add` command can help getting all the dependencies installed:
+  ```bash
+    ng add @terminus/ui-button
+  ```
+
+### Modules that need to be in NgModule
+
+  * TsButtonModule
+
+### Styles to be added
+
+ At top level `styles.scss`, add these styles:
+
+```css
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/terminus-ui.css';
+```
+
 ## Usage
 ```html
-<ts-button (clicked)="myFunction($event)>Click Me!</ts-button>
+<ts-button
+  [buttonType]="buttonType"
+  [collapsed]="collapsed"
+  [format]="format"
+  [isDisabled]="isDisabled"
+  [id]="id"
+  [showProgress]="showProgress"
+  [tabIndex]="tabIndex"
+  [theme]="theme"
+>Button content</ts-button>
 ```
+
+ * Use the `theme` parameter to change the color. Support three different themes: `primary`, `accent` and `warn`.
+ * There are three different `buttonType`: `button`, `search` and `submit`.
+ * Use `format` to set the style as `filled` or `hollow`.
+ * `isDisabled` and `showProgress` are boolean inputs.
+
 
 
 <!-- Links -->

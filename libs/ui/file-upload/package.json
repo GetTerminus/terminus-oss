@@ -36,5 +36,11 @@
     "@terminus/ui-validation-messages": "^1.0.0",
     "rxjs": "^6.5.0",
     "tslib": "^1.10.0"
-  }
+  },
+  "scripts": {
+    "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:collection": "cp schematics/collection.json ../../../dist/libs/ui/file-upload/schematics/collection.json",
+    "postbuild": "npm run copy:collection"
+  },
+  "schematics": "./schematics/collection.json"
 }

@@ -7,11 +7,61 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Packages that need to be installed](#packages-that-need-to-be-installed)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [Links to be added](#links-to-be-added)
 - [Usage](#usage)
   - [Auto-submit](#auto-submit)
   - [Events](#events)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Installation
+
+### Packages that need to be installed
+
+  * @angular/cdk
+  * @angular/common
+  * @angular/core
+  * @angular/flex-layout
+  * @angular/forms
+  * @angular/material
+  * @angular/platform-browser
+  * @terminus/design-tokens
+  * @terminus/ngx-tools
+  * @terminus/ui-button
+  * @terminus/ui-icon
+  * @terminus/ui-input
+  * @terminus/ui-form-field
+  * @terminus/ui-pipes
+  * @terminus/ui-search
+  * @terminus/ui-spacing
+  * @terminus/ui-styles
+  * @terminus/ui-utilities
+  * @terminus/ui-validation-messages
+  * @terminus/ui-validators
+  * text-mask-addons
+  * text-mask-core
+  * date-fns
+
+Using `ng add` command can help getting all the dependencies installed:
+
+```bash
+    ng add @terminus/ui-search
+```
+
+### Modules that need to be in NgModule
+
+  * TsSearchModule
+
+### Links to be added
+
+In order to have material icons shown up correctly, add this to the top level html
+
+```html
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
 
 ## Usage
 

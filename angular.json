@@ -416,6 +416,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/autocomplete && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -463,6 +472,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/autofocus && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -505,6 +523,15 @@
             "production": {
               "tsConfig": "libs/ui/button/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/button && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -554,6 +581,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/checkbox && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -599,6 +635,15 @@
             "production": {
               "tsConfig": "libs/ui/card/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/card && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -648,6 +693,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/chart && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -693,6 +747,15 @@
             "production": {
               "tsConfig": "libs/ui/chip/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/chip && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -742,6 +805,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/cohort-date-range && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -787,6 +859,15 @@
             "production": {
               "tsConfig": "libs/ui/confirmation/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/confirmation && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -836,6 +917,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/copy && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -881,6 +971,15 @@
             "production": {
               "tsConfig": "libs/ui/csv-entry/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/csv-entry && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -930,6 +1029,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/date-range && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -975,6 +1083,15 @@
             "production": {
               "tsConfig": "libs/ui/drawer/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/drawer && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -1024,6 +1141,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/expansion-panel && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -1069,6 +1195,15 @@
             "production": {
               "tsConfig": "libs/ui/file-upload/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/file-upload && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -1165,6 +1300,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/icon && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -1210,6 +1354,15 @@
             "production": {
               "tsConfig": "libs/ui/icon-button/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/icon-button && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -1259,6 +1412,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/input && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -1304,6 +1466,15 @@
             "production": {
               "tsConfig": "libs/ui/link/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/link && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -1353,6 +1524,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/loading-overlay && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -1398,6 +1578,15 @@
             "production": {
               "tsConfig": "libs/ui/login-form/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/login-form && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -1447,6 +1636,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/logo && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -1492,6 +1690,15 @@
             "production": {
               "tsConfig": "libs/ui/menu/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/menu && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -1541,6 +1748,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/navigation && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -1586,6 +1802,15 @@
             "production": {
               "tsConfig": "libs/ui/option/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/option && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -1635,6 +1860,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/paginator && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -1682,6 +1916,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/pipes && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -1724,6 +1967,15 @@
             "production": {
               "tsConfig": "libs/ui/popover/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/popover && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -1773,6 +2025,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/radio-group && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -1818,6 +2079,15 @@
             "production": {
               "tsConfig": "libs/ui/scrollbars/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/scrollbars && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -1867,6 +2137,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/search && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -1912,6 +2191,15 @@
             "production": {
               "tsConfig": "libs/ui/select/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/select && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -1961,6 +2249,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/selection-list && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -2006,6 +2303,15 @@
             "production": {
               "tsConfig": "libs/ui/sort/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/sort && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -2149,6 +2455,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/table && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -2194,6 +2509,15 @@
             "production": {
               "tsConfig": "libs/ui/tabs/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/tabs && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -2243,6 +2567,15 @@
             }
           }
         },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/toggle && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -2288,6 +2621,15 @@
             "production": {
               "tsConfig": "libs/ui/tooltip/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/tooltip && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {
@@ -2379,6 +2721,15 @@
             "production": {
               "tsConfig": "libs/ui/validation-messages/tsconfig.lib.prod.json"
             }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/validation-messages && yarn build && cd ../../.."
+            ],
+            "parallel": false
           }
         },
         "lint": {

@@ -7,6 +7,10 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [Styles to be added](#styles-to-be-added)
+  - [Links to be added](#links-to-be-added)
 - [Usage](#usage)
   - [Defaulting to a specific cohort](#defaulting-to-a-specific-cohort)
   - [Event driven](#event-driven)
@@ -16,6 +20,59 @@
 - [Test Helpers](#test-helpers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Installation
+
+  * @terminus/ui-cohort-date-range
+  * @angular/cdk
+  * @terminus/ngx-tools
+  * @angular/material
+  * @angular/flex-layout
+  * @terminus/ui-date-range
+  * @terminus/ui-option
+  * @terminus/ui-selection-list
+  * @terminus/ui-input
+  * @terminus/ui-checkbox
+  * @terminus/ui-chip
+  * @terminus/ui-form-field
+  * @terminus/ui-icon
+  * @terminus/ui-validation-messages
+  * @terminus/ui-utilities
+  * @terminus/ui-styles
+  * @terminus/ui-pipes
+  * @terminus/ui-validators
+  * text-mask-addons
+  * text-mask-core
+  * @terminus/ui-spacing
+  * @terminus/design-tokens
+  * date-fns
+  
+  Using `ng add` command can help getting all the dependencies installed:
+  ```bash
+    ng add @terminus/ui-cohort-date-range
+  ```
+
+### Modules that need to be in NgModule
+
+  * BrowserAnimationsModule,
+  * TsCohortDateRangeModule,
+
+### Styles to be added
+
+ At top level `styles.scss`, add these styles:
+
+```css
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/terminus-ui.css';
+```
+
+### Links to be added
+
+In order to have material icons shown up correctly, add this to the top level `index.html`
+
+```html
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
 
 ## Usage
 

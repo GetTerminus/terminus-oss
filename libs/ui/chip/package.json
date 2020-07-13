@@ -17,6 +17,12 @@
     "tag": "next",
     "directory": "../../../dist/libs/ui/chip"
   },
+  "scripts": {
+    "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:files": "cp --parents -p schematics/*/files/** ../../../dist/libs/ui/chip/",
+    "copy:collection": "cp schematics/collection.json ../../../dist/libs/ui/chip/schematics/collection.json",
+    "postbuild": "npm run copy:collection"
+  },
   "peerDependencies": {
     "@angular/cdk": "^9.1.0",
     "@angular/common": "^9.1.0",
@@ -30,5 +36,6 @@
     "@terminus/ui-utilities": "^1.0.0",
     "rxjs": "^6.5.0",
     "tslib": "^1.10.0"
-  }
+  },
+  "schematics": "./schematics/collection.json"
 }

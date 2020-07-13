@@ -202,6 +202,10 @@ jobs:
         run: yarn run affected --target=build --withDeps --prod --base=${{ env.NX_BASE }} --head=origin/release
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
+      - name: Build affected projects schematics
+        run: yarn affected:build-schematics --base=${{ env.NX_BASE }} --head=origin/release
+        working-directory: ${{ env.working-directory }}
+        if: env.SHOULD_RUN == 'true'
       - name: "Update credentials"
         run: |
           git config credential.helper 'cache --timeout=120'

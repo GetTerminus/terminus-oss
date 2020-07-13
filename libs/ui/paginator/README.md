@@ -7,6 +7,10 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Packages that need to be installed](#packages-that-need-to-be-installed)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [Styles to be added](#styles-to-be-added)
 - [Usage](#usage)
   - [Events](#events)
   - [Current page](#current-page)
@@ -18,6 +22,42 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+## Installation
+
+### Packages that need to be installed
+
+  * @terminus/ui-icon
+  * @terminus/ui-form-field
+  * @terminus/ui-checkbox
+  * @terminus/ui-chip
+  * @terminus/ui-input
+  * @terminus/ui-validation-messages
+  * @terminus/ui-validators
+  * @terminus/ui-pipes
+  * @terminus/ui-spacing
+  * @terminus/ui-styles
+  * text-mask-addons
+  * text-mask-core
+
+Using `ng add` command can help getting all the dependencies installed:
+
+```bash
+    ng add @terminus/ui-paginator
+```
+
+### Modules that need to be in NgModule
+
+  * TsPaginatorModule
+
+
+### Styles to be added
+
+ At top level `styles.scss`, add these styles:
+
+```css
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/terminus-ui.css';
+```
 
 ## Usage
 

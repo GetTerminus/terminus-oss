@@ -7,6 +7,9 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Packages to be installed](#packages-to-be-installed)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
 - [Usage](#usage)
   - [Inject the needed libraries](#inject-the-needed-libraries)
   - [Set up the chart](#set-up-the-chart)
@@ -17,6 +20,21 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+## Installation
+
+### Packages to be installed
+
+  * @amcharts/amcharts4
+  * @amcharts/amcharts4-geodata
+  * @terminus/design-tokens
+  * @terminus/ngx-tools
+  * @terminus/ui-utilities
+  * @terminus/ui-chart
+  * date-fns
+
+### Modules that need to be in NgModule
+
+  * TsChartModule
 
 ## Usage
 

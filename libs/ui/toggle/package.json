@@ -26,5 +26,11 @@
     "@terminus/ngx-tools": "^8.0.5",
     "@terminus/ui-utilities": "^1.0.0",
     "tslib": "^1.10.0"
-  }
+  },
+  "scripts": {
+    "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:collection": "cp schematics/collection.json ../../../dist/libs/ui/toggle/schematics/collection.json",
+    "postbuild": "npm run copy:collection"
+  },
+  "schematics": "./schematics/collection.json"
 }

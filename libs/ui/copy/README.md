@@ -9,11 +9,61 @@ This component is used to contain very long strings that users may need to copy.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Packages that need to be installed](#packages-that-need-to-be-installed)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [Styles to be added](#styles-to-be-added)
 - [Usage](#usage)
   - [Display format](#display-format)
   - [Initial selection](#initial-selection)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Installation
+
+### Packages that need to be installed
+
+  *  @angular/cdk
+  *  @angular/common
+  *  @angular/core
+  *  @angular/flex-layout
+  *  @angular/forms
+  *  @angular/material
+  *  @angular/platform-browser
+  *  @terminus/design-tokens
+  *  @terminus/ngx-tools
+  *  @terminus/ui-copy
+  *  @terminus/ui-checkbox
+  *  @terminus/ui-confirmation
+  *  @terminus/ui-form-field
+  *  @terminus/ui-icon
+  *  @terminus/ui-input
+  *  @terminus/ui-option
+  *  @terminus/ui-selection-list
+  *  @terminus/ui-styles
+  *  @terminus/ui-tooltip
+  *  @terminus/ui-utilities
+  *  date-fns
+  *  tslib
+
+Using `ng add` command can help getting all the dependencies installed:
+
+```bash
+    ng add @terminus/ui-copy
+```
+
+### Modules that need to be in NgModule
+
+  * TsCopyModule
+
+### Styles to be added
+
+ At top level `styles.scss`, add these styles:
+
+```css
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/terminus-ui.css';
+```
 
 ## Usage
 

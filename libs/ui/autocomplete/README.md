@@ -15,6 +15,11 @@ An autocomplete that allows single or multiple selections.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Packages that need to be included](#packages-that-need-to-be-included)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [Styles to be added](#styles-to-be-added)
+  - [Links to be added](#links-to-be-added)
 - [Usage](#usage)
   - [Basic usage with a FormControl](#basic-usage-with-a-formcontrol)
   - [Duplicate selections](#duplicate-selections)
@@ -25,6 +30,58 @@ An autocomplete that allows single or multiple selections.
 - [Test Helpers](#test-helpers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Installation
+
+### Packages that need to be included
+
+  * @angular/cdk
+  * @angular/flex-layout
+  * @angular/material
+  * @terminus/design-tokens
+  * @terminus/ui-styles
+  * @terminus/ui-checkbox
+  * @terminus/ui-chip
+  * @terminus/ui-form-field
+  * @terminus/ui-icon
+  * @terminus/ui-input
+  * @terminus/ui-option
+  * @terminus/ui-spacing
+  * @terminus/ui-pipes
+  * @terminus/ui-validation-messages
+  * @terminus/ui-validators
+  * @terminus/ui-utilities
+  * @terminus/ngx-tools
+  * text-mask-addons
+  * text-mask-core
+  
+  Using `ng add` command can help getting all the dependencies installed:
+  ```bash
+    ng add @terminus/ui-autocomplete
+  ```
+
+### Modules that need to be in NgModule
+
+  * ReactiveFormsModule
+  * TsAutocompleteModule
+  * TsOptionModule
+
+### Styles to be added
+
+ At top level `styles.scss`, add these styles:
+
+```css
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/terminus-ui.css';
+```  
+
+### Links to be added
+
+In order to have material icons shown up correctly, add this to the top level `index.html`
+
+```css
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
 
 ## Usage
 

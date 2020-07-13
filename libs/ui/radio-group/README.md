@@ -7,6 +7,10 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [Packages that need to be installed](#packages-that-need-to-be-installed)
+  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [Styles to be added](#styles-to-be-added)
 - [Usage](#usage)
   - [Sub-labels](#sub-labels)
   - [No validation or hint](#no-validation-or-hint)
@@ -22,6 +26,46 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+## Installation
+
+### Packages that need to be installed
+
+  * @angular/cdk
+  * @angular/common
+  * @angular/core
+  * @angular/flex-layout
+  * @angular/forms
+  * @angular/material
+  * @angular/platform-browser
+  * @popperjs/core
+  * @terminus/design-tokens
+  * @terminus/ngx-tools
+  * @terminus/ui-icon
+  * @terminus/ui-pipes
+  * @terminus/ui-styles
+  * @terminus/ui-utilities
+  * @terminus/ui-radio-group
+  * @terminus/ui-validation-messages
+  * date-fns
+
+Using `ng add` command can help getting all the dependencies installed:
+
+```bash
+    ng add @terminus/ui-radio-group
+```
+
+### Modules that need to be in NgModule
+
+  * TsRadioGroupModule
+
+### Styles to be added
+
+ At top level `styles.scss`, add these styles:
+
+```css
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/terminus-ui.css';
+```
 
 ## Usage
 

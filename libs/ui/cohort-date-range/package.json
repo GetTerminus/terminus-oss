@@ -17,6 +17,11 @@
     "tag": "next",
     "directory": "../../../dist/libs/ui/cohort-date-range"
   },
+  "scripts": {
+    "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:collection": "cp schematics/collection.json ../../../dist/libs/ui/cohort-date-range/schematics/collection.json",
+    "postbuild": "npm run copy:collection"
+  },
   "peerDependencies": {
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
@@ -30,5 +35,6 @@
     "@terminus/ui-option": "^1.0.0",
     "@terminus/ui-selection-list": "^1.0.0",
     "tslib": "^1.10.0"
-  }
+  },
+  "schematics": "./schematics/collection.json"
 }

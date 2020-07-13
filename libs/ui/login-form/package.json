@@ -33,5 +33,11 @@
     "@terminus/ui-spacing": "^1.0.0",
     "@terminus/ui-validators": "^1.0.0",
     "tslib": "^1.10.0"
-  }
+  },
+  "scripts": {
+    "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:collection": "cp schematics/collection.json ../../../dist/libs/ui/login-form/schematics/collection.json",
+    "postbuild": "npm run copy:collection"
+  },
+  "schematics": "./schematics/collection.json"
 }
