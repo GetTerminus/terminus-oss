@@ -14,7 +14,6 @@ export type TsFileAcceptedMimeTypes
   | 'video/mpeg'
 ;
 
-
 /**
  * Define an array of all allowed mime types for {@link TsFileUploadComponent}
  */

@@ -11,7 +11,6 @@ import {
   TsFileAcceptedMimeTypes,
 } from '../mime-types';
 
-
 /**
  * The structure of the object to track file validations internally
  */
@@ -22,13 +21,11 @@ export interface TsFileValidations {
   imageRatio: boolean;
 }
 
-
 /**
  * The number of bytes per kilobyte (for calculations)
  */
 const BYTES_PER_KB = 1024;
 const typesWithoutDimensionValidation = ['text/csv', 'video/mp4'];
-
 
 /**
  * Manage a single selected file
@@ -277,7 +274,6 @@ export class TsSelectedFile {
     return Math.abs((number1 - number2) / number1) < minimumAmountToConsiderMatch;
   }
 }
-
 
 /**
  * Determine if the passed in type needs dimension validation
