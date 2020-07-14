@@ -1,19 +1,21 @@
 @import '~@terminus/ui-styles/helpers';
 
-
-
+:root {
+  --ts-ink-bar-height: 2px;
+  --ts-tab-animation-duration: var(--ts-animation-time-duration-200);
+  --ts-tab-ease-in-out-curve-function: cubic-bezier(.35, 0, .25, 1);
+}
 
 // The ink bar that displays under the active tab label
 .ts-ink-bar {
-  $height: 2px;
   @include cdk-high-contrast {
     height: 0;
-    outline: solid $height;
+    outline: solid var(--ts-ink-bar-height);
   }
   bottom: 0;
-  height: $height;
+  height: var(--ts-ink-bar-height);
   position: absolute;
-  transition: $g-tab-animation-duration $g-tab-ease-in-out-curve-function;
+  transition: var(--ts-tab-animation-duration) var(--ts-tab-ease-in-out-curve-function);
 
   .ts-tab-collection--inverted-header & {
     bottom: auto;
@@ -21,13 +23,12 @@
   }
 }
 
-
 // Color the ink bar according to the theme
 .ts-tab-collection {
   $theme-colors: (
-    primary: #{color(primary)},
-    accent: #{color(accent)},
-    warn: #{color(warn)},
+    primary: var(--ts-color-primary-500),
+    accent: var(--ts-color-accent-500),
+    warn: var(--ts-color-warn-500),
   );
 
   @each $name, $color in $theme-colors {
