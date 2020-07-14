@@ -15,14 +15,12 @@ import { TsValidationMessagesModule } from '@terminus/ui-validation-messages';
 import { TsDropProtectionService } from './drop-protection/drop-protection.service';
 import { TsFileUploadComponent } from './file-upload/file-upload.component';
 
-
 export * from './drop-protection/drop-protection.service';
 export * from './file-upload/file-upload.component';
 export * from './image-dimension-constraints';
 export * from './image-dimensions';
 export * from './mime-types';
 export * from './selected-file/selected-file';
-
 
 @NgModule({
   imports: [

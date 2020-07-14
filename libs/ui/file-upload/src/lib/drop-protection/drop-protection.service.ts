@@ -2,14 +2,11 @@ import { Injectable } from '@angular/core';
 
 import { TsWindowService } from '@terminus/ngx-tools/browser';
 
-
 @Injectable()
 export class TsDropProtectionService {
   private hasProtection = false;
 
-  constructor(
-    private windowService: TsWindowService,
-  ) { }
+  constructor(private windowService: TsWindowService) {}
 
   /**
    * Add drop protection
@@ -43,5 +40,4 @@ export class TsDropProtectionService {
   public prevent(e: Event): void {
     e.preventDefault();
   }
-
 }

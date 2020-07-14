@@ -1,16 +1,11 @@
 @import '~@terminus/ui-styles/helpers';
 
+:root {
+  // TODO: Formalize this color
+  --ts-fu-drag-backgroundColor: #d3eaf9;
+  --ts-fu-hint-padding: .3em .4em .2em;
+}
 
-// TODO: Formalize this color or change
-$drag-bg: lighten(color(primary, xlight), 50%);
-
-
-//
-// @component
-//  File Upload
-// @description
-//  A file upload component
-//
 .ts-file-upload {
   display: block;
   position: relative;
@@ -18,34 +13,35 @@ $drag-bg: lighten(color(primary, xlight), 50%);
   // Top level styles belong here
   .c-file-upload {
     &:not(.c-file-upload--disabled) {
-      cursor: cursor(pointer);
+      cursor: pointer;
     }
   }
 
   // If followed directly by another instance, add vertical spacing
   + .ts-file-upload {
-    margin-top: spacing(large);
+    margin-top: var(--ts-space-stack-600);
   }
 }
 
 .c-file-upload {
-  border: 1px dashed color(utility, light);
-  border-radius: 3px;
-  padding: spacing(small);
-  transition: background-color 200ms ease-out, border-color 200ms ease-out;
-  will-change: background-color, border-color;
+  border: 1px dashed var(--ts-color-utility-300);
+  border-radius: var(--ts-border-radius-base);
+  padding: var(--ts-space-inset-400);
+  transition:
+    background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut),
+    border-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
 
   &:hover,
   &:focus {
     &:not(.c-file-upload--disabled) {
-      border-color: color(primary, xlight);
+      border-color: var(--ts-color-primary-100);
     }
   }
 
   // Class added when dragging over
   &--drag {
-    background-color: $drag-bg;
-    border-color: color(primary, xlight);
+    background-color: var(--ts-fu-drag-backgroundColor);
+    border-color: var(--ts-color-primary-100);
 
     // Hide the remove button during a drag if it's visible
     .c-file-upload__remove {
@@ -55,25 +51,25 @@ $drag-bg: lighten(color(primary, xlight), 50%);
 
   // Class added when a file has been selected
   &--file {
-    border-color: color(primary, xlight);
+    border-color: var(--ts-color-primary-100);
   }
 
   // Class added if any validation fails
   &--error {
-    border-color: color(warn);
+    border-color: var(--ts-color-warn-500);
   }
 
   &.c-file-upload--disabled {
     .c-file-upload__empty {
-      color: color(utility, light);
+      color: var(--ts-color-utility-300);
     }
   }
 
   // <div> container for the selected file
   .c-file-upload__file {
-    @include typography(hint);
-    @include typography(fixedwidth);
-    color: color(utility, dark);
+    color: var(--ts-color-utility-700);
+    font: var(--ts-typography-compound-hint);
+    font-family: var(--ts-typography-stack-base-monospaced);
     overflow: auto;
     // Set up for progress bar
     position: relative;
@@ -86,25 +82,24 @@ $drag-bg: lighten(color(primary, xlight), 50%);
 
   // <div> content shown when no file has been selected
   .c-file-upload__empty {
-    color: color(utility, dark);
+    color: var(--ts-color-utility-700);
 
     .ts-icon {
-      margin-right: spacing(small, 2);
+      margin-right: var(--ts-space-inline-200);
     }
   }
 
   // <div> container for the image preview
   .c-file-upload__preview {
     $box-size: 2.375rem;
-
-    border: 1px solid color(utility, light);
-    border-radius: 3px;
+    border: 1px solid var(--ts-color-utility-300);
+    border-radius: var(--ts-border-radius-base);
     height: $box-size;
-    margin-right: spacing(small);
+    margin-right: var(--ts-space-inset-400);
     max-width: $box-size * 2;
     // Don't let alt tag text spill out
     overflow: hidden;
-    padding: spacing(small, 2);
+    padding: var(--ts-space-inset-200);
     // Set up for remove button
     position: relative;
 
@@ -130,18 +125,19 @@ $drag-bg: lighten(color(primary, xlight), 50%);
 
   // <ts-icon-button> remove the file
   .c-file-upload__remove {
-    transition: color 200ms ease, opacity 100ms ease;
-    will-change: color, opacity;
+    transition:
+      color var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease),
+      opacity var(--ts-animation-time-duration-100) var(--ts-animation-easing-ease);
   }
 
   // <mat-progress-bar>
   .c-file-upload__progress {
     display: block;
-    margin-top: spacing(small);
+    margin-top: var(--ts-space-inset-400);
 
     // NOTE: By default there is not enough variation between the progress background and progress content
     .mat-progress-bar-buffer {
-      background-color: $drag-bg;
+      background-color: var(--ts-fu-drag-backgroundColor);
     }
   }
 
@@ -160,9 +156,8 @@ $drag-bg: lighten(color(primary, xlight), 50%);
 
 // <div> replication of mat-hint
 .c-file-upload__hints {
-  $hint-padding: .3em .4em .2em;
-
-  @include typography(hint);
-  padding: $hint-padding;
+  color: var(--ts-color-utility-500);
+  font: var(--ts-typography-compound-hint);
+  padding: var(--ts-fu-hint-padding);
   text-align: right;
 }
