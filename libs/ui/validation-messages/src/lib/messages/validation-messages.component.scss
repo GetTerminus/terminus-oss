@@ -1,19 +1,12 @@
 @import '~@terminus/ui-styles/helpers';
 
-//
-// @component
-//  Input Message
-// @description
-//  A component to display validation messages for form inputs.
-//
 .ts-validation-messages {
-  @include reset;
-  $message-padding: .3em .4em .2em;
+  --ts-vm-padding: .3em .4em .2em;
 
   // Top level styles should be nested here
   .c-validation-message {
-    @include typography(caption);
     color: color(warn);
+    font: var(--ts-typography-compound-caption);
     z-index: z(tooltip);
   }
 
@@ -25,16 +18,17 @@
   // Styles when inside a file upload component
   .ts-file-upload & {
     .c-validation-message {
-      padding: $message-padding;
+      padding: var(--ts-vm-padding);
     }
   }
 
   // Adjust the vertical layout when inside a radio button component
   .c-select & {
     .c-validation-message {
+      --ts-vm-select-message-padding: var(--ts-vm-padding) 0;
       $added-margin-for-select: .6em;
       margin-top: $added-margin-for-select;
-      padding: $message-padding 0;
+      padding: var(--ts-vm-select-message-padding);
       position: absolute;
       top: 90%;
     }
