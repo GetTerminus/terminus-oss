@@ -1,37 +1,31 @@
 @import '~@terminus/ui-styles/helpers';
 
-
-//
-// @component
-//  Table
-// @description
-//  A table component
 .ts-table {
-  --table-bg: #{color(pure)};
-  --header-bg: #{color(utility, light)};
-  --header-text-color: #{color(pure, dark)};
-  --border-color: #{color(utility, light)};
-  --header-border-color: #{color(utility)};
-  $primary: color(primary);
-  --drop-bg: #{desaturate(lighten($primary, 66%), 70%)};
-  --z-index-base-context: 2;
-  --z-index-resize-background: calc(var(--z-index-base-context) + 1);
-  --z-index-resize-grabber: calc(var(--z-index-resize-background) + 1);
-  --cell-padding: #{spacing(default)};
+  --ts-table-bg: var(--ts-color-base-white);
+  --ts-table-header-bg: var(--ts-color-utility-300);
+  --ts-table-header-text-color: var(--ts-color-base-black);
+  --ts-table-border-color: var(--ts-color-utility-300);
+  --ts-table-header-border-color: var(--ts-color-utility-500);
+  --ts-table-row-hover-backgroundColor: #e8eef3;
+  --ts-table-zindex-base-context: 2;
+  --ts-table-zindex-resize-background: calc(var(--ts-table-zindex-base-context) + 1);
+  --ts-table-zindex-resize-grabber: calc(var(--ts-table-zindex-resize-background) + 1);
+  --ts-table-cell-padding: var(--ts-space-inset-500);
   // Must be greater than 40 as that is the length of the generated z-indexes for header cells
-  --sticky-end-z: 50;
-  --grip-vertical-adjustment: 50%;
-  @include reset;
-  @include typography;
+  --ts-table-sticky-end-z: 50;
+  --ts-table-grip-vertical-adjustment: 50%;
+  --ts-table-header-row-fontWeight: bold;
+  --ts-table-grabber-icon-font-size: 14px;
   border-collapse: separate;
   border-spacing: unset;
+  font: var(--ts-typography-compound-body);
   max-height: 100%;
   table-layout: fixed;
   width: 100%;
 
   &.ts-table--compact {
-    --cell-padding: #{spacing(small, 2)};
-    --grip-vertical-adjustment: calc(50% - 4px);
+    --ts-table-cell-padding: var(--ts-space-inset-200);
+    --ts-table-grip-vertical-adjustment: calc(50% - 4px);
   }
 
   // Class added to all sticky-end cells
@@ -51,13 +45,12 @@
 
   // Header row
   .ts-header-row {
-    $increased-weight: bold;
-    @include typography(caption);
     // NOTE: Adding the background here ensures that no white area is seen during manual column resize.
-    background-color: var(--header-bg);
-    color: var(--header-text-color);
-    font-weight: $increased-weight;
-    transition: background-color 200ms ease-out;
+    background-color: var(--ts-table-header-bg);
+    color: var(--ts-table-header-text-color);
+    font: var(--ts-typography-compound-caption);
+    font-weight: var(--ts-table-header-row-fontWeight);
+    transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
 
     // NOTE: This is required for the tr background color to be visible.
     &::after {
@@ -68,11 +61,11 @@
 
   // Body row
   .ts-row {
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--ts-table-border-color);
 
     &:hover {
       .ts-cell {
-        background-color: var(--drop-bg);
+        background-color: var(--ts-table-row-hover-backgroundColor);
       }
     }
 
@@ -96,12 +89,12 @@
     word-wrap: break-word;
 
     &.ts-table__column--sticky-end {
-      border-left: 2px solid var(--header-border-color);
+      border-left: 2px solid var(--ts-table-header-border-color);
     }
 
     &.ts-table__column--sticky {
       &:not(.ts-table__column--sticky-end) {
-        border-right: 2px solid var(--header-border-color);
+        border-right: 2px solid var(--ts-table-header-border-color);
       }
     }
 
@@ -130,29 +123,29 @@
   // Body cell
   .ts-cell,
   .ts-footer-cell {
-    background-color: var(--table-bg);
+    background-color: var(--ts-table-bg);
     overflow: hidden;
-    padding: var(--cell-padding);
+    padding: var(--ts-table-cell-padding);
     text-overflow: ellipsis;
-    transition: background-color 200ms ease-out;
+    transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
     white-space: nowrap;
 
     &.ts-table__column--sticky {
-      background-color: var(--table-bg);
+      background-color: var(--ts-table-bg);
     }
   }
 
   // Header cell
   .ts-header-cell {
-    background-color: var(--header-bg);
-    border-color: var(--header-border-color);
-    padding: var(--cell-padding);
+    background-color: var(--ts-table-header-bg);
+    border-color: var(--ts-table-header-border-color);
+    padding: var(--ts-table-cell-padding);
 
     &:not(:last-of-type) {
       position: relative;
 
       &::after {
-        background-color: var(--header-border-color);
+        background-color: var(--ts-table-header-border-color);
         bottom: 0;
         content: '';
         display: block;
@@ -160,9 +153,9 @@
         opacity: 0;
         position: absolute;
         top: 0;
-        transition: opacity 200ms ease-out;
+        transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
         width: 1px;
-        z-index: var(--z-index-base-context);
+        z-index: var(--ts-table-zindex-base-context);
       }
 
       &:focus,
@@ -194,7 +187,7 @@
     &.ts-table__column--sticky-end {
       // NOTE: important needed to overwrite inline styles
       // stylelint-disable-next-line declaration-no-important
-      z-index: var(--sticky-end-z) !important;
+      z-index: var(--ts-table-sticky-end-z) !important;
     }
 
     // Class added when the user hovers the resize column hit area
@@ -211,20 +204,20 @@
     // <span> 'Grabber' hit area to resize a column
     &__resizer {
       bottom: -1px;
-      cursor: cursor(col-resize);
+      cursor: col-resize;
       display: block;
       opacity: 0;
       position: absolute;
       right: 0;
       top: -1px;
       transform: translateX(50%);
-      transition: opacity 200ms ease-out;
+      transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
       width: spacing(large);
-      z-index: calc(var(--z-index-resize-background));
+      z-index: calc(var(--ts-table-zindex-resize-background));
 
       // Visible container for grabber
       &::before {
-        background-color: color(primary);
+        background-color: var(--ts-color-primary-500);
         bottom: 1px;
         content: '';
         display: block;
@@ -238,17 +231,16 @@
 
       // Dots inside grabber
       &::after {
-        --grabber-icon-font-size: 14px;
-        color: color(utility, xlight);
+        color: var(--ts-color-utility-100);
         content: '\2026';
         display: block;
-        font-size: var(--grabber-icon-font-size);
+        font-size: var(--ts-table-grabber-icon-font-size);
         height: 11px;
         left: 50%;
         position: absolute;
         top: 30%;
-        transform: rotate(90deg) translate(var(--grip-vertical-adjustment), -3px);
-        z-index: var(--z-index-resize-grabber);
+        transform: rotate(90deg) translate(var(--ts-table-grip-vertical-adjustment), -3px);
+        z-index: var(--ts-table-zindex-resize-grabber);
       }
     }
   }
