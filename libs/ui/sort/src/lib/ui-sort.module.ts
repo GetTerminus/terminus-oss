@@ -13,12 +13,10 @@ export * from './sort-header/sort-header.component';
 export * from './sort/sort.directive';
 export * from './sort-errors';
 
-
 /**
  * Much of this was lifted directly from Angular Material. I highly recommend checking out their
  * source code: https://github.com/angular/material2/tree/release/src/lib/sort
  */
-
 @NgModule({
   imports: [
     CommonModule,

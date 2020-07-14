@@ -12,9 +12,7 @@ import {
   AnimationDurations,
 } from '@angular/material/core';
 
-
 const SORT_ANIMATION_TRANSITION = `${AnimationDurations.ENTERING  } ${  AnimationCurves.STANDARD_CURVE}`;
-
 
 /** Animations used by TsSort. */
 export const tsSortAnimations: {

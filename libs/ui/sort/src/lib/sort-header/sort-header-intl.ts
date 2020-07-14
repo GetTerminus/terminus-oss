@@ -7,7 +7,6 @@ import { Subject } from 'rxjs';
 
 import { TsSortDirection } from '../sort/sort.directive';
 
-
 /**
  * To modify the labels and text displayed, create a new instance of TsSortHeaderIntl and
  * include it in a custom provider.
@@ -37,14 +36,12 @@ export class TsSortHeaderIntl {
     (id: string, direction: TsSortDirection) => `Sorted by ${id} ${direction === 'asc' ? 'ascending' : 'descending'}`;
 }
 
-
 /**
  * Factory to return an instance of TsSortHeaderIntl
  *
  * @param parentIntl
  */
 export const TS_SORT_HEADER_INTL_PROVIDER_FACTORY = (parentIntl: TsSortHeaderIntl) => parentIntl || new TsSortHeaderIntl();
-
 
 /**
  * TsSortHeaderIntl provider declaration
