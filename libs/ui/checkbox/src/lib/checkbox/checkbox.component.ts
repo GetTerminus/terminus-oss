@@ -19,7 +19,6 @@ import {
   TsStyleThemeTypes,
 } from '@terminus/ui-utilities';
 
-
 /**
  * Expose the MatCheckboxChange event as TsCheckboxChange
  */
@@ -29,7 +28,6 @@ export class TsCheckboxChange extends MatCheckboxChange {}
  * Unique ID for each instance
  */
 let nextUniqueId = 0;
-
 
 /**
  * This is the checkbox UI Component
@@ -161,11 +159,7 @@ export class TsCheckboxComponent extends TsReactiveFormBaseComponent {
   @Output()
   public readonly indeterminateChange = new EventEmitter<boolean>();
 
-
-  constructor(
-    private changeDetectorRef: ChangeDetectorRef,
-  ) {
+  constructor(private changeDetectorRef: ChangeDetectorRef) {
     super();
   }
-
 }

@@ -1,23 +1,15 @@
 @import '~@terminus/ui-styles/helpers';
 
-
-//
-// @component
-//  Checkbox
-// @description
-//  A simple checkbox component
-//
 .ts-checkbox {
-  $ts-select-item-height: 3em !default;
-  @include reset;
-  @include typography;
+  --ts-select-item-height: 3em;
   display: block;
+  font: var(--ts-typography-compound-body);
 
   // Overwrite typography when used for an optgroup
   .ts-optgroup .ts-optgroup-label & {
-    @include typography(body, 2);
-    color: color(utility);
-    line-height: $ts-select-item-height;
+    color: var(--ts-color-utility-500);
+    font: var(--ts-typography-compound-body2);
+    line-height: var(--ts-select-item-height);
   }
 
   // Top level styles should be nested here
@@ -30,7 +22,7 @@
     // Match the material button line-height and spacing
     .c-checkbox {
       line-height: 3em;
-      padding: 0 spacing(default);
+      padding: 0 var(--ts-space-inset-500);
     }
 
     // Support text truncation
@@ -58,12 +50,12 @@
     // Match the material button line-height and spacing
     .c-checkbox {
       line-height: 2em;
-      padding: 0 spacing(default);
+      padding: 0 var(--ts-space-inset-500);
     }
 
     &.cdk-drag {
       .c-checkbox {
-        padding: 0 spacing(large, 1) 2px spacing(default);
+        padding: 0 var(--ts-space-inset-700) 2px var(--ts-space-inset-500);
       }
     }
 
