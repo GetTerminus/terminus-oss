@@ -3,7 +3,6 @@ import { NativeDateAdapter } from '@angular/material/core';
 
 import { isDateValue } from '@terminus/ngx-tools/coercion';
 
-
 /**
  * Define date formats to be used with the custom date adapter
  */
@@ -32,7 +31,6 @@ export const TS_DATE_FORMATS = {
     },
   },
 };
-
 
 /**
  * Custom date adapter for the underlying Material Datepicker
