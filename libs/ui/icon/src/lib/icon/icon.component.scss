@@ -1,20 +1,12 @@
 @import '~@terminus/ui-styles/helpers';
 
-
-//
-// @component
-//  Icon
-// @description
-//  Styles for the icon component
-//
 .ts-icon {
-  @include reset;
+  --ts-icon-with-background-xy: 48px;
   display: inline-block;
 
   &.ts-icon--inline {
     $margin: spacing(small, 2);
     $space: calc(-#{$margin} - 2px);
-
     // Custom spacing values to match horizontal text rhythm
     margin-left: $space;
     margin-right: $space;
@@ -22,41 +14,24 @@
     transform: scale(.666);
   }
 
-  // Theme support:
-  &.ts-icon--primary {
-    color: color(primary);
+  $themes: primary accent warn;
+  // Loop through using each theme name to create styles
+  @each $theme in $themes {
+    &.ts-icon--#{$theme} {
+      color: var(--ts-color-#{$theme}-500);
 
-    &.ts-icon--background {
-      background-color: color(primary);
-      color: color(pure);
-    }
-  }
-
-  &.ts-icon--accent {
-    color: color(accent);
-
-    &.ts-icon--background {
-      background-color: color(accent);
-      color: color(pure);
-    }
-  }
-
-  &.ts-icon--warn {
-    color: color(warn);
-
-    &.ts-icon--background {
-      background-color: color(warn);
-      color: color(pure);
+      &.ts-icon--background {
+        background-color: var(--ts-color-#{$theme}-500);
+        color: var(--ts-color-base-white);
+      }
     }
   }
 
   &.ts-icon--background {
-    $dimension-with-background: 48px;
-
-    border-radius: 50%;
-    height: $dimension-with-background;
+    border-radius: var(--ts-border-radius-circle);
+    height: var(--ts-icon-with-background-xy);
     position: relative;
-    width: $dimension-with-background;
+    width: var(--ts-icon-with-background-xy);
 
     .c-icon {
       left: 50%;
@@ -71,7 +46,6 @@
 .c-icon {
   &.c-icon--inline {
     $vertical-adjustment: -1px;
-
     // Better align to the text baseline
     margin-bottom: $vertical-adjustment;
     vertical-align: bottom;
@@ -82,7 +56,6 @@
     &.mat-icon {
       $font-adjustment-for-chip: 18px;
       $dimension: 1em;
-
       // Visually match text size
       font-size: $font-adjustment-for-chip;
       height: $dimension;
@@ -96,7 +69,6 @@
   .mat-form-field-suffix & {
     $horizontal-alignment-adjustment: .2em;
     $vertical-alignment-adjustment: -.06em;
-
     margin-right: $horizontal-alignment-adjustment;
     position: relative;
     top: $vertical-alignment-adjustment;
