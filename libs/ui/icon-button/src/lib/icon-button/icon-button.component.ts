@@ -13,7 +13,6 @@ import {
   TsButtonFunctionTypes,
 } from '@terminus/ui-button';
 
-
 /**
  * This is the icon-button UI Component
  *
@@ -75,9 +74,6 @@ export class TsIconButtonComponent {
   @Output()
   public readonly clicked: EventEmitter<MouseEvent> = new EventEmitter();
 
-
-  constructor(
-    private elementRef: ElementRef,
-  ) {}
+  constructor(private elementRef: ElementRef) {}
 
 }
