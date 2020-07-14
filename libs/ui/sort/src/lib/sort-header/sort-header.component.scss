@@ -7,14 +7,15 @@ $ts-sort-header-arrow-pointer-length: 6px;
 $ts-sort-header-arrow-thickness: 2px;
 $ts-sort-header-arrow-transition: 225ms cubic-bezier(.4, 0, .2, 1);
 
+:root {
+  --ts-sort-header-arrow-margin: 6px;
+  --ts-sort-header-arrow-container-size: 12px;
+  --ts-sort-header-arrow-stem-size: 10px;
+  --ts-sort-header-arrow-pointer-length: 6px;
+  --ts-sort-header-arrow-thickness: 2px;
+  --ts-sort-header-arrow-transition: 225ms cubic-bezier(.4, 0, .2, 1);
+}
 
-//
-// @component
-//  Sort Header
-// @description
-//  A component to add sorting styles
-//
-// <div> primary container
 .ts-sort-header-container {
   align-items: center;
   display: flex;
@@ -22,7 +23,7 @@ $ts-sort-header-arrow-transition: 225ms cubic-bezier(.4, 0, .2, 1);
   position: relative;
 
   .ts-sort-header-disabled & {
-    cursor: cursor(default);
+    cursor: default;
   }
 
   // Double arrow icon to signify sortability
@@ -32,12 +33,12 @@ $ts-sort-header-arrow-transition: 225ms cubic-bezier(.4, 0, .2, 1);
     right: 0;
     top: 50%;
     transform: translate(22%, -42%);
-    transition: opacity 200ms ease-out 200ms;
+    transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut) var(--ts-animation-time-delay-300);
 
     // Sort direction shown via Angular animation so we hide this icon
     &--hidden {
       opacity: 0;
-      transition: opacity 100ms ease-out 100ms;
+      transition: opacity 100ms var(--ts-animation-easing-easeOut) 100ms;
     }
   }
 }
@@ -53,7 +54,7 @@ $ts-sort-header-arrow-transition: 225ms cubic-bezier(.4, 0, .2, 1);
   background: 0 0;
   border: none;
   color: currentColor;
-  cursor: cursor(pointer);
+  cursor: pointer;
   display: block;
   font: inherit;
   outline: 0;
@@ -75,19 +76,19 @@ $ts-sort-header-arrow-transition: 225ms cubic-bezier(.4, 0, .2, 1);
 
 // <div> container for sorting arrow
 .ts-sort-header-arrow {
-  $arrow-margin: -2px 0 0 $ts-sort-header-arrow-margin;
+  --arrow-margin: -2px 0 0 var(--ts-sort-header-arrow-margin);
   display: flex;
-  height: $ts-sort-header-arrow-container-size;
-  margin: $arrow-margin;
-  min-width: $ts-sort-header-arrow-container-size;
+  height: var(--ts-sort-header-arrow-container-size);
+  margin: var(--arrow-margin);
+  min-width: var(--ts-sort-header-arrow-container-size);
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: $ts-sort-header-arrow-container-size;
+  width: var(--ts-sort-header-arrow-container-size);
 
   .ts-sort-header-position-before & {
-    margin: 0 $ts-sort-header-arrow-margin 0 0;
+    margin: 0 var(--ts-sort-header-arrow-margin) 0 0;
   }
 }
 
@@ -96,39 +97,39 @@ $ts-sort-header-arrow-transition: 225ms cubic-bezier(.4, 0, .2, 1);
   align-items: center;
   background: currentColor;
   display: flex;
-  height: $ts-sort-header-arrow-stem-size;
+  height: var(--ts-sort-header-arrow-stem-size);
   margin: auto;
-  width: $ts-sort-header-arrow-thickness;
+  width: var(--ts-sort-header-arrow-thickness);
 }
 
 // <div> container for the head of the arrow
 .ts-sort-header-indicator {
   align-items: center;
   display: flex;
-  height: $ts-sort-header-arrow-thickness;
+  height: var(--ts-sort-header-arrow-thickness);
   left: 0;
   position: absolute;
   top: 0;
-  transition: $ts-sort-header-arrow-transition;
+  transition: var(--ts-sort-header-arrow-transition);
   width: 100%;
 }
 
 .ts-sort-header-pointer-middle {
   background: currentColor;
-  height: $ts-sort-header-arrow-thickness;
+  height: var(--ts-sort-header-arrow-thickness);
   margin: auto;
   transform: rotate(45deg);
-  width: $ts-sort-header-arrow-thickness;
+  width: var(--ts-sort-header-arrow-thickness);
 }
 
 .ts-sort-header-pointer-left,
 .ts-sort-header-pointer-right {
   background: currentColor;
-  height: $ts-sort-header-arrow-thickness;
+  height: var(--ts-sort-header-arrow-thickness);
   position: absolute;
   top: 0;
-  transition: $ts-sort-header-arrow-transition;
-  width: $ts-sort-header-arrow-pointer-length;
+  transition: var(--ts-sort-header-arrow-transition);
+  width: var(--ts-sort-header-arrow-pointer-length);
 }
 
 .ts-sort-header-pointer-left {
