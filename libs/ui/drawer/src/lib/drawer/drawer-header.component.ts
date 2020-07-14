@@ -4,7 +4,6 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-
 /**
  * The header component for the {@link TsDrawerComponent}
  *

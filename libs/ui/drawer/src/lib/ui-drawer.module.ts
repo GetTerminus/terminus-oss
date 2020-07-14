@@ -17,7 +17,6 @@ export * from './drawer/drawer-animations';
 export * from './drawer/drawer-header.component';
 export * from './drawer/drawer-footer.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
