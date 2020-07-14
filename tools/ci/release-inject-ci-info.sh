@@ -13,9 +13,9 @@ echo "Run ID: $GITHUB_RUN_ID"
 echo "SHA: $GITHUB_SHA"
 
 # Replace the placeholders with the correct values
-grep -rl $TIME_PLACEHOLDER 'dist/apps/showcase-ui' | xargs sed -i'' -e 's|'$TIME_PLACEHOLDER'|'"$NOW"'|g'
-grep -rl $REF_PLACEHOLDER 'dist/apps/showcase-ui' | xargs sed -i'' -e 's|'$REF_PLACEHOLDER'|'"$GITHUB_RUN_ID"'|g'
-grep -rl $SHA_PLACEHOLDER 'dist/apps/showcase-ui' | xargs sed -i'' -e 's|'$SHA_PLACEHOLDER'|'"$GITHUB_SHA"'|g'
+grep -rl $TIME_PLACEHOLDER 't-oss/dist/apps/showcase-ui' | xargs sed -i'' -e 's|'$TIME_PLACEHOLDER'|'"$NOW"'|g'
+grep -rl $REF_PLACEHOLDER 't-oss/dist/apps/showcase-ui' | xargs sed -i'' -e 's|'$REF_PLACEHOLDER'|'"$GITHUB_RUN_ID"'|g'
+grep -rl $SHA_PLACEHOLDER 't-oss/dist/apps/showcase-ui' | xargs sed -i'' -e 's|'$SHA_PLACEHOLDER'|'"$GITHUB_SHA"'|g'
 
 # Delete edit reference files left over from the sed replacement
 # NOTE: The force flag is required so that the build isn't cancelled if these files don't exist
