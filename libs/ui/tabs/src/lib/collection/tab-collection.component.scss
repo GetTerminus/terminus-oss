@@ -1,6 +1,3 @@
-@import '~@terminus/ui-styles/helpers';
-
-
 // Container around all tabs
 .ts-tab-collection {
   display: flex;
@@ -17,5 +14,5 @@
   display: flex;
   overflow: hidden;
   position: relative;
-  transition: height $g-tab-animation-duration $g-tab-ease-in-out-curve-function;
+  transition: height var(--ts-tab-animation-duration) var(--ts-tab-ease-in-out-curve-function);
 }

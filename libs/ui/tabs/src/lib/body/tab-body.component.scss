@@ -1,10 +1,7 @@
 @import '~@terminus/ui-styles/helpers';
 
-
 // Wraps each tab body
 .ts-tab-body {
-  $z-index-upper: 1;
-
   @include take-space;
   display: block;
   // Fix for auto content wrapping in IE11
@@ -16,13 +13,13 @@
     overflow-x: hidden;
     overflow-y: hidden;
     position: relative;
-    z-index: $z-index-upper;
+    z-index: 1;
   }
 }
 
 .ts-tab-body__content {
-  background-color: color(pure);
+  background-color: var(--ts-color-base-white);
   height: 100%;
   overflow: hidden;
-  padding: spacing(default);
+  padding: var(--ts-space-inset-500);
 }
