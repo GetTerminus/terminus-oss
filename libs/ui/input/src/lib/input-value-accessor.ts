@@ -1,6 +1,5 @@
 import { InjectionToken } from '@angular/core';
 
-
 /**
  * This token is used to inject the object whose value should be set into {@link TsInputComponent}. If none is
  * provided, the native `HTMLInputElement` is used. Directives like {@link TsAutocompleteTriggerDirective} can provide

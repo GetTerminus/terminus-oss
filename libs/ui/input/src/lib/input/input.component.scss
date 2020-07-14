@@ -1,14 +1,6 @@
 @import '~@terminus/ui-styles/helpers';
 
-
-//
-// @component
-//  Text input
-// @description
-//  A text input component.
-//
 .ts-input {
-  @include reset;
   display: block;
 
   /**
@@ -22,7 +14,6 @@
    * - Remove the default <input> padding, border, outline and width.
    * - Prevent textareas from being resized outside the form field.
    */
-
   .c-input__text {
     // The amount of space between the top of the line and the top of the actual text
     // (as a fraction of the font-size).
@@ -75,6 +66,7 @@
 
     // Also clear Safari's autofill icons. Note that this can't be in the
     // same selector as the IE ones, otherwise Safari will ignore it.
+    // noinspection CssInvalidPseudoSelector
     &::-webkit-contacts-auto-fill-button,
     &::-webkit-caps-lock-indicator,
     &::-webkit-credentials-auto-fill-button {
@@ -101,7 +93,6 @@
     &textarea {
       $textarea-padding-negation: -2px 0;
       $textarea-padding-for-scrollbars: 2px 0;
-
       // Negative margin to negate the effect of the padding on the layout.
       margin: $textarea-padding-negation;
       // Only allow resizing along the Y axis.
@@ -118,9 +109,11 @@
 
   // Button to clear the value of the input
   .c-input__clear {
-    @include cursor(pointer);
+    cursor: pointer;
     opacity: 0;
-    transition: opacity 200ms ease, color 200ms ease;
+    transition:
+      opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease),
+      color var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease);
 
     &--visible {
       opacity: 1;
@@ -128,7 +121,7 @@
 
     &:focus,
     &:hover {
-      color: color(warn);
+      color: var(--ts-color-warn-500);
     }
   }
 
