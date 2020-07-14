@@ -34,14 +34,12 @@ import { TsPrefixDirective } from '../prefix.directive';
 import { TsSuffixDirective } from '../suffix.directive';
 import { TsFormFieldControl } from './form-field-control';
 
-
 /**
  * Unique ID for each instance
  */
 let nextUniqueId = 0;
 const FLOATING_LABEL_SCALE = .75;
 const OUTLINE_GAP_PADDING = 5;
-
 
 /**
  * The form-field UI Component.

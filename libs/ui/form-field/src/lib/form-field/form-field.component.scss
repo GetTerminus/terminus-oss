@@ -40,8 +40,6 @@
   --formField-wrapper-paddingBottom: 1.43em;
   // The amount we offset the label from the input text in the outline appearance.
   --formField-outline-labelOffset: -.35em;
-
-  @include reset;
   display: block;
 
   /////////////////////////
@@ -51,7 +49,7 @@
   &.ts-form-field--invalid {
     .ts-form-field__outline {
       opacity: 0;
-      transition: opacity 100ms var(--swift-ease-out-timing-function);
+      transition: opacity var(--ts-animation-time-duration-100) var(--swift-ease-out-timing-function);
     }
 
     .ts-form-field__outline--thick {
@@ -64,7 +62,7 @@
       &:hover {
         .ts-form-field__outline {
           opacity: 0;
-          transition: opacity 600ms var(--swift-ease-out-timing-function);
+          transition: opacity var(--ts-animation-time-duration-600) var(--swift-ease-out-timing-function);
         }
 
         .ts-form-field__outline--thick {
@@ -132,7 +130,7 @@
     }
 
     .ts-form-field__container {
-      cursor: cursor(not-allowed);
+      cursor: not-allowed;
     }
   }
 
@@ -186,7 +184,7 @@
     .ts-form-field__outline-end,
     .ts-form-field__outline-gap {
       --formField-outline-width: var(--formField-outline-width-thick);
-      transition: border-color 300ms var(--swift-ease-out-timing-function);
+      transition: border-color var(--ts-animation-time-duration-300) var(--swift-ease-out-timing-function);
     }
   }
 
@@ -285,8 +283,9 @@
 
   // Clears the floats on the hints. This is necessary for the hint animation to work.
   .ts-form-field__hint-wrapper {
-    @include typography(hint);
+    color: var(--ts-color-utility-500);
     display: flex;
+    font: var(--ts-typography-compound-hint);
   }
 
   /////////////////////////

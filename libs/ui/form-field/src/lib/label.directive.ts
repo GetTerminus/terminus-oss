@@ -1,7 +1,6 @@
 // NOTE: We are using this directive as a component
 import { Directive } from '@angular/core';
 
-
 /**
  * The floating label for a {@link TsFormFieldComponent}
  */
