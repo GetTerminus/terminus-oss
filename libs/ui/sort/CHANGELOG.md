@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sort@1.0.7...@terminus/ui-sort@1.0.8) (2020-07-14)
+
+
+### Bug Fixes
+
+* **Sort:** use css custom properties ([40de7a4](https://github.com/GetTerminus/terminus-oss/commit/40de7a451cccc26a033c117240b2029b508cda44)), closes [#122](https://github.com/GetTerminus/terminus-oss/issues/122)
+
+
+
+
+
 ## 1.0.7 (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-sort

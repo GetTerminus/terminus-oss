@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@1.0.6...@terminus/ui-table@1.0.7) (2020-07-14)
+
+
+### Bug Fixes
+
+* **Table:** use css custom properties ([9befc61](https://github.com/GetTerminus/terminus-oss/commit/9befc61814bbd7c472c55f143a89ce37a63edbed))
+
+
+
+
+
 ## 1.0.6 (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-table

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-drawer@1.0.6...@terminus/ui-drawer@1.0.7) (2020-07-14)
+
+
+### Bug Fixes
+
+* **Drawer:** use custom css properties ([1889b37](https://github.com/GetTerminus/terminus-oss/commit/1889b3702b1074d2a65803eeafbef9a114204c13)), closes [#107](https://github.com/GetTerminus/terminus-oss/issues/107)
+
+
+
+
+
 ## 1.0.6 (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-drawer

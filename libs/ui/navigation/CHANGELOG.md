@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-navigation@1.0.6...@terminus/ui-navigation@1.0.7) (2020-07-14)
+
+
+### Bug Fixes
+
+* **Navigation:** use custom css properties ([21c5799](https://github.com/GetTerminus/terminus-oss/commit/21c5799cd299656450102eda99ab20ce7da5deab)), closes [#117](https://github.com/GetTerminus/terminus-oss/issues/117)
+
+
+
+
+
 ## 1.0.6 (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-navigation

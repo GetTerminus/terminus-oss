@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@1.0.6...@terminus/ui-checkbox@1.0.7) (2020-07-14)
+
+
+### Bug Fixes
+
+* **Checkbox:** use css custom properties ([461dd83](https://github.com/GetTerminus/terminus-oss/commit/461dd83ad6d371700a82a508f24353d74d81bfd0)), closes [#111](https://github.com/GetTerminus/terminus-oss/issues/111)
+
+
+
+
+
 ## 1.0.6 (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-checkbox

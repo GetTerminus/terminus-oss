@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-confirmation@1.0.6...@terminus/ui-confirmation@1.0.7) (2020-07-14)
+
+
+### Bug Fixes
+
+* **Confirmation:** use css custom properties ([e2e607d](https://github.com/GetTerminus/terminus-oss/commit/e2e607d45e1da58a471636be70dd7e3f9eb26a04)), closes [#110](https://github.com/GetTerminus/terminus-oss/issues/110)
+
+
+
+
+
 ## 1.0.6 (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-confirmation

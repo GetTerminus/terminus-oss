@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@1.0.6...@terminus/ui-file-upload@1.0.7) (2020-07-14)
+
+
+### Bug Fixes
+
+* **FileUpload:** use custom css properties ([7c93dc0](https://github.com/GetTerminus/terminus-oss/commit/7c93dc0b55718bc7b5f7faab4e1f3d7a1d871e6d)), closes [#105](https://github.com/GetTerminus/terminus-oss/issues/105)
+
+
+
+
+
 ## 1.0.6 (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-file-upload

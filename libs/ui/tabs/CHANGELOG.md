@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tabs@1.0.8...@terminus/ui-tabs@1.0.9) (2020-07-14)
+
+
+### Bug Fixes
+
+* **Tabs:** use css custom properties ([19c0d56](https://github.com/GetTerminus/terminus-oss/commit/19c0d5671678e446b550ff6d2617d1957dab451b)), closes [#123](https://github.com/GetTerminus/terminus-oss/issues/123)
+
+
+
+
+
 ## 1.0.8 (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-tabs
