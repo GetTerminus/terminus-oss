@@ -1,13 +1,5 @@
 @import '~@terminus/ui-styles/helpers';
 
-
-//
-// @component
-//  Navigation
-// @description
-//  A fully responsive navigation bar. Items that cannot fit inside the navigation bar will be
-//  pulled out into the dropdown menu.
-//
 .ts-navigation {
   @include reset;
   display: inline-block;
@@ -17,9 +9,9 @@
 
   // Top level styles should be nested here
   .c-navigation {
-    @include typography(body, 2);
-    background-color: color(primary);
-    color: color(pure);
+    background-color: var(--ts-color-primary-500);
+    color: var(--ts-color-base-white);
+    font: var(--ts-typography-compound-body2);
   }
 }
 
@@ -27,21 +19,19 @@
   // <div> wrapper for list of navigation items
   .c-navigation__items {
     overflow: hidden;
-    padding-right: spacing(default);
+    padding-right: var(--ts-space-inset-500);
   }
 
   // <button> individual nav item
   .c-navigation__item {
-    $horizontal-padding: spacing(default);
-
     color: inherit;
     // NOTE: If a link has an action rather than a destination, the default cursor will be used.
     // Force the pointer cursor type.
-    cursor: cursor(pointer);
+    cursor: pointer;
     font-family: inherit;
     font-size: inherit;
     letter-spacing: .04em;
-    padding: 0 $horizontal-padding;
+    padding: 0 var(--ts-space-inset-500);
     // Set up for bottom pseudo element
     position: relative;
     text-decoration: none;
@@ -54,7 +44,7 @@
       .c-navigation__item-inner {
         &::after {
           opacity: 1;
-          transition-duration: 200ms;
+          transition-duration: var(--ts-animation-time-duration-200);
         }
       }
     }
@@ -66,7 +56,7 @@
       width: 100%;
 
       &::after {
-        background-color: color(pure);
+        background-color: var(--ts-color-base-white);
         bottom: 0;
         content: '';
         height: 4px;
@@ -74,9 +64,11 @@
         opacity: 0;
         position: absolute;
         transform: translateX(-50%);
-        transition: opacity 100ms ease-in-out;
-        width: calc(100% - #{$horizontal-padding * 2});
+        transition: opacity var(--ts-animation-time-duration-100) ease-in-out;
+        width: var(--width-calc-2);
         will-change: opacity;
+        --width-calc-1: calc(var(--ts-space-inset-500) * 2);
+        --width-calc-2: calc(100% - var(--width-calc-1));
       }
     }
   }
@@ -86,11 +78,10 @@
     $separator-height: 70%;
     $separator-vertical-spacing: #{(100% - $separator-height) / 2};
     $separator-color: rgba(color(pure), .5);
-
     @include button-base;
     display: block;
     letter-spacing: .04em;
-    line-height: spacing(large);
+    line-height: var(--ts-typography-lineHeight-400);
 
     // Create vertical separator between top-level nav items and dropdown
     &::after {
@@ -107,7 +98,7 @@
     // override material styles on the inner wrapper
     .mat-button-wrapper {
       display: inline-block;
-      padding: spacing(small, 1) spacing(large) spacing(small, 1) spacing(default);
+      padding: var(--ts-space-inset-300) var(--ts-space-inset-600) var(--ts-space-inset-300) var(--ts-space-inset-500);
       position: relative;
       text-align: right;
     }
@@ -129,14 +120,12 @@
 
 
 //
-// These must live outside `c-navigation` since the menu panel is not nested
+// NOTE: These must live outside `c-navigation` since the menu panel is not nested
 //
 
 // <div> container for hidden nav items
 .c-navigation__hidden-items {
-  $material-spacing: 8px;
-
-  @include typography;
+  font: var(--ts-typography-compound-body);
   // set up for spacer div
   position: relative;
 
@@ -147,24 +136,24 @@
   }
 
   .mat-menu-content {
-    background-color: color(primary);
+    background-color: var(--ts-color-primary-500);
     // override material styles
     padding: 0;
 
     // needed for specificity since we are no longer nested below primary class
     .mat-menu-item {
-      color: color(pure);
+      color: var(--ts-color-base-white);
     }
   }
 
   // <button> individual nav item
   .c-navigation__hidden-item {
     &--admin {
-      background-color: color(primary, dark);
+      background-color: var(--ts-color-primary-700);
 
       // needed for specificity since we are no longer nested below primary class
       &.mat-menu-item {
-        color: color(utility, light);
+        color: var(--ts-color-utility-300);
       }
     }
 
@@ -173,7 +162,7 @@
       + .c-navigation__hidden-item--admin {
         // create the line separator
         &::before {
-          background-color: color(primary, light);
+          background-color: var(--ts-color-primary-300);
           content: '';
           display: block;
           height: 1px;

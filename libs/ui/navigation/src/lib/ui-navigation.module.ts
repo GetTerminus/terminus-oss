@@ -5,16 +5,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
 
-
 import { TsIconModule } from '@terminus/ui-icon';
 import { TsPipesModule } from '@terminus/ui-pipes';
 import { TsTooltipModule } from '@terminus/ui-tooltip';
 
 import { TsNavigationComponent } from './nav/navigation.component';
 
-
 export * from './nav/navigation.component';
-
 
 @NgModule({
   imports: [

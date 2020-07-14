@@ -18,7 +18,6 @@ import { BehaviorSubject } from 'rxjs';
 
 import { groupBy } from '@terminus/ngx-tools/utilities';
 
-
 /**
  * Define the user object interface
  */
@@ -28,7 +27,6 @@ export interface TsUser {
    */
   fullName: string;
 }
-
 
 /**
  * Base allowed keys for an item passed to the {@link TsNavigationComponent}
@@ -58,7 +56,6 @@ export interface NavigationItemBase {
   isForAdmin?: boolean;
 }
 
-
 /**
  * Link specific keys for an item passed to the {@link TsNavigationComponent}
  */
@@ -75,7 +72,6 @@ export interface TsNavigationLinkItem extends NavigationItemBase {
   isExternal?: boolean;
 }
 
-
 /**
  * Action specific keys for an item passed to the {@link TsNavigationComponent}
  */
@@ -88,7 +84,6 @@ export interface TsNavigationActionItem extends NavigationItemBase {
   };
 }
 
-
 /**
  * Determine if a navigation item is a {@link TsNavigationLinkItem}
  *
@@ -98,12 +93,10 @@ export interface TsNavigationActionItem extends NavigationItemBase {
 export const isLinkItem =
   (x: TsNavigationLinkItem | TsNavigationActionItem): x is TsNavigationLinkItem => !!(x as TsNavigationLinkItem).destination;
 
-
 /**
  * Define the allowed keys and types for an item passed to the {@link TsNavigationComponent}
  */
 export type TsNavigationItem = TsNavigationLinkItem | TsNavigationActionItem;
-
 
 /**
  * Define the expected response from the {@link TsNavigationComponent} emitter
@@ -124,7 +117,6 @@ export interface TsNavigationPayload {
 
 const DEFAULT_USER_NAME_MAX_LENGTH = 20;
 const DEFAULT_WELCOME_MESSAGE_MAX_LENGTH = 20;
-
 
 /**
  * This is the navigation UI Component
@@ -267,11 +259,9 @@ export class TsNavigationComponent implements OnInit, AfterViewInit {
     this.updateLists();
   }
 
-
   constructor(
    private changeDetectorRef: ChangeDetectorRef,
   ) {}
-
 
   /**
    * Set up initial link groups
