@@ -4,7 +4,6 @@ import {
 } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-
 /**
  * An interface to enforce the needs of a control when working inside of a {@link TsFormFieldComponent}
  */

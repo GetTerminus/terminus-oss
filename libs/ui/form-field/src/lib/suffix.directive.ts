@@ -1,6 +1,5 @@
 import { Directive } from '@angular/core';
 
-
 /**
  * Suffix to be placed at the end of the {@link TsFormFieldComponent}
  */
