@@ -7,7 +7,6 @@ import { TsCheckboxComponent } from './checkbox/checkbox.component';
 
 export * from './checkbox/checkbox.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
