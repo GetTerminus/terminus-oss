@@ -1,42 +1,36 @@
 @import '~@terminus/ui-styles/helpers';
-
-
-.ts-confirmation {
-  @include reset;
-}
+@import '~@terminus/design-tokens/css/library-design-tokens.scss';
 
 // CDK overlay container
 .ts-confirmation-overlay {
-  $color: color(pure);
-  $opaque: transparentize($color, .5);
-
+  $opaque: transparentize($ts-color-base-white, .5);
   @include reset;
   background-color: $opaque;
 }
 
 // Wrapper for overlay component
 .ts-confirmation-overlay__panel {
-  @include reset;
+  $arrow-size: 12px;
   @include elevation-element(menu);
-  background-color: color(pure);
+  background-color: var(--ts-color-base-white);
   display: block;
-  padding: spacing(default);
+  padding: var(--ts-space-inset-500);
 
   .ts-confirmation-overlay__explanation {
-    margin-bottom: spacing(large);
+    margin-bottom: var(--ts-space-stack-600);
   }
 
   // Create the triangle above the popup box
   &.ts-confirmation-overlay__panel-above {
     &::before {
-      @include triangle(bottom, color(pure), spacing(small, 1));
+      @include triangle(bottom, var(--ts-color-base-white), $arrow-size);
       left: 50%;
     }
   }
 
   &.ts-confirmation-overlay__panel-below {
     &::before {
-      @include triangle(top, color(pure), spacing(small, 1));
+      @include triangle(top, var(--ts-color-base-white), $arrow-size);
       left: 50%;
       transform: translateX(-50%);
     }
@@ -44,8 +38,8 @@
 
   &.ts-confirmation-overlay__panel-before {
     &::before {
-      @include triangle(right, color(pure), spacing(small, 1));
-      right: -#{spacing(small)};
+      @include triangle(right, var(--ts-color-base-white), $arrow-size);
+      right: calc(var(--ts-space-inline-400) * -1);
       top: 50%;
       transform: translateY(-50%);
     }
@@ -53,8 +47,8 @@
 
   &.ts-confirmation-overlay__panel-after {
     &::before {
-      @include triangle(left, color(pure), spacing(small, 1));
-      left: -#{spacing(small)};
+      @include triangle(left, var(--ts-color-base-white), $arrow-size);
+      left: calc(var(--ts-space-inline-400) * -1);
       top: 50%;
       transform: translateY(-50%);
     }
