@@ -44,9 +44,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   public query$ = new BehaviorSubject('');
   public simpleResults$: Observable<Route[]> | undefined;
 
-  constructor(
-    private router: Router,
-  ) {}
+  constructor(private router: Router) {}
 
   public ngOnInit(): void {
     this.setCurrentPage();
