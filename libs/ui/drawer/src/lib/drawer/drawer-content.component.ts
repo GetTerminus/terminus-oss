@@ -10,7 +10,6 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-
 @Component({
   selector: 'ts-drawer-content',
   template: '<ng-content></ng-content>',

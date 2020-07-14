@@ -5,7 +5,6 @@ $ts-drawer-push-drawer-z-index: 2;
 $ts-drawer-backdrop-z-index: 3;
 $ts-drawer-over-drawer-z-index: 4;
 $ts-drawer-header-footer-z-index: 5;
-$ts-animation-duration: 400ms;
 
 // Mixin that creates a new stacking context.
 @mixin ts-drawer-stacking-context($z-index: 1) {
@@ -38,37 +37,36 @@ $ts-animation-duration: 400ms;
 
 .ts-drawer__backdrop {
   @include take-space;
-
   display: block;
   // We use 'visibility: hidden | visible' because 'display: none' will not animate any
   // transitions, while visibility will interpolate transitions properly.
   visibility: hidden;
   z-index: $ts-drawer-backdrop-z-index;
+
   &.ts-drawer__backdrop--visible {
     visibility: visible;
   }
 
   .ts-drawer-transition & {
     transition: {
-      duration: $ts-animation-duration;
+      duration: var(--ts-animation-time-duration-400);
       property: background-color, visibility;
-      timing-function: cubic-bezier($g-material-background-easing);
+      timing-function: var(--ts-animation-easing-ease);
     }
   }
 }
 
 .ts-drawer-content {
   @include ts-drawer-stacking-context($ts-drawer-content-z-index);
-
   display: block;
   height: 100%;
   overflow: auto;
 
   .ts-drawer-transition & {
     transition: {
-      duration: $ts-animation-duration;
+      duration: var(--ts-animation-time-duration-400);
       property: transform, margin-left, margin-right;
-      timing-function: cubic-bezier($g-material-background-easing);
+      timing-function: var(--ts-animation-easing-ease);
     }
   }
 }
@@ -81,11 +79,9 @@ $ts-animation-duration: 400ms;
 .ts-drawer {
   @include ts-drawer-stacking-context($ts-drawer-over-drawer-z-index);
   @include elevation-element(menu);
-  $high-contrast-border: solid 1px currentColor;
-  background-color: color(pure);
+  background-color: var(--ts-color-base-white);
   bottom: 0;
   box-sizing: border-box;
-
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -102,7 +98,7 @@ $ts-animation-duration: 400ms;
   }
 
   .ts-drawer-header {
-    border-bottom: 1px solid color(utility, light);
+    border-bottom: 1px solid var(--ts-color-utility-300);
     display: block;
     max-width: inherit;
     overflow-wrap: break-word;
@@ -110,8 +106,9 @@ $ts-animation-duration: 400ms;
     width: inherit;
     z-index: $ts-drawer-header-footer-z-index;
   }
+
   .ts-drawer-footer {
-    border-top: 1px solid color(utility, light);
+    border-top: 1px solid var(--ts-color-utility-300);
     bottom: 0;
     max-width: inherit;
     overflow-wrap: break-word;
