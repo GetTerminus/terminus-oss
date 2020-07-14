@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-form-field@1.0.8...@terminus/ui-form-field@1.0.9) (2020-07-14)
+
+
+### Bug Fixes
+
+* **FormField:** use css custom properties ([56f4b31](https://github.com/GetTerminus/terminus-oss/commit/56f4b31baf6b7bdaad5b89060f0efa3aace2a22e))
+
+
+
+
+
 ## 1.0.8 (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-form-field

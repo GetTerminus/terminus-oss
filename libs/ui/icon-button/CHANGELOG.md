@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon-button@1.0.9...@terminus/ui-icon-button@1.0.10) (2020-07-14)
+
+
+### Bug Fixes
+
+* **IconButton:** use custom css properties ([489708c](https://github.com/GetTerminus/terminus-oss/commit/489708c6f438753fe31a266da30858cf9fac2dd9))
+
+
+
+
+
 ## 1.0.9 (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-icon-button

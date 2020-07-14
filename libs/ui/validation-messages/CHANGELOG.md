@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-validation-messages@1.0.9...@terminus/ui-validation-messages@1.0.10) (2020-07-14)
+
+
+### Bug Fixes
+
+* **ValidationMessages:** use custom css properties ([8a1859c](https://github.com/GetTerminus/terminus-oss/commit/8a1859cfcd5629aefae632d6b9fcf13beace838b)), closes [#124](https://github.com/GetTerminus/terminus-oss/issues/124)
+
+
+
+
+
 ## 1.0.9 (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-validation-messages

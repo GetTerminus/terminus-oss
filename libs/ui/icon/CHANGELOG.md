@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon@1.0.6...@terminus/ui-icon@1.0.7) (2020-07-14)
+
+
+### Bug Fixes
+
+* **Icon:** use custom css properties ([056787d](https://github.com/GetTerminus/terminus-oss/commit/056787d9427e334b967f5aa4cb9e8ef7d857bdca)), closes [#104](https://github.com/GetTerminus/terminus-oss/issues/104)
+
+
+
+
+
 ## 1.0.6 (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-icon
