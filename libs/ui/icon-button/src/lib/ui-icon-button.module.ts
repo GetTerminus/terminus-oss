@@ -9,7 +9,6 @@ import { TsIconButtonComponent } from './icon-button/icon-button.component';
 
 export * from './icon-button/icon-button.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
