@@ -1,15 +1,8 @@
 @import '~@terminus/ui-styles/helpers';
 
-
-//
-// @component
-//  CSV Manual Entry Component
-// @description
-//  Excel-like component with keyboard navigation and advanced paste support.
-//
 .ts-csv-entry {
   display: inline-block;
-  font-size: $type__size--base;
+  font: var(--ts-typography-compound-body);
   max-width: 100%;
 
   &.c-csv-entry--full-width {
@@ -29,15 +22,20 @@
 // <div> primary container
 .c-csv-entry {
   --csv-row-height: 39px;
-  --csv-cell-padding: #{spacing(small, 1)};
+  --csv-cell-padding: var(--ts-space-inset-300);
   --csv-external-row-height: 35px;
-  $rightColumnWidth: 40px;
-  $leftColumnWidth: 15px;
+  --csv-right-column-width: 40px;
+  --csv-left-column-width: 15px;
+  // Odd height used to ensure that the table cuts off mid-cell so the user knows there is more content
+  --csv-scroll-maxHeight: 28.5em;
+  --csv-input-minWidth: 72px;
+  // TODO: Use a standard color once a light blue is added
+  --csv-focus-backgroundColor: #d3eaf9;
+  --csv-invalid-fontWeight: 400;
 
   // <div> container for overall table to allow scrolling
   .c-csv-entry__scroll {
-    // Odd height used to ensure that the table cuts off mid-cell so the user knows there is more content
-    max-height: 28.5em;
+    max-height: var(--csv-scroll-maxHeight);
     // To remove a horizontal scrollbar showing in firefox
     overflow-x: -moz-hidden-unscrollable;
     overflow-y: auto;
@@ -45,18 +43,17 @@
 
   // <div> container for table info
   .c-csv-entry__info {
-    @include typography(caption);
+    font: var(--ts-typography-compound-caption);
     line-height: 1.2em;
-    margin-bottom: spacing(small, 2);
+    margin-bottom: var(--ts-space-stack-200);
     // Match the size of the ts-icon-button
-    margin-right: $rightColumnWidth;
+    margin-right: var(--csv-right-column-width);
     text-align: right;
   }
 
   // <form>
   .c-csv-entry__form {
-    $space: spacing(small);
-    border: 1px solid color(utility, light);
+    border: 1px solid var(--ts-color-utility-300);
     // Allow horizontal scrolling when all columns cannot be displayed
     overflow-x: auto;
   }
@@ -70,10 +67,10 @@
   // <input> individual cell content
   .c-csv-entry__input {
     @include truncate-overflow;
-    border: 1px solid color(utility, light);
+    border: 1px solid var(--ts-color-utility-300);
     display: table-cell;
     font-size: inherit;
-    min-width: spacing(large, 5);
+    min-width: var(--csv-input-minWidth);
     padding: var(--csv-cell-padding);
 
     // remove double border between columns
@@ -90,9 +87,7 @@
     }
 
     &:focus {
-      // TODO: Use a standard color once a light blue is added
-      $focus-bg: lighten(color(primary, xlight), 50%);
-      background-color: $focus-bg;
+      background-color: var(--csv-focus-backgroundColor);
     }
 
     // Class added to header cells
@@ -102,7 +97,7 @@
     }
 
     &--invalid {
-      color: color(warn);
+      color: var(--ts-color-warn-500);
     }
   }
 
@@ -111,32 +106,32 @@
     max-height: var(--csv-external-row-height);
 
     .ts-icon-button {
-      color: color(utility, light);
+      color: var(--ts-color-utility-300);
     }
   }
 
   // <div> cell in column of row IDs
   .c-csv-entry__column-id {
-    @include typography(caption);
-    color: color(utility, light);
+    color: var(--ts-color-utility-300);
+    font: var(--ts-typography-compound-caption);
     max-height: var(--csv-external-row-height);
     padding: var(--csv-cell-padding);
 
     &--invalid {
-      color: color(warn);
-      font-weight: $type__weight--base;
+      color: var(--ts-color-warn-500);
+      font-weight: var(--csv-invalid-fontWeight);
     }
   }
 
   // <div> container for all validation messages
   .c-csv-entry__messages {
-    @include typography(hint);
-    color: color(warn);
+    color: var(--ts-color-warn-500);
+    font: var(--ts-typography-compound-hint);
     line-height: 1.2em;
     // Create margin matching column with 'delete' buttons
-    margin-left: $leftColumnWidth;
-    margin-right: $rightColumnWidth;
-    padding-top: spacing(small, 2);
+    margin-left: var(--csv-left-column-width);
+    margin-right: var(--csv-right-column-width);
+    padding-top: var(--ts-space-stack-200);
   }
 }
 
