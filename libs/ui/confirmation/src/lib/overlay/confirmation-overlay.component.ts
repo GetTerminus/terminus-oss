@@ -7,7 +7,6 @@ import { Subject } from 'rxjs';
 
 import { TS_SPACING } from '@terminus/ui-spacing';
 
-
 /**
  * The confirmation overlay used by {@link TsConfirmationDirective}
  */
@@ -45,5 +44,4 @@ export class TsConfirmationOverlayComponent {
    * Text for explanation
    */
   public explanationText: string | undefined;
-
 }
