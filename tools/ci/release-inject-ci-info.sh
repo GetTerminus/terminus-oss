@@ -28,4 +28,3 @@ rm -f dist/apps/showcase-ui/*-e
 echo "Inject SHA.."
 grep -rl $SHA_PLACEHOLDER 'dist/apps/showcase-ui' | xargs sed -i'' -e 's|'$SHA_PLACEHOLDER'|'"$GITHUB_SHA"'|g'
 rm -f dist/apps/showcase-ui/*-e
-m -f dist/apps/showcase-ui/*-e
