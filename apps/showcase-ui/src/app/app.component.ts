@@ -16,7 +16,6 @@ import {
 
 import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
 
-
 @Component({
   selector: 'demo-root',
   templateUrl: './app.component.html',
@@ -48,5 +47,6 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
+  // Needed for `untilComponentDestroyed`
   public ngOnDestroy(): void {}
 }
