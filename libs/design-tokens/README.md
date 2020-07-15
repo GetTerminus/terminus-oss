@@ -22,9 +22,16 @@ The collection of design tokens for Terminus applications.
 
 ## Installation
 
+Install the tokens package in an existing project:
+
 ```bash
-# Install the tokens package in an existing project:
 $ yarn add @terminus/design-tokens 
+```
+
+Add the needed Google font stacks to your `index.html` file:
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 ```
 
 ## Usage
