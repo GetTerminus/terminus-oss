@@ -31,5 +31,9 @@ module.exports = {
       700: { value: '{color.base.palette7.700.value}' },
       900: { value: '{color.base.palette7.900.value}' },
     },
+    navigation: {
+      blue: { value: '#0c3745' },
+      white: { value: '#fff' },
+    },
   },
 };
