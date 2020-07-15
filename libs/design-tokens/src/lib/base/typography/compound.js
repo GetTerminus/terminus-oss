@@ -20,6 +20,9 @@ module.exports = {
       body2: {
         value: `500 {typography.size.300.value} / {typography.lineHeight.300.value} {typography.stack.base.roboto.value}`,
       },
+      body3: {
+        value: `italic 400 {typography.size.300.value} / {typography.lineHeight.300.value} {typography.stack.base.roboto.value}`,
+      },
       headline: {
         value: `500 {typography.size.600.value} / {typography.lineHeight.500.value} {typography.stack.base.roboto.value}`,
       },
