@@ -22,6 +22,7 @@ import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,

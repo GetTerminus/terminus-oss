@@ -212,6 +212,7 @@
         "deploy": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
+            "parallel": false,
             "commands": [
               {
                 "command": "tools/ci/release-inject-ci-info.sh"
