@@ -48,10 +48,10 @@ module.exports = {
       },
       // Was warn
       palette6: {
-        100: { value: '#d3b6b0' },
-        300: { value: '#fbeff0' },
-        500: { value: '#f8e2e4' },
-        700: { value: '#d23d46' },
+        100: { value: '#fbeff0' },
+        300: { value: '#f8e2e4' },
+        500: { value: '#d23d46' },
+        700: { value: '#913B2C' },
         900: { value: '#763023' },
       },
       // Was utility
