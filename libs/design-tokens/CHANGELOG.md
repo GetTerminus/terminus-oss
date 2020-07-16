@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0 (2020-07-16)
+
+
+### Features
+
+* **DesignTokens:** add new body3 compound type style ([f1e1f8b](https://github.com/GetTerminus/terminus-oss/commit/f1e1f8b7f449dbfa269991ca31e3236cdd734a2f)), closes [#22](https://github.com/GetTerminus/terminus-oss/issues/22)
+* **DesignTokens:** add two new colors for library navigation ([f4c7ee9](https://github.com/GetTerminus/terminus-oss/commit/f4c7ee997c8c6e399e3dc904cf28efa852b6d3ba))
+* **DesignTokens:** change border radius base to 4px ([92a625f](https://github.com/GetTerminus/terminus-oss/commit/92a625f581c2234155eeca6dc78ba355e84463f0))
+* **DesignTokens:** update base color palettes for LPS ([7251121](https://github.com/GetTerminus/terminus-oss/commit/72511215767bb43299aaea882ae8cf1c6adec7f8)), closes [#23](https://github.com/GetTerminus/terminus-oss/issues/23)
+* **DesignTokens:** update base typography stack ([ecb498d](https://github.com/GetTerminus/terminus-oss/commit/ecb498df63fccdcdc5271607440dd62fc43494b0)), closes [#22](https://github.com/GetTerminus/terminus-oss/issues/22)
+
+
+### BREAKING CHANGES
+
+* **DesignTokens:** Base border radius changed to 4px.
+* **DesignTokens:** Color changes to most base palettes
+* **DesignTokens:** Base font stack fallback typefaces have been updated.
+
+
+
+
+
 # [2.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/design-tokens@2.0.18...@terminus/design-tokens@2.1.0) (2020-07-09)
 
 
