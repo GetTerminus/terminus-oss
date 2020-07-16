@@ -4102,10 +4102,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@terminus/design-tokens@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@terminus/design-tokens/-/design-tokens-2.1.0.tgz#c8a593da9dac487d1b7f135910f25b7b1f0c4213"
-  integrity sha512-rmmLp8BXupSybVZAOMzZg3VSacmgMZqGljnvqCFfWwvu6hGeIqt0mcueqjJacEdylKMn4iCOQUm5eqqavw/wdg==
+"@terminus/design-tokens@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@terminus/design-tokens/-/design-tokens-3.0.1.tgz#5415fb12078e9f825fc839daf525e4734eb5ec5c"
+  integrity sha512-WxrvpzdJnOcYk/pS4rf5y8u/6GWlIYQesddfmG3QIYK+qTff43xRJ713etjqmgQ7ycyURQWclycQK+sDa0BZJg==
 
 "@terminus/eslint-config-frontend@2.2.6":
   version "2.2.6"

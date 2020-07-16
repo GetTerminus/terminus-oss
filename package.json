@@ -150,7 +150,7 @@
     "@ngrx/store": "9.2.0",
     "@popperjs/core": "2.0.0",
     "@schematics/angular": "10.0.0",
-    "@terminus/design-tokens": "2.1.0",
+    "@terminus/design-tokens": "3.0.1",
     "@terminus/ngx-tools": "8.0.5",
     "@terminus/ui-styles": "1.0.6",
     "@w11k/ngx-componentdestroyed": "5.0.2",
