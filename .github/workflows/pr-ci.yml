@@ -60,7 +60,7 @@ jobs:
       - if: env.SHOULD_RUN == 'true' && steps.cache_deps.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: Test affected projects
-        run: yarn nx affected:test --base=origin/release --head=${{ github.event.pull_request.head.ref }} --codeCoverage
+        run: yarn nx affected:test --base=remotes/origin/release --head=${{ github.event.pull_request.head.ref }} --codeCoverage
         if: env.SHOULD_RUN == 'true'
       - name: "Archive code coverage results"
         uses: actions/upload-artifact@v2
@@ -110,7 +110,7 @@ jobs:
       - if: env.SHOULD_RUN == 'true' && steps.cache_deps.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: Lint files
-        run: yarn nx affected:lint --base=origin/release --head=${{ github.event.pull_request.head.ref }}
+        run: yarn nx affected:lint --base=remotes/origin/release --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'
 
 # TODO: re-enable these before final release
@@ -258,19 +258,19 @@ jobs:
       - if: env.SHOULD_RUN == 'true' && steps.cache_deps.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
       - name: List affected LIBS
-        run: yarn affected:libs --base=origin/release --head=${{ github.event.pull_request.head.ref }}
+        run: yarn affected:libs --base=remotes/origin/release --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'
       - name: List affected APPS
-        run: yarn affected:apps --base=origin/release --head=${{ github.event.pull_request.head.ref }}
+        run: yarn affected:apps --base=remotes/origin/release --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'
       - name: Build styles before all packages
         run: yarn nx build ui-styles --prod --skip-nx-cache
         if: env.SHOULD_RUN == 'true'
       - name: Build affected projects
-        run: yarn nx affected:build --prod --withDeps --base=origin/release --head=${{ github.event.pull_request.head.ref }}
+        run: yarn nx affected:build --prod --withDeps --base=remotes/origin/release --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'
       - name: Build affected projects schematics
-        run: yarn affected:build-schematics --base=origin/release --head=${{ github.event.pull_request.head.ref }}
+        run: yarn affected:build-schematics --base=remotes/origin/release --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'
       - name: Upload built files
         uses: actions/upload-artifact@v2
