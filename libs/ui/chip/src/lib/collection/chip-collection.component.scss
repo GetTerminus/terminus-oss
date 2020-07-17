@@ -1,6 +1,10 @@
 .ts-chip-collection {
   display: block;
 
+  &:focus {
+    outline: none;
+  }
+
   &--vertical {
     display: inline-block;
 
@@ -23,4 +27,8 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
+
+  &:focus {
+    outline: none;
+  }
 }
