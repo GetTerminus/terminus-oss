@@ -28,7 +28,7 @@
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
     "@angular/flex-layout": "~9.0.0-beta.29",
-    "@terminus/design-tokens": "^3.0.1",
+    "@terminus/design-tokens": "^3.1.0",
     "@terminus/ngx-tools": "^8.0.5",
     "@terminus/ui-button": "^1.0.0",
     "@terminus/ui-spacing": "^1.0.0",

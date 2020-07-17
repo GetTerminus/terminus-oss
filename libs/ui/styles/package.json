@@ -26,7 +26,7 @@
   "styles": "helpers.scss",
   "peerDependencies": {
     "@angular/material": "^9.1.0",
-    "@terminus/design-tokens": "^3.0.1"
+    "@terminus/design-tokens": "^3.1.0"
   },
   "scripts": {
     "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
