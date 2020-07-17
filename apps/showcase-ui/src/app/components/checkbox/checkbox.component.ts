@@ -12,18 +12,13 @@ export class CheckboxComponent {
   disabled = false;
   required = true;
   indeterminate = false;
-  myTheme = 'accent';
   myForm = this.formBuilder.group({
     myCheck: [
       false,
     ],
   });
 
-
-  constructor(
-    private formBuilder: FormBuilder,
-  ) {}
-
+  constructor(private formBuilder: FormBuilder) {}
 
   changed(e: boolean) {
     console.log('Input changed: ', e);
@@ -36,5 +31,4 @@ export class CheckboxComponent {
   submit(v: any) {
     console.log('DEMO: form submit: ', v);
   }
-
 }

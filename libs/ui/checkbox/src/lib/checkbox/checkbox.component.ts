@@ -16,7 +16,6 @@ import {
 import {
   ControlValueAccessorProviderFactory,
   TsReactiveFormBaseComponent,
-  TsStyleThemeTypes,
 } from '@terminus/ui-utilities';
 
 /**
@@ -42,7 +41,6 @@ let nextUniqueId = 0;
  *              [isIndeterminate]="false"
  *              [isRequired]="false"
  *              tabIndex="4"
- *              theme="accent"
  *              (inputChange)="myMethod($event)"
  *              (indeterminateChange)="myMethod($event)"
  * ></ts-checkbox>
@@ -140,12 +138,6 @@ export class TsCheckboxComponent extends TsReactiveFormBaseComponent {
    */
   @Input()
   public tabIndex = 0;
-
-  /**
-   * Define the theme
-   */
-  @Input()
-  public theme: TsStyleThemeTypes = 'primary';
 
   /**
    * Emit an event on input change
