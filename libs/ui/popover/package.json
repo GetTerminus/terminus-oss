@@ -23,7 +23,7 @@
     "@angular/core": "^9.1.0",
     "@angular/platform-browser": "^9.1.0",
     "@popperjs/core": "2.0.0",
-    "@terminus/design-tokens": "^2.0.2",
+    "@terminus/design-tokens": "^3.0.1",
     "@terminus/ngx-tools": "^8.0.5",
     "@terminus/ui-utilities": "^1.0.0",
     "rxjs": "^6.5.0",
