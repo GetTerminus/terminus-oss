@@ -130,6 +130,12 @@ export class TsCardComponent {
   public centeredContent = false;
 
   /**
+   * Define if the card should have the second level of shadow
+   */
+  @Input()
+  public elevation2 = false;
+
+  /**
    * Define if the card is disabled
    */
   @Input()
