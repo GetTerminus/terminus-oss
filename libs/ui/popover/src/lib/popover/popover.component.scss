@@ -5,6 +5,7 @@
   --popover-position-adjust: -5px;
   @include elevation-element(snackbar);
   background-color: var(--ts-color-base-white);
+  border-radius: var(--ts-border-radius-base);
   padding: var(--ts-space-inset-500);
   position: absolute;
 
