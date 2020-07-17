@@ -1,26 +1,5 @@
 @import '~@terminus/ui-styles/helpers';
 
-// Base card styles
-@mixin card($allows-interaction: false) {
-  min-height: calc(100% - #{spacing(large) * 2});
-  padding: var(--ts-space-inset-600);
-  vertical-align: top;
-
-  // If the card allows interaction, give it a hover state
-  @if $allows-interaction == true {
-    @include elevation-element(card);
-    cursor: pointer;
-  } @else {
-    // Otherwise include standard elevation
-    @include elevation(2);
-  }
-
-  // Class added by the TsCardTitleDirective
-  .c-card__title {
-    font: var(--ts-typography-compound-title);
-  }
-}
-
 // Add a card border for a side
 @mixin card-border($side) {
   &.c-card--primary {
@@ -43,14 +22,18 @@
 }
 
 .ts-card {
-  --card-disabled-opacity: .5;
-  --card-disabled-menu-opacity: .3;
+  --ts-card-disabled-opacity: .5;
+  --ts-card-disabled-menu-opacity: .3;
+  --ts-card-backgroundColor: var(--ts-color-base-white);
+  --ts-card-boxShadow: 0 0 0 1px rgba(0, 0, 0, .04), 0 2px 5px 0 rgba(0, 0, 0, .06);
+  --ts-card-hover-boxShadow: 0 0 0 1px rgba(0, 0, 0, .06), 0 2px 5px 0 rgba(0, 0, 0, .09);
+  --ts-card-2x-boxShadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 5px 0 rgba(0, 0, 0, .12);
   display: flex;
   flex-flow: row nowrap;
 
   // Top level styles should be nested here
   .c-card {
-    background-color: var(--ts-color-light);
+    background-color: var(--ts-card-backgroundColor);
     box-sizing: border-box;
     font: var(--ts-typography-compound-body);
     // Set up for possible utility nav
@@ -65,16 +48,23 @@
       flex-direction: row;
       justify-content: center;
     }
+
+    &.c-card--elevation2 {
+      box-shadow: var(--ts-card-2x-boxShadow);
+    }
   }
 }
 
 .c-card {
   .c-card__inner {
-    @include card;
     border-radius: var(--ts-border-radius-base);
+    box-shadow: var(--ts-card-boxShadow);
     box-sizing: border-box;
+    min-height: calc(100% - #{spacing(large) * 2});
+    padding: var(--ts-space-inset-600);
     // Needed to contain the ripple effect
     position: relative;
+    vertical-align: top;
     width: 100%;
 
     .c-card__title-accent-border {
@@ -89,13 +79,23 @@
         border-left-color: var(--ts-color-warn-500);
       }
     }
+
+    // Class added by the TsCardTitleDirective
+    .c-card__title {
+      font: var(--ts-typography-compound-title);
+    }
   }
 }
 
 .c-card--interaction {
   &:not(.c-card--disabled) {
     .c-card__inner {
-      @include card($allows-interaction: true);
+      cursor: pointer;
+
+      &:focus,
+      &:hover {
+        box-shadow: var(--ts-card-hover-boxShadow);
+      }
     }
   }
 }
@@ -114,12 +114,12 @@
 
 .c-card--disabled {
   .c-card__inner {
-    opacity: var(--card-disabled-opacity);
+    opacity: var(--ts-card-disabled-opacity);
   }
 
   // Class added to menu container when the card is disabled
   .c-menu {
-    opacity: var(--card-disabled-menu-opacity);
+    opacity: var(--ts-card-disabled-menu-opacity);
     pointer-events: none;
   }
 

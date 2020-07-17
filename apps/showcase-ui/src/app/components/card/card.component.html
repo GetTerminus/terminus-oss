@@ -180,13 +180,20 @@
 </ts-card>
 
 <ts-card [flat]="true" tsVerticalSpacing [isDisabled]="false">
-  <h3 tsVerticalSpacing>Nested card</h3>
+  <h3 tsVerticalSpacing>Nested disabled card</h3>
   <p>This card is flat and not disabled</p>
   <ts-card [flat]="false" [isDisabled]="true">
-    This card is not flat and disabled
+    This card is not flat but is disabled
   </ts-card>
 </ts-card>
 
+<ts-card [flat]="true" tsVerticalSpacing [isDisabled]="false">
+  <h3 tsVerticalSpacing>Nested active cards</h3>
+  <p>This card is flat and not disabled</p>
+  <ts-card [flat]="false" [elevation2]="true">
+    Secondary shadow when over a level 1 shadow.
+  </ts-card>
+</ts-card>
 
 <ts-card [flat]="true" #transitionCard="tsCard">
   <h3 tsVerticalSpacing>Example showing transition</h3>
