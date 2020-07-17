@@ -27,7 +27,7 @@ ts-button {
   --button-padding: 0 var(--ts-space-inline-400);
   --button-padding-collapsed: 0 6px;
   --button-border: 1px solid transparent;
-  --button-border-radius: 3px;
+  --button-border-radius: var(--ts-border-radius-base);
   --button-border-radius-collapsible: 2em;
 
   --button-backgroundColor-disabled: var(--ts-color-utility-300);
