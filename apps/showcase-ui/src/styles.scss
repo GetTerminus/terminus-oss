@@ -8,9 +8,11 @@ html {
   font-family: $type__family--base;
   font-size: $type__size--base;
   font-weight: $type__weight--base;
+  height: 100%;
 }
 
 body {
+  height: 100%;
   margin: 0;
 }
 
