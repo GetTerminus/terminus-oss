@@ -3,7 +3,7 @@ module.exports = {
     base: {
       // NOTE: How previous color values map to the new values: xlight=100, light=300 base=500, dark=700, xdark=900
       // Was light
-      white: { value: '#fafafa' },
+      white: { value: '#fff' },
       // Was dark
       black: { value: '#302d35' },
       // Was primary
