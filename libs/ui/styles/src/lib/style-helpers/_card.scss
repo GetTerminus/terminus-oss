@@ -4,6 +4,7 @@
 @import 'cursors';
 
 
+// @deprecated Moved into the card component as it was the only usage.
 @mixin card(
   $allows-interaction: false
 ) {
