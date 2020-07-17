@@ -21,7 +21,7 @@
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
     "@angular/platform-browser": "^9.1.0",
-    "@terminus/design-tokens": "^3.0.1",
+    "@terminus/design-tokens": "^3.1.0",
     "@terminus/ngx-tools": "^8.0.5",
     "tslib": "^1.10.0"
   },
