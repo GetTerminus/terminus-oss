@@ -1,68 +1,42 @@
 .ts-link {
-  --link-color: inherit;
-  --link-fontWeight: 400;
+  --ts-link-color: inherit;
+  --ts-link-fontWeight: 400;
+  --ts-link-icon-marginLeft: 6px;
   display: inline-block;
 
   .c-link {
-    color: var(--link-color);
+    color: var(--ts-link-color);
     display: inline-block;
-    text-decoration: underline;
+    text-decoration: none;
     transition: color var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease);
 
-    &:focus {
+    &:focus,
+    &:hover {
       outline: 0;
+      text-decoration: underline;
     }
   }
 
-  // Primary theme
-  &--primary {
-    --link-color: var(--ts-color-primary-500);
+  // Define all possible themes
+  $themes: primary accent warn;
+  // Loop through using each theme name to create styles
+  @each $theme in $themes {
+    &--#{$theme} {
+      --ts-link-color: var(--ts-color-#{$theme}-500);
 
-    .c-link {
-      &:focus,
-      &:hover {
-        --link-color: var(--ts-color-primary-300);
-      }
+      .c-link {
+        &:focus,
+        &:hover {
+          --ts-link-color: var(--ts-color-#{$theme}-700);
+        }
 
-      &:visited {
-        --link-color: var(--ts-color-primary-700);
-      }
-    }
-  }
-
-  // Accent theme
-  &--accent {
-    --link-color: var(--ts-color-accent-500);
-
-    .c-link {
-      &:focus,
-      &:hover {
-        --link-color: var(--ts-color-accent-300);
-      }
-
-      &:visited {
-        --link-color: var(--ts-color-accent-700);
-      }
-    }
-  }
-
-  // Warn theme
-  &--warn {
-    --link-color: var(--ts-color-warn-500);
-
-    .c-link {
-      &:focus,
-      &:hover {
-        --link-color: var(--ts-color-warn-300);
-      }
-
-      &:visited {
-        --link-color: var(--ts-color-warn-700);
+        &:visited {
+          --ts-link-color: var(--ts-color-#{$theme}-500);
+        }
       }
     }
   }
 }
-
 
 .c-link {
   // Force the icon to assume the size of its context
@@ -72,6 +46,7 @@
       font-size: var(--material-icon-fontSize-override);
       height: auto;
       line-height: 1em;
+      margin-left: var(--ts-link-icon-marginLeft);
       vertical-align: middle;
       width: auto;
     }
@@ -90,7 +65,7 @@
     background-color: var(--menu-item-backgroundColor);
     color: var(--menu-item-color);
     display: block;
-    font-weight: var(--link-fontWeight);
+    font-weight: var(--ts-link-fontWeight);
     padding: var(--ts-space-inset-300) var(--ts-space-inset-500);
     text-decoration: none;
     transition-duration: var(--ts-animation-time-duration-400);
