@@ -26,8 +26,11 @@ module.exports = {
     },
     utility: {
       100: { value: '{color.base.palette7.100.value}' },
+      200: { value: '{color.base.palette7.200.value}' },
       300: { value: '{color.base.palette7.300.value}' },
+      400: { value: '{color.base.palette7.400.value}' },
       500: { value: '{color.base.palette7.500.value}' },
+      600: { value: '{color.base.palette7.600.value}' },
       700: { value: '{color.base.palette7.700.value}' },
       900: { value: '{color.base.palette7.900.value}' },
     },
