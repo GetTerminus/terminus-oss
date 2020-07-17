@@ -48,6 +48,7 @@ export const allowedTooltipTypes: TsTooltipPositionTypes[] = [
   host: { class: 'ts-tooltip' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  exportAs: 'tsTooltipComponent',
 })
 export class TsTooltipComponent {
   /**
@@ -87,9 +88,23 @@ export class TsTooltipComponent {
   public matTooltip!: MatTooltip;
 
   /**
-   * Call Material Tooltip's show() method
+   * Show the tooltip
    */
   public showTooltip(): void {
     this.matTooltip.show();
+  }
+
+  /**
+   * Hide the tooltip
+   */
+  public hideTooltip(): void {
+    this.matTooltip.hide();
+  }
+
+  /**
+   * Toggle the tooltip's visibility
+   */
+  public toggleTooltip(): void {
+    this.matTooltip.toggle();
   }
 }
