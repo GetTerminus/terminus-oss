@@ -46,6 +46,7 @@
     }
 
     .ts-form-field__outline--thick {
+      border-radius: var(--formField-outline-borderRadius);
       opacity: 1;
     }
   }
