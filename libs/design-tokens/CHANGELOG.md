@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/design-tokens@3.0.1...@terminus/design-tokens@3.1.0) (2020-07-17)
+
+
+### Bug Fixes
+
+* **DesignTokens:** update base white ([8906671](https://github.com/GetTerminus/terminus-oss/commit/8906671216133a5faf7b78ceb116e23505b230a9))
+
+
+### Features
+
+* **DesignTokens:** expand utility palette ([e08a9bb](https://github.com/GetTerminus/terminus-oss/commit/e08a9bb23f3d51972bae116b31ddec22ed54332c))
+
+
+
+
+
 ## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/design-tokens@3.0.0...@terminus/design-tokens@3.0.1) (2020-07-16)
 
 
