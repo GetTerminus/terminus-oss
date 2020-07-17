@@ -2,19 +2,20 @@
 
 .ts-table {
   --ts-table-bg: var(--ts-color-base-white);
+  --ts-table-fontSize: 14px;
   --ts-table-header-bg: var(--ts-color-utility-300);
-  --ts-table-header-text-color: var(--ts-color-base-black);
+  --ts-table-header-text-color: var(--ts-color-utility-700);
   --ts-table-border-color: var(--ts-color-utility-300);
   --ts-table-header-border-color: var(--ts-color-utility-500);
-  --ts-table-row-hover-backgroundColor: #e8eef3;
+  --ts-table-header-fontSize: 13px;
   --ts-table-zindex-base-context: 2;
   --ts-table-zindex-resize-background: calc(var(--ts-table-zindex-base-context) + 1);
   --ts-table-zindex-resize-grabber: calc(var(--ts-table-zindex-resize-background) + 1);
-  --ts-table-cell-padding: var(--ts-space-inset-500);
+  --ts-table-cell-padding: var(--ts-space-inset-400) var(--ts-space-inset-500);
   // Must be greater than 40 as that is the length of the generated z-indexes for header cells
   --ts-table-sticky-end-z: 50;
   --ts-table-grip-vertical-adjustment: 50%;
-  --ts-table-header-row-fontWeight: bold;
+  --ts-table-header-row-fontWeight: 500;
   --ts-table-grabber-icon-font-size: 14px;
   --ts-table-header-borderRadius: var(--ts-border-radius-base);
   border-collapse: separate;
@@ -51,6 +52,7 @@
     border-radius: var(--ts-table-header-borderRadius) var(--ts-table-header-borderRadius) 0 0;
     color: var(--ts-table-header-text-color);
     font: var(--ts-typography-compound-caption);
+    font-size: var(--ts-table-header-fontSize);
     font-weight: var(--ts-table-header-row-fontWeight);
     transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
 
@@ -64,12 +66,6 @@
   // Body row
   .ts-row {
     border-bottom: 1px solid var(--ts-table-border-color);
-
-    &:hover {
-      .ts-cell {
-        background-color: var(--ts-table-row-hover-backgroundColor);
-      }
-    }
 
     // Workaround for https://goo.gl/pFmjJD in IE 11. Adds a pseudo
     // element that will stretch the row the correct height. See:
@@ -122,10 +118,15 @@
     }
   }
 
+  .ts-cell {
+    border-bottom: 1px solid var(--ts-color-utility-300);
+  }
+
   // Body cell
   .ts-cell,
   .ts-footer-cell {
     background-color: var(--ts-table-bg);
+    font-size: var(--ts-table-fontSize);
     overflow: hidden;
     padding: var(--ts-table-cell-padding);
     text-overflow: ellipsis;
@@ -176,9 +177,16 @@
       }
     }
 
+    // Icon for unsorted state
+    .ts-sort-header-container__icon {
+      color: var(--ts-color-utility-600);
+    }
+
     // Class added when the column is sorted
     &.ts-sort-header-sorted {
-      color: color(accent);
+      .ts-sort-header-arrow {
+        color: var(--ts-color-utility-700);
+      }
     }
 
     // Reverse the natural z-index order so that all borders on the right created with box-shadow are visible above the following cell.
