@@ -24,6 +24,7 @@
     opacity: 1;
   }
   align-items: center;
+  border-radius: var(--ts-border-radius-base) var(--ts-border-radius-base) 0 0;
   box-sizing: border-box;
   color: var(--ts-color-base-black);
   cursor: pointer;
