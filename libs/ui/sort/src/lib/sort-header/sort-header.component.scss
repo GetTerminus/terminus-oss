@@ -1,12 +1,5 @@
 @import '~@terminus/ui-styles/helpers';
 
-$ts-sort-header-arrow-margin: 6px;
-$ts-sort-header-arrow-container-size: 12px;
-$ts-sort-header-arrow-stem-size: 10px;
-$ts-sort-header-arrow-pointer-length: 6px;
-$ts-sort-header-arrow-thickness: 2px;
-$ts-sort-header-arrow-transition: 225ms cubic-bezier(.4, 0, .2, 1);
-
 :root {
   --ts-sort-header-arrow-margin: 6px;
   --ts-sort-header-arrow-container-size: 12px;
@@ -28,7 +21,6 @@ $ts-sort-header-arrow-transition: 225ms cubic-bezier(.4, 0, .2, 1);
 
   // Double arrow icon to signify sortability
   &__icon {
-    opacity: 0;
     position: absolute;
     right: 0;
     top: 50%;
@@ -59,7 +51,7 @@ $ts-sort-header-arrow-transition: 225ms cubic-bezier(.4, 0, .2, 1);
   font: inherit;
   outline: 0;
   overflow: hidden;
-  padding: 0 1.4em 0 0;
+  padding: 0 calc(1.4em + 6px) 0 0;
   // Set up for absolutely positioned arrow
   position: relative;
   text-overflow: ellipsis;
@@ -77,6 +69,7 @@ $ts-sort-header-arrow-transition: 225ms cubic-bezier(.4, 0, .2, 1);
 // <div> container for sorting arrow
 .ts-sort-header-arrow {
   --arrow-margin: -2px 0 0 var(--ts-sort-header-arrow-margin);
+  color: var(--ts-color-utility-600);
   display: flex;
   height: var(--ts-sort-header-arrow-container-size);
   margin: var(--arrow-margin);
