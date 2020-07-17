@@ -1,5 +1,27 @@
 @import '~@terminus/ui-styles/helpers';
 
+// Base card styles
+@mixin card($allows-interaction: false) {
+  min-height: calc(100% - #{spacing(large) * 2});
+  padding: var(--ts-space-inset-600);
+  vertical-align: top;
+
+  // If the card allows interaction, give it a hover state
+  @if $allows-interaction == true {
+    @include elevation-element(card);
+    cursor: pointer;
+  } @else {
+    // Otherwise include standard elevation
+    @include elevation(2);
+  }
+
+  // Class added by the TsCardTitleDirective
+  .c-card__title {
+    font: var(--ts-typography-compound-title);
+  }
+}
+
+// Add a card border for a side
 @mixin card-border($side) {
   &.c-card--primary {
     .c-card__inner {
@@ -29,6 +51,7 @@
   // Top level styles should be nested here
   .c-card {
     background-color: var(--ts-color-light);
+    box-sizing: border-box;
     font: var(--ts-typography-compound-body);
     // Set up for possible utility nav
     position: relative;
@@ -48,6 +71,8 @@
 .c-card {
   .c-card__inner {
     @include card;
+    border-radius: var(--ts-border-radius-base);
+    box-sizing: border-box;
     // Needed to contain the ripple effect
     position: relative;
     width: 100%;
