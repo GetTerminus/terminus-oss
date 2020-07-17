@@ -1,19 +1,12 @@
 @import '~@terminus/ui-styles/helpers';
 
-
-//
-// @component
-//  Form Field
-// @description
-//  The wrapping component around form controls
-//
 .ts-form-field {
   --formField-outlineColor-default: var(--ts-color-utility-500);
   --formField-outlineColor-default-hover: var(--ts-color-base-black);
   --formField-outlineColor-theme: var(--ts-color-primary-500);
   --formField-outlineColor-disabled: var(--ts-color-utility-300);
   --formField-color-disabled: var(--ts-color-utility-500);
-  --formField-outline-borderRadius: 5px;
+  --formField-outline-borderRadius: var(--ts-border-radius-base);
   --formField-outline-width: 1px;
   // The width of the thick outline (used for focus, hover, and error state).
   --formField-outline-width-thick: 2px;
@@ -307,7 +300,6 @@
     position: absolute;
     text-overflow: ellipsis;
     top: calc(var(--formField-infix-marginTop) + var(--formField-infix-padding));
-
     transform-origin: 0 0;
     transition:
       color var(--swift-ease-out-duration) var(--swift-ease-out-timing-function),
