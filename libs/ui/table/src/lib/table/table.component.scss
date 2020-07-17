@@ -16,6 +16,7 @@
   --ts-table-grip-vertical-adjustment: 50%;
   --ts-table-header-row-fontWeight: bold;
   --ts-table-grabber-icon-font-size: 14px;
+  --ts-table-header-borderRadius: var(--ts-border-radius-base);
   border-collapse: separate;
   border-spacing: unset;
   font: var(--ts-typography-compound-body);
@@ -47,6 +48,7 @@
   .ts-header-row {
     // NOTE: Adding the background here ensures that no white area is seen during manual column resize.
     background-color: var(--ts-table-header-bg);
+    border-radius: var(--ts-table-header-borderRadius) var(--ts-table-header-borderRadius) 0 0;
     color: var(--ts-table-header-text-color);
     font: var(--ts-typography-compound-caption);
     font-weight: var(--ts-table-header-row-fontWeight);
@@ -140,6 +142,14 @@
     background-color: var(--ts-table-header-bg);
     border-color: var(--ts-table-header-border-color);
     padding: var(--ts-table-cell-padding);
+
+    &:first-of-type {
+      border-radius: var(--ts-table-header-borderRadius) 0 0 0;
+    }
+
+    &:last-of-type {
+      border-radius: 0 var(--ts-table-header-borderRadius) 0 0;
+    }
 
     &:not(:last-of-type) {
       position: relative;
