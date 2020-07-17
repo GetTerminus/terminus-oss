@@ -1,17 +1,19 @@
 .ts-chip {
   --chip-backgroundColor-hover: var(--ts-color-utility-500);
   --chip-backgroundColor: var(--ts-color-utility-300);
-  --chip-borderRadius: 16px;
+  --chip-borderRadius: var(--ts-border-radius-base);
   --chip-color: var(--ts-color-base-black);
   --chip-fontSize: var(--ts-typography-size-200);
   --chip-height: 24px;
-  --chip-margin: var(--ts-space-inset-200);
+  --chip-margin: var(--ts-space-inset-200) var(--ts-space-inset-300) var(--ts-space-inset-200) 0;
   --chip-padding: 2px 4px 2px 6px;
   --chip-remove-size: 24px;
   --badge-padding: 2px 4px 2px 4px;
 
   &:focus,
   &:hover {
+    outline: none;
+
     &:not(.ts-chip--badge) {
       .c-chip {
         &:not(.c-chip--disabled) {
@@ -57,7 +59,7 @@
     font: var(--ts-typography-compound-body);
     font-size: var(--chip-fontSize);
     height: var(--chip-height);
-    margin: 0 var(--chip-margin) var(--chip-margin) var(--chip-margin);
+    margin: var(--chip-margin);
     overflow: hidden;
     padding: var(--chip-padding);
     position: relative;
