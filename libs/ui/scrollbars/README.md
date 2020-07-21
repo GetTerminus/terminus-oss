@@ -1,7 +1,7 @@
 <h1>Scrollbars</h1>
 
 [![CI/CD Status][github-action-badge]][github-action-link] [![Codecov][codecov-badge]][codecov-project] [![MIT License][license-image]][license-url]  
-[![NPM version][npm-version-image]][npm-package] [![Github release][gh-release-badge]][gh-releases] [![Library size][file-size-badge]][raw-distribution-js]
+[![NPM version][npm-version-image]][npm-package] [![Library size][file-size-badge]][raw-distribution-js]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -10,6 +10,7 @@
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
   - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [CSS imports](#css-imports)
 - [Usage](#usage)
   - [Disable](#disable)
   - [Update](#update)
@@ -25,29 +26,37 @@
 
 ### Packages that need to be installed
 
-  * @angular/cdk
-  * @angular/common
-  * @angular/core
-  * @angular/flex-layout
-  * @angular/forms
-  * @angular/platform-browser
-  * @terminus/design-tokens
-  * @terminus/ngx-tools
-  * @terminus/ui-utilities
-  * @terminus/ui-scrollbars
-  * date-fns
-  * ngx-perfect-scrollbar
+- `@angular/cdk`
+- `@angular/common`
+- `@angular/core`
+- `@angular/flex-layout`
+- `@angular/forms`
+- `@angular/platform-browser`
+- `@terminus/design-tokens`
+- `@terminus/ngx-tools`
+- `@terminus/ui-utilities`
+- `@terminus/ui-scrollbars`
+- `date-fns`
+- `ngx-perfect-scrollbar`
 
-Using `ng add` command can help getting all the dependencies installed:
+Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
-    ng add @terminus/ui-scrollbars
+ng add @terminus/ui-scrollbars
 ```
 
 ### Modules that need to be in NgModule
 
-  * TsScrollbarsModule
+- `TsScrollbarsModule`
 
+### CSS imports
+
+In your top level stylesheet, add these imports:
+
+```css
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/terminus-ui.css';
+```  
 
 ## Usage
 
@@ -60,7 +69,6 @@ the content).
 </ts-scrollbars>
 ```
 
-
 ### Disable
 
 The scrollbars can be disabled dynamically if needed:
@@ -70,7 +78,6 @@ The scrollbars can be disabled dynamically if needed:
   ...
 </ts-scrollbars>
 ```
-
 
 ### Update
 
@@ -140,7 +147,6 @@ Available fixed location methods:
 | `scrollToRight()`  |
 | `scrollToTop()`    |
 
-
 #### Scroll to x/y location
 
 Scroll the container to a specific x/y location:
@@ -155,7 +161,6 @@ scrollToCoordinates() {
 }
 ```
 
-
 #### Scroll to element
 
 The component can scroll a nested element to the top of the scroll container:
@@ -169,7 +174,6 @@ scrollToElement() {
   this.scrollbars.scrollToElement('.my-class');
 }
 ```
-
 
 ### Events
 
@@ -200,8 +204,6 @@ scrollToElement() {
 [codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
 [npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-scrollbars.svg
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-scrollbars
-[gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg
-[gh-releases]:         https://github.com/GetTerminus/terminus-ui/releases/
 [github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-scrollbars/bundles/terminus-ui-scrollbars.umd.min.js?compression=gzip

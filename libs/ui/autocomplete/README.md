@@ -1,7 +1,7 @@
 <h1>Autocomplete :rotating_light: DEPRECATED :rotating_light:</h1>
 
 [![CI/CD Status][github-action-badge]][github-action-link] [![Codecov][codecov-badge]][codecov-project] [![MIT License][license-image]][license-url]  
-[![NPM version][npm-version-image]][npm-package] [![Github release][gh-release-badge]][gh-releases] [![Library size][file-size-badge]][raw-distribution-js]
+[![NPM version][npm-version-image]][npm-package] [![Library size][file-size-badge]][raw-distribution-js]
 
 ---
 
@@ -18,16 +18,16 @@ An autocomplete that allows single or multiple selections.
 - [Installation](#installation)
   - [Packages that need to be included](#packages-that-need-to-be-included)
   - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
-  - [Styles to be added](#styles-to-be-added)
-  - [Links to be added](#links-to-be-added)
+  - [CSS imports](#css-imports)
+  - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Basic usage with a FormControl](#basic-usage-with-a-formcontrol)
   - [Duplicate selections](#duplicate-selections)
-  - [Keep Panel Open After Selection](#keep-panel-open-after-selection)
+  - [Keep panel open after selection](#keep-panel-open-after-selection)
   - [Debouncing](#debouncing)
-  - [Minimum Characters](#minimum-characters)
+  - [Minimum characters](#minimum-characters)
   - [Formatting options](#formatting-options)
-- [Test Helpers](#test-helpers)
+- [Test helpers](#test-helpers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -35,52 +35,53 @@ An autocomplete that allows single or multiple selections.
 
 ### Packages that need to be included
 
-  * @angular/cdk
-  * @angular/flex-layout
-  * @angular/material
-  * @terminus/design-tokens
-  * @terminus/ui-styles
-  * @terminus/ui-checkbox
-  * @terminus/ui-chip
-  * @terminus/ui-form-field
-  * @terminus/ui-icon
-  * @terminus/ui-input
-  * @terminus/ui-option
-  * @terminus/ui-spacing
-  * @terminus/ui-pipes
-  * @terminus/ui-validation-messages
-  * @terminus/ui-validators
-  * @terminus/ui-utilities
-  * @terminus/ngx-tools
-  * text-mask-addons
-  * text-mask-core
-  
-  Using `ng add` command can help getting all the dependencies installed:
-  ```bash
-    ng add @terminus/ui-autocomplete
-  ```
+- `@angular/cdk`
+- `@angular/flex-layout`
+- `@angular/material`
+- `@terminus/design-tokens`
+- `@terminus/ui-styles`
+- `@terminus/ui-checkbox`
+- `@terminus/ui-chip`
+- `@terminus/ui-form-field`
+- `@terminus/ui-icon`
+- `@terminus/ui-input`
+- `@terminus/ui-option`
+- `@terminus/ui-spacing`
+- `@terminus/ui-pipes`
+- `@terminus/ui-validation-messages`
+- `@terminus/ui-validators`
+- `@terminus/ui-utilities`
+- `@terminus/ngx-tools`
+- `text-mask-addons`
+- `text-mask-core`
+
+Use the `ng add` command to quickly install all the needed dependencies:
+
+```bash
+ng add @terminus/ui-autocomplete
+```
 
 ### Modules that need to be in NgModule
 
-  * ReactiveFormsModule
-  * TsAutocompleteModule
-  * TsOptionModule
+- `ReactiveFormsModule`
+- `TsAutocompleteModule`
+- `TsOptionModule`
 
-### Styles to be added
+### CSS imports
 
- At top level `styles.scss`, add these styles:
+In your top level stylesheet, add these imports:
 
 ```css
 @import '~@terminus/design-tokens/css/library-design-tokens.css';
 @import '~@terminus/ui-styles/terminus-ui.css';
 ```  
 
-### Links to be added
+### CSS resources
 
-In order to have material icons shown up correctly, add this to the top level `index.html`
+Load the needed font families by adding this link to the `<head>` of your application:
 
 ```css
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 ```
 
 ## Usage
@@ -109,7 +110,6 @@ b) Create a local reference to the autocomplete component.
 c) Subscribe to the `query` events coming from the autocomplete. This is a stream of query strings
 entered by the user. This stream is debounced and de-duped by default.
 
-
 ### Duplicate selections
 
 By default, duplicate selections are ignored. They can be allowed via a flag:
@@ -124,8 +124,7 @@ By default, duplicate selections are ignored. They can be allowed via a flag:
 </ts-autocomplete>
 ```
 
-
-### Keep Panel Open After Selection
+### Keep panel open after selection
 
 By default, the panel will close after each selection. It can be forced to stay open via a flag.
 
@@ -142,7 +141,6 @@ By default, the panel will close after each selection. It can be forced to stay 
 </ts-autocomplete>
 ```
 
-
 ### Debouncing
 
 By default, the autocomplete input query will be debounced 200ms. This time may be adjusted as needed:
@@ -156,8 +154,7 @@ By default, the autocomplete input query will be debounced 200ms. This time may 
 </ts-autocomplete>
 ```
 
-
-### Minimum Characters
+### Minimum characters
 
 By default, at least two characters must be typed before the query is fired. This limit may be adjusted:
 
@@ -181,8 +178,7 @@ By default, at least two characters must be typed before the query is fired. Thi
 </ts-autocomplete>
 ```
 
-
-## Test Helpers
+## Test helpers
 
 Some helpers are exposed to assist with testing. These are imported from `@terminus/ui-autocomplete/testing`;
 
@@ -215,8 +211,6 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 [codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
 [npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-autocomplete.svg
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-autocomplete
-[gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg
-[gh-releases]:         https://github.com/GetTerminus/terminus-ui/releases/
 [github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-autocomplete/bundles/terminus-ui-autocomplete.umd.min.js?compression=gzip

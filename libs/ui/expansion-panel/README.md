@@ -1,7 +1,7 @@
 <h1>Expansion Panel</h1>
 
 [![CI/CD Status][github-action-badge]][github-action-link] [![Codecov][codecov-badge]][codecov-project] [![MIT License][license-image]][license-url]  
-[![NPM version][npm-version-image]][npm-package] [![Github release][gh-release-badge]][gh-releases] [![Library size][file-size-badge]][raw-distribution-js]
+[![NPM version][npm-version-image]][npm-package] [![Library size][file-size-badge]][raw-distribution-js]
 
 Expansion panel & accordion components.
 
@@ -12,6 +12,8 @@ Expansion panel & accordion components.
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
   - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [CSS imports](#css-imports)
+  - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Panel](#panel)
     - [Title and description](#title-and-description)
@@ -37,29 +39,45 @@ Expansion panel & accordion components.
 
 ### Packages that need to be installed
 
-  *  @angular/cdk
-  *  @angular/common
-  *  @angular/core
-  *  @angular/flex-layout
-  *  @angular/forms
-  *  @angular/platform-browser
-  *  @terminus/design-tokens
-  *  @terminus/ngx-tools
-  *  @terminus/ui-utilities
-  *  @terminus/ui-expansion-panel
-  *  date-fns
-  *  tslib
+- `@angular/cdk`
+- `@angular/common`
+- `@angular/core`
+- `@angular/flex-layout`
+- `@angular/forms`
+- `@angular/platform-browser`
+- `@terminus/design-tokens`
+- `@terminus/ngx-tools`
+- `@terminus/ui-utilities`
+- `@terminus/ui-expansion-panel`
+- `date-fns`
 
-Using `ng add` command can help getting all the dependencies installed:
+Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
-    ng add @terminus/ui-expansion-panel
+ng add @terminus/ui-expansion-panel
 ```
 
 ### Modules that need to be in NgModule
 
-  * BrowserAnimationsModule,
-  * TsExpansionPanelModule,
+- `BrowserAnimationsModule,`
+- `TsExpansionPanelModule,`
+
+### CSS imports
+
+In your top level stylesheet, add these imports:
+
+```css
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/terminus-ui.css';
+```  
+
+### CSS resources
+
+Load the needed font families by adding this link to the `<head>` of your application:
+
+```css
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+```
 
 ## Usage
 
@@ -78,7 +96,6 @@ The most basic usage is a single panel with a trigger:
 ```
 
 > NOTE: Without a trigger, the panel will not be visible.
-
 
 #### Title and description
 
@@ -104,7 +121,6 @@ Trigger text can be split into `title` and `description` using the `TsExpansionP
 </ts-expansion-panel-trigger>
 ```
 
-
 #### Disable a panel
 
 The `isDisabled` flag will disable a panel and it's trigger:
@@ -119,7 +135,6 @@ The `isDisabled` flag will disable a panel and it's trigger:
 </ts-expansion-panel>
 ```
 
-
 #### Default a panel open
 
 The `isExpanded` flag will change the state of a panel. This can be used to default to a specific state or to dynamically change the state.
@@ -133,7 +148,6 @@ The `isExpanded` flag will change the state of a panel. This can be used to defa
   <p>I'll be visible by default!</p>
 </ts-expansion-panel>
 ```
-
 
 #### Lazy loaded content
 
@@ -153,6 +167,7 @@ the panel is opened for the first time. The content will remain in the DOM until
 ```
 
 #### Transparent mode
+
 Expansion panel with transparent mode on has no box shadow and padding on the side. It's default to `false`.
 
 ```html
@@ -164,7 +179,6 @@ Expansion panel with transparent mode on has no box shadow and padding on the si
   <p>And here is my standard panel content.</p>
 </ts-expansion-panel>
 ```
-
 
 #### Panel events
 
@@ -180,7 +194,6 @@ Expansion panel with transparent mode on has no box shadow and padding on the si
 ```html
 <ts-expansion-panel (opened)="myFunction()">...</ts-expansion-panel>
 ```
-
 
 #### Custom trigger heights
 
@@ -216,7 +229,6 @@ panel.toggle();
 
 > NOTE: Disabled panels cannot be controlled with these methods. Disabled panels can _only_ be controlled via the `isExpanded` input.
 
-
 ### Accordion
 
 An accordion is created by wrapping two or more `TsExpansionPanelComponent`s inside a `TsAccordionComponent`.
@@ -228,7 +240,6 @@ An accordion is created by wrapping two or more `TsExpansionPanelComponent`s ins
 </ts-accordion>
 ```
 
-
 #### Allow multiple panels to be open
 
 By default an accordion can only have a single panel open at a time. This functionality can be change with the `multi` input.
@@ -239,7 +250,6 @@ By default an accordion can only have a single panel open at a time. This functi
   <ts-expansion-panel>...</ts-expansion-panel>
 </ts-accordion>
 ```
-
 
 #### Accordion events
 
@@ -310,7 +320,6 @@ accordion will hide the toggle icon for *all panels within*.
 </ts-accordion>
 ```
 
-
 #### Action row
 
 The action row is useful when an accordion is functioning as a stepper. Controls added within the action row will be right aligned as panel
@@ -332,7 +341,6 @@ controls.
 </ts-expansion-panel>
 ```
 
-
 #### Open or close all panels
 
 An accordion can programmatically open or close all panels at once.
@@ -348,7 +356,6 @@ accordion.closeAll();
 ```
 
 > NOTE: These methods will *not* change the state of disabled panels.
-
 
 ## Test Helpers
 
@@ -387,8 +394,6 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 [codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
 [npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-button.svg
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-button
-[gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg
-[gh-releases]:         https://github.com/GetTerminus/terminus-ui/releases/
 [github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-button/bundles/terminus-ui-button.umd.min.js?compression=gzip

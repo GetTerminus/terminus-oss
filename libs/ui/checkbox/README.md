@@ -1,7 +1,7 @@
 <h1>Checkbox</h1>
 
 [![CI/CD Status][github-action-badge]][github-action-link] [![Codecov][codecov-badge]][codecov-project] [![MIT License][license-image]][license-url]  
-[![NPM version][npm-version-image]][npm-package] [![Github release][gh-release-badge]][gh-releases] [![Library size][file-size-badge]][raw-distribution-js]
+[![NPM version][npm-version-image]][npm-package] [![Library size][file-size-badge]][raw-distribution-js]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -10,7 +10,8 @@
 - [Installation](#installation)
   - [Packages to be installed](#packages-to-be-installed)
   - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
-  - [Styles](#styles)
+  - [CSS imports](#css-imports)
+  - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Reactive Forms](#reactive-forms)
   - [`ngModel`](#ngmodel)
@@ -23,31 +24,40 @@
 
 ### Packages to be installed
 
-  * @angular/cdk
-  * @angular/material
-  * @terminus/design-tokens
-  * @terminus/ngx-tools
-  * @terminus/ui-checkbox
-  * @terminus/ui-utilities
-  * @terminus/ui-styles
-  * date-fns
-  
-  Using `ng add` command can help getting all the dependencies installed:
-  ```bash
-    ng add @terminus/ui-checkbox
-  ```
+- `@angular/cdk`
+- `@angular/material`
+- `@terminus/design-tokens`
+- `@terminus/ngx-tools`
+- `@terminus/ui-checkbox`
+- `@terminus/ui-utilities`
+- `@terminus/ui-styles`
+- `date-fns`
+
+Use the `ng add` command to quickly install all the needed dependencies:
+
+```bash
+ng add @terminus/ui-checkbox
+```
 
 ### Modules that need to be in NgModule
 
-  * TsCheckboxModule
+- `TsCheckboxModule`
   
-### Styles
+### CSS imports
 
-On top level styles.css, add these:
+In your top level stylesheet, add these imports:
 
 ```css
 @import '~@terminus/design-tokens/css/library-design-tokens.css';
 @import '~@terminus/ui-styles/terminus-ui.css';
+```  
+
+### CSS resources
+
+Load the needed font families by adding this link to the `<head>` of your application:
+
+```css
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 ```
 
 ## Usage
@@ -60,7 +70,6 @@ Place your label text inside the component:
 </ts-checkbox>
 ```
 
-
 ### Reactive Forms
 
 To use the checkbox with a reactive form, pass the `formControl` to the checkbox:
@@ -71,7 +80,6 @@ To use the checkbox with a reactive form, pass the `formControl` to the checkbox
 </ts-checkbox>
 ```
 
-
 ### `ngModel`
 
 To use the checkbox with Angular's `ngModel`, just attach the directive to the checkbox:
@@ -81,7 +89,6 @@ To use the checkbox with Angular's `ngModel`, just attach the directive to the c
   I will be checked if `myValue` is true.
 </ts-checkbox>
 ```
-
 
 ### `isChecked`
 
@@ -94,7 +101,6 @@ To seed the initial checked state use the `isChecked` property:
 ```
 
 > NOTE: This should rarely be used (if ever). We should be relying on a Reactive Form or ngModel.
-
 
 ## Test Helpers
 
@@ -118,8 +124,6 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 [codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
 [npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-checkbox.svg
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-checkbox
-[gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg
-[gh-releases]:         https://github.com/GetTerminus/terminus-ui/releases/
 [github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-checkbox/bundles/terminus-ui-checkbox.umd.min.js?compression=gzip

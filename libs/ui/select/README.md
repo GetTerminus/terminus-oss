@@ -1,7 +1,7 @@
 <h1>Select :rotating_light: DEPRECATED :rotating_light:</h1>
 
 [![CI/CD Status][github-action-badge]][github-action-link] [![Codecov][codecov-badge]][codecov-project] [![MIT License][license-image]][license-url]  
-[![NPM version][npm-version-image]][npm-package] [![Github release][gh-release-badge]][gh-releases] [![Library size][file-size-badge]][raw-distribution-js]
+[![NPM version][npm-version-image]][npm-package] [![Library size][file-size-badge]][raw-distribution-js]
 
 ---
 
@@ -18,7 +18,8 @@ A custom select dropdown.
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
   - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
-  - [Styles to be added](#styles-to-be-added)
+  - [CSS imports](#css-imports)
+  - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Label](#label)
   - [Hint](#hint)
@@ -55,53 +56,60 @@ A custom select dropdown.
 
 ### Packages that need to be installed
 
-   * @angular/cdk
-   * @angular/common
-   * @angular/core
-   * @angular/flex-layout
-   * @angular/forms
-   * @angular/material
-   * @angular/platform-browser
-   * @terminus/design-tokens
-   * @terminus/ngx-tools
-   * @terminus/ui-checkbox
-   * @terminus/ui-form-field
-   * @terminus/ui-icon
-   * @terminus/ui-input
-   * @terminus/ui-option
-   * @terminus/ui-pipes
-   * @terminus/ui-validators
-   * @terminus/ui-spacing
-   * @terminus/ui-styles
-   * @terminus/ui-validation-messages
-   * @terminus/ui-utilities
-   * @terminus/ui-select
-   * date-fns
-   * text-mask-addons
-   * text-mask-core
+- `@angular/cdk`
+- `@angular/common`
+- `@angular/core`
+- `@angular/flex-layout`
+- `@angular/forms`
+- `@angular/material`
+- `@angular/platform-browser`
+- `@terminus/design-tokens`
+- `@terminus/ngx-tools`
+- `@terminus/ui-checkbox`
+- `@terminus/ui-form-field`
+- `@terminus/ui-icon`
+- `@terminus/ui-input`
+- `@terminus/ui-option`
+- `@terminus/ui-pipes`
+- `@terminus/ui-validators`
+- `@terminus/ui-spacing`
+- `@terminus/ui-styles`
+- `@terminus/ui-validation-messages`
+- `@terminus/ui-utilities`
+- `@terminus/ui-select`
+- `date-fns`
+- `text-mask-addons`
+- `text-mask-core`
 
-Using `ng add` command can help getting all the dependencies installed:
+Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
-    ng add @terminus/ui-select
+ng add @terminus/ui-select
 ```
 
 ### Modules that need to be in NgModule
 
-   * BrowserAnimationsModule,
-   * TsOptionModule,
-   * TsSelectModule,
-   * FormsModule,
-   * ReactiveFormsModule
-   
+- `BrowserAnimationsModule,`
+- `TsOptionModule,`
+- `TsSelectModule,`
+- `FormsModule,`
+- `ReactiveFormsModule`
 
-### Styles to be added
+### CSS imports
 
- At top level `styles.scss`, add these styles:
+In your top level stylesheet, add these imports:
 
-```html
+```css
 @import '~@terminus/design-tokens/css/library-design-tokens.css';
 @import '~@terminus/ui-styles/terminus-ui.css';
+```  
+
+### CSS resources
+
+Load the needed font families by adding this link to the `<head>` of your application:
+
+```css
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 ```
 
 ## Usage
@@ -118,7 +126,6 @@ The most basic usage is by wrapping one or more `ts-option`s inside an `ts-selec
 </ts-select>
 ```
 
-
 ### Label
 
 Define a label on the select:
@@ -128,7 +135,6 @@ Define a label on the select:
   ...
 </ts-select>
 ```
-
 
 ### Hint
 
@@ -161,7 +167,6 @@ To use a `FormControl` with the select, pass the control in:
 </ts-select>
 ```
 
-
 ### ngModel
 
 To use `ngModel`, add the model to the select:
@@ -171,7 +176,6 @@ To use `ngModel`, add the model to the select:
   ...
 </ts-select>
 ```
-
 
 ### Custom compare function
 
@@ -195,7 +199,6 @@ compareByValue(f1: any, f2: any) { return f1 && f2 && f1.text === f2.text; }
 TsOptionCompareWith = (o1: any, o2: any) => boolean;
 ```
 
-
 ### Optgroups
 
 Optgroups can be used by wrapping one or more options inside an optgroup component:
@@ -213,7 +216,6 @@ Optgroups can be used by wrapping one or more options inside an optgroup compone
   </ts-select-optgroup>
 </ts-select>
 ```
-
 
 ### Disabled
 
@@ -279,7 +281,6 @@ The entire select can be marked required in one of two ways:
 
 #### Required by Input
 
-
 ```html
 <ts-select [isRequired]="true">
   ...
@@ -298,7 +299,6 @@ myCtrl = new FormControl(null, Validators.required);
 </ts-select>
 ```
 
-
 ### Placeholder
 
 The placeholder is used for the trigger value when the control or model value is empty.
@@ -308,7 +308,6 @@ The placeholder is used for the trigger value when the control or model value is
   ...
 </ts-select>
 ```
-
 
 ### Custom trigger value
 
@@ -330,7 +329,6 @@ model does have value.
 </ts-select>
 ```
 
-
 ### Blank option
 
 A blank option can be implemented by adding a `ts-option` with no value:
@@ -347,7 +345,6 @@ A blank option can be implemented by adding a `ts-option` with no value:
   >{{ option.name }}</ts-option>
 </ts-select>
 ```
-
 
 ### Option template
 
@@ -373,7 +370,6 @@ A custom template can be used for the option content.
 </ts-select>
 ```
 
-
 ### Custom view value
 
 Part of the option view can be defined as the 'view value' which is used to define the `title` attribute for the option:
@@ -396,7 +392,6 @@ Part of the option view can be defined as the 'view value' which is used to defi
 </ts-select>
 ```
 
-
 ### Multiple selections
 
 Allow multiple selections via an `@Input`:
@@ -408,7 +403,6 @@ Allow multiple selections via an `@Input`:
 ```
 
 This will show checkboxes next to each option and include a top-level 'Select All' toggle.
-
 
 ### Custom delimiter
 
@@ -425,7 +419,6 @@ be set:
 <!-- Standard output: `foo, bar, baz` -->
 <!-- Output with custom delimiter: `foo/ bar/ baz` -->
 ```
-
 
 ### Custom sort comparator
 
@@ -448,7 +441,6 @@ type TsSelectSortComparatorFunction = (
 ) => number;
 ```
 
-
 ### Filterable
 
 A select can include an input at the top of the list to filter options:
@@ -466,7 +458,6 @@ A select can include an input at the top of the list to filter options:
 Any unique, debounced query will be emitted through the `queryChange` emitter. The consumer is in control of what options are displayed. A
 blank option can be used to show the user a message when no items are found by the query.
 
-
 ### Allow user to request update
 
 There are times where the data may change after it is loaded. The `showRefresh` option allows the user to manually request updated data.
@@ -480,7 +471,6 @@ There are times where the data may change after it is loaded. The `showRefresh` 
   ...
 </ts-select>
 ```
-
 
 ### Prompt the user to refine their search
 
@@ -520,7 +510,6 @@ This will show a message below all existing options:
 Narrow your search to reveal 972 hidden results.
 ```
 
-
 ### Events
 
 Multiple events are fired during interaction with the select:
@@ -536,7 +525,6 @@ Multiple events are fired during interaction with the select:
 | `queryChange`             | Fired when query changes                        | `string`             |
 | `selectionChange`         | Fired when the selection changes                | `TsSelectChange`     |
 | `valueChange`             | Fired when the selection value changes          | `string \| string[]` |
-
 
 ```html
 <ts-select (selectionChange)="myFunction($event)">
@@ -557,7 +545,6 @@ class TsSelectChange {
 }
 
 ```
-
 
 ## Test helpers
 
@@ -593,8 +580,6 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 [codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
 [npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-select.svg
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-select
-[gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg
-[gh-releases]:         https://github.com/GetTerminus/terminus-ui/releases/
 [github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-select/bundles/terminus-ui-select.umd.min.js?compression=gzip

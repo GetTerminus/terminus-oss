@@ -1,7 +1,7 @@
 <h1>Tabs</h1>
 
 [![CI/CD Status][github-action-badge]][github-action-link] [![Codecov][codecov-badge]][codecov-project] [![MIT License][license-image]][license-url]  
-[![NPM version][npm-version-image]][npm-package] [![Github release][gh-release-badge]][gh-releases] [![Library size][file-size-badge]][raw-distribution-js]
+[![NPM version][npm-version-image]][npm-package] [![Library size][file-size-badge]][raw-distribution-js]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -10,6 +10,8 @@
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
   - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [CSS imports](#css-imports)
+  - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Label alignment](#label-alignment)
   - [Header position](#header-position)
@@ -24,29 +26,46 @@
 
 ### Packages that need to be installed
 
-   * @angular/cdk
-   * @angular/common
-   * @angular/core
-   * @angular/flex-layout
-   * @angular/forms
-   * @angular/material
-   * @angular/platform-browser
-   * @terminus/design-tokens
-   * @terminus/ngx-tools
-   * @terminus/ui-utilities
-   * @terminus/ui-tabs
-   * date-fns
+- `@angular/cdk`
+- `@angular/common`
+- `@angular/core`
+- `@angular/flex-layout`
+- `@angular/forms`
+- `@angular/material`
+- `@angular/platform-browser`
+- `@terminus/design-tokens`
+- `@terminus/ngx-tools`
+- `@terminus/ui-utilities`
+- `@terminus/ui-tabs`
+- `date-fns`
 
-Using `ng add` command can help getting all the dependencies installed:
+Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
-    ng add @terminus/ui-tabs
+ng add @terminus/ui-tabs
 ```
 
 ### Modules that need to be in NgModule
 
-   * BrowserAnimationsModule
-   * TsTabsModule
+- `BrowserAnimationsModule`
+- `TsTabsModule`
+
+### CSS imports
+
+In your top level stylesheet, add these imports:
+
+```css
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/terminus-ui.css';
+```  
+
+### CSS resources
+
+Load the needed font families by adding this link to the `<head>` of your application:
+
+```css
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+```
 
 ## Usage
 
@@ -75,7 +94,6 @@ There are four horizontal layout options for tab labels.
 </ts-tab-collection>
 ```
 
-
 ### Header position
 
 The collection of tab labels are positioned above the tab content by default. This can be inverted so the labels appear below the tab
@@ -86,7 +104,6 @@ content:
   ...
 </ts-tab-collection>
 ```
-
 
 ### Dynamically insert a tab
 
@@ -114,7 +131,6 @@ Or by showing and hiding via `ngIf`:
 </ts-tab-collection>
 ```
 
-
 ### Custom label template
 
 If label customization is needed a template can be defined to contain custom label markup by using the `tsTabLabel` directive on an
@@ -132,7 +148,6 @@ If label customization is needed a template can be defined to contain custom lab
   </ts-tab>
 </ts-tab-collection>
 ```
-
 
 ### Lazy load tab content
 
@@ -184,8 +199,6 @@ class TsTabChangeEvent {
 [codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
 [npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-tabs.svg
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-tabs
-[gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg
-[gh-releases]:         https://github.com/GetTerminus/terminus-ui/releases/
 [github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-tabs/bundles/terminus-ui-tabs.umd.min.js?compression=gzip

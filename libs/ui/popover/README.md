@@ -1,7 +1,7 @@
 <h1>Popover</h1>
 
 [![CI/CD Status][github-action-badge]][github-action-link] [![Codecov][codecov-badge]][codecov-project] [![MIT License][license-image]][license-url]  
-[![NPM version][npm-version-image]][npm-package] [![Github release][gh-release-badge]][gh-releases] [![Library size][file-size-badge]][raw-distribution-js]
+[![NPM version][npm-version-image]][npm-package] [![Library size][file-size-badge]][raw-distribution-js]
 
 Popover component is designed to pop up simple or complex content based on a user trigger.
 
@@ -12,6 +12,8 @@ Popover component is designed to pop up simple or complex content based on a use
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
   - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [CSS imports](#css-imports)
+  - [CSS resources](#css-resources)
 - [popper.js](#popperjs)
   - [popper.js documentation](#popperjs-documentation)
 - [Usage](#usage)
@@ -26,28 +28,45 @@ Popover component is designed to pop up simple or complex content based on a use
 
 ### Packages that need to be installed
 
-  * @angular/cdk
-  * @angular/common
-  * @angular/core
-  * @angular/flex-layout
-  * @angular/forms
-  * @angular/platform-browser
-  * @popperjs/core
-  * @terminus/design-tokens
-  * @terminus/ngx-tools
-  * @terminus/ui-utilities
-  * @terminus/ui-popover
-  * date-fns
+- `@angular/cdk`
+- `@angular/common`
+- `@angular/core`
+- `@angular/flex-layout`
+- `@angular/forms`
+- `@angular/platform-browser`
+- `@popperjs/core`
+- `@terminus/design-tokens`
+- `@terminus/ngx-tools`
+- `@terminus/ui-utilities`
+- `@terminus/ui-popover`
+- `date-fns`
 
-Using `ng add` command can help getting all the dependencies installed:
+Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
-    ng add @terminus/ui-popover
+ng add @terminus/ui-popover
 ```
 
 ### Modules that need to be in NgModule
 
-  * TsPopoverModule
+- `TsPopoverModule`
+
+### CSS imports
+
+In your top level stylesheet, add these imports:
+
+```css
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/terminus-ui.css';
+```  
+
+### CSS resources
+
+Load the needed font families by adding this link to the `<head>` of your application:
+
+```css
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+```
 
 ## popper.js
 
@@ -59,7 +78,6 @@ This popover component is built on top of a 3rd party library called [popper.js]
 
 - [popper.js docs][popper-docs]
 - [popper.js supported placements][popper-placements]
-
 
 ## Usage
 
@@ -140,8 +158,6 @@ It defaults to `false`.
 [codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
 [npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-popover.svg
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-popover
-[gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg
-[gh-releases]:         https://github.com/GetTerminus/terminus-ui/releases/
 [github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-popover/bundles/terminus-ui-popover.umd.min.js?compression=gzip
