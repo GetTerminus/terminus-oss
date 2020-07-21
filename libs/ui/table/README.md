@@ -1,7 +1,7 @@
 <h1>Table</h1>
 
 [![CI/CD Status][github-action-badge]][github-action-link] [![Codecov][codecov-badge]][codecov-project] [![MIT License][license-image]][license-url]  
-[![NPM version][npm-version-image]][npm-package] [![Github release][gh-release-badge]][gh-releases] [![Library size][file-size-badge]][raw-distribution-js]
+[![NPM version][npm-version-image]][npm-package] [![Library size][file-size-badge]][raw-distribution-js]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -10,8 +10,8 @@
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
   - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
-  - [Styles to be added](#styles-to-be-added)
-  - [Links to be added](#links-to-be-added)
+  - [CSS imports](#css-imports)
+  - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Basic](#basic)
     - [1. Define the columns HTML](#1-define-the-columns-html)
@@ -45,70 +45,70 @@
 
 ### Packages that need to be installed
 
-  * @angular/cdk
-  * @angular/common
-  * @angular/core
-  * @angular/flex-layout
-  * @angular/forms
-  * @angular/material
-  * @angular/platform-browser
-  * @terminus/design-tokens
-  * @terminus/ngx-tools
-  * @terminus/ui-button
-  * @terminus/ui-chip
-  * @terminus/ui-checkbox
-  * @terminus/ui-form-field
-  * @terminus/ui-icon
-  * @terminus/ui-input
-  * @terminus/ui-menu
-  * @terminus/ui-option
-  * @terminus/ui-paginator
-  * @terminus/ui-pipes
-  * @terminus/ui-selection-list
-  * @terminus/ui-sort
-  * @terminus/ui-spacing
-  * @terminus/ui-styles
-  * @terminus/ui-table
-  * @terminus/ui-tooltip
-  * @terminus/ui-validation-messages
-  * @terminus/ui-validators
-  * @terminus/ui-utilities
-  * text-mask-addons
-  * text-mask-core
-  * date-fns
+- `@angular/cdk`
+- `@angular/common`
+- `@angular/core`
+- `@angular/flex-layout`
+- `@angular/forms`
+- `@angular/material`
+- `@angular/platform-browser`
+- `@terminus/design-tokens`
+- `@terminus/ngx-tools`
+- `@terminus/ui-button`
+- `@terminus/ui-checkbox`
+- `@terminus/ui-chip`
+- `@terminus/ui-form-field`
+- `@terminus/ui-icon`
+- `@terminus/ui-input`
+- `@terminus/ui-menu`
+- `@terminus/ui-option`
+- `@terminus/ui-paginator`
+- `@terminus/ui-pipes`
+- `@terminus/ui-selection-list`
+- `@terminus/ui-sort`
+- `@terminus/ui-spacing`
+- `@terminus/ui-styles`
+- `@terminus/ui-table`
+- `@terminus/ui-tooltip`
+- `@terminus/ui-utilities`
+- `@terminus/ui-validation-messages`
+- `@terminus/ui-validators`
+- `date-fns`
+- `text-mask-addons`
+- `text-mask-core`
 
-Using `ng add` command can help getting all the dependencies installed:
+Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
-    ng add @terminus/ui-table
+ng add @terminus/ui-table
 ```
 
 ### Modules that need to be in NgModule
 
-  * TsTableModule
-  * TsIconModule
-  * DragDropModule
-  * FlexLayoutModule
-  * FormsModule
-  * ReactiveFormsModule
-  * TsPaginatorModule
+- `TsTableModule`
+- `TsIconModule`
+- `DragDropModule`
+- `FlexLayoutModule`
+- `FormsModule`
+- `ReactiveFormsModule`
+- `TsPaginatorModule`
    
 
-### Styles to be added
+### CSS imports
 
- At top level `styles.scss`, add these styles:
+In your top level stylesheet, add these imports:
 
-```html
+```css
 @import '~@terminus/design-tokens/css/library-design-tokens.css';
 @import '~@terminus/ui-styles/terminus-ui.css';
-```
+```  
 
-### Links to be added
+### CSS resources
 
-In order to have material icons shown up correctly, add this to the top level html
+Load the needed font families by adding this link to the `<head>` of your application:
 
-```html
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```css
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 ```
 
 ## Usage
@@ -205,7 +205,6 @@ const columns: TsColumn = [
 const columnName = this.columns.map(c => c.name);
 ```
 
-
 #### 4. Provide data
 
 The column and row definitions capture how data will render - all that's left is to provide the data itself.
@@ -246,7 +245,6 @@ export interface MyTableItem {
 this.myDataSource = new TsTableDataSource<MyTableItem>(INITIAL_DATA);
 ```
 
-
 #### Full HTML example
 
 ```html
@@ -282,7 +280,6 @@ this.myDataSource = new TsTableDataSource<MyTableItem>(INITIAL_DATA);
 </table>
 ```
 
-
 ### Dynamically update table data
 
 Your data source was created during the bootstraping of your component:
@@ -296,7 +293,6 @@ Simply assign the new data to `myDataSource.data`. The table will flush the old 
 ```typescript
 this.myDataSource.data = dataToRender;
 ```
-
 
 ### Dynamic columns
 
@@ -312,7 +308,6 @@ Columns can be dynamically added and removed with any control. The selected cont
   <tr ts-row *tsRowDef="let row; columns: myTable.columnNamesr;"></tr>
 </table>
 ```
-
 
 ### Sorting by column
 
@@ -361,16 +356,13 @@ export class TableComponent implements AfterViewInit {
 }
 ```
 
-
 ### Row selection
 
 This can be implemented at the consumer level by adding a column that contains a checkbox.
 
-
 ### Content wrapping
 
 By default, cell contents do not wrap. This can be overridden by adding container around your content with `white-space: normal`.
-
 
 ### Cell alignment
 
@@ -388,7 +380,6 @@ any valid TsTableColumnAlignment value (`left`, `center` or `right`).
   </td>
 </ng-container>
 ```
-
 
 ### Sticky header
 
@@ -438,12 +429,10 @@ definition. This can be applied to more than one column.
 
 > NOTE: Multiple `sticky` columns can be defined.
 
-
 #### Sticky column at end
 
 Adding the data attribute `stickyEnd` will pin the column to the end of the table as it scrolls horizontally. This can be applied to more
 than one column.
-
 
 ```html
 <ng-container tsColumnDef="updated" stickyEnd>
@@ -457,7 +446,6 @@ than one column.
 ```
 
 > NOTE: Multiple `stickyEnd` columns can be defined.
-
 
 ### Re-orderable columns
 
@@ -584,7 +572,6 @@ export class TableComponent {
 }
 ```
 
-
 ### Density
 
 The table supports two density settings: `comfy` (default) & `compact`.
@@ -616,7 +603,6 @@ the scrollbars mixin can be used:
   @include visible-scrollbars;
 }
 ```
-
 
 ### Events
 
@@ -674,7 +660,6 @@ class TsHeaderCellResizeEvent {
   ) {}
 }
 ```
-
 
 ### Full example with pagination, sorting, and dynamic columns
 
@@ -878,8 +863,6 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 [codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
 [npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-table.svg
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-table
-[gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg
-[gh-releases]:         https://github.com/GetTerminus/terminus-ui/releases/
 [github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-table/bundles/terminus-ui-table.umd.min.js?compression=gzip

@@ -1,7 +1,7 @@
 <h1>Input</h1>
 
 [![CI/CD Status][github-action-badge]][github-action-link] [![Codecov][codecov-badge]][codecov-project] [![MIT License][license-image]][license-url]  
-[![NPM version][npm-version-image]][npm-package] [![Github release][gh-release-badge]][gh-releases] [![Library size][file-size-badge]][raw-distribution-js]
+[![NPM version][npm-version-image]][npm-package] [![Library size][file-size-badge]][raw-distribution-js]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -10,8 +10,8 @@
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
   - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
-  - [Styles to be added](#styles-to-be-added)
-  - [Links to be added](#links-to-be-added)
+  - [CSS imports](#css-imports)
+  - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Hint](#hint)
   - [No validation or hint](#no-validation-or-hint)
@@ -47,53 +47,52 @@
 
 ### Packages that need to be installed
 
-  * @angular/cdk
-  * @angular/flex-layout
-  * @angular/material
-  * @terminus/design-tokens
-  * @terminus/ngx-tools
-  * @terminus/ui-form-field
-  * @terminus/ui-icon
-  * @terminus/ui-input
-  * @terminus/ui-pipes
-  * @terminus/ui-spacing
-  * @terminus/ui-styles
-  * @terminus/ui-utilities
-  * @terminus/ui-validation-messages
-  * @terminus/ui-validators
-  * date-fns
-  * text-mask-addons
-  * text-mask-core
+- `@angular/cdk`
+- `@angular/flex-layout`
+- `@angular/material`
+- `@terminus/design-tokens`
+- `@terminus/ngx-tools`
+- `@terminus/ui-form-field`
+- `@terminus/ui-icon`
+- `@terminus/ui-input`
+- `@terminus/ui-pipes`
+- `@terminus/ui-spacing`
+- `@terminus/ui-styles`
+- `@terminus/ui-utilities`
+- `@terminus/ui-validation-messages`
+- `@terminus/ui-validators`
+- `date-fns`
+- `text-mask-addons`
+- `text-mask-core`
 
-Using `ng add` command can help getting all the dependencies installed:
+Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
-    ng add @terminus/ui-input
+ng add @terminus/ui-input
 ```
 
 ### Modules that need to be in NgModule
 
-  * BrowserAnimationsModule
-  * TsInputModule
-  * FormsModule
-  * ReactiveFormsModule
+- `BrowserAnimationsModule`
+- `TsInputModule`
+- `FormsModule`
+- `ReactiveFormsModule`
 
+### CSS imports
 
-### Styles to be added
-
- At top level `styles.scss`, add these styles:
+In your top level stylesheet, add these imports:
 
 ```css
 @import '~@terminus/design-tokens/css/library-design-tokens.css';
 @import '~@terminus/ui-styles/terminus-ui.css';
-```
+```  
 
-### Links to be added
+### CSS resources
 
-In order to have material icons shown up correctly, add this to the top level html
+Load the needed font families by adding this link to the `<head>` of your application:
 
-```html
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```css
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 ```
 
 ## Usage
@@ -109,7 +108,6 @@ Attach an `NgModel` or `FormControl` to the input:
 We should _almost always_ being using a `FormControl`.
 
 > Note: If you don't need a full form group you can provide a stand-alone control: `myControl = new FormControl();`
-
 
 ### Hint
 
@@ -147,7 +145,6 @@ To include an icon as a prefix to the input, pass a valid icon name to `prefixIc
 
 > See all valid icon possibilities: https://material.io/icons
 
-
 ### Disabled
 
 Inputs can be disabled by setting the component flag OR by setting the associated `FormControl` to `disabled`.
@@ -163,7 +160,6 @@ When using Reactive Forms, controls should be disabled via the control:
 ```typescript
 myControl: FormControl = new FormControl({value: null, disabled: true});
 ```
-
 
 ### Required
 
@@ -191,7 +187,6 @@ If only the required asterisk is needed rather than validation errors, the `isRe
 ></ts-input>
 ```
 
-
 #### Required asterisk `*`
 
 If the input should be required, but the required asterisk `*` is not needed, disable it with the
@@ -207,7 +202,6 @@ If the input should be required, but the required asterisk `*` is not needed, di
 
 > NOTE: We should not hide this visual indicator without a very good reason!
 
-
 ### Clearable
 
 If the input should be easily reset, include the `isClearable` flag to enable a 'clear input'
@@ -221,7 +215,6 @@ button: (button will appear as small `x` icon at the far right of the input)
 ```
 
 When the input is cleared, the `cleared` event emitter will be fired with the value `true`.
-
 
 ### Focused
 
@@ -254,7 +247,6 @@ toggleInputFocus() {
 }
 ```
 
-
 ### Input Type
 
 The input type can be defined with the type input:
@@ -264,7 +256,6 @@ The input type can be defined with the type input:
 ```
 
 > For all allowed types, see `TsInputTypes`.
-
 
 ### Input Attributes
 
@@ -281,7 +272,6 @@ The input type can be defined with the type input:
 
 > For all allowed `autocomplete` types, see `TsInputAutocompleteTypes`.
 
-
 ### Validation timing
 
 Validate on change rather than blur:
@@ -292,7 +282,6 @@ Validate on change rather than blur:
   [validateOnChange]="true"
 ></ts-input>
 ```
-
 
 ### Component reference
 
@@ -311,7 +300,6 @@ myVar: TsInputComponent;
 
 console.log('Component Class: ', this.myVar);
 ```
-
 
 ### Usage with Reactive Forms
 
@@ -379,7 +367,6 @@ myForm: FormGroup = this.formBuilder.group({
 const range = myForm.get('dateRange');
 ```
 
-
 ### Event Emitters
 
 Supported event emitters:
@@ -396,11 +383,9 @@ Supported event emitters:
 
 > NOTE: The `selected` input is only available when `datepicker` is true.
 
-
 ### Masks
 
 Masks enable the input to enforce specific formatting for values; such as postal codes: `12345-1234`.
-
 
 #### Available Masks
 
@@ -425,7 +410,6 @@ before saving it to the model. This can be disabled if needed:
 
 This setup will format the value displayed in the UI: `(123) 456-7890`)while saving the pure value to the model: `1234567890`.
 
-
 #### Allow decimals in number-based masks
 
 By default, number based masks (`number`, `percentage`) allow decimals. This can be disabled:
@@ -435,7 +419,6 @@ By default, number based masks (`number`, `percentage`) allow decimals. This can
 ```
 
 This means when the user types `12.34`, the input UI and model value will both be `1234`.
-
 
 ### Datepicker
 
@@ -466,7 +449,6 @@ myFilter = (d: Date): boolean => {
 }
 ```
 
-
 #### Set a max/min date range
 
 To define bounds for date selection, pass in a valid `Date` to `minDate` and/or `maxDate`:
@@ -484,7 +466,6 @@ date1 = new Date(2017, 2, 1);
 date2 = new Date(2017, 8, 1);
 ```
 
-
 #### Open calendar to a specific date
 
 Pass in a `Date` to `openTo`:
@@ -497,7 +478,6 @@ Pass in a `Date` to `openTo`:
 myDate = new Date(2017, 5, 12);
 ```
 
-
 #### Open calendar to a specific view
 
 By default, the calendar opens up to show the month view. This can be changed to show the year view initially:
@@ -507,7 +487,6 @@ By default, the calendar opens up to show the month view. This can be changed to
 ```
 
 `year` and `month` are the only two valid values.
-
 
 #### Example with dynamic validation
 
@@ -584,7 +563,6 @@ rangeEndChange(event: MatDatepickerInputEvent) {
 }
 ```
 
-
 ### Textarea
 
 Switch from a standard input to a textarea:
@@ -608,7 +586,6 @@ The row count can be dynamically adjusted:
 ></ts-input>
 ```
 
-
 ## Test Helpers
 
 Some helpers are exposed to assist with testing. These are imported from `@terminus/ui-input/testing`;
@@ -623,7 +600,6 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 | `sendInput`            |
 
 
-
 <!-- Links -->
 [test-helpers-src]:    testing/src/test-helpers.ts
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE
@@ -632,8 +608,6 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 [codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
 [npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-input.svg
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-input
-[gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg
-[gh-releases]:         https://github.com/GetTerminus/terminus-ui/releases/
 [github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-input/bundles/terminus-ui-input.umd.min.js?compression=gzip

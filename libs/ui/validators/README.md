@@ -1,7 +1,7 @@
 <h1>Validators</h1>
 
 [![CI/CD Status][github-action-badge]][github-action-link] [![Codecov][codecov-badge]][codecov-project] [![MIT License][license-image]][license-url]  
-[![NPM version][npm-version-image]][npm-package] [![Github release][gh-release-badge]][gh-releases] [![Library size][file-size-badge]][raw-distribution-js]
+[![NPM version][npm-version-image]][npm-package] [![Library size][file-size-badge]][raw-distribution-js]
 
 A collection of form validators.
 
@@ -14,7 +14,6 @@ A collection of form validators.
 - [Mocking](#mocking)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 
 NOTE: This service is provided as a singleton by defining the `providedIn` property as `root`.
 
@@ -78,7 +77,6 @@ export class MyComponent {
 | `uppercase`      | A value must contain a minimum amount of uppercase characters |
 | `url`            | A URL must be valid                                           |
 
-
 ## Mocking
 
 A mocked version of the service is available for testing as `TsValidatorsServiceMock` from `@terminus/ui-validators/testing`.
@@ -94,8 +92,6 @@ return an error message or `null`.
 [codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
 [npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-validators.svg
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-validators
-[gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg
-[gh-releases]:         https://github.com/GetTerminus/terminus-ui/releases/
 [github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-validators/bundles/terminus-ui-validators.umd.min.js?compression=gzip

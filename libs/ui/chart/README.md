@@ -10,6 +10,8 @@
 - [Installation](#installation)
   - [Packages to be installed](#packages-to-be-installed)
   - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [CSS imports](#css-imports)
+  - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Inject the needed libraries](#inject-the-needed-libraries)
   - [Set up the chart](#set-up-the-chart)
@@ -24,17 +26,40 @@
 
 ### Packages to be installed
 
-  * @amcharts/amcharts4
-  * @amcharts/amcharts4-geodata
-  * @terminus/design-tokens
-  * @terminus/ngx-tools
-  * @terminus/ui-utilities
-  * @terminus/ui-chart
-  * date-fns
+- `@amcharts/amcharts4`
+- `@amcharts/amcharts4-geodata`
+- `@terminus/design-tokens`
+- `@terminus/ngx-tools`
+- `@terminus/ui-utilities`
+- `@terminus/ui-chart`
+- `date-fns`
+
+Use the `ng add` command to quickly install all the needed dependencies:
+
+```bash
+ng add @terminus/ui-chart
+```
 
 ### Modules that need to be in NgModule
 
-  * TsChartModule
+- `TsChartModule`
+
+### CSS imports
+
+In your top level stylesheet, add these imports:
+
+```css
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/terminus-ui.css';
+```  
+
+### CSS resources
+
+Load the needed font families by adding this link to the `<head>` of your application:
+
+```css
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+```
 
 ## Usage
 

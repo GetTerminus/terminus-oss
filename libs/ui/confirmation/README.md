@@ -1,7 +1,7 @@
 <h1>Confirmation</h1>
 
 [![CI/CD Status][github-action-badge]][github-action-link] [![Codecov][codecov-badge]][codecov-project] [![MIT License][license-image]][license-url]  
-[![NPM version][npm-version-image]][npm-package] [![Github release][gh-release-badge]][gh-releases] [![Library size][file-size-badge]][raw-distribution-js]
+[![NPM version][npm-version-image]][npm-package] [![Library size][file-size-badge]][raw-distribution-js]
 
 This directive can be attached to any `<ts-button>` to enable a confirmation step before triggering
 the button's action.
@@ -20,7 +20,8 @@ Basic flow:
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
   - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
-  - [Styles to be added](#styles-to-be-added)
+  - [CSS imports](#css-imports)
+  - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Cancelled event](#cancelled-event)
   - [Text customization](#text-customization)
@@ -35,43 +36,51 @@ Basic flow:
 
 ### Packages that need to be installed
 
-  *  @angular/cdk
-  *  @angular/common
-  *  @angular/core
-  *  @angular/flex-layout
-  *  @angular/forms
-  *  @angular/material
-  *  @angular/platform-browser
-  *  @terminus/design-tokens
-  *  @terminus/ngx-tools
-  *  @terminus/ui-button
-  *  @terminus/ui-checkbox
-  *  @terminus/ui-confirmation
-  *  @terminus/ui-form-field
-  *  @terminus/ui-icon
-  *  @terminus/ui-utilities
-  *  @terminus/ui-styles
-  *  @terminus/ui-spacing
-  *  date-fns
-  *  tslib
-  
-  Using `ng add` command can help getting all the dependencies installed:
-  ```bash
-    ng add @terminus/ui-confirmation
-  ```
-  
+- ` @angular/cdk`
+- ` @angular/common`
+- ` @angular/core`
+- ` @angular/flex-layout`
+- ` @angular/forms`
+- ` @angular/material`
+- ` @angular/platform-browser`
+- ` @terminus/design-tokens`
+- ` @terminus/ngx-tools`
+- ` @terminus/ui-button`
+- ` @terminus/ui-checkbox`
+- ` @terminus/ui-confirmation`
+- ` @terminus/ui-form-field`
+- ` @terminus/ui-icon`
+- ` @terminus/ui-utilities`
+- ` @terminus/ui-styles`
+- ` @terminus/ui-spacing`
+- ` date-fns`
+
+Use the `ng add` command to quickly install all the needed dependencies:
+
+```bash
+ng add @terminus/ui-confirmation
+```
+
 ### Modules that need to be in NgModule
 
-  * BrowserAnimationsModule,
-  * TsConfirmationModule,
+- `BrowserAnimationsModule`
+- `TsConfirmationModule`
 
-### Styles to be added
+### CSS imports
 
- At top level `styles.scss`, add these styles:
+In your top level stylesheet, add these imports:
 
 ```css
 @import '~@terminus/design-tokens/css/library-design-tokens.css';
 @import '~@terminus/ui-styles/terminus-ui.css';
+```  
+
+### CSS resources
+
+Load the needed font families by adding this link to the `<head>` of your application:
+
+```css
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 ```
 
 ## Usage
@@ -84,7 +93,6 @@ Add the directive to any `ts-button`:
   (clicked)="myContinueFn($event)"
 >Click me!</ts-button>
 ```
-
 
 ### Cancelled event
 
@@ -111,7 +119,6 @@ Customizes the confirmation button text in the overlay. This defaults to `Confir
 >Click Me!</ts-button>
 ```
 
-
 #### Cancel button
 
 Customizes the text in the overlay of the cancel button; default is "Cancel".
@@ -122,7 +129,6 @@ Customizes the text in the overlay of the cancel button; default is "Cancel".
   cancelButtonText="Custom Cancel Button Text"
 >Click Me!</ts-button>
 ```
-
 
 #### Explanation text
 
@@ -156,10 +162,7 @@ The position of the panel is centered below the trigger by default. This positio
 [codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
 [npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-confirmation.svg
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-confirmation
-[gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg
-[gh-releases]:         https://github.com/GetTerminus/terminus-ui/releases/
 [github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-confirmation/bundles/terminus-ui-confirmation.umd.min.js?compression=gzip
 [raw-distribution-js]: https://unpkg.com/@terminus/ui-confirmation/bundles/terminus-ui-confirmation.umd.js
-

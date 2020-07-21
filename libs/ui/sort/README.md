@@ -1,12 +1,14 @@
 <h1>Sort</h1>
 
 [![CI/CD Status][github-action-badge]][github-action-link] [![Codecov][codecov-badge]][codecov-project] [![MIT License][license-image]][license-url]  
-[![NPM version][npm-version-image]][npm-package] [![Github release][gh-release-badge]][gh-releases] [![Library size][file-size-badge]][raw-distribution-js]
+[![NPM version][npm-version-image]][npm-package] [![Library size][file-size-badge]][raw-distribution-js]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
+  - [CSS imports](#css-imports)
 - [Usage](#usage)
   - [Adding sort to table headers](#adding-sort-to-table-headers)
   - [Changing the sort order](#changing-the-sort-order)
@@ -15,6 +17,23 @@
   - [Accessibility](#accessibility)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Installation
+
+Use the `ng add` command to quickly install all the needed dependencies:
+
+```bash
+ng add @terminus/ui-sort
+```
+
+### CSS imports
+
+In your top level stylesheet, add these imports:
+
+```css
+@import '~@terminus/design-tokens/css/library-design-tokens.css';
+@import '~@terminus/ui-styles/terminus-ui.css';
+```  
 
 ## Usage
 
@@ -29,7 +48,6 @@ Users can trigger the sort header through a mouse click or keyboard action. When
 `tsSort` will emit an `sortChange` event that contains the ID of the header triggered and the
 direction to sort (`asc` or `desc`).
 
-
 ### Changing the sort order
 
 By default, a sort header starts its sorting at `asc` and then `desc`. Triggering the sort header
@@ -43,18 +61,15 @@ To prevent the user from clearing the sort sort state from an already sorted col
 `tsSortDisableClear` to true on the `tsSort` to affect all headers, or set `disableClear` to true on
 a specific header.
 
-
 ### Disabling sorting
 
 If you want to prevent the user from changing the sorting order of any column, you can use the
 `tsSortDisabled` binding on the `ts-sort`, or the `disabled` on an single `ts-sort-header`.
 
-
 ### Using sort with the `ts-table`
 
 When used on an `ts-table` header, it is not required to set an `ts-sort-header` id on because by
 default it will use the id of the column.
-
 
 ### Accessibility
 
@@ -68,8 +83,6 @@ The `aria-label` for the sort button can be set in `TsSortHeaderIntl`.
 [codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
 [npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-sort.svg
 [npm-package]:         https://www.npmjs.com/package/@terminus/ui-sort
-[gh-release-badge]:    https://img.shields.io/github/release/GetTerminus/terminus-oss.svg
-[gh-releases]:         https://github.com/GetTerminus/terminus-ui/releases/
 [github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-sort/bundles/terminus-ui-sort.umd.min.js?compression=gzip
