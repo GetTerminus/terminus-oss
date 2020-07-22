@@ -17,7 +17,12 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "test", "lint", "e2e"],
+        "cacheableOperations": [
+          "build",
+          "test",
+          "lint",
+          "e2e"
+        ],
         "canTrackAnalytics": false,
         "showUsageWarnings": true
       }
@@ -32,21 +37,27 @@
     },
     "showcase-tokens-e2e": {
       "tags": [],
-      "implicitDependencies": ["showcase-tokens"]
+      "implicitDependencies": [
+        "showcase-tokens"
+      ]
     },
     "showcase-ui": {
       "tags": []
     },
     "showcase-ui-e2e": {
       "tags": [],
-      "implicitDependencies": ["showcase-ui"]
+      "implicitDependencies": [
+        "showcase-ui"
+      ]
     },
     "vr": {
       "tags": []
     },
     "vr-e2e": {
       "tags": [],
-      "implicitDependencies": ["vr"]
+      "implicitDependencies": [
+        "vr"
+      ]
     },
     "ui-autocomplete": {
       "tags": []
@@ -154,6 +165,9 @@
       "tags": []
     },
     "ui-spacing": {
+      "tags": []
+    },
+    "ui-storybook": {
       "tags": []
     },
     "ui-styles": {

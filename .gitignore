@@ -55,3 +55,6 @@ Thumbs.db
 
 # Cypress videos/snapshots
 /cypress/videos/
+
+# storybook log
+build-storybook.log

@@ -25,7 +25,9 @@
               "apps/showcase-tokens/src/favicon.ico",
               "apps/showcase-tokens/src/assets"
             ],
-            "styles": ["apps/showcase-tokens/src/styles.scss"],
+            "styles": [
+              "apps/showcase-tokens/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -151,7 +153,9 @@
               "apps/showcase-ui/src/favicon.ico",
               "apps/showcase-ui/src/assets"
             ],
-            "styles": ["apps/showcase-ui/src/styles.scss"],
+            "styles": [
+              "apps/showcase-ui/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -275,8 +279,13 @@
             "polyfills": "apps/vr/src/polyfills.ts",
             "tsConfig": "apps/vr/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/vr/src/favicon.ico", "apps/vr/src/assets"],
-            "styles": ["apps/vr/src/styles.scss"],
+            "assets": [
+              "apps/vr/src/favicon.ico",
+              "apps/vr/src/assets"
+            ],
+            "styles": [
+              "apps/vr/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -559,6 +568,36 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/button/src/test-setup.ts"
           }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui/button/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ui-button",
+            "config": {
+              "configFolder": "libs/ui/button/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
         }
       },
       "schematics": {
@@ -670,6 +709,36 @@
             "tsConfig": "libs/ui/card/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/card/src/test-setup.ts"
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui/card/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ui-card",
+            "config": {
+              "configFolder": "libs/ui/card/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
           }
         }
       },
@@ -1007,6 +1076,36 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/csv-entry/src/test-setup.ts"
           }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui/csv-entry/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ui-csv-entry",
+            "config": {
+              "configFolder": "libs/ui/csv-entry/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
         }
       },
       "schematics": {
@@ -1174,6 +1273,36 @@
             "tsConfig": "libs/ui/expansion-panel/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/expansion-panel/src/test-setup.ts"
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui/expansion-panel/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ui-expansion-panel",
+            "config": {
+              "configFolder": "libs/ui/expansion-panel/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
           }
         }
       },
@@ -2880,6 +3009,49 @@
               }
             ]
           }
+        }
+      }
+    },
+    "ui-storybook": {
+      "projectType": "application",
+      "root": "stories",
+      "sourceRoot": "stories/ui/storybook",
+      "prefix": "uistorybook",
+      "architect": {
+        "allstorybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "stories/ui/storybook/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-allstorybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook",
+            "config": {
+              "configFolder": "stories/ui/storybook/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
         }
       }
     }
