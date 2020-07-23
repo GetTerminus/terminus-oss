@@ -9,6 +9,7 @@
   - [Showcase-ui](#showcase-ui)
   - [Visual Regression (vr)](#visual-regression-vr)
   - [Setting up NX cloud](#setting-up-nx-cloud)
+  - [Setting up FontAwesomePro](#setting-up-fontawesomepro)
 - [Adding a Component for UI Library](#adding-a-component-for-ui-library)
   - [Branching](#branching)
     - [Naming](#naming)
@@ -112,6 +113,16 @@ To enable the cache locally, an environment variable must be made available:
 ```
 # NOTE: The token can be found in the UXE 1Password vault
 NX_CLOUD_AUTH_TOKEN=<TOKEN>
+```
+
+### Setting up FontAwesomePro
+
+We leverage the pro-version of FontAwesome which requires a key to download. Add a environment variable called
+`FONTAWESOME_NPM_AUTH_TOKEN` with the Terminus token:
+
+```
+# NOTE: The token can be found in the UXE 1Password vault
+FONTAWESOME_NPM_AUTH_TOKEN=<TOKEN>
 ```
 
 ## Adding a Component for UI Library
