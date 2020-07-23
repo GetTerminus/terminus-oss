@@ -1,20 +1,11 @@
 @import '~@terminus/ui-styles/helpers';
 
-
-
 $ts-select-arrow-size: 5px !default;
 $ts-select-arrow-margin: 4px !default;
 $ts-select-panel-max-height: 256px !default;
 $ts-select-item-height: 3em !default;
 $ts-select-placeholder-arrow-space: 2 * ($ts-select-arrow-size + $ts-select-arrow-margin);
 
-
-//
-// @component
-//  Select menu
-// @description
-//  A select menu component
-//
 .ts-select {
   @include reset;
   display: block;
@@ -116,6 +107,7 @@ $ts-select-placeholder-arrow-space: 2 * ($ts-select-arrow-size + $ts-select-arro
 
 
 .ts-select-panel {
+  @include reset;
   max-height: $ts-select-panel-max-height;
   // Allow long lists to scroll
   overflow: auto;
