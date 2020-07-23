@@ -21,6 +21,7 @@ import {
   FormControl,
   NgControl,
 } from '@angular/forms';
+import { faAngleDown } from '@fortawesome/pro-regular-svg-icons/faAngleDown';
 import {
   BehaviorSubject,
   of,
@@ -151,6 +152,11 @@ export class TsSelectionListComponent implements
    * TODO: remove once select & autocomplete have been removed https://github.com/GetTerminus/terminus-ui/issues/1678
    */
   public readonly componentName = 'TsSelectionListComponent';
+
+  /**
+   * Define the dropdown arrow
+   */
+  public iconArrow = faAngleDown;
 
   /**
    * Define the internal FormControl

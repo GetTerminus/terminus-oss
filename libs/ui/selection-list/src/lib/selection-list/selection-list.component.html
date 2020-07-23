@@ -71,7 +71,7 @@
       <ng-template *ngTemplateOutlet="spinnerTemplate"></ng-template>
     </ng-container>
 
-    <ts-icon *ngIf="shouldShowDropdownIcon">arrow_drop_down</ts-icon>
+    <ts-icon *ngIf="shouldShowDropdownIcon" [icon]="iconArrow"></ts-icon>
   </div>
 
   <!-- NOTE: This template must remain inside the form field component or disabled states aren't reflected correctly. -->
