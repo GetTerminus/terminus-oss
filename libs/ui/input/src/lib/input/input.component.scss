@@ -3,6 +3,10 @@
 .ts-input {
   display: block;
 
+  &:focus {
+    outline: none;
+  }
+
   /**
    * The Input element proper.
    *
@@ -111,6 +115,9 @@
   .c-input__clear {
     cursor: pointer;
     opacity: 0;
+    position: relative;
+    // Offset positioning set by suffix directive
+    top: -4px;
     transition:
       opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease),
       color var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease);

@@ -4,6 +4,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { faAt } from '@fortawesome/pro-regular-svg-icons/faAt';
+import { faHome } from '@fortawesome/pro-regular-svg-icons/faHome';
 
 import { TsValidatorsService } from '@terminus/ui-validators';
 
@@ -16,7 +18,8 @@ export class InputComponent {
   label1 = 'My Input';
   label2 = 'My 2nd Input';
   clearable = true;
-  icon = 'home';
+  icon = faHome;
+  iconEmail = faAt;
   model1 = 'A seeded value';
   myValue: string | undefined;
   myDatepickerValue: string | Date = new Date(2018, 1, 2);
