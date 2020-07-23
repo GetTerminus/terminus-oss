@@ -29,7 +29,7 @@
   <span fxFlex></span>
 
   <ts-menu [menuItemsTemplate]="columns" theme="accent">
-    <ts-icon svgIcon="table_large_plus"></ts-icon>
+    <ts-icon [icon]="iconTable"></ts-icon>
     Edit Columns
   </ts-menu>
 
@@ -56,8 +56,10 @@
           <!-- Stop drag interactions from affecting the checkbox status -->
           <ts-icon
             cdkDragHandle
+            transform="shrink-4"
+            [icon]="iconDrag"
             (click)="$event.preventDefault() && $event.stopPropagation()"
-          >drag_indicator</ts-icon>
+          ></ts-icon>
 
           <div *cdkDragPlaceholder></div>
         </ts-checkbox>
@@ -150,7 +152,7 @@
       <th ts-header-cell *tsHeaderCellDef>View</th>
       <td ts-cell *tsCellDef="let item">
         <a href="{{ item.html_url }}">
-          <ts-icon theme="accent">open_in_new</ts-icon>
+          <ts-icon [icon]="iconExternal"></ts-icon>
         </a>
       </td>
       <td ts-footer-cell *tsFooterCellDef>-</td>

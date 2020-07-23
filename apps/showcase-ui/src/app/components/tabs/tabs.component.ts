@@ -4,6 +4,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { faHome } from '@fortawesome/pro-regular-svg-icons/faHome';
+import { faQuestionCircle } from '@fortawesome/pro-regular-svg-icons/faQuestionCircle';
 import { BehaviorSubject } from 'rxjs';
 
 import { TsTabCollectionComponent } from '@terminus/ui-tabs';
@@ -14,6 +16,8 @@ import { TsTabCollectionComponent } from '@terminus/ui-tabs';
   templateUrl: './tabs.component.html',
 })
 export class TabsComponent implements OnInit {
+  homeIcon = faHome;
+  helpIcon = faQuestionCircle;
   isBelow = false;
   tabAlignment$ = new BehaviorSubject('start');
   tabAlignment = 'start';
