@@ -32,6 +32,10 @@
   - [Setters & Getters](#setters--getters)
   - [Decorators](#decorators)
 - [Issues](#issues)
+- [Storybook and Chromatic](#storybook-and-chromatic)
+  - [Build storybook for each project](#build-storybook-for-each-project)
+  - [Build storybook for all the projects](#build-storybook-for-all-the-projects)
+  - [Run Chromatic on affected projects](#run-chromatic-on-affected-projects)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -528,6 +532,184 @@ public foo;
    much work for one person and/or you have other priorities, create an issue, post about it in
    development Slack channel.
 
+## Storybook and Chromatic
+
+We use storybook to build our demo site and chromatic for automating gathering visual comparison and
+testing.
+
+### Build storybook for each project
+
+We use nx to manage our mono repo. In a Nrwl Nx workspace, 
+when you add Storybook support, what you get by default is 
+a separate instance of Storybook for each feature library.
+
+You can generate Storybook configuration for an individual 
+project with this command:
+```
+nx g @nrwl/angular:storybook-configuration ui-button
+```
+If there's no .storybook folder at the root of the workspace, 
+one is created.
+
+```
+<terminus-oss>/
+├── .storybook/
+│   ├── addons.js
+│   ├── tsconfig.json
+│   └── webpack.config.js
+├── apps/
+├── libs/
+├── nx.json
+├── package.json
+├── README.md
+└── etc...
+```
+Also, a project-specific .storybook folder is added in the root 
+of the project.
+```
+<terminus-oss>/
+|---.storybook/
+|---apps/
+|---libs/
+   |--- ui
+       |--- button
+           |--- .storybook/
+               |--- addons.js
+               |--- tsconfig.json
+               |--- webpack.config.js
+   |--- tokens
+├── tsconfig.json
+└── etc...
+```
+Then you could build the storybook with
+```
+nx run ui-button:build-storybook
+```
+Or build and serve the storybook with
+```
+nx run ui-button:storybook
+```
+This allows to quickly spin up one Storybook instance for development.
+
+### Build storybook for all the projects
+There are cases when we'd want to see stories from multiple or even all of libraries, 
+together in a single Storybook instance. 
+For example, a demo page for our library needs to contain stories 
+from all the components. Storybook doesn't support this out of the box. 
+
+What we could do is to create a separate project, which references all the 
+stories that we'd like to include.
+
+In our case, we create a stories folder at the root level.
+```
+<terminus-oss>/
+|---.storybook/
+|---apps/
+|---libs/
+   |--- ui
+       |--- button
+       |--- card
+       |--- csv-entry
+   |--- tokens
+|--- stories/
+    |--- ui/
+        |--- storybook/
+            |--- .storybook/
+                 |--- config.js
+                 |--- tsconfig.js
+                 |--- webpack.config.js
+```
+And inside this `config.js`, we reference to the stories that we'd like it to include with
+```
+configure(require.context('../../../../libs/ui/', true, /\.stories\.tsx?$/), module);
+```
+Then in `angular.json` config, we config how we'd like it to run:
+
+```
+    "ui-storybook": {
+      "projectType": "application",
+      "root": "stories",
+      "sourceRoot": "stories/ui/storybook",
+      "prefix": "uistorybook",
+      "architect": {
+        "allstorybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "stories/ui/storybook/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-allstorybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook",
+            "config": {
+              "configFolder": "stories/ui/storybook/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+```
+Then we'll be able to run this command to build all the stories in one storybook.
+```
+nx run ui-storybook:build-allstorybook
+```
+
+### Run Chromatic on affected projects
+We use chromatic for our regression visual tests. 
+Ideally we'd like to run chromatic on changed projects only. 
+nx provides a way to get a list of affected projects. 
+However, each individual project builds its own storybook, and
+chromatic doesn't support multiple storybooks for one repo. 
+
+The solution we have is to use nx provided changed projects 
+list to dynamically update root level storybook config.
+
+For example, if `nx affected:libs` returns
+```
+ui-button
+ui-card
+ui-csv-entry
+```
+a bash script will pipe that in and update `.storybook/main.js` with:
+```
+stories: [
+  'libs/ui/button',
+  'libs/ui/card',
+  'libs/ui/csv-entry'
+],
+```
+=================================================================
+
+NOTE: `.storybook/main.js` needs to have this entry
+```
+stories: [STORIES]
+```
+to start with. Then bash script will replace `STORIES` with 
+proper affected project story link. 
+
+PLEASE **DO NOT** COMMIT CHANGES in `storybook/main.js`
+
+=================================================================
+
+
+After that, we'd use `build-storybook -c .storybook -o dist/storybook` to build
+one storybook with the stories from `button`, `card` and `csv-entry`.
+Then chromatic could run through that storybook for visual comparison.
 
 🎉 Happy Coding! 🎉
 
