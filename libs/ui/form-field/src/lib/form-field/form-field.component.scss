@@ -4,7 +4,7 @@
   --formField-outlineColor-default: var(--ts-color-utility-500);
   --formField-outlineColor-default-hover: var(--ts-color-base-black);
   --formField-outlineColor-theme: var(--ts-color-primary-500);
-  --formField-outlineColor-disabled: var(--ts-color-utility-300);
+  --formField-outlineColor-disabled: var(--ts-color-utility-500);
   --formField-color-disabled: var(--ts-color-utility-500);
   --formField-outline-borderRadius: var(--ts-border-radius-base);
   --formField-outline-width: 1px;
@@ -238,6 +238,12 @@
   .ts-form-field__prefix {
     $space-between-icon-and-text: .2em;
     margin-right: $space-between-icon-and-text;
+
+    // Adjust layout manually to get FontAwesome to lay out where Material Icons should be
+    .ts-icon {
+      position: relative;
+      top: -6px;
+    }
   }
 
   // Scale down icons in the label and hint to be the same size as the text.
