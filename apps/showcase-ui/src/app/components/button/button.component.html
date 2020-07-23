@@ -39,7 +39,7 @@
             (clicked)="run('progress2')"
             [isDisabled]="disabled"
             [showProgress]="progress2"
-            [iconName]="icon"
+            [icon]="homeIcon"
             [format]="myFormat"
           >Click Me!</ts-button>
         </div>
@@ -52,7 +52,7 @@
             [showProgress]="progress2"
             [format]="myFormat"
           >
-            <ts-icon>build</ts-icon>
+            <ts-icon [icon]="wrenchIcon"></ts-icon>
           </ts-button>
         </div>
       </div>
@@ -75,7 +75,7 @@
   <ts-button
     theme="primary"
     format="hollow"
-    icon="home"
+    [icon]="homeIcon"
     tsVerticalSpacing
   >Primary Hollow</ts-button>
 
@@ -132,28 +132,28 @@
 
     <ts-button
       theme="primary"
-      iconName="add"
+      [icon]="addIcon"
       [format]="formatCollapsible"
       tsVerticalSpacing
     >New Campaign / New Tactic</ts-button>
 
     <ts-button
       theme="accent"
-      iconName="add"
+      [icon]="addIcon"
       [format]="formatCollapsible"
       tsVerticalSpacing
     >New Campaign / New Tactic</ts-button>
 
     <ts-button
       theme="warn"
-      iconName="add"
+      [icon]="addIcon"
       [format]="formatCollapsible"
       tsVerticalSpacing
     >New Campaign / New Tactic</ts-button>
 
     <ts-button
       theme="primary"
-      iconName="add"
+      [icon]="addIcon"
       [format]="formatCollapsible"
       [isDisabled]="true"
       tsVerticalSpacing

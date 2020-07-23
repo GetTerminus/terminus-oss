@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { faHome } from '@fortawesome/pro-regular-svg-icons/faHome';
+import { faPlus } from '@fortawesome/pro-regular-svg-icons/faPlus';
+import { faWrench } from '@fortawesome/pro-regular-svg-icons/faWrench';
 
 @Component({
   selector: 'app-button',
@@ -7,6 +10,9 @@ import { Component } from '@angular/core';
 export class ButtonComponent {
   public title = 'Visual Regression';
   public progress = false;
+  public iconPlus = faPlus;
+  public iconWrench = faWrench;
+  public iconHome = faHome;
 
   public run(): void {
     this.progress = true;

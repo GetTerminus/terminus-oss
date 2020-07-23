@@ -13,6 +13,7 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 import { TsWindowService } from '@terminus/ngx-tools/browser';
 import {
@@ -76,7 +77,7 @@ const DEFAULT_COLLAPSE_DELAY_MS = 4000;
  *              theme="primary"
  *              format="filled"
  *              buttonType="search"
- *              iconName="search"
+ *              [icon]="myIconReference"
  *              [isDisabled]="false"
  *              [showProgress]="true"
  *              [collapsed]="false"
@@ -216,10 +217,10 @@ export class TsButtonComponent implements OnInit, OnDestroy {
   private _format!: TsButtonFormatTypes;
 
   /**
-   * Define a Material icon to include
+   * Define an icon to include
    */
   @Input()
-  public iconName: string | undefined;
+  public icon: IconProp | undefined;
 
   /**
    * Define if the button is disabled
@@ -318,9 +319,9 @@ export class TsButtonComponent implements OnInit, OnDestroy {
       this.format = 'filled';
     }
 
-    // If the format is `collapsible`, verify an `iconName` is set
-    if ((this.format === 'collapsable' || this.format === 'collapsible') && !this.iconName && isDevMode()) {
-      throw new Error('`iconName` must be defined for collapsible buttons.');
+    // If the format is `collapsible`, verify an `icon` is set
+    if ((this.format === 'collapsable' || this.format === 'collapsible') && !this.icon && isDevMode()) {
+      throw new Error('`icon` must be defined for collapsible buttons.');
     }
   }
 

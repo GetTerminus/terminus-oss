@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { faHome } from '@fortawesome/pro-regular-svg-icons/faHome';
+import { faPlus } from '@fortawesome/pro-regular-svg-icons/faPlus';
+import { faWrench } from '@fortawesome/pro-regular-svg-icons/faWrench';
 
 import { TsButtonFormatTypes } from '@terminus/ui-button';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
@@ -10,11 +13,13 @@ import { TsStyleThemeTypes } from '@terminus/ui-utilities';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
+  public addIcon = faPlus;
+  public homeIcon = faHome;
+  public wrenchIcon = faWrench;
   public style = 'primary';
   public disabled = false;
   public progress1 = false;
   public progress2 = false;
-  public icon = 'home';
   public formatCollapsible = 'collapsible';
   public formats: TsButtonFormatTypes[] = ['filled', 'hollow', 'collapsible'];
   public myFormat = 'filled';
@@ -44,5 +49,4 @@ export class ButtonComponent {
       }
     }, 2000);
   }
-
 }

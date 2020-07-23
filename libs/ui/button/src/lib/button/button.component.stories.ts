@@ -1,3 +1,4 @@
+import { faHome } from '@fortawesome/pro-regular-svg-icons/faHome';
 import { action } from '@storybook/addon-actions';
 import {
   boolean,
@@ -37,14 +38,14 @@ export const collapsible = () => ({
     <ts-button
       [collapsed]="collapsed"
       format="collapsible"
-      [iconName]="iconName"
+      [icon]="icon"
       [theme]="theme"
     >My Button</ts-button>
   `,
   props: {
     collapsed: boolean('collapsed', false),
     format: select('format', tsButtonFormatTypesArray, 'filled'),
-    iconName: text('iconName', 'add'),
+    icon: faHome,
   },
 });
 
@@ -57,7 +58,7 @@ export const clicked = () => ({
   },
 });
 
-export const allToggles = () => ({
+export const mostToggles = () => ({
   moduleMetadata: { imports: [TsButtonModule] },
   component: TsButtonComponent,
   template: `
@@ -66,7 +67,6 @@ export const allToggles = () => ({
       [buttonType]="buttonType"
       [collapsed]="collapsed"
       [format]="format"
-      [iconName]="iconName"
       [isDisabled]="isDisabled"
       [id]="id"
       [showProgress]="showProgress"
@@ -79,7 +79,6 @@ export const allToggles = () => ({
     buttonType: select('buttonType', ['button', 'search', 'submit'], 'button'),
     collapsed: boolean('collapsed', false),
     format: select('format', allowedButtonFormatTypes, 'filled'),
-    iconName: text('iconName', ''),
     isDisabled: boolean('isDisabled', false),
     id: text('id', ''),
     showProgress: boolean('showProgress', false),

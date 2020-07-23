@@ -216,6 +216,11 @@ ts-button {
       }
     }
 
+    // Padding addition for FontAwesome switch
+    .c-icon {
+      padding: 0 .25em;
+    }
+
     .c-button__content {
       display: inline-block;
       max-width: 400px;
