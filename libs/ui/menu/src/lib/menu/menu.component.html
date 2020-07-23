@@ -25,7 +25,7 @@
   >
     <ng-content></ng-content>
 
-    <ts-icon class="c-menu__caret">
+    <ts-icon [classes]="['c-menu__caret']" [icon]="triggerIcon" [fixedWidth]="true">
       {{ triggerIcon }}
     </ts-icon>
   </ts-button>
@@ -37,8 +37,6 @@
     [matMenuTriggerFor]="menu"
     [disabled]="isDisabled"
   >
-    <ts-icon>
-      {{ triggerIcon }}
-    </ts-icon>
+    <ts-icon [icon]="triggerIcon"></ts-icon>
   </button>
 </div>

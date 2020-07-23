@@ -10,6 +10,9 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { faAngleDown } from '@fortawesome/pro-regular-svg-icons/faAngleDown';
+import { faEllipsisV } from '@fortawesome/pro-regular-svg-icons/faEllipsisV';
 
 import { TsButtonFormatTypes } from '@terminus/ui-button';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
@@ -75,12 +78,12 @@ export class TsMenuComponent implements AfterViewInit, OnInit {
   /**
    * Define the default icon for the trigger button
    */
-  private TRIGGER_ICON_DEFAULT: 'arrow_drop_down' = 'arrow_drop_down';
+  private TRIGGER_ICON_DEFAULT = faAngleDown;
 
   /**
    * Define the utility icon for the trigger button
    */
-  private TRIGGER_ICON_UTILITY: 'more_vert' = 'more_vert';
+  private TRIGGER_ICON_UTILITY = faEllipsisV;
 
   /**
    * Return if the current menu is a utility menu
@@ -97,7 +100,7 @@ export class TsMenuComponent implements AfterViewInit, OnInit {
   /**
    * The icon to be used in the trigger button
    */
-  public triggerIcon!: 'arrow_drop_down' | 'more_vert';
+  public triggerIcon!: IconDefinition;
 
   /**
    * Provide access to the trigger
