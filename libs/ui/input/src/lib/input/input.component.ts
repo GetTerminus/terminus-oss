@@ -35,6 +35,8 @@ import {
   MAT_DATE_LOCALE,
 } from '@angular/material/core';
 import { MatDatepicker } from '@angular/material/datepicker';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faTimesCircle } from '@fortawesome/pro-solid-svg-icons/faTimesCircle';
 import { Subject } from 'rxjs';
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
@@ -761,10 +763,16 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
   private _openTo: Date | undefined;
 
   /**
-   * Define a Material icon to include before the input
+   * Define an icon to include before the input
    */
   @Input()
-  public prefixIcon: string | undefined;
+  public prefixIcon: IconProp | undefined;
+
+  /**
+   * Define the clear icon
+   */
+  @Input()
+  public suffixIcon = faTimesCircle;
 
   /**
    * Define if the input is readOnly

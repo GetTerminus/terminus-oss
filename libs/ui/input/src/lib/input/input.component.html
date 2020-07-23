@@ -26,7 +26,9 @@
     tsPrefix
     *ngIf="prefixIcon"
     class="qa-input-prefix-icon"
-  >{{ prefixIcon }}</ts-icon>
+    transform="shrink-4 up-1"
+    [icon]="prefixIcon"
+  ></ts-icon>
 
   <ng-template *ngTemplateOutlet="contentTemplate"></ng-template>
 
@@ -35,8 +37,10 @@
     *ngIf="isClearable && !shouldBeDisabled && !datepicker"
     class="c-input__clear qa-input-suffix-icon"
     [class.c-input__clear--visible]="value?.length > 0"
+    [icon]="suffixIcon"
+    transform="shrink-4 up-1"
     (click)="reset()"
-  >clear</ts-icon>
+  ></ts-icon>
 
   <mat-datepicker-toggle
     tsSuffix
@@ -67,7 +71,8 @@
     tsPrefix
     *ngIf="prefixIcon"
     class="qa-input-prefix-icon"
-  >{{ prefixIcon }}</ts-icon>
+    [icon]="prefixIcon"
+  ></ts-icon>
 
   <ng-template *ngTemplateOutlet="contentTemplate"></ng-template>
 
