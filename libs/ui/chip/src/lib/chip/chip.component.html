@@ -8,10 +8,14 @@
   (click)="click($event)"
 >
   <span #content>
-     <ng-content></ng-content>
+    <ng-content></ng-content>
   </span>
 
-  <ts-icon class="c-chip__remove" (click)="removeChip($event)">
-    cancel
-  </ts-icon>
+  <ts-icon
+    class="c-chip__remove"
+    [icon]="removeIcon"
+    transform="down-3"
+    size="lg"
+    (click)="removeChip($event)"
+  ></ts-icon>
 </div>

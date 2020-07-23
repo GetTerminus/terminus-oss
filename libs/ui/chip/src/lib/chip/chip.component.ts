@@ -12,6 +12,7 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
+import { faTimesCircle } from '@fortawesome/pro-solid-svg-icons/faTimesCircle';
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 
@@ -156,6 +157,11 @@ export class TsChipComponent implements FocusableOption, OnDestroy {
    * @internal
    */
   public chipCollectionMultiple = false;
+
+  /**
+   * Define the chip close icon
+   */
+  public removeIcon = faTimesCircle;
 
   /**
    * The ARIA selected applied to the chip.
