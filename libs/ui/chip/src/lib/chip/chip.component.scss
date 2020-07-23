@@ -68,8 +68,6 @@
     transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
 
     &.c-chip--removable {
-      padding-right: var(--ts-space-inset-600);
-
       .c-chip__remove {
         display: block;
       }
@@ -86,18 +84,15 @@
     }
 
     .c-chip__remove {
+      $margin-offset-for-new-icon: 6px;
       // Needed to remove 1px jump caused on opacity change
       backface-visibility: hidden;
       cursor: pointer;
       display: none;
       height: var(--chip-remove-size);
+      margin-left: $margin-offset-for-new-icon;
       opacity: .4;
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%) scale(.8);
       transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
-      width: var(--chip-remove-size);
 
       &:hover {
         opacity: .7;
