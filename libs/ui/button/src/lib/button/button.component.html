@@ -14,11 +14,10 @@
   #button
 >
   <ts-icon
-    *ngIf="iconName"
+    *ngIf="icon"
     class="c-button__icon"
-  >
-    {{ iconName }}
-  </ts-icon>
+    [icon]="icon"
+  ></ts-icon>
 
   <span class="c-button__content">
     <ng-content></ng-content>

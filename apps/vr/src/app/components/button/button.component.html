@@ -14,7 +14,7 @@
   <ts-button
     theme="primary"
     format="hollow"
-    icon="home"
+    [icon]="iconHome"
     tsVerticalSpacing
   >Primary Hollow</ts-button>
 
@@ -72,14 +72,14 @@
       (clicked)="run()"
       [showProgress]="progress"
     >
-      <ts-icon>build</ts-icon>
+      <ts-icon [icon]="iconWrench"></ts-icon>
     </ts-button>
   </div>
 
   <ts-button
     theme="primary"
-    iconName="add"
+    [icon]="iconPlus"
     format="collapsible"
     tsVerticalSpacing
-  >New Campaign / New Tactic</ts-button>
+  >New Campaign</ts-button>
 </ts-card>

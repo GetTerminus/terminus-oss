@@ -6,12 +6,14 @@ import {
 } from '@angular/core';
 import { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faHome } from '@fortawesome/pro-regular-svg-icons/faHome';
+import { faSearch } from '@fortawesome/pro-regular-svg-icons/faSearch';
 
 import {
   createComponent,
   createMouseEvent,
 } from '@terminus/ngx-tools/testing';
-
 import {
   TsButtonModule,
   TsButtonComponent,
@@ -23,7 +25,7 @@ import {
       [isDisabled]="disabled"
       [showProgress]="showProgress"
       [collapsed]="collapsed"
-      [iconName]="iconName"
+      [icon]="icon"
       [id]="myId"
       [format]="format"
       [theme]="theme"
@@ -37,7 +39,7 @@ class TestHostComponent implements OnInit, OnDestroy {
   showProgress!: boolean;
   collapseDelay!: number | undefined;
   format!: string;
-  iconName!: string | undefined;
+  icon!: IconProp | undefined;
   theme!: string;
   myId = 'foo';
 
@@ -266,7 +268,7 @@ describe(`TsButtonComponent`, function() {
     test(`should call collapseWithDelay if collapseDelay is set (deprecated version)`, () => {
       jest.useFakeTimers();
       component.format = 'collapsable';
-      component.iconName = 'search';
+      component.icon = faSearch;
       component.collapseDelay = 500;
       fixture.detectChanges();
       buttonComponent.ngOnInit();
@@ -280,7 +282,7 @@ describe(`TsButtonComponent`, function() {
     test(`should call collapseWithDelay if collapseDelay is set`, () => {
       jest.useFakeTimers();
       component.format = 'collapsible';
-      component.iconName = 'search';
+      component.icon = faSearch;
       component.collapseDelay = 500;
       fixture.detectChanges();
       buttonComponent.ngOnInit();
@@ -316,7 +318,7 @@ describe(`TsButtonComponent`, function() {
       });
 
       test(`should not throw an error if the format is collapsible and there is an icon set`, () => {
-        component.iconName = 'home';
+        component.icon = faHome;
 
         expect(() => {
           component.ngOnInit();
@@ -339,7 +341,7 @@ describe(`TsButtonComponent`, function() {
       });
 
       test(`should not throw an error if the format is collapsible and there is an icon set`, () => {
-        component.iconName = 'home';
+        component.icon = faHome;
 
         expect(() => {
           component.ngOnInit();
@@ -352,7 +354,7 @@ describe(`TsButtonComponent`, function() {
   describe(`ngOnDestroy()`, () => {
     beforeEach(() => {
       buttonComponent.format = 'collapsible';
-      buttonComponent.iconName = 'home';
+      buttonComponent.icon = faHome;
       buttonComponent['changeDetectorRef'].detectChanges = jest.fn();
       buttonComponent['windowService'].nativeWindow.clearTimeout = jest.fn();
       buttonComponent['windowService'].nativeWindow.setTimeout = jest.fn().mockReturnValue(123);
