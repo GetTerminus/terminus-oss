@@ -1,5 +1,14 @@
 @import '~@terminus/ui-styles/helpers';
 
+:root {
+  --ts-card-disabled-opacity: .5;
+  --ts-card-disabled-menu-opacity: .3;
+  --ts-card-backgroundColor: var(--ts-color-base-white);
+  --ts-card-boxShadow: 0 0 0 1px rgba(0, 0, 0, .04), 0 2px 5px 0 rgba(0, 0, 0, .06);
+  --ts-card-hover-boxShadow: 0 0 0 1px rgba(0, 0, 0, .06), 0 2px 5px 0 rgba(0, 0, 0, .09);
+  --ts-card-2x-boxShadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 5px 0 rgba(0, 0, 0, .12);
+}
+
 // Add a card border for a side
 @mixin card-border($side) {
   &.c-card--primary {
@@ -22,12 +31,6 @@
 }
 
 .ts-card {
-  --ts-card-disabled-opacity: .5;
-  --ts-card-disabled-menu-opacity: .3;
-  --ts-card-backgroundColor: var(--ts-color-base-white);
-  --ts-card-boxShadow: 0 0 0 1px rgba(0, 0, 0, .04), 0 2px 5px 0 rgba(0, 0, 0, .06);
-  --ts-card-hover-boxShadow: 0 0 0 1px rgba(0, 0, 0, .06), 0 2px 5px 0 rgba(0, 0, 0, .09);
-  --ts-card-2x-boxShadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 5px 0 rgba(0, 0, 0, .12);
   display: flex;
   flex-flow: row nowrap;
 

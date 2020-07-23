@@ -28,5 +28,6 @@
   <ts-icon
     *ngIf="isDisabled && !utilityMenuTemplate"
     class="c-card__lock qa-card-lock"
-  >lock_outline</ts-icon>
+    [icon]="lockIcon"
+  ></ts-icon>
 </div>
