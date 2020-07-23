@@ -95,7 +95,8 @@ describe(`TsLinkComponent`, function() {
       link = fixture.debugElement.query(By.css('.c-link')).nativeElement;
 
       expect(link.classList).toContain('c-link--external');
-      expect(link.children[0].textContent).toContain('open_in_new');
+      const externalLink = fixture.debugElement.query(By.css('.ts-icon'));
+      expect(externalLink).toBeTruthy();
       expect(link.getAttribute('rel')).toEqual('noopener');
     });
   });
