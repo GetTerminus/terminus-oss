@@ -103,7 +103,8 @@
           *ngFor="let row of rows?.controls; let deleteIndex = index;"
           (click)="deleteRow(deleteIndex)"
           fxFlex="noshrink"
-        >delete_forever</ts-icon-button>
+          [icon]="iconDelete"
+        ></ts-icon-button>
       </div>
 
     </div>
