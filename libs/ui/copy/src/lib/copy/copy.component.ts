@@ -9,6 +9,7 @@ import {
   ViewChildren,
   ViewEncapsulation,
 } from '@angular/core';
+import { faCopy } from '@fortawesome/pro-regular-svg-icons/faCopy';
 
 import {
   TsDocumentService,
@@ -73,7 +74,7 @@ export class TsCopyComponent {
   /**
    * Define the copy icon
    */
-  public icon = 'content_copy';
+  public copyIcon = faCopy;
 
   /**
    * Define the color of the material ripple
