@@ -24,9 +24,7 @@
         <small
           class="c-radio__control-sublabel"
           *ngIf="formatUISubLabelFn"
-        >
-          {{ retrieveValue(option, formatUISubLabelFn) }}
-        </small>
+        >{{ retrieveValue(option, formatUISubLabelFn) }}</small>
       </mat-radio-button>
 
     </ng-container>
@@ -72,7 +70,7 @@
             [attr.aria-describedby]="ariaDescribedby"
             [(ngModel)]="value"
           >
-          <div
+          <span
             class="c-radio__content"
             [class.c-radio__content--disabled]="isDisabled || option.disabled"
             [class.c-radio__content--centered]="centeredContent"
@@ -80,9 +78,11 @@
             [matRippleDisabled]="(isDisabled || option.disabled) ? 'disabled' : null"
             [matRippleColor]="rippleColor"
           >
-            <ts-icon class="c-radio__content-checkmark" [inline]="true">
-              done
-            </ts-icon>
+            <ts-icon
+              class="c-radio__content-checkmark"
+              [icon]="iconCheck"
+              transform="shrink-6 down-1 right-1"
+            ></ts-icon>
 
             <ng-container *ngIf="!option.template">
               <span class="c-radio__content-label">
@@ -98,7 +98,7 @@
             </ng-container>
 
             <span *ngIf="option.template" [innerHTML]="domSanitizer.bypassSecurityTrustHtml(option.template)"></span>
-          </div>
+          </span>
         </label>
       </ng-container>
     </div>
