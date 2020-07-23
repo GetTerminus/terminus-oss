@@ -13,6 +13,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { faSearch } from '@fortawesome/pro-regular-svg-icons/faSearch';
 
 import { debounce } from '@terminus/ngx-tools/utilities';
 import {
@@ -100,7 +101,7 @@ export class TsSearchComponent implements OnInit {
   /**
    * Define the icon name
    */
-  public icon = 'search';
+  public icon = faSearch;
 
   /**
    * Define the regular expression to validate the query
