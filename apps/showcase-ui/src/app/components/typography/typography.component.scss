@@ -3,48 +3,48 @@
 
 .display {
   &-4 {
-    @include typography('display', 4);
+    font: var(--ts-typography-compound-display4);
   }
 
   &-3 {
-    @include typography('display', 3);
+    font: var(--ts-typography-compound-display3);
   }
 
   &-2 {
-    @include typography('display', 2);
+    font: var(--ts-typography-compound-display2);
   }
 
   &-1 {
-    @include typography('display', 1);
+    font: var(--ts-typography-compound-display);
   }
 }
 
 .headline {
-  @include typography('headline');
+  font: var(--ts-typography-compound-headline);
 }
 
 .title {
-  @include typography('title');
+  font: var(--ts-typography-compound-title);
 }
 
 .subhead {
-  @include typography('subhead');
+  font: var(--ts-typography-compound-subhead);
 }
 
 .body {
   &-2 {
-    @include typography('body', 2);
+    font: var(--ts-typography-compound-body2);
   }
 
   &-1 {
-    @include typography('body', 1);
+    font: var(--ts-typography-compound-body);
   }
 
   &-mono {
-    @include typography('body', 1, 'monospaced');
+    font-family: var(--ts-typography-stack-monospaced);
   }
 }
 
 .caption {
-  @include typography('caption');
+  font: var(--ts-typography-compound-caption);
 }

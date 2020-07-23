@@ -19,6 +19,9 @@ import {
   DomSanitizer,
   SafeHtml,
 } from '@angular/platform-browser';
+import { faExternalLink } from '@fortawesome/pro-regular-svg-icons/faExternalLink';
+import { faGripLines } from '@fortawesome/pro-regular-svg-icons/faGripLines';
+import { faTable } from '@fortawesome/pro-regular-svg-icons/faTable';
 import {
   merge,
   Observable,
@@ -114,13 +117,13 @@ export class TableComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       display: 'Number',
       name: 'number',
-      width: 100,
+      width: 60,
       control: new FormControl(true),
     },
     {
       display: 'Updated',
       name: 'updated',
-      width: 200,
+      width: 60,
       control: new FormControl(true),
     },
     {
@@ -177,6 +180,9 @@ export class TableComponent implements OnInit, AfterViewInit, OnDestroy {
   public visibleColumns: TsColumn[] = [];
   public allFormControlChanges$ = merge(...this.allPossibleColumns.map(c => c.control && c.control.valueChanges));
   public latestCreationDate = new Date(2020, 2, 23);
+  public iconExternal = faExternalLink;
+  public iconTable = faTable;
+  public iconDrag = faGripLines;
 
   @ViewChild(TsSortDirective, { static: true })
   public sort!: TsSortDirective;
@@ -186,7 +192,6 @@ export class TableComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('myTable', { static: false })
   public readonly myTable!: TsTableComponent;
-
 
   constructor(
     private domSanitizer: DomSanitizer,
@@ -202,7 +207,7 @@ export class TableComponent implements OnInit, AfterViewInit, OnDestroy {
   public ngAfterViewInit(): void {
     this.setUpTable();
 
-    this.allFormControlChanges$.pipe(untilComponentDestroyed(this)).subscribe(change => {
+    this.allFormControlChanges$.pipe(untilComponentDestroyed(this)).subscribe(() => {
       this.setVisibleColumns();
     });
   }
@@ -310,5 +315,4 @@ export class TableComponent implements OnInit, AfterViewInit, OnDestroy {
   public log() {
     console.log('Demo: columns: ', this.myTable.columns);
   }
-
 }

@@ -11,3 +11,10 @@
   white-space: nowrap;
   word-break: break-word;
 }
+
+
+.ts-table {
+  a {
+    color: var(--ts-color-primary-500);
+  }
+}
