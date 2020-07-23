@@ -27,12 +27,8 @@
     border-radius: var(--ts-border-radius-circle);
     color: var(--ts-color-base-black);
     margin-left: $alignment-adjustment;
+    padding: 0 var(--ts-space-inset-400);
     transition: color var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease);
-
-    &:focus,
-    &:hover {
-      color: var(--ts-color-utility-900);
-    }
 
     .mat-ripple-element {
       background-color: var(--ts-ib-ripple-black);
@@ -45,12 +41,9 @@
     &[theme='#{$theme}'] {
       .c-icon-button {
         color: var(--ts-color-#{$theme}-500);
-      }
-
-      &:focus,
-      &:hover {
-        .c-icon-button {
-          color: var(--ts-color-#{$theme}-300);
+        &:focus,
+        &:hover {
+          color: var(--ts-color-#{$theme}-700);
         }
       }
 
