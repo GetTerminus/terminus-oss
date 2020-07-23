@@ -23,9 +23,7 @@
       <!--
         NOTE: If the copy isn't touching the </ts-icon> closing tag too much space will exist between the icon and text
       -->
-      <ts-icon [inline]="true">
-        cloud_upload
-      </ts-icon>Drop file{{ multiple ? 's' : '' }} here
+      <ts-icon [icon]="iconUpload"></ts-icon>Drop file{{ multiple ? 's' : '' }} here
       {{ hideButton ? 'or click to select' : '' }}
     </div>
 
@@ -53,11 +51,7 @@
             [attr.src]="file?.fileContents"
             *ngIf="file?.isImage"
           >
-
-          <ts-icon
-            [svgIcon]="'csv'"
-            *ngIf="file?.isCSV"
-          ></ts-icon>
+          <ts-icon [icon]="iconCsv" *ngIf="file?.isCSV"></ts-icon>
         </div>
 
         <div
@@ -77,8 +71,9 @@
             class="c-file-upload__remove qa-file-upload-remove"
             theme="warn"
             actionName="Reset"
+            [icon]="iconRemove"
             (click)="removeFile($event)"
-          >clear</ts-icon-button>
+          ></ts-icon-button>
         </ts-tooltip>
       </div>
     </div>
@@ -89,9 +84,7 @@
       [theme]="theme"
       [isDisabled]="dragInProgress || isDisabled"
       (clicked)="promptForFiles()"
-    >
-      {{ buttonMessage }}
-    </ts-button>
+    >{{ buttonMessage }}</ts-button>
   </div>
 
   <mat-progress-bar
@@ -119,8 +112,6 @@
     <div
       class="c-file-upload__hint"
       *ngFor="let hint of hints; trackBy: trackByFn"
-    >
-      {{ hint }}
-    </div>
+    >{{ hint }}</div>
   </div>
 </div>
