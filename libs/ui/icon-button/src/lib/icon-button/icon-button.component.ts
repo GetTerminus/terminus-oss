@@ -7,11 +7,13 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 import {
   TsButtonActionTypes,
   TsButtonFunctionTypes,
 } from '@terminus/ui-button';
+import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 /**
  * This is the icon-button UI Component
@@ -22,8 +24,9 @@ import {
  *              buttonType="button"
  *              [isDisabled]="false"
  *              tabIndex="2"
+ *              [icon]="myIconReference"
  *              (clicked)="myMethod($event)"
- * >delete_forever</ts-icon-button>
+ * ></ts-icon-button>
  *
  * <example-url>https://getterminus.github.io/ui-demos-release/components/icon-button</example-url>
  */
@@ -57,6 +60,12 @@ export class TsIconButtonComponent {
   public buttonType: TsButtonFunctionTypes = 'button';
 
   /**
+   * Define the icon
+   */
+  @Input()
+  public icon: IconProp | undefined;
+
+  /**
    * Define if the button is disabled
    */
   @Input()
@@ -67,6 +76,12 @@ export class TsIconButtonComponent {
    */
   @Input()
   public tabIndex = 0;
+
+  /**
+   * Define the theme
+   */
+  @Input()
+  public theme: TsStyleThemeTypes = 'primary';
 
   /**
    * Pass the click event through to the parent

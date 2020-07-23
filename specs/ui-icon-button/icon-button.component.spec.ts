@@ -6,7 +6,6 @@ import { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { createComponent } from '@terminus/ngx-tools/testing';
-
 import {
   TsIconButtonModule,
   TsIconButtonComponent,
@@ -44,6 +43,7 @@ describe(`TsIconButtonComponent`, function() {
   });
 
   test(`should contain icon`, () => {
-    expect(iconButton.children[0].textContent).toContain('delete_forever');
+    const externalLink = fixture.debugElement.query(By.css('.ts-icon'));
+    expect(externalLink).toBeTruthy();
   });
 });
