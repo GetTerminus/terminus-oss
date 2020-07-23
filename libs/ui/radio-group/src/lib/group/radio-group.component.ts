@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { MatRadioChange } from '@angular/material/radio';
 import { DomSanitizer } from '@angular/platform-browser';
+import { faCheck } from '@fortawesome/pro-regular-svg-icons/faCheck';
 
 import { isFunction } from '@terminus/ngx-tools/type-guards';
 import {
@@ -105,6 +106,11 @@ export class TsRadioGroupComponent extends TsReactiveFormBaseComponent implement
    * Define the default component ID
    */
   protected _uid = `ts-radio-group-${nextUniqueId++}`;
+
+  /**
+   * Define the 'checked' icon for visual mode
+   */
+  public iconCheck = faCheck;
 
   /**
    * Define the ripple color.
