@@ -14,6 +14,7 @@ import {
   ViewChildren,
   ViewEncapsulation,
 } from '@angular/core';
+import { faAngleDown } from '@fortawesome/pro-regular-svg-icons/faAngleDown';
 import { BehaviorSubject } from 'rxjs';
 
 import { groupBy } from '@terminus/ngx-tools/utilities';
@@ -168,6 +169,11 @@ export class TsNavigationComponent implements OnInit, AfterViewInit {
    * Define the list of hidden items
    */
   public hiddenItems: BehaviorSubject<TsNavigationItem[]> = new BehaviorSubject([] as TsNavigationItem[]);
+
+  /**
+   * Define the dropdown icon
+   */
+  public iconAngleDown = faAngleDown;
 
   /**
    * Getter to return the user's full name if it exists

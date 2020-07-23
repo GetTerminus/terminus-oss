@@ -1,5 +1,4 @@
 <nav class="c-navigation t-dark qa-navigation" fxLayout="row">
-
   <div
     class="c-navigation__items qa-navigation-items"
     #visibleItemsList
@@ -7,9 +6,7 @@
     fxLayout="row"
     fxLayoutAlign="end stretch"
   >
-
     <ng-container *ngFor="let item of visibleItems | async; trackBy: trackByFn">
-
       <a
         class="c-navigation__item qa-navigation-item"
         routerLink="{{ item.destination }}"
@@ -54,9 +51,7 @@
         </span>
       </a>
     </ng-container>
-
   </div>
-
 
   <button
     class="c-navigation__trigger qa-navigation-secondary-trigger"
@@ -69,32 +64,22 @@
     <span class="c-navigation__trigger-welcome" *ngIf="welcomeMessage.length>welcomeMsgLength">
       <ts-tooltip
         [tooltipValue]="welcomeMessage"
-      >
-        {{ welcomeMessage | tsTruncateAt:welcomeMsgLength }}
-      </ts-tooltip>
+      >{{ welcomeMessage | tsTruncateAt:welcomeMsgLength }}</ts-tooltip>
     </span>
     <span class="c-navigation__trigger-welcome" *ngIf="welcomeMessage.length<=welcomeMsgLength">
       {{ welcomeMessage }}
     </span>
     <br *ngIf="usersFullName">
     <span *ngIf="usersFullName && usersFullName.length > userNameLength">
-      <ts-tooltip
-        [tooltipValue]="usersFullName"
-      >
+      <ts-tooltip [tooltipValue]="usersFullName">
         {{ usersFullName | tsTruncateAt:userNameLength }}
       </ts-tooltip>
     </span>
     <span *ngIf="usersFullName && usersFullName.length <= userNameLength">
-        {{ usersFullName }}
+      {{ usersFullName }}
     </span>
-
-    <ts-icon class="c-navigation__trigger-icon">
-      keyboard_arrow_down
-    </ts-icon>
+    <ts-icon class="c-navigation__trigger-icon" [icon]="iconAngleDown"></ts-icon>
   </button>
-
-
-
 
   <mat-menu
     class="c-navigation__hidden-items qa-navigation-secondary-items"
@@ -102,7 +87,6 @@
     xPosition="before"
     [overlapTrigger]="false"
   >
-
     <ng-container *ngFor="let item of hiddenItems | async; trackBy: trackByFn">
       <a
         class="c-navigation__hidden-item qa-navigation-secondary-item"
@@ -111,9 +95,7 @@
         *ngIf="item.destination && !item.isExternal"
         mat-menu-item
         #hiddenLinkElement
-      >
-        {{ item.name }}
-      </a>
+      >{{ item.name }}</a>
 
       <a
         class="c-navigation__hidden-item qa-navigation-secondary-item"
@@ -122,9 +104,7 @@
         *ngIf="item.destination && item.isExternal"
         mat-menu-item
         #hiddenLinkElement
-      >
-        {{ item.name }}
-      </a>
+      >{{ item.name }}</a>
 
       <a
         class="c-navigation__hidden-item qa-navigation-secondary-item"
@@ -133,11 +113,7 @@
         mat-menu-item
         #hiddenLinkElement
         (click)="action.emit({event: $event, action: item.action})"
-      >
-        {{ item.name }}
-      </a>
+      >{{ item.name }}</a>
     </ng-container>
-
   </mat-menu>
-
 </nav>
