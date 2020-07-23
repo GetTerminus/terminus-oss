@@ -7,7 +7,6 @@
   fxLayout="row"
   fxLayoutAlign="start center"
 >
-
   <ts-input
     class="qa-search-input"
     [label]="inputLabel"
@@ -36,5 +35,4 @@
     [actionName]="buttonAction"
     (clicked)="searchForm.valid && !isSubmitting && submitted.emit({query: currentQuery})"
   >Search</ts-button>
-
 </form>
