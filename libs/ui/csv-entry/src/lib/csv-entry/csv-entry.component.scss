@@ -88,6 +88,7 @@
 
     &:focus {
       background-color: var(--csv-focus-backgroundColor);
+      outline: none;
     }
 
     // Class added to header cells

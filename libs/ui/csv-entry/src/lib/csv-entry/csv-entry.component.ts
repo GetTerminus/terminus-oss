@@ -18,6 +18,7 @@ import {
   FormGroup,
   ValidatorFn,
 } from '@angular/forms';
+import { faTrash } from '@fortawesome/pro-regular-svg-icons/faTrash';
 import { debounceTime } from 'rxjs/operators';
 
 import { TsDocumentService } from '@terminus/ngx-tools/browser';
@@ -135,6 +136,11 @@ export class TsCSVEntryComponent implements OnInit, OnDestroy {
    * Define the static height needed in the DOM for the external rows
    */
   public fakeRowHeight = '35px';
+
+  /**
+   * Define the delete icon
+   */
+  public iconDelete = faTrash;
 
   /**
    * Expose the flexbox layout gap
