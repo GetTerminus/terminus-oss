@@ -2,10 +2,12 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  HostBinding,
   Input,
   TemplateRef,
   ViewEncapsulation,
 } from '@angular/core';
+import { faLockAlt } from '@fortawesome/pro-regular-svg-icons/faLockAlt';
 
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
@@ -71,12 +73,13 @@ let nextUniqueId = 0;
   selector: 'ts-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
-  host: { class: 'ts-card' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   exportAs: 'tsCard',
 })
 export class TsCardComponent {
+  public lockIcon = faLockAlt;
+
   /**
    * Define the default component ID
    */
@@ -128,6 +131,23 @@ export class TsCardComponent {
    */
   @Input()
   public centeredContent = false;
+
+  /**
+   * Add a persistent top-level class
+   */
+  @HostBinding('class') public classList = 'ts-card';
+
+  /**
+   * Allow consumer to define class(es)
+   */
+  @Input()
+  public set class(value: string) {
+    this.classList += ` ${value}`;
+  }
+  public get class(): string {
+    return this._class;
+  }
+  private _class: string;
 
   /**
    * Define if the card should have the second level of shadow
