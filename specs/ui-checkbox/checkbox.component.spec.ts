@@ -13,8 +13,6 @@ import {
   ChangeDetectorRefMock,
   configureTestBedWithoutReset,
 } from '@terminus/ngx-tools/testing';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
-
 import {
   TsCheckboxModule,
   TsCheckboxComponent,
@@ -24,7 +22,6 @@ import {
   template: `
   <ts-checkbox
     [isChecked]="checked"
-    [theme]="myTheme"
     [isDisabled]="disabled"
     [isRequired]="required"
     [isIndeterminate]="indeterminate"
@@ -35,7 +32,6 @@ import {
 })
 class TestHostComponent {
   checked!: boolean;
-  myTheme: TsStyleThemeTypes | undefined;
   disabled!: boolean;
   required!: boolean;
   indeterminate!: boolean | undefined;
@@ -67,7 +63,6 @@ describe(`TsCheckboxComponent`, function() {
         hostComponent.disabled = false;
         hostComponent.required = false;
         hostComponent.indeterminate = undefined;
-        hostComponent.myTheme = undefined;
         fixture.detectChanges();
       }
 
