@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 
 import { TsButtonModule } from '@terminus/ui-button';
+import { TsIconModule } from '@terminus/ui-icon';
 import { TsMenuModule } from '@terminus/ui-menu';
 import { TsOptionModule } from '@terminus/ui-option';
 import { TsSelectionListModule } from '@terminus/ui-selection-list';
@@ -23,6 +24,7 @@ export * from './paginator/paginator.component';
     FlexLayoutModule,
     ReactiveFormsModule,
     TsButtonModule,
+    TsIconModule,
     TsMenuModule,
     TsOptionModule,
     TsSelectionListModule,

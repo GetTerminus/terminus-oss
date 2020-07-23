@@ -13,6 +13,10 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { faAngleDoubleLeft } from '@fortawesome/pro-regular-svg-icons/faAngleDoubleLeft';
+import { faAngleDoubleRight } from '@fortawesome/pro-regular-svg-icons/faAngleDoubleRight';
+import { faAngleLeft } from '@fortawesome/pro-regular-svg-icons/faAngleLeft';
+import { faAngleRight } from '@fortawesome/pro-regular-svg-icons/faAngleRight';
 
 import { coerceNumberProperty } from '@terminus/ngx-tools/coercion';
 import { inputHasChanged } from '@terminus/ngx-tools/utilities';
@@ -104,7 +108,7 @@ export class TsPaginatorComponent implements OnChanges, AfterViewInit {
   /**
    * Define the icon for the 'first page' button
    */
-  public firstPageIcon = 'first_page';
+  public firstPageIcon = faAngleDoubleLeft;
 
   /**
    * Set up a form control to pass to {@link TsSelectionListComponent}
@@ -114,17 +118,17 @@ export class TsPaginatorComponent implements OnChanges, AfterViewInit {
   /**
    * Define the icon for the 'previous page' button
    */
-  public previousPageIcon = 'keyboard_arrow_left';
+  public previousPageIcon = faAngleLeft;
 
   /**
    * Define the icon for the 'next page' button
    */
-  public nextPageIcon = 'keyboard_arrow_right';
+  public nextPageIcon = faAngleRight;
 
   /**
    * Define the icon for the 'last page' button
    */
-  public lastPageIcon = 'last_page';
+  public lastPageIcon = faAngleDoubleRight;
 
   /**
    * Store the array of objects that represent pages of collections
