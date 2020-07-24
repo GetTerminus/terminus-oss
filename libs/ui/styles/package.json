@@ -27,5 +27,11 @@
   "peerDependencies": {
     "@angular/material": "^9.1.0",
     "@terminus/design-tokens": "^1.0.10"
-  }
+  },
+  "scripts": {
+    "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:collection": "cp schematics/collection.json ../../../dist/libs/ui/styles/schematics/collection.json",
+    "postbuild": "npm run copy:collection"
+  },
+  "schematics": "./schematics/collection.json"
 }
