@@ -41,18 +41,6 @@ jobs:
         uses: atlwendy/retrieve-commit-messages-from-pr@v2
       - name: Set SHOULD_RUN flag
         run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
-      - name: "Test new SKIP ENV method"
-        run: |
-          if [[ "${{github.event.head_commit.message}}" =~ (skip\ ci|ci\ skip) ]]; then
-            echo "$('false' > SHOULD_RUN)"
-          else
-            echo "$('true' > SHOULD_RUN)"
-          fi
-      - name: "Test RESULT"
-        run: |
-          echo $(cat SHOULD_RUN)
-          FOO=$(cat SHOULD_RUN) == "true"
-          echo "$FOO"
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
