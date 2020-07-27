@@ -5,7 +5,12 @@ import {
   FormGroup,
 } from '@angular/forms';
 
-import { TsButtonFormatTypes } from '@terminus/ui-button';
+import {
+  TsButtonFormatTypes,
+  tsButtonFormatTypesArray,
+  tsButtonThemes,
+  TsButtonThemeTypes,
+} from '@terminus/ui-button';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 
@@ -15,10 +20,10 @@ import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 })
 export class MenuComponent {
   disabled = false;
-  myTheme: TsStyleThemeTypes = 'accent';
+  myTheme: TsButtonThemeTypes = 'secondary';
   myFormat: TsButtonFormatTypes = 'filled';
-  themes: TsStyleThemeTypes[] = ['primary', 'accent', 'warn'];
-  formats: TsButtonFormatTypes[] = ['filled', 'hollow', 'collapsable'];
+  themes: ReadonlyArray<TsButtonThemeTypes> = tsButtonThemes.slice();
+  formats: ReadonlyArray<TsButtonFormatTypes> = tsButtonFormatTypesArray.slice();
   columns: string[] = [
     'Title',
     'Account',
@@ -31,10 +36,7 @@ export class MenuComponent {
     return this.myForm.get('showColumns') as FormArray;
   }
 
-  constructor(
-    private formBuilder: FormBuilder,
-  ) {}
-
+  constructor(private formBuilder: FormBuilder) {}
 
   customItemSelected(item: string): void {
     console.log('DEMO: Item selected: ', item);

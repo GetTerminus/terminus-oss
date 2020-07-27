@@ -14,7 +14,10 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faAngleDown } from '@fortawesome/pro-regular-svg-icons/faAngleDown';
 import { faEllipsisV } from '@fortawesome/pro-regular-svg-icons/faEllipsisV';
 
-import { TsButtonFormatTypes } from '@terminus/ui-button';
+import {
+  TsButtonFormatTypes,
+  TsButtonThemeTypes,
+} from '@terminus/ui-button';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 
@@ -51,12 +54,11 @@ export type TsMenuTriggerTypes
  * @example
  * <ts-menu
  *              [defaultOpened]="false"
- *              format="filled"
  *              [isDisabled]="false"
  *              [menuItemsTemplate]="myTemplate"
  *              menuPositionX="20px"
  *              menuPositionY="20px"
- *              theme="accent"
+ *              theme="secondary"
  *              triggerType="utility"
  * >Select Item</ts-menu>
  *
@@ -115,12 +117,6 @@ export class TsMenuComponent implements AfterViewInit, OnInit {
   public defaultOpened = false;
 
   /**
-   * Define the button format
-   */
-  @Input()
-  public format: TsButtonFormatTypes = 'filled';
-
-  /**
    * Define if the menu should be disabled
    */
   @Input()
@@ -148,7 +144,7 @@ export class TsMenuComponent implements AfterViewInit, OnInit {
    * Define the menu theme
    */
   @Input()
-  public theme: TsStyleThemeTypes = 'primary';
+  public theme: TsButtonThemeTypes = 'default';
 
   /**
    * Define the type of trigger {@link TsMenuTriggerTypes}
