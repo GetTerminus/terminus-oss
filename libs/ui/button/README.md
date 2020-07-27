@@ -60,22 +60,8 @@ Load the needed font families by adding this link to the `<head>` of your applic
 ## Usage
 
 ```html
-<ts-button
-  [buttonType]="buttonType"
-  [collapsed]="collapsed"
-  [format]="format"
-  [isDisabled]="isDisabled"
-  [id]="id"
-  [showProgress]="showProgress"
-  [tabIndex]="tabIndex"
-  [theme]="theme"
->Button content</ts-button>
+<ts-button (clicked)="myFunc($event)">Click me!</ts-button>
 ```
-
-- Use the `theme` parameter to change the color. Support three different themes: `primary`, `accent` and `warn`.
-- There are three different `buttonType`: `button`, `search` and `submit`.
-- Use `format` to set the style as `filled` or `hollow`.
-- `isDisabled` and `showProgress` are boolean inputs.
 
 
 <!-- Links -->

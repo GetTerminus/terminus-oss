@@ -1,126 +1,178 @@
-@import '~@terminus/ui-styles/helpers';
+:root {
+  // Theme styles
+  // DEFAULT
+  --tsb-theme-default-backgroundColor: var(--ts-color-primary-500);
+  --tsb-theme-default-backgroundColor-hover: var(--ts-color-primary-700);
+  --tsb-theme-default-backgroundColor-active: var(--ts-color-primary-900);
+  --tsb-theme-default-backgroundColor-focus: var(--ts-color-primary-500);
+  --tsb-theme-default-backgroundColor-disabled: var(--ts-color-utility-300);
+  --tsb-theme-default-borderColor: var(--ts-color-primary-500);
+  --tsb-theme-default-borderColor-hover: var(--ts-color-primary-700);
+  --tsb-theme-default-borderColor-active: var(--ts-color-primary-900);
+  --tsb-theme-default-borderColor-focus: var(--ts-color-primary-500);
+  --tsb-theme-default-color: var(--ts-color-light);
+  --tsb-theme-default-color-active: var(--ts-color-light);
+  --tsb-theme-default-color-focus: var(--ts-color-light);
+  --tsb-theme-default-boxShadow-color-focus: var(--ts-color-primary-300);
+  // SECONDARY
+  --tsb-theme-secondary-backgroundColor: var(--ts-color-light);
+  --tsb-theme-secondary-backgroundColor-hover: var(--ts-color-primary-100);
+  --tsb-theme-secondary-backgroundColor-active: var(--ts-color-primary-300);
+  --tsb-theme-secondary-backgroundColor-focus: var(--ts-color-light);
+  --tsb-theme-secondary-backgroundColor-disabled: var(--ts-color-light);
+  --tsb-theme-secondary-borderColor: var(--ts-color-utility-300);
+  --tsb-theme-secondary-borderColor-hover: var(--ts-color-utility-500);
+  --tsb-theme-secondary-borderColor-active: var(--ts-color-utility-600);
+  --tsb-theme-secondary-borderColor-focus: var(--ts-color-light);
+  --tsb-theme-secondary-color: var(--ts-color-primary-500);
+  --tsb-theme-secondary-color-active: var(--ts-color-primary-500);
+  --tsb-theme-secondary-color-focus: var(--ts-color-primary-500);
+  --tsb-theme-secondary-boxShadow-color-focus: var(--ts-color-primary-300);
+  // WARNING
+  --tsb-theme-warning-backgroundColor: var(--ts-color-light);
+  --tsb-theme-warning-backgroundColor-hover: var(--ts-color-warn-100);
+  --tsb-theme-warning-backgroundColor-active: var(--ts-color-warn-300);
+  --tsb-theme-warning-backgroundColor-focus: var(--ts-color-light);
+  --tsb-theme-warning-backgroundColor-disabled: var(--ts-color-light);
+  --tsb-theme-warning-borderColor: var(--ts-color-utility-300);
+  --tsb-theme-warning-borderColor-hover: var(--ts-color-utility-500);
+  --tsb-theme-warning-borderColor-active: var(--ts-color-utility-600);
+  --tsb-theme-warning-borderColor-focus: var(--ts-color-warn-100);
+  --tsb-theme-warning-color: var(--ts-color-warn-500);
+  --tsb-theme-warning-color-active: var(--ts-color-warn-500);
+  --tsb-theme-warning-color-focus: var(--ts-color-warn-500);
+  --tsb-theme-warning-boxShadow-color-focus: var(--ts-color-warn-300);
 
+  // Variables to overwrite with theme values
+  --ts-button-color: var(--ts-color-light);
+  --ts-button-backgroundColor: var(--ts-color-primary-500);
+  --ts-button-borderColor: var(--ts-color-primary-500);
+  --ts-button-boxShadow-color: var(--ts-color-primary-300);
 
-ts-button {
-  // NOTE: This makes the bottom padding space look better than the default 36px
-  --button-lineHeight: 35px;
-  --button-rotation: 360deg;
-  --button-icon-negative-padding-adjustment: -4px;
-  --button-collapsible-first-icon-adjustment: -.15em;
+  --ts-button-lineHeight: 35px;
+  --ts-button-rotation: 360deg;
+  --ts-button-icon-negative-padding-adjustment: -4px;
+  --ts-button-collapsible-first-icon-adjustment: -.15em;
+  // NOTE: This is to better align with inputs that have extra space above and below
+  --ts-button-margin: 4px 0;
+  --ts-button-padding: 0 var(--ts-space-inline-400);
+  --ts-button-padding-collapsed: 0 6px;
+  --ts-button-borderRadius: var(--ts-border-radius-base);
+  --ts-button-borderRadius-collapsible: 2em;
+  --ts-button-padding-right-progress: 36px;
+  --ts-button-icon-vertical-adjustment: -.15em;
+  --ts-button-icon-horizontal-adjustment: .2em;
 
   // NOTE: All transition durations are based off of the content transition.
-  --button-content-transitionDuration: var(--ts-animation-time-duration-500);
-  --button-icon-transitionDuration-collapse: calc(var(--button-content-transitionDuration) - 100ms);
-  --button-icon-transitionDuration-expand: calc(var(--button-icon-transitionDuration-collapse) - 100ms);
-  --button-label-transitionDuration: calc(var(--button-icon-transitionDuration-expand) - 100ms);
-  --button-color-transitionDuration: calc(var(--button-label-transitionDuration) - 100ms);
-
-  --button-color-transition: color var(--button-color-transitionDuration) var(--ts-animation-easing-ease);
-  --button-background-transition: background var(--button-icon-transitionDuration-collapse) var(--ts-animation-easing-ease);
-  --button-shadow-transition: box-shadow var(--button-icon-transitionDuration-expand) var(--ts-animation-easing-ease);
-  --button-maxWidth-transition: max-width var(--button-content-transitionDuration) var(--ts-animation-easing-ease);
-  --button-icon-transition: transform var(--button-icon-transitionDuration-expand) var(--ts-animation-easing-ease);
-  --button-spinner-transition: opacity var(--button-label-transitionDuration) var(--ts-animation-easing-ease);
-
-  // NOTE: This is to better align with inputs that have extra space above and below
-  --button-margin: 4px 0;
-  --button-padding: 0 var(--ts-space-inline-400);
-  --button-padding-collapsed: 0 6px;
-  --button-border: 1px solid transparent;
-  --button-border-radius: var(--ts-border-radius-base);
-  --button-border-radius-collapsible: 2em;
-
-  --button-backgroundColor-disabled: var(--ts-color-utility-300);
-  --button-backgroundColor-primary: var(--ts-color-primary-500);
-  --button-backgroundColor-accent: var(--ts-color-accent-500);
-  --button-backgroundColor-warn: var(--ts-color-warn-500);
-  --button-color-disabled: var(--ts-color-utility-500);
-  --button-color: var(--ts-color-light);
-  --button-padding-right-progress: 36px;
-  --button-icon-vertical-adjustment: -.15em;
-  --button-icon-horizontal-adjustment: .2em;
+  --ts-button-content-transitionDuration: var(--ts-animation-time-duration-500);
+  --ts-button-icon-transitionDuration-collapse: calc(var(--ts-button-content-transitionDuration) - 100ms);
+  --ts-button-icon-transitionDuration-expand: calc(var(--ts-button-icon-transitionDuration-collapse) - 100ms);
+  --ts-button-label-transitionDuration: calc(var(--ts-button-icon-transitionDuration-expand) - 100ms);
+  --ts-button-maxWidth-transition: max-width var(--ts-button-content-transitionDuration) var(--ts-animation-easing-ease);
+  --ts-button-icon-transition: transform var(--ts-button-icon-transitionDuration-expand) var(--ts-animation-easing-ease);
+  --ts-button-spinner-transition: opacity var(--ts-button-label-transitionDuration) var(--ts-animation-easing-ease);
 }
 
-// Styles applied when the button is collapsed
-@mixin collapsed {
-  padding: var(--button-padding-collapsed);
-
-  .ts-icon {
-    margin-right: 0;
-  }
-
-  .c-icon {
-    position: relative;
-    transform: rotate(var(--button-rotation));
-    transition-duration: var(--button-icon-transitionDuration-collapse);
-  }
-
-  // collapse the text content
-  .c-button__content {
-    max-width: 0;
-    padding: 0;
-  }
-}
-
-
-//
-// @component
-//  Button
-// @description
-//  A button component
-//
 .ts-button {
-  @include reset;
   display: inline-block;
-  margin: var(--button-margin);
+  margin: var(--ts-button-margin);
 
   // Top level styles should be nested here
   .c-button {
-    @include typography;
-    border: var(--button-border);
-    border-radius: var(--button-border-radius);
-    color: var(--button-color);
-    line-height: var(--button-lineHeight);
-    // Overwrite material min-width
-    min-width: auto;
-    padding: var(--button-padding);
-    transition: var(--button-color-transition), var(--button-background-transition), var(--button-shadow-transition);
-  }
+    background-color: var(--ts-button-backgroundColor);
+    border: 1px solid var(--ts-button-borderColor);
+    border-radius: var(--ts-button-borderRadius);
+    color: var(--ts-button-color);
+    cursor: pointer;
+    font: var(--ts-typography-compound-body);
+    line-height: var(--ts-button-lineHeight);
+    padding: var(--ts-button-padding);
+    position: relative;
+    transition-duration: var(--ts-button-icon-transitionDuration-collapse);
+    transition-property: color, box-shadow, border-color, background-color;
+    transition-timing-function: var(--ts-animation-easing-ease);
 
-  // TODO: Sass array of possible themes should be available to all components from a global location
-  // Define all possible themes
-  $themes: primary accent warn;
-  // Loop through using each theme name to create styles
-  @each $theme in $themes {
-    // Theme class sets the colors for standard buttons
-    .c-button--#{$theme} {
-      &:not(.c-button--hollow) {
-        background-color: var(--button-backgroundColor-#{$theme});
-      }
+    &[disabled] {
+      --ts-button-borderColor: var(--ts-color-utility-300);
+      --ts-button-color: var(--ts-color-utility-600);
+      cursor: not-allowed;
+    }
 
-      &[disabled] {
-        background-color: var(--button-backgroundColor-disabled);
-        color: var(--button-color-disabled);
-      }
+    &:focus {
+      box-shadow: 0 0 2px 2px var(--ts-button-boxShadow-color);
+      outline: none;
+    }
 
-      // Hollow button
-      &.c-button--hollow {
-        border-color: var(--ts-color-#{$theme}-500);
-        box-shadow: none;
-        color: var(--ts-color-#{$theme}-500);
-
-        &:focus,
-        &:hover {
-          background-color: var(--button-backgroundColor-#{$theme});
-          color: var(--button-color);
-        }
+    $themes: default secondary warning;
+    @each $theme in $themes {
+      &--#{$theme} {
+        --ts-button-boxShadow-color: var(--tsb-theme-#{$theme}-boxShadow-color-focus);
+        --ts-button-color: var(--tsb-theme-#{$theme}-color);
+        --ts-button-backgroundColor: var(--tsb-theme-#{$theme}-backgroundColor);
+        --ts-button-borderColor: var(--tsb-theme-#{$theme}-borderColor);
 
         &[disabled] {
-          background-color: transparent;
-          border-color: var(--ts-color-utility-500);
-          color: var(--ts-color-utility-500);
+          --ts-button-backgroundColor: var(--tsb-theme-#{$theme}-backgroundColor-disabled);
+        }
+
+        &:not([disabled]) {
+          &:hover {
+            --ts-button-backgroundColor: var(--tsb-theme-#{$theme}-backgroundColor-hover);
+            --ts-button-borderColor: var(--tsb-theme-#{$theme}-borderColor-hover);
+          }
+
+          &:focus {
+            --ts-button-boxShadow-color: var(--tsb-theme-#{$theme}-boxShadow-color-focus);
+            --ts-button-borderColor: var(--tsb-theme-#{$theme}-borderColor-focus);
+
+            &:hover {
+              --ts-button-borderColor: var(--tsb-theme-#{$theme}-backgroundColor-hover);
+            }
+          }
+
+          &:active {
+            --ts-button-backgroundColor: var(--tsb-theme-#{$theme}-backgroundColor-active);
+            --ts-button-borderColor: var(--tsb-theme-#{$theme}-borderColor-active);
+          }
         }
       }
+    }
+
+    // Target the prefix icon
+    &__icon {
+      margin-right: var(--ts-button-icon-horizontal-adjustment);
+    }
+
+    // Target any icon inside a button
+    // Adjust icon vertical layout
+    .c-icon {
+      // Fix small vertical alignment issue between icon & text
+      margin-top: var(--ts-button-icon-vertical-adjustment);
+      transition: var(--ts-button-icon-transition);
+      vertical-align: middle;
+      will-change: transform;
+    }
+
+    // Overwrite the Material spinner to fit our layout
+    .c-button__spinner {
+      display: inline-block;
+      opacity: 0;
+      position: absolute;
+      right: 12px;
+      top: 6px;
+      transition: var(--ts-button-spinner-transition);
+
+      &--active {
+        opacity: 1;
+      }
+
+      circle {
+        stroke: var(--ts-color-utility-500);
+      }
+    }
+
+    &--progress {
+      padding-right: 42px;
     }
   }
 
@@ -133,59 +185,29 @@ ts-button {
 }
 
 
-.c-button {
+// Styles applied when the button is collapsed
+@mixin collapsed {
+  padding: var(--ts-button-padding-collapsed);
 
-  &[disabled] {
-    cursor: not-allowed;
+  .ts-icon {
+    margin-right: 0;
   }
 
-  .mat-button-wrapper {
-    // Set up for spinner
-    position: relative;
-    transition: padding 200ms ease-out;
-    will-change: padding, margin;
-  }
-
-  // Class added when progress indicator is shown
-  &.c-button--progress {
-    .mat-button-wrapper {
-      padding-right: var(--button-padding-right-progress);
-    }
-  }
-
-  // Target the prefix icon
-  &__icon {
-    margin-right: var(--button-icon-horizontal-adjustment);
-  }
-
-  // Target any icon inside a button
-  // Adjust icon vertical layout
   .c-icon {
-    // Fix small vertical alignment issue between icon & text
-    margin-top: var(--button-icon-vertical-adjustment);
-    transition: var(--button-icon-transition);
-    vertical-align: middle;
-    will-change: transform;
+    position: relative;
+    transform: rotate(var(--ts-button-rotation));
+    transition-duration: var(--ts-button-icon-transitionDuration-collapse);
   }
 
-  // Overwrite the Material spinner to fit our layout
-  .c-button__spinner {
-    display: inline-block;
-    opacity: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: var(--button-spinner-transition);
-
-    &--active {
-      opacity: 1;
-    }
-
-    circle {
-      stroke: var(--ts-color-utility-500);
-    }
+  // collapse the text content
+  .c-button__content {
+    max-width: 0;
+    padding: 0;
   }
+}
 
+// COLLAPSIBLE
+.c-button {
   // Collapsed and not focused or hovered
   &.c-button--collapsed {
     &:not(:hover) {
@@ -197,7 +219,7 @@ ts-button {
 
   &.c-button--collapsable,
   &.c-button--collapsible {
-    border-radius: var(--button-border-radius-collapsible);
+    border-radius: var(--ts-button-borderRadius-collapsible);
 
     // When collapsible AND disabled
     &[disabled] {
@@ -212,7 +234,7 @@ ts-button {
     &:hover,
     &:focus {
       .c-icon {
-        margin-left: var(--button-collapsible-first-icon-adjustment);
+        margin-left: var(--ts-button-collapsible-first-icon-adjustment);
       }
     }
 
@@ -225,17 +247,18 @@ ts-button {
       display: inline-block;
       max-width: 400px;
       overflow: hidden;
-      transition: var(--button-maxWidth-transition);
+      transition: var(--ts-button-maxWidth-transition);
+      vertical-align: bottom;
       white-space: nowrap;
 
       .ts-icon {
-        margin-left: var(--button-icon-negative-padding-adjustment);
-        margin-right: var(--button-icon-negative-padding-adjustment);
+        margin-left: var(--ts-button-icon-negative-padding-adjustment);
+        margin-right: var(--ts-button-icon-negative-padding-adjustment);
       }
     }
 
     .mat-ripple {
-      border-radius: var(--button-border-radius-collapsible);
+      border-radius: var(--ts-button-borderRadius-collapsible);
     }
   }
 }
@@ -247,24 +270,47 @@ ts-button {
   .ts-button {
     button {
       &.c-button {
-        --menu-item-color: var(--ts-color-base-black);
-        --menu-item-backgroundColor: transparent;
-        background-color: var(--menu-item-backgroundColor);
+        background-color: var(--ts-color-light);
+        border-color: transparent;
         border-radius: 0;
-        box-shadow: none;
-        color: var(--menu-item-color);
         text-align: left;
-        transition-duration: var(--ts-animation-time-duration-400);
-        transition-property: background-color, color;
-        transition-timing-function: var(--ts-animation-easing-ease);
         width: 100%;
 
         &:focus,
         &:active,
         &:hover {
-          --menu-item-backgroundColor: var(--ts-color-utility-100);
-          --menu-item-color: var(--ts-color-primary-500);
-          box-shadow: none;
+          background-color: var(--ts-color-light);
+          border-color: transparent;
+        }
+
+        &--default {
+          --ts-button-color: var(--ts-color-primary-500);
+
+          &:focus,
+          &:active,
+          &:hover {
+            --ts-button-color: var(--ts-color-primary-700);
+          }
+        }
+
+        &--secondary {
+          --ts-button-color: var(--ts-color-accent-500);
+
+          &:focus,
+          &:active,
+          &:hover {
+            --ts-button-color: var(--ts-color-accent-700);
+          }
+        }
+
+        &--warning {
+          --ts-button-color: var(--ts-color-warn-500);
+
+          &:focus,
+          &:active,
+          &:hover {
+            --ts-button-color: var(--ts-color-warn-700);
+          }
         }
       }
     }

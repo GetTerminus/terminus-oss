@@ -9,17 +9,12 @@ import {
   OnDestroy,
   OnInit,
   Output,
-  Renderer2,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 import { TsWindowService } from '@terminus/ngx-tools/browser';
-import {
-  TsStyleThemeTypes,
-  tsStyleThemeTypesArray,
-} from '@terminus/ui-utilities';
 
 
 // Unique ID for each instance
@@ -49,20 +44,33 @@ export type TsButtonFunctionTypes
  */
 export type TsButtonFormatTypes
   = 'filled'
-  | 'hollow'
-  | 'collapsable'
   | 'collapsible'
 ;
 
 /**
  * @internal
  */
-export const tsButtonFormatTypesArray = [
+export const tsButtonFormatTypesArray: ReadonlyArray<TsButtonFormatTypes> = [
   'filled',
-  'hollow',
-  // @deprecated Use 'collapsible' instead.
-  'collapsable',
   'collapsible',
+];
+
+/**
+ * Supported themes for buttons
+ */
+export type TsButtonThemeTypes
+  = 'default'
+  | 'secondary'
+  | 'warning'
+;
+
+/**
+ * The list of supported theme names
+ */
+export const tsButtonThemes: ReadonlyArray<TsButtonThemeTypes> = [
+  'default',
+  'secondary',
+  'warning',
 ];
 
 const DEFAULT_COLLAPSE_DELAY_MS = 4000;
@@ -74,15 +82,15 @@ const DEFAULT_COLLAPSE_DELAY_MS = 4000;
  * @example
  * <ts-button
  *              actionName="Submit"
- *              theme="primary"
- *              format="filled"
  *              buttonType="search"
+ *              [collapsed]="false"
+ *              collapseDelay="500"
+ *              format="filled"
  *              [icon]="myIconReference"
  *              [isDisabled]="false"
  *              [showProgress]="true"
- *              [collapsed]="false"
- *              collapseDelay="500"
  *              tabIndex="2"
+ *              theme="warning"
  *              (clicked)="myMethod($event)"
  * >Click Me!</ts-button>
  *
@@ -182,25 +190,9 @@ export class TsButtonComponent implements OnInit, OnDestroy {
    */
   @Input()
   public set format(value: TsButtonFormatTypes) {
-    if (!value) {
-      return;
-    }
+    this._format = value ? value : 'filled';
 
-    // Verify the value is allowed
-    if (tsButtonFormatTypesArray.indexOf(value) < 0 && isDevMode()) {
-      // eslint-disable-next-line no-console
-      console.warn(`TsButtonComponent: "${value}" is not an allowed format. See TsButtonFormatTypes for available options.`);
-      return;
-    }
-
-    if (value === 'collapsable' && isDevMode()) {
-      // eslint-disable-next-line no-console
-      console.warn(`TsButtonComponent: "collapsable" has been deprecated. Please use "collapsible" instead.`);
-    }
-
-    this._format = value;
-
-    if (this._format === 'collapsable' || this._format === 'collapsible') {
+    if (this._format === 'collapsible') {
       if (!this.collapseDelay) {
         this.collapseDelay = DEFAULT_COLLAPSE_DELAY_MS;
       }
@@ -208,13 +200,11 @@ export class TsButtonComponent implements OnInit, OnDestroy {
       // If the format is NOT collapsible, remove the delay
       this.collapseDelay = undefined;
     }
-
-    this.updateClasses(value);
   }
   public get format(): TsButtonFormatTypes {
     return this._format;
   }
-  private _format!: TsButtonFormatTypes;
+  private _format: TsButtonFormatTypes = 'filled';
 
   /**
    * Define an icon to include
@@ -257,28 +247,16 @@ export class TsButtonComponent implements OnInit, OnDestroy {
   /**
    * Define the theme
    *
-   * @param value
+   * @param value - The theme name
    */
   @Input()
-  public set theme(value: TsStyleThemeTypes) {
-    if (!value) {
-      return;
-    }
-
-    // Verify the value is allowed
-    if (tsStyleThemeTypesArray.indexOf(value) < 0 && isDevMode()) {
-      // eslint-disable-next-line no-console
-      console.warn(`TsButtonComponent: "${value}" is not an allowed theme. See TsStyleThemeTypes for available options.`);
-      return;
-    }
-
-    this._theme = value;
-    this.updateClasses(value);
+  public set theme(value: TsButtonThemeTypes) {
+    this._theme = value ? value : 'default';
   }
-  public get theme(): TsStyleThemeTypes {
+  public get theme(): TsButtonThemeTypes {
     return this._theme;
   }
-  private _theme!: TsStyleThemeTypes;
+  private _theme: TsButtonThemeTypes = 'default';
 
   /**
    * Pass the click event through to the parent
@@ -286,13 +264,10 @@ export class TsButtonComponent implements OnInit, OnDestroy {
   @Output()
   public readonly clicked = new EventEmitter<MouseEvent>();
 
-
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
     private windowService: TsWindowService,
-    private renderer: Renderer2,
   ) {}
-
 
   /**
    * Collapse after delay (if set)
@@ -302,25 +277,8 @@ export class TsButtonComponent implements OnInit, OnDestroy {
       this.collapseTimeoutId = this.collapseWithDelay(this.collapseDelay);
     }
 
-    // NOTE: Update classes in ngOnInit because this.button is only available here
-    // It there is a theme then update classes
-    // Otherwise set a default theme
-    if (this.theme) {
-      this.updateClasses(this.theme);
-    } else {
-      this.theme = 'primary';
-    }
-
-    // It there is a format then update classes
-    // Otherwise set a filled format
-    if (this.format) {
-      this.updateClasses(this.format);
-    } else {
-      this.format = 'filled';
-    }
-
     // If the format is `collapsible`, verify an `icon` is set
-    if ((this.format === 'collapsable' || this.format === 'collapsible') && !this.icon && isDevMode()) {
+    if (this.format === 'collapsible' && !this.icon && isDevMode()) {
       throw new Error('`icon` must be defined for collapsible buttons.');
     }
   }
@@ -366,42 +324,4 @@ export class TsButtonComponent implements OnInit, OnDestroy {
       this.changeDetectorRef.detectChanges();
     }, delay);
   }
-
-  /**
-   * Update button classes (theme|format)
-   *
-   * @param classname - The classname to add to the button
-   */
-  private updateClasses(classname: string): void {
-    const themeOptions = ['primary', 'accent', 'warn'];
-    const formatOptions = ['filled', 'hollow', 'collapsable', 'collapsible'];
-    const isTheme = themeOptions.indexOf(classname) >= 0;
-    const isFormat = formatOptions.indexOf(classname) >= 0;
-    // NOTE: Underscore dangle name controlled by Material
-    // NOTE: This 'any' is needed since the `mat-raised-button` directive overwrites elementRef
-    // NOTE: Need to check if button is already available (could be undefined during initialization)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any, no-underscore-dangle
-    const buttonEl = this.button ? (this.button as any)._elementRef.nativeElement : null;
-    const themeClasses = themeOptions.map(theme => `c-button--${theme}`);
-    const formatClasses = formatOptions.map(format => `c-button--${format}`);
-
-    // If dealing with a theme class. Update only in case if button is available
-    // istanbul ignore else
-    if (isTheme && buttonEl) {
-      for (const themeClass of themeClasses) {
-        this.renderer.removeClass(buttonEl, themeClass);
-      }
-      this.renderer.addClass(buttonEl, `c-button--${classname}`);
-    }
-
-    // Update only in case if button is available
-    // istanbul ignore else
-    if (isFormat && buttonEl) {
-      for (const formatClass of formatClasses) {
-        this.renderer.removeClass(buttonEl, formatClass);
-      }
-      this.renderer.addClass(buttonEl, `c-button--${classname}`);
-    }
-  }
-
 }
