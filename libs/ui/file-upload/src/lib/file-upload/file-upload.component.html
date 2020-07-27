@@ -1,5 +1,5 @@
 <div
-  class="c-file-upload qa-file-upload"
+  class="c-file-upload"
   [class.c-file-upload--disabled]="isDisabled"
   [class.c-file-upload--drag]="dragInProgress"
   [class.c-file-upload--file]="file"
@@ -14,7 +14,7 @@
     [fxLayoutGap]="layoutGap"
   >
     <div
-      class="c-file-upload__empty qa-file-upload-empty"
+      class="c-file-upload__empty"
       fxLayout="row"
       fxLayoutAlign="start center"
       fxFlex="grow"
@@ -34,14 +34,13 @@
       fxLayout="column"
       fxLayoutAlign="center start"
     >
-
       <div
         fxFill
         fxLayout="row"
         fxLayoutAlign="start center"
       >
         <div
-          class="c-file-upload__preview qa-file-upload-preview"
+          class="c-file-upload__preview"
           [hidden]="!file"
           fxFlex="noshrink"
         >
@@ -55,7 +54,7 @@
         </div>
 
         <div
-          class="c-file-upload__filename qa-file-upload-name"
+          class="c-file-upload__filename"
           fxFlex="grow"
           fxLayout="row"
           fxLayoutAlign="start center"
@@ -68,7 +67,7 @@
 
         <ts-tooltip tooltipValue="Remove file">
           <ts-icon-button
-            class="c-file-upload__remove qa-file-upload-remove"
+            class="c-file-upload__remove"
             theme="warn"
             actionName="Reset"
             [icon]="iconRemove"
@@ -79,7 +78,7 @@
     </div>
 
     <ts-button
-      class="c-file-upload__prompt qa-file-upload-prompt"
+      class="c-file-upload__prompt"
       [class.c-file-upload__prompt--hidden]="hideButton"
       [theme]="theme"
       [isDisabled]="dragInProgress || isDisabled"
@@ -89,10 +88,9 @@
 
   <mat-progress-bar
     *ngIf="file && progress > 0"
-    class="c-file-upload__progress qa-file-upload-progress"
+    class="c-file-upload__progress"
     mode="determinate"
     [value]="progress"
-    [color]="theme"
   ></mat-progress-bar>
 </div>
 
@@ -102,13 +100,11 @@
 >
   <ts-validation-messages
     fxFlex="noshrink"
-    class="qa-file-upload-validation-messages"
     *ngIf="formControl && formControl.errors"
     [control]="formControl"
   ></ts-validation-messages>
 
-
-  <div fxFlex="grow" class="c-file-upload__hints qa-file-upload-hints">
+  <div fxFlex="grow" class="c-file-upload__hints">
     <div
       class="c-file-upload__hint"
       *ngFor="let hint of hints; trackBy: trackByFn"

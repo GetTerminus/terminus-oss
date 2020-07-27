@@ -146,6 +146,7 @@
     // Disable pointer-events to avoid odd bug when hovering the edge of a TsButton while dragging a file.
     // Since the entire component is clickable the button is really only there for a user-target.
     pointer-events: none;
+    white-space: nowrap;
 
     &--hidden {
       position: absolute;
