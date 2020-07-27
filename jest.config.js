@@ -4,6 +4,7 @@ module.exports = {
   collectCoverageFrom: [
     `**/*.{ts,js}`,
     `libs/**/*.ts`,
+    `!**/*.stories.ts`,
     `!**/*.module.ts`,
     `!**/testing/**`,
     `!**/index.ts`,
