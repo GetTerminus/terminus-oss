@@ -40,7 +40,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      - run: git fetch --tags --prune --depth=50 origin release
+      - run: git fetch --tags --prune --depth=100 origin release
       - name: "Set SHOULD_RUN flag"
         run: tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
       - name: "Set up Node"
@@ -97,7 +97,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      - run: git fetch --tags --prune --depth=50 origin release
+      - run: git fetch --tags --prune --depth=100 origin release
       - name: "Set SHOULD_RUN flag"
         run: tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
       - name: "Set up Node"
@@ -144,7 +144,7 @@ jobs:
         with:
           fetch-depth: 0
           path: ./t-oss
-      - run: git fetch --tags --prune --depth=50 origin release
+      - run: git fetch --tags --prune --depth=100 origin release
         working-directory: ${{ env.working-directory }}
       - name: "Set SHOULD_RUN flag"
         run: tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
@@ -279,7 +279,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      - run: git fetch --tags --prune --depth=50 origin release
+      - run: git fetch --tags --prune --depth=100 origin release
       - name: "Set SHOULD_RUN flag"
         run: tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
       - name: Set up Node
