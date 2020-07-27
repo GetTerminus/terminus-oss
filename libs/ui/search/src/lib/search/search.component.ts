@@ -19,6 +19,7 @@ import { debounce } from '@terminus/ngx-tools/utilities';
 import {
   TsButtonActionTypes,
   TsButtonFunctionTypes,
+  TsButtonThemeTypes,
 } from '@terminus/ui-button';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
@@ -50,6 +51,7 @@ const INPUT_MINIMUM_LENGTH = 2;
  *              [isFocused]="false"
  *              [isSubmitting]="false"
  *              theme="primary"
+ *              buttonTheme="default"
  *              [userCanClear]="true"
  *              (changed)="doSomething($event)"
  *              (cleared)="doSomething()"
@@ -179,10 +181,16 @@ export class TsSearchComponent implements OnInit {
   public noValidationOrHint = false;
 
   /**
-   * Define the theme
+   * Define the input theme
    */
   @Input()
   public theme: TsStyleThemeTypes = 'primary';
+
+  /**
+   * Define the button theme
+   */
+  @Input()
+  public buttonTheme: TsButtonThemeTypes = 'default';
 
   /**
    * Define if the user can clear the search input
