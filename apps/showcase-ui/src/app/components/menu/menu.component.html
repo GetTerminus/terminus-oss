@@ -11,17 +11,6 @@
       </select>
     </label>
   </div>
-
-  <div tsVerticalSpacing>
-    <label>
-      Format:
-      <select name="myFormat" [(ngModel)]="myFormat">
-        <option value="{{ format }}" *ngFor="let format of formats">
-          {{ format | titlecase }}
-        </option>
-      </select>
-    </label>
-  </div>
 </ts-card>
 
 <ts-card tsVerticalSpacing>
@@ -39,7 +28,6 @@
   <div tsVerticalSpacing>
     <ts-menu
       [theme]="myTheme"
-      [format]="myFormat"
       [isDisabled]="disabled"
       [menuItemsTemplate]="myTemplate"
     >
@@ -57,7 +45,6 @@
   <div fxLayout="row" fxLayoutAlign="end center">
     <ts-menu
       [theme]="myTheme"
-      [format]="myFormat"
       triggerType="utility"
       [isDisabled]="disabled"
       [menuItemsTemplate]="myTemplate"

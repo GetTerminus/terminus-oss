@@ -63,7 +63,6 @@
     --menu-item-color: var(--ts-color-base-black);
     --menu-item-backgroundColor: transparent;
     background-color: var(--menu-item-backgroundColor);
-    color: var(--menu-item-color);
     display: block;
     font-weight: var(--ts-link-fontWeight);
     padding: var(--ts-space-inset-300) var(--ts-space-inset-500);
@@ -74,8 +73,37 @@
 
     &:focus,
     &:hover {
-      --menu-item-backgroundColor: var(--ts-color-utility-100);
       --menu-item-color: var(--ts-color-primary-500);
+    }
+
+    &--default {
+      --ts-link-color: var(--ts-color-primary-500);
+
+      &:focus,
+      &:active,
+      &:hover {
+        --ts-link-color: var(--ts-color-primary-900);
+      }
+    }
+
+    &--secondary {
+      --ts-link-color: var(--ts-color-accent-500);
+
+      &:focus,
+      &:active,
+      &:hover {
+        --ts-link-color: var(--ts-color-accent-900);
+      }
+    }
+
+    &--warning {
+      --ts-link-color: var(--ts-color-warn-500);
+
+      &:focus,
+      &:active,
+      &:hover {
+        --ts-link-color: var(--ts-color-warn-900);
+      }
     }
   }
 }
