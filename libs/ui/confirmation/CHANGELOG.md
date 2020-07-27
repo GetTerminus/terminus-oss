@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-confirmation@1.0.7...@terminus/ui-confirmation@2.0.0) (2020-07-27)
+
+
+### Bug Fixes
+
+* **Confirmation:** new button themes configuration ([0869dbd](https://github.com/GetTerminus/terminus-oss/commit/0869dbd16ff5da9b8c4e1cbab45117b9e9c95623))
+* **Confirmation:** update border radius ([fdabff7](https://github.com/GetTerminus/terminus-oss/commit/fdabff7e42e15fa512e994c5fad383c1e69f64b0))
+
+
+### BREAKING CHANGES
+
+* **Confirmation:** New button themes configuration
+* **Confirmation:** Border radius change
+
+
+
+
+
 ## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-confirmation@1.0.6...@terminus/ui-confirmation@1.0.7) (2020-07-14)
 
 

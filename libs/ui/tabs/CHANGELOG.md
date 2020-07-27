@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tabs@1.0.9...@terminus/ui-tabs@2.0.0) (2020-07-27)
+
+
+### Bug Fixes
+
+* **Tabs:** update border radius ([227699c](https://github.com/GetTerminus/terminus-oss/commit/227699c01c3a614571d491695ded27c9fabf9520))
+
+
+### BREAKING CHANGES
+
+* **Tabs:** Border radius change
+
+
+
+
+
 ## [1.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tabs@1.0.8...@terminus/ui-tabs@1.0.9) (2020-07-14)
 
 

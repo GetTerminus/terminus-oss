@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2020-07-27)
+
+
+### Bug Fixes
+
+* **Link:** update link styles for LPS ([7b20b00](https://github.com/GetTerminus/terminus-oss/commit/7b20b0063c107d343cf9bcd276db02c863566012)), closes [#32](https://github.com/GetTerminus/terminus-oss/issues/32)
+* **Menu:** new button themes configuration ([48e7801](https://github.com/GetTerminus/terminus-oss/commit/48e78010966ffe67ce0e46dfb92759f02aba2fdd))
+
+
+### BREAKING CHANGES
+
+* **Menu:** New button themes configuration
+* **Link:** Link styles changed
+
+
+
+
+
 ## 1.0.15 (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-link

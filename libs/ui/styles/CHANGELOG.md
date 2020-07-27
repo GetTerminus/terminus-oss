@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-styles@1.0.8...@terminus/ui-styles@1.0.9) (2020-07-27)
+
+
+### Bug Fixes
+
+* **Styles:** remove extra bracket ([fe4f2cd](https://github.com/GetTerminus/terminus-oss/commit/fe4f2cd13b71cd0839f584614e9140e4fccbe835))
+
+
+
+
+
 ## 1.0.8 (2020-07-27)
 
 **Note:** Version bump only for package @terminus/ui-styles

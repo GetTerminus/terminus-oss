@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@1.0.7...@terminus/ui-file-upload@2.0.0) (2020-07-27)
+
+
+### Bug Fixes
+
+* **FileUpload:** new button themes configuration ([596ba94](https://github.com/GetTerminus/terminus-oss/commit/596ba941d576cdcd83f3df0039ab16e2f9bd202d))
+
+
+### Features
+
+* **FileUpload:** change icon library ([45212fb](https://github.com/GetTerminus/terminus-oss/commit/45212fb4630fcab823ccdc47ec7a41bdb6efadf1))
+
+
+### BREAKING CHANGES
+
+* **FileUpload:** New button themes configuration
+* **FileUpload:** change icon library
+
+
+
+
+
 ## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@1.0.6...@terminus/ui-file-upload@1.0.7) (2020-07-14)
 
 

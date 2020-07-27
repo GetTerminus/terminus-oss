@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.0.8...@terminus/ui-expansion-panel@1.0.9) (2020-07-27)
+
+
+### Bug Fixes
+
+* **ExpansionPanel:** update icon color ([335ce59](https://github.com/GetTerminus/terminus-oss/commit/335ce59abcead4f0aa42ca6766d89b514583c8c1))
+
+
+
+
+
 ## [1.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.0.7...@terminus/ui-expansion-panel@1.0.8) (2020-07-24)
 
 **Note:** Version bump only for package @terminus/ui-expansion-panel

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon@1.0.7...@terminus/ui-icon@2.0.0) (2020-07-27)
+
+
+### Features
+
+* **Icon:** switch to fontawesome ([0343b27](https://github.com/GetTerminus/terminus-oss/commit/0343b2772de7249ff6ebcb0c7cfd682d7e1ae808))
+
+
+### BREAKING CHANGES
+
+* **Icon:** Change icon library
+
+
+
+
+
 ## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon@1.0.6...@terminus/ui-icon@1.0.7) (2020-07-14)
 
 

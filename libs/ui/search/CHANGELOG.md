@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2020-07-27)
+
+
+### Bug Fixes
+
+* **Search:** new button themes configuration ([b22d66e](https://github.com/GetTerminus/terminus-oss/commit/b22d66ee60c353f073cf64fb18303621875a3bed))
+
+
+### Features
+
+* **Search:** change icon library ([19681ea](https://github.com/GetTerminus/terminus-oss/commit/19681ea750ee0f4735630e63767c1d1010a3fa44))
+
+
+### BREAKING CHANGES
+
+* **Search:** New button themes configuration
+* **Search:** change icon library
+
+
+
+
+
 ## 1.0.7 (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-search

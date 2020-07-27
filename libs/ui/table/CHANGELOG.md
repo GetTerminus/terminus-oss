@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@1.0.7...@terminus/ui-table@2.0.0) (2020-07-27)
+
+
+### Bug Fixes
+
+* **Table:** update border radius ([9bc5b0a](https://github.com/GetTerminus/terminus-oss/commit/9bc5b0a56f02e4e054e8799f7f2c376188180862))
+* **Table:** update styles for LPS ([7d00705](https://github.com/GetTerminus/terminus-oss/commit/7d0070501edcfaff3a09b8e7a75cebc1628f2f41)), closes [#29](https://github.com/GetTerminus/terminus-oss/issues/29)
+
+
+### BREAKING CHANGES
+
+* **Table:** Border radius change
+
+
+
+
+
 ## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@1.0.6...@terminus/ui-table@1.0.7) (2020-07-14)
 
 

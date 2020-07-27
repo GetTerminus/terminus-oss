@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.9 (2020-07-27)
+
+
+### Bug Fixes
+
+* **ShowcaseUI:** better html/body height ([7a47ecb](https://github.com/GetTerminus/terminus-oss/commit/7a47ecb4b28f61a0dccbb9e7bdc36a0f89af3a3b))
+
+
+
+
+
 ## [1.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tooltip@1.0.7...@terminus/ui-tooltip@1.0.8) (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-tooltip

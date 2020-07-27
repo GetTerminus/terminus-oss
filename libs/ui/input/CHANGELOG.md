@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@1.0.9...@terminus/ui-input@2.0.0) (2020-07-27)
+
+
+### Features
+
+* **Input:** change icon library ([bfd28d9](https://github.com/GetTerminus/terminus-oss/commit/bfd28d96ba7355e4bc5596b0c34030ecdc71adf7))
+
+
+### BREAKING CHANGES
+
+* **Input:** Change icon library
+
+
+
+
+
 ## [1.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@1.0.8...@terminus/ui-input@1.0.9) (2020-07-14)
 
 

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2020-07-27)
+
+
+### Features
+
+* **SelectionList:** change icon library ([ff94744](https://github.com/GetTerminus/terminus-oss/commit/ff9474441a4cdd4c6e399c7bf65b508cc8ba98a0))
+
+
+### BREAKING CHANGES
+
+* **SelectionList:** change icon library
+
+
+
+
+
 ## [1.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@1.0.8...@terminus/ui-selection-list@1.0.9) (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-selection-list

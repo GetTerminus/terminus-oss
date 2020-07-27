@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@1.0.12...@terminus/ui-button@2.0.0) (2020-07-27)
+
+
+### Bug Fixes
+
+* **Button:** update border radius ([93895e8](https://github.com/GetTerminus/terminus-oss/commit/93895e89b8f5a13875711ba6bc591bef619a4c00))
+
+
+### Features
+
+* **Button:** change icon library ([757e405](https://github.com/GetTerminus/terminus-oss/commit/757e405772171fe575493ae3f5e22b3816abc5da))
+* **Button:** new themes configuration ([48129f8](https://github.com/GetTerminus/terminus-oss/commit/48129f8ca328442828f5806dd28f635f7ea010b1)), closes [#28](https://github.com/GetTerminus/terminus-oss/issues/28)
+
+
+### BREAKING CHANGES
+
+* **Button:** New themes configuration
+* **Button:** Change icon library
+* **Button:** Border radius change
+
+
+
+
+
 ## 1.0.12 (2020-07-24)
 
 **Note:** Version bump only for package @terminus/ui-button

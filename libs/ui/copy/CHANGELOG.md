@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2020-07-27)
+
+
+### Features
+
+* **Copy:** change icon library ([0b3c0f0](https://github.com/GetTerminus/terminus-oss/commit/0b3c0f03823a488371c23228258c3ead93c5580d))
+
+
+### BREAKING CHANGES
+
+* **Copy:** change icon library
+
+
+
+
+
 ## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-copy@1.0.6...@terminus/ui-copy@1.0.7) (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-copy

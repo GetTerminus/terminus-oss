@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-navigation@1.0.7...@terminus/ui-navigation@2.0.0) (2020-07-27)
+
+
+### Features
+
+* **Navigation:** change icon library ([52e644b](https://github.com/GetTerminus/terminus-oss/commit/52e644b5908f3557bcd340ac429c9d881dbb3a0f))
+
+
+### BREAKING CHANGES
+
+* **Navigation:** change icon library
+
+
+
+
+
 ## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-navigation@1.0.6...@terminus/ui-navigation@1.0.7) (2020-07-14)
 
 

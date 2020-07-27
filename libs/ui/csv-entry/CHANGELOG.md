@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-csv-entry@1.0.8...@terminus/ui-csv-entry@2.0.0) (2020-07-27)
+
+
+### Bug Fixes
+
+* **CSVEntry:** new button themes configuration ([385a848](https://github.com/GetTerminus/terminus-oss/commit/385a848c53cd226b8c54f90c0377b83f7a64a2b3))
+
+
+### Features
+
+* **CSVEntry:** change icon library ([91fdf72](https://github.com/GetTerminus/terminus-oss/commit/91fdf721f22fdd7e23d6a9bc52bcf31b38831b34))
+
+
+### BREAKING CHANGES
+
+* **CSVEntry:** New button themes configuration
+* **CSVEntry:** change icon library
+
+
+
+
+
 ## [1.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-csv-entry@1.0.7...@terminus/ui-csv-entry@1.0.8) (2020-07-24)
 
 **Note:** Version bump only for package @terminus/ui-csv-entry

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@1.0.13...@terminus/ui-card@2.0.0) (2020-07-27)
+
+
+### Bug Fixes
+
+* **Card:** style updates for LPS ([70e4d09](https://github.com/GetTerminus/terminus-oss/commit/70e4d0965e6e67391fa16e0d6005ff0208ccd387)), closes [#28](https://github.com/GetTerminus/terminus-oss/issues/28)
+* **Card:** update border radius ([c7fa097](https://github.com/GetTerminus/terminus-oss/commit/c7fa097830861a53f534587b78a076d34db1a2fc))
+
+
+### Features
+
+* **Card:** change icon library and update styles ([627daf4](https://github.com/GetTerminus/terminus-oss/commit/627daf418c94f04605398981b42c0b945f5a5bdc))
+
+
+### BREAKING CHANGES
+
+* **Card:** Change icon library
+* **Card:** Style changes to shadows, backgrounds, borders etc
+* **Card:** Border radius change
+
+
+
+
+
 ## 1.0.13 (2020-07-24)
 
 **Note:** Version bump only for package @terminus/ui-card

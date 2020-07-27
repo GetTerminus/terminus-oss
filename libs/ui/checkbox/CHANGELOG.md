@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@1.0.7...@terminus/ui-checkbox@2.0.0) (2020-07-27)
+
+
+### Bug Fixes
+
+* **Checkbox:** remove themability and set fixed styles ([3502836](https://github.com/GetTerminus/terminus-oss/commit/350283666e2b764c307dec68d2799b48d2387257)), closes [#31](https://github.com/GetTerminus/terminus-oss/issues/31)
+
+
+### BREAKING CHANGES
+
+* **Checkbox:** No longer allows theme input
+
+
+
+
+
 ## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@1.0.6...@terminus/ui-checkbox@1.0.7) (2020-07-14)
 
 

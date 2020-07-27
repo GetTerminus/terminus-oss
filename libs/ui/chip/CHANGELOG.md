@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2020-07-27)
+
+
+### Bug Fixes
+
+* **Chip:** update border radius ([4a87208](https://github.com/GetTerminus/terminus-oss/commit/4a872085e5df40139bd13a75ab172446058fb649))
+* **Chip:** update top padding to align with other controls ([f241c9c](https://github.com/GetTerminus/terminus-oss/commit/f241c9c270c077ff2dd729063b8d9860507e9b08))
+
+
+### Features
+
+* **Chip:** change icon library ([f549767](https://github.com/GetTerminus/terminus-oss/commit/f5497679a83da6711806b2ebe824c7e53642734d))
+
+
+### BREAKING CHANGES
+
+* **Chip:** change icon library
+* **Chip:** Border radius change
+
+
+
+
+
 ## [1.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chip@1.0.7...@terminus/ui-chip@1.0.8) (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-chip

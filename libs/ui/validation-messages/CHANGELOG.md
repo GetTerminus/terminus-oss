@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-validation-messages@1.0.10...@terminus/ui-validation-messages@1.0.11) (2020-07-27)
+
+**Note:** Version bump only for package @terminus/ui-validation-messages
+
+
+
+
+
 ## [1.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-validation-messages@1.0.9...@terminus/ui-validation-messages@1.0.10) (2020-07-14)
 
 

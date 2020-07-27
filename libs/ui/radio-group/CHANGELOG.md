@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2020-07-27)
+
+
+### Features
+
+* **RadioGroup:** change icon library ([92e7863](https://github.com/GetTerminus/terminus-oss/commit/92e78639a84011cf6ee7182a4ff4dfa1a4b101d7))
+
+
+### BREAKING CHANGES
+
+* **RadioGroup:** change icon library
+
+
+
+
+
 ## [1.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@1.1.2...@terminus/ui-radio-group@1.1.3) (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-radio-group

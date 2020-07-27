@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-form-field@1.0.9...@terminus/ui-form-field@2.0.0) (2020-07-27)
+
+
+### Bug Fixes
+
+* **FormField:** update border radius ([e9a1c3e](https://github.com/GetTerminus/terminus-oss/commit/e9a1c3e3a33a62b367b034817cfdf63635fe0dff))
+* **FormField:** update icon positioning ([9762d95](https://github.com/GetTerminus/terminus-oss/commit/9762d957312d848d14e7b083771bba941e4618bb))
+* **FormField:** update styles for LPS ([21fd8cd](https://github.com/GetTerminus/terminus-oss/commit/21fd8cde1daaffca1ef2073d1a2b11a18c869f9f)), closes [#26](https://github.com/GetTerminus/terminus-oss/issues/26)
+
+
+### BREAKING CHANGES
+
+* **FormField:** Border radius change
+
+
+
+
+
 ## [1.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-form-field@1.0.8...@terminus/ui-form-field@1.0.9) (2020-07-14)
 
 

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2020-07-27)
+
+
+### Bug Fixes
+
+* **Menu:** new button themes configuration ([48e7801](https://github.com/GetTerminus/terminus-oss/commit/48e78010966ffe67ce0e46dfb92759f02aba2fdd))
+
+
+### Features
+
+* **Menu:** change icon library ([d216901](https://github.com/GetTerminus/terminus-oss/commit/d2169019abe934ebecf6b219b738945b8ec321b4))
+
+
+### BREAKING CHANGES
+
+* **Menu:** New button themes configuration
+* **Menu:** change icon library
+
+
+
+
+
 ## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@1.0.6...@terminus/ui-menu@1.0.7) (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-menu

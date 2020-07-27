@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon-button@1.0.10...@terminus/ui-icon-button@2.0.0) (2020-07-27)
+
+
+### Features
+
+* **IconButton:** change icon library ([fceffdb](https://github.com/GetTerminus/terminus-oss/commit/fceffdb3ac1d610c6c130443a93a5e05a64b76d1))
+
+
+### BREAKING CHANGES
+
+* **IconButton:** Change icon library
+
+
+
+
+
 ## [1.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon-button@1.0.9...@terminus/ui-icon-button@1.0.10) (2020-07-14)
 
 

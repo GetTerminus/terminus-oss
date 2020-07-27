@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2020-07-27)
+
+
+### Bug Fixes
+
+* **Paginator:** new button themes configuration ([91752b9](https://github.com/GetTerminus/terminus-oss/commit/91752b9654f9c1349e9132edba66b017e21a0668))
+
+
+### Features
+
+* **Paginator:** change icon library ([2cec8f1](https://github.com/GetTerminus/terminus-oss/commit/2cec8f18377fc0133b7ea9af8fdbe4ce8a278d95))
+
+
+### BREAKING CHANGES
+
+* **Paginator:** New button themes configuration
+* **Paginator:** change icon library
+
+
+
+
+
 ## [1.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@1.0.9...@terminus/ui-paginator@1.0.10) (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-paginator
