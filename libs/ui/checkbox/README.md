@@ -65,9 +65,7 @@ Load the needed font families by adding this link to the `<head>` of your applic
 Place your label text inside the component:
 
 ```html
-<ts-checkbox>
-  My checkbox label
-</ts-checkbox>
+<ts-checkbox>My checkbox label</ts-checkbox>
 ```
 
 ### Reactive Forms
