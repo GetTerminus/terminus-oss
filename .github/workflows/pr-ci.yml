@@ -71,9 +71,9 @@ jobs:
           name: code-coverage-report-pr
           path: coverage/*
         if: env.SHOULD_RUN == 'true'
-      - name: Regression test on affected projects
-        run: yarn affected:chromatic
-        if: env.SHOULD_RUN == 'true'
+#      - name: Regression test on affected projects
+#        run: yarn affected:chromatic
+#        if: env.SHOULD_RUN == 'true'
 
   #
   # Lint affected projects
