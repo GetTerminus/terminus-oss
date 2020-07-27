@@ -28,7 +28,7 @@
   <ts-button
     class="qa-search-button"
     *ngIf="!autoSubmit"
-    [theme]="theme"
+    [theme]="buttonTheme"
     [isDisabled]="!searchForm.valid || !currentQuery"
     [showProgress]="isSubmitting"
     [buttonType]="buttonType"

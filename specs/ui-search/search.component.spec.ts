@@ -102,7 +102,7 @@ describe('TsSearchComponent', function() {
       component.inProgress = true;
       fixture.detectChanges();
       const button = fixture.debugElement.queryAll(By.css('.c-button'))[0].nativeElement as HTMLButtonElement;
-      expect(button.getAttribute('disabled')).toEqual('true');
+      expect(button.getAttribute('disabled')).toEqual('');
     });
   });
 
