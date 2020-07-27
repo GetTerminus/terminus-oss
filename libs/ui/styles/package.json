@@ -34,5 +34,4 @@
     "postbuild": "npm run copy:collection"
   },
   "schematics": "./schematics/collection.json"
-  }
 }
