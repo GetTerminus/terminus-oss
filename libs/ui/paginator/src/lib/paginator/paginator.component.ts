@@ -20,8 +20,8 @@ import { faAngleRight } from '@fortawesome/pro-regular-svg-icons/faAngleRight';
 
 import { coerceNumberProperty } from '@terminus/ngx-tools/coercion';
 import { inputHasChanged } from '@terminus/ngx-tools/utilities';
+import { TsButtonThemeTypes } from '@terminus/ui-button';
 import { TsSelectionListChange } from '@terminus/ui-selection-list';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 /**
  * Define the allowed keys and types for an item passed to the {@link TsMenuComponent} within a
@@ -244,10 +244,10 @@ export class TsPaginatorComponent implements OnChanges, AfterViewInit {
   public paginatorMessageTemplate!: TemplateRef<ElementRef>;
 
   /**
-   * Define the color theme
+   * Define the button themes
    */
   @Input()
-  public theme: TsStyleThemeTypes = 'accent';
+  public theme: TsButtonThemeTypes = 'secondary';
 
   /**
    * Define the total number of records
@@ -314,9 +314,7 @@ export class TsPaginatorComponent implements OnChanges, AfterViewInit {
   public readonly recordsPerPageChange = new EventEmitter<number>();
 
 
-  constructor(
-    private changeDetectorRef: ChangeDetectorRef,
-  ) {
+  constructor(private changeDetectorRef: ChangeDetectorRef) {
     this.pageControl.setValue([this.recordsPerPage]);
   }
 
