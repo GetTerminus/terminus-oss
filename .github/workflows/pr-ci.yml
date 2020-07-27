@@ -1,5 +1,10 @@
 name: "PR CI"
 on: pull_request
+env:
+  GITHUB_TOKEN: "${{ secrets.GH_TOKEN }}"
+  FONTAWESOME_NPM_AUTH_TOKEN: "${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}"
+  CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+
 
 jobs:
   #
@@ -15,8 +20,6 @@ jobs:
           fetch-depth: 0
       - run: git fetch --no-tags --prune --depth=5 origin release
       - uses: rokroskar/workflow-run-cleanup-action@master
-        env:
-          GITHUB_TOKEN: "${{ secrets.GH_TOKEN }}"
     if: "!startsWith(github.ref, 'refs/tags/') && github.ref != 'refs/heads/release'"
 
   #
@@ -70,8 +73,6 @@ jobs:
         if: env.SHOULD_RUN == 'true'
       - name: Regression test on affected projects
         run: yarn affected:chromatic
-        env:
-          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
         if: env.SHOULD_RUN == 'true'
 
   #
