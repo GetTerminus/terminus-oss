@@ -18,6 +18,7 @@ import {
   dispatchKeyboardEvent,
   dispatchMouseEvent,
 } from '@terminus/ngx-tools/testing';
+import { TsButtonThemeTypes } from '@terminus/ui-button';
 import {
   TS_ACCEPTED_MIME_TYPES,
   TsFileAcceptedMimeTypes,
@@ -26,7 +27,6 @@ import {
   TsFileUploadModule,
   TsFileUploadComponent,
 } from '@terminus/ui-file-upload';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 // eslint-disable-next-line max-len
 const fileContentsMock = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABIAQMAAABvIyEEAAAAA1BMVEXXbFn0Q9OUAAAADklEQVR4AWMYRmAUjAIAAtAAAaW+yXMAAAAASUVORK5CYII=';
@@ -72,7 +72,7 @@ class TestHostComponent {
   public fileToSeed: File | undefined;
   public constraints: TsFileImageDimensionConstraints | undefined;
   public ratioConstraints: Array<string> | undefined;
-  public theme: TsStyleThemeTypes | undefined;
+  public theme: TsButtonThemeTypes | undefined;
   public hideButton = false;
   public formControl = new FormControl('test');
 
@@ -165,7 +165,7 @@ describe(`TsFileUploadComponent`, function() {
 
       expect(component.isDisabled).toEqual(true);
       expect(wrapper.classList).toContain('c-file-upload--disabled');
-      expect(button.getAttribute('disabled')).toEqual('true');
+      expect(button.getAttribute('disabled')).toEqual('');
     });
   });
 
@@ -647,10 +647,10 @@ describe(`TsFileUploadComponent`, function() {
 
   describe(`theme`, () => {
     test(`should set the theme`, () => {
-      hostComponent.theme = 'warn';
+      hostComponent.theme = 'warning';
       fixture.detectChanges();
 
-      expect(component.theme).toEqual('warn');
+      expect(component.theme).toEqual('warning');
     });
   });
 

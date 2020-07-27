@@ -40,11 +40,11 @@ import {
   inputHasChanged,
   untilComponentDestroyed,
 } from '@terminus/ngx-tools/utilities';
+import { TsButtonThemeTypes } from '@terminus/ui-button';
 import { TS_SPACING } from '@terminus/ui-spacing';
 import {
   ControlValueAccessorProviderFactory,
   TsReactiveFormBaseComponent,
-  TsStyleThemeTypes,
 } from '@terminus/ui-utilities';
 
 import { TsDropProtectionService } from '../drop-protection/drop-protection.service';
@@ -96,7 +96,7 @@ let nextUniqueId = 0;
  *              [progress]="myUploadProgress"
  *              ratioConstraints="['2:1', '3:4']"
  *              [seedFile]="myFile"
- *              theme="primary"
+ *              theme="default"
  *              (cleared)="fileWasCleared($event)"
  *              (enter)="userDragBegin($event)"
  *              (exit)="userDragEnd($event)"
@@ -394,10 +394,10 @@ export class TsFileUploadComponent extends TsReactiveFormBaseComponent implement
   private _seedFile: File | undefined;
 
   /**
-   * Define the theme. See {@link TsStyleThemeTypes}.
+   * Define the theme
    */
   @Input()
-  public theme: TsStyleThemeTypes = 'primary';
+  public theme: TsButtonThemeTypes = 'default';
 
   /**
    * Event emitted when the user clears a loaded file
