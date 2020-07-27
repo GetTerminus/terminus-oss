@@ -17,6 +17,8 @@ import {
 import {
   TsButtonModule,
   TsButtonComponent,
+  TsButtonThemeTypes,
+  TsButtonFormatTypes,
 } from '@terminus/ui-button';
 
 @Component({
@@ -38,9 +40,9 @@ class TestHostComponent implements OnInit, OnDestroy {
   collapsed!: boolean;
   showProgress!: boolean;
   collapseDelay!: number | undefined;
-  format!: string;
+  format!: TsButtonFormatTypes;
   icon!: IconProp | undefined;
-  theme!: string;
+  theme!: TsButtonThemeTypes;
   myId = 'foo';
 
   @ViewChild(TsButtonComponent, { static: true })
@@ -98,7 +100,7 @@ describe(`TsButtonComponent`, function() {
       fixture.detectChanges();
       button = fixture.debugElement.query(By.css('.c-button')).nativeElement as HTMLButtonElement;
       expect(buttonComponent.showProgress).toEqual(true);
-      expect(button.getAttribute('disabled')).toEqual('true');
+      expect(button.getAttribute('disabled')).toEqual('');
     });
 
     test(`should not set disabled if showProgress and disabled are false`, () => {
@@ -162,27 +164,10 @@ describe(`TsButtonComponent`, function() {
 
   describe(`set format`, () => {
     describe(`when format === collapsible`, () => {
-      // Deprecated version
-      test(`should set the collapseDelay to default if unset (deprecated version)`, () => {
-        buttonComponent.format = 'collapsable';
-
-        expect(component.collapseDelay).toEqual(component.COLLAPSE_DEFAULT_DELAY);
-      });
-
       test(`should set the collapseDelay to default if unset`, () => {
         buttonComponent.format = 'collapsible';
 
         expect(component.collapseDelay).toEqual(component.COLLAPSE_DEFAULT_DELAY);
-      });
-
-      // Deprecated version
-      test(`should not set the collapseDelay to default if a value is passed in (deprecated version)`, () => {
-        component.collapseDelay = 1000;
-        component.format = 'collapsable';
-        fixture.detectChanges();
-
-        expect(component.collapseDelay).toEqual(1000);
-        expect(button.classList).toContain('c-button--collapsable');
       });
 
       test(`should not set the collapseDelay to default if a value is passed in`, () => {
@@ -204,81 +189,25 @@ describe(`TsButtonComponent`, function() {
         expect(buttonComponent.collapseDelay).toBeUndefined();
       });
     });
-
-    test(`should not update classes if no value is passed in`, () => {
-      component['updateClasses'] = jest.fn();
-      component.format = null as any;
-
-      expect(component['updateClasses']).not.toHaveBeenCalled();
-      expect(button.classList).toContain('c-button--filled');
-    });
-
-    test(`should log a warning if an invalid value was passed in`, () => {
-      window.console.warn = jest.fn();
-      buttonComponent['updateClasses'] = jest.fn();
-      buttonComponent.format = 'foo' as any;
-      fixture.detectChanges();
-
-      expect(window.console.warn).toHaveBeenCalled();
-      expect(buttonComponent['updateClasses']).not.toHaveBeenCalled();
-    });
-
-    test(`should update classes if correct format is passed in`, () => {
-      component['updateClasses'] = jest.fn();
-      component.format = 'filled' as any;
-
-      expect(component['updateClasses']).not.toHaveBeenCalled();
-      expect(button.classList).toContain('c-button--filled');
-    });
   });
 
   describe(`set theme`, () => {
     test(`should set a custom theme`, () => {
-      component.theme = 'accent';
+      component.theme = 'secondary';
       fixture.detectChanges();
-
-      expect(button.classList).not.toContain('c-button--primary');
-      expect(button.classList).toContain('c-button--accent');
+      expect(button.classList).not.toContain('c-button--default');
+      expect(button.classList).toContain('c-button--secondary');
     });
 
-    test(`should not update classes if no value is passed in`, () => {
-      component['updateClasses'] = jest.fn();
+    test(`should not update class if no value is passed in`, () => {
       component.theme = null as any;
-
-      expect(component['updateClasses']).not.toHaveBeenCalled();
-      expect(button.classList).toContain('c-button--primary');
-      expect(button.classList).not.toContain('c-button--accent');
-    });
-
-    test(`should log a warning if an invalid value was passed in`, () => {
-      window.console.warn = jest.fn();
-      buttonComponent['updateClasses'] = jest.fn();
-      buttonComponent.theme = 'foo' as any;
       fixture.detectChanges();
-
-      expect(window.console.warn).toHaveBeenCalled();
-      expect(buttonComponent['updateClasses']).not.toHaveBeenCalled();
-      expect(button.classList).toContain('c-button--primary');
-      expect(button.classList).not.toContain('c-button--accent');
+      expect(button.classList).toContain('c-button--default');
+      expect(button.classList).not.toContain('c-button--secondary');
     });
   });
 
   describe(`ngOnInit()`, function() {
-    // Deprecated version
-    test(`should call collapseWithDelay if collapseDelay is set (deprecated version)`, () => {
-      jest.useFakeTimers();
-      component.format = 'collapsable';
-      component.icon = faSearch;
-      component.collapseDelay = 500;
-      fixture.detectChanges();
-      buttonComponent.ngOnInit();
-      jest.advanceTimersByTime(6000);
-      fixture.detectChanges();
-
-      expect(button.classList).toContain('c-button--collapsed');
-      jest.runAllTimers();
-    });
-
     test(`should call collapseWithDelay if collapseDelay is set`, () => {
       jest.useFakeTimers();
       component.format = 'collapsible';
@@ -299,32 +228,7 @@ describe(`TsButtonComponent`, function() {
       buttonComponent.ngOnInit();
 
       expect(buttonComponent['collapseWithDelay']).not.toHaveBeenCalled();
-      expect(button.classList).not.toContain('c-button--collapsable');
       expect(button.classList).not.toContain('c-button--collapsible');
-    });
-
-    // Deprecated version
-    describe(`when format === collapsable (deprecated version)`, () => {
-      beforeEach(() => {
-        buttonComponent.format = 'collapsable';
-        buttonComponent['collapseWithDelay'] = jest.fn();
-        buttonComponent.collapseDelay = 500;
-      });
-
-      test(`should throw an error if the format is collapsible and no icon is set`, () => {
-        expect(() => {
-          buttonComponent.ngOnInit();
-        }).toThrow();
-      });
-
-      test(`should not throw an error if the format is collapsible and there is an icon set`, () => {
-        component.icon = faHome;
-
-        expect(() => {
-          component.ngOnInit();
-        }).not.toThrow();
-        expect(button.classList).not.toContain('c-button__icon');
-      });
     });
 
     describe(`when format === collapsible`, () => {
@@ -379,7 +283,6 @@ describe(`TsButtonComponent`, function() {
 
     test(`should emit the click when interceptClick is false`, () => {
       buttonComponent.clickedButton(mouseEvent);
-
       expect(buttonComponent.clicked.emit).toHaveBeenCalledWith(mouseEvent);
     });
 
@@ -389,27 +292,6 @@ describe(`TsButtonComponent`, function() {
 
       expect(buttonComponent.clicked.emit).not.toHaveBeenCalledWith();
       expect(buttonComponent.originalClickEvent).toEqual(mouseEvent);
-    });
-  });
-
-  // Deprecated version
-  describe(`collapseWithDelay() (deprecated version)`, () => {
-    beforeEach(() => {
-      buttonComponent.format = 'collapsable';
-      buttonComponent['windowService'].nativeWindow.setTimeout = window.setTimeout;
-    });
-
-    test(`should set isCollapsed and trigger change detection after the delay`, () => {
-      jest.useFakeTimers();
-
-      const DELAY = 100;
-      buttonComponent['collapseWithDelay'](DELAY);
-      jest.advanceTimersByTime(2000);
-      fixture.detectChanges();
-
-      expect(buttonComponent.isCollapsed).toEqual(true);
-      jest.runAllTimers();
-      expect(button.classList).toContain('c-button--collapsable');
     });
   });
 

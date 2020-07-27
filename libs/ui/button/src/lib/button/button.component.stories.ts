@@ -14,8 +14,6 @@ import {
   tsButtonFormatTypesArray,
 } from '@terminus/ui-button';
 
-const allowedButtonFormatTypes = tsButtonFormatTypesArray.filter(t => t !== 'collapsable');
-
 export default {
   title: 'TsButtonComponent',
   decorators: [withKnobs],
@@ -78,7 +76,7 @@ export const mostToggles = () => ({
     actionName: select('actionName', ['Button', 'Submit', 'Menu', 'Reset'], 'Button'),
     buttonType: select('buttonType', ['button', 'search', 'submit'], 'button'),
     collapsed: boolean('collapsed', false),
-    format: select('format', allowedButtonFormatTypes, 'filled'),
+    format: select('format', tsButtonFormatTypesArray, 'filled'),
     isDisabled: boolean('isDisabled', false),
     id: text('id', ''),
     showProgress: boolean('showProgress', false),
