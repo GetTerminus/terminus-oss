@@ -17,10 +17,10 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@angular/flex-layout: ~9.0.0-beta.29',
     '@angular/forms: ^9.1.0',
     '@angular/platform-browser: ^9.1.0',
-    '@terminus/design-tokens: ^2.0.2',
-    '@terminus/ngx-tools: ^8.0.5',
-    '@terminus/ui-utilities: ^1.0.0',
-    '@terminus/ui-expansion-panel: ^1.0.0',
+    '@terminus/design-tokens: ^3.1.0',
+    '@terminus/ngx-tools: ^8.0.6',
+    '@terminus/ui-utilities: ^1.0.7',
+    '@terminus/ui-expansion-panel: ^1.0.9',
   ].map(p => {
     const individualPackage = p.split(':');
     const nodeDependency: NodeDependency = {

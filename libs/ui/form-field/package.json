@@ -25,8 +25,8 @@
     "@angular/platform-browser": "^9.1.0",
     "@terminus/design-tokens": "^3.1.0",
     "@terminus/ngx-tools": "^8.0.5",
-    "@terminus/ui-spacing": "^1.0.0",
-    "@terminus/ui-validation-messages": "^1.0.0",
+    "@terminus/ui-spacing": "^1.0.9",
+    "@terminus/ui-validation-messages": "^1.0.11",
     "rxjs": "^6.5.0",
     "tslib": "^1.10.0"
   },

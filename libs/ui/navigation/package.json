@@ -25,9 +25,9 @@
     "@angular/router": "^9.1.0",
     "@terminus/design-tokens": "^3.1.0",
     "@terminus/ngx-tools": "^8.0.5",
-    "@terminus/ui-icon": "^1.0.0",
-    "@terminus/ui-pipes": "^1.0.0",
-    "@terminus/ui-tooltip": "^1.0.0",
+    "@terminus/ui-icon": "^2.0.0",
+    "@terminus/ui-pipes": "^1.0.7",
+    "@terminus/ui-tooltip": "^1.0.9",
     "rxjs": "^6.5.0",
     "tslib": "^1.10.0"
   },
