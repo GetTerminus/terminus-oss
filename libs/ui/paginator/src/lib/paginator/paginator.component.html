@@ -20,7 +20,6 @@
       >{{ count }}</ts-option>
     </ts-selection-list>
 
-
     <ts-tooltip [tooltipValue]="isFirstPage(currentPageIndex) ? '' : firstPageTooltip">
       <ts-button
         class="qa-paginator-first-page-button"
@@ -32,7 +31,6 @@
       </ts-button>
     </ts-tooltip>
 
-
     <ts-tooltip [tooltipValue]="isFirstPage(currentPageIndex) ? '' : previousPageTooltip">
       <ts-button
         class="qa-paginator-previous-page-button"
@@ -43,7 +41,6 @@
         <ts-icon [icon]="previousPageIcon" size="1x"></ts-icon>
       </ts-button>
     </ts-tooltip>
-
 
     <ts-menu
       *ngIf="!isSimpleMode"
@@ -71,19 +68,18 @@
       </ts-button>
     </ts-tooltip>
 
-
-  <ts-tooltip
-    [tooltipValue]="isNextButtonDisabled(currentPageIndex) ? '' : lastPageTooltip"
-    *ngIf="!isSimpleMode"
-  >
-    <ts-button
+    <ts-tooltip
+      [tooltipValue]="isNextButtonDisabled(currentPageIndex) ? '' : lastPageTooltip"
+      *ngIf="!isSimpleMode"
+    >
+      <ts-button
         class="qa-paginator-last-page-button"
         [theme]="theme"
         [isDisabled]="isNextButtonDisabled(currentPageIndex)"
         (clicked)="changePage(lastPageIndex, currentPageIndex, pagesArray)"
-    >
-      <ts-icon [icon]="lastPageIcon" size="1x"></ts-icon>
-    </ts-button>
+      >
+        <ts-icon [icon]="lastPageIcon" size="1x"></ts-icon>
+      </ts-button>
     </ts-tooltip>
   </div>
 
@@ -96,7 +92,6 @@
       [ngTemplateOutletContext]="templateContext"
     ></ng-container>
   </div>
-
 </div>
 
 
@@ -104,9 +99,7 @@
   <ts-button
     *ngFor="let page of pagesArray; trackBy: trackPagesArray"
     (clicked)="currentPageChanged(page)"
-  >
-    {{ page.name }}
-  </ts-button>
+  >{{ page.name }}</ts-button>
 </ng-template>
 
 <ng-template #defaultPaginatorMessageTemplate let-message>

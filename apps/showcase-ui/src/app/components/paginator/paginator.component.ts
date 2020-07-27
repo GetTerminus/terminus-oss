@@ -4,6 +4,7 @@ import {
   ViewChild,
 } from '@angular/core';
 
+import { TsButtonThemeTypes } from '@terminus/ui-button';
 import {
   TsPaginatorComponent,
   TsPaginatorMenuItem,
@@ -16,7 +17,6 @@ import { TsStyleThemeTypes } from '@terminus/ui-utilities';
   templateUrl: './paginator.component.html',
 })
 export class PaginatorComponent {
-  myTheme: TsStyleThemeTypes = 'primary';
   recordCount = 114;
   showSelector = true;
   currentPageIndex = 0;
