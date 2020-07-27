@@ -24,7 +24,7 @@
 - `@terminus/ngx-tools`
 - `@terminus/ui-icon`
 - `@terminus/ui-utilities`
-- `@fortawesome/angular-fontawesome`
+- `@fortawesome/angular-fontawesome@0.6.0`
 - `@fortawesome/fontawesome-pro`
 - `@fortawesome/fontawesome-svg-core`
 - `@fortawesome/free-brands-svg-icons`

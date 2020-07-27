@@ -18,12 +18,12 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@angular/forms: ^9.1.0',
     '@angular/material: ^9.1.0',
     '@angular/platform-browser: ^9.1.0',
-    '@terminus/design-tokens: ^2.0.2',
-    '@terminus/ngx-tools: ^8.0.5',
-    '@terminus/ui-pipes: ^1.0.0',
-    '@terminus/ui-utilities: ^1.0.0',
-    '@terminus/ui-validation-messages: ^1.0.0',
-    '@terminus/ui-validators: ^1.0.0',
+    '@terminus/design-tokens: ^3.1.0',
+    '@terminus/ngx-tools: ^8.0.6',
+    '@terminus/ui-pipes: ^1.0.7',
+    '@terminus/ui-utilities: ^1.0.7',
+    '@terminus/ui-validation-messages: ^1.0.11',
+    '@terminus/ui-validators: ^1.0.7',
     'date-fns: ^2.14.0',
   ].map(p => {
     const individualPackage = p.split(':');
