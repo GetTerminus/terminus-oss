@@ -24,13 +24,20 @@ if [[ -n "$LERNA_OUTPUT" ]]; then
 
   for project in "${PROJECT_ARRAY[@]}"
   do
-    links+="'$project/**/*.stories.[tj]s',"
+    files=$(find $project -name "*.stories.[tj]s" 2> /dev/null | wc -l)
+    if [ $files != "0" ]; then
+      links+="'$project/**/*.stories.[tj]s',"
+    fi
   done
 
   echo "Storybook main stories: "
   echo "$links"
 
-  grep -rl "STORIES" '.storybook/main.js' | xargs sed -i'' -e 's|'STORIES'|'$links'|g'
+  if [ $links != '' ]; then
+    grep -rl "STORIES" '.storybook/main.js' | xargs sed -i'' -e 's|'STORIES'|'$links'|g'
+    echo "Running chromatic on affected projects.."
+    yarn affected:chromatic
+  fi
 else
   echo "No changed projects found."
 fi
