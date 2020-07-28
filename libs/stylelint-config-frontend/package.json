@@ -1,6 +1,6 @@
 {
   "name": "@terminus/stylelint-config-frontend",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "license": "MIT",
   "author": "@terminus",
   "private": false,
