@@ -271,7 +271,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
           SOURCE_DIR: ${{ env.docs-publish-directory }}
-          DEST_DIR: ${{ github.repository.master_branch }}
+          DEST_DIR: 'release'
         if: env.SHOULD_RUN == 'true'
 
   #
