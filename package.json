@@ -90,7 +90,7 @@
     "build:allstorybook": "nx run ui-storybook:build-allstorybook",
     "build:allstorybook:chromatic": "build-storybook -c ./stories/ui/storybook/.storybook -o dist/storybook",
     "chromatic": "npx chromatic --preserve-missing --build-script-name build:allstorybook:chromatic",
-    "affected:chromatic": "tools/ci/update-storybook-config-with-changed-projects.sh && npx chromatic --presserve-missing --build-script-name storybook:build --skip '@(renovate/**|dependabot/**)'",
+    "affected:chromatic": "npx chromatic --presserve-missing --build-script-name storybook:build --skip '@(renovate/**|dependabot/**)'",
     "//////// Section: VisualRegression App": "==============================",
     "vr:start": "nx serve vr",
     "vr:start:prod": "yarn run vr:start --prod",
