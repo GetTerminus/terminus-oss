@@ -33,9 +33,57 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **Button:** New themes configuration
 * **Button:** Change icon library
 * **Button:** Border radius change
+* **Button**: Remove long deprecated button type spelling `collapsable`.
 
+#### Migration Notes
 
+##### Theme
 
+If passing in a theme, use one of the supported themes: `default|secondary|warning`:
+
+```diff
+-<ts-button theme="primary">Click Me!</ts-button>
++<ts-button theme="default">Click Me!</ts-button>
+```
+
+##### Icon
+
+If passing in an icon, pass in a FontAwesome icon reference instead of a string name:
+
+```typescript
+import { faHome } from '@fortawesome/pro-regular-svg-icons/faHome';
+...
+public home = faHome;
+```
+
+```diff
+-<ts-button iconName="home">Go Home</ts-button>
++<ts-button [icon]="home">Go Home</ts-button>
+```
+
+##### Hollow
+
+If using `format="hollow"` change to `theme="secondary"`:
+
+```diff
+-<ts-button format="hollow">Click Me!</ts-button>
++<ts-button theme="secondary">Click Me!</ts-button>
+```
+
+##### CSS Resources
+
+Remove any imports or `<link>` tags importing Material Icons:
+
+```diff
+-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
+
+Update the imported font families:
+
+```diff
+-<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
++<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+```
 
 
 ## 1.0.12 (2020-07-24)

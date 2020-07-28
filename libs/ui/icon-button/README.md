@@ -11,7 +11,6 @@
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
   - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
-  - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Theme](#theme)
   - [Accessibility](#accessibility)
@@ -48,20 +47,21 @@ In your top level stylesheet, add these imports:
 @import '~@terminus/ui-styles/terminus-ui.css';
 ```  
 
-### CSS resources
-
-Load the needed font families by adding this link to the `<head>` of your application:
-
-```css
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-```
-
 ## Usage
 
-Pass a valid [Material icon][material-icons] name as the content of the button:
+Pass a valid FontAwesome icon reference:
+
+```typescript
+import { faHome } from '@fortawesome/pro-regular-svg-icons/faHome';
+...
+public home = faHome;
+```
 
 ```html
-<ts-icon-button (clicked)="myMethod()">delete_forever</ts-icon-button>
+<ts-icon-button
+  [icon]="home"
+  (clicked)="myMethod()"
+></ts-icon-button>
 ```
 
 ### Theme
@@ -98,7 +98,6 @@ For accessibility purposes we should set the `actionName` and `buttonType`.
 
 
 <!-- Links -->
-[material-icons]:      https://material.io/icons/
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE
 [license-image]:       http://img.shields.io/badge/license-MIT-blue.svg
 [codecov-project]:     https://codecov.io/gh/GetTerminus/terminus-oss

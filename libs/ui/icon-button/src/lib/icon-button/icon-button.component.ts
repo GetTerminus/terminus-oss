@@ -24,6 +24,7 @@ import { TsStyleThemeTypes } from '@terminus/ui-utilities';
  *              buttonType="button"
  *              [isDisabled]="false"
  *              tabIndex="2"
+ *              theme="primary"
  *              [icon]="myIconReference"
  *              (clicked)="myMethod($event)"
  * ></ts-icon-button>

@@ -32,6 +32,31 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **Paginator:** New button themes configuration
 * **Paginator:** change icon library
 
+#### Migration Notes
+
+##### Theme
+
+If passing in a theme, use one of the supported themes: `default|secondary|warning`:
+
+```diff
+-<ts-paginator theme="primary"></ts-paginator>
++<ts-paginator theme="default"></ts-paginator>
+```
+
+##### CSS Resources
+
+Remove any imports or `<link>` tags importing Material Icons:
+
+```diff
+-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
+
+Update the imported font families:
+
+```diff
+-<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
++<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+```
 
 
 

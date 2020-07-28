@@ -24,8 +24,24 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### BREAKING CHANGES
 
-* **Copy:** change icon library
+* **Copy:** Change icon library
 
+#### Migration Notes
+
+##### CSS Resources
+
+Remove any imports or `<link>` tags importing Material Icons:
+
+```diff
+-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
+
+Update the imported font families:
+
+```diff
+-<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
++<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+```
 
 
 
