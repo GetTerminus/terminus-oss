@@ -29,7 +29,7 @@
 - `@fortawesome/fontawesome-svg-core`
 - `@fortawesome/free-brands-svg-icons`
 - `@fortawesome/pro-light-svg-icons`
-- `@fortawesome/pro-regular-svg-icons`
+- `@fortawesome/pro-solid-svg-icons`
 - `@fortawesome/pro-solid-svg-icons`
 
 Use the `ng add` command to quickly install all the needed dependencies:
@@ -56,7 +56,7 @@ In your top level stylesheet, add these imports:
 Import any FontAwesome icon and pass it in:
 
 ```typescript
-import { faHome } from '@fortawesome/pro-regular-svg-icons/faHome';
+import { faHome } from '@fortawesome/pro-solid-svg-icons/faHome';
 ...
 public home = faHome;
 ```

@@ -20,9 +20,9 @@ import {
   FormControl,
   ValidationErrors,
 } from '@angular/forms';
-import { faFileCsv } from '@fortawesome/pro-regular-svg-icons/faFileCsv';
-import { faTimes } from '@fortawesome/pro-regular-svg-icons/faTimes';
-import { faUpload } from '@fortawesome/pro-regular-svg-icons/faUpload';
+import { faFileCsv } from '@fortawesome/pro-solid-svg-icons/faFileCsv';
+import { faTimes } from '@fortawesome/pro-solid-svg-icons/faTimes';
+import { faUpload } from '@fortawesome/pro-solid-svg-icons/faUpload';
 import { filter } from 'rxjs/operators';
 
 import { TsDocumentService } from '@terminus/ngx-tools/browser';

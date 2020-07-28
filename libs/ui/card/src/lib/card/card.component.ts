@@ -7,7 +7,7 @@ import {
   TemplateRef,
   ViewEncapsulation,
 } from '@angular/core';
-import { faLockAlt } from '@fortawesome/pro-regular-svg-icons/faLockAlt';
+import { faLockAlt } from '@fortawesome/pro-solid-svg-icons/faLockAlt';
 
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 

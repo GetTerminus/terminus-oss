@@ -13,10 +13,10 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { faAngleDoubleLeft } from '@fortawesome/pro-regular-svg-icons/faAngleDoubleLeft';
-import { faAngleDoubleRight } from '@fortawesome/pro-regular-svg-icons/faAngleDoubleRight';
-import { faAngleLeft } from '@fortawesome/pro-regular-svg-icons/faAngleLeft';
-import { faAngleRight } from '@fortawesome/pro-regular-svg-icons/faAngleRight';
+import { faAngleDoubleLeft } from '@fortawesome/pro-solid-svg-icons/faAngleDoubleLeft';
+import { faAngleDoubleRight } from '@fortawesome/pro-solid-svg-icons/faAngleDoubleRight';
+import { faAngleLeft } from '@fortawesome/pro-solid-svg-icons/faAngleLeft';
+import { faAngleRight } from '@fortawesome/pro-solid-svg-icons/faAngleRight';
 
 import { coerceNumberProperty } from '@terminus/ngx-tools/coercion';
 import { inputHasChanged } from '@terminus/ngx-tools/utilities';

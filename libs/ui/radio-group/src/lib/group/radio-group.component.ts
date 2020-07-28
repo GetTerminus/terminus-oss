@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { MatRadioChange } from '@angular/material/radio';
 import { DomSanitizer } from '@angular/platform-browser';
-import { faCheck } from '@fortawesome/pro-regular-svg-icons/faCheck';
+import { faCheck } from '@fortawesome/pro-solid-svg-icons/faCheck';
 
 import { isFunction } from '@terminus/ngx-tools/type-guards';
 import {

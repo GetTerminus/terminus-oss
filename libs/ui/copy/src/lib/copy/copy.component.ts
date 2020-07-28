@@ -9,7 +9,7 @@ import {
   ViewChildren,
   ViewEncapsulation,
 } from '@angular/core';
-import { faCopy } from '@fortawesome/pro-regular-svg-icons/faCopy';
+import { faCopy } from '@fortawesome/pro-solid-svg-icons/faCopy';
 
 import {
   TsDocumentService,

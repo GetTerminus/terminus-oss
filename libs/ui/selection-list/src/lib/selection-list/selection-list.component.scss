@@ -51,6 +51,7 @@
   position: relative;
 
   > .ts-icon {
+    color: var(--ts-color-utility-600);
     position: absolute;
     right: 0;
     top: 50%;
@@ -63,7 +64,7 @@
   --fake-margin: 3px;
   background: transparent;
   border: none;
-  color: currentColor;
+  color: var(--ts-color-utility-900);
   display: inline-block;
   font: inherit;
   margin-bottom: var(--fake-margin);

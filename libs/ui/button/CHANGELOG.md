@@ -59,7 +59,7 @@ If passing in a theme, use one of the supported themes: `default|secondary|warni
 If passing in an icon, pass in a FontAwesome icon reference instead of a string name:
 
 ```typescript
-import { faHome } from '@fortawesome/pro-regular-svg-icons/faHome';
+import { faHome } from '@fortawesome/pro-solid-svg-icons/faHome';
 ...
 public home = faHome;
 ```

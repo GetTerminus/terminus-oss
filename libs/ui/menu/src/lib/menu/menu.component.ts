@@ -11,8 +11,8 @@ import {
 } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faAngleDown } from '@fortawesome/pro-regular-svg-icons/faAngleDown';
-import { faEllipsisV } from '@fortawesome/pro-regular-svg-icons/faEllipsisV';
+import { faAngleDown } from '@fortawesome/pro-solid-svg-icons/faAngleDown';
+import { faEllipsisV } from '@fortawesome/pro-solid-svg-icons/faEllipsisV';
 
 import {
   TsButtonFormatTypes,
