@@ -4,14 +4,10 @@ module.exports = {
     'stylelint-order',
     // https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties
     'stylelint-declaration-block-no-ignored-properties',
-    // https://github.com/AndyOGo/stylelint-declaration-strict-value
-    'stylelint-declaration-strict-value',
     // https://github.com/ssivanatarajan/stylelint-selector-no-empty
     'stylelint-selector-no-empty',
     // https://github.com/kristerkari/stylelint-scss
     'stylelint-scss',
-    // https://github.com/ierhyna/stylelint-no-indistinguishable-colors
-    'stylelint-no-indistinguishable-colors',
   ],
   rules: {
     'at-rule-name-case': 'lower',
@@ -131,45 +127,7 @@ module.exports = {
     // Plugin rules
     'order/properties-alphabetical-order': true,
     'plugin/declaration-block-no-ignored-properties': true,
-    'plugin/stylelint-no-indistinguishable-colors': true,
     'plugin/stylelint-selector-no-empty': true,
-    'scale-unlimited/declaration-strict-value': [
-      [
-        'box-shadow',
-        '/^((.+-)?(color))$/',
-        '/font/',
-        '/^(margin|padding)(-top|-left|-bottom|-right)?/',
-        'z-index',
-      ],
-      {
-        disableFix: true,
-        ignoreFunctions: true,
-        ignoreKeywords: {
-          '': [
-            'auto',
-            'currentColor',
-            'inherit',
-            'none',
-          ],
-          '/^((.+-)?(color))$/': [
-            'currentColor',
-            'inherit',
-            'transparent',
-          ],
-          '/^(margin|padding)(-top|-left|-bottom|-right)?/': [
-            '0',
-            'auto',
-            'none',
-            'unset',
-          ],
-          'z-index': [
-            -1,
-            1,
-            'auto',
-          ],
-        },
-      },
-    ],
     'scss/at-function-parentheses-space-before': 'never',
     'scss/at-if-closing-brace-newline-after': 'always-last-in-chain',
     'scss/at-mixin-argumentless-call-parentheses': 'never',
