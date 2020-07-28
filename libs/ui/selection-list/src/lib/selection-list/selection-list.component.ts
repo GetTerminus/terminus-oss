@@ -21,7 +21,8 @@ import {
   FormControl,
   NgControl,
 } from '@angular/forms';
-import { faAngleDown } from '@fortawesome/pro-regular-svg-icons/faAngleDown';
+import { faAngleDown } from '@fortawesome/pro-solid-svg-icons/faAngleDown';
+import { faCaretDown } from '@fortawesome/pro-solid-svg-icons/faCaretDown';
 import {
   BehaviorSubject,
   of,
@@ -156,7 +157,7 @@ export class TsSelectionListComponent implements
   /**
    * Define the dropdown arrow
    */
-  public iconArrow = faAngleDown;
+  public iconArrow = faCaretDown;
 
   /**
    * Define the internal FormControl

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { faBacteria } from '@fortawesome/pro-regular-svg-icons/faBacteria';
-import { faPortalEnter } from '@fortawesome/pro-regular-svg-icons/faPortalEnter';
-import { faPortalExit } from '@fortawesome/pro-regular-svg-icons/faPortalExit';
-import { faRocketLaunch } from '@fortawesome/pro-regular-svg-icons/faRocketLaunch';
+import { faBacteria } from '@fortawesome/pro-solid-svg-icons/faBacteria';
+import { faPortalEnter } from '@fortawesome/pro-solid-svg-icons/faPortalEnter';
+import { faPortalExit } from '@fortawesome/pro-solid-svg-icons/faPortalExit';
+import { faRocketLaunch } from '@fortawesome/pro-solid-svg-icons/faRocketLaunch';
 
 
 @Component({

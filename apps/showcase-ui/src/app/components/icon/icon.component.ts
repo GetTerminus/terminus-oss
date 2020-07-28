@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { faAmericanSignLanguageInterpreting } from '@fortawesome/pro-regular-svg-icons/faAmericanSignLanguageInterpreting';
-import { faCoffee } from '@fortawesome/pro-regular-svg-icons/faCoffee';
-import { faHome } from '@fortawesome/pro-regular-svg-icons/faHome';
-import { faHorseSaddle } from '@fortawesome/pro-regular-svg-icons/faHorseSaddle';
-import { faPlusSquare } from '@fortawesome/pro-regular-svg-icons/faPlusSquare';
+import { faAmericanSignLanguageInterpreting } from '@fortawesome/pro-solid-svg-icons/faAmericanSignLanguageInterpreting';
+import { faCoffee } from '@fortawesome/pro-solid-svg-icons/faCoffee';
+import { faHome } from '@fortawesome/pro-solid-svg-icons/faHome';
+import { faHorseSaddle } from '@fortawesome/pro-solid-svg-icons/faHorseSaddle';
+import { faPlusSquare } from '@fortawesome/pro-solid-svg-icons/faPlusSquare';
 
 @Component({
   selector: 'demo-icon',

@@ -23,7 +23,7 @@
   --tsb-theme-secondary-borderColor: var(--ts-color-utility-300);
   --tsb-theme-secondary-borderColor-hover: var(--ts-color-utility-500);
   --tsb-theme-secondary-borderColor-active: var(--ts-color-utility-600);
-  --tsb-theme-secondary-borderColor-focus: var(--ts-color-light);
+  --tsb-theme-secondary-borderColor-focus: var(--ts-color-utility-400);
   --tsb-theme-secondary-color: var(--ts-color-primary-500);
   --tsb-theme-secondary-color-active: var(--ts-color-primary-500);
   --tsb-theme-secondary-color-focus: var(--ts-color-primary-500);
@@ -37,7 +37,7 @@
   --tsb-theme-warning-borderColor: var(--ts-color-utility-300);
   --tsb-theme-warning-borderColor-hover: var(--ts-color-utility-500);
   --tsb-theme-warning-borderColor-active: var(--ts-color-utility-600);
-  --tsb-theme-warning-borderColor-focus: var(--ts-color-warn-100);
+  --tsb-theme-warning-borderColor-focus: var(--ts-color-utility-400);
   --tsb-theme-warning-color: var(--ts-color-warn-500);
   --tsb-theme-warning-color-active: var(--ts-color-warn-500);
   --tsb-theme-warning-color-focus: var(--ts-color-warn-500);
@@ -84,7 +84,8 @@
     border-radius: var(--ts-button-borderRadius);
     color: var(--ts-button-color);
     cursor: pointer;
-    font: var(--ts-typography-compound-body);
+    font: var(--ts-typography-compound-body2);
+    font-size: 14px;
     line-height: var(--ts-button-lineHeight);
     padding: var(--ts-button-padding);
     position: relative;

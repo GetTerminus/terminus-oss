@@ -14,7 +14,7 @@ import {
   ViewChildren,
   ViewEncapsulation,
 } from '@angular/core';
-import { faAngleDown } from '@fortawesome/pro-regular-svg-icons/faAngleDown';
+import { faAngleDown } from '@fortawesome/pro-solid-svg-icons/faAngleDown';
 import { BehaviorSubject } from 'rxjs';
 
 import { groupBy } from '@terminus/ngx-tools/utilities';

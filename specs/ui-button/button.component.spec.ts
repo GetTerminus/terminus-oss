@@ -7,8 +7,8 @@ import {
 import { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { faHome } from '@fortawesome/pro-regular-svg-icons/faHome';
-import { faSearch } from '@fortawesome/pro-regular-svg-icons/faSearch';
+import { faHome } from '@fortawesome/pro-solid-svg-icons/faHome';
+import { faSearch } from '@fortawesome/pro-solid-svg-icons/faSearch';
 
 import {
   createComponent,

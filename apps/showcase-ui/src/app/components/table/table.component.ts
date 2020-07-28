@@ -19,9 +19,9 @@ import {
   DomSanitizer,
   SafeHtml,
 } from '@angular/platform-browser';
-import { faExternalLink } from '@fortawesome/pro-regular-svg-icons/faExternalLink';
-import { faGripLines } from '@fortawesome/pro-regular-svg-icons/faGripLines';
-import { faTable } from '@fortawesome/pro-regular-svg-icons/faTable';
+import { faExternalLink } from '@fortawesome/pro-solid-svg-icons/faExternalLink';
+import { faGripLines } from '@fortawesome/pro-solid-svg-icons/faGripLines';
+import { faTable } from '@fortawesome/pro-solid-svg-icons/faTable';
 import {
   merge,
   Observable,

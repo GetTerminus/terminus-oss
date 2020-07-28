@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { faHome } from '@fortawesome/pro-regular-svg-icons/faHome';
-import { faPlus } from '@fortawesome/pro-regular-svg-icons/faPlus';
-import { faWrench } from '@fortawesome/pro-regular-svg-icons/faWrench';
+import { faHome } from '@fortawesome/pro-solid-svg-icons/faHome';
+import { faPlus } from '@fortawesome/pro-solid-svg-icons/faPlus';
+import { faWrench } from '@fortawesome/pro-solid-svg-icons/faWrench';
 
 @Component({
   selector: 'app-button',

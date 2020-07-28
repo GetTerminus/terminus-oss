@@ -18,7 +18,7 @@ import {
   FormGroup,
   ValidatorFn,
 } from '@angular/forms';
-import { faTrash } from '@fortawesome/pro-regular-svg-icons/faTrash';
+import { faTrash } from '@fortawesome/pro-solid-svg-icons/faTrash';
 import { debounceTime } from 'rxjs/operators';
 
 import { TsDocumentService } from '@terminus/ngx-tools/browser';

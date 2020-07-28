@@ -4,8 +4,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { faAt } from '@fortawesome/pro-regular-svg-icons/faAt';
-import { faHome } from '@fortawesome/pro-regular-svg-icons/faHome';
+import { faAt } from '@fortawesome/pro-solid-svg-icons/faAt';
+import { faHome } from '@fortawesome/pro-solid-svg-icons/faHome';
 
 import { TsValidatorsService } from '@terminus/ui-validators';
 

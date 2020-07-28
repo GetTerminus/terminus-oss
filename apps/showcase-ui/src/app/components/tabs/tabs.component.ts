@@ -4,8 +4,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { faHome } from '@fortawesome/pro-regular-svg-icons/faHome';
-import { faQuestionCircle } from '@fortawesome/pro-regular-svg-icons/faQuestionCircle';
+import { faHome } from '@fortawesome/pro-solid-svg-icons/faHome';
+import { faQuestionCircle } from '@fortawesome/pro-solid-svg-icons/faQuestionCircle';
 import { BehaviorSubject } from 'rxjs';
 
 import { TsTabCollectionComponent } from '@terminus/ui-tabs';

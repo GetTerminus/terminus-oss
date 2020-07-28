@@ -18,6 +18,11 @@
     border-color: var(--ts-checkbox-borderColor);
   }
 
+  .mat-checkbox-frame,
+  .mat-checkbox-background {
+    border-radius: 4px;
+  }
+
   .mat-checkbox-indeterminate,
   .mat-checkbox-checked {
     .mat-checkbox-background {

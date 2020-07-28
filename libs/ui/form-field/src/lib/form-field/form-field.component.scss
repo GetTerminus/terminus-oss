@@ -3,7 +3,7 @@
 .ts-form-field {
   --formField-outlineColor-default: var(--ts-color-utility-500);
   --formField-outlineColor-default-hover: var(--ts-color-base-black);
-  --formField-outlineColor-theme: var(--ts-color-primary-500);
+  --formField-outlineColor-theme: var(--ts-color-utility-400);
   --formField-outlineColor-disabled: var(--ts-color-utility-500);
   --formField-color-disabled: var(--ts-color-utility-500);
   --formField-outline-borderRadius: var(--ts-border-radius-base);
@@ -33,6 +33,10 @@
   --formField-wrapper-paddingBottom: 1.43em;
   // The amount we offset the label from the input text in the outline appearance.
   --formField-outline-labelOffset: -.35em;
+  --ts-formField-boxShadow-color: var(--ts-color-primary-300);
+  --ts-formField-boxShadow-color-error: var(--ts-color-warn-300);
+
+  color: var(--ts-color-utility-900);
   display: block;
 
   /////////////////////////
@@ -84,28 +88,30 @@
   // Focused theme support
   &.ts-form-field--focused {
     .ts-form-field__outline--thick {
+      box-shadow: 0 0 2px 2px var(--ts-formField-boxShadow-color);
       color: var(--formField-outlineColor-theme);
     }
 
     &.ts-form-field--accent {
       .ts-form-field__outline--thick {
         --formField-outlineColor-theme: var(--ts-color-accent-500);
+        --ts-formField-boxShadow-color: var(--ts-color-accent-300);
       }
     }
 
+    &.ts-form-field--invalid,
     &.ts-form-field--warn {
       .ts-form-field__outline--thick {
         --formField-outlineColor-theme: var(--ts-color-warn-500);
+        --ts-formField-boxShadow-color: var(--ts-color-warn-300);
       }
     }
   }
 
   // NOTE: Class is repeated so that rule is specific enough to override focused accent color case.
   &.ts-form-field--invalid {
-    &.ts-form-field--invalid {
-      .ts-form-field__outline--thick {
-        --formField-outlineColor-theme: var(--ts-color-warn-500);
-      }
+    .ts-form-field__outline--thick {
+      --formField-outlineColor-theme: var(--ts-color-warn-500);
     }
   }
 
@@ -171,13 +177,12 @@
   }
 
   .ts-form-field__outline--thick {
-    color: var(--formField-outlineColor-default-hover);
+    color: var(--formField-outlineColor-theme);
     opacity: 0;
 
     .ts-form-field__outline-start,
     .ts-form-field__outline-end,
     .ts-form-field__outline-gap {
-      --formField-outline-width: var(--formField-outline-width-thick);
       transition: border-color var(--ts-animation-time-duration-300) var(--swift-ease-out-timing-function);
     }
   }
@@ -229,6 +234,7 @@
 
   .ts-form-field__prefix,
   .ts-form-field__suffix {
+    color: var(--ts-color-utility-600);
     flex: none;
     position: relative;
     top: var(--formField-outline-labelOverlap);
@@ -249,6 +255,8 @@
   // Scale down icons in the label and hint to be the same size as the text.
   .ts-form-field__subscript-wrapper,
   .ts-form-field__label-wrapper {
+    color: var(--ts-color-utility-700);
+
     .ts-icon {
       font-size: inherit;
       height: 1em;

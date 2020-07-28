@@ -52,7 +52,7 @@ In your top level stylesheet, add these imports:
 Pass a valid FontAwesome icon reference:
 
 ```typescript
-import { faHome } from '@fortawesome/pro-regular-svg-icons/faHome';
+import { faHome } from '@fortawesome/pro-solid-svg-icons/faHome';
 ...
 public home = faHome;
 ```
