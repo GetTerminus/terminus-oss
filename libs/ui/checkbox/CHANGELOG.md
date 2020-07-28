@@ -26,6 +26,31 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * **Checkbox:** No longer allows theme input
 
+#### Migration Notes
+
+##### Theme
+
+Remove any theme set on the checkbox:
+
+```diff
+-<ts-checkbox theme="primary">My checkbox</ts-checkbox>
++<ts-checkbox>My checkbox</ts-checkbox>
+```
+
+##### CSS Resources
+
+Remove any imports or `<link>` tags importing Material Icons:
+
+```diff
+-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
+
+Update the imported font families:
+
+```diff
+-<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
++<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+```
 
 
 

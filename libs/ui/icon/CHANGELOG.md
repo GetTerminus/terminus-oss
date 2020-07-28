@@ -26,6 +26,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * **Icon:** Change icon library
 
+#### Migration Notes
+
+##### CSS Resources
+
+Remove any imports or `<link>` tags importing Material Icons:
+
+```diff
+-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
 
 
 
