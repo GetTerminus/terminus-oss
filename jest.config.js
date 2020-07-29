@@ -27,10 +27,6 @@ module.exports = {
     '**/jest-mocks/*',
   ],
   testPathPattern: '^(libs|specs)/**/*.spec.ts',
-  transform: {
-    '^.+\\.(ts|js|html)$': 'ts-jest',
-  },
-  transformIgnorePatterns: [
-    '/node_modules/(?!@ngrx|popper)',
-  ],
+  transform: { '^.+\\.(ts|js|html)$': 'ts-jest' },
+  transformIgnorePatterns: ['/node_modules/(?!@ngrx|popper)'],
 };

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any,no-return-assign,no-console */
 import 'jest-preset-angular';
 
 const mock = () => {
@@ -10,10 +11,10 @@ const mock = () => {
   };
 };
 
-Object.defineProperty(window, 'localStorage', { value: mock() });
-Object.defineProperty(window, 'sessionStorage', { value: mock() });
 Object.defineProperty(window, 'CSS', { value: () => ({}) });
 Object.defineProperty(window, 'getComputedStyle', { value: () => ({ getPropertyValue: prop => '' }) });
+Object.defineProperty(window, 'localStorage', { value: mock() });
+Object.defineProperty(window, 'sessionStorage', { value: mock() });
 
 /**
  * Patches for Material
@@ -78,7 +79,7 @@ if (document.body.style['animation-play-state'] === undefined && CSSStyleDeclara
 global.window.document.createRange = () => ({
   setEnd: () => {},
   setStart: () => {},
-  getBoundingClientRect: () => ({ right: 0 }),
-  getClientRects: () => [],
+  getBoundingClientRect: () => ({ right: 0 } as any),
+  getClientRects: () => [] as any,
   commonAncestorContainer: document.createElement('div'),
 });
