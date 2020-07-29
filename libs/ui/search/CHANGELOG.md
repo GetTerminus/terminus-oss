@@ -51,7 +51,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **Search:** New button themes configuration
 * **Search:** change icon library
 
-#### Migration Notes
+#### 2.0.0 Migration Notes
 
 ##### CSS Resources
 

@@ -45,7 +45,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * **Icon:** Change icon library
 
-#### Migration Notes
+#### 2.0.0 Migration Notes
+
+This was a full rewrite of the component so I suggest checking the API docs or source code to better understand the full capabilities.
+
+Basic usage example of the new component API:
+
+```typescript
+import { faHome } from '@fortawesome/pro-solid-svg-icons/faHome';
+...
+public home = faHome;
+```
+
+```html
+<ts-icon [icon]="home"></ts-icon>
+```
+
+> NOTE: Multiple versions of each icon exist. We should always import from the 'solid' collection.
 
 ##### CSS Resources
 
