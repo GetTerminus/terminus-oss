@@ -24,12 +24,6 @@
 - `@terminus/ngx-tools`
 - `@terminus/ui-icon`
 - `@terminus/ui-utilities`
-- `@fortawesome/angular-fontawesome@0.6.0`
-- `@fortawesome/fontawesome-pro`
-- `@fortawesome/fontawesome-svg-core`
-- `@fortawesome/free-brands-svg-icons`
-- `@fortawesome/pro-light-svg-icons`
-- `@fortawesome/pro-solid-svg-icons`
 - `@fortawesome/pro-solid-svg-icons`
 
 Use the `ng add` command to quickly install all the needed dependencies:
