@@ -203,6 +203,10 @@ flags:
     paths:
       - libs/ui/validators/
     carryforward: true
+  feUtilities:
+    paths:
+      - libs/fe-utilities/
+    carryforward: true
 
 ignore:
   - "coverage"
