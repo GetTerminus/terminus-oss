@@ -22,6 +22,7 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@terminus/ngx-tools: ^8.0.6',
     '@terminus/ui-utilities: ^1.0.7',
     '@terminus/ui-icon: ^2.0.0',
+    '@fortawesome/pro-solid-svg-icons: ^5.14.0',
     'date-fns: ^2.14.0',
   ].map(p => {
     const individualPackage = p.split(':');
