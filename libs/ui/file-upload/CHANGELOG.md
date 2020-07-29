@@ -55,11 +55,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ##### Theme
 
-If passing in a theme, use one of the supported themes: `default|secondary|warning`:
+If passing in a theme, use one of the new button themes: `default|secondary|warning`:
 
 ```diff
--<ts-button theme="primary">Click Me!</ts-button>
-+<ts-button theme="default">Click Me!</ts-button>
+-<ts-file-upload theme="primary"></ts-file-upload>
++<ts-file-upload theme="default"></ts-file-upload>
 ```
 
 ##### CSS Resources
