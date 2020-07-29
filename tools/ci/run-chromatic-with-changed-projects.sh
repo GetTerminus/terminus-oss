@@ -25,7 +25,7 @@ if [[ -n "$LERNA_OUTPUT" ]]; then
   for project in "${PROJECT_ARRAY[@]}"
   do
     files=$(find $project -name "*.stories.[tj]s" 2> /dev/null | wc -l)
-    if [ $files != "0" ]; then
+    if [[ $files != "0" ]]; then
       links+="'$project/**/*.stories.[tj]s',"
     fi
   done
@@ -33,10 +33,12 @@ if [[ -n "$LERNA_OUTPUT" ]]; then
   echo "Storybook main stories: "
   echo "$links"
 
-  if [ $links != '' ]; then
+  if [[ $links != '' ]]; then
     grep -rl "STORIES" '.storybook/main.js' | xargs sed -i'' -e 's|'STORIES'|'$links'|g'
     echo "Running chromatic on affected projects.."
     yarn affected:chromatic
+  else
+    echo "No storybook built for chromatic visual testing"
   fi
 else
   echo "No changed projects found."
