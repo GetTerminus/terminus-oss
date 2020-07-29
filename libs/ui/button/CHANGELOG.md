@@ -54,11 +54,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **Button:** Border radius change
 * **Button**: Remove long deprecated button type spelling `collapsable`.
 
-#### Migration Notes
+#### 2.0.0 Migration Notes
 
 ##### Theme
 
-If passing in a theme, use one of the supported themes: `default|secondary|warning`:
+If passing in a theme, use one of the new button themes: `default|secondary|warning`:
 
 ```diff
 -<ts-button theme="primary">Click Me!</ts-button>
@@ -79,6 +79,8 @@ public home = faHome;
 -<ts-button iconName="home">Go Home</ts-button>
 +<ts-button [icon]="home">Go Home</ts-button>
 ```
+
+> NOTE: Multiple versions of each icon exist. We should always import from the 'solid' collection.
 
 ##### Hollow
 

@@ -34,7 +34,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * **Tabs:** Border radius change
 
-#### Migration Notes
+#### 2.0.0 Migration Notes
 
 ##### CSS Resources
 

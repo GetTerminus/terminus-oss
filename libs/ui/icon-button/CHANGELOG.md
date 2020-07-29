@@ -45,7 +45,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * **IconButton:** Change icon library
 
-#### Migration Notes
+#### 2.0.0 Migration Notes
 
 ##### Icon
 
@@ -61,6 +61,8 @@ public home = faHome;
 -<ts-icon-button>home</ts-icon-button>
 +<ts-icon-button [icon]="home"></ts-icon-button>
 ```
+
+> NOTE: Multiple versions of each icon exist. We should always import from the 'solid' collection.
 
 ##### CSS Resources
 

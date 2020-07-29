@@ -51,11 +51,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **Menu:** New button themes configuration
 * **Menu:** change icon library
 
-#### Migration Notes
+#### 2.0.0 Migration Notes
 
 ##### Theme
 
-If passing in a theme, use one of the supported themes: `default|secondary|warning`:
+If passing in a theme, use one of the new button themes: `default|secondary|warning`:
 
 ```diff
 -<ts-menu theme="primary">Select Item</ts-menu>
