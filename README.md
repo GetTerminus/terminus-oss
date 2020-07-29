@@ -24,6 +24,7 @@ The monorepo that contains all Terminus open-source libraries and tools.
 |---------------------------------------------------|-----------------------------------------------------------|--------------------------------------------|----------------------------------|----------------------------------|-----------------------------------------------|------------------------------------------|---------------------------------------------------------------|------------------------------------------------------------|
 | [design-tokens][src-tokens]                       | Terminus design tokens in CSS/SCSS/JS/JSON form           | [Changelog][changelog-tokens]              | [Demo][demo-tokens]              |                                  | [Legacy Code][legacy-src-tokens]              |                                          | ![Design Tokens latest][badge-latest-tokens]                  | ![Tokens next][badge-next-tokens]                          |
 | [eslint-config-frontend][src-eslint-config]       | ESLint configuration for front-end repos                  | [Changelog][changelog-eslint-config]       |                                  | [Docs][docs-eslint-config]       | [Legacy Code][legacy-src-eslint-config]       |                                          | ![ESLint config latest][badge-latest-eslint-config]           | ![ESLint config next][badge-next-eslint-config]            |
+| [fe-utilities][src-fe-utilities]                  | A collection of tools and utilities                       | [Changelog][changelog-fe-utilities]        |                                  | [Docs][docs-fe-utilities]        | [Legacy Code][legacy-src-fe-utilities]        | ![codecov][cov-badge-fe-utilities]       | ![fe-utilities latest][badge-latest-fe-utilities]             | ![fe-utilities next][badge-next-fe-utilities]              |
 | [stylelint-config-frontend][src-stylelint-config] | StyleLint configuration for front-end repos               | [Changelog][changelog-stylelint-config]    |                                  | [Docs][docs-stylelint-config]    | [Legacy Code][legacy-src-stylelint-config]    |                                          | ![StyleLint config latest][badge-latest-stylelint-config]     | ![Stylelint config next][badge-next-stylelint-config]      |
 | [ui-autocomplete][src-autocomplete]               | Deprecated. See `selection-list`                          | [Changelog][changelog-autocomplete]        | [Demo][demo-autocomplete]        | [Docs][docs-autocomplete]        | [Legacy Code][legacy-src-autocomplete]        | ![codecov][cov-badge-autocomplete]       | ![Autocomplete latest][badge-latest-autocomplete]             | ![Autocomplete next][badge-next-autocomplete]              |
 | [ui-autofocus][src-autofocus]                     | Focus a focusable element on load                         | [Changelog][changelog-autofocus]           | [Demo][demo-autofocus]           | [Docs][docs-autofocus]           | [Legacy Code][legacy-src-autofocus]           | ![codecov][cov-badge-autofocus]          | ![autofocus latest][badge-latest-autofocus]                   | ![Autofocus next][badge-next-autofocus]                    |
@@ -105,6 +106,7 @@ See the 'demos' column in the [table above](#packages).
 
 <!-- Source Directories -->
 [src-tokens]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/design-tokens/
+[src-fe-utilities]:        https://github.com/GetTerminus/terminus-oss/blob/release/libs/fe-utilities/
 [src-eslint-config]:       https://github.com/GetTerminus/terminus-oss/blob/release/libs/eslint-config-frontend/
 [src-stylelint-config]:    https://github.com/GetTerminus/terminus-oss/blob/release/libs/stylelint-config-frontend/
 [src-autocomplete]:        https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/autocomplete/
@@ -153,6 +155,7 @@ See the 'demos' column in the [table above](#packages).
 
 <!-- Changelogs -->
 [changelog-tokens]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/design-tokens/CHANGELOG.md
+[changelog-fe-utilities]:        https://github.com/GetTerminus/terminus-oss/blob/release/libs/fe-utilities/CHANGELOG.md
 [changelog-eslint-config]:       https://github.com/GetTerminus/terminus-oss/blob/release/libs/eslint-config-frontend/CHANGELOG.md
 [changelog-stylelint-config]:    https://github.com/GetTerminus/terminus-oss/blob/release/libs/stylelint-config-frontend/CHANGELOG.md
 [changelog-autocomplete]:        https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/autocomplete/CHANGELOG.md
@@ -199,6 +202,7 @@ See the 'demos' column in the [table above](#packages).
 
 <!-- Legacy source code -->
 [legacy-src-tokens]:              https://github.com/GetTerminus/design-tokens
+[legacy-src-fe-utilities]:        https://github.com/GetTerminus/ngx-tools
 [legacy-src-eslint-config]:       https://github.com/GetTerminus/eslint-config-frontend
 [legacy-src-stylelint-config]:    https://github.com/GetTerminus/stylelint-config-frontend
 [legacy-src-autocomplete]:        https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/autocomplete/
@@ -286,6 +290,7 @@ See the 'demos' column in the [table above](#packages).
 [demo-validators]:          https://getterminus.github.io/ui-demos-release/components/validation
 
 <!-- TS Primary Docs -->
+[docs-fe-utilities]:        https://github.com/GetTerminus/terminus-oss/blob/release/libs/fe-utilities/README.md
 [docs-eslint-config]:       https://github.com/GetTerminus/terminus-oss/blob/release/libs/eslint-config-frontend/README.md
 [docs-stylelint-config]:    https://github.com/GetTerminus/terminus-oss/blob/release/libs/stylelint-config-frontend/README.md
 [docs-autocomplete]:        http://uilibrary-docs.terminus.ninja/release/components/TsAutocompleteComponent.html
@@ -331,6 +336,7 @@ See the 'demos' column in the [table above](#packages).
 [docs-validators]:          http://uilibrary-docs.terminus.ninja/release/injectables/TsValidatorsService.html
 
 <!-- Coverage Badges -->
+[cov-badge-fe-utilities]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=feUtilities
 [cov-badge-autocomplete]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=autocomplete
 [cov-badge-autofocus]:          https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=autofocus
 [cov-badge-button]:             https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=button
@@ -375,6 +381,7 @@ See the 'demos' column in the [table above](#packages).
 <!-- Version Badges -->
 <!-- @latest -->
 [badge-latest-tokens]:             https://img.shields.io/npm/v/@terminus/design-tokens/latest?color=%2345aaf2
+[badge-latest-fe-utilities]:       https://img.shields.io/npm/v/@terminus/fe-utilities/latest?color=%2345aaf2
 [badge-latest-eslint-config]:      https://img.shields.io/npm/v/@terminus/eslint-config-frontend/latest?color=%2345aaf2
 [badge-latest-stylelint-config]:   https://img.shields.io/npm/v/@terminus/stylelint-config-frontend/latest?color=%2345aaf2
 [badge-latest-autocomplete]:       https://img.shields.io/npm/v/@terminus/ui-autocomplete/latest?color=%2345aaf2
@@ -420,6 +427,7 @@ See the 'demos' column in the [table above](#packages).
 [badge-latest-validators]:         https://img.shields.io/npm/v/@terminus/ui-validators/latest?color=%2345aaf2
 <!-- @next -->
 [badge-next-tokens]:             https://img.shields.io/npm/v/@terminus/design-tokens/next?color=%2345aaf2
+[badge-next-fe-utilities]:       https://img.shields.io/npm/v/@terminus/fe-utilities/next?color=%2345aaf2
 [badge-next-eslint-config]:      https://img.shields.io/npm/v/@terminus/eslint-config-frontend/next?color=%2345aaf2
 [badge-next-stylelint-config]:   https://img.shields.io/npm/v/@terminus/stylelint-config-frontend/next?color=%2345aaf2
 [badge-next-autocomplete]:       https://img.shields.io/npm/v/@terminus/ui-autocomplete/next?color=%2345aaf2
