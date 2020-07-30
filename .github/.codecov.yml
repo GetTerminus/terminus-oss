@@ -207,6 +207,10 @@ flags:
     paths:
       - libs/fe-utilities/
     carryforward: true
+  feJwt:
+    paths:
+      - libs/fe-jwt/
+    carryforward: true
 
 ignore:
   - "coverage"
