@@ -12,14 +12,11 @@ import {
 import { MatMenuTrigger } from '@angular/material/menu';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faAngleDown } from '@fortawesome/pro-solid-svg-icons/faAngleDown';
-import { faEllipsisV } from '@fortawesome/pro-solid-svg-icons/faEllipsisV';
+import { faEllipsisH } from '@fortawesome/pro-solid-svg-icons/faEllipsisH';
 
 import {
-  TsButtonFormatTypes,
   TsButtonThemeTypes,
 } from '@terminus/ui-button';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
-
 
 /**
  * Define the allowed X positions for a menu
@@ -29,7 +26,6 @@ export type TsMenuPositionTypesX
   | 'after'
 ;
 
-
 /**
  * Define the allowed Y positions for a menu
  */
@@ -38,7 +34,6 @@ export type TsMenuPositionTypesY
   | 'below'
 ;
 
-
 /**
  * Define the allowed trigger types for a menu
  */
@@ -46,7 +41,6 @@ export type TsMenuTriggerTypes
   = 'default'
   | 'utility'
 ;
-
 
 /**
  * A presentational component to render a dropdown menu.
@@ -85,7 +79,7 @@ export class TsMenuComponent implements AfterViewInit, OnInit {
   /**
    * Define the utility icon for the trigger button
    */
-  private TRIGGER_ICON_UTILITY = faEllipsisV;
+  private TRIGGER_ICON_UTILITY = faEllipsisH;
 
   /**
    * Return if the current menu is a utility menu

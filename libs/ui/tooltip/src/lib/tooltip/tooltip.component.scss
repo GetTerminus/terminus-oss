@@ -1,5 +1,10 @@
 @import '~@terminus/ui-styles/helpers';
 
+
+:root {
+  --ts-tooltip-boxShadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 5px 0 rgba(0, 0, 0, .12);
+}
+
 .ts-tooltip {
   display: inline-block;
 }
@@ -13,10 +18,11 @@
 // Override material styles
 .mat-tooltip-panel {
   .mat-tooltip {
-    @include elevation-element(snackbar);
-    background-color: var(--ts-color-base-white);
-    color: var(--ts-color-base-black);
+    background-color: var(--ts-color-utility-900);
+    box-shadow: var(--ts-tooltip-boxShadow);
+    color: var(--ts-color-light);
     font: var(--ts-typography-compound-caption);
+    font-size: 13px;
     overflow-wrap: break-word;
     white-space: normal;
   }

@@ -2,10 +2,9 @@
 
 .ts-form-field {
   --formField-outlineColor-default: var(--ts-color-utility-500);
-  --formField-outlineColor-default-hover: var(--ts-color-base-black);
-  --formField-outlineColor-theme: var(--ts-color-utility-400);
-  --formField-outlineColor-disabled: var(--ts-color-utility-500);
-  --formField-color-disabled: var(--ts-color-utility-500);
+  --formField-outlineColor-theme: var(--ts-color-primary-500);
+  --formField-outlineColor-disabled: var(--ts-color-utility-200);
+  --formField-color-disabled: var(--ts-color-utility-600);
   --formField-outline-borderRadius: var(--ts-border-radius-base);
   --formField-outline-width: 1px;
   // The width of the thick outline (used for focus, hover, and error state).
@@ -64,6 +63,7 @@
         }
 
         .ts-form-field__outline--thick {
+          color: var(--ts-color-utility-500);
           opacity: 1;
         }
       }
@@ -76,7 +76,7 @@
       transform:
         translateY(var(--translate))
         scale(var(--formField-fontScale-subscript))
-    ;
+      ;
       width: 100% / #{var(--formField-fontScale-subscript)};
     }
 
@@ -94,7 +94,7 @@
 
     &.ts-form-field--accent {
       .ts-form-field__outline--thick {
-        --formField-outlineColor-theme: var(--ts-color-accent-500);
+        --formField-outlineColor-theme: var(--ts-color-utility-400);
         --ts-formField-boxShadow-color: var(--ts-color-accent-300);
       }
     }
@@ -102,7 +102,7 @@
     &.ts-form-field--invalid,
     &.ts-form-field--warn {
       .ts-form-field__outline--thick {
-        --formField-outlineColor-theme: var(--ts-color-warn-500);
+        --formField-outlineColor-theme: var(--ts-color-utility-400);
         --ts-formField-boxShadow-color: var(--ts-color-warn-300);
       }
     }
@@ -117,7 +117,7 @@
 
   &.ts-form-field--disabled {
     .ts-form-field__label {
-      color: var(--formField-outlineColor-disabled);
+      color: var(--ts-color-utility-600);
     }
 
     .c-input__text,
@@ -126,6 +126,7 @@
     }
 
     .ts-form-field__outline {
+      background-color: var(--ts-color-utility-100);
       color: var(--formField-outlineColor-disabled);
     }
 
@@ -291,7 +292,7 @@
 
   // Clears the floats on the hints. This is necessary for the hint animation to work.
   .ts-form-field__hint-wrapper {
-    color: var(--ts-color-utility-500);
+    color: var(--ts-color-utility-600);
     display: flex;
     font: var(--ts-typography-compound-hint);
   }

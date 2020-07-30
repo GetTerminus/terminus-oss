@@ -15,14 +15,22 @@
   // Set up for icon
   position: relative;
 
+  &:focus,
+  &:hover {
+    .ts-sort-header-container__icon {
+      opacity: 1;
+    }
+  }
+
   .ts-sort-header-disabled & {
     cursor: default;
   }
 
   // Double arrow icon to signify sortability
   &__icon {
+    opacity: 0;
     position: absolute;
-    right: 0;
+    right: 3px;
     top: 50%;
     transform: translate(22%, -42%);
     transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut) var(--ts-animation-time-delay-300);

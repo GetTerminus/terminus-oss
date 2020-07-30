@@ -117,13 +117,13 @@ export class TableComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       display: 'Number',
       name: 'number',
-      width: 60,
+      width: 80,
       control: new FormControl(true),
     },
     {
       display: 'Updated',
       name: 'updated',
-      width: 60,
+      width: 80,
       control: new FormControl(true),
     },
     {

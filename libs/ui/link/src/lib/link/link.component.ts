@@ -4,9 +4,9 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
+import { faExternalLink } from '@fortawesome/pro-solid-svg-icons/faExternalLink';
 
 import { isString } from '@terminus/ngx-tools/type-guards';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 /**
  * Standard link component
@@ -14,7 +14,6 @@ import { TsStyleThemeTypes } from '@terminus/ui-utilities';
  * @example
  * <ts-link
  *              [destination]="['your/', 'path/']"
- *              theme="accent"
  * >My link</ts-link>
  *
  * <ts-link
@@ -22,7 +21,6 @@ import { TsStyleThemeTypes } from '@terminus/ui-utilities';
  *              fragment="myElementId"
  *              [isExternal]="true"
  *              tabIndex="2"
- *              theme="warn"
  * >My link</ts-link>
  *
  * <example-url>https://getterminus.github.io/ui-demos-release/components/link</example-url>
@@ -31,17 +29,14 @@ import { TsStyleThemeTypes } from '@terminus/ui-utilities';
   selector: 'ts-link',
   templateUrl: './link.component.html',
   styleUrls: ['./link.component.scss'],
-  host: {
-    'class': 'ts-link',
-    '[class.ts-link--primary]': 'theme === "primary"',
-    '[class.ts-link--accent]': 'theme === "accent"',
-    '[class.ts-link--warn]': 'theme === "warn"',
-  },
+  host: { class: 'ts-link' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   exportAs: 'tsLink',
 })
 export class TsLinkComponent {
+  public iconExternal = faExternalLink;
+
   /**
    * Define the route needed when only using a fragment
    */
@@ -86,10 +81,4 @@ export class TsLinkComponent {
    */
   @Input()
   public tabIndex = 0;
-
-  /**
-   * Define the component theme
-   */
-  @Input()
-  public theme: TsStyleThemeTypes = 'primary';
 }

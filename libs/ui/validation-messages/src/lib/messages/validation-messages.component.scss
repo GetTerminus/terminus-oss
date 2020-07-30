@@ -5,7 +5,7 @@
 
   // Top level styles should be nested here
   .c-validation-message {
-    color: color(warn);
+    color: var(--ts-color-warn-500);
     font: var(--ts-typography-compound-caption);
     z-index: z(tooltip);
   }

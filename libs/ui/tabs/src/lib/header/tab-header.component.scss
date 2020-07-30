@@ -31,7 +31,6 @@
   display: inline-flex;
   height: var(--ts-tab-bar-height);
   justify-content: center;
-  opacity: .6;
   padding: 0 var(--ts-space-inset-600);
   position: relative;
   text-align: center;
@@ -157,6 +156,13 @@
     &.ts-tab-collection--#{$name} {
       .ts-tab-label {
         transition: background-color var(--ts-tab-animation-duration) var(--ts-tab-ease-in-out-curve-function);
+
+        &--active {
+          &:not(.ts-tab-label--disabled) {
+            color: $color;
+          }
+        }
+
 
         &:not(.ts-tab-label--disabled) {
           &:focus {
