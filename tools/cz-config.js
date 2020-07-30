@@ -86,8 +86,9 @@ module.exports = {
     // Non-UI packages
     { name: 'DesignTokens' },
     { name: 'ESLintConfig' },
-    { name: 'FEUtilities' },
     { name: 'FEJwt' },
+    { name: 'FETesting' },
+    { name: 'FEUtilities' },
     { name: 'StylelintConfig' },
 
     // Applications
