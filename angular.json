@@ -3018,6 +3018,43 @@
           }
         }
       }
+    },
+    "fe-jwt": {
+      "root": "libs/fe-jwt",
+      "sourceRoot": "libs/fe-jwt/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run lint:ts 'libs/fe-jwt/**/*.{js,ts}'"
+              }
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/fe-jwt/jest.config.js",
+            "tsConfig": "libs/fe-jwt/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/fe-jwt/src/test-setup.ts"
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/fe-jwt",
+            "tsConfig": "libs/fe-jwt/tsconfig.lib.json",
+            "packageJson": "libs/fe-jwt/package.json",
+            "main": "libs/fe-jwt/src/index.ts",
+            "assets": ["libs/fe-jwt/*.md"]
+          }
+        }
+      }
     }
   },
   "cli": {
