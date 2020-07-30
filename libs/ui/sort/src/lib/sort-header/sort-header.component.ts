@@ -1,4 +1,3 @@
-// FIXME: Should refactor out all dangles and remove this rule:
 /* eslint-disable no-underscore-dangle */
 import { CdkColumnDef } from '@angular/cdk/table';
 import {
@@ -13,6 +12,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { CanDisable } from '@angular/material/core';
+import { faArrowsV } from '@fortawesome/pro-solid-svg-icons/faArrowsV';
 import { merge } from 'rxjs';
 
 import { coerceBooleanProperty } from '@terminus/ngx-tools/coercion';
@@ -26,7 +26,6 @@ import {
 } from '../sort/sort.directive';
 import { tsSortAnimations } from './sort-animations';
 import { TsSortHeaderIntl } from './sort-header-intl';
-
 
 /**
  * Applies sorting behavior (click to change sort) and styles to an element, including an
@@ -71,6 +70,7 @@ import { TsSortHeaderIntl } from './sort-header-intl';
   exportAs: 'tsSortHeader',
 })
 export class TsSortHeaderComponent implements TsSortableItem, CanDisable, OnInit, OnDestroy  {
+  public arrowsIcon = faArrowsV;
   public disabled = false;
 
   /**

@@ -31,10 +31,18 @@
     background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut),
     border-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
 
-  &:hover,
   &:focus {
+    outline: none;
+
     &:not(.c-file-upload--disabled) {
-      border-color: var(--ts-color-primary-100);
+      border-color: var(--ts-color-primary-500);
+      box-shadow: 0 0 2px 2px var(--ts-color-primary-300);
+    }
+  }
+
+  &:hover {
+    &:not(.c-file-upload--disabled) {
+      border-color: var(--ts-color-utility-500);
     }
   }
 
@@ -61,7 +69,7 @@
 
   &.c-file-upload--disabled {
     .c-file-upload__empty {
-      color: var(--ts-color-utility-300);
+      color: var(--ts-color-utility-600);
     }
   }
 
@@ -157,7 +165,7 @@
 
 // <div> replication of mat-hint
 .c-file-upload__hints {
-  color: var(--ts-color-utility-500);
+  color: var(--ts-color-utility-600);
   font: var(--ts-typography-compound-hint);
   padding: var(--ts-fu-hint-padding);
   text-align: right;

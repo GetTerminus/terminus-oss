@@ -8,13 +8,14 @@
   // Menu width must be a multiple of 56px
   // 56 * 2:
   --ts-menu-overlay-minWidth: 112px;
-  @include elevation-element(menu);
+  --ts-selectionList-boxShadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 5px 0 rgba(0, 0, 0, .12);
   @include cdk-high-contrast {
     outline: solid 1px;
   }
   background: var(--ts-color-base-white);
   border-bottom-left-radius: var(--ts-selection-list-panel-border-radius);
   border-bottom-right-radius: var(--ts-selection-list-panel-border-radius);
+  box-shadow: var(--ts-selectionList-boxShadow);
   color: var(--ts-color-base-black);
   max-height: var(--ts-selection-list-panel-maxHeight);
   max-width: none;

@@ -113,15 +113,10 @@
 
   // <div> cell in column of row IDs
   .c-csv-entry__column-id {
-    color: var(--ts-color-utility-300);
+    color: var(--ts-color-utility-600);
     font: var(--ts-typography-compound-caption);
     max-height: var(--csv-external-row-height);
     padding: var(--csv-cell-padding);
-
-    &--invalid {
-      color: var(--ts-color-warn-500);
-      font-weight: var(--csv-invalid-fontWeight);
-    }
   }
 
   // <div> container for all validation messages

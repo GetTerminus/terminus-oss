@@ -27,11 +27,22 @@
   display: block;
   max-width: 100%;
 
+  &:focus {
+    outline: none;
+  }
+
   // Top level styles should be nested here
   .c-copy {
     color: var(--ts-color-utility-700);
     font: var(--ts-typography-compound-body);
     position: relative;
+  }
+
+  .c-copy,
+  .c-copy__content {
+    &:focus {
+      outline: none;
+    }
   }
 
   //
@@ -86,7 +97,8 @@
 
     // Adding tabindex to the element allows focus, but we don't need the visual indicator
     &:focus {
-      border: 1px solid var(--ts-color-utility-500);
+      border: 1px solid var(--ts-color-primary-500);
+      box-shadow: 0 0 2px 2px var(--ts-color-primary-200);
       outline: 0;
       transition-delay: var(--ts-animation-time-delay-0);
     }

@@ -2,10 +2,10 @@
 
 .outer {
   @include elevation-element(app-bar);
-  background-color: color(primary);
+  background-color: var(--ts-color-navigation-blue);
 
   span {
-    color: color(pure);
+    color: var(--ts-color-light);
     padding: 0 1rem;
   }
 }

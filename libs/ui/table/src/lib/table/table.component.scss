@@ -142,7 +142,17 @@
   .ts-header-cell {
     background-color: var(--ts-table-header-bg);
     border-color: var(--ts-table-header-border-color);
+    color: var(--ts-color-utility-600);
+    font-weight: 500;
     padding: var(--ts-table-cell-padding);
+
+    // Class added when the column is sorted
+    &.ts-sort-header-sorted {
+      color: var(--ts-color-utility-700);
+      .ts-sort-header-arrow {
+        color: var(--ts-color-utility-700);
+      }
+    }
 
     &:first-of-type {
       border-radius: var(--ts-table-header-borderRadius) 0 0 0;
@@ -180,13 +190,6 @@
     // Icon for unsorted state
     .ts-sort-header-container__icon {
       color: var(--ts-color-utility-600);
-    }
-
-    // Class added when the column is sorted
-    &.ts-sort-header-sorted {
-      .ts-sort-header-arrow {
-        color: var(--ts-color-utility-700);
-      }
     }
 
     // Reverse the natural z-index order so that all borders on the right created with box-shadow are visible above the following cell.

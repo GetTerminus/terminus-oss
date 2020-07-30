@@ -1,5 +1,5 @@
 .ts-link {
-  --ts-link-color: inherit;
+  --ts-link-color: var(--ts-color-primary-500);
   --ts-link-fontWeight: 400;
   --ts-link-icon-marginLeft: 6px;
   display: inline-block;
@@ -16,42 +16,9 @@
       text-decoration: underline;
     }
   }
-
-  // Define all possible themes
-  $themes: primary accent warn;
-  // Loop through using each theme name to create styles
-  @each $theme in $themes {
-    &--#{$theme} {
-      --ts-link-color: var(--ts-color-#{$theme}-500);
-
-      .c-link {
-        &:focus,
-        &:hover {
-          --ts-link-color: var(--ts-color-#{$theme}-700);
-        }
-
-        &:visited {
-          --ts-link-color: var(--ts-color-#{$theme}-500);
-        }
-      }
-    }
-  }
 }
 
 .c-link {
-  // Force the icon to assume the size of its context
-  .mat-icon {
-    &.material-icons {
-      --material-icon-fontSize-override: 1.2em;
-      font-size: var(--material-icon-fontSize-override);
-      height: auto;
-      line-height: 1em;
-      margin-left: var(--ts-link-icon-marginLeft);
-      vertical-align: middle;
-      width: auto;
-    }
-  }
-
   // Target links inside a TsMenuComponent
   .c-menu & {
     --menu-margin-adjustment-for-menu: var(--ts-space-stack-300) 0;
@@ -74,36 +41,6 @@
     &:focus,
     &:hover {
       --menu-item-color: var(--ts-color-primary-500);
-    }
-
-    &--default {
-      --ts-link-color: var(--ts-color-primary-500);
-
-      &:focus,
-      &:active,
-      &:hover {
-        --ts-link-color: var(--ts-color-primary-900);
-      }
-    }
-
-    &--secondary {
-      --ts-link-color: var(--ts-color-accent-500);
-
-      &:focus,
-      &:active,
-      &:hover {
-        --ts-link-color: var(--ts-color-accent-900);
-      }
-    }
-
-    &--warning {
-      --ts-link-color: var(--ts-color-warn-500);
-
-      &:focus,
-      &:active,
-      &:hover {
-        --ts-link-color: var(--ts-color-warn-900);
-      }
     }
   }
 }

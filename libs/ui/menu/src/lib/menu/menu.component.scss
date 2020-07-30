@@ -1,3 +1,7 @@
+:root {
+  --ts-menu-boxShadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 5px 0 rgba(0, 0, 0, .12);
+}
+
 .ts-menu {
   --menu-caret-icon-adjustment: -.4em;
   --menu-maxHeight: 12rem;
@@ -45,6 +49,8 @@
 
 
 .ts-menu__panel {
+  box-shadow: var(--ts-menu-boxShadow);
+
   .mat-menu-content {
     background-color: var(--ts-color-base-white);
     // NOTE: Universal selector needed since we don't know what the first child will be

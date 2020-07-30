@@ -14,7 +14,6 @@ import {
   TsLinkModule,
   TsLinkComponent,
 } from '@terminus/ui-link';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 @Component({
   template: `
@@ -23,7 +22,6 @@ import { TsStyleThemeTypes } from '@terminus/ui-utilities';
       [fragment]="fragment"
       [isExternal]="isExternal"
       [tabIndex]="tabIndex"
-      [theme]="theme"
     >My Link Text</ts-link>
   `,
 })
@@ -32,7 +30,6 @@ class TestHostComponent {
   fragment!: undefined | string;
   isExternal!: boolean;
   tabIndex!: number | undefined;
-  theme: TsStyleThemeTypes = 'primary';
 
   @ViewChild(TsLinkComponent, { static: true })
   linkComponent!: TsLinkComponent;
@@ -128,22 +125,6 @@ describe(`TsLinkComponent`, function() {
       link = fixture.debugElement.query(By.css('.c-link')).nativeElement;
 
       expect(link.tabIndex).toEqual(9);
-    });
-  });
-
-  describe(`theme`, function() {
-    test(`should set the appropriate class`, function() {
-      link = fixture.debugElement.query(By.css('.ts-link')).nativeElement;
-
-      expect(link.classList).toContain('ts-link--primary');
-
-      component.theme = 'accent';
-      fixture.detectChanges();
-      link = fixture.debugElement.query(By.css('.ts-link')).nativeElement;
-
-      expect(link.classList).not.toContain('ts-link--primary');
-      expect(link.classList).toContain('ts-link--accent');
-      expect.assertions(3);
     });
   });
 });
