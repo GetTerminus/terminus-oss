@@ -1,0 +1,28 @@
+{
+  "name": "@terminus/fe-testing",
+  "description": "A collection of helpers to facilitate testing UI components",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "@terminus",
+  "private": false,
+  "homepage": "https://github.com/GetTerminus/terminus-oss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GetTerminus/terminus-oss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GetTerminus/terminus-oss/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "next",
+    "directory": "../../dist/libs/fe-testing"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.1.12",
+    "@angular/core": "^9.1.12"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  }
+}

@@ -107,7 +107,8 @@
         "libs/stylelint-config-frontend/src/index.ts"
       ],
       "@terminus/fe-utilities": ["libs/fe-utilities/src/index.ts"],
-      "@terminus/fe-jwt": ["libs/fe-jwt/src/index.ts"]
+      "@terminus/fe-jwt": ["libs/fe-jwt/src/index.ts"],
+      "@terminus/fe-testing": ["libs/fe-testing/src/index.ts"]
     },
     "rootDir": ".",
     "sourceMap": true,

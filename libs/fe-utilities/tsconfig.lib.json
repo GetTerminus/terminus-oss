@@ -4,8 +4,13 @@
     "module": "commonjs",
     "outDir": "../../dist/out-tsc",
     "declaration": true,
+    "lib": [
+      "dom",
+      "es2018"
+    ],
     "rootDir": "./src",
-    "types": ["node"]
+    "types": ["node"],
+    "target": "ES2015"
   },
   "exclude": ["**/*.spec.ts"],
   "include": ["**/*.ts"]

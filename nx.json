@@ -194,6 +194,9 @@
     },
     "fe-jwt": {
       "tags": []
+    },
+    "fe-testing": {
+      "tags": []
     }
   }
 }
