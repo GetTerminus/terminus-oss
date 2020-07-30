@@ -15,4 +15,6 @@
   size-below: 400
 "Size: XL":
   size-above: 400
+"Size: WTF":
+  size-above: 800
 
