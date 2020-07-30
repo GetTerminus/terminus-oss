@@ -87,6 +87,7 @@ module.exports = {
     { name: 'DesignTokens' },
     { name: 'ESLintConfig' },
     { name: 'FEUtilities' },
+    { name: 'FEJwt' },
     { name: 'StylelintConfig' },
 
     // Applications
