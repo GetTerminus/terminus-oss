@@ -1,4 +1,21 @@
 {
   "name": "@terminus/fe-utilities",
-  "version": "0.0.1"
+  "description": "A collection of tools and utilities for Terminus applications",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "@terminus",
+  "private": false,
+  "homepage": "https://github.com/GetTerminus/terminus-oss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GetTerminus/terminus-oss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GetTerminus/terminus-oss/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "next",
+    "directory": "../../dist/libs/fe-utilities"
+  }
 }
