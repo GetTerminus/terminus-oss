@@ -156,7 +156,7 @@
     "@ngrx/effects": "9.2.0",
     "@ngrx/store": "9.2.0",
     "@popperjs/core": "2.0.0",
-    "@schematics/angular": "10.0.0",
+    "@schematics/angular": "9.1.12",
     "@terminus/design-tokens": "3.1.0",
     "@terminus/ngx-tools": "8.0.6",
     "@terminus/ui-styles": "1.0.7",
