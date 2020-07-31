@@ -1,4 +1,4 @@
-@import '../../scss/helpers';
+@import '~@terminus/ui-styles/helpers';
 
 
 // Primary container
@@ -46,13 +46,13 @@
     font-size: var(--ts-typography-size-200);
     opacity: var(--button-opacity);
     padding: var(--button-padding);
-    position: absolute;
     pointer-events: var(--button-pointerEvents);
+    position: absolute;
     right: var(--ts-space-inset-200);
     top: var(--ts-space-inset-200);
+    transition-duration: var(--reveal-animation-duration);
     transition-property: opacity, color;
     transition-timing-function: var(--ts-animation-easing-easeOut);
-    transition-duration: var(--reveal-animation-duration);
 
     &:focus,
     &:hover {
