@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@2.0.3...@terminus/ui-card@2.0.4) (2020-07-31)
+
+**Note:** Version bump only for package @terminus/ui-card
+
+
+
+
+
 ## [2.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@2.0.2...@terminus/ui-card@2.0.3) (2020-07-29)
 
 
