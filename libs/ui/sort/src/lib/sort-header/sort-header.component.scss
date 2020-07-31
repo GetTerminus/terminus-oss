@@ -9,6 +9,18 @@
   --ts-sort-header-arrow-transition: 225ms cubic-bezier(.4, 0, .2, 1);
 }
 
+// When sorted don't show the icon on hover
+.ts-sort-header-sorted {
+  .ts-sort-header-container {
+    &:focus,
+    &:hover {
+      .ts-sort-header-container__icon {
+        opacity: 0;
+      }
+    }
+  }
+}
+
 .ts-sort-header-container {
   align-items: center;
   display: flex;

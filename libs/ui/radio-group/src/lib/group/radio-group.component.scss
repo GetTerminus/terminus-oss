@@ -112,7 +112,7 @@
     &:focus,
     &:hover {
       &:not(.c-radio__content--disabled) {
-        border-color: var(--ts-color-primary-500);
+        border-color: var(--ts-color-utility-500);
         cursor: pointer;
       }
     }

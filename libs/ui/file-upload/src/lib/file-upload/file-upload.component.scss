@@ -68,6 +68,8 @@
   }
 
   &.c-file-upload--disabled {
+    cursor: not-allowed;
+
     .c-file-upload__empty {
       color: var(--ts-color-utility-600);
     }
