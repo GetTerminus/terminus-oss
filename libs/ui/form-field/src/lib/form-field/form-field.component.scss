@@ -56,6 +56,10 @@
 
   &:not(.ts-form-field--disabled) {
     .ts-form-field__container {
+      .ts-form-field__outline {
+        color: var(--ts-color-utility-400);
+      }
+
       &:hover {
         .ts-form-field__outline {
           opacity: 0;
@@ -89,12 +93,14 @@
   &.ts-form-field--focused {
     .ts-form-field__outline--thick {
       box-shadow: 0 0 2px 2px var(--ts-formField-boxShadow-color);
-      color: var(--formField-outlineColor-theme);
+      // stylelint-disable-next-line declaration-no-important
+      color: var(--formField-outlineColor-theme) !important;
     }
 
     &.ts-form-field--accent {
       .ts-form-field__outline--thick {
-        --formField-outlineColor-theme: var(--ts-color-utility-400);
+        // stylelint-disable-next-line declaration-no-important
+        --formField-outlineColor-theme: var(--ts-color-utility-400) !important;
         --ts-formField-boxShadow-color: var(--ts-color-accent-300);
       }
     }
@@ -102,7 +108,8 @@
     &.ts-form-field--invalid,
     &.ts-form-field--warn {
       .ts-form-field__outline--thick {
-        --formField-outlineColor-theme: var(--ts-color-utility-400);
+        // stylelint-disable-next-line declaration-no-important
+        --formField-outlineColor-theme: var(--ts-color-utility-400) !important;
         --ts-formField-boxShadow-color: var(--ts-color-warn-300);
       }
     }

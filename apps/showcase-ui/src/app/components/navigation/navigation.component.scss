@@ -1,7 +1,6 @@
 @import '~@terminus/ui-styles/helpers';
 
 .outer {
-  @include elevation-element(app-bar);
   background-color: var(--ts-color-navigation-blue);
 
   span {

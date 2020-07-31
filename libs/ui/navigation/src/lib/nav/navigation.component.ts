@@ -14,7 +14,7 @@ import {
   ViewChildren,
   ViewEncapsulation,
 } from '@angular/core';
-import { faAngleDown } from '@fortawesome/pro-solid-svg-icons/faAngleDown';
+import { faCaretDown } from '@fortawesome/pro-solid-svg-icons/faCaretDown';
 import { BehaviorSubject } from 'rxjs';
 
 import { groupBy } from '@terminus/fe-utilities';
@@ -173,7 +173,7 @@ export class TsNavigationComponent implements OnInit, AfterViewInit {
   /**
    * Define the dropdown icon
    */
-  public iconAngleDown = faAngleDown;
+  public iconDropDown = faCaretDown;
 
   /**
    * Getter to return the user's full name if it exists
