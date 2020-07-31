@@ -1,4 +1,6 @@
 .github
+.jest-cache
+.storybook
 coverage
 dist
 docs
@@ -7,4 +9,7 @@ node_modules
 .DS_Store
 **/*.d.ts
 .git
-.jest-cache
+tmp
+.in
+.out
+report.*.json
