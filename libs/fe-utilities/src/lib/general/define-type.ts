@@ -3,7 +3,6 @@
  */
 let typeCache: {[label: string]: boolean} = {};
 
-
 /**
  * Ensure you only define an action once in the entirety of the application
  *
@@ -25,7 +24,6 @@ export function defineType<T extends string>(label: T): T {
   return label;
 }
 
-
 /**
  * Ensure action is defined only once in the entirety of the application
  *
@@ -46,7 +44,6 @@ export function defineTypeEnum(typeEnum: Record<string, any>): void  {
     }
   }
 }
-
 
 /**
  * Reset the type cache
