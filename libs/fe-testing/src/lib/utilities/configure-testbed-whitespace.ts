@@ -11,14 +11,12 @@ export type TestBedCompilerOptions = Partial<{
   preserveWhitespaces: boolean;
 }>;
 
-
 /**
  * Define the structure of the function passed to `configureTestBed`
  *
  * @param testBed - The TestBed instance
  */
 export type ConfigureTestBedFn = (testBed: typeof TestBed) => void;
-
 
 /**
  * Create an instance of the TestBed and compile components
