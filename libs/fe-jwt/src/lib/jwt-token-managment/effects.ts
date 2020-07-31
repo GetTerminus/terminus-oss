@@ -1,3 +1,4 @@
+/* eslint-disable deprecation/deprecation */
 import {
   Inject,
   Injectable,
@@ -38,7 +39,6 @@ import {
 import { INITIAL_TOKEN_NAME } from './tokens';
 import { SCHEDULER } from './utilities/retry-with-escalation';
 
-
 export interface Claims { exp: number; }
 
 export interface MinimalClaimMap {
@@ -64,7 +64,6 @@ type FullClaimsTuple = [
   Claims
 ];
 
-
 @Injectable()
 export class JwtTokenProviderEffects {
 
@@ -81,14 +80,12 @@ export class JwtTokenProviderEffects {
     @Inject(SCHEDULER)
     // TODO: Scheduler is marked as deprecated to stop others from using although it is not technically deprecated from
     // what I can tell. The 'correct' path would be to create our own class extending `SchedulerLike`.
-    // eslint-disable-next-line deprecation/deprecation
     private scheduler: Scheduler,
 
     @Optional()
     @Inject(SECONDS_BEFORE_EXPIRATION_TO_NOTIFY)
     private timeToWaitBeforeExpiration: number,
   ) {}
-
 
   @Effect()
   public initializationCleanup$ = of(true)
@@ -120,7 +117,6 @@ export class JwtTokenProviderEffects {
     )
   ;
 
-
   @Effect()
   public allTokensExpired$ = this.actions$
     .pipe(
@@ -134,7 +130,6 @@ export class JwtTokenProviderEffects {
       map(tokens => new JwtTokenProviderActions.AllTokensExpired()),
     )
   ;
-
 
   @Effect()
   public notifyOfTokenExpiration$ = this.actions$
@@ -171,7 +166,6 @@ export class JwtTokenProviderEffects {
     )
   ;
 
-
   @Effect()
   public initialCookieLoader$ = ({
     currentState = this.store.select(getJwtTokenRoot()),
@@ -197,7 +191,6 @@ export class JwtTokenProviderEffects {
 
     }),
   );
-
 
   /*
    * This next function is being excluded from coverage due the complexities of testing the `delay` function.
