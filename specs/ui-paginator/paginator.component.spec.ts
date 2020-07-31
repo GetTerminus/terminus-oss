@@ -6,7 +6,7 @@ import {
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { createComponent as createComponentInner } from '@terminus/ngx-tools/testing';
+import { createComponent as createComponentInner } from '@terminus/fe-testing';
 import {
   TsPaginatorModule,
   TsPaginatorMenuItem,

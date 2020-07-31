@@ -34,7 +34,7 @@
 - `@angular/material`
 - `@angular/platform-browser`
 - `@terminus/design-tokens`
-- `@terminus/ngx-tools`
+- `@terminus/fe-utilities`
 - `@terminus/ui-form-field`
 - `@terminus/ui-icon`
 - `@terminus/ui-input`

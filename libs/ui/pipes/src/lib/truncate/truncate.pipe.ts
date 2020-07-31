@@ -3,7 +3,7 @@ import {
   PipeTransform,
 } from '@angular/core';
 
-import { isNumber } from '@terminus/ngx-tools/type-guards';
+import { isNumber } from '@terminus/fe-utilities';
 
 
 /**

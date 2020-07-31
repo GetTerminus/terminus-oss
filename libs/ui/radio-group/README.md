@@ -40,7 +40,7 @@
 - `@angular/platform-browser`
 - `@popperjs/core`
 - `@terminus/design-tokens`
-- `@terminus/ngx-tools`
+- `@terminus/fe-utilities`
 - `@terminus/ui-icon`
 - `@terminus/ui-pipes`
 - `@terminus/ui-styles`

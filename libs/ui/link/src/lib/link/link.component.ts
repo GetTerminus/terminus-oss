@@ -6,7 +6,8 @@ import {
 } from '@angular/core';
 import { faExternalLink } from '@fortawesome/pro-solid-svg-icons/faExternalLink';
 
-import { isString } from '@terminus/ngx-tools/type-guards';
+import { isString } from '@terminus/fe-utilities';
+import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 /**
  * Standard link component

@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 import { formatDistance } from 'date-fns';
 
-import { isValidDate } from '@terminus/ngx-tools/type-guards';
+import { isValidDate } from '@terminus/fe-utilities';
 
 
 /**

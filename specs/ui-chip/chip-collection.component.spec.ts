@@ -11,13 +11,13 @@ import {
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { KEYS } from '@terminus/ngx-tools/keycodes';
 import {
   createComponent as createComponentInner,
   createKeyboardEvent,
   createMouseEvent,
   dispatchEvent,
-} from '@terminus/ngx-tools/testing';
+} from '@terminus/fe-testing';
+import { KEYS } from '@terminus/fe-utilities';
 import {
   TsChipCollectionComponent,
   TsChipModule,

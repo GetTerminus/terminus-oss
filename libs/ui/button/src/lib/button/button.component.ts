@@ -14,7 +14,7 @@ import {
 } from '@angular/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
-import { TsWindowService } from '@terminus/ngx-tools/browser';
+import { TsWindowService } from '@terminus/fe-utilities';
 
 
 // Unique ID for each instance

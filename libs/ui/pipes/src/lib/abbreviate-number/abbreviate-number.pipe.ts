@@ -3,7 +3,7 @@ import {
   PipeTransform,
 } from '@angular/core';
 
-import { abbreviateNumber } from '@terminus/ngx-tools/utilities';
+import { abbreviateNumber } from '@terminus/fe-utilities';
 
 
 /**

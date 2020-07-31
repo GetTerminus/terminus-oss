@@ -14,7 +14,7 @@ import {
   map,
 } from 'rxjs/operators';
 
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import { untilComponentDestroyed } from '@terminus/fe-utilities';
 
 @Component({
   selector: 'demo-root',

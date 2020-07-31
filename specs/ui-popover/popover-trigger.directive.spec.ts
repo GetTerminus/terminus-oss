@@ -14,12 +14,12 @@ import {
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { KEYS } from '@terminus/ngx-tools/keycodes';
 import {
   createComponent as createComponentInner,
   dispatchEvent,
   dispatchKeyboardEvent,
-} from '@terminus/ngx-tools/testing';
+} from '@terminus/fe-testing';
+import { KEYS } from '@terminus/fe-utilities';
 import {
   TsPopoverComponent,
   TsPopoverModule,

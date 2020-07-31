@@ -9,7 +9,7 @@ import {
 } from '@angular/core/testing';
 import { faHome } from '@fortawesome/pro-solid-svg-icons/faHome';
 
-import { configureTestBedWithoutReset } from '@terminus/ngx-tools/testing';
+import { configureTestBedWithoutReset } from '@terminus/fe-testing';
 import {
   TsIconModule,
   TsIconComponent,

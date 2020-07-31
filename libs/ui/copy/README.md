@@ -32,7 +32,7 @@ This component is used to contain very long strings that users may need to copy.
 - `@angular/material`
 - `@angular/platform-browser`
 - `@terminus/design-tokens`
-- `@terminus/ngx-tools`
+- `@terminus/fe-utilities`
 - `@terminus/ui-copy`
 - `@terminus/ui-checkbox`
 - `@terminus/ui-confirmation`

@@ -44,7 +44,7 @@ A collection of useful utilities.
 A utility to abbreviate numbers.
 
 ```typescript
-import { abbreviateNumber } from '@terminus/ngx-tools/utilities';
+import { abbreviateNumber } from '@terminus/fe-utilities';
 
 const input1 = 1234;
 return abbreviateNumber(input1, 1); // expect to get 1.2K
@@ -55,7 +55,7 @@ return abbreviateNumber(input1, 1); // expect to get 1.2K
 A helper function to apply TypeScript mixins to a base class.
 
 ```typescript
-import { applyMixins } from '@terminus/ngx-tools/utilities';
+import { applyMixins } from '@terminus/fe-utilities';
 
 
 // Disposable Mixin
@@ -108,7 +108,7 @@ smartObj.isActive
 Check if an object exists in an array.
 
 ```typescript
-import { arrayContainsObject } from '@terminus/ngx-tools/utilities';
+import { arrayContainsObject } from '@terminus/fe-utilities';
 
 // The object we want to find:
 const object = {id: 2};
@@ -126,7 +126,7 @@ arrayContainsObject(object, array, comparator); // Returns: true
 Remove `undefined` or `null` items from an array:
 
 ```typescript
-import { compactArray } from '@terminus/ngx-tools/utilities';
+import { compactArray } from '@terminus/fe-utilities';
 
 const myArray: (string | undefined | null)[] = ['foo', null, 'bar', undefined, 'baz'];
 
@@ -140,7 +140,7 @@ compactArray<string>(myArray);
 Create a debounced function.
 
 ```typescript
-import { debounce } from '@terminus/ngx-tools/utilities';
+import { debounce } from '@terminus/fe-utilities';
 
 const myFunc = () => {console.log('hi!')};
 // Create a function that will debounce all calls within 200ms:
@@ -159,7 +159,7 @@ Ensure action is defined only once in the entirety of the application
 `defineType` example:
 
 ```typescript
-import { defineType } from '@terminus/ngx-tools/utilities';
+import { defineType } from '@terminus/fe-utilities';
 
 defineType('[log-in] User log in') as '[log-in] User log in';
 ```
@@ -167,7 +167,7 @@ defineType('[log-in] User log in') as '[log-in] User log in';
 `defineTypeEnum` example:
 
 ```typescript
-import { defineTypeEnum } from '@terminus/ngx-tools/utilities';
+import { defineTypeEnum } from '@terminus/fe-utilities';
 
 export enum actionTypes {
   AssignState = '[mock-meta-reducer] Assign State',
@@ -181,7 +181,7 @@ defineTypeEnum(actionTypes);
 Generate a canonically formatted UUID that is Version 1 through 5 and is the appropriate Variant as per RFC4122.
 
 ```typescript
-import { generateUUID } from '@terminus/ngx-tools/utilities';
+import { generateUUID } from '@terminus/fe-utilities';
 
 generateUUID(); // Returns a UUID such as: `f4ee5eed-ed19-3681-713e-907a23ed7858`
 ```
@@ -192,7 +192,7 @@ Helper function to retrieve the current value of a control within a form group:
 
 ```typescript
 import { FormGroup } from '@angular/forms';
-import { getFormControlValue } from '@terminus/ngx-tools/utilities';
+import { getFormControlValue } from '@terminus/fe-utilities';
 
 // Create a form group
 const formBuilder = new FormBuilder();
@@ -210,7 +210,7 @@ getFormControlValue(myForm, 'control2'); // Returns: `null`
 Return an object containing arrays split by property.
 
 ```typescript
-import { groupBy } from '@terminus/ngx-tools/utilities';
+import { groupBy } from '@terminus/fe-utilities';
 
 interface MyObj {
   a: string;
@@ -236,7 +236,7 @@ Check if an `AbstractControl` or `FormGroup` has a `required` validator.
 
 ```typescript
 import { FormControl, FormGroup } from '@angular/forms';
-import { hasRequiredControl } from '@terminus/ngx-tools/utilities';
+import { hasRequiredControl } from '@terminus/fe-utilities';
 
 const control = new FormControl(null, [Validators.required];
 const group = new FormGroup({myControl: [null, [Validators.required]]});
@@ -253,7 +253,7 @@ Number of retries is configurable, and the first attempt is not counted. A retri
 retries for a total of 4 attempts.
 
 ```typescript
-import { httpRetryer } from '@terminus/ngx-tools/utilities';
+import { httpRetryer } from '@terminus/fe-utilities';
 
 return this.http.get('/foo')
   .pipe(
@@ -287,7 +287,7 @@ Helper function to determine if an Angular `@Input` value has changed.
 ```typescript
 import { SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { inputHasChanged } from '@terminus/ngx-tools/utilities';
+import { inputHasChanged } from '@terminus/fe-utilities';
 
 ...
   @Input
@@ -308,7 +308,7 @@ import { inputHasChanged } from '@terminus/ngx-tools/utilities';
 Helper function to determine if input is unset.
 
 ```typescript
-import { isUnset } from '@terminus/ngx-tools/utilities';
+import { isUnset } from '@terminus/fe-utilities';
 
 isUnset(null);      // Returns: true
 isUnset(undefined); // Returns: true
@@ -320,7 +320,7 @@ isUnset('hello');   // Returns: false
 A utility class containing helpers for dealing with a `SimpleChanges` object.
 
 ```typescript
-import { NgChangeObjectValueParser } from '@terminus/ngx-tools/utilities';
+import { NgChangeObjectValueParser } from '@terminus/fe-utilities';
 
 const valueParser = new NgChangeObjectValueParser();
 valueParser.getOldValue(mySimpleChangesObject, 'myInputName');
@@ -339,7 +339,7 @@ Available methods:
 Provides a placeholder function.
 
 ```typescript
-import { noop } from '@terminus/ngx-tools/utilities';
+import { noop } from '@terminus/fe-utilities';
 
 const myFunc = noop;
 myFunc(); // Returns: undefined
@@ -350,7 +350,7 @@ myFunc(); // Returns: undefined
 A utility to retrieve deep object values.
 
 ```typescript
-import { objectDeepGet } from '@terminus/ngx-tools/utilities';
+import { objectDeepGet } from '@terminus/fe-utilities';
 
 const myObj = {
   foo: {
@@ -369,7 +369,7 @@ const valueFromObject: boolean = objectDeepGet(myObj, 'foo.bar.baz'); // Returns
 A utility to set deep object values.
 
 ```typescript
-import { objectDeepSet } from '@terminus/ngx-tools/utilities';
+import { objectDeepSet } from '@terminus/fe-utilities';
 
 const myObj = {
   foo: {
@@ -410,7 +410,7 @@ Helper to retry an Observable stream X times.
 | `exponentialBackoffDelayCalculator` | Create a custom back-off calculator             |
 
 ```typescript
-import { retryWithBackoff } from '@terminus/ngx-tools/utilities';
+import { retryWithBackoff } from '@terminus/fe-utilities';
 
 return this.myApi.doSomething()
   .pipe(
@@ -436,7 +436,7 @@ If custom timing, jitter, etc. is needed, create a custom back-off calculator an
 import {
   exponentialBackoffDelayCalculator,
   retryWithBackoff,
-} from '@terminus/ngx-tools/utilities';
+} from '@terminus/fe-utilities';
 
 // Set custom delay options
 const calcOpts: DelayCalculator = {
@@ -455,7 +455,7 @@ retryWithBackoff({retries: 3, delayCalculator: exponentialBackoffDelayCalculator
 Helper function to return an array of desired values from an object.
 
 ```typescript
-import { returnValuesByKeys } from '@terminus/ngx-tools/utilities';
+import { returnValuesByKeys } from '@terminus/fe-utilities';
 
 const tactic1: MyType = {
   id: 1,
@@ -477,7 +477,7 @@ returnValuesByKeys<MyType>([1], tactics) // Returns: `[tactic1]`
 A helper function to round a number to a specific number of places.
 
 ```typescript
-import { roundNumber } from '@terminus/ngx-tools/utilities';
+import { roundNumber } from '@terminus/fe-utilities';
 
 roundNumber(1.050, 1)      // Returns: `1.1`
 roundNumber(3456.3456, 1)  // Returns: `3456.3`
@@ -491,7 +491,7 @@ A helper function to set a control value within a form group.
 
 ```typescript
 import { FormGroup } from '@angular/forms';
-import { setFormControlValue } from '@terminus/ngx-tools/utilities';
+import { setFormControlValue } from '@terminus/fe-utilities';
 
 // Create a form group
 const formBuilder = new FormBuilder();
@@ -509,7 +509,7 @@ setFormControlValue<string>(myForm, 'control1', 'hi');
 Convert a string to `camelCase`:
 
 ```typescript
-import { toCamelCase } from '@terminus/ngx-tools/utilities';
+import { toCamelCase } from '@terminus/fe-utilities';
 
 toCamelCase('EQUIPMENT_CLASS_NAME')       // Returns: `equipmentClassName`
 toCamelCase('equipment class name')       // Returns: `equipmentClassName`
@@ -528,7 +528,7 @@ event is fired.
 > events if they exist at compilation time.
 
 ```typescript
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import { untilComponentDestroyed } from '@terminus/fe-utilities';
 
 @Component({
   ...
@@ -553,7 +553,7 @@ A helper function to set the value of a form control when an `@Input` has change
 ```typescript
 import { SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { updateControlOnInputChanges } from '@terminus/ngx-tools/utilities';
+import { updateControlOnInputChanges } from '@terminus/fe-utilities';
 
 ...
   @Input
@@ -573,7 +573,7 @@ import { updateControlOnInputChanges } from '@terminus/ngx-tools/utilities';
 An object containing the current version of the library.
 
 ```typescript
-import { VERSION } from '@terminus/ngx-tools/utilities';
+import { VERSION } from '@terminus/fe-utilities';
 
 VERSION.full  // Returns: 1.2.3
 VERSION.major // Returns: 1

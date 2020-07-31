@@ -14,8 +14,10 @@ import {
 import { Subject } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 
-import { isNumber } from '@terminus/ngx-tools/type-guards';
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import {
+  isNumber,
+  untilComponentDestroyed,
+} from '@terminus/fe-utilities';
 
 import { tsTabsAnimations } from './tab-animations';
 

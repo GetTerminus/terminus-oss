@@ -1,9 +1,6 @@
-import {
-  isArray,
-  isBoolean,
-  isString,
-} from '@terminus/ngx-tools/type-guards';
-
+import { isArray } from '../type-guards/is-array';
+import { isBoolean } from '../type-guards/is-boolean';
+import { isString } from '../type-guards/is-string';
 
 /**
  * Helper function to parse an object with deep keys

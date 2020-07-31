@@ -21,12 +21,12 @@ import {
 import { faTrash } from '@fortawesome/pro-solid-svg-icons/faTrash';
 import { debounceTime } from 'rxjs/operators';
 
-import { TsDocumentService } from '@terminus/ngx-tools/browser';
 import {
   coerceBooleanProperty,
   coerceNumberProperty,
-} from '@terminus/ngx-tools/coercion';
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+  TsDocumentService,
+  untilComponentDestroyed,
+} from '@terminus/fe-utilities';
 import { TS_SPACING } from '@terminus/ui-spacing';
 import { stripControlCharacters } from '@terminus/ui-utilities';
 

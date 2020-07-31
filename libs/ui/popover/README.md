@@ -36,7 +36,7 @@ Popover component is designed to pop up simple or complex content based on a use
 - `@angular/platform-browser`
 - `@popperjs/core`
 - `@terminus/design-tokens`
-- `@terminus/ngx-tools`
+- `@terminus/fe-utilities`
 - `@terminus/ui-utilities`
 - `@terminus/ui-popover`
 - `date-fns`

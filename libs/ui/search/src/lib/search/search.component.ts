@@ -15,7 +15,7 @@ import {
 } from '@angular/forms';
 import { faSearch } from '@fortawesome/pro-solid-svg-icons/faSearch';
 
-import { debounce } from '@terminus/ngx-tools/utilities';
+import { debounce } from '@terminus/fe-utilities';
 import {
   TsButtonActionTypes,
   TsButtonFunctionTypes,

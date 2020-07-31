@@ -1,13 +1,13 @@
 import { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { createComponent } from '@terminus/ngx-tools/testing';
-
-import * as testComponents from './test-components';
+import { createComponent } from '@terminus/fe-testing';
 import {
   TsValidationMessagesModule,
   TsValidationMessagesComponent,
 } from '@terminus/ui-validation-messages';
+
+import * as testComponents from './test-components';
 
 describe(`TsValidationMessagesComponent`, function() {
   describe(`basics and defaults`, function() {

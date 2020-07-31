@@ -1,8 +1,5 @@
-import {
-  isNull,
-  isUndefined,
-} from '@terminus/ngx-tools/type-guards';
-
+import { isNull } from '../type-guards/is-null';
+import { isUndefined } from '../type-guards/is-undefined';
 
 /**
  * Helper function to determine if input is unset.

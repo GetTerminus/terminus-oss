@@ -5,14 +5,13 @@ import {
 import { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { createComponent } from '@terminus/ngx-tools/testing';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
-
+import { createComponent } from '@terminus/fe-testing';
 import {
   TsCardModule,
   TsCardBorderOptions,
   TsCardComponent,
 } from '@terminus/ui-card';
+import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 @Component({
   template: `

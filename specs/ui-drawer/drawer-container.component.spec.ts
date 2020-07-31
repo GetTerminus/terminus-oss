@@ -17,7 +17,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { createComponent as createComponentInner } from '@terminus/ngx-tools/testing';
+import { createComponent as createComponentInner } from '@terminus/fe-testing';
 import {
   TsDrawerComponent,
   TsDrawerModule,

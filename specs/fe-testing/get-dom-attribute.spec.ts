@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { createComponent } from '@terminus/ngx-tools/testing';
 
-import { getDomAttribute } from '@terminus/fe-testing';
+import {
+  createComponent,
+  getDomAttribute,
+} from '@terminus/fe-testing';
 
 @Component({ template: `<div tsVerticalSpacing="small--2" id="foo" class="bar"></div>` })
 class TestHostComponent {}

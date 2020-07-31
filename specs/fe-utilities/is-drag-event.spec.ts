@@ -1,5 +1,5 @@
+import { createMouseEvent } from '@terminus/fe-testing';
 import { isDragEvent } from '@terminus/fe-utilities';
-import { createMouseEvent } from '@terminus/ngx-tools/testing';
 
 describe(`isDragEvent`, function() {
   const DataTransferMock = function() {

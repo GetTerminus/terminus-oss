@@ -27,8 +27,10 @@ import {
   takeUntil,
 } from 'rxjs/operators';
 
-import { TsDocumentService } from '@terminus/ngx-tools/browser';
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import {
+  TsDocumentService,
+  untilComponentDestroyed,
+} from '@terminus/fe-utilities';
 import { TsUILibraryError } from '@terminus/ui-utilities';
 
 import {

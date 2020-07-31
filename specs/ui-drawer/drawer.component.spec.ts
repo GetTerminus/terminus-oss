@@ -16,11 +16,11 @@ import { MatRippleModule } from '@angular/material/core';
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { KEYS } from '@terminus/ngx-tools/keycodes';
 import {
   createComponent as createComponentInner,
   dispatchKeyboardEvent,
-} from '@terminus/ngx-tools/testing';
+} from '@terminus/fe-testing';
+import { KEYS } from '@terminus/fe-utilities';
 import {
   TsDrawerComponent,
   TsDrawerFooterComponent,

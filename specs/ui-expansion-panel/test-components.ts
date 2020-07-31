@@ -4,7 +4,7 @@ import {
   NgModule,
 } from '@angular/core';
 
-import { noop } from '@terminus/ngx-tools/utilities';
+import { noop } from '@terminus/fe-utilities';
 import {
   TS_EXPANSION_PANEL_DEFAULT_OPTIONS,
   TsExpansionPanelModule,

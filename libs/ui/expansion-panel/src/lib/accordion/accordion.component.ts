@@ -13,7 +13,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { KEYS } from '@terminus/ngx-tools/keycodes';
+import { KEYS } from '@terminus/fe-utilities';
 
 import { TsExpansionPanelTriggerComponent } from '../trigger/expansion-panel-trigger.component';
 import {

@@ -29,7 +29,7 @@
     "@angular/flex-layout": "~9.0.0-beta.29",
     "@angular/material": "^9.1.0",
     "@terminus/design-tokens": "^3.1.0",
-    "@terminus/ngx-tools": "^8.0.5",
+    "@terminus/fe-utilities": "^1.0.0",
     "@terminus/ui-icon": "^2.0.0",
     "@terminus/ui-tooltip": "^1.0.9",
     "@terminus/ui-utilities": "^1.0.7",

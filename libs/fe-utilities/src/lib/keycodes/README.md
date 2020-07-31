@@ -18,8 +18,8 @@ A collection of key codes to avoid duplicate strings throughout your codebase.
 The `KEYS` collection contains the `code` and `keyCode` for all supported keys.
 
 ```typescript
-import { KEYS } from '@terminus/ngx-tools/keycodes';
-import { dispatchKeyboardEvent } from '@terminus/ngx-tools/testing';
+import { KEYS } from '@terminus/fe-utilities';
+import { dispatchKeyboardEvent } from '@terminus/fe-testing';
 
 KEYS.ENTER.code    // 'Enter'
 KEYS.ENTER.keyCode // 13

@@ -4,9 +4,7 @@
   "lib": {
     "entryFile": "src/index.ts",
     "umdModuleIds": {
-      "@terminus/ngx-tools/browser": "terminus.ngxTools.browser",
-      "@terminus/ngx-tools/type-guards": "terminus.ngxTools.type-guards",
-      "@terminus/ngx-tools/utilities": "terminus.ngxTools.utilities",
+      "@terminus/fe-utilities": "terminus.fe-utilities",
       "@terminus/ui-paginator": "terminus.ui-paginator",
       "@terminus/ui-sort": "terminus.ui-sort",
       "@terminus/ui-utilities": "terminus.ui-utilities"

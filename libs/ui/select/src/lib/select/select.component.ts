@@ -42,21 +42,17 @@ import {
   takeUntil,
 } from 'rxjs/operators';
 
-import { TsDocumentService } from '@terminus/ngx-tools/browser';
 import {
   coerceArray,
   coerceNumberProperty,
-} from '@terminus/ngx-tools/coercion';
-import { KEYS } from '@terminus/ngx-tools/keycodes';
-import {
-  isString,
-  isUndefined,
-} from '@terminus/ngx-tools/type-guards';
-import {
   hasRequiredControl,
   inputHasChanged,
+  isString,
+  isUndefined,
+  KEYS,
+  TsDocumentService,
   untilComponentDestroyed,
-} from '@terminus/ngx-tools/utilities';
+} from '@terminus/fe-utilities';
 import { TsFormFieldControl } from '@terminus/ui-form-field';
 import {
   allOptionsAreSelected,

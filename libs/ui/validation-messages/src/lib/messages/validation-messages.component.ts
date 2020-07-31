@@ -10,7 +10,7 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import { untilComponentDestroyed } from '@terminus/fe-utilities';
 
 import { TsValidationMessagesService } from '../service/validation-messages.service';
 

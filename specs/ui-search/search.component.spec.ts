@@ -7,7 +7,7 @@ import { ComponentFixture } from '@angular/core/testing';
 import { FormGroup } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
-import { createComponent } from '@terminus/ngx-tools/testing';
+import { createComponent } from '@terminus/fe-testing';
 import { TsButtonComponent } from '@terminus/ui-button';
 import { TsInputComponent } from '@terminus/ui-input';
 import {

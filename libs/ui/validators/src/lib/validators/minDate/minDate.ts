@@ -8,7 +8,7 @@ import {
   isAbstractControl,
   isString,
   isValidDate,
-} from '@terminus/ngx-tools/type-guards';
+} from '@terminus/fe-utilities';
 
 
 /**

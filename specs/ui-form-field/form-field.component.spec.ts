@@ -15,12 +15,12 @@ import {
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { TsDocumentService } from '@terminus/ngx-tools/browser';
-import { TsDocumentServiceMock } from '@terminus/ngx-tools/browser/testing';
 import {
   createComponent as createComponentInner,
   createFakeEvent,
-} from '@terminus/ngx-tools/testing';
+  TsDocumentServiceMock,
+} from '@terminus/fe-testing';
+import { TsDocumentService } from '@terminus/fe-utilities';
 import {
   TsFormFieldComponent,
   TsFormFieldModule,

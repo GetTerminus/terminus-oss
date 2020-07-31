@@ -30,7 +30,7 @@ A simple toggle, or 'switch', component.
 - `@angular/material`
 - `@angular/platform-browser`
 - `@terminus/design-tokens`
-- `@terminus/ngx-tools`
+- `@terminus/fe-utilities`
 - `@terminus/ui-styles`
 - `@terminus/ui-utilities`
 - `@terminus/ui-toggle`

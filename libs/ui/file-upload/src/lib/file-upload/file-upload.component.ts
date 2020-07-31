@@ -25,21 +25,17 @@ import { faTimes } from '@fortawesome/pro-solid-svg-icons/faTimes';
 import { faUpload } from '@fortawesome/pro-solid-svg-icons/faUpload';
 import { filter } from 'rxjs/operators';
 
-import { TsDocumentService } from '@terminus/ngx-tools/browser';
 import {
   coerceArray,
   coerceNumberProperty,
-} from '@terminus/ngx-tools/coercion';
-import { KEYS } from '@terminus/ngx-tools/keycodes';
-import {
+  inputHasChanged,
   isDragEvent,
   isHTMLInputElement,
   isNumber,
-} from '@terminus/ngx-tools/type-guards';
-import {
-  inputHasChanged,
+  KEYS,
+  TsDocumentService,
   untilComponentDestroyed,
-} from '@terminus/ngx-tools/utilities';
+} from '@terminus/fe-utilities';
 import { TsButtonThemeTypes } from '@terminus/ui-button';
 import { TS_SPACING } from '@terminus/ui-spacing';
 import {

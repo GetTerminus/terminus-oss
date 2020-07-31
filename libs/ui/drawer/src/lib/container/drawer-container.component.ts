@@ -28,7 +28,7 @@ import {
   takeUntil,
 } from 'rxjs/operators';
 
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import { untilComponentDestroyed } from '@terminus/fe-utilities';
 import { TsUILibraryError } from '@terminus/ui-utilities';
 
 import { TsDrawerContentComponent } from '../drawer/drawer-content.component';

@@ -4,7 +4,7 @@ import {
   ValidatorFn,
 } from '@angular/forms';
 
-import { passwordRegex } from '@terminus/ngx-tools/regex';
+import { passwordRegex } from '@terminus/fe-utilities';
 
 
 /**

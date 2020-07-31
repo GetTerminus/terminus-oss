@@ -27,7 +27,7 @@
 - `@angular/flex-layout`
 - `@angular/material`
 - `@terminus/design-tokens`
-- `@terminus/ngx-tools`
+- `@terminus/fe-utilities`
 - `@terminus/ui-checkbox`
 - `@terminus/ui-chip`
 - `@terminus/ui-cohort-date-range`

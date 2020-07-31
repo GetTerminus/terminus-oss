@@ -4,7 +4,7 @@
   "lib": {
     "entryFile": "src/index.ts",
     "umdModuleIds": {
-      "@terminus/ngx-tools/utilities": "terminus.ngxTools.utilities",
+      "@terminus/fe-utilities": "terminus.fe-utilities",
       "@terminus/ui-utilities": "terminus.ui-utilities"
     }
   }

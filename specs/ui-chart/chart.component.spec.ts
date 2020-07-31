@@ -11,12 +11,7 @@ import {
   tick,
 } from '@angular/core/testing';
 
-import { createComponent as createComponentInner } from '@terminus/ngx-tools/testing';
-import {
-  AmChartsServiceMock,
-  getChartInstance,
-} from '@terminus/ui-chart/testing';
-
+import { createComponent as createComponentInner } from '@terminus/fe-testing';
 import {
   tsChartChordTypeCheck,
   tsChartMapTypeCheck,
@@ -31,6 +26,10 @@ import {
   TsChartComponent,
   TsChartModule,
 } from '@terminus/ui-chart';
+import {
+  AmChartsServiceMock,
+  getChartInstance,
+} from '@terminus/ui-chart/testing';
 
 describe(`ChartComponent`, function() {
   test(`should exist`, () => {

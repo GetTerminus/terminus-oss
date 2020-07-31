@@ -12,7 +12,7 @@ import { By } from '@angular/platform-browser';
 import {
   ChangeDetectorRefMock,
   configureTestBedWithoutReset,
-} from '@terminus/ngx-tools/testing';
+} from '@terminus/fe-testing';
 import {
   TsCheckboxModule,
   TsCheckboxComponent,

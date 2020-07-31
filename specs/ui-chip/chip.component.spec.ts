@@ -6,23 +6,23 @@ import { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { KEYS } from '@terminus/ngx-tools/keycodes';
 import {
   createComponent as createComponentInner,
   createFakeEvent,
   createKeyboardEvent,
   dispatchFakeEvent,
-} from '@terminus/ngx-tools/testing';
-
-import {
-  testComponents,
-  TsChipTestComponent,
-} from './test-components';
+} from '@terminus/fe-testing';
+import { KEYS } from '@terminus/fe-utilities';
 import {
   TsChipComponent,
   TsChipModule,
   TsChipSelectionChange,
 } from '@terminus/ui-chip';
+
+import {
+  testComponents,
+  TsChipTestComponent,
+} from './test-components';
 
 describe('Chips', () => {
   let fixture: ComponentFixture<TsChipTestComponent>;

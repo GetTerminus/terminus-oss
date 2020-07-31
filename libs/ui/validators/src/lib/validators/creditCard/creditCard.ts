@@ -4,7 +4,7 @@ import {
   ValidatorFn,
 } from '@angular/forms';
 
-import { creditCardRegex } from '@terminus/ngx-tools/regex';
+import { creditCardRegex } from '@terminus/fe-utilities';
 
 
 /**

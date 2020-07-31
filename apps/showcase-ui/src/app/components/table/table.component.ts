@@ -34,7 +34,7 @@ import {
   switchMap,
 } from 'rxjs/operators';
 
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import { untilComponentDestroyed } from '@terminus/fe-utilities';
 import {
   TsPaginatorComponent,
   TsPaginatorMenuItem,

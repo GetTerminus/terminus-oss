@@ -4,8 +4,7 @@
   "lib": {
     "entryFile": "src/index.ts",
     "umdModuleIds": {
-      "@terminus/ngx-tools/coercion": "terminus.ngxTools.coercion",
-      "@terminus/ngx-tools/type-guards": "terminus.ngxTools.type-guards"
+      "@terminus/fe-utilities": "terminus.fe-utilities"
     }
   }
 }

@@ -29,7 +29,7 @@
 - `@amcharts/amcharts4`
 - `@amcharts/amcharts4-geodata`
 - `@terminus/design-tokens`
-- `@terminus/ngx-tools`
+- `@terminus/fe-utilities`
 - `@terminus/ui-utilities`
 - `@terminus/ui-chart`
 - `date-fns`

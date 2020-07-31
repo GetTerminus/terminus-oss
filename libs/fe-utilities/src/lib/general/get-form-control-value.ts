@@ -1,9 +1,7 @@
 import { FormGroup } from '@angular/forms';
 
-import {
-  isAbstractControl,
-  isNull,
-} from '@terminus/ngx-tools/type-guards';
+import { isAbstractControl } from '../type-guards/is-abstract-control';
+import { isNull } from '../type-guards/is-null';
 
 
 /**

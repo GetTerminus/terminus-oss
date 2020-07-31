@@ -23,8 +23,10 @@ import {
 } from 'rxjs';
 import { startWith } from 'rxjs/operators';
 
-import { KEYS } from '@terminus/ngx-tools/keycodes';
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import {
+  KEYS,
+  untilComponentDestroyed,
+} from '@terminus/fe-utilities';
 
 import {
   TsChipComponent,

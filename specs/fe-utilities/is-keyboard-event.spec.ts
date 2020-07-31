@@ -1,11 +1,11 @@
 import {
+  createKeyboardEvent,
+  createMouseEvent,
+} from '@terminus/fe-testing';
+import {
   isKeyboardEvent,
   KEYS,
 } from '@terminus/fe-utilities';
-import {
-  createKeyboardEvent,
-  createMouseEvent,
-} from '@terminus/ngx-tools/testing';
 
 describe(`isKeyboardEvent`, function() {
   test(`should return true for a keyboard event`, function() {

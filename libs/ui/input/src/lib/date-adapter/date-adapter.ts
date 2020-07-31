@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NativeDateAdapter } from '@angular/material/core';
 
-import { isDateValue } from '@terminus/ngx-tools/coercion';
+import { isDateValue } from '@terminus/fe-utilities';
 
 /**
  * Define date formats to be used with the custom date adapter

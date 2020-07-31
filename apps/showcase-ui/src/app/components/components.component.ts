@@ -18,10 +18,7 @@ import {
 } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import {
-  untilComponentDestroyed,
-  VERSION as NGX_VERSION,
-} from '@terminus/ngx-tools/utilities';
+import { untilComponentDestroyed } from '@terminus/fe-utilities';
 import { TsSelectionListChange } from '@terminus/ui-selection-list';
 
 import { orderArrayByProperty } from '../utilities/orderArrayByProperty';
@@ -36,7 +33,6 @@ import { componentsList } from './components.constant';
 export class ComponentsComponent implements OnInit, OnDestroy {
   public components = orderArrayByProperty(componentsList, 'path');
   public path = '';
-  public ngxVersion = NGX_VERSION;
   public ngVersion = NG_VERSION;
   public matVersion = MAT_VERSION;
   public currentPage = new FormControl();

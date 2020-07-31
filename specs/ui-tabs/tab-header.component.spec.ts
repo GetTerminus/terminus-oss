@@ -15,11 +15,11 @@ import {
 import { MatRippleModule } from '@angular/material/core';
 import { By } from '@angular/platform-browser';
 
+import { dispatchFakeEvent } from '@terminus/fe-testing';
 import {
   KeyCode,
   KEYS,
-} from '@terminus/ngx-tools/keycodes';
-import { dispatchFakeEvent } from '@terminus/ngx-tools/testing';
+} from '@terminus/fe-utilities';
 import {
   TsTabHeaderComponent,
   TsTabInkBarComponent,

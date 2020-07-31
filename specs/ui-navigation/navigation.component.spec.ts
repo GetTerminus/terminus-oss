@@ -1,4 +1,4 @@
-import { ChangeDetectorRefMock } from '@terminus/ngx-tools/testing';
+import { ChangeDetectorRefMock } from '@terminus/fe-testing';
 import {
   TsNavigationComponent,
   TsNavigationItem,

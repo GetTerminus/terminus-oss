@@ -81,7 +81,6 @@ export class JwtTokenProviderEffects {
     @Inject(SCHEDULER)
     // TODO: Scheduler is marked as deprecated to stop others from using although it is not technically deprecated from
     // what I can tell. The 'correct' path would be to create our own class extending `SchedulerLike`.
-    // https://github.com/GetTerminus/ngx-tools/issues/287
     // eslint-disable-next-line deprecation/deprecation
     private scheduler: Scheduler,
 

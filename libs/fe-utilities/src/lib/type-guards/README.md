@@ -35,7 +35,7 @@ A collection of consistent, tested, and well-performing checks for various types
 Determine if a value is an array and has all of its values as non-null non-undefined values. Provides strongly typed conditional checks.
 
 ```typescript
-import { arrayHasAllElementsSet } from '@terminus/ngx-tools/type-guards';
+import { arrayHasAllElementsSet } from '@terminus/fe-utilities';
 
 arrayHasAllElementsSet<number>([1, null, 6])          // Returns: false
 arrayHasAllElementsSet<number, string>([1, 'foo', 8]) // Returns: true
@@ -49,7 +49,7 @@ filter(arrayHasAllElementsSet) // next operator receives strongly typed inputs
 Determine if a value is an `AbstractControl`.
 
 ```typescript
-import { isAbstractControl } from '@terminus/ngx-tools/type-guards';
+import { isAbstractControl } from '@terminus/fe-utilities';
 
 isAbstractControl(new FormControl()); // Returns: true
 isAbstractControl('hi');              // Returns: false
@@ -60,7 +60,7 @@ isAbstractControl('hi');              // Returns: false
 Determine if all values in an Array is of a certain type.
 
 ```typescript
-import { isArrayOfType, isNumber } from '@terminus/ngx-tools/type-guards';
+import { isArrayOfType, isNumber } from '@terminus/fe-utilities';
 
 isArrayOfType<number>([1, 5], isNumber)     // Returns: true
 isArrayOfType<number>([1, 'foo'], isNumber) // Returns: false
@@ -71,7 +71,7 @@ isArrayOfType<number>([1, 'foo'], isNumber) // Returns: false
 Determine if a value is an Array.
 
 ```typescript
-import { isArray } from '@terminus/ngx-tools/type-guards';
+import { isArray } from '@terminus/fe-utilities';
 
 isArray([1, 2]); // Returns: true
 isArray('hi');   // Returns: false
@@ -82,7 +82,7 @@ isArray('hi');   // Returns: false
 Determine if a value is a Boolean.
 
 ```typescript
-import { isBoolean } from '@terminus/ngx-tools/type-guards';
+import { isBoolean } from '@terminus/fe-utilities';
 
 isBoolean(true);   // Returns: true
 isBoolean('true'); // Returns: false
@@ -93,7 +93,7 @@ isBoolean('true'); // Returns: false
 Determine if an event is a `DragEvent`.
 
 ```typescript
-import { isDragEvent } from '@terminus/ngx-tools/type-guards';
+import { isDragEvent } from '@terminus/fe-utilities';
 
 isDragEvent(myDragEvent);  // Returns: true
 isDragEvent(myClickEvent); // Returns: false
@@ -104,7 +104,7 @@ isDragEvent(myClickEvent); // Returns: false
 Determine if a value is a Function.
 
 ```typescript
-import { isFunction } from '@terminus/ngx-tools/type-guards';
+import { isFunction } from '@terminus/fe-utilities';
 
 isFunction(() => {}); // Returns: true
 isFunction('foo');    // Returns: false
@@ -115,7 +115,7 @@ isFunction('foo');    // Returns: false
 Determine if a value is an HTML input element.
 
 ```typescript
-import { isHTMLInputElement } from '@terminus/ngx-tools/type-guards';
+import { isHTMLInputElement } from '@terminus/fe-utilities';
 
 const myInput = document.querySelector('#myInput');
 const myDiv = document.querySelector('#myDiv');
@@ -129,7 +129,7 @@ isHTMLInputElement(myDiv);   // Returns: false
 Determine if a value is an HTTP response.
 
 ```typescript
-import { isHttpResponse } from '@terminus/ngx-tools/type-guards';
+import { isHttpResponse } from '@terminus/fe-utilities';
 
 isHttpResponse({headers: {...}});             // Returns: true
 isHttpResponse<MyResponseType>({foo: 'bar'}); // Returns: false
@@ -140,7 +140,7 @@ isHttpResponse<MyResponseType>({foo: 'bar'}); // Returns: false
 Determine if an event is a `KeyboardEvent`.
 
 ```typescript
-import { isKeyboardEvent } from '@terminus/ngx-tools/type-guards';
+import { isKeyboardEvent } from '@terminus/fe-utilities';
 
 isKeyboardEvent(myKeyboardEvent); // Returns: true
 isKeyboardEvent(myClickEvent);    // Returns: false
@@ -151,7 +151,7 @@ isKeyboardEvent(myClickEvent);    // Returns: false
 Determine if an event is a `MouseEvent`.
 
 ```typescript
-import { isMouseEvent } from '@terminus/ngx-tools/type-guards';
+import { isMouseEvent } from '@terminus/fe-utilities';
 
 isMouseEvent(myMouseEvent); // Returns: true
 isMouseEvent(myClickEvent); // Returns: false
@@ -162,7 +162,7 @@ isMouseEvent(myClickEvent); // Returns: false
 Determine if a value is Null.
 
 ```typescript
-import { isNull } from '@terminus/ngx-tools/type-guards';
+import { isNull } from '@terminus/fe-utilities';
 
 isNull(null); // Returns: true
 isNull(1);    // Returns: false
@@ -173,7 +173,7 @@ isNull(1);    // Returns: false
 Determine if a value is a Number.
 
 ```typescript
-import { isNumber } from '@terminus/ngx-tools/type-guards';
+import { isNumber } from '@terminus/fe-utilities';
 
 isNumber(12);    // Returns: true
 isNumber('foo'); // Returns: false
@@ -184,7 +184,7 @@ isNumber('foo'); // Returns: false
 Determine if a value is an Object.
 
 ```typescript
-import { isObject } from '@terminus/ngx-tools/type-guards';
+import { isObject } from '@terminus/fe-utilities';
 
 isObject({});    // Returns: true
 isObject('foo'); // Returns: false
@@ -195,7 +195,7 @@ isObject('foo'); // Returns: false
 Determine if a value is set.
 
 ```typescript
-import { isSet } from '@terminus/ngx-tools/type-guards';
+import { isSet } from '@terminus/fe-utilities';
 
 isSet<string>('hi');   // Returns: true
 isSet<number>(void 0); // Returns: false
@@ -206,7 +206,7 @@ isSet<number>(void 0); // Returns: false
 Determine if a value is a String.
 
 ```typescript
-import { isString } from '@terminus/ngx-tools/type-guards';
+import { isString } from '@terminus/fe-utilities';
 
 isString('foo'); // Returns: true
 isString({});    // Returns: false
@@ -217,7 +217,7 @@ isString({});    // Returns: false
 Determine if a value is a `TokenResponse`.
 
 ```typescript
-import { isTokenResponse } from '@terminus/ngx-tools/type-guards';
+import { isTokenResponse } from '@terminus/fe-utilities';
 
 isTokenResponse({token: 'any'})               // Returns: true
 isTokenResponse<MyResponseType>({foo: 'bar'}) // Returns: false
@@ -228,7 +228,7 @@ isTokenResponse<MyResponseType>({foo: 'bar'}) // Returns: false
 Determine if a value is undefined.
 
 ```typescript
-import { isUndefined } from '@terminus/ngx-tools/type-guards';
+import { isUndefined } from '@terminus/fe-utilities';
 
 isUndefined(undefined) // Returns: true
 isUndefined(null)      // Returns: false
@@ -240,7 +240,7 @@ isUndefined('foo')     // Returns: false
 Determine if an input is a valid date.
 
 ```typescript
-import { isValidDate } from '@terminus/ngx-tools/type-guards';
+import { isValidDate } from '@terminus/fe-utilities';
 
 isValidDate('foo')         // Returns: false
 isValidDate(new Date())    // Returns: true

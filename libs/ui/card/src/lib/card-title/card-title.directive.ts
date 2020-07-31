@@ -8,7 +8,7 @@ import {
   SkipSelf,
 } from '@angular/core';
 
-import { coerceBooleanProperty } from '@terminus/ngx-tools/coercion';
+import { coerceBooleanProperty } from '@terminus/fe-utilities';
 import {
   TsStyleThemeTypes,
   TsUILibraryError,

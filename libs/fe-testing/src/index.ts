@@ -1,7 +1,9 @@
 export * from './lib/mocks/change-detector-ref.mock';
+export * from './lib/mocks/document.service.mock';
 export * from './lib/mocks/elementRef.mock';
 export * from './lib/mocks/renderer.mock';
 export * from './lib/mocks/renderer2.mock';
+export * from './lib/mocks/window.service.mock';
 
 export * from './lib/utilities/configure-testbed-whitespace';
 export * from './lib/utilities/configure-testbed-without-reset';

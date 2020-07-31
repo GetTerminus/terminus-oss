@@ -5,7 +5,7 @@ import {
 import { ComponentFixture } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { createComponent as createComponentInner } from '@terminus/ngx-tools/testing';
+import { createComponent as createComponentInner } from '@terminus/fe-testing';
 import {
   TsCohortDateRangeComponent,
   TsCohortDateRangeModule,

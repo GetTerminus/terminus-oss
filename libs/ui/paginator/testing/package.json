@@ -3,8 +3,7 @@
     "lib": {
       "entryFile": "src/index.ts",
       "umdModuleIds": {
-        "@terminus/ngx-tools/coercion": "terminus.ngxTools.coercion",
-        "@terminus/ngx-tools/utilities": "terminus.ngxTools.utilities",
+        "@terminus/fe-utilities": "terminus.fe-utilities",
         "@terminus/ui-paginator": "terminus.ui-paginator",
         "@terminus/ui-selection-list": "terminus.ui-selection-list",
         "@terminus/ui-selection-list/testing": "terminus.ui-selection-list.testing",

@@ -21,7 +21,6 @@ import {
   FormControl,
   NgControl,
 } from '@angular/forms';
-import { faAngleDown } from '@fortawesome/pro-solid-svg-icons/faAngleDown';
 import { faCaretDown } from '@fortawesome/pro-solid-svg-icons/faCaretDown';
 import {
   BehaviorSubject,
@@ -34,13 +33,13 @@ import {
   switchMap,
 } from 'rxjs/operators';
 
-import { TsDocumentService } from '@terminus/ngx-tools/browser';
-import { coerceNumberProperty } from '@terminus/ngx-tools/coercion';
-import { isArray } from '@terminus/ngx-tools/type-guards';
 import {
+  coerceNumberProperty,
   hasRequiredControl,
+  isArray,
+  TsDocumentService,
   untilComponentDestroyed,
-} from '@terminus/ngx-tools/utilities';
+} from '@terminus/fe-utilities';
 import {
   TsChipCollectionComponent,
   TsChipEvent,

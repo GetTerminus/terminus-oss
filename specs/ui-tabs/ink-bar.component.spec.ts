@@ -1,4 +1,4 @@
-import { createComponent } from '@terminus/ngx-tools/testing';
+import { createComponent } from '@terminus/fe-testing';
 import { TsTabsModule } from '@terminus/ui-tabs';
 
 import { InkBar } from './test-components';

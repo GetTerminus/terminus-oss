@@ -14,7 +14,7 @@ import {
 import {
   createComponent as createComponentInner,
   typeInElement,
-} from '@terminus/ngx-tools/testing';
+} from '@terminus/fe-testing';
 import {
   TsDateRangeComponent,
   TsDateRangeModule,
@@ -23,7 +23,6 @@ import {
   createDateRangeGroup,
   getRangeInputInstances,
 } from '@terminus/ui-date-range/testing';
-
 
 /**
  * NOTE (B$): The ideal test would be to actually check the DOM to verify that specific dates are disabled etc. I was not having any luck

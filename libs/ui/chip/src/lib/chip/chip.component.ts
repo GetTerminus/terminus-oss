@@ -16,9 +16,11 @@ import { faTimesCircle } from '@fortawesome/pro-solid-svg-icons/faTimesCircle';
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 
-import { TsDocumentService } from '@terminus/ngx-tools/browser';
-import { KEYS } from '@terminus/ngx-tools/keycodes';
-import { isUndefined } from '@terminus/ngx-tools/type-guards';
+import {
+  isUndefined,
+  KEYS,
+  TsDocumentService,
+} from '@terminus/fe-utilities';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 // Unique ID for each instance

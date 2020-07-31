@@ -4,10 +4,7 @@
   "lib": {
     "entryFile": "src/index.ts",
     "umdModuleIds": {
-      "@terminus/ngx-tools/browser": "terminus.ngxTools.browser",
-      "@terminus/ngx-tools/coercion": "terminus.ngxTools.coercion",
-      "@terminus/ngx-tools/type-guards": "terminus.ngxTools.type-guards",
-      "@terminus/ngx-tools/utilities": "terminus.ngxTools.utilities",
+      "@terminus/fe-utilities": "terminus.fe-utilities",
       "@terminus/ui-form-field": "terminus.ui-form-field",
       "@terminus/ui-icon": "terminus.ui-icon",
       "@terminus/ui-pipes": "terminus.ui-pipes",

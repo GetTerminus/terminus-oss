@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
-import { createComponent } from '@terminus/ngx-tools/testing';
-
+import { createComponent } from '@terminus/fe-testing';
 import {
   TsCardModule,
   TsCardTitleDirective,
