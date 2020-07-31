@@ -176,8 +176,6 @@ $ts-select-placeholder-arrow-space: 2 * ($ts-select-arrow-size + $ts-select-arro
   .ts-select-panel__refine {
     @include typography(caption);
     color: color(utility);
-    // NOTE: Currently there are no defined italicised typography styles
-    // stylelint-disable-next-line scale-unlimited/declaration-strict-value
     font-style: italic;
     padding: spacing(small) spacing(default);
   }
