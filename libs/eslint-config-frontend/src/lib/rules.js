@@ -72,9 +72,6 @@ module.exports = {
     'brace-style': SEVERITY,
 
     // Helps to maintain a consistent, readable style in the codebase.
-    'camelcase': SEVERITY,
-
-    // Helps to maintain a consistent, readable style in the codebase.
     'comma-dangle': [
       SEVERITY,
       'always-multiline',
@@ -169,10 +166,25 @@ module.exports = {
     ],
 
     // Enforce the order of imports
+    // Import grouping:
+    //   [external imports]
+    //   [line break]
+    //   [@terminus imports]
+    //   [line break]
+    //   [local imports]
     'import/order': [
       SEVERITY,
       {
-        'newlines-between': 'always-and-inside-groups',
+        'groups': [['builtin', 'external'], ['internal', 'parent', 'sibling', 'index']],
+        'pathGroups': [
+          {
+            pattern: '@terminus/**/*',
+            group: 'external',
+            position: 'after',
+          },
+        ],
+        'pathGroupsExcludedImportTypes': ['builtin'],
+        'newlines-between': 'always',
         'alphabetize': {
           order: 'asc',
           caseInsensitive: true,
@@ -737,10 +749,6 @@ module.exports = {
         // Interfaces prescribe typed method signatures. Use those signatures to flag spelling and syntax mistakes.
         '@angular-eslint/use-pipe-transform-interface': SEVERITY,
 
-        // JavaScript and general programming convention is to refer to classes in PascalCase.
-        // It can be confusing to use camelCase or other conventions for class names.
-        '@typescript-eslint/class-name-casing': SEVERITY,
-
         // Interfaces are generally preferred over type literals because interfaces can be implemented, extended and merged.
         '@typescript-eslint/consistent-type-definitions': SEVERITY,
 
@@ -753,6 +761,9 @@ module.exports = {
 
         // An interface or literal type with just a call signature can be written as a function type.
         '@typescript-eslint/prefer-function-type': SEVERITY,
+
+        // Helps to maintain a consistent, readable style in the codebase.
+        '@typescript-eslint/naming-convention': SEVERITY,
 
         // Using any as a type declaration nullifies the compile-time benefits of the type system.
         '@typescript-eslint/no-explicit-any': SEVERITY,
