@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { createComponent } from '@terminus/ngx-tools/testing';
+import { createComponent } from '@terminus/fe-testing';
 import { TsDateAdapter } from '@terminus/ui-input';
 
 describe(`TsDateAdapter`, () => {

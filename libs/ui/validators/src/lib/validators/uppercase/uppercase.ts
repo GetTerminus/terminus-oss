@@ -4,7 +4,7 @@ import {
   ValidatorFn,
 } from '@angular/forms';
 
-import { createContainsUppercaseRegex } from '@terminus/ngx-tools/regex';
+import { createContainsUppercaseRegex } from '@terminus/fe-utilities';
 
 
 /**

@@ -2,12 +2,6 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../../dist/libs/design-tokens",
   "lib": {
-    "entryFile": "js/design-tokens.ts",
-    "umdModuleIds": {
-      "@terminus/ngx-tools/browser": "terminus.ngxTools.browser",
-      "@terminus/ngx-tools/coercion": "terminus.ngxTools.coercion",
-      "@terminus/ui-icon": "terminus.ui-icon",
-      "@terminus/ui-utilities": "terminus.ui-utilities"
-    }
+    "entryFile": "js/design-tokens.ts"
   }
 }

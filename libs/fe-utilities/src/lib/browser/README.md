@@ -56,7 +56,7 @@ export class MyComponent implements OnInit {
 ```
 
 > A mock of this service is available via the testing module:
-> `import { TsDocumentServiceMock } from '@terminus/ngx-tools/testing';`
+> `import { TsDocumentServiceMock } from '@terminus/fe-testing';`
 > See: [:books: Testing Helper Documentation][docs-testing] for more information.
 
 ## Window Service
@@ -78,11 +78,11 @@ export class MyComponent implements OnInit {
 ```
 
 > A mock of this service is available via the testing module:
-> `import { TsWindowServiceMock } from '@terminus/ngx-tools/testing';`
+> `import { TsWindowServiceMock } from '@terminus/fe-testing';`
 > See: [:books: Testing Helper Documentation][docs-testing] for more information.
 
 
 <!-- LINKS -->
-[docs-testing]:       https://github.com/GetTerminus/ngx-tools/tree/release/ngx-tools/testing/README.md
+[docs-testing]:       https://github.com/GetTerminus/terminus-oss/blob/release/libs/fe-testing/README.md
 [ngx-cookie-service]: https://github.com/7leads/ngx-cookie-service
 [ng2-cookies]:        https://github.com/BCJTI/ng2-cookies

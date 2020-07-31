@@ -7,7 +7,7 @@ import {
   isDevMode,
 } from '@angular/core';
 
-import { coerceBooleanProperty } from '@terminus/ngx-tools/coercion';
+import { coerceBooleanProperty } from '@terminus/fe-utilities';
 import { TsUILibraryError } from '@terminus/ui-utilities';
 
 

@@ -17,7 +17,7 @@ import {
 import { faAngleDown } from '@fortawesome/pro-solid-svg-icons/faAngleDown';
 import { BehaviorSubject } from 'rxjs';
 
-import { groupBy } from '@terminus/ngx-tools/utilities';
+import { groupBy } from '@terminus/fe-utilities';
 
 /**
  * Define the user object interface

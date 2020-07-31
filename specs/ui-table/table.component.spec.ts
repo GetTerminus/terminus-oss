@@ -2,14 +2,16 @@
 import { Injectable } from '@angular/core';
 import { ComponentFixture } from '@angular/core/testing';
 
-import { TsWindowService } from '@terminus/ngx-tools/browser';
 import {
   createComponent,
   createMouseEvent,
   ElementRefMock,
   Renderer2Mock,
-} from '@terminus/ngx-tools/testing';
-import { noop } from '@terminus/ngx-tools/utilities';
+} from '@terminus/fe-testing';
+import {
+  noop,
+  TsWindowService,
+} from '@terminus/fe-utilities';
 import {
   setColumnAlignment,
   TsHeaderCellDirective,

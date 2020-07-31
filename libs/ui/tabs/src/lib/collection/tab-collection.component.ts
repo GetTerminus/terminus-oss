@@ -19,8 +19,10 @@ import {
   Subscription,
 } from 'rxjs';
 
-import { coerceNumberProperty } from '@terminus/ngx-tools/coercion';
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import {
+  coerceNumberProperty,
+  untilComponentDestroyed,
+} from '@terminus/fe-utilities';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 import { TsTabHeaderComponent } from '../header/tab-header.component';

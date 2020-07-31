@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 import { ComponentFixture } from '@angular/core/testing';
 
-import { createComponent } from '@terminus/ngx-tools/testing';
+import { createComponent } from '@terminus/fe-testing';
 import {
   TsLogoModule,
   TsLogoComponent,

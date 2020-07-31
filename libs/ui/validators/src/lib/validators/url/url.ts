@@ -4,7 +4,7 @@ import {
   ValidatorFn,
 } from '@angular/forms';
 
-import { urlRegex } from '@terminus/ngx-tools/regex';
+import { urlRegex } from '@terminus/fe-utilities';
 
 
 /**

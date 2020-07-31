@@ -2,11 +2,12 @@ import { Type } from '@angular/core';
 import { ComponentFixture } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { KEYS } from '@terminus/ngx-tools/keycodes';
 import {
   createComponent as createComponentInner,
   createKeyboardEvent,
-} from '@terminus/ngx-tools/testing';
+} from '@terminus/fe-testing';
+import { KEYS } from '@terminus/fe-utilities';
+import { TsExpansionPanelModule } from '@terminus/ui-expansion-panel';
 import {
   getAccordionInstance,
   getPanelInstance,
@@ -20,7 +21,6 @@ import {
   AccordionMulti,
   HideToggleAccordion,
 } from './test-components';
-import { TsExpansionPanelModule } from '@terminus/ui-expansion-panel';
 
 /**
  * Create test host component
@@ -134,7 +134,7 @@ describe(`TsAccordionComponent`, function() {
       expect(document.activeElement === trigger2).toEqual(true);
     });
 
-    // NOTE: ngx-tools `createKeyboardEvent` function seems to generate an event
+    // NOTE: `createKeyboardEvent` function seems to generate an event
     // where `event.metaKey` is true which does not work for this test.
     test(`should toggle a panel when SPACE or ENTER is used`, function() {
       const fixture = createComponent<Accordion>(Accordion);

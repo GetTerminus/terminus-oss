@@ -1,8 +1,7 @@
 import {
   ChangeDetectorRefMock,
   ElementRefMock,
-} from '@terminus/ngx-tools/testing';
-
+} from '@terminus/fe-testing';
 import { TsAutofocusDirective } from '@terminus/ui-autofocus';
 
 describe(`TsAutofocusDirective`, function() {

@@ -15,11 +15,8 @@ import {
   take,
 } from 'rxjs/operators';
 
-import {
-  coerceDateProperty,
-  coerceNumberProperty,
-} from '@terminus/ngx-tools/coercion';
-
+import { coerceDateProperty } from '../coercion/date-property';
+import { coerceNumberProperty } from '../coercion/number-property';
 import { exponentialBackoffDelayCalculator } from './delay-calculator';
 
 
@@ -28,7 +25,6 @@ export interface HttpRetryWithBackoff {
   delayCalculator: (attempt: number) => number;
   // TODO: Scheduler is marked as deprecated to stop others from using although it is not technically deprecated from
   //  what I can tell. The 'correct' path would be to create our own class extending `SchedulerLike`.
-  //  https://github.com/GetTerminus/ngx-tools/issues/287
   // eslint-disable-next-line deprecation/deprecation, @typescript-eslint/no-explicit-any
   scheduler: Scheduler | any;
 }

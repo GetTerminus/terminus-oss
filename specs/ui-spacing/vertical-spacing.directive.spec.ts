@@ -5,8 +5,7 @@ import {
 import { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { createComponent } from '@terminus/ngx-tools/testing';
-
+import { createComponent } from '@terminus/fe-testing';
 import {
   TS_SPACING,
   TsSpacingModule,

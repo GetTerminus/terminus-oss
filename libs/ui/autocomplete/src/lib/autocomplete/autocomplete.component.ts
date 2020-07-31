@@ -34,13 +34,13 @@ import {
   switchMap,
 } from 'rxjs/operators';
 
-import { TsDocumentService } from '@terminus/ngx-tools/browser';
-import { coerceNumberProperty } from '@terminus/ngx-tools/coercion';
-import { isArray } from '@terminus/ngx-tools/type-guards';
 import {
+  isArray,
+  coerceNumberProperty,
   hasRequiredControl,
+  TsDocumentService,
   untilComponentDestroyed,
-} from '@terminus/ngx-tools/utilities';
+} from '@terminus/fe-utilities';
 import {
   TsChipCollectionComponent,
   TsChipComponent,

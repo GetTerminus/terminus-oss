@@ -30,10 +30,12 @@ import {
 } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { coerceNumberProperty } from '@terminus/ngx-tools/coercion';
-import { KEYS } from '@terminus/ngx-tools/keycodes';
-import { isNumber } from '@terminus/ngx-tools/type-guards';
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import {
+  coerceNumberProperty,
+  isNumber,
+  KEYS,
+  untilComponentDestroyed,
+} from '@terminus/fe-utilities';
 
 import { TsTabInkBarComponent } from '../ink-bar/ink-bar.component';
 import { TsTabLabelWrapperDirective } from '../label/tab-label-wrapper.directive';

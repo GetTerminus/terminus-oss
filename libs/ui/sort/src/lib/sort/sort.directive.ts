@@ -12,7 +12,7 @@ import { Subject } from 'rxjs';
 import {
   isNull,
   isUndefined,
-} from '@terminus/ngx-tools/type-guards';
+} from '@terminus/fe-utilities';
 
 import {
   getSortDuplicateSortableIdError,

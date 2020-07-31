@@ -19,7 +19,7 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@angular/material: ^9.1.0',
     '@angular/platform-browser: ^9.1.0',
     '@terminus/design-tokens: ^3.1.0',
-    '@terminus/ngx-tools: ^8.0.6',
+    '@terminus/fe-utilities: ^1.0.0',
     '@terminus/ui-button: ^2.0.0',
     '@terminus/ui-chip: ^2.0.0',
     '@terminus/ui-checkbox: ^2.0.0',

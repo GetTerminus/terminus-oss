@@ -20,25 +20,26 @@ import {
   Subject,
 } from 'rxjs';
 
-import { TsDocumentService } from '@terminus/ngx-tools/browser';
-import { TsDocumentServiceMock } from '@terminus/ngx-tools/browser/testing';
-import { KEYS } from '@terminus/ngx-tools/keycodes';
 import {
   createComponent as createComponentInner,
   createFakeEvent,
   createKeyboardEvent,
+  TsDocumentServiceMock,
   typeInElement,
-} from '@terminus/ngx-tools/testing';
+} from '@terminus/fe-testing';
+import {
+  KEYS,
+  TsDocumentService,
+} from '@terminus/fe-utilities';
 import { TsFormFieldComponent } from '@terminus/ui-form-field';
 import { TsInputModule } from '@terminus/ui-input';
-
-import * as TestComponents from './test-components';
 import {
   getInputElement,
   getInputInstance,
   sendInput,
 } from '@terminus/ui-input/testing';
 
+import * as TestComponents from './test-components';
 
 describe(`TsInputComponent`, function() {
   test(`should exist`, () => {

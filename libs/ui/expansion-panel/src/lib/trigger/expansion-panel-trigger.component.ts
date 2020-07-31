@@ -22,8 +22,10 @@ import {
 } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
-import { KEYS } from '@terminus/ngx-tools/keycodes';
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import {
+  KEYS,
+  untilComponentDestroyed,
+} from '@terminus/fe-utilities';
 
 import { tsExpansionPanelAnimations } from '../panel/expansion-animations';
 import {

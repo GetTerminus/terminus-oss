@@ -1,5 +1,7 @@
-import { TsWindowServiceMock } from '@terminus/ngx-tools/browser/testing';
-import { ElementRefMock } from '@terminus/ngx-tools/testing';
+import {
+  ElementRefMock,
+  TsWindowServiceMock,
+} from '@terminus/fe-testing';
 import { TsLoadingOverlayDirective } from '@terminus/ui-loading-overlay';
 
 describe(`TsLoadingOverlayDirective`, function() {

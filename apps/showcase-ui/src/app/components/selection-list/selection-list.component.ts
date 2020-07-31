@@ -10,7 +10,7 @@ import {
 } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import { untilComponentDestroyed } from '@terminus/fe-utilities';
 import { TsSelectionListChange } from '@terminus/ui-selection-list';
 
 import {

@@ -21,7 +21,7 @@ import {
   configureTestBedWithoutReset,
   dispatchMouseEvent,
   wrappedErrorMessage,
-} from '@terminus/ngx-tools/testing';
+} from '@terminus/fe-testing';
 import {
   getSortDuplicateSortableIdError,
   getSortHeaderMissingIdError,

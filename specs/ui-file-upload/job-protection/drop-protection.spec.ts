@@ -1,6 +1,5 @@
-import { TsWindowService } from '@terminus/ngx-tools/browser';
-import { createFakeEvent } from '@terminus/ngx-tools/testing';
-
+import { createFakeEvent } from '@terminus/fe-testing';
+import { TsWindowService } from '@terminus/fe-utilities';
 import { TsDropProtectionService } from '@terminus/ui-file-upload';
 
 describe(`TsDropProtectionService`, function() {

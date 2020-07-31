@@ -15,9 +15,11 @@ import { CanDisable } from '@angular/material/core';
 import { faArrowsV } from '@fortawesome/pro-solid-svg-icons/faArrowsV';
 import { merge } from 'rxjs';
 
-import { coerceBooleanProperty } from '@terminus/ngx-tools/coercion';
-import { isBoolean } from '@terminus/ngx-tools/type-guards';
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import {
+  coerceBooleanProperty,
+  isBoolean,
+  untilComponentDestroyed,
+} from '@terminus/fe-utilities';
 
 import { getSortHeaderNotContainedWithinSortError } from '../sort-errors';
 import {

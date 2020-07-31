@@ -15,8 +15,10 @@ import {
   FormControl,
 } from '@angular/forms';
 
-import { coerceDateProperty } from '@terminus/ngx-tools/coercion';
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import {
+  coerceDateProperty,
+  untilComponentDestroyed,
+} from '@terminus/fe-utilities';
 import { TsOption } from '@terminus/ui-option';
 import {
   TsSelectionListChange,

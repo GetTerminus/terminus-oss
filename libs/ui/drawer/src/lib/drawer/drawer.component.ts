@@ -27,11 +27,11 @@ import {
   take,
 } from 'rxjs/operators';
 
-import { KEYS } from '@terminus/ngx-tools/keycodes';
 import {
   isUnset,
+  KEYS,
   untilComponentDestroyed,
-} from '@terminus/ngx-tools/utilities';
+} from '@terminus/fe-utilities';
 
 import { tsDrawerAnimations } from './drawer-animations';
 

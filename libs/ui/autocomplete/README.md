@@ -51,7 +51,7 @@ An autocomplete that allows single or multiple selections.
 - `@terminus/ui-validation-messages`
 - `@terminus/ui-validators`
 - `@terminus/ui-utilities`
-- `@terminus/ngx-tools`
+- `@terminus/fe-utilities`
 - `text-mask-addons`
 - `text-mask-core`
 

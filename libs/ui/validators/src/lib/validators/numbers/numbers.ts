@@ -4,7 +4,7 @@ import {
   ValidatorFn,
 } from '@angular/forms';
 
-import { createContainsNumbersRegex } from '@terminus/ngx-tools/regex';
+import { createContainsNumbersRegex } from '@terminus/fe-utilities';
 
 
 /**

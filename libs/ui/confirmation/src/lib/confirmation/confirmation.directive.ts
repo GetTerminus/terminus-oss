@@ -21,8 +21,10 @@ import {
 } from '@angular/core';
 import { merge } from 'rxjs';
 
-import { coerceBooleanProperty } from '@terminus/ngx-tools/coercion';
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import {
+  coerceBooleanProperty,
+  untilComponentDestroyed,
+} from '@terminus/fe-utilities';
 import { TsButtonComponent } from '@terminus/ui-button';
 
 import { TsConfirmationOverlayComponent } from '../overlay/confirmation-overlay.component';

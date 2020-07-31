@@ -37,7 +37,7 @@ NOTE: This component does not support a `FormControl`; it is a simple collection
 - `@angular/cdk`
 - `@angular/material`
 - `@terminus/design-tokens`
-- `@terminus/ngx-tools`
+- `@terminus/fe-utilities`
 - `@terminus/ui-chip`
 - `@terminus/ui-icon`
 - `@terminus/ui-utilities`

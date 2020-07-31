@@ -10,7 +10,7 @@ import {
 } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { createComponent as createComponentInner } from '@terminus/ngx-tools/testing';
+import { createComponent as createComponentInner } from '@terminus/fe-testing';
 import { TsAutocompleteModule } from '@terminus/ui-autocomplete';
 import { getAutocompleteInstance } from '@terminus/ui-autocomplete/testing';
 import {

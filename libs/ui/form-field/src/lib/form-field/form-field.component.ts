@@ -25,8 +25,10 @@ import {
   take,
 } from 'rxjs/operators';
 
-import { TsDocumentService } from '@terminus/ngx-tools/browser';
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import {
+  TsDocumentService,
+  untilComponentDestroyed,
+} from '@terminus/fe-utilities';
 import { TS_SPACING } from '@terminus/ui-spacing';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 

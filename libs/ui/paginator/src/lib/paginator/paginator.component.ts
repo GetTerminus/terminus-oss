@@ -18,8 +18,10 @@ import { faAngleDoubleRight } from '@fortawesome/pro-solid-svg-icons/faAngleDoub
 import { faAngleLeft } from '@fortawesome/pro-solid-svg-icons/faAngleLeft';
 import { faAngleRight } from '@fortawesome/pro-solid-svg-icons/faAngleRight';
 
-import { coerceNumberProperty } from '@terminus/ngx-tools/coercion';
-import { inputHasChanged } from '@terminus/ngx-tools/utilities';
+import {
+  coerceNumberProperty,
+  inputHasChanged,
+} from '@terminus/fe-utilities';
 import { TsButtonThemeTypes } from '@terminus/ui-button';
 import { TsSelectionListChange } from '@terminus/ui-selection-list';
 

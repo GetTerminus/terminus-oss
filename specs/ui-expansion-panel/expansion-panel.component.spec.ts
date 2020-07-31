@@ -7,7 +7,7 @@ import {
 } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { createComponent as createComponentInner } from '@terminus/ngx-tools/testing';
+import { createComponent as createComponentInner } from '@terminus/fe-testing';
 import { TsExpansionPanelModule } from '@terminus/ui-expansion-panel';
 import {
   getPanelActionRow,

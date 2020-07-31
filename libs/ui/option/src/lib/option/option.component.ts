@@ -24,11 +24,10 @@ import { NgModel } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 
-import { KEYS } from '@terminus/ngx-tools/keycodes';
+import { KEYS } from '@terminus/fe-utilities';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 import { TsOptionDisplayDirective } from './option-display.directive';
-
 
 export interface TsOption {
   isDisabled?: boolean;

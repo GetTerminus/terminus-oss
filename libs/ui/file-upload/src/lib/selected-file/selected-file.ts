@@ -1,7 +1,7 @@
 import { isDevMode } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { isString } from '@terminus/ngx-tools/type-guards';
+import { isString } from '@terminus/fe-utilities';
 
 import { ImageRatio } from '../file-upload/file-upload.component';
 import { TsFileImageDimensionConstraints } from '../image-dimension-constraints';

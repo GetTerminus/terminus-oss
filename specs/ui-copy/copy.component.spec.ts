@@ -1,9 +1,9 @@
 import {
+  ElementRefMock,
   TsDocumentServiceMock,
   TsWindowServiceMock,
-} from '@terminus/ngx-tools/browser/testing';
-import { ElementRefMock } from '@terminus/ngx-tools/testing';
-import { noop } from '@terminus/ngx-tools/utilities';
+} from '@terminus/fe-testing';
+import { noop } from '@terminus/fe-utilities';
 import { TsCopyComponent } from '@terminus/ui-copy';
 
 describe(`TsCopyComponent`, function() {

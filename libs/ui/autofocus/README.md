@@ -23,7 +23,7 @@ A directive that gives focus to an element on load.
 
 - `@terminus/ui-autofocus`
 - `@terminus/ui-utilities`
-- `@terminus/ngx-tools`
+- `@terminus/fe-utilities`
 - `date-fns`
 
 Use the `ng add` command to quickly install all the needed dependencies:

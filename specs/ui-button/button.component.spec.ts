@@ -13,7 +13,7 @@ import { faSearch } from '@fortawesome/pro-solid-svg-icons/faSearch';
 import {
   createComponent,
   createMouseEvent,
-} from '@terminus/ngx-tools/testing';
+} from '@terminus/fe-testing';
 import {
   TsButtonModule,
   TsButtonComponent,

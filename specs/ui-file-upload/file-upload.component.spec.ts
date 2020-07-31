@@ -10,14 +10,14 @@ import {
 import { FormControl } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
-import { KEYS } from '@terminus/ngx-tools/keycodes';
 import {
   configureTestBedWithoutReset,
   createFakeEvent,
   createMouseEvent,
   dispatchKeyboardEvent,
   dispatchMouseEvent,
-} from '@terminus/ngx-tools/testing';
+} from '@terminus/fe-testing';
+import { KEYS } from '@terminus/fe-utilities';
 import { TsButtonThemeTypes } from '@terminus/ui-button';
 import {
   TS_ACCEPTED_MIME_TYPES,

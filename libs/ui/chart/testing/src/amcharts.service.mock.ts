@@ -1,4 +1,4 @@
-import { noop } from '@terminus/ngx-tools/utilities';
+import { noop } from '@terminus/fe-utilities';
 
 /**
  * Expose an Amcharts service mock for consumers to use.

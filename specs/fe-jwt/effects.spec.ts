@@ -28,7 +28,7 @@ import {
   TokenExpired,
   TokenNearingExpiration,
 } from '@terminus/fe-jwt';
-import { TsCookieService } from '@terminus/ngx-tools/browser';
+import { TsCookieService } from '@terminus/fe-utilities';
 
 /**
  * @param payload

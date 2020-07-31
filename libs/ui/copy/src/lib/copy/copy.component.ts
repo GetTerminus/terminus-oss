@@ -14,7 +14,7 @@ import { faCopy } from '@fortawesome/pro-solid-svg-icons/faCopy';
 import {
   TsDocumentService,
   TsWindowService,
-} from '@terminus/ngx-tools/browser';
+} from '@terminus/fe-utilities';
 import { TsTooltipComponent } from '@terminus/ui-tooltip';
 import {
   TsStyleThemeTypes,

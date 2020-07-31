@@ -1,5 +1,4 @@
-import { isNumber } from '@terminus/ngx-tools/type-guards';
-
+import { isNumber } from '../type-guards/is-number';
 
 /**
  * Round a number

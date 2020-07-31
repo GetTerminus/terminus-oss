@@ -41,11 +41,11 @@ import {
   take,
 } from 'rxjs/operators';
 
-import { TsWindowService } from '@terminus/ngx-tools/browser';
 import {
   debounce,
+  TsWindowService,
   untilComponentDestroyed,
-} from '@terminus/ngx-tools/utilities';
+} from '@terminus/fe-utilities';
 
 import {
   TsHeaderCellDirective,

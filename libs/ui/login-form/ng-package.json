@@ -4,7 +4,7 @@
   "lib": {
     "entryFile": "src/index.ts",
     "umdModuleIds": {
-      "@terminus/ngx-tools/coercion": "terminus.ngxTools.coercion",
+      "@terminus/fe-utilities": "terminus.fe-utilities",
       "@terminus/ui-button": "terminus.ui-button",
       "@terminus/ui-checkbox": "terminus.ui-checkbox",
       "@terminus/ui-input": "terminus.ui-input",

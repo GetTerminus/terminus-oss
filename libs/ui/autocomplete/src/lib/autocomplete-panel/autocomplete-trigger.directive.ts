@@ -44,13 +44,13 @@ import {
   tap,
 } from 'rxjs/operators';
 
-import { TsDocumentService } from '@terminus/ngx-tools/browser';
-import { coerceBooleanProperty } from '@terminus/ngx-tools/coercion';
-import { KEYS } from '@terminus/ngx-tools/keycodes';
 import {
+  coerceBooleanProperty,
   isUnset,
+  KEYS,
+  TsDocumentService,
   untilComponentDestroyed,
-} from '@terminus/ngx-tools/utilities';
+} from '@terminus/fe-utilities';
 import { TsFormFieldComponent } from '@terminus/ui-form-field';
 import {
   countGroupLabelsBeforeOption,

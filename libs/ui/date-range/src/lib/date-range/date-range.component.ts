@@ -16,7 +16,7 @@ import {
 } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import { untilComponentDestroyed } from '@terminus/fe-utilities';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 

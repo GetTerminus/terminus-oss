@@ -16,20 +16,19 @@ import {
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
-import { KEYS } from '@terminus/ngx-tools/keycodes';
 import {
   configureTestBedWithoutReset,
   createFakeEvent,
   dispatchKeyboardEvent,
   dispatchMouseEvent,
-} from '@terminus/ngx-tools/testing';
+} from '@terminus/fe-testing';
+import { KEYS } from '@terminus/fe-utilities';
 import {
   TsCSVEntryModule,
   TsCSVEntryComponent,
   TsCSVFormContents,
 } from '@terminus/ui-csv-entry';
 import { TsValidatorsService } from '@terminus/ui-validators';
-
 
 /**
  * Helper to turn JSON form into stringified content

@@ -2,7 +2,7 @@ import { DebugElement } from '@angular/core';
 import { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { KeyCode } from '@terminus/ngx-tools/keycodes';
+import { KeyCode } from '@terminus/fe-utilities';
 import {
   TsOptgroupComponent,
   TsOptionComponent,

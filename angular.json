@@ -196,7 +196,7 @@
           "options": {
             "commands": [
               {
-                "command": "npx eslint 'apps/showcase-ui/**/*.{js,ts}'"
+                "command": "yarn run lint:ts 'apps/showcase-ui/**/*.{js,ts}'"
               }
             ]
           }

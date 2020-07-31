@@ -5,12 +5,12 @@ import {
 } from '@angular/core';
 import { ComponentFixture } from '@angular/core/testing';
 
-import { KEYS } from '@terminus/ngx-tools/keycodes';
 import {
   createComponent,
   dispatchKeyboardEvent,
   expectNativeEl,
-} from '@terminus/ngx-tools/testing';
+} from '@terminus/fe-testing';
+import { KEYS } from '@terminus/fe-utilities';
 import { TsButtonModule } from '@terminus/ui-button';
 import {
   TsConfirmationModule,

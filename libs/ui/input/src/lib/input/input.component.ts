@@ -42,18 +42,16 @@ import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrect
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 import { createTextMaskInputElement } from 'text-mask-core/dist/textMaskCore';
 
-import { TsDocumentService } from '@terminus/ngx-tools/browser';
-import { coerceNumberProperty } from '@terminus/ngx-tools/coercion';
 import {
+  coerceNumberProperty,
+  hasRequiredControl,
+  inputHasChanged,
   isFunction,
   isNumber,
   isValidDate,
-} from '@terminus/ngx-tools/type-guards';
-import {
-  hasRequiredControl,
-  inputHasChanged,
   noop,
-} from '@terminus/ngx-tools/utilities';
+  TsDocumentService,
+} from '@terminus/fe-utilities';
 import { TsFormFieldControl } from '@terminus/ui-form-field';
 import { TsDatePipe } from '@terminus/ui-pipes';
 import { TS_SPACING } from '@terminus/ui-spacing';

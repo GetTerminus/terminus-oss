@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { startWith } from 'rxjs/operators';
 
-import { untilComponentDestroyed } from '@terminus/ngx-tools/utilities';
+import { untilComponentDestroyed } from '@terminus/fe-utilities';
 
 import { TsTabBodyComponent } from './tab-body.component';
 

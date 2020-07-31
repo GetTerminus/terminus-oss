@@ -38,6 +38,7 @@ A collection of helpers to facilitate testing UI components.
   - [`createComponent`](#createcomponent)
   - [`expectNativeEl`](#expectnativeel)
   - [`getChildComponentInstanceFromFixture`](#getchildcomponentinstancefromfixture)
+  - [`getDomAttribute`](#getdomattribute)
   - [`queryFor`](#queryfor)
   - [`wrappedErrorMessage`](#wrappederrormessage)
 - [`typeInElement`](#typeinelement)
@@ -62,7 +63,7 @@ export class MyComponent {
 
 ```typescript
 // my.component.spec.ts
-import { ChangeDetectorRefMock } from '@terminus/ngx-tools/testing';
+import { ChangeDetectorRefMock } from '@terminus/fe-testing';
 import { MyComponent } from './my.component';
 
 let component: MyComponent;
@@ -90,7 +91,7 @@ export class MyComponent {
 
 ```typescript
 // my.component.spec.ts
-import { ElementRefMock } from '@terminus/ngx-tools/testing';
+import { ElementRefMock } from '@terminus/fe-testing';
 import { MyComponent } from './my.component';
 
 let component: MyComponent;
@@ -118,7 +119,7 @@ export class MyComponent {
 
 ```typescript
 // my.component.spec.ts
-import { rendererMock } from '@terminus/ngx-tools/testing';
+import { rendererMock } from '@terminus/fe-testing';
 
 beforeEach(async(() => {
   TestBed.configureTestingModule({
@@ -151,7 +152,7 @@ export class MyComponent {
 
 ```typescript
 // my.component.spec.ts
-import { Renderer2Mock } from '@terminus/ngx-tools/testing';
+import { Renderer2Mock } from '@terminus/fe-testing';
 
 beforeEach(async(() => {
   TestBed.configureTestingModule({
@@ -171,7 +172,7 @@ beforeEach(async(() => {
 Or for `new`ed classes:
 
 ```typescript
-import { Renderer2Mock } from '@terminus/ngx-tools/testing';
+import { Renderer2Mock } from '@terminus/fe-testing';
 
 let component: MyComponent;
 
@@ -184,17 +185,17 @@ beforeEach(() => {
 
 ### `TokenEscalatorMock`
 
-TODO <!-- https://github.com/GetTerminus/ngx-tools/issues/317 -->
+TODO
 
 ### `TokenExtractorMock`
 
-TODO <!-- https://github.com/GetTerminus/ngx-tools/issues/317 -->
+TODO
 
 ### `TsDocumentServiceMock`
 
 ```typescript
 // my.component.ts
-import { TsDocumentService } from '@terminus/ngx-tools/browser';
+import { TsDocumentService } from '@terminus/fe-utilities';
 
 @Component({...})
 export class MyComponent {
@@ -206,7 +207,7 @@ export class MyComponent {
 
 ```typescript
 // my.component.spec.ts
-import { TsDocumentServiceMock } from '@terminus/ngx-tools/testing';
+import { TsDocumentServiceMock } from '@terminus/fe-testing';
 import { MyComponent } from './my.component';
 
 let component: MyComponent;
@@ -222,7 +223,7 @@ beforeEach(() => {
 
 ```typescript
 // my.component.ts
-import { TsWindowService } from '@terminus/ngx-tools/browser';
+import { TsWindowService } from '@terminus/fe-utilities';
 
 @Component({...})
 export class MyComponent {
@@ -234,7 +235,7 @@ export class MyComponent {
 
 ```typescript
 // my.component.spec.ts
-import { TsWindowServiceMock } from '@terminus/ngx-tools/testing';
+import { TsWindowServiceMock } from '@terminus/fe-testing';
 import { MyComponent } from './my.component';
 
 let component: MyComponent;
@@ -255,7 +256,7 @@ beforeEach(() => {
 Creates a fake event object with any desired event type.
 
 ```typescript
-import { createFakeEvent } from '@terminus/ngx-tools/testing';
+import { createFakeEvent } from '@terminus/fe-testing';
 
 const focusEvent = createFakeEvent('focus');
 ```
@@ -271,8 +272,8 @@ const focusEvent = createFakeEvent('focus');
 Creates a browser `KeyboardEvent` from an element.
 
 ```typescript
-import { KEYCODES } from '@terminus/ngx-tools/keycodes';
-import { createKeyboardEvent } from '@terminus/ngx-tools/testing';
+import { KEYCODES } from '@terminus/fe-utilities';
+import { createKeyboardEvent } from '@terminus/fe-testing';
 
 const keyboardEvent = createKeyboardEvent('keydown', KEYCODES.ENTER.keyCode, myInputNativeElement);
 ```
@@ -289,7 +290,7 @@ const keyboardEvent = createKeyboardEvent('keydown', KEYCODES.ENTER.keyCode, myI
 Creates a browser `MouseEvent` with the specified options.
 
 ```typescript
-import { createMouseEvent } from '@terminus/ngx-tools/testing';
+import { createMouseEvent } from '@terminus/fe-testing';
 
 const mouseEvent = createMouseEvent('click');
 const mouseEventAtLocation = createMouseEvent('click', 212, 433);
@@ -306,7 +307,7 @@ const mouseEventAtLocation = createMouseEvent('click', 212, 433);
 Creates a browser `TouchEvent` with the specified pointer coordinates.
 
 ```typescript
-import { createTouchEvent } from '@terminus/ngx-tools/testing';
+import { createTouchEvent } from '@terminus/fe-testing';
 
 const touchEvent = createTouchEvent('touchstart');
 const touchEventAtLocation = createTouchEvent('touchstart', 212, 433);
@@ -325,7 +326,7 @@ const touchEventAtLocation = createTouchEvent('touchstart', 212, 433);
 Utility to dispatch any event on a Node.
 
 ```typescript
-import { dispatchEvent } from '@terminus/ngx-tools/testing';
+import { dispatchEvent } from '@terminus/fe-testing';
 
 dispatchEvent(myNativeElement, 'blur');
 ```
@@ -340,7 +341,7 @@ dispatchEvent(myNativeElement, 'blur');
 Shorthand to dispatch a fake event on a specified node.
 
 ```typescript
-import { dispatchFakeEvent } from '@terminus/ngx-tools/testing';
+import { dispatchFakeEvent } from '@terminus/fe-testing';
 
 dispatchFakeEvent(myNativeElement, 'mousedown');
 ```
@@ -356,7 +357,7 @@ dispatchFakeEvent(myNativeElement, 'mousedown');
 Shorthand to dispatch a keyboard event with a specified key code.
 
 ```typescript
-import { dispatchKeyboardEvent } from '@terminus/ngx-tools/testing';
+import { dispatchKeyboardEvent } from '@terminus/fe-testing';
 
 dispatchKeyboardEvent(myNativeElement, 'keyup', ENTER);
 ```
@@ -373,7 +374,7 @@ dispatchKeyboardEvent(myNativeElement, 'keyup', ENTER);
 Shorthand to dispatch a mouse event on the specified coordinates.
 
 ```typescript
-import { dispatchMouseEvent } from '@terminus/ngx-tools/testing';
+import { dispatchMouseEvent } from '@terminus/fe-testing';
 
 dispatchMouseEvent(myNativeElement, 'mousedown');
 ```
@@ -391,7 +392,7 @@ dispatchMouseEvent(myNativeElement, 'mousedown');
 Shorthand to dispatch a touch event on the specified coordinates.
 
 ```typescript
-import { dispatchTouchEvent } from '@terminus/ngx-tools/testing';
+import { dispatchTouchEvent } from '@terminus/fe-testing';
 
 dispatchTouchEvent(myNativeElement, 'touchstart');
 ```
@@ -415,7 +416,7 @@ and compile the components with extra white space stripped.
 import {
   ConfigureTestBedFn,
   configureTestBed,
-} from '@terminus/ngx-tools/testing';
+} from '@terminus/fe-testing';
 
 describe(`MyComponentSnapshot`, () => {
   let fixture: ComponentFixture<MyComponent>;
@@ -461,7 +462,7 @@ functionality.
 
 ```typescript
 import { TestModuleMetadata } from '@angular/core/testing';
-import { configureTestBedWithoutReset } from '@terminus/ngx-tools/testing';
+import { configureTestBedWithoutReset } from '@terminus/fe-testing';
 
 describe(`MyComponent`, () => {
   let fixture: ComponentFixture<MyComponent>;
@@ -488,7 +489,7 @@ describe(`MyComponent`, () => {
 Helper function to quickly generate a `TestBed` fixture with a single component.
 
 ```typescript
-import { createComponent } from '@terminus/ngx-tools/testing';
+import { createComponent } from '@terminus/fe-testing';
 
 @Component({template: ``})
 export class TestComponent {
@@ -507,7 +508,7 @@ test(`should do something`, () => {
 Reusable expect statement to check for the `nativeElement`.
 
 ```typescript
-import { expectNativeEl } from '@terminus/ngx-tools/testing';
+import { expectNativeEl } from '@terminus/fe-testing';
 
 let fixture: ComponentFixture<TestHostComponent>;
 let testHost: TestHostComponent;
@@ -537,7 +538,7 @@ test(`should have a native element`, () => {
 Returns a component instance from a TestBed fixture:
 
 ```typescript
-import { getChildComponentInstanceFromFixture } from '@terminus/ngx-tools/testing';
+import { getChildComponentInstanceFromFixture } from '@terminus/fe-testing';
 import { Component } from '@angular/core';
 import {
   async,
@@ -583,12 +584,23 @@ describe(`my test`, () => {
 });
 ```
 
+### `getDomAttribute`
+
+A helper to return the value of a DOM attribute.
+
+```
+import { getDomAttribute } from '@terminus/fe-testing';
+
+getDomAttribute(myElement, 'aria-label');
+
+```
+
 ### `queryFor`
 
 Helper to query a fixture for a selector.
 
 ```typescript
-import { queryFor } from '@terminus/ngx-tools/testing';
+import { queryFor } from '@terminus/fe-testing';
 
 let fixture: ComponentFixture<TestHostComponent>;
 let testHost: TestHostComponent;
@@ -618,7 +630,7 @@ Gets a RegExp used to detect an Angular wrapped error message. This allows testi
 thrown errors in tests.
 
 ```typescript
-import { wrappedErrorMessage } from '@terminus/ngx-tools/testing';
+import { wrappedErrorMessage } from '@terminus/fe-testing';
 
 expect(myFunc).toThrowError(wrappedErrorMessage(mySpecificError()));
 ```
@@ -630,7 +642,7 @@ expect(myFunc).toThrowError(wrappedErrorMessage(mySpecificError()));
 Focuses an input, sets it's value and dispatches the `input` event, simulating user typing.
 
 ```typescript
-import { typeInElement } from '@terminus/ngx-tools/testing';
+import { typeInElement } from '@terminus/fe-testing';
 
 typeInElement('test@test.com', myEmailInputElement);
 ```

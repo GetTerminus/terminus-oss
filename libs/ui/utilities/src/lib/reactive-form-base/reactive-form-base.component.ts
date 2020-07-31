@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-import { noop } from '@terminus/ngx-tools/utilities';
+import { noop } from '@terminus/fe-utilities';
 
 
 /**

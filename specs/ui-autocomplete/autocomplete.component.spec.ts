@@ -12,7 +12,6 @@ import {
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { KEYS } from '@terminus/ngx-tools/keycodes';
 import {
   createComponent as createComponentInner,
   createFakeEvent,
@@ -21,7 +20,8 @@ import {
   dispatchKeyboardEvent,
   dispatchMouseEvent,
   typeInElement,
-} from '@terminus/ngx-tools/testing';
+} from '@terminus/fe-testing';
+import { KEYS } from '@terminus/fe-utilities';
 import { TsAutocompleteModule } from '@terminus/ui-autocomplete';
 import {
   getAllChipInstances,

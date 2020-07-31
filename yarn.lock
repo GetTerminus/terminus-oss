@@ -4344,11 +4344,6 @@
   resolved "https://registry.yarnpkg.com/@terminus/eslint-config-frontend/-/eslint-config-frontend-2.2.6.tgz#633f7854b5a03ea05170be1cdcb84998a48666af"
   integrity sha512-dQXcMCCDRny7tZ73ghV30A4tKyDWp4/4yXzVSWDx/Nr80P/VAUHvfUO0597mXpCYM95CSokWGVWXlu/pODQPTg==
 
-"@terminus/ngx-tools@8.0.6":
-  version "8.0.6"
-  resolved "https://registry.yarnpkg.com/@terminus/ngx-tools/-/ngx-tools-8.0.6.tgz#36977e9083b26c34ac86422a94ff1f9958effb3c"
-  integrity sha512-q37GMgHpam34TVsRFqwN0RDEtVdh2gf4Di1ZWXaBlZS7+iTw1c8BZCUZxsfpqbjTXPaL3D3EpiDKX1yxCt/dGw==
-
 "@terminus/stylelint-config-frontend@1.2.4":
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/@terminus/stylelint-config-frontend/-/stylelint-config-frontend-1.2.4.tgz#37b5096c7a7cb652da416451ce44f614f7ef5880"

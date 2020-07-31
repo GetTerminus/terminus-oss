@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { TsWindowService } from '@terminus/ngx-tools/browser';
+import { TsWindowService } from '@terminus/fe-utilities';
 
 @Injectable()
 export class TsDropProtectionService {

@@ -39,7 +39,7 @@ The drawer component is designed to add side content to a section of the DOM.
 - `@angular/forms`
 - `@angular/platform-browser`
 - `@terminus/design-tokens`
-- `@terminus/ngx-tools`
+- `@terminus/fe-utilities`
 - `@terminus/ui-utilities`
 - `@terminus/ui-expansion-panel`
 - `date-fns`

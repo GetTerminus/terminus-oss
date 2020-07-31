@@ -22,7 +22,7 @@
 
 - `@angular/cdk`
 - `@angular/material`
-- `@terminus/ngx-tools`
+- `@terminus/fe-utilities`
 - `@terminus/design-tokens`
 - `@terminus/ui-button`
 - `@terminus/ui-icon`

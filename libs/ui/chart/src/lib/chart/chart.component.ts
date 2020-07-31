@@ -16,7 +16,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { inputHasChanged } from '@terminus/ngx-tools/utilities';
+import { inputHasChanged } from '@terminus/fe-utilities';
 import { TsUILibraryError } from '@terminus/ui-utilities';
 
 import {

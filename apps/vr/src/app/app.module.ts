@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   TsDocumentService,
   TsWindowService,
-} from '@terminus/ngx-tools/browser';
+} from '@terminus/fe-utilities';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

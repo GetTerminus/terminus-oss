@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
 import {
   TsDocumentService,
   TsWindowService,
-} from '@terminus/ngx-tools/browser';
+} from '@terminus/fe-utilities';
 import { TsAutofocusModule } from '@terminus/ui-autofocus';
 import { TsButtonModule } from '@terminus/ui-button';
 import { TsCheckboxModule } from '@terminus/ui-checkbox';

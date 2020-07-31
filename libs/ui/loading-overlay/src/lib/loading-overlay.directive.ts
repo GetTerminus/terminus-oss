@@ -14,7 +14,7 @@ import {
   OnInit,
 } from '@angular/core';
 
-import { TsWindowService } from '@terminus/ngx-tools/browser';
+import { TsWindowService } from '@terminus/fe-utilities';
 
 import { TsLoadingOverlayComponent } from './overlay/loading-overlay.component';
 

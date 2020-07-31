@@ -32,7 +32,7 @@ import { ClaimMap } from '../claim-map';
 
 
 // TODO: Scheduler is marked as deprecated to stop others from using although it is not technically deprecated from what I can tell. The
-// 'correct' path would be to create our own class extending `SchedulerLike`. https://github.com/GetTerminus/ngx-tools/issues/287
+// 'correct' path would be to create our own class extending `SchedulerLike`.
 // eslint-disable-next-line deprecation/deprecation
 export const SCHEDULER = new InjectionToken<Scheduler>('scheduler');
 export const ESCALATION_WAIT_TIME = new InjectionToken<number>('wait time');
@@ -109,7 +109,6 @@ export class RetryWithEscalation<CM = ClaimMap> {
     public store: Store<any>,
     // TODO: Scheduler is marked as deprecated to stop others from using although it is not technically deprecated
     // from what I can tell. The 'correct' path would be to create our own class extending `SchedulerLike`.
-    // https://github.com/GetTerminus/ngx-tools/issues/287
     // eslint-disable-next-line deprecation/deprecation
     @Optional() @Inject(SCHEDULER) private scheduler: Scheduler,
     @Optional() @Inject(ESCALATION_WAIT_TIME) private waitTime: number,

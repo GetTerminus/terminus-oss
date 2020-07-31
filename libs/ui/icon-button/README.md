@@ -23,7 +23,7 @@
 
 - `@angular/material`
 - `@terminus/design-tokens`
-- `@terminus/ngx-tools`
+- `@terminus/fe-utilities`
 - `@terminus/ui-icon`
 - `@terminus/ui-icon-button`
 - `@terminus/ui-utilities`
