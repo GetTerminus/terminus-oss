@@ -1,22 +1,21 @@
 import {
   Inject,
   Injectable,
+  OnDestroy,
 } from '@angular/core';
-import {
-  OnDestroyMixin,
-  untilComponentDestroyed,
-} from '@w11k/ngx-componentdestroyed';
 import {
   LOCAL_STORAGE,
   WebStorageService,
 } from 'ngx-webstorage-service';
 import { BehaviorSubject } from 'rxjs';
 
+import { untilComponentDestroyed } from '@terminus/fe-utilities';
+
 import { TsdtColorFormat } from '../pipes/color-format.pipe';
 
 
 @Injectable({ providedIn: 'root' })
-export class SettingsService extends OnDestroyMixin {
+export class SettingsService implements OnDestroy {
   // REFERENCES
   public readonly referencesKey = 'tsSelectedReferences';
   public selectedReferences$: BehaviorSubject<string[]> = new BehaviorSubject(this.allPossibleReferences.map(v => v.value));
@@ -59,12 +58,12 @@ export class SettingsService extends OnDestroyMixin {
   }
 
 
-  constructor(
-    @Inject(LOCAL_STORAGE) private storage: WebStorageService,
-  ) {
-    super();
+  constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService) {
     this.init();
   }
+
+  // Needed for `untilComponentDestroyed`
+  public ngOnDestroy() {}
 
   /**
    * Update the user selected visible references
