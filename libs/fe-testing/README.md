@@ -11,6 +11,7 @@ A collection of helpers to facilitate testing UI components.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
 - [Mocks](#mocks)
   - [`ChangeDetectorRefMock`](#changedetectorrefmock)
   - [`ElementRefMock`](#elementrefmock)
@@ -44,6 +45,13 @@ A collection of helpers to facilitate testing UI components.
 - [`typeInElement`](#typeinelement)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Installation
+
+```bash
+$ yarn add @terminus/fe-testing -D
+$ yarn add @terminus/fe-utilities rxjs date-fns @angular/{forms,platform-browser}
+```
 
 ## Mocks
 
