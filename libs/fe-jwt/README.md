@@ -11,6 +11,7 @@ A collection of helpers for dealing with JWT tokens.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Installation](#installation)
 - [Getting started](#getting-started)
   - [Step 1: Setup your claim map](#step-1-setup-your-claim-map)
   - [Step 2: The Module](#step-2-the-module)
@@ -44,6 +45,12 @@ A collection of helpers for dealing with JWT tokens.
   - [Example](#example)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Installation
+
+```bash
+$ yarn add @terminus/{fe-jwt,fe-utilities} rxjs date-fns @ngrx/{store,effects}
+```
 
 ## Getting started
 
