@@ -17,5 +17,16 @@
     "access": "public",
     "tag": "next",
     "directory": "../../dist/libs/fe-jwt"
+  },
+  "dependencies": {
+    "@terminus/fe-utilities": "^0.1.0",
+    "@angular/common": "^9.1.11",
+    "@angular/core": "^9.1.11",
+    "@angular/forms": "^9.1.11",
+    "rxjs": "^6.5.5",
+    "date-fns": "^2.14.0",
+    "@ngrx/store": "^9.2.0",
+    "@ngrx/effects": "^9.2.0",
+    "@angular/router": "^9.1.11"
   }
 }
