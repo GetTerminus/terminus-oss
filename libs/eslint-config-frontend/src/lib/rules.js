@@ -763,7 +763,27 @@ module.exports = {
         '@typescript-eslint/prefer-function-type': SEVERITY,
 
         // Helps to maintain a consistent, readable style in the codebase.
-        '@typescript-eslint/naming-convention': SEVERITY,
+        '@typescript-eslint/naming-convention': [
+          SEVERITY,
+          {
+            selector: 'default',
+            format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+            leadingUnderscore: 'allow',
+            trailingUnderscore: 'allow',
+          },
+
+          {
+            selector: 'variable',
+            format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+            leadingUnderscore: 'allow',
+            trailingUnderscore: 'allow',
+          },
+
+          {
+            selector: 'typeLike',
+            format: ['PascalCase', 'camelCase', 'UPPER_CASE'],
+          },
+        ],
 
         // Using any as a type declaration nullifies the compile-time benefits of the type system.
         '@typescript-eslint/no-explicit-any': SEVERITY,
