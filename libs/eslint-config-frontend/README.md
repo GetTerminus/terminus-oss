@@ -25,18 +25,11 @@ A collection of JavaScript & TypeScript lint rules for a Terminus frontend codeb
 1. Install the package & required dependencies:
 
 ```
-$ yarn add eslint \
-  @terminus/eslint-config-frontend \
-  @angular-eslint/eslint-plugin \
-  @angular-eslint/eslint-plugin-template \
-  @angular-eslint/template-parser \
-  @typescript-eslint/eslint-plugin \
-  @typescript-eslint/parser \
+$ yarn add eslint @terminus/eslint-config-frontend \
+  @angular-eslint/{eslint-plugin,eslint-plugin-template,template-parser} \
+  @typescript-eslint/{eslint-plugin,parser} \
   eslint-import-resolver-typescript \
-  eslint-plugin-deprecation \
-  eslint-plugin-import \
-  eslint-plugin-jsdoc \
-  eslint-plugin-prefer-arrow \
+  eslint-plugin-{deprecation,import,jsdoc,prefer-arrow} \
   -D
 ```
 
