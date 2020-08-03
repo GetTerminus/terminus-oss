@@ -65,6 +65,7 @@ export class RetryWithEscalation<CM = ClaimMap> {
               this.expirationTimer(),
             ).pipe(
               take(1),
+              // eslint-disable-next-line deprecation/deprecation
               delay(DELAY_MS, this.scheduler || async),
             );
           }),
@@ -95,6 +96,7 @@ export class RetryWithEscalation<CM = ClaimMap> {
   private expirationTimer() {
     return timer(
       this.waitTime  || DEFAULT_ESCALATION_WAIT_TIME,
+      // eslint-disable-next-line deprecation/deprecation
       this.scheduler || async,
     ).pipe(switchMap(() => this.failureError()));
   }

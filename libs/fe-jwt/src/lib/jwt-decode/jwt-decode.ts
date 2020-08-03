@@ -1,5 +1,5 @@
 // Rewritten from https://github.com/auth0/jwt-decode/tree/master/lib to be typescript compliant
-// eslint-disable-next-line camelcase
+// eslint-disable-next-line @typescript-eslint/naming-convention
 import { base64_url_decode } from './base64-url-decode';
 
 

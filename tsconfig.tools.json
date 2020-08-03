@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["node", "jest"]
+  },
+  "include": [
+    "*.{ts,js}",
+    "tools/**/*.{ts,js}",
+    ".eslintrc.js"
+  ]
+}
