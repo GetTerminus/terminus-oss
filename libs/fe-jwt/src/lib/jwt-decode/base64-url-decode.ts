@@ -20,14 +20,13 @@ const b64DecodeUnicode =
   }));
 
 
-// eslint-disable-next-line camelcase
 /**
  * Decode url encoded value
  *
  * @param str
  * @returns The decoded value
  */
-// eslint-disable-next-line camelcase
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export function base64_url_decode(str: string): string {
   let output = str.replace(/-/g, '+').replace(/_/g, '/');
   switch (output.length % 4) {

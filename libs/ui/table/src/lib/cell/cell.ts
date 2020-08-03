@@ -159,7 +159,7 @@ export class TsHeaderCellDirective extends CdkHeaderCell implements OnInit, OnDe
    * Return the current set width
    */
   public get cellWidth(): number {
-    return parseInt(this.width, 0);
+    return parseInt(this.width, 10);
   }
 
   /**

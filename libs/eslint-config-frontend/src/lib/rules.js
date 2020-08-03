@@ -642,12 +642,6 @@ module.exports = {
         '@angular-eslint',
       ],
       parser: '@typescript-eslint/parser',
-      parserOptions: {
-        ecmaVersion: 2020,
-        project: './tsconfig.json',
-        sourceType: 'module',
-        tsconfigRootDir: './',
-      },
       settings: {
         'import/parsers': {
           '@typescript-eslint/parser': ['.ts'],
