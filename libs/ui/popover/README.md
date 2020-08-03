@@ -18,6 +18,7 @@ Popover component is designed to pop up simple or complex content based on a use
   - [popper.js documentation](#popperjs-documentation)
 - [Usage](#usage)
   - [Position](#position)
+  - [Popover Trigger](#popover-trigger)
   - [Hide on blur](#hide-on-blur)
   - [Open on load](#open-on-load)
   - [Events](#events)
@@ -106,6 +107,22 @@ Defines where the popover is positioned, relative to current element:
 ```
 
 The default is `bottom`. For all available positions, please see the [popper.js placement docs][popper-placements].
+
+### Popover Trigger
+
+Popover supports two types of trigger, `click` and `hover`.
+
+```html
+<button 
+  tsPopoverTrigger="myPopper"
+  [popoverTrigger]="click"
+>Click me!</button>
+
+<ts-popover #myPopper>My popover</ts-popover>
+
+```
+
+The default is `click`.
 
 ### Hide on blur
 

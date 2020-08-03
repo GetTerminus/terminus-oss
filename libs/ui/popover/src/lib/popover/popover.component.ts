@@ -90,7 +90,7 @@ export class TsPopoverComponent implements OnDestroy, OnInit {
    */
   public popoverOptions: TsPopoverOptions = {
     placement: TsPopoverPositions.Bottom,
-    trigger: TsTriggers.CLICK,
+    trigger: TsTriggers.CLICK || TsTriggers.HOVER,
   };
 
   /**

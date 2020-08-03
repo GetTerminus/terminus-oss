@@ -2,7 +2,6 @@ import 'tools/jest-mocks/createRange';
 import { PlatformModule } from '@angular/cdk/platform';
 import { CommonModule } from '@angular/common';
 import {
-  Component,
   DebugElement,
   Type,
 } from '@angular/core';
@@ -23,11 +22,16 @@ import { KEYS } from '@terminus/fe-utilities';
 import {
   TsPopoverComponent,
   TsPopoverModule,
-  TsPopoverPosition,
 } from '@terminus/ui-popover';
 
+import {
+  Basic,
+  DefaultOpen,
+  TriggerOnHover,
+} from "./test-components";
+
 describe(`popover trigger`, () => {
-  let fixture: ComponentFixture<TsPopoverTestComponents>;
+  let fixture;
 
   /**
    * Create test host component
@@ -149,6 +153,26 @@ describe(`popover trigger`, () => {
       }));
     });
 
+    describe(`popoverTrigger`, () => {
+      let hoverEvent: MouseEvent;
+      beforeEach(() => {
+        hoverEvent = document.createEvent('MouseEvent');
+        hoverEvent.initEvent('mouseenter', true, false);
+      });
+      test(`should trigger popover with mouseenter if showTrigger set to hover`, fakeAsync(() => {
+        setup(TriggerOnHover);
+        fixture.componentInstance.popoverOnHidden = jest.fn();
+        fixture.componentInstance.popoverOnShown = jest.fn();
+        fixture.componentInstance.popoverTrigger = 'hover';
+        fixture.detectChanges();
+        tick();
+        dispatchEvent(buttonDebugElement, hoverEvent);
+        fixture.detectChanges();
+        tick();
+        expect(fixture.componentInstance.popoverOnShown).toHaveBeenCalled();
+      }));
+    });
+
     describe(`escape`, () => {
       test(`should close popover with escape key down`, fakeAsync(() => {
         setup(Basic);
@@ -178,71 +202,3 @@ describe(`popover trigger`, () => {
   });
 });
 
-/**
- * Test Components
- */
-export type TsPopoverTestComponents
-  = Basic
-  | DefaultOpen
-;
-
-@Component({
-  template: `
-    <div class="outside"></div>
-    <button
-      tsPopoverTrigger="popper1"
-      [position]="position"
-      [popover]="popper1"
-      [defaultOpened]="defaultOpened"
-      [hideOnBlur]="hideOnBlur"
-      style="margin: 200px 250px;"
-      [id]="id"
-      (popoverOnShown)="popoverOnShown()"
-      (popoverOnHidden)="popoverOnHidden()"
-      class="popover-button"
-    >Click me!
-    </button>
-    <ts-popover #popper1>
-      <h1>My Title</h1>
-      <p>Other random content.</p>
-    </ts-popover>
-  `,
-})
-class Basic {
-  public positions = ['bottom', 'top', 'left', 'right'];
-  public id = '';
-  public hideOnBlur = false;
-  public defaultOpened = false;
-  public position: TsPopoverPosition = 'right';
-  foo = 'bar';
-  public popoverOnShown() { }
-  public popoverOnHidden() { }
-}
-
-@Component({
-  template: `
-      <div class="outside"></div>
-      <button
-        tsPopoverTrigger="popper1"
-        [position]="position"
-        [popover]="popper1"
-        [defaultOpened]="defaultOpened"
-        (popoverOnShown)="popoverOnShown()"
-        (popoverOnHidden)="popoverOnHidden()"
-        class="popover-button"
-      >Click me!</button>
-      <ts-popover #popper1>
-        <h1>My Title</h1>
-        <p>Other random content.</p>
-      </ts-popover>
-  `,
-})
-class DefaultOpen {
-  public positions = ['bottom', 'top', 'left', 'right'];
-  public defaultOpened = true;
-  public id = '';
-  public hideOnBlur = false;
-  public position: TsPopoverPosition = 'right';
-  public popoverOnShown() { }
-  public popoverOnHidden() { }
-}
