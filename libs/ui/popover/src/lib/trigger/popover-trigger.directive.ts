@@ -15,7 +15,11 @@ import {
   SimpleChange,
   ViewContainerRef,
 } from '@angular/core';
-import { fromEvent } from 'rxjs';
+import {
+  fromEvent,
+  merge,
+  Subscription,
+} from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 import {
@@ -30,6 +34,7 @@ import {
   tsPopoverPositions,
   TsPopoverPositions,
   TsTriggers,
+  TsTrigger,
 } from '../popover-options';
 import { TsPopoverComponent } from '../popover/popover.component';
 
@@ -62,6 +67,24 @@ let nextUniqueId = 0;
   exportAs: 'tsPopoverTrigger',
 })
 export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, AfterContentInit, AfterContentChecked {
+
+  /**
+   * Define mouse event click subscription.
+   */
+  private clickSubscription = (fromEvent<MouseEvent>(this.elementRef.nativeElement, 'click'))
+    .pipe(
+      untilComponentDestroyed(this),
+    ).subscribe(event => {
+      this.toggle();
+      event.stopPropagation();
+      event.preventDefault();
+    });
+
+  /**
+   * Define the mouse event subscription, defaults to click.
+   */
+  public eventSubscription = this.clickSubscription;
+
   /**
    * Define the UID
    */
@@ -70,10 +93,10 @@ export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, 
   /**
    * Default options for popper
    *
-   * For now we only support click, so it specifies click here. But could support more if needed.
+   * We support click and hover triggers.
    */
   public static defaultOptions: TsPopoverOptions = {
-    trigger: TsTriggers.CLICK,
+    trigger: TsTriggers.CLICK || TsTriggers.HOVER,
     ariaRole: 'popover',
     placement: TsPopoverPositions.Bottom,
   };
@@ -131,6 +154,48 @@ export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, 
     return this._position;
   }
   public _position = TsPopoverPositions.Bottom;
+
+  /**
+   * Set trigger type of popover, i.e. click or hover
+   */
+  @Input()
+  public set popoverTrigger(value: TsTrigger) {
+    this._popoverTrigger = value;
+    this.eventSubscription.unsubscribe();
+    switch (this._popoverTrigger) {
+      case TsTriggers.CLICK:
+        this.eventSubscription = (fromEvent<MouseEvent>(this.elementRef.nativeElement, 'click'))
+          .pipe(
+            untilComponentDestroyed(this),
+          ).subscribe(event => {
+            this.toggle();
+            event.stopPropagation();
+            event.preventDefault();
+          });
+        break;
+      case TsTriggers.HOVER:
+        const events = [
+          'mouseenter',
+          'mouseleave',
+          'touchcancel',
+          'touchend',
+        ];
+        const eventStreams = events.map(ev => fromEvent(this.elementRef.nativeElement, ev));
+        this.eventSubscription = merge(...eventStreams)
+          .pipe(
+            untilComponentDestroyed(this),
+          ).subscribe(event => {
+            this.toggle();
+          });
+        break;
+      default:
+        break;
+    }
+  }
+  public get popoverTrigger(): TsTrigger {
+    return this._popoverTrigger;
+  }
+  public _popoverTrigger: TsTrigger = 'click';
 
   /**
    * Emit when create popover.
@@ -200,15 +265,6 @@ export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, 
     this.popover.referenceObject = this.viewContainerRef.element.nativeElement;
     this.setContentProperties(this.popover);
 
-    // eslint-disable-next-line deprecation/deprecation
-    (fromEvent<MouseEvent>(this.elementRef.nativeElement, 'click'))
-      .pipe(
-        untilComponentDestroyed(this),
-      ).subscribe(event => {
-        this.toggle();
-        event.stopPropagation();
-        event.preventDefault();
-      });
   }
 
   /**

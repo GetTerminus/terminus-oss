@@ -67,13 +67,14 @@ export class TsPopoverPositions {
 /**
  * Define Trigger type.
  */
-export type TsTrigger = 'click';
+export type TsTrigger = 'click' | 'hover';
 
 /**
  * A class of Triggers.
  */
 export class TsTriggers {
   public static CLICK: TsTrigger = 'click';
+  public static HOVER: TsTrigger = 'hover';
 }
 
 /**
