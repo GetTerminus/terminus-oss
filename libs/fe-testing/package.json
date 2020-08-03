@@ -23,6 +23,11 @@
     "@angular/core": "^9.1.12"
   },
   "dependencies": {
-    "tslib": "^1.10.0"
+    "tslib": "^1.10.0",
+    "@terminus/fe-utilities": "^0.1.0",
+    "@angular/forms": "^9.1.11",
+    "rxjs": "^6.5.5",
+    "date-fns": "^2.14.0",
+    "@angular/platform-browser": "^9.1.11"
   }
 }
