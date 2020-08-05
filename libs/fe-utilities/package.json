@@ -1,7 +1,7 @@
 {
   "name": "@terminus/fe-utilities",
   "description": "A collection of tools and utilities for Terminus applications",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "license": "MIT",
   "author": "@terminus",
   "private": false,
@@ -22,7 +22,7 @@
     "@angular/common": "^9.1.11",
     "@angular/core": "^9.1.11",
     "@angular/forms": "^9.1.11",
-    "rxjs": "^6.5.5",
-    "date-fns": "^2.14.0"
+    "date-fns": "^2.14.0",
+    "rxjs": "^6.5.5"
   }
 }

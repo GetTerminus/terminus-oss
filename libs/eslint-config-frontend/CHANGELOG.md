@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/eslint-config-frontend@3.0.0...@terminus/eslint-config-frontend@3.0.1) (2020-08-05)
+
+
+### Bug Fixes
+
+* updates for new eslint naming convention rule ([f9d1963](https://github.com/GetTerminus/terminus-oss/commit/f9d1963184a2e483274b629e6bb6504e21baa743))
+* **ESLintConfig:** update for new naming convention rule ([802a8fc](https://github.com/GetTerminus/terminus-oss/commit/802a8fcfdf44bcf54c98c1ede7cfaf335d86cebf))
+
+
+### Reverts
+
+* downgrade back to eslint v6.x ([5204621](https://github.com/GetTerminus/terminus-oss/commit/5204621a0c0aef6d7892222f190f07a620497d73))
+
+
+
+
+
 # 3.0.0 (2020-07-31)
 
 

@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/fe-jwt@0.1.1...@terminus/fe-jwt@0.2.0) (2020-08-05)
+
+
+### Bug Fixes
+
+* updates for new eslint naming convention rule ([f9d1963](https://github.com/GetTerminus/terminus-oss/commit/f9d1963184a2e483274b629e6bb6504e21baa743))
+
+
+### Features
+
+* **FEJwt:** trigger 1.0 release ([0d3b227](https://github.com/GetTerminus/terminus-oss/commit/0d3b227ed5b48d9824c5d14820a9e204746b2a1f))
+
+
+### Reverts
+
+* downgrade back to eslint v6.x ([5204621](https://github.com/GetTerminus/terminus-oss/commit/5204621a0c0aef6d7892222f190f07a620497d73))
+
+
+### BREAKING CHANGES
+
+* **FEJwt:** Trigger 1.0.0 release
+
+
+
+
+
 ## [0.1.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/fe-jwt@0.1.0...@terminus/fe-jwt@0.1.1) (2020-07-31)
 
 **Note:** Version bump only for package @terminus/fe-jwt

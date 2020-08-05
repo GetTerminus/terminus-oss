@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/fe-utilities@0.1.1...@terminus/fe-utilities@0.2.0) (2020-08-05)
+
+
+### Features
+
+* **FEUtilities:** trigger 1.0 release ([b21b61e](https://github.com/GetTerminus/terminus-oss/commit/b21b61e121d55f439ceb0af101d951a6226c8a7b))
+
+
+### BREAKING CHANGES
+
+* **FEUtilities:** Trigger 1.0.0 release
+* **FEUtilities:** Trigger 1.0.0 release
+* **FEUtilities:** Trigger 1.0.0 release
+
+
+
+
+
 ## [0.1.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/fe-utilities@0.1.0...@terminus/fe-utilities@0.1.1) (2020-07-31)
 
 **Note:** Version bump only for package @terminus/fe-utilities

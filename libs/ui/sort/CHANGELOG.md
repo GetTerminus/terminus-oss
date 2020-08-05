@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sort@1.0.12...@terminus/ui-sort@1.0.13) (2020-08-05)
+
+
+### Bug Fixes
+
+* More LPS tweaks ([3bfd023](https://github.com/GetTerminus/terminus-oss/commit/3bfd023788f06b3bd609493d3308f902c11f0dcd))
+
+
+
+
+
 ## [1.0.12](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sort@1.0.11...@terminus/ui-sort@1.0.12) (2020-07-31)
 
 **Note:** Version bump only for package @terminus/ui-sort

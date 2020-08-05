@@ -1,7 +1,7 @@
 {
   "name": "@terminus/fe-jwt",
   "description": "A collection of helpers for dealing with JWT tokens",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "license": "MIT",
   "author": "@terminus",
   "private": false,
@@ -19,14 +19,14 @@
     "directory": "../../dist/libs/fe-jwt"
   },
   "peerDependencies": {
-    "@terminus/fe-utilities": "^0.1.0",
     "@angular/common": "^9.1.11",
     "@angular/core": "^9.1.11",
     "@angular/forms": "^9.1.11",
-    "rxjs": "^6.5.5",
-    "date-fns": "^2.14.0",
-    "@ngrx/store": "^9.2.0",
+    "@angular/router": "^9.1.11",
     "@ngrx/effects": "^9.2.0",
-    "@angular/router": "^9.1.11"
+    "@ngrx/store": "^9.2.0",
+    "@terminus/fe-utilities": "^0.1.0",
+    "date-fns": "^2.14.0",
+    "rxjs": "^6.5.5"
   }
 }
