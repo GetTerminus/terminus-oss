@@ -8,41 +8,30 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2020,
-    project: [
-      // './tsconfig.json',
-      // General tsconfig to collect files that don't belong to specific projects
-      './tsconfig.tools.json',
-      './libs/eslint-config-frontend/tsconfig.lib.json',
-      './libs/*/tsconfig.lib.json',
-      './libs/ui/*/tsconfig.lib.json',
-      './apps/*/tsconfig.app.json',
-      // Collect stand-alone specs into tsconfig project
-      './specs/tsconfig.json',
-    ],
+    project: './tsconfig.json',
     sourceType: 'module',
     tsconfigRootDir: './',
   },
   rules: {
     'jsdoc/require-jsdoc': SEVERITY,
-    '@typescript-eslint/naming-convention': [
+    // TODO: Move this rule back to base ruleset
+    'import/order': [
       SEVERITY,
       {
-        selector: 'default',
-        format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
-        leadingUnderscore: 'allow',
-        trailingUnderscore: 'allow',
-      },
-
-      {
-        selector: 'variable',
-        format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
-        leadingUnderscore: 'allow',
-        trailingUnderscore: 'allow',
-      },
-
-      {
-        selector: 'typeLike',
-        format: ['PascalCase', 'camelCase', 'UPPER_CASE'],
+        groups: [['builtin', 'external'], ['internal', 'parent', 'sibling', 'index']],
+        pathGroups: [
+          {
+            pattern: '@terminus/**/*',
+            group: 'external',
+            position: 'after'
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['builtin'],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
       },
     ],
   },
@@ -53,6 +42,10 @@ module.exports = {
         'libs/**/*.ts',
         'stories/**/*.ts',
       ],
+      parserOptions: {
+        project: './tsconfig.json',
+        tsconfigRootDir: __dirname,
+      },
       rules: {
         '@angular-eslint/component-selector': [
           SEVERITY,
@@ -77,22 +70,22 @@ module.exports = {
 
     // Design token files
     {
-      files: [
+      'files': [
         'libs/design-tokens/**/*.{ts,js}',
       ],
-      rules: {
+      'rules': {
         '@typescript-eslint/no-magic-numbers': DISABLED,
       },
     },
 
     // Test helper files
     {
-      files: [
+      'files': [
         '**/*.spec.ts',
         '**/*.mock.ts',
         '**/test-*.ts',
       ],
-      rules: {
+      'rules': {
         '@angular-eslint/prefer-on-push-component-change-detection': DISABLED,
         'import/no-unassigned-import': DISABLED,
       },

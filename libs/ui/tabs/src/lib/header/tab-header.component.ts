@@ -84,7 +84,7 @@ const HEADER_SCROLL_INTERVAL = 100;
   styleUrls: ['./tab-header.component.scss'],
   host: {
     'class': 'ts-tab-header',
-    // eslint-disable-next-line @typescript-eslint/naming-convention
+    // eslint-disable-next-line camelcase
     '[class.ts-tab-header__pagination--enabled]': 'showPaginationControls',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,

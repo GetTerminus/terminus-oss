@@ -533,7 +533,7 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     return this._formControl;
   }
   private _formControl: FormControl = new FormControl();
-  // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility, @typescript-eslint/naming-convention
+  // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility, camelcase
   static ngAcceptInputType_formControl: FormControl | AbstractControl;
 
   /**

@@ -1,9 +1,9 @@
 import * as am4charts from '@amcharts/amcharts4/charts';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4maps from '@amcharts/amcharts4/maps';
-// eslint-disable-next-line @typescript-eslint/naming-convention
+// eslint-disable-next-line camelcase
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
-// eslint-disable-next-line no-duplicate-imports, @typescript-eslint/naming-convention
+// eslint-disable-next-line no-duplicate-imports, camelcase
 import am4themes_material from '@amcharts/amcharts4/themes/animated';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -30,7 +30,7 @@ export const amChartsFactory = (): TsAmChartsToken => ({
   core: am4core,
   charts: am4charts,
   maps: am4maps,
-  // eslint-disable-next-line @typescript-eslint/naming-convention
+  // eslint-disable-next-line camelcase
   themes: [am4themes_animated, am4themes_material],
 });
 /**
