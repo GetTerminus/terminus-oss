@@ -18,7 +18,7 @@
     "tag": "next",
     "directory": "../../dist/libs/fe-utilities"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@angular/common": "^9.1.11",
     "@angular/core": "^9.1.11",
     "@angular/forms": "^9.1.11",
