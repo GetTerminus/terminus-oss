@@ -25,13 +25,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **Chip:** update border radius ([4a87208](https://github.com/GetTerminus/terminus-oss/commit/4a872085e5df40139bd13a75ab172446058fb649))
 * **ESLintConfig:** updates for v7 ([a4eae43](https://github.com/GetTerminus/terminus-oss/commit/a4eae434b4f0fbcdfddd95e495ea81fc0b43d1ff))
 
 
 ### BREAKING CHANGES
 
-* **Chip:** Border radius change
+ESLint upgrade
 
 
 
