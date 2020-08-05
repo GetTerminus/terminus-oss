@@ -65,13 +65,13 @@ export interface CustomColumn extends TsColumn {
 export interface GithubApi {
   items: GithubIssue[];
   // NOTE: Format controlled by GitHub
-  // eslint-disable-next-line @typescript-eslint/naming-convention
+  // eslint-disable-next-line camelcase
   total_count: number;
 }
 
 export interface GithubIssue {
   // NOTE: Format controlled by GitHub
-  // eslint-disable-next-line @typescript-eslint/naming-convention
+  // eslint-disable-next-line camelcase
   created_at: string;
   number: string;
   state: string;

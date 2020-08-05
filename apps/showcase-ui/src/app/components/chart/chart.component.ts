@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/naming-convention
+// eslint-disable-next-line camelcase
 import am4geodata_worldLow from '@amcharts/amcharts4-geodata/worldLow';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import * as am4core from '@amcharts/amcharts4/core';
@@ -148,7 +148,7 @@ export class ChartComponent {
       polygonTemplate.propertyFields.fill = 'fill';
 
       chart.series.push(polygonSeries as any);
-      // eslint-disable-next-line @typescript-eslint/naming-convention
+      // eslint-disable-next-line camelcase
       chart.geodata = am4geodata_worldLow;
 
       // Create hover state and set alternative fill color
