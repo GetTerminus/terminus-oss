@@ -4412,10 +4412,10 @@
   resolved "https://registry.yarnpkg.com/@terminus/design-tokens/-/design-tokens-3.1.0.tgz#f838440816ee4dc47af4198a311c195ace28c92e"
   integrity sha512-zLNVPSoX2d927pJSKIjiSKrn2VSnrAGiWHhuXBssOHK/u6vB2cmLMnuDkRgtRzZr/gvzkogdPm2W2ybXTYWyaQ==
 
-"@terminus/eslint-config-frontend@3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@terminus/eslint-config-frontend/-/eslint-config-frontend-3.0.2.tgz#40042eeaa88cb54b0da6517e836fe5b391f52bcd"
-  integrity sha512-6yrY+3ywObOyInNhQ2ORmcfeSAQFhLnrxiD9M3vid5OE1+RaxA6SvT8gvsNlnOgi8VrfLmKoZWfTVzQqwzrv8A==
+"@terminus/eslint-config-frontend@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@terminus/eslint-config-frontend/-/eslint-config-frontend-3.0.3.tgz#3cfd01655c59dc933db2b5511338ffac823cf09c"
+  integrity sha512-rnsJFWwWi2QQMMcRS/E4In/K70CsFI+s2KCBOqm+RY83nv5jxzzgGn/BEeN5oLC4TLw3h7dcM+JZRYIcT8U6EA==
 
 "@terminus/stylelint-config-frontend@1.2.5":
   version "1.2.5"
