@@ -2,7 +2,6 @@ import { DebugElement } from '@angular/core';
 import { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-
 /**
  * Helper to query a fixture for a selector
  *
