@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faAngleDown } from '@fortawesome/pro-solid-svg-icons/faAngleDown';
+import { faCaretDown } from '@fortawesome/pro-solid-svg-icons/faCaretDown';
 import { faEllipsisH } from '@fortawesome/pro-solid-svg-icons/faEllipsisH';
 
 import {
@@ -74,7 +74,7 @@ export class TsMenuComponent implements AfterViewInit, OnInit {
   /**
    * Define the default icon for the trigger button
    */
-  private TRIGGER_ICON_DEFAULT = faAngleDown;
+  private TRIGGER_ICON_DEFAULT = faCaretDown;
 
   /**
    * Define the utility icon for the trigger button
