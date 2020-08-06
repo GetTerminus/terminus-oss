@@ -88,45 +88,45 @@ jobs:
   #
   # Lint affected projects
   #
-#  affected_lint:
-#    name: "Lint affected projects"
-#    runs-on: ubuntu-latest
-#    needs: [cancel_duplicate_runs]
-#    steps:
-#      - uses: actions/checkout@v2
-#        with:
-#          ref: ${{ github.event.pull_request.head.ref }}
-#          fetch-depth: 0
-#      - run: git fetch --tags --prune --depth=100 origin release
-#      - name: "Set SHOULD_RUN flag"
-#        run: tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
-#      - name: "Set up Node"
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: 12.x
-#        if: env.SHOULD_RUN == 'true'
-#      - name: "Cache deps"
-#        id: cache_deps
-#        uses: actions/cache@v2
-#        env:
-#          cache-name: cache-deps
-#        with:
-#          path: |
-#            **/node_modules
-#          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-#          restore-keys: |
-#            ${{ runner.os }}-yarn-${{ env.cache-name }}-
-#            ${{ runner.os }}-yarn-
-#            ${{ runner.os }}-
-#        if: env.SHOULD_RUN == 'true'
-#      - if: env.SHOULD_RUN == 'true' && steps.cache_deps.outputs.cache-hit != 'true'
-#        run: yarn install --frozen-lockfile --non-interactive
-#      - name: "Set NX affected base"
-#        run: tools/ci/set-nx-base.sh
-#        if: env.SHOULD_RUN == 'true'
-#      - name: "Lint files"
-#        run: yarn nx affected --target=lint --base=${{ env.NX_BASE }} --head=origin/release
-#        if: env.SHOULD_RUN == 'true'
+  affected_lint:
+    name: "Lint affected projects"
+    runs-on: ubuntu-latest
+    needs: [cancel_duplicate_runs]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - run: git fetch --tags --prune --depth=100 origin release
+      - name: "Set SHOULD_RUN flag"
+        run: tools/ci/set-should-run-flag.sh "${{github.event.head_commit.message}}"
+      - name: "Set up Node"
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+        if: env.SHOULD_RUN == 'true'
+      - name: "Cache deps"
+        id: cache_deps
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-deps
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-
+        if: env.SHOULD_RUN == 'true'
+      - if: env.SHOULD_RUN == 'true' && steps.cache_deps.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile --non-interactive
+      - name: "Set NX affected base"
+        run: tools/ci/set-nx-base.sh
+        if: env.SHOULD_RUN == 'true'
+      - name: "Lint files"
+        run: yarn nx affected --target=lint --base=${{ env.NX_BASE }} --head=origin/release
+        if: env.SHOULD_RUN == 'true'
 
   #
   # Build affected projects
@@ -134,8 +134,7 @@ jobs:
   affected_build:
     name: "Compile & release affected projects"
     runs-on: ubuntu-latest
-#    needs: [affected_test, affected_lint]
-    needs: [affected_test]
+    needs: [affected_test, affected_lint]
     env:
       working-directory: ./t-oss
       demos-directory: ./ui-demos-release
