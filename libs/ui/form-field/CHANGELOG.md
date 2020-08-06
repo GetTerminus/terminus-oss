@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-form-field@2.0.7...@terminus/ui-form-field@2.0.8) (2020-08-06)
+
+
+### Bug Fixes
+
+* **FormField:** more lps tweaks ([ac977f1](https://github.com/GetTerminus/terminus-oss/commit/ac977f185c218ee9a0f042ca55bf059b55587b2d))
+
+
+
+
+
 ## [2.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-form-field@2.0.6...@terminus/ui-form-field@2.0.7) (2020-08-05)
 
 

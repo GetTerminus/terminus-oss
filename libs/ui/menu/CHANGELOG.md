@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@2.0.6...@terminus/ui-menu@2.0.7) (2020-08-06)
+
+
+### Bug Fixes
+
+* **Menu:** more lps tweaks ([cd195b1](https://github.com/GetTerminus/terminus-oss/commit/cd195b1bb0afeb80bd8d15e22f7b695d4a11c665))
+
+
+
+
+
 ## [2.0.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@2.0.5...@terminus/ui-menu@2.0.6) (2020-07-31)
 
 **Note:** Version bump only for package @terminus/ui-menu

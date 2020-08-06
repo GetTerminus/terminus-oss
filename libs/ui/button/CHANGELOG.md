@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.0.6...@terminus/ui-button@2.0.7) (2020-08-06)
+
+
+### Bug Fixes
+
+* **Button:** more lps tweaks ([0ad201e](https://github.com/GetTerminus/terminus-oss/commit/0ad201e04bb2bc560ea8f1bdb7398a370d5c41ea))
+
+
+
+
+
 ## [2.0.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.0.5...@terminus/ui-button@2.0.6) (2020-07-31)
 
 **Note:** Version bump only for package @terminus/ui-button
