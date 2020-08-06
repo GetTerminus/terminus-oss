@@ -109,7 +109,7 @@
     &.ts-form-field--warn {
       .ts-form-field__outline--thick {
         // stylelint-disable-next-line declaration-no-important
-        --formField-outlineColor-theme: var(--ts-color-utility-400) !important;
+        --formField-outlineColor-theme: var(--ts-color-warn-500) !important;
         --ts-formField-boxShadow-color: var(--ts-color-warn-300);
       }
     }
