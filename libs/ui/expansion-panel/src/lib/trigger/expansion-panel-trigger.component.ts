@@ -68,9 +68,9 @@ import {
     '[attr.aria-controls]': 'panel.id',
     '[attr.aria-expanded]': 'isExpanded',
     '[attr.aria-disabled]': 'panel.disabled',
-    // eslint-disable-next-line camelcase
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     '[class.ts-expansion-panel__trigger--expanded]': 'isExpanded',
-    // eslint-disable-next-line camelcase
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     '[class.ts-expansion-panel__trigger--transparent]': 'isTransparent',
     '(click)': 'toggle()',
     '(keydown)': 'keydown($event)',

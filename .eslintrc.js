@@ -13,6 +13,28 @@ module.exports = {
     tsconfigRootDir: './',
   },
   rules: {
+    '@typescript-eslint/naming-convention': [
+      SEVERITY,
+      {
+        selector: 'default',
+        format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+        leadingUnderscore: 'allow',
+        trailingUnderscore: 'allow',
+      },
+
+      {
+        selector: 'variable',
+        format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+        leadingUnderscore: 'allow',
+        trailingUnderscore: 'allow',
+      },
+
+      {
+        selector: 'typeLike',
+        format: ['PascalCase', 'camelCase', 'UPPER_CASE'],
+      },
+    ],
+
     'jsdoc/require-jsdoc': SEVERITY,
     // TODO: Move this rule back to base ruleset
     'import/order': [
