@@ -3,7 +3,6 @@
  */
 export const containsLowercaseRegex = /(.*[a-z].*)/;
 
-
 /**
  * Create a regex that requires a minimum amount of lowercase characters
  *
