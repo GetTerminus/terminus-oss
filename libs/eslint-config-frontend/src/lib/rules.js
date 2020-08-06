@@ -757,7 +757,7 @@ module.exports = {
         '@typescript-eslint/prefer-function-type': SEVERITY,
 
         // Helps to maintain a consistent, readable style in the codebase.
-        'camelcase': [
+        '@typescript-eslint/naming-convention': [
           SEVERITY,
           {
             selector: 'default',
