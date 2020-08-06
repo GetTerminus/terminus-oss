@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-popover@2.0.4...@terminus/ui-popover@2.1.0) (2020-08-06)
+
+
+### Features
+
+* **Popover:** Support hover trigger ([4d1743b](https://github.com/GetTerminus/terminus-oss/commit/4d1743bc35def47eaa2d20c9654e2c28ce622977))
+
+
+
+
+
 ## [2.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-popover@2.0.3...@terminus/ui-popover@2.0.4) (2020-07-31)
 
 **Note:** Version bump only for package @terminus/ui-popover
