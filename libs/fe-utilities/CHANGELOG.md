@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/fe-utilities@0.2.0...@terminus/fe-utilities@0.3.0) (2020-08-06)
+
+
+### Features
+
+* **FEUtilities:** bump to v1 ([eedf40d](https://github.com/GetTerminus/terminus-oss/commit/eedf40d0c6584a947f3dbcccc056277c467d5303))
+
+
+### BREAKING CHANGES
+
+* **FEUtilities:** Bump to v1
+
+
+
+
+
 # [0.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/fe-utilities@0.1.1...@terminus/fe-utilities@0.2.0) (2020-08-05)
 
 

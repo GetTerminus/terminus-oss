@@ -1,7 +1,7 @@
 {
   "name": "@terminus/fe-jwt",
   "description": "A collection of helpers for dealing with JWT tokens",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "author": "@terminus",
   "private": false,

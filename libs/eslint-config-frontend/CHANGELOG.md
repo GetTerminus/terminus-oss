@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/eslint-config-frontend@3.0.2...@terminus/eslint-config-frontend@3.0.3) (2020-08-06)
+
+
+### Bug Fixes
+
+* **ESLintConfig:** update for new eslint rule ([08c5e42](https://github.com/GetTerminus/terminus-oss/commit/08c5e42aff3882de4e83245a704cb89b20e7f83d))
+
+
+
+
+
 ## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/eslint-config-frontend@3.0.1...@terminus/eslint-config-frontend@3.0.2) (2020-08-05)
 
 **Note:** Version bump only for package @terminus/eslint-config-frontend

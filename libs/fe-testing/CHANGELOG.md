@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/fe-testing@0.2.0...@terminus/fe-testing@0.3.0) (2020-08-06)
+
+
+### Features
+
+* **FETesting:** bump to v1 ([922f5da](https://github.com/GetTerminus/terminus-oss/commit/922f5da28cbe6b6b13e71e71dfdfaa1cc3edc320))
+
+
+### BREAKING CHANGES
+
+* **FETesting:** Bump to v1
+
+
+
+
+
 # [0.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/fe-testing@0.1.1...@terminus/fe-testing@0.2.0) (2020-08-05)
 
 
