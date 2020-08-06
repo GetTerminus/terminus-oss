@@ -128,7 +128,8 @@
 
           &:focus {
             --tsb-boxShadow-color: var(--tsb-theme-#{$theme}-boxShadow-color-focus);
-            --tsb-borderColor: var(--tsb-theme-#{$theme}-borderColor-focus);
+            // stylelint-disable-next-line declaration-no-important
+            --tsb-borderColor: var(--tsb-theme-#{$theme}-borderColor-focus) !important;
 
             &:hover {
               --tsb-borderColor: var(--tsb-theme-#{$theme}-backgroundColor-hover);
