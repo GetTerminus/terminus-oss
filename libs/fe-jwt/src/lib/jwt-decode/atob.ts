@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers, no-bitwise, no-mixed-operators */
+
 /**
  * The code was extracted from:
  * https://github.com/davidchambers/Base64.js
