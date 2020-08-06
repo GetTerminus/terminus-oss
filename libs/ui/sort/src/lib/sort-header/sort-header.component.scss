@@ -7,6 +7,7 @@
   --ts-sort-header-arrow-pointer-length: 6px;
   --ts-sort-header-arrow-thickness: 2px;
   --ts-sort-header-arrow-transition: 225ms cubic-bezier(.4, 0, .2, 1);
+  --ts-sort-header-color: currentColor;
 }
 
 // When sorted don't show the icon on hover
@@ -27,7 +28,6 @@
   // Set up for icon
   position: relative;
 
-  &:focus,
   &:hover {
     .ts-sort-header-container__icon {
       opacity: 1;
@@ -65,7 +65,7 @@
   align-items: center;
   background: 0 0;
   border: none;
-  color: currentColor;
+  color: var(--ts-sort-header-color);
   cursor: pointer;
   display: block;
   font: inherit;
@@ -76,13 +76,16 @@
   position: relative;
   text-overflow: ellipsis;
 
-  &:focus,
   &:hover {
     .ts-sort-header-container__icon {
       &:not(.ts-sort-header-container__icon--hidden) {
         opacity: 1;
       }
     }
+  }
+
+  &:focus {
+    --ts-sort-header-color: var(--ts-color-primary-500);
   }
 }
 
