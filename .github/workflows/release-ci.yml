@@ -105,21 +105,22 @@ jobs:
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
-      - name: "Cache deps"
-        id: cache_deps
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-deps
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-${{ env.cache-name }}-
-            ${{ runner.os }}-yarn-
-            ${{ runner.os }}-
-        if: env.SHOULD_RUN == 'true'
-      - if: env.SHOULD_RUN == 'true' && steps.cache_deps.outputs.cache-hit != 'true'
+#      - name: "Cache deps"
+#        id: cache_deps
+#        uses: actions/cache@v2
+#        env:
+#          cache-name: cache-deps
+#        with:
+#          path: |
+#            **/node_modules
+#          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+#          restore-keys: |
+#            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+#            ${{ runner.os }}-yarn-
+#            ${{ runner.os }}-
+#        if: env.SHOULD_RUN == 'true'
+#      - if: env.SHOULD_RUN == 'true' && steps.cache_deps.outputs.cache-hit != 'true'
+      - name: "TEMP: install deps without cache"
         run: yarn install --frozen-lockfile --non-interactive
       - name: "Set NX affected base"
         run: tools/ci/set-nx-base.sh
