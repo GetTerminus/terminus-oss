@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/fe-jwt@0.3.0...@terminus/fe-jwt@0.4.0) (2020-08-07)
+
+
+### Features
+
+* **FEJwt:** bump to v1 ([0039046](https://github.com/GetTerminus/terminus-oss/commit/0039046514f44e639a4cd334d30bf59689b6d10b))
+
+
+### BREAKING CHANGES
+
+* **FEJwt:** Bump to v1
+
+
+
+
+
 # [0.3.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/fe-jwt@0.2.0...@terminus/fe-jwt@0.3.0) (2020-08-06)
 
 
