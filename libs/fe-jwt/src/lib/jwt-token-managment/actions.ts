@@ -28,7 +28,7 @@ export interface StoreTokenConstructor<C> {
 export class InitialTokenExtracted implements Action {
   public type: typeof ActionTypes.InitialTokenExtracted = ActionTypes.InitialTokenExtracted;
 
-  constructor(public token: string) { }
+  constructor(public token: string) {}
 }
 
 /**
@@ -65,7 +65,6 @@ export class StoreToken<C> implements Action {
  */
 export class TokenExpired<C> implements Action {
   public type: typeof ActionTypes.TokenExpired = ActionTypes.TokenExpired;
-
   public tokenName: Extract<keyof C, string>;
   public token: string;
 
