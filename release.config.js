@@ -3,7 +3,11 @@ module.exports = {
   branches: ['release'],
   commitPaths: ['./libs/', './apps/'],
   monorepo: [
-    '@semantic-release/commit-analyzer',
+    ['@semantic-release/commit-analyzer', {
+      parserOpts: {
+        noteKeywords: ['BREAKING CHANGE', 'BREAKING CHANGES', 'BREAKING'],
+      },
+    }],
     ['@semantic-release/release-notes-generator', {
       preset: 'angular',
       parserOpts: {
