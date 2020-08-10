@@ -8,7 +8,7 @@
   &.c-csv-entry--full-width {
     display: block;
     width: 100%;
-    
+
     .c-csv-entry__form {
       overflow: hidden;
     }
@@ -64,15 +64,20 @@
 
   // <div> Container for a row
   .c-csv-entry__row {
-    display: table-row;
     white-space: nowrap;
+
+    &--header,
+    &--inner {
+      display: flex;
+      flex-direction: row;
+    }
   }
 
   // <input> individual cell content
   .c-csv-entry__input {
     @include truncate-overflow;
     border: 1px solid var(--ts-color-utility-300);
-    display: table-cell;
+    flex: 1 1 auto;
     font-size: inherit;
     min-width: var(--csv-input-minWidth);
     padding: var(--csv-cell-padding);
@@ -125,13 +130,28 @@
 
   // <div> container for all validation messages
   .c-csv-entry__messages {
-    color: var(--ts-color-warn-500);
-    font: var(--ts-typography-compound-hint);
-    line-height: 1.2em;
     // Create margin matching column with 'delete' buttons
     margin-left: var(--csv-left-column-width);
     margin-right: var(--csv-right-column-width);
     padding-top: var(--ts-space-stack-200);
+
+    .ts-button {
+      display: inline-block;
+
+      &:not(:last-of-type) {
+        margin-right: var(--ts-space-inline-200);
+      }
+    }
+
+    .c-button {
+      white-space: nowrap;
+    }
+  }
+
+  .c-csv-entry__message {
+    color: var(--ts-color-warn-500);
+    font: var(--ts-typography-compound-hint);
+    line-height: 1.2em;
   }
 }
 

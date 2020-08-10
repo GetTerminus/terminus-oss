@@ -67,9 +67,7 @@
             *ngFor="let record of rows?.controls; let recordIndex = index"
             [formGroupName]="recordIndex"
           >
-            <div
-              formArrayName="columns"
-            >
+            <div formArrayName="columns" class="c-csv-entry__row--inner">
               <input
                 *ngFor="let c of getColumns(record)?.controls; let columnIndex = index"
                 class="c-csv-entry__input qa-csv-entry-cell"
@@ -131,7 +129,7 @@
     </div>
 
     <div fxLayout="row" [dir]="footerDirection" fxLayoutAlign="space-between center" [fxLayoutGap]="layoutGap">
-      <div dir="ltr" fxLayoutGap="1em">
+      <div dir="ltr" fxFlex="2 1">
         <ts-button
           id="ts-csv-reset"
           class="qa-csv-entry-reset"
