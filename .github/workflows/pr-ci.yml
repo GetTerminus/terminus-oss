@@ -73,6 +73,9 @@ jobs:
         if: env.SHOULD_RUN == 'true'
       - name: Regression test on affected projects
         run: tools/ci/run-chromatic-with-changed-projects.sh
+        env:
+          CHROMATIC_BRANCH: ${{ github.event.pull_request.head.ref }}
+          CHROMATIC_SHA: ${{ github.event.pull_request.head.sha }}
         if: env.SHOULD_RUN == 'true'
 
   #
