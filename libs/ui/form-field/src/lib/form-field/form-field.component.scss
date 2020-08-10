@@ -55,20 +55,22 @@
   }
 
   &:not(.ts-form-field--disabled) {
-    .ts-form-field__container {
-      .ts-form-field__outline {
-        color: var(--ts-color-utility-400);
-      }
-
-      &:hover {
+    &:not(.ts-form-field--invalid) {
+      .ts-form-field__container {
         .ts-form-field__outline {
-          opacity: 0;
-          transition: opacity var(--ts-animation-time-duration-600) var(--swift-ease-out-timing-function);
+          color: var(--ts-color-utility-400);
         }
 
-        .ts-form-field__outline--thick {
-          color: var(--ts-color-utility-500);
-          opacity: 1;
+        &:hover {
+          .ts-form-field__outline {
+            opacity: 0;
+            transition: opacity var(--ts-animation-time-duration-600) var(--swift-ease-out-timing-function);
+          }
+
+          .ts-form-field__outline--thick {
+            color: var(--ts-color-utility-500);
+            opacity: 1;
+          }
         }
       }
     }
@@ -117,6 +119,7 @@
 
   // NOTE: Class is repeated so that rule is specific enough to override focused accent color case.
   &.ts-form-field--invalid {
+    .ts-form-field__outline,
     .ts-form-field__outline--thick {
       --formField-outlineColor-theme: var(--ts-color-warn-500);
     }
