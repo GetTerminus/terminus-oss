@@ -20,8 +20,8 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@angular/platform-browser: ^9.1.0',
     '@terminus/design-tokens: ^3.1.0',
     '@terminus/fe-utilities: ^1.0.0',
-    '@terminus/ui-utilities: ^1.0.7',
-    '@terminus/ui-icon: ^2.0.0',
+    '@terminus/ui-utilities: ^1.0.9',
+    '@terminus/ui-icon: ^2.0.5',
     '@fortawesome/pro-solid-svg-icons: ^5.14.0',
     'date-fns: ^2.14.0',
   ].map(p => {

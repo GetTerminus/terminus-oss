@@ -20,9 +20,9 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@angular/platform-browser: ^9.1.0',
     '@terminus/design-tokens: ^3.1.0',
     '@terminus/fe-utilities: ^1.0.0',
-    '@terminus/ui-styles: ^1.0.9',
-    '@terminus/ui-utilities: ^1.0.7',
-    '@terminus/ui-toggle: ^1.0.8',
+    '@terminus/ui-styles: ^1.0.13',
+    '@terminus/ui-utilities: ^1.0.9',
+    '@terminus/ui-toggle: ^1.0.10',
     'date-fns: ^2.14.0',
   ].map(p => {
     const individualPackage = p.split(':');

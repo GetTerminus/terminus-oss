@@ -30,10 +30,10 @@
     "@angular/platform-browser": "^9.1.0",
     "@terminus/design-tokens": "^3.1.0",
     "@terminus/fe-utilities": "^1.0.0",
-    "@terminus/ui-date-range": "^1.0.7",
-    "@terminus/ui-input": "^2.0.0",
-    "@terminus/ui-option": "^1.0.8",
-    "@terminus/ui-selection-list": "^2.0.0",
+    "@terminus/ui-date-range": "^1.0.9",
+    "@terminus/ui-input": "^2.0.7",
+    "@terminus/ui-option": "^1.0.10",
+    "@terminus/ui-selection-list": "^2.0.6",
     "tslib": "^1.10.0"
   },
   "schematics": "./schematics/collection.json"
