@@ -15,14 +15,16 @@ echo "Delete local tag.."
 git tag -d last-successful-release
 echo "Delete remote tag.."
 git push --delete origin last-successful-release
+git push origin release :refs/tags/last-successful-release
 
 # Enable exit on non 0
 set -e
 
 echo "Creating new release tag.."
-git tag -a last-successful-release -m "CI: Tagged as last successful release"
+git tag -fa last-successful-release -m "CI: Tagged as last successful release"
 echo "Push new tag.."
-git push origin last-successful-release
+git push origin release --tags
+
 
 
 
