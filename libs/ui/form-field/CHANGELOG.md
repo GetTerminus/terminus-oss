@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-form-field@2.0.9...@terminus/ui-form-field@2.0.10) (2020-08-10)
+
+
+### Bug Fixes
+
+* **FormField:** non-focused invalid field now has red border ([a7cb8ff](https://github.com/GetTerminus/terminus-oss/commit/a7cb8ff1e3699a45de411a649d7415ceae4ca12c))
+
+
+
+
+
 ## [2.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-form-field@2.0.8...@terminus/ui-form-field@2.0.9) (2020-08-10)
 
 **Note:** Version bump only for package @terminus/ui-form-field

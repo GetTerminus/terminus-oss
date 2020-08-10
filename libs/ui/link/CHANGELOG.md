@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-link@2.0.9...@terminus/ui-link@2.0.10) (2020-08-10)
+
+
+### Bug Fixes
+
+* **Link:** updated icon size ([d381dff](https://github.com/GetTerminus/terminus-oss/commit/d381dff3a04f4a586ee0c4c4e23ab7334400bb63))
+
+
+
+
+
 ## [2.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-link@2.0.8...@terminus/ui-link@2.0.9) (2020-08-10)
 
 **Note:** Version bump only for package @terminus/ui-link

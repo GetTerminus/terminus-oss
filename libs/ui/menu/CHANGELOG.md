@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@2.0.8...@terminus/ui-menu@2.0.9) (2020-08-10)
+
+
+### Bug Fixes
+
+* **Menu:** set custom trigger border for non-default themes ([3642b0f](https://github.com/GetTerminus/terminus-oss/commit/3642b0ff18bc8449f30a35871c1da006d3d7635c))
+
+
+
+
+
 ## [2.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@2.0.7...@terminus/ui-menu@2.0.8) (2020-08-10)
 
 **Note:** Version bump only for package @terminus/ui-menu
