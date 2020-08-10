@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.14](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.0.13...@terminus/ui-expansion-panel@1.0.14) (2020-08-10)
+
+**Note:** Version bump only for package @terminus/ui-expansion-panel
+
+
+
+
+
 ## [1.0.13](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.0.12...@terminus/ui-expansion-panel@1.0.13) (2020-08-06)
 
 **Note:** Version bump only for package @terminus/ui-expansion-panel
