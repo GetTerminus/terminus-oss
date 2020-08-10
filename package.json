@@ -154,7 +154,7 @@
     "@fortawesome/pro-solid-svg-icons": "5.14.0",
     "@ngrx/effects": "9.2.0",
     "@ngrx/store": "9.2.0",
-    "@popperjs/core": "2.0.0",
+    "@popperjs/core": "2.4.4",
     "@schematics/angular": "9.1.12",
     "@terminus/design-tokens": "3.1.0",
     "@terminus/ui-styles": "1.0.11",

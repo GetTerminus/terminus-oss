@@ -28,5 +28,5 @@ module.exports = {
   ],
   testPathPattern: '^(libs|specs)/**/*.spec.ts',
   transform: { '^.+\\.(ts|js|html)$': 'ts-jest' },
-  transformIgnorePatterns: ['/node_modules/(?!@ngrx|popper)'],
+  transformIgnorePatterns: ['/node_modules/(?!@ngrx|popper|@terminus/design-tokens)'],
 };

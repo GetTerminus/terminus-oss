@@ -1,8 +1,8 @@
 @import '~@terminus/ui-styles/helpers';
 
 .popover__container {
-  --popover-placement-margin: 5px;
-  --popover-position-adjust: -5px;
+  --popover-placement-margin: var(--ts-space-base-small2);
+  --popover-position-adjust: calc(var(--ts-space-base-small2) * -1);
   @include elevation-element(snackbar);
   background-color: var(--ts-color-base-white);
   border-radius: var(--ts-border-radius-base);
