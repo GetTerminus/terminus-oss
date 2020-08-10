@@ -206,7 +206,7 @@
     "@storybook/angular": "5.3.19",
     "@terminus/eslint-config-frontend": "3.0.3",
     "@terminus/fe-testing": "^1.1.0",
-    "@terminus/stylelint-config-frontend": "1.2.5",
+    "@terminus/stylelint-config-frontend": "^1.2.5",
     "@types/jest": "26.0.9",
     "@types/node": "14.0.27",
     "@typescript-eslint/eslint-plugin": "3.8.0",
