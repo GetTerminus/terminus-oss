@@ -17,6 +17,12 @@
     &[data-disabled='true'] {
       pointer-events: none;
     }
+
+    .c-button {
+      &.c-button--secondary {
+        --tsb-borderColor: var(--ts-color-utility-400);
+      }
+    }
   }
 
   // Top level styles should be nested here
