@@ -23,8 +23,8 @@
     "@angular/material": "^9.1.0",
     "@terminus/design-tokens": "^3.1.0",
     "@terminus/fe-utilities": "^1.0.0",
-    "@terminus/ui-button": "^2.0.0",
-    "@terminus/ui-icon": "^2.0.0",
+    "@terminus/ui-button": "^2.0.7",
+    "@terminus/ui-icon": "^2.0.5",
     "tslib": "^1.10.0"
   },
   "scripts": {
