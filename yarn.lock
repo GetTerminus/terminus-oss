@@ -4424,7 +4424,7 @@
   dependencies:
     tslib "^1.10.0"
 
-"@terminus/stylelint-config-frontend@1.2.5":
+"@terminus/stylelint-config-frontend@^1.2.5":
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/@terminus/stylelint-config-frontend/-/stylelint-config-frontend-1.2.5.tgz#da0ea9a8c9728b26f4717d5e38d3424b35c92eac"
   integrity sha512-uib8/eVNMZcm2Dgd0YWJU9x0sLCOcCYlJQ0LWDfBUQeBIcCnpHROpxrYHQbbzFOQGq1NJAxju6HRxAWjDWOwng==
