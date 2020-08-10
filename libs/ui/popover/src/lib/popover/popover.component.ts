@@ -15,6 +15,7 @@ import {
   Instance as Popper,
 } from '@popperjs/core';
 
+import { TS_SPACE_BASE_SMALL_2 } from '@terminus/design-tokens/js/design-tokens';
 import { TsUILibraryError } from '@terminus/ui-utilities';
 
 import {
@@ -170,11 +171,21 @@ export class TsPopoverComponent implements OnDestroy, OnInit {
     }
 
     this.onUpdate.emit(this.popoverInstance);
+    const margin = TS_SPACE_BASE_SMALL_2;
+    // Removing last 2 character of 'px' from design token returns.
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+    const offset = Number(margin.substring(0, margin.length - 2));
 
     this.popoverInstance = createPopper(
       this.referenceObject,
       this.popoverViewRef.nativeElement,
-      options,
+      {
+        ...options,
+        modifiers: [{
+          name: 'offset',
+          options: { offset: [0, offset] },
+        }],
+      },
     );
     this.scheduleUpdate();
     this.toggleVisibility(true);

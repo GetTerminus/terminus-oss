@@ -264,7 +264,6 @@ export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, 
   public ngOnInit(): void {
     this.popover.referenceObject = this.viewContainerRef.element.nativeElement;
     this.setContentProperties(this.popover);
-
   }
 
   /**
