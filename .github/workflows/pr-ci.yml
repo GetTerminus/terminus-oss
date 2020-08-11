@@ -28,6 +28,9 @@ jobs:
     needs: [cancel_duplicate_runs]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
       - name: "Set vars"
         run: |
           tools/ci/git-number-of-commits-since-release.sh
