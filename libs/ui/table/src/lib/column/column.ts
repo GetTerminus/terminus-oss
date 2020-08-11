@@ -58,6 +58,12 @@ export class TsColumnDefDirective extends CdkColumnDef {
   public alignment: TsTableColumnAlignment | undefined;
 
   /**
+   * Define if a column's contents should wrap when long
+   */
+  @Input()
+  public noWrap = true;
+
+  /**
    * Define if the column should stick to the start
    */
   @Input()
@@ -70,9 +76,7 @@ export class TsColumnDefDirective extends CdkColumnDef {
   public stickyEnd = false;
 
 
-  constructor(
-    public elementRef: ElementRef,
-  ) {
+  constructor(public elementRef: ElementRef) {
     super();
   }
 
