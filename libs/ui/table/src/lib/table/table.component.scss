@@ -131,7 +131,6 @@
     padding: var(--ts-table-cell-padding);
     text-overflow: ellipsis;
     transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
-    white-space: nowrap;
 
     &.ts-table__column--sticky {
       background-color: var(--ts-table-bg);

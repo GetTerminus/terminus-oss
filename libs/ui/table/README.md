@@ -362,7 +362,13 @@ This can be implemented at the consumer level by adding a column that contains a
 
 ### Content wrapping
 
-By default, cell contents do not wrap. This can be overridden by adding container around your content with `white-space: normal`.
+By default, cell contents do not wrap. This can be overridden by setting the column `noWrap` property:
+
+```html
+<ng-container tsColumnDef="created" [noWrap]="false">
+  ...
+</ng-container>
+```
 
 ### Cell alignment
 

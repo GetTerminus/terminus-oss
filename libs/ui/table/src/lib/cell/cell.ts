@@ -352,7 +352,6 @@ export class TsCellDirective extends CdkCell implements OnInit {
    */
   public readonly uid = `ts-table-cell-${cellNextUniqueId++}`;
 
-
   constructor(
     public elementRef: ElementRef,
     private columnDef: CdkColumnDef,
@@ -381,6 +380,10 @@ export class TsCellDirective extends CdkCell implements OnInit {
 
     if (this.column.sticky) {
       this.elementRef.nativeElement.classList.add(`ts-table__column--sticky`);
+    }
+
+    if (this.column.noWrap) {
+      this.elementRef.nativeElement.classList.add(`ts-column-no-wrap`);
     }
   }
 }

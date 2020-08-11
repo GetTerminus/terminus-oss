@@ -24,6 +24,8 @@
         </select>
       </label>
     </div>
+
+    <p>Note: The `title` column has `noWrap: true` set.</p>
   </div>
 
   <span fxFlex></span>
@@ -82,7 +84,7 @@
     #myTable="tsTable"
   >
 
-    <ng-container tsColumnDef="title" sticky>
+    <ng-container tsColumnDef="title" sticky [noWrap]="false">
       <th ts-header-cell *tsHeaderCellDef>Title</th>
       <td ts-cell *tsCellDef="let item">{{ item.title }}</td>
       <td ts-footer-cell *tsFooterCellDef>TEST footer content</td>
@@ -97,7 +99,7 @@
     <ng-container tsColumnDef="comments" alignment="right">
       <th ts-header-cell *tsHeaderCellDef>Comments</th>
       <td ts-cell *tsCellDef="let item">{{ item.comments }}</td>
-      <td ts-footer-cell *matfootercelldef>427</td>
+      <td ts-footer-cell *tsFooterCellDef>427</td>
     </ng-container>
 
     <ng-container tsColumnDef="assignee">

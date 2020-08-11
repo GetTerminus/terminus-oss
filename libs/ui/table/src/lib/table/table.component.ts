@@ -109,7 +109,7 @@ let nextUniqueId = 0;
  *               (columnsChange)="columnsWereUpdated($event)
  *               #myTable="tsTable"
  *  >
- *               <ng-container tsColumnDef="title">
+ *               <ng-container tsColumnDef="title" [noWrap]="false">
  *                 <ts-header-cell *tsHeaderCellDef>
  *                   Title
  *                 </ts-header-cell>
@@ -118,7 +118,7 @@ let nextUniqueId = 0;
  *                 </ts-cell>
  *               </ng-container>
  *
- *               <ng-container tsColumnDef="id">
+ *               <ng-container tsColumnDef="id" alignment="right">
  *                 <ts-header-cell *tsHeaderCellDef>
  *                   ID
  *                 </ts-header-cell>
