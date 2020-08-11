@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@2.0.7...@terminus/ui-table@2.0.8) (2020-08-11)
+
+
+### Bug Fixes
+
+* **Table:** add support to enable whitespace wrapping ([50143f0](https://github.com/GetTerminus/terminus-oss/commit/50143f01cae94d56d8021aec428e7df28f237f6a)), closes [#132](https://github.com/GetTerminus/terminus-oss/issues/132)
+
+
+
+
+
 ## [2.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@2.0.6...@terminus/ui-table@2.0.7) (2020-08-10)
 
 **Note:** Version bump only for package @terminus/ui-table
