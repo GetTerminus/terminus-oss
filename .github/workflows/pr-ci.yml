@@ -31,7 +31,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 20
+      - name: "Fetch tags"
+        run: git tag --merge HEAD
       - name: "Set vars"
         run: |
           tools/ci/git-number-of-commits-since-release.sh
