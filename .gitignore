@@ -58,3 +58,6 @@ Thumbs.db
 
 # storybook log
 build-storybook.log
+
+# CI temporary files
+CI_COMMIT_COUNT_SINCE_LAST_RELEASE
