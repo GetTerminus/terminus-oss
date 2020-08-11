@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-csv-entry@2.0.8...@terminus/ui-csv-entry@2.0.9) (2020-08-11)
+
+
+### Bug Fixes
+
+* **CSVEntry:** extra user content no longer breaks row layout ([2d63921](https://github.com/GetTerminus/terminus-oss/commit/2d6392102f8a93318f5bdd067983fab6dc23df33)), closes [#179](https://github.com/GetTerminus/terminus-oss/issues/179)
+* **CSVEntry:** remove unwanted scroll in full width mode ([a456663](https://github.com/GetTerminus/terminus-oss/commit/a45666380f1f9154abc63c58409b187b21f230d2)), closes [#175](https://github.com/GetTerminus/terminus-oss/issues/175)
+
+
+
+
+
 ## [2.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-csv-entry@2.0.7...@terminus/ui-csv-entry@2.0.8) (2020-08-10)
 
 **Note:** Version bump only for package @terminus/ui-csv-entry
