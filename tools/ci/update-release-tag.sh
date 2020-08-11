@@ -23,6 +23,6 @@ git push origin :refs/tags/"$TAG"
 set -e
 
 echo "Creating new release tag.."
-git tag "$TAG" "$LAST_SHA" -m "CI: Tagged as last successful release"
+git tag "$TAG" "$LAST_SHA"
 echo "Push new tag.."
 git push origin "$TAG"
