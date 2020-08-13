@@ -5,7 +5,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages to be installed](#packages-to-be-installed)
@@ -100,9 +100,7 @@ export function amChartsFactory(): TsAmChartsToken {
   ...
 ```
 
-
 > NOTE: Themes will be applied in the order they are provided.
-
 
 ### Set up the chart
 
@@ -120,7 +118,6 @@ setUpChart(chart: am4charts.Chart) {
 
 > See the demo app for concrete examples of the supported chart types.
 
-
 ## Supported chart types
 
 - `xy`
@@ -132,7 +129,6 @@ setUpChart(chart: am4charts.Chart) {
 - `chord`
 
 > See `TsChartVisualizationOptions` for all supported types.
-
 
 ### Chart Type Coercion
 
@@ -154,11 +150,9 @@ if (tsChartXYTypeCheck(chart)) {
 }
 ```
 
-
 ## amCharts documentation
 
-See https://www.amcharts.com/docs/v4/ for full documentation.
-
+See <https://www.amcharts.com/docs/v4/> for full documentation.
 
 ## Test Helpers
 
@@ -174,7 +168,6 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 |   Chart service mock    |
 |-------------------------|
 | `AmChartsServiceMock`   |
-
 
 <!-- Links -->
 [test-helpers-src]:    testing/src/test-helpers.ts

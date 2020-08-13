@@ -5,7 +5,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
@@ -101,7 +101,6 @@ When enabled, the submit button will not be shown and debounced queries will be 
 | `changed`   | Fired when the drawer expansion starts                             | `string`           |
 | `cleared`   | Fired when the drawer collapse starts                              | `boolean`          |
 | `submitted` | Fired when the search query is submitted manually or automatically | `TsSearchResponse` |
-
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE

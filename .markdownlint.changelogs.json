@@ -1,0 +1,10 @@
+{
+  "no-multiple-blanks": true,
+  "line-length": false,
+  "no-inline-html": false,
+  "first-line-heading": false,
+  "no-duplicate-heading": true,
+  "list-marker-space": true,
+  "blanks-around-lists": true,
+  "no-duplicate-heading": false
+}

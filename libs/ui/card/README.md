@@ -5,7 +5,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
@@ -98,7 +98,6 @@ Pass your desired aspect ratio in the format `3:4` to the `aspectRatio` input.
 - Type: `TsAspectRatioTypes`.
 - Allowed ratios: `16:9`, `4:3`, `3:2`, `5:4`, `1:1`,
 
-
 ### Utility menu
 
 To include a utility menu, pass a template which includes the menu trigger and the menu contents.
@@ -148,7 +147,6 @@ This will push the opacity of the card contents back and add a lock icon in the 
   My card
 </ts-card>
 ```
-
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE

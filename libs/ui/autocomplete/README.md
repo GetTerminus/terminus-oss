@@ -13,7 +13,7 @@ An autocomplete that allows single or multiple selections.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages that need to be included](#packages-that-need-to-be-included)
@@ -168,6 +168,7 @@ By default, at least two characters must be typed before the query is fired. Thi
 ```
 
 ### Formatting options
+
 ```html
 <ts-autocomplete
   [formControl]="myCtrl"
@@ -201,7 +202,6 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 | `getChipInstance`                  |
 | `getChipElement`                   |
 
-
 <!-- Links -->
 [test-helpers-src]:    testing/src/test-helpers.ts
 [selection-list-src]:  ../selection-list/
@@ -215,4 +215,3 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-autocomplete/bundles/terminus-ui-autocomplete.umd.min.js?compression=gzip
 [raw-distribution-js]: https://unpkg.com/@terminus/ui-autocomplete/bundles/terminus-ui-autocomplete.umd.js
-

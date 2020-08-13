@@ -5,7 +5,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
@@ -134,16 +134,22 @@ A flag to define whether this input field needs validation or hint. If it needs 
 
 ### Prefix icon
 
-To include an icon as a prefix to the input, pass a valid icon name to `prefixIcon`:
+To include an icon as a prefix to the input, pass a valid icon instance to `prefixIcon`:
+
+```typescript
+import { faHome } from '@fortawesome/pro-solid-svg-icons/faHome';
+...
+public home = faHome;
+```
 
 ```html
 <ts-input
   [formControl]="myForm.get('myControl')"
-  prefixIcon="home"
+  [prefixIcon]="home"
 ></ts-input>
 ```
 
-> See all valid icon possibilities: https://material.io/icons
+> See all valid icon possibilities: <https://fontawesome.com/icons>
 
 ### Disabled
 
@@ -398,7 +404,6 @@ Masks enable the input to enforce specific formatting for values; such as postal
 | `phone`      | `1231231234` | `(123) 123-1234` |
 | `postal`     | `123456789`  | `12345-6789`     |
 
-
 #### Sanitize the model value
 
 Most often you will not want the mask characters to be saved as part of the actual value. By default this component will sanitize the value
@@ -427,7 +432,6 @@ To add datepicker abilities to an input, set the `datepicker` input:
 ```html
 <ts-input [datepicker]="true"></ts-input>
 ```
-
 
 #### Filter out available dates
 
@@ -598,7 +602,6 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 | `getInputInstance`     |
 | `getInputElement`      |
 | `sendInput`            |
-
 
 <!-- Links -->
 [test-helpers-src]:    testing/src/test-helpers.ts

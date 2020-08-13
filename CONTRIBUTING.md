@@ -3,33 +3,30 @@
   https://github.com/angular/material2/blob/release/CONTRIBUTING.md
 -->
 
-<h1> Contributing to Terminus/UI</h1>
+<h1> Contributing to Terminus OSS</h1>
 
 We are always open questions, ideas and code contributions. As a contributor, here are the
 guidelines we would like you to follow.
 
-
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Code of Conduct](#code-of-conduct)
-- [Question or Problem?](#question-or-problem)
-- [Want a Feature?](#want-a-feature)
+- [Question or Problem](#question-or-problem)
+- [Want a Feature](#want-a-feature)
 - [Submitting an Issue](#submitting-an-issue)
 - [Submitting a Pull Request (PR)](#submitting-a-pull-request-pr)
-    - [After your pull request is merged](#after-your-pull-request-is-merged)
+  - [After your pull request is merged](#after-your-pull-request-is-merged)
   - [Coding Rules & Workflow](#coding-rules--workflow)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 
 ## Code of Conduct
 
 Help us keep Terminus open and inclusive. Please read and follow our [Code of Conduct][coc].
 
-
-## Question or Problem?
+## Question or Problem
 
 If you find a bug in the source code or a mistake in the documentation, you can help us by
 [submitting an issue](#submitting-an-issue) to our [GitHub repository][github]. Including an issue
@@ -38,8 +35,7 @@ Screenshots are also helpful.
 
 You can help the team even more and [submit a Pull Request](#submitting-a-pull-request-pr) with a fix! :pray:
 
-
-## Want a Feature?
+## Want a Feature
 
 You can *request* a new feature by [submitting an issue](#submitting-an-issue) to our [GitHub
 repository][github]. If you would like to *implement* a new feature, please submit an issue with a
@@ -50,7 +46,6 @@ is:
   discussed. This will also allow us to better coordinate our efforts, prevent duplication of work,
   and help you to craft the change so that it is successfully accepted into the project.
 - **Small Features** can be crafted and directly [submitted as a Pull Request](#submitting-a-pull-request-pr).
-
 
 ## Submitting an Issue
 
@@ -75,15 +70,15 @@ chances of your issue being dealt with quickly:
 
 You can file new issues by providing the above information [here][issues-create].
 
-
 ## Submitting a Pull Request (PR)
+
 Before you submit your Pull Request (PR) consider the following guidelines:
 
 - Search [GitHub][pulls] for an open or closed PR that relates to your submission. You don't want to
   duplicate effort.
 - Make your changes in a new git branch:
-    - `git checkout -b 312-my-fix-branch`
-    - Note: You should prefix your branch name with the associated issue number.
+  - `git checkout -b 312-my-fix-branch`
+  - Note: You should prefix your branch name with the associated issue number.
 - Create your patch, **including appropriate test cases**.
 - Follow our coding rules (by verifying all linters pass).
 - Run the full test suite and ensure that all tests pass.
@@ -92,33 +87,31 @@ Before you submit your Pull Request (PR) consider the following guidelines:
   automatically generated from these messages. (for this reason it is often advisable to rebase your
   feature branch to ensure clear, concise commits)
 - Push your branch to GitHub:
-    - `git push my-fork 312-my-fix-branch`
+  - `git push my-fork 312-my-fix-branch`
 - In GitHub, send a pull request to `terminus-oss:release`.
 - If we suggest changes then:
   - Make the required updates.
   - Re-run all test suites to ensure tests are still passing.
   - Re-run all linters.
   - Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
-    1.   `git rebase release -i`
-      1. `git push -f`
+    1. `git rebase release -i`
+    1. `git push -f`
 
 That's it! Thank you for your contribution! :pray:
 
-
-#### After your pull request is merged
+### After your pull request is merged
 
 After your pull request is merged, you can safely delete your branch and pull the changes from the
 main (upstream) repository:
 
 - Delete the remote branch on GitHub either through the GitHub web UI or your local shell:
-    - `git push my-fork --delete 312-my-fix-branch`
+  - `git push my-fork --delete 312-my-fix-branch`
 - Check out the `release` branch:
-  -   `git checkout release -f`
+  - `git checkout release -f`
 - Delete the local branch:
-    - `git branch -D 312-my-fix-branch`
+  - `git branch -D 312-my-fix-branch`
 - Update your `release` with the latest upstream version:
-  -   `git pull --ff upstream release`
-
+  - `git pull --ff upstream release`
 
 ### Coding Rules & Workflow
 
@@ -128,8 +121,6 @@ To ensure consistency throughout the source code, keep these rules in mind as yo
 - All public API methods **must be documented**.
 - Most coding styles are enforced via linters
 - Reference our [development documentation][dev-docs] for more details.
-
-
 
 [coc]: https://github.com/GetTerminus/terminus-oss/blob/release/CODE_OF_CONDUCT.md
 [github]: https://github.com/GetTerminus/terminus-oss/

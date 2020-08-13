@@ -7,7 +7,7 @@ A field wrapper for form components.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [CSS imports](#css-imports)
@@ -49,7 +49,7 @@ Load the needed font families by adding this link to the `<head>` of your applic
 
 ## Usage
 
-`TsFormFieldComponent` is a component used to wrap several other components that could be used within a form and apply common styles. 
+`TsFormFieldComponent` is a component used to wrap several other components that could be used within a form and apply common styles.
 
 ```html
 <ts-form-field
@@ -107,7 +107,6 @@ Define if the validation should be shown immediately or on blur.
 ```html
 <ts-form-field [validateOnChange]="true"></ts-form-field>
 ```
-
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE

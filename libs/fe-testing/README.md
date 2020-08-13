@@ -9,7 +9,7 @@ A collection of helpers to facilitate testing UI components.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
 - [Mocks](#mocks)
@@ -49,8 +49,8 @@ A collection of helpers to facilitate testing UI components.
 ## Installation
 
 ```bash
-$ yarn add @terminus/fe-testing -D
-$ yarn add @terminus/fe-utilities rxjs date-fns @angular/{forms,platform-browser}
+yarn add @terminus/fe-testing -D
+yarn add @terminus/fe-utilities rxjs date-fns @angular/{forms,platform-browser}
 ```
 
 ## Mocks
@@ -596,11 +596,10 @@ describe(`my test`, () => {
 
 A helper to return the value of a DOM attribute.
 
-```
+```typescript
 import { getDomAttribute } from '@terminus/fe-testing';
 
 getDomAttribute(myElement, 'aria-label');
-
 ```
 
 ### `queryFor`
@@ -643,7 +642,7 @@ import { wrappedErrorMessage } from '@terminus/fe-testing';
 expect(myFunc).toThrowError(wrappedErrorMessage(mySpecificError()));
 ```
 
-> See https://github.com/angular/angular/issues/8348 for more information.
+> See <https://github.com/angular/angular/issues/8348> for more information.
 
 ## `typeInElement`
 
@@ -654,7 +653,6 @@ import { typeInElement } from '@terminus/fe-testing';
 
 typeInElement('test@test.com', myEmailInputElement);
 ```
-
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE

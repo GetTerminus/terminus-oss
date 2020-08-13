@@ -7,7 +7,7 @@ A simple toggle, or 'switch', component.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
@@ -69,7 +69,6 @@ Load the needed font families by adding this link to the `<head>` of your applic
 <ts-toggle (selectionChange)="myChange($event)">Toggle</ts-toggle>
 ```
 
-
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE
 [license-image]:       http://img.shields.io/badge/license-MIT-blue.svg
@@ -81,4 +80,3 @@ Load the needed font families by adding this link to the `<head>` of your applic
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-toggle/bundles/terminus-ui-toggle.umd.min.js?compression=gzip
 [raw-distribution-js]: https://unpkg.com/@terminus/ui-toggle/bundles/terminus-ui-toggle.umd.js
-

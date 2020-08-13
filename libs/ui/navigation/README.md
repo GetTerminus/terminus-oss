@@ -5,7 +5,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
@@ -47,7 +47,6 @@ ng add @terminus/ui-navigation
 - `BrowserAnimationsModule`
 - `TsNavigationModule`
 - `RouterModule.forRoot(MY_ROUTES)`
-
 
 ### CSS imports
 
@@ -91,7 +90,9 @@ const NEW_NAV_ITEM: TsNavigationItem = {
   alwaysHidden: false,
 };
 ```
+
 \- or -
+
 ```typescript
 const NEW_NAV_ITEM: TsNavigationItem = {
   name: '1 Bar',
@@ -157,7 +158,6 @@ The user's name which, if defined, displays with the welcome message, in a locat
   userNameLength="10"
 ></ts-navigation>
 ```
-
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE

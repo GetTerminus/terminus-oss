@@ -7,78 +7,45 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/ui-card
 
-
-
-
-
 ## [2.0.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@2.0.5...@terminus/ui-card@2.0.6) (2020-08-10)
 
 **Note:** Version bump only for package @terminus/ui-card
-
-
-
-
 
 ## [2.0.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@2.0.4...@terminus/ui-card@2.0.5) (2020-08-10)
 
 **Note:** Version bump only for package @terminus/ui-card
 
-
-
-
-
 ## [2.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@2.0.3...@terminus/ui-card@2.0.4) (2020-07-31)
 
 **Note:** Version bump only for package @terminus/ui-card
 
-
-
-
-
 ## [2.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@2.0.2...@terminus/ui-card@2.0.3) (2020-07-29)
-
 
 ### Bug Fixes
 
 * fast follow updates for LPS ([f15bfd4](https://github.com/GetTerminus/terminus-oss/commit/f15bfd4fa088da2fea76e9964c664bad8844e740))
 
-
-
-
-
 ## [2.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@2.0.1...@terminus/ui-card@2.0.2) (2020-07-28)
 
 **Note:** Version bump only for package @terminus/ui-card
 
-
-
-
-
 ## [2.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@2.0.0...@terminus/ui-card@2.0.1) (2020-07-28)
-
 
 ### Bug Fixes
 
 * bump all package versions ([9446c0d](https://github.com/GetTerminus/terminus-oss/commit/9446c0d5cde3bd693cfba7cabbfd2db443a47b00))
 
-
-
-
-
-# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@1.0.13...@terminus/ui-card@2.0.0) (2020-07-27)
-
+## [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@1.0.13...@terminus/ui-card@2.0.0) (2020-07-27)
 
 ### Bug Fixes
 
 * **Card:** style updates for LPS ([70e4d09](https://github.com/GetTerminus/terminus-oss/commit/70e4d0965e6e67391fa16e0d6005ff0208ccd387)), closes [#28](https://github.com/GetTerminus/terminus-oss/issues/28)
 * **Card:** update border radius ([c7fa097](https://github.com/GetTerminus/terminus-oss/commit/c7fa097830861a53f534587b78a076d34db1a2fc))
 
-
 ### Features
 
 * **Card:** change icon library and update styles ([627daf4](https://github.com/GetTerminus/terminus-oss/commit/627daf418c94f04605398981b42c0b945f5a5bdc))
 * **Card:** classes set on top-level container now preserved
-
 
 ### BREAKING CHANGES
 
@@ -103,69 +70,38 @@ Update the imported font families:
 +<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 ```
 
-
-
-
 ## 1.0.13 (2020-07-24)
 
 **Note:** Version bump only for package @terminus/ui-card
-
-
-
-
 
 ## [1.0.12](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@1.0.11...@terminus/ui-card@1.0.12) (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-card
 
-
-
-
-
 ## 1.0.11 (2020-07-13)
-
 
 ### Bug Fixes
 
 * **Card:** use css custom properties ([f01f004](https://github.com/GetTerminus/terminus-oss/commit/f01f004fe7887f7b1859b79b3a39d736c9196e0c)), closes [#101](https://github.com/GetTerminus/terminus-oss/issues/101)
 * **ESLintConfig:** add build command ([b38ada9](https://github.com/GetTerminus/terminus-oss/commit/b38ada91d034ebe18b96f46b603b13b0ccbca5c0))
 
-
-
-
-
 ## [1.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@1.0.9...@terminus/ui-card@1.0.10) (2020-07-07)
 
 **Note:** Version bump only for package @terminus/ui-card
 
-
-
-
-
 ## 1.0.9 (2020-06-23)
-
 
 ### Bug Fixes
 
 * **Card:** export type arrays ([af3db96](https://github.com/GetTerminus/terminus-oss/commit/af3db96e08182f7d1044e220e80c26cc41f249cf))
 
-
-
-
-
 ## [1.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@1.0.7...@terminus/ui-card@1.0.8) (2020-06-10)
-
 
 ### Bug Fixes
 
 * bump all internal dependencies ([ff26b80](https://github.com/GetTerminus/terminus-oss/commit/ff26b806bb599401f006996be5b567a378e68ef3))
 
-
-
-
-
 ## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@1.0.2...@terminus/ui-card@1.0.7) (2020-06-10)
-
 
 ### Bug Fixes
 

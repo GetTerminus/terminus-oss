@@ -7,7 +7,7 @@ A collection of tools and utilities for Terminus applications.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
 - [Usage documentation](#usage-documentation)
@@ -17,7 +17,7 @@ A collection of tools and utilities for Terminus applications.
 ## Installation
 
 ```bash
-$ yarn add @terminus/fe-utilities rxjs date-fns @angular/{common,core,forms}
+yarn add @terminus/fe-utilities rxjs date-fns @angular/{common,core,forms}
 ```
 
 ## Usage documentation
@@ -28,7 +28,6 @@ $ yarn add @terminus/fe-utilities rxjs date-fns @angular/{common,core,forms}
 - [Keycodes](src/lib/keycodes/README.md)
 - [Regex](src/lib/regex/README.md)
 - [Type Guards](src/lib/type-guards/README.md)
-
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE

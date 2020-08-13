@@ -5,7 +5,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
@@ -302,7 +302,6 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 | `getRadioGroupParentElement` |
 | `selectStandardRadio`        |
 | `selectVisualRadio`          |
-
 
 <!-- Links -->
 [test-helpers-src]:    testing/src/test-helpers.ts

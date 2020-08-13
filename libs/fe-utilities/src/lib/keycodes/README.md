@@ -6,7 +6,7 @@ A collection of key codes to avoid duplicate strings throughout your codebase.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Keys](#keys)
 - [Available Key Codes](#available-key-codes)

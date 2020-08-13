@@ -10,12 +10,12 @@ Basic flow:
 
 1. The user clicks the button
 1. A pop-up appears asking user to cancel or confirm
-3. If the user clicks 'confirm', the original `ts-button` event is emitted
-4. If the user clicks 'cancel' the pop-up is closed and no button event is emitted
+1. If the user clicks 'confirm', the original `ts-button` event is emitted
+1. If the user clicks 'cancel' the pop-up is closed and no button event is emitted
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
@@ -36,24 +36,24 @@ Basic flow:
 
 ### Packages that need to be installed
 
-- ` @angular/cdk`
-- ` @angular/common`
-- ` @angular/core`
-- ` @angular/flex-layout`
-- ` @angular/forms`
-- ` @angular/material`
-- ` @angular/platform-browser`
-- ` @terminus/design-tokens`
-- ` @terminus/fe-utilities`
-- ` @terminus/ui-button`
-- ` @terminus/ui-checkbox`
-- ` @terminus/ui-confirmation`
-- ` @terminus/ui-form-field`
-- ` @terminus/ui-icon`
-- ` @terminus/ui-utilities`
-- ` @terminus/ui-styles`
-- ` @terminus/ui-spacing`
-- ` date-fns`
+- `@angular/cdk`
+- `@angular/common`
+- `@angular/core`
+- `@angular/flex-layout`
+- `@angular/forms`
+- `@angular/material`
+- `@angular/platform-browser`
+- `@terminus/design-tokens`
+- `@terminus/fe-utilities`
+- `@terminus/ui-button`
+- `@terminus/ui-checkbox`
+- `@terminus/ui-confirmation`
+- `@terminus/ui-form-field`
+- `@terminus/ui-icon`
+- `@terminus/ui-utilities`
+- `@terminus/ui-styles`
+- `@terminus/ui-spacing`
+- `date-fns`
 
 Use the `ng add` command to quickly install all the needed dependencies:
 
@@ -153,7 +153,6 @@ The position of the panel is centered below the trigger by default. This positio
   overlayPosition="before"
 >Click Me!</ts-button>
 ```
-
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE

@@ -7,7 +7,7 @@ This component is used to contain very long strings that users may need to copy.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
@@ -101,7 +101,6 @@ It should be extremely rare, but if needed, this functionality can be disabled.
 ```html
 <ts-copy [disableInitialSelection]="true">My text to copy!</ts-copy>
 ```
-
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE

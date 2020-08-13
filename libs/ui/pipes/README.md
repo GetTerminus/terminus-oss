@@ -5,7 +5,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
@@ -109,7 +109,6 @@ export class PipesComponent {
   constructor(private sentenceCasePipe: TsSentenceCasePipe) {}
 }
 ```
-
 
 <!-- Links -->
 [src-pipes-abbreviateNumber]: src/lib/abbreviate-number/abbreviate-number.pipe.ts

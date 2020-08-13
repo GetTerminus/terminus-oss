@@ -5,7 +5,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages to be installed](#packages-to-be-installed)
@@ -113,7 +113,6 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 | `getCheckboxElement`      |
 | `toggleCheckbox`          |
 
-
 <!-- Links -->
 [test-helpers-src]:    testing/src/test-helpers.ts
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE
@@ -126,4 +125,3 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-checkbox/bundles/terminus-ui-checkbox.umd.min.js?compression=gzip
 [raw-distribution-js]: https://unpkg.com/@terminus/ui-checkbox/bundles/terminus-ui-checkbox.umd.js
-

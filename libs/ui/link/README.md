@@ -5,7 +5,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
@@ -69,7 +69,7 @@ Wrap your link text and define a destination:
 
 ### External links
 
-To signify a link will leave the current app or site, set `external` to true. 
+To signify a link will leave the current app or site, set `external` to true.
 When the destination is a string and contains either `mailto` or `tel`, the external icon would not show.
 
 ```html
@@ -81,7 +81,6 @@ When the destination is a string and contains either `mailto` or `tel`, the exte
 
 > NOTE: When external is set to true, the link should be a standard link in string form.
 
-
 ### Tab index
 
 A custom tabindex can also be set:
@@ -92,7 +91,6 @@ A custom tabindex can also be set:
   [tabIndex]="2"
 >My link</ts-link>
 ```
-
 
 ### Local URL fragments
 
@@ -142,9 +140,8 @@ const routerOptions: ExtraOptions = {
 })
 ```
 
-> Learn more about Angular's `ExtraOptions` here: https://angular.io/api/router/ExtraOptions
- 
- 
+> Learn more about Angular's `ExtraOptions` here: <https://angular.io/api/router/ExtraOptions>
+
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE
 [license-image]:       http://img.shields.io/badge/license-MIT-blue.svg

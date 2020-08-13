@@ -5,7 +5,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [CVA provider factory & Reactive form base](#cva-provider-factory--reactive-form-base)
 - [TsUILibraryError](#tsuilibraryerror)
@@ -69,7 +69,6 @@ Shared types.
 |        Type         |               Description               |
 |---------------------|-----------------------------------------|
 | `TsStyleThemeTypes` | The supported themes for UI components. |
-
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE

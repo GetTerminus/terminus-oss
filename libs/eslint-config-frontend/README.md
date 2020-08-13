@@ -7,7 +7,7 @@ A collection of JavaScript & TypeScript lint rules for a Terminus frontend codeb
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
 - [Ruleset overview](#ruleset-overview)
@@ -24,8 +24,8 @@ A collection of JavaScript & TypeScript lint rules for a Terminus frontend codeb
 
 1. Install the package & required dependencies:
 
-```
-$ yarn add eslint @terminus/eslint-config-frontend \
+```bash
+yarn add eslint @terminus/eslint-config-frontend \
   @angular-eslint/{eslint-plugin,eslint-plugin-template,template-parser} \
   @typescript-eslint/{eslint-plugin,parser} \
   eslint-import-resolver-typescript \
@@ -70,7 +70,6 @@ module.exports = {
 
 ### 2. Override rule definitions as needed
 
-// TODO: Do they need to overwrite entire rule or only prefix??
 ```javascript
 module.exports = {
   extends: ['@terminus/eslint-config-frontend'],
@@ -123,7 +122,6 @@ module.exports = {
   ],
 };
 ```
-
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE

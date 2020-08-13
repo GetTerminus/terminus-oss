@@ -57,12 +57,16 @@
     "libraries:lint:scss:fix": "yarn run libraries:lint:scss --fix",
     "apps:lint": "node --max_old_space_size=8192 node_modules/eslint/bin/eslint.js \"apps/**/*.{js,ts}\"",
     "apps:lint:fix": "yarn run apps:lint --fix",
+    "lint:md": "npx markdownlint-cli \"libs/**/*.md\" -i \"libs/**/CHANGELOG.md\" \"./*.md\"",
+    "lint:md:changelogs": "npx markdownlint-cli \"libs/**/CHANGELOG.md\" -c .markdownlint.changelogs.json",
+    "lint:md:all": "yarn run lint:md & yarn run lint:md:changelogs",
+    "lint:md:all:fix": "yarn run lint:md:all --fix",
     "////////// Section: Documentation": "==============================",
     "predocs": "yarn run docs:toc",
     "docs": "yarn run docs:ts",
     "docs:ci": "yarn run docs:ts --silent",
     "docs:ts": "npx compodoc",
-    "docs:toc": "find . -path ./node_modules -prune -o -path ./dist -prune -o -path ./apps -prune -o -path ./.github -prune -o -path ./.git -prune -o -path ./**/CHANGELOG.md -prune -o -path ./CODE_OF_CONDUCT.md -prune -o -name '*.md' -print |  xargs npx doctoc --title '**Table of Contents**' --maxlevel 4",
+    "docs:toc": "find . -path ./node_modules -prune -o -path ./dist -prune -o -path ./apps -prune -o -path ./.github -prune -o -path ./.git -prune -o -path ./**/CHANGELOG.md -prune -o -path ./CODE_OF_CONDUCT.md -prune -o -name '*.md' -print |  xargs npx doctoc --title '## Table of Contents' --maxlevel 4",
     "////////// Section: Tokens": "==============================",
     "tokens:build": "node libs/design-tokens/index.js",
     "tokens:generate-typings": "tools/ci/generate-tokens-typings.sh",
@@ -108,7 +112,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "validate-commit-msg",
-      "pre-commit": "lint-staged && yarn run docs:toc"
+      "pre-commit": "lint-staged"
     }
   },
   "config": {
@@ -241,6 +245,7 @@
     "jest-preset-angular": "8.2.1",
     "lerna": "3.22.1",
     "lint-staged": "10.2.11",
+    "markdownlint-cli": "0.23.2",
     "merge-files": "0.1.2",
     "micromatch": "4.0.2",
     "mockdate": "3.0.2",

@@ -5,7 +5,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
@@ -37,7 +37,7 @@
 
 Use the `ng add` command to quickly install all the needed dependencies:
 
-```
+```bash
 ng add @terminus/ui-validation-messages
 ```
 
@@ -67,7 +67,7 @@ Load the needed font families by adding this link to the `<head>` of your applic
 This component was initially for internal use, but has been extended to support custom validation messages. Now a custom
 instance of this component can be passed in to override the existing validation messages.
 
-```
+```html
 <ts-validation-messages
   <!-- This should be the same FormControl passed to the outer form component -->
   [control]="myEmailControl"

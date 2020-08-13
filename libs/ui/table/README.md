@@ -5,7 +5,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
@@ -92,7 +92,6 @@ ng add @terminus/ui-table
 - `FormsModule`
 - `ReactiveFormsModule`
 - `TsPaginatorModule`
-   
 
 ### CSS imports
 
@@ -143,7 +142,7 @@ name property of each row's data.
 The table expects an array of `TsColumn` definitions to manage the displayed columns and the initial column width.
 
 ```typescript
-import { TsColumn } from '@terminus/ui-table'; 
+import { TsColumn } from '@terminus/ui-table';
 
 const columns: TsColumn = [
   {name: 'title', width: 200},
@@ -196,7 +195,7 @@ The table component provides an array of column names built from the array of `T
 Mapping the array of names manually is also fairly simple:
 
 ```typescript
-import { TsColumn } from '@terminus/ui-table'; 
+import { TsColumn } from '@terminus/ui-table';
 
 const columns: TsColumn = [
   {name: 'title', width: 200},
@@ -212,7 +211,7 @@ The column and row definitions capture how data will render - all that's left is
 Create an instance of `TsTableDataSource` and set the items to be displayed to the `data` property.
 
 ```typescript
-import { TsTableDataSource } from '@terminus/ui-table'; 
+import { TsTableDataSource } from '@terminus/ui-table';
 
 this.myDataSource = new TsTableDataSource();
 this.myDataSource.data = dataToRender;
@@ -227,7 +226,7 @@ this.myDataSource.data = dataToRender;
 The `DataSource` can be seeded with initial data:
 
 ```typescript
-import { TsTableDataSource } from '@terminus/ui-table'; 
+import { TsTableDataSource } from '@terminus/ui-table';
 
 this.myDataSource = new TsTableDataSource(INITIAL_DATA);
 ```
@@ -235,7 +234,7 @@ this.myDataSource = new TsTableDataSource(INITIAL_DATA);
 An interface for your table data can be passed to `TsTableDataSource` for stricter typing:
 
 ```typescript
-import { TsTableDataSource } from '@terminus/ui-table'; 
+import { TsTableDataSource } from '@terminus/ui-table';
 
 export interface MyTableItem {
   name: string;
@@ -456,7 +455,7 @@ than one column.
 ### Re-orderable columns
 
 Column reordering is not built into the table itself, but it is supported with the help of the Angular CDK.
- 
+
 The example below shows how to allow users to adjust column visibility *and* column order via a menu.
 
 > NOTE: Use the custom icon `table_large_plus` to indicate a table settings menu.
@@ -491,7 +490,7 @@ The example below shows how to allow users to adjust column visibility *and* col
           {{ column.display }}
         </span>
 
-        <!-- Here we specify the drag handle with another CDK directive (optional). -->    
+        <!-- Here we specify the drag handle with another CDK directive (optional). -->
         <!-- We also need to stop drag interactions from affecting the checkbox status. -->
         <ts-icon
           cdkDragHandle
@@ -639,7 +638,7 @@ class TsTableColumnsChangeEvent {
 }
 ```
 
-####  Cell
+#### Cell
 
 | Event     | Description                           | Payload                   |
 |:----------|:--------------------------------------|:--------------------------|
@@ -859,7 +858,6 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 | `getCells`                  |
 | `getHeaderCells`            |
 | `expectTableToMatchContent` |
-
 
 <!-- Links -->
 [test-helpers-src]:    testing/src/test-helpers.ts

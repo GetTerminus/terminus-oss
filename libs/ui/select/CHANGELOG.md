@@ -7,60 +7,33 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/ui-select
 
-
-
-
-
 ## [2.0.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-select@2.0.4...@terminus/ui-select@2.0.5) (2020-07-31)
 
 **Note:** Version bump only for package @terminus/ui-select
-
-
-
-
 
 ## [2.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-select@2.0.3...@terminus/ui-select@2.0.4) (2020-07-31)
 
 **Note:** Version bump only for package @terminus/ui-select
 
-
-
-
-
 ## [2.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-select@2.0.2...@terminus/ui-select@2.0.3) (2020-07-29)
 
 **Note:** Version bump only for package @terminus/ui-select
-
-
-
-
 
 ## [2.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-select@2.0.1...@terminus/ui-select@2.0.2) (2020-07-28)
 
 **Note:** Version bump only for package @terminus/ui-select
 
-
-
-
-
 ## [2.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-select@2.0.0...@terminus/ui-select@2.0.1) (2020-07-28)
-
 
 ### Bug Fixes
 
 * bump all package versions ([9446c0d](https://github.com/GetTerminus/terminus-oss/commit/9446c0d5cde3bd693cfba7cabbfd2db443a47b00))
 
-
-
-
-
-# 2.0.0 (2020-07-27)
-
+## 2.0.0 (2020-07-27)
 
 ### Features
 
 * **Select:** change icon library ([f25294a](https://github.com/GetTerminus/terminus-oss/commit/f25294a05724c423fe14a470db5ac6aea4e377ec))
-
 
 ### BREAKING CHANGES
 
@@ -83,57 +56,31 @@ Update the imported font families:
 +<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 ```
 
-
-
-
 ## 1.0.8 (2020-07-13)
 
 **Note:** Version bump only for package @terminus/ui-select
-
-
-
-
 
 ## [1.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-select@1.0.6...@terminus/ui-select@1.0.7) (2020-07-07)
 
 **Note:** Version bump only for package @terminus/ui-select
 
-
-
-
-
 ## 1.0.6 (2020-06-23)
 
 **Note:** Version bump only for package @terminus/ui-select
 
-
-
-
-
 ## [1.0.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-select@1.0.4...@terminus/ui-select@1.0.5) (2020-06-10)
-
 
 ### Bug Fixes
 
 * bump all internal dependencies ([ff26b80](https://github.com/GetTerminus/terminus-oss/commit/ff26b806bb599401f006996be5b567a378e68ef3))
 
-
-
-
-
 ## [1.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-select@1.0.3...@terminus/ui-select@1.0.4) (2020-06-10)
-
 
 ### Bug Fixes
 
 * **Select:** update peer deps ([3948070](https://github.com/GetTerminus/terminus-oss/commit/3948070989065b20564587e77bf05b2370cd34b3))
 
-
-
-
-
 ## 1.0.3 (2020-06-09)
-
 
 ### Bug Fixes
 

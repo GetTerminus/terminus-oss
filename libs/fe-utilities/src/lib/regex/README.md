@@ -6,7 +6,7 @@ A collection of well-tested and well-performing regexes.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Credit Card](#credit-card)
 - [Date](#date)
@@ -163,7 +163,7 @@ regex.test('FOo'); // true
 
 ## Password
 
-:warning: NOTE: Refactor scheduled: https://github.com/GetTerminus/terminus-ui/issues/698 :warning:
+:warning: NOTE: Refactor scheduled: <https://github.com/GetTerminus/terminus-ui/issues/698> :warning:
 
 > Once the refactor is complete, there will be no need for a single regex to test the password. We
 > will be composing the password validator by combining several lower-level validators.

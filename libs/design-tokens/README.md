@@ -7,7 +7,7 @@ The collection of design tokens for Terminus applications.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -25,7 +25,7 @@ The collection of design tokens for Terminus applications.
 Install the tokens package in an existing project:
 
 ```bash
-$ yarn add @terminus/design-tokens 
+yarn add @terminus/design-tokens
 ```
 
 Add the needed Google font stacks to your `index.html` file:
@@ -103,7 +103,6 @@ The tokens are automatically published via our CI process with version control b
 | A new token is added                                   | Feature        | `x.1.x`        |
 | A tokens value is changed or other attributes modified | Fix            | `x.x.1`        |
 | Documentation changes, refactor, etc                   | Chore          | `none`         |
-
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE

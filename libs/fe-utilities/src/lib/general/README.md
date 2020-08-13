@@ -6,7 +6,7 @@ A collection of useful utilities.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [`abbreviateNumber`](#abbreviatenumber)
 - [`applyMixins`](#applymixins)
@@ -278,7 +278,7 @@ return this.http.get('/foo')
 
 1. HTTP Error code from `500` to `599`
 2. HTTP Error Code `429`
-  - Respects the `Retry-After` header as a Date string or MS delay.
+    - Respects the `Retry-After` header as a Date string or MS delay.
 
 ## `inputHasChanged`
 
