@@ -297,14 +297,18 @@ export class TsFormFieldComponent implements AfterContentInit, AfterContentCheck
     });
   }
 
+
   /**
    * Verify control existence and trigger outline gap update if needed
    */
   public ngAfterContentChecked(): void {
     this.confirmControlExists();
-    this.customValidationMessage = this.wrapperElement
+    // For some reason `this.wrapperElement.nativeElement.textContent` returns null
+    // until next change detection cycle. Use actual DOM elements to differentiate.
+    this.customValidationMessage = !!(this.wrapperElement
       && this.wrapperElement.nativeElement
-      && this.wrapperElement.nativeElement.textContent;
+      && this.wrapperElement.nativeElement.querySelector('.input-div')
+      && this.wrapperElement.nativeElement.querySelector('.input-div').querySelector('.ts-validation-messages'));
     this.changeDetectorRef.detectChanges();
 
     if (this.outlineGapCalculationNeeded) {
