@@ -8,5 +8,6 @@
 
 ## Icon Design Decisions
 
-1. We are not exposing `MatIconRegistry` to the underlying user. If icons need to be added to our
-   set, it should be done at the library level.
+1. The underlying Angular library we are using from FontAwesome does allow icons to be passed in by reference or by
+   passing in the string names. Using strings only works if we add all the icons we want to use to the library ahead of
+   time. We opted against this so teams would not be waiting on releases to get access to new icons during feature work.

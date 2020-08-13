@@ -57,7 +57,6 @@ export class TsIconComponent {
    * Pass in the icon and optional prefix
    *
    * [icon]="myReferenceToImportedCopyIcon"
-   * [icon]="['fa', myReferenceToImportedCopyIcon]"
    */
   @Input()
   public icon: IconProp;
