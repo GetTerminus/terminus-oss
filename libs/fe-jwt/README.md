@@ -9,17 +9,17 @@ A collection of helpers for dealing with JWT tokens.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
 - [Getting started](#getting-started)
   - [Step 1: Setup your claim map](#step-1-setup-your-claim-map)
   - [Step 2: The Module](#step-2-the-module)
   - [Step 3: Start collecting you token](#step-3-start-collecting-you-token)
-  - [Step 4: Use the token for a service.](#step-4-use-the-token-for-a-service)
+  - [Step 4: Use the token for a service](#step-4-use-the-token-for-a-service)
   - [Step 5: Request token escalation and retry](#step-5-request-token-escalation-and-retry)
   - [Step 6: Escalate a token when requested](#step-6-escalate-a-token-when-requested)
-  - [Step 7: Profit!](#step-7-profit)
+  - [Step 7: Profit](#step-7-profit)
 - [Initial Acquisition of a token](#initial-acquisition-of-a-token)
 - [Other common patterns](#other-common-patterns)
   - [Ensure a JWT Token is present](#ensure-a-jwt-token-is-present)
@@ -49,7 +49,7 @@ A collection of helpers for dealing with JWT tokens.
 ## Installation
 
 ```bash
-$ yarn add @terminus/{fe-jwt,fe-utilities} rxjs date-fns @ngrx/{store,effects}
+yarn add @terminus/{fe-jwt,fe-utilities} rxjs date-fns @ngrx/{store,effects}
 ```
 
 ## Getting started
@@ -134,7 +134,7 @@ import { TokenExtractor } from '@terminus/fe-jwt';
 
 After you perform this login, you will see that the new token is stored in your state.
 
-### Step 4: Use the token for a service.
+### Step 4: Use the token for a service
 
 In `some-service-related.effects.ts`:
 
@@ -230,7 +230,7 @@ import { TokenEscalator } from '@terminus/fe-jwt';
   })
 ```
 
-### Step 7: Profit!
+### Step 7: Profit
 
 At this point you have a full suite of helpers to manage JWT Escalation.
 
@@ -424,30 +424,17 @@ JwtTokenManagmentModule provides selectors for inspecting the current token for 
 
 Provides the specific token for the provided service name, or the default token if no specific token is known.
 
-**Inputs**
-
-|               |                                                |
-|---------------|------------------------------------------------|
-| `serviceName` | Must be a known key of `ClaimMap`              |
-
-**Return Value**
-
-String of the token, or undefined if no default token is known.
+- Input: `serviceName` - Must be a known key of `ClaimMap`
+- Return: String of the token, or `undefined` if no default token is known.
 
 ### `claimsFor<ClaimMap, ServiceName>(serviceName)` selector
 
 Provides the specific token for the provided service name, or the default token if no specific token is known.
 
-**Inputs**
-
-|               |                                                |
-|---------------|------------------------------------------------|
-| `serviceName` | Must be a known key of `ClaimMap`              |
-
-**Return Value**
-
-If the token is valid: The data shape of the `ClaimMap[ServiceName]` interface definition.
-If the token is invalid: `null`
+- Input: `serviceName` - Must be a known key of `ClaimMap`
+- Return:
+  - If the token is valid: The data shape of the `ClaimMap[ServiceName]` interface definition.
+  - If the token is invalid: `null`
 
 A valid token is one that can be decoded without respect to expiration date.
 
@@ -455,17 +442,11 @@ A valid token is one that can be decoded without respect to expiration date.
 
 Provides the specific token for the provided service name, or the default token if no specific token is known.
 
-**Inputs**
-
-|               |                                                |
-|---------------|------------------------------------------------|
-| `serviceName` | Must be a known key of `ClaimMap`              |
-| `claimName`   | Must be a known key of `ClaimMap[ServiceName]` |
-
-**Return Value**
-
-If the token is valid: The data shape of the `ClaimMap[ServiceName][ClaimName]` interface definition.
-If the token is invalid: `null`
+- Input: `serviceName` - Must be a known key of `ClaimMap`
+- Input: `claimName` - Must be a known key of `ClaimMap[ServiceName]`
+- Return:
+  - If the token is valid: The data shape of the `ClaimMap[ServiceName][ClaimName]` interface definition.
+  - If the token is invalid: `null`
 
 A valid token is one that can be decoded without respect to expiration date.
 
@@ -479,60 +460,40 @@ Provides a new token for storage in the JWT Managment system.
 
 Provides the specific token for the provided service name, or the default token if no specific token is known.
 
-**Inputs**
-
-|               |                                   |
-|---------------|-----------------------------------|
-| `serviceName` | Must be a known key of `ClaimMap` |
-
-**Inputs / Properties**
-
-|                  |                                                              |
-|------------------|--------------------------------------------------------------|
-| `tokenName`      | Must be a key of the [ClaimMap](#step-1-setup-your-claim-map)                  |
-| `token`          | String of the encoded token                                  |
-| `isDefaultToken` | Indicates that this token is to be used as the default token |
+- Inputs/Properties:
+  - `serviceName` - Must be a known key of `ClaimMap`
+  - `tokenName` - Must be a key of the [ClaimMap](#step-1-setup-your-claim-map)
+  - `token` - String of the encoded token
+  - `isDefaultToken` - Indicates that this token is to be used as the default token
 
 ### `TokenNearingExpiration<ClaimMap>`
 
 This action is emitted when the named token is nearing expiration.
 
-**Inputs / Properties**
-
-|             |                                             |
-|-------------|---------------------------------------------|
-| `tokenName` | Must be a key of the [ClaimMap](#step-1-setup-your-claim-map) |
-| `token`     | String of the encoded token                 |
+- Inputs/Properties:
+  - `tokenName` - Must be a key of the [ClaimMap](#step-1-setup-your-claim-map)
+  - `token` - String of the encoded token
 
 ### `EscalateToken<ClaimMap>`
 
 This action is emitted when escalation has been determined to be necessary.
 
-**Inputs / Properties**
-
-|             |                                             |
-|-------------|---------------------------------------------|
-| `tokenName` | Must be a key of the [ClaimMap](#step-1-setup-your-claim-map) |
+- Inputs/Properties:
+  - `tokenName` - Must be a key of the [ClaimMap](#step-1-setup-your-claim-map)
 
 ### `EscalationSuccess<ClaimMap>`
 
 This action is emitted when escalation has been completed successfully.
 
-**Inputs / Properties**
-
-|             |                                             |
-|-------------|---------------------------------------------|
-| `tokenName` | Must be a key of the [ClaimMap](#step-1-setup-your-claim-map) |
+- Inputs/Properties:
+  - `tokenName` - Must be a key of the [ClaimMap](#step-1-setup-your-claim-map)
 
 ### `EscalationFailed<ClaimMap>`
 
 This action is emitted when escalation has failed.
 
-**Inputs / Properties**
-
-|             |                                             |
-|-------------|---------------------------------------------|
-| `tokenName` | Must be a key of the [ClaimMap](#step-1-setup-your-claim-map) |
+- Inputs/Properties:
+  - `tokenName` - Must be a key of the [ClaimMap](#step-1-setup-your-claim-map)
 
 ## Claim Map
 
@@ -560,7 +521,6 @@ export interface AppClaimMap implements ClaimMap {
   }
 }
 ```
-
 
 <!-- Links -->
 [http-retryer]:        https://github.com/GetTerminus/terminus-oss/blob/release/libs/fe-utilities/src/lib/general/README.md#httpretryer

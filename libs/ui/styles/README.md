@@ -7,7 +7,7 @@ A collection of base CSS for the UI library and a collection of SCSS mixins and 
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Usage](#usage)
   - [Base CSS](#base-css)
@@ -38,7 +38,6 @@ Import helper mixins in any SCSS file that needs access:
   color: color(utility, light);
 }
 ```
-
 
 <!-- Links -->
 [tokens]:               ../../design-tokens/

@@ -2,7 +2,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Developing](#developing)
   - [General commands](#general-commands)
@@ -40,7 +40,6 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-
 ## Developing
 
 ### General commands
@@ -77,14 +76,13 @@ $ yarn run contributors:generate
 
 Alternatively, a user can be added as a contributor through a GitHub comment. e.g.
 
-```
+```bash
 @all-contributors please add @user for docs and tests
 ```
 
 See the [bot usage docs][all-contrib-bot] for more.
 
 > :bulb: Check [package.json][pkg-json] for all available commands
-
 
 ### Showcase-ui
 
@@ -101,7 +99,7 @@ See the [bot usage docs][all-contrib-bot] for more.
 3. `yarn run vr:percy:run` to trigger visual regression tests on command line.
 
 All cypress scripts live under `cypress/integration/`. Visual regression related tests are located at `cypress/integration/visual-regression/`.
-Currently each component has its own test file. The HTML and Typescript files that are used to build visual regression pages are stored at 
+Currently each component has its own test file. The HTML and Typescript files that are used to build visual regression pages are stored at
 `apps/vr/src/app/components`.
 
 ### Setting up NX cloud
@@ -110,7 +108,7 @@ We leverage [NX cloud][nx-cloud] to share our build, test, & lint caches across 
 
 To enable the cache locally, an environment variable must be made available:
 
-```
+```bash
 # NOTE: The token can be found in the UXE 1Password vault
 NX_CLOUD_AUTH_TOKEN=<TOKEN>
 ```
@@ -120,7 +118,7 @@ NX_CLOUD_AUTH_TOKEN=<TOKEN>
 We leverage the pro-version of FontAwesome which requires a key to download. Add a environment variable called
 `FONTAWESOME_NPM_AUTH_TOKEN` with the Terminus token:
 
-```
+```bash
 # NOTE: The token can be found in the UXE 1Password vault
 FONTAWESOME_NPM_AUTH_TOKEN=<TOKEN>
 ```
@@ -128,7 +126,7 @@ FONTAWESOME_NPM_AUTH_TOKEN=<TOKEN>
 ## Adding a Component for UI Library
 
 1. Create a new package using NX
-   -  `nx g lib my-lib --skip-package-json --publishable --style scss`
+   - `nx g lib my-lib --skip-package-json --publishable --style scss`
 2. Comment all methods, constants & `@Input`s using the supported [JSDoc style][compodoc_comments].
 3. Add installation and usage examples in the component documentation with every possible input and output included.
 4. Add the component to the [primary README's packages table][packages-table].
@@ -153,7 +151,6 @@ Note: Our base branch, `release`, is **always deployable**.
     being done.
     - The number should be at the beginning of the branch name: `45-update-payment-gateways`. This
     enables quick auto-completion in most terminals.
-
 
 #### Workflow
 
@@ -180,15 +177,13 @@ Note: Our base branch, `release`, is **always deployable**.
 1. Verify **all** [linters](#linting) run successfully
 1. Verify all [tests](#testing) are passing **and** code coverage did not decrease (bonus points if
    it increases)
-4. If you haven't yet, create a pull request from the feature branch into `release`
+1. If you haven't yet, create a pull request from the feature branch into `release`
 1. Add as much [information into the pull request body](#pull-requests) as possible
 1. Request a review
-
 
 #### Hotfixes
 
 Hotfixes follow the same strategy as features.
-
 
 ### Committing
 
@@ -196,7 +191,7 @@ When code gets merged to `release`, many of our projects are automatically versi
 tooling the information it needs, we write our commit messages in a specific format. This has the added benefit of
 improving the readability of our commit history.
 
-```
+```bash
 # The format:
 type(scope): message
 
@@ -222,7 +217,6 @@ versioning tool.
 
 To see all valid types for a project, look for the file `cz-config.js`.
 
-
 #### Breaking Changes
 
 When a commit contains a breaking change, it _must_ be included in the commit message body (not the
@@ -230,14 +224,13 @@ title). Both words should be uppercase and the comment body should include every
 engineers may need to know: `BREAKING CHANGE: A description of the breaking change`. This could
 include comments, images, code examples, and more. Generally speaking, **more information is
 better**.  (Note: when using the cli prompt, it will ask you about any breaking changes and add the
-prefix `BREAKING CHANGES: ` automatically)
+prefix `BREAKING CHANGES:` automatically)
 
 Learn more about the automatic versioning tools we use:
 
 - [semantic-release][semantic-release]
 - [Conference talk on semantic-release][semantic-release-video]
 - [validate-commit-msg][validate-commit-msg]
-
 
 ### Linting
 
@@ -250,7 +243,6 @@ without a discussion with the team.**
 
 Look at the scripts section in the project's `package.json` for the command to run tests.
 
-
 ### Testing
 
 All projects should work towards full test coverage. This is often not practical in a quickly
@@ -259,7 +251,6 @@ changing software startup, but a project should never dip below 80% coverage.
 We use [Jest][jest] for unit tests.
 
 Look at the scripts section in the project's `package.json` for the command to run tests.
-
 
 ### Pull Requests
 
@@ -273,17 +264,16 @@ When it is time merge a branch into `release`, create a pull request from the fe
    points for before and after images).
 1. Request a review from someone on the UI team (any code owners will be notified by default).
 1. A pull request may be opened before the work is complete. This makes it easier to get feedback
-   while the work is in progress. Include `WIP: ` at the beginning of the pull request title, add
+   while the work is in progress. Include `WIP:` at the beginning of the pull request title, add
    the `DO NOT MERGE` label so that it is not accidentally merged and `cc/ @mention` anyone that
    should take a look.
-6. There are two options to check for merge conflicts between your branch and release:
-   -  Create a pull request against release. (Note: This will cause any associated CI service to begin building the feature
+1. There are two options to check for merge conflicts between your branch and release:
+   - Create a pull request against release. (Note: This will cause any associated CI service to begin building the feature
       branch on every push)
-   -  Use GitHub's compare view: `https://github.com/GetTerminus/terminus-oss/compare/your-branch-name...release`
+   - Use GitHub's compare view: `https://github.com/GetTerminus/terminus-oss/compare/your-branch-name...release`
 1. The pull request body, just like the issue body, is the **single source of truth**. Any
    discussions, decisions or relevant information should be added to the pull request body
    immediately.
-
 
 ### Releasing
 
@@ -295,7 +285,7 @@ consumers!
 3. The package changelog is generated on [Github][oss-github].
 4. The new version is published to [NPM][ui-npm] under the `next` tag.
 5. When the new functionality is verified, it is tagged as `latest`:
-   -  `npm dist-tag add @terminus/ui-<package>@<version to promote> latest`
+   - `npm dist-tag add @terminus/ui-<package>@<version to promote> latest`
 
 > NOTE: currently `yarn tag` outputs an error even though the tagging seems to work. Because of
 > this, we will continue using NPM for tagging.
@@ -313,25 +303,25 @@ machines.
 
 1. Always include a JSDoc-style comment above all methods/functions:
 
-    ```
-    /**
-     * Get a customer by ID
-     *
-     * @param customerId - The customer's ID
-     * @returns The customer object
-     */
-    ```
+```typescript
+/**
+ * Get a customer by ID
+ *
+ * @param customerId - The customer's ID
+ * @returns The customer object
+ */
+```
 
 1. For general notes, always include the prefix if one applies:
 
-    ```
-    // NOTE: A general informational note. Not for every comment; just when there is an important
-             piece of unusual information.
-    // TODO: A note about missing logic.
-    // HACK: A note about a 'hacky' solution.
-    // FIXME: A note about something that needs refactoring.
-    // BUG: A note about a bug. Include the associated issue number in the note.
-    ```
+```typescript
+// NOTE: A general informational note. Not for every comment; just when there is an important
+//       piece of unusual information.
+// TODO: A note about missing logic.
+// HACK: A note about a 'hacky' solution.
+// FIXME: A note about something that needs refactoring.
+// BUG: A note about a bug. Include the associated issue number in the note.
+```
 
 1. All engineers should do their best to never need most of these note types. However, if needed,
   _always_ include the reason the note is needed. Remember, more information is better!
@@ -382,7 +372,7 @@ The `@link` flag can be used to link to other components or web locations.
 ```typescript
 /**
  * Component B.
- * 
+ *
  * Used by {@link ComponentA}
  * Learn more at [Google]{@link http://www.google.com}
  */
@@ -394,7 +384,7 @@ export class ComponentB {}
 Usage docs should be added to all components and directives. These docs are created by adding a markdown file named to match the component
 or directive:
 
-```
+```typescript
 // component:
 foo.component.ts
 // usage docs:
@@ -409,9 +399,11 @@ the table of contents.
 ### Schematics
 
 Schematics is used to provide installation help. With that consumer can add each individual package via:
+
+```bash
+ng add @terminus/ui-input
 ```
- $ ng add @terminus/ui-input
-```
+
 When creating a new component, add one folder named `schematics` under the component. Go to `schematics/ng-add/` folder, create the main file, `index.ts`. Then add `ngAdd` function in `index.ts`.
 
 If there is any change to an existing package's `package.json` dependency block, make sure update that in `schematics/ng-add/index.ts`.
@@ -421,16 +413,15 @@ If there is any change to an existing package's `package.json` dependency block,
 Any code merged to the `release` branch gets published under the `next` tag:
 
 ```bash
-$ yarn add @terminus/ui@next
+yarn add @terminus/ui@next
 ```
 
 Once the code is ready to be promoted to `latest` a member of our NPM organization can promote it:
 
 ```bash
 # Replace `0.0.0` with the version to promote
-$ npm dist-tag add @terminus/ui@0.0.0 latest
+npm dist-tag add @terminus/ui@0.0.0 latest
 ```
-
 
 ## Code Style
 
@@ -545,24 +536,22 @@ public foo;
 
 ## Storybook and Chromatic
 
-We use storybook to build our demo site and chromatic for automating gathering visual comparison and
-testing.
+We use storybook to build our demo site and chromatic for automating gathering visual comparison and testing.
 
 ### Build storybook for each project
 
-We use nx to manage our mono repo. In a Nrwl Nx workspace, 
-when you add Storybook support, what you get by default is 
-a separate instance of Storybook for each feature library.
+We use nx to manage our mono repo. In a Nrwl Nx workspace, when you add Storybook support, what you get by default is a
+separate instance of Storybook for each feature library.
 
-You can generate Storybook configuration for an individual 
-project with this command:
-```
+You can generate Storybook configuration for an individual project with this command:
+
+```bash
 nx g @nrwl/angular:storybook-configuration ui-button
 ```
-If there's no .storybook folder at the root of the workspace, 
-one is created.
 
-```
+If there's no .storybook folder at the root of the workspace, one is created:
+
+```bash
 <terminus-oss>/
 ├── .storybook/
 │   ├── addons.js
@@ -575,44 +564,50 @@ one is created.
 ├── README.md
 └── etc...
 ```
-Also, a project-specific .storybook folder is added in the root 
-of the project.
-```
+
+Also, a project-specific .storybook folder is added in the root of the project:
+
+```bash
 <terminus-oss>/
 |---.storybook/
 |---apps/
 |---libs/
-   |--- ui
-       |--- button
-           |--- .storybook/
-               |--- addons.js
-               |--- tsconfig.json
-               |--- webpack.config.js
-   |--- tokens
+|--- ui
+|--- button
+|--- .storybook/
+|--- addons.js
+|--- tsconfig.json
+|--- webpack.config.js
+|--- tokens
 ├── tsconfig.json
 └── etc...
 ```
-Then you could build the storybook with
-```
+
+Then you can build the storybook with:
+
+```bash
 nx run ui-button:build-storybook
 ```
-Or build and serve the storybook with
-```
+
+Or build and serve the storybook with:
+
+```bash
 nx run ui-button:storybook
 ```
+
 This allows to quickly spin up one Storybook instance for development.
 
 ### Build storybook for all the projects
-There are cases when we'd want to see stories from multiple or even all of libraries, 
-together in a single Storybook instance. 
-For example, a demo page for our library needs to contain stories 
-from all the components. Storybook doesn't support this out of the box. 
 
-What we could do is to create a separate project, which references all the 
-stories that we'd like to include.
+There are cases when we'd want to see stories from multiple or even all of libraries, together in a single Storybook
+instance. For example, a demo page for our library needs to contain stories from all the components. Storybook doesn't
+support this out of the box.
 
-In our case, we create a stories folder at the root level.
-```
+What we could do is to create a separate project, which references all the stories that we'd like to include.
+
+In our case, we create a stories folder at the root level:
+
+```bash
 <terminus-oss>/
 |---.storybook/
 |---apps/
@@ -630,13 +625,16 @@ In our case, we create a stories folder at the root level.
                  |--- tsconfig.js
                  |--- webpack.config.js
 ```
-And inside this `config.js`, we reference to the stories that we'd like it to include with
-```
+
+And inside this `config.js`, we reference to the stories that we'd like it to include with:
+
+```typescript
 configure(require.context('../../../../libs/ui/', true, /\.stories\.tsx?$/), module);
 ```
+
 Then in `angular.json` config, we config how we'd like it to run:
 
-```
+```json
     "ui-storybook": {
       "projectType": "application",
       "root": "stories",
@@ -675,55 +673,59 @@ Then in `angular.json` config, we config how we'd like it to run:
         }
       }
 ```
-Then we'll be able to run this command to build all the stories in one storybook.
-```
+
+Then we'll be able to run this command to build all the stories in one storybook:
+
+```bash
 nx run ui-storybook:build-allstorybook
 ```
 
 ### Run Chromatic on affected projects
-We use chromatic for our regression visual tests. 
-Ideally we'd like to run chromatic on changed projects only. 
-nx provides a way to get a list of affected projects. 
-However, each individual project builds its own storybook, and
-chromatic doesn't support multiple storybooks for one repo. 
 
-The solution we have is to use nx provided changed projects 
-list to dynamically update root level storybook config.
+We use chromatic for our regression visual tests.
 
-For example, if `nx affected:libs` returns
-```
+Ideally we'd like to run chromatic on changed projects only. NX provides a way to get a list of affected projects.
+However, each individual project builds its own storybook, and chromatic doesn't support multiple storybooks for one
+repo.
+
+The solution we have is to use nx provided changed projects list to dynamically update root level storybook config.
+
+For example, if `nx affected:libs` returns:
+
+```bash
 ui-button
 ui-card
 ui-csv-entry
 ```
-a bash script will pipe that in and update `.storybook/main.js` with:
-```
+
+A bash script will pipe that in and update `.storybook/main.js` with:
+
+```javascript
 stories: [
   'libs/ui/button',
   'libs/ui/card',
   'libs/ui/csv-entry'
 ],
 ```
-=================================================================
 
-NOTE: `.storybook/main.js` needs to have this entry
-```
+---
+
+NOTE: `.storybook/main.js` needs to have this entry"
+
+```bash
 stories: [STORIES]
 ```
-to start with. Then bash script will replace `STORIES` with 
-proper affected project story link. 
+
+to start with. Then bash script will replace `STORIES` with proper affected project story link.
 
 PLEASE **DO NOT** COMMIT CHANGES in `storybook/main.js`
 
-=================================================================
+---
 
-
-After that, we'd use `build-storybook -c .storybook -o dist/storybook` to build
-one storybook with the stories from `button`, `card` and `csv-entry`.
-Then chromatic could run through that storybook for visual comparison.
+After that, we'd use `build-storybook -c .storybook -o dist/storybook` to build one storybook with the stories from
+`button`, `card` and `csv-entry`. Then chromatic could run through that storybook for visual comparison.
 
 🎉 Happy Coding! 🎉
-
 
 <!-- Links -->
 [semantic-release]: https://github.com/semantic-release/semantic-release

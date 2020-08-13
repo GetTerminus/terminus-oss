@@ -47,6 +47,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+lint-staged.config_scsslint_tmp*
 
 # System Files
 .DS_Store

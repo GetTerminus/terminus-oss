@@ -7,7 +7,7 @@ Popover component is designed to pop up simple or complex content based on a use
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
@@ -98,7 +98,7 @@ Define a popover trigger and popover content:
 Defines where the popover is positioned, relative to current element:
 
 ```html
-<button 
+<button
   tsPopoverTrigger="myPopper"
   [position]="top"
 >Click me!</button>
@@ -113,7 +113,7 @@ The default is `bottom`. For all available positions, please see the [popper.js 
 Popover supports two types of trigger, `click` and `hover`.
 
 ```html
-<button 
+<button
   tsPopoverTrigger="myPopper"
   [popoverTrigger]="click"
 >Click me!</button>
@@ -130,7 +130,7 @@ By default, the popover will be closed by clicking outside the popover. If this 
 disabled:
 
 ```html
-<button 
+<button
   tsPopoverTrigger="myPopper"
   [hideOnBlur]="false"
 >Click me!</button>
@@ -147,7 +147,7 @@ It defaults to `true`.
 The popover can be defined to open on load:
 
 ```html
-<button 
+<button
   tsPopoverTrigger="myPopper"
   [defaultOpened]="true"
 >Click me!</button>
@@ -163,7 +163,6 @@ It defaults to `false`.
 |:------------------|:----------------------------|:----------------|
 | `popoverOnShown`  | Fired when popover shows up | popoverInstance |
 | `popoverOnHidden` | Fired when popover hides    | popoverInstance |
-
 
 <!-- Links -->
 [popper]:              https://github.com/popperjs/popper.js

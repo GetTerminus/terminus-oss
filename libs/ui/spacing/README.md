@@ -5,7 +5,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [CSS imports](#css-imports)
@@ -38,7 +38,6 @@ Any of the `TsVerticalSpacingTypes` values can be passed in:
 ```html
 <div tsVerticalSpacing="large--3">My content!</div>
 ```
-
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE

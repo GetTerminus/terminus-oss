@@ -7,7 +7,7 @@ The drawer component is designed to add side content to a section of the DOM.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
@@ -107,7 +107,7 @@ The mode defines how the page content reacts to the drawer. A drawer can open ov
 ```html
 <ts-drawer [mode]="push">...</ts-drawer>
 ```
- 
+
 ### Position
 
 Consumers can specify which side of the container the drawer opens from. The default is `start` which opens from the
@@ -157,6 +157,7 @@ The drawer supports both a header and footer:
   My header content...
 </ts-drawer-header>
 ```
+
 ```html
 <ts-drawer-footer>
   My footer content...
@@ -178,7 +179,6 @@ The drawer supports both a header and footer:
 | `expandedStart`  | Fired when the drawer expansion starts        | void    |
 | `collapsedStart` | Fired when the drawer collapse starts         | void    |
 | `expandedChange` | Fired when state change ends (animation ends) | boolean |
-
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE

@@ -5,7 +5,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
@@ -206,7 +206,6 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 |-------------------------|
 | `getFormFieldElement`   |
 | `getCohortDebugElement` |
-
 
 <!-- Links -->
 [test-helpers-src]:    testing/src/test-helpers.ts

@@ -6,7 +6,7 @@ A collection of utilities for dealing directly with the browser.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Cookie Service](#cookie-service)
 - [Document Service](#document-service)
@@ -80,7 +80,6 @@ export class MyComponent implements OnInit {
 > A mock of this service is available via the testing module:
 > `import { TsWindowServiceMock } from '@terminus/fe-testing';`
 > See: [:books: Testing Helper Documentation][docs-testing] for more information.
-
 
 <!-- LINKS -->
 [docs-testing]:       https://github.com/GetTerminus/terminus-oss/blob/release/libs/fe-testing/README.md

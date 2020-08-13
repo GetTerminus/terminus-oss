@@ -5,7 +5,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
   - [Packages that need to be installed](#packages-that-need-to-be-installed)
@@ -107,7 +107,6 @@ Any logo with a gradient will not honor a logoColor.
 |       `full-solid` | Mark with "terminus" text, white by default, accepts logoColor |
 |    `mark-gradient` | Mark with gradient                                             |
 |       `mark-solid` | Mark without gradient                                          |
-
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE
