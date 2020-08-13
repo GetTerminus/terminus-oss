@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.11](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-form-field@2.0.10...@terminus/ui-form-field@2.0.11) (2020-08-13)
+
+
+### Bug Fixes
+
+* **ValidationMessage:** suppresses regular validation message when custom message passed in ([629b09a](https://github.com/GetTerminus/terminus-oss/commit/629b09acd356208b1ba891248225d696bfa7ed0f))
+
+
+
+
+
 ## [2.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-form-field@2.0.9...@terminus/ui-form-field@2.0.10) (2020-08-10)
 
 
