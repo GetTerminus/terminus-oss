@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-confirmation@2.0.3...@terminus/ui-confirmation@2.0.4) (2020-08-14)
+
+**Note:** Version bump only for package @terminus/ui-confirmation
+
+
+
+
+
 ## [2.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-confirmation@2.0.2...@terminus/ui-confirmation@2.0.3) (2020-08-10)
 
 **Note:** Version bump only for package @terminus/ui-confirmation

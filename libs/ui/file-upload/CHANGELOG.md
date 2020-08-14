@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@2.0.9...@terminus/ui-file-upload@2.0.10) (2020-08-14)
+
+**Note:** Version bump only for package @terminus/ui-file-upload
+
+
+
+
+
 ## [2.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@2.0.8...@terminus/ui-file-upload@2.0.9) (2020-08-10)
 
 **Note:** Version bump only for package @terminus/ui-file-upload
