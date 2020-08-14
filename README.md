@@ -53,6 +53,7 @@ The monorepo that contains all Terminus open-source libraries and tools.
 | [ui-login form][src-login-form]                   | Email/password with 'remember me' checkbox                   | [Changelog][changelog-login-form]          | [Demo][demo-log-in-form]         | [Docs][docs-login-form]          | ![codecov][cov-badge-loginForm]          | ![loginForm latest][badge-latest-loginForm]                   | ![Login Form next][badge-next-loginForm]                   |
 | [ui-logo][src-logo]                               | Variations of the official logo, certain colors available    | [Changelog][changelog-logo]                | [Demo][demo-logo]                | [Docs][docs-logo]                | ![codecov][cov-badge-logo]               | ![logo latest][badge-latest-logo]                             | ![Logo next][badge-next-logo]                              |
 | [ui-menu][src-menu]                               |                                                              | [Changelog][changelog-menu]                | [Demo][demo-menu]                | [Docs][docs-menu]                | ![codecov][cov-badge-menu]               | ![menu latest][badge-latest-menu]                             | ![Menu next][badge-next-menu]                              |
+| [ui-option][src-option]                           | Option element for `TsSelectionList`                         | [Changelog][changelog-option]              | [Demo][demo-option]              | [Docs][docs-option]              | ![codecov][cov-badge-option]             | ![option latest][badge-latest-option]                         | ![Option next][badge-next-option]                          |
 | [ui-navigation][src-navigation]                   | Global navigation menu                                       | [Changelog][changelog-navigation]          | [Demo][demo-navigation]          | [Docs][docs-navigation]          | ![codecov][cov-badge-navigation]         | ![navigation latest][badge-latest-navigation]                 | ![Navigation next][badge-next-navigation]                  |
 | [ui-paginator][src-paginator]                     | Paging controls for collections                              | [Changelog][changelog-paginator]           | [Demo][demo-paginator]           | [Docs][docs-paginator]           | ![codecov][cov-badge-paginator]          | ![paginator latest][badge-latest-paginator]                   | ![Paginator next][badge-next-paginator]                    |
 | [ui-pipes][src-pipes]                             | A collection of pipes for Angular                            | [Changelog][changelog-pipes]               | [Demo][demo-pipes]               | [Docs][docs-pipes]               | ![codecov][cov-badge-pipes]              | ![pipes latest][badge-latest-pipes]                           | ![Pipes next][badge-next-pipes]                            |
@@ -135,6 +136,7 @@ See the 'demos' column in the [table above](#packages).
 [src-login-form]:          https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/login-form/
 [src-logo]:                https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/logo/
 [src-menu]:                https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/menu/
+[src-option]:                https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/option/
 [src-navigation]:          https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/navigation/
 [src-paginator]:           https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/paginator/
 [src-pipes]:               https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/pipes/
@@ -186,6 +188,7 @@ See the 'demos' column in the [table above](#packages).
 [changelog-login-form]:          https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/login-form/CHANGELOG.md
 [changelog-logo]:                https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/logo/CHANGELOG.md
 [changelog-menu]:                https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/menu/CHANGELOG.md
+[changelog-option]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/option/CHANGELOG.md
 [changelog-navigation]:          https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/navigation/CHANGELOG.md
 [changelog-paginator]:           https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/paginator/CHANGELOG.md
 [changelog-pipes]:               https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/pipes/CHANGELOG.md
@@ -235,6 +238,7 @@ See the 'demos' column in the [table above](#packages).
 [legacy-src-login-form]:          https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/login-form/
 [legacy-src-logo]:                https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/logo/
 [legacy-src-menu]:                https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/menu/
+[legacy-src-option]:              https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/option/
 [legacy-src-navigation]:          https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/navigation/
 [legacy-src-paginator]:           https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/paginator/
 [legacy-src-pipes]:               https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/pipes/
@@ -278,6 +282,7 @@ See the 'demos' column in the [table above](#packages).
 [demo-log-in-form]:         https://getterminus.github.io/ui-demos-release/components/log-in-form
 [demo-logo]:                https://getterminus.github.io/ui-demos-release/components/logo
 [demo-menu]:                https://getterminus.github.io/ui-demos-release/components/menu
+[demo-option]:              https://getterminus.github.io/ui-demos-release/components/option
 [demo-navigation]:          https://getterminus.github.io/ui-demos-release/components/navigation
 [demo-paginator]:           https://getterminus.github.io/ui-demos-release/components/paginator
 [demo-pipes]:               https://getterminus.github.io/ui-demos-release/components/pipes
@@ -325,6 +330,7 @@ See the 'demos' column in the [table above](#packages).
 [docs-login-form]:          http://uilibrary-docs.terminus.ninja/release/components/TsLoginFormComponent.html
 [docs-logo]:                http://uilibrary-docs.terminus.ninja/release/components/TsLogoComponent.html
 [docs-menu]:                http://uilibrary-docs.terminus.ninja/release/components/TsMenuComponent.html
+[docs-option]:              http://uilibrary-docs.terminus.ninja/release/components/TsOptionComponent.html
 [docs-navigation]:          http://uilibrary-docs.terminus.ninja/release/components/TsNavigationComponent.html
 [docs-paginator]:           http://uilibrary-docs.terminus.ninja/release/components/TsPaginatorComponent.html
 [docs-pipes]:               http://uilibrary-docs.terminus.ninja/release/modules/TsPipesModule.html
@@ -371,6 +377,7 @@ See the 'demos' column in the [table above](#packages).
 [cov-badge-loginForm]:          https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=loginForm
 [cov-badge-logo]:               https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=logo
 [cov-badge-menu]:               https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=menu
+[cov-badge-option]:             https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=option
 [cov-badge-navigation]:         https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=navigation
 [cov-badge-paginator]:          https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=paginator
 [cov-badge-pipes]:              https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=pipes
@@ -421,6 +428,7 @@ See the 'demos' column in the [table above](#packages).
 [badge-latest-logo]:               https://img.shields.io/npm/v/@terminus/ui-logo/latest?color=%2345aaf2
 [badge-latest-menu]:               https://img.shields.io/npm/v/@terminus/ui-menu/latest?color=%2345aaf2
 [badge-latest-navigation]:         https://img.shields.io/npm/v/@terminus/ui-navigation/latest?color=%2345aaf2
+[badge-latest-option]:             https://img.shields.io/npm/v/@terminus/ui-option/latest?color=%2345aaf2
 [badge-latest-paginator]:          https://img.shields.io/npm/v/@terminus/ui-paginator/latest?color=%2345aaf2
 [badge-latest-pipes]:              https://img.shields.io/npm/v/@terminus/ui-pipes/latest?color=%2345aaf2
 [badge-latest-popover]:            https://img.shields.io/npm/v/@terminus/ui-popover/latest?color=%2345aaf2
@@ -469,6 +477,7 @@ See the 'demos' column in the [table above](#packages).
 [badge-next-logo]:               https://img.shields.io/npm/v/@terminus/ui-logo/next?color=%2345aaf2
 [badge-next-menu]:               https://img.shields.io/npm/v/@terminus/ui-menu/next?color=%2345aaf2
 [badge-next-navigation]:         https://img.shields.io/npm/v/@terminus/ui-navigation/next?color=%2345aaf2
+[badge-next-option]:             https://img.shields.io/npm/v/@terminus/ui-option/next?color=%2345aaf2
 [badge-next-paginator]:          https://img.shields.io/npm/v/@terminus/ui-paginator/next?color=%2345aaf2
 [badge-next-pipes]:              https://img.shields.io/npm/v/@terminus/ui-pipes/next?color=%2345aaf2
 [badge-next-popover]:            https://img.shields.io/npm/v/@terminus/ui-popover/next?color=%2345aaf2
