@@ -1,3 +1,24 @@
+// Styles applied when the button is collapsed
+@mixin collapsed {
+  padding: var(--tsb-padding-collapsed);
+
+  .ts-icon {
+    margin-right: 0;
+  }
+
+  .c-icon {
+    position: relative;
+    transform: rotate(var(--tsb-rotation));
+    transition-duration: var(--tsb-icon-transitionDuration-collapse);
+  }
+
+  // collapse the text content
+  .c-button__content {
+    max-width: 0;
+    padding: 0;
+  }
+}
+
 :root {
   // Theme styles
   // DEFAULT
@@ -156,7 +177,6 @@
       margin-top: var(--tsb-icon-vertical-adjustment);
       transition: var(--tsb-icon-transition);
       vertical-align: middle;
-      will-change: transform;
     }
 
     // Overwrite the Material spinner to fit our layout
@@ -180,6 +200,52 @@
     &--progress {
       padding-right: 42px;
     }
+
+    // COLLAPSIBLE
+    &--collapsible {
+      border-radius: var(--tsb-borderRadius-collapsible);
+
+      // When collapsible AND disabled
+      &.c-button--collapsed,
+      &[disabled] {
+        &:not(:hover) {
+          &:not(:focus) {
+            @include collapsed;
+          }
+        }
+      }
+
+      // Fix left alignment when button is expanded and an icon is the first item
+      &:hover,
+      &:focus {
+        .c-icon {
+          margin-left: var(--tsb-collapsible-first-icon-adjustment);
+        }
+      }
+
+      // Padding addition for FontAwesome switch
+      .c-icon {
+        padding: 0 .25em;
+      }
+
+      .c-button__content {
+        display: inline-block;
+        max-width: 400px;
+        overflow: hidden;
+        transition: var(--tsb-maxWidth-transition);
+        vertical-align: bottom;
+        white-space: nowrap;
+
+        .ts-icon {
+          margin-left: var(--tsb-icon-negative-padding-adjustment);
+          margin-right: var(--tsb-icon-negative-padding-adjustment);
+        }
+      }
+
+      .mat-ripple {
+        border-radius: var(--tsb-borderRadius-collapsible);
+      }
+    }
   }
 
   // Target instances nested inside the TsSearchComponent
@@ -189,86 +255,6 @@
     top: calc(var(--ts-space-stack-400) * -1);
   }
 }
-
-
-// Styles applied when the button is collapsed
-@mixin collapsed {
-  padding: var(--tsb-padding-collapsed);
-
-  .ts-icon {
-    margin-right: 0;
-  }
-
-  .c-icon {
-    position: relative;
-    transform: rotate(var(--tsb-rotation));
-    transition-duration: var(--tsb-icon-transitionDuration-collapse);
-  }
-
-  // collapse the text content
-  .c-button__content {
-    max-width: 0;
-    padding: 0;
-  }
-}
-
-// COLLAPSIBLE
-.c-button {
-  // Collapsed and not focused or hovered
-  &.c-button--collapsed {
-    &:not(:hover) {
-      &:not(:focus) {
-        @include collapsed;
-      }
-    }
-  }
-
-  &.c-button--collapsable,
-  &.c-button--collapsible {
-    border-radius: var(--tsb-borderRadius-collapsible);
-
-    // When collapsible AND disabled
-    &[disabled] {
-      &:not(:hover) {
-        &:not(:focus) {
-          @include collapsed;
-        }
-      }
-    }
-
-    // Fix left alignment when button is expanded and an icon is the first item
-    &:hover,
-    &:focus {
-      .c-icon {
-        margin-left: var(--tsb-collapsible-first-icon-adjustment);
-      }
-    }
-
-    // Padding addition for FontAwesome switch
-    .c-icon {
-      padding: 0 .25em;
-    }
-
-    .c-button__content {
-      display: inline-block;
-      max-width: 400px;
-      overflow: hidden;
-      transition: var(--tsb-maxWidth-transition);
-      vertical-align: bottom;
-      white-space: nowrap;
-
-      .ts-icon {
-        margin-left: var(--tsb-icon-negative-padding-adjustment);
-        margin-right: var(--tsb-icon-negative-padding-adjustment);
-      }
-    }
-
-    .mat-ripple {
-      border-radius: var(--tsb-borderRadius-collapsible);
-    }
-  }
-}
-
 
 // Target button instances nested inside a TsMenuComponent
 .mat-menu-panel {
