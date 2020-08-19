@@ -430,7 +430,6 @@ Most code style is enforced through ESLint, TSLint and Stylelint, so make sure t
 ### Lint configurations
 
 - [ESLint configuration][eslint-config]
-- [TSLint configuration][tslint-config]
 - [Stylelint configuration][stylelint-config]
 
 ### Member Ordering
@@ -740,7 +739,6 @@ After that, we'd use `build-storybook -c .storybook -o dist/storybook` to build 
 [jest]: https://facebook.github.io/jest/
 [zenhub]: https://www.zenhub.com/
 [eslint-config]: https://github.com/GetTerminus/eslint-config-frontend
-[tslint-config]: https://github.com/GetTerminus/tslint-config-frontend
 [stylelint-config]: https://github.com/GetTerminus/stylelint-config-frontend
 [nx-angular-docs]: https://nx.dev/react/plugins/angular/schematics/library
 [packages-table]: https://github.com/GetTerminus/terminus-oss/blob/release/README.md#packages
