@@ -12,13 +12,11 @@ const customConfig = {
     },
   ],
   addons: [
-    '@storybook/addon-knobs/register',
-    '@storybook/addon-viewport/register',
-    '@storybook/addon-actions/register',
-    '@storybook/addon-notes/register',
+    '@storybook/addon-knobs',
+    '@storybook/addon-viewport',
+    '@storybook/addon-actions',
     '@storybook/addon-storysource',
-    'storybook-addon-paddings',
-    '@ergosign/storybook-addon-pseudo-states-angular/register',
+    '@ergosign/storybook-addon-pseudo-states-angular',
   ],
 }
 

@@ -3,11 +3,9 @@ module.exports = {
   // It is used to replace with nx affected projects dynamically in the ci script.
   stories: [STORIES],
   addons: [
-    '@storybook/addon-knobs/register',
-    '@storybook/addon-viewport/register',
-    '@storybook/addon-actions/register',
-    '@storybook/addon-notes/register',
+    '@storybook/addon-knobs',
+    '@storybook/addon-viewport',
+    '@storybook/addon-actions',
     '@storybook/addon-storysource',
-    'storybook-addon-paddings',
   ],
 };

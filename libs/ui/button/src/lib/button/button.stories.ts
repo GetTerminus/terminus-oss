@@ -56,21 +56,9 @@ export default {
   decorators: [withPseudo, withKnobs],
   parameters: {
     withPseudo: {
-      selector: 'button',
-      pseudos: [...PseudoStatesDefault, 'focus & hover'],
-      attributes: [...AttributesStatesDefault, 'showProgress'],
-      permutations: [
-        {
-          label: 'Secondary',
-          attr: 'theme',
-          value: 'secondary',
-        },
-        {
-          label: 'Warning',
-          attr: 'theme',
-          value: 'warning',
-        },
-      ],
+      pseudos: [],
+      attributes: [],
+      permutations: [],
     },
   },
 };
@@ -93,3 +81,22 @@ export const themes = () => ({
   },
 });
 
+themes.parameters = {
+  withPseudo: {
+    selector: 'button',
+    pseudos: [...PseudoStatesDefault, 'focus & hover'],
+    attributes: [...AttributesStatesDefault, 'showProgress'],
+    permutations: [
+      {
+        label: 'Secondary',
+        attr: 'theme',
+        value: 'secondary',
+      },
+      {
+        label: 'Warning',
+        attr: 'theme',
+        value: 'warning',
+      },
+    ],
+  },
+};

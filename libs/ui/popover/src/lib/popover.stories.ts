@@ -1,4 +1,3 @@
-
 import {
   select,
   withKnobs,
@@ -14,7 +13,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const popoverComponent = () => ({
+export const basic = () => ({
   moduleMetadata: { imports: [TsPopoverModule] },
   component: TsPopoverComponent,
   template: `
@@ -25,7 +24,7 @@ export const popoverComponent = () => ({
         [popoverTrigger]="popoverTrigger"
         [popover]="popper1"
         style="margin: 200px 250px;"
-      >Click me!</button>
+      >{{ popoverTrigger === 'click' ? 'Click' : 'Hover' }} Me!</button>
     </div>
 
     <ts-popover #popper1>
@@ -38,3 +37,7 @@ export const popoverComponent = () => ({
     popoverTrigger: select('popoverTrigger', ['click', 'hover'], 'click'),
   },
 });
+
+basic.parameters = {
+  actions: { disabled: true },
+};
