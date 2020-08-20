@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@2.0.9...@terminus/ui-radio-group@2.0.10) (2020-08-20)
+
+
+### Bug Fixes
+
+* **RadioGroup:** fix radio button css order on borders. ([b22c1fd](https://github.com/GetTerminus/terminus-oss/commit/b22c1fdbfbe60ef58ef4cebc55752b31549986dd))
+
+
+
+
+
 ## [2.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@2.0.8...@terminus/ui-radio-group@2.0.9) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/ui-radio-group
