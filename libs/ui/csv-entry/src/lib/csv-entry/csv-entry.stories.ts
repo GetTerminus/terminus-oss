@@ -1,5 +1,6 @@
 /* eslint-disable @angular-eslint/prefer-on-push-component-change-detection */
 import { Component } from '@angular/core';
+import { Validators } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { action } from '@storybook/addon-actions';
 import {
@@ -30,31 +31,9 @@ export const basic = () => ({
   },
 });
 
-export const customRowAndColumnCount = () => ({
-  moduleMetadata: { imports: [...MODULE_IMPORTS] },
-  component: TsCSVEntryComponent,
-  props: {
-    columnCount: 4,
-    rowCount: 6,
-  },
-});
-
-export const staticHeaders = () => ({
-  moduleMetadata: { imports: [...MODULE_IMPORTS] },
-  component: TsCSVEntryComponent,
-  props: {
-    columnHeaders: ['Header One', 'Header Two'],
-  },
-});
-
-export const fullWidth = () => ({
-  moduleMetadata: { imports: [...MODULE_IMPORTS] },
-  component: TsCSVEntryComponent,
-  props: {
-    columnCount: 1,
-    fullWidth: true,
-  },
-});
+basic.parameters = {
+  knobs: { disabled: true },
+};
 
 export const customFooterContent = () => ({
   moduleMetadata: { imports: [...MODULE_IMPORTS] },
@@ -69,3 +48,48 @@ export const customFooterContent = () => ({
     dir: select('footerDirection', ['ltr', 'rtl'], 'ltr'),
   },
 });
+
+customFooterContent.parameters = {
+  actions: { disabled: true },
+};
+
+export const customRowAndColumnCount = () => ({
+  moduleMetadata: { imports: [...MODULE_IMPORTS] },
+  component: TsCSVEntryComponent,
+  props: {
+    columnCount: 4,
+    rowCount: 6,
+  },
+});
+
+customRowAndColumnCount.parameters = {
+  actions: { disabled: true },
+  knobs: { disabled: true },
+};
+
+export const fullWidth = () => ({
+  moduleMetadata: { imports: [...MODULE_IMPORTS] },
+  component: TsCSVEntryComponent,
+  props: {
+    columnCount: 1,
+    fullWidth: true,
+  },
+});
+
+fullWidth.parameters = {
+  actions: { disabled: true },
+  knobs: { disabled: true },
+};
+
+export const staticHeaders = () => ({
+  moduleMetadata: { imports: [...MODULE_IMPORTS] },
+  component: TsCSVEntryComponent,
+  props: {
+    columnHeaders: ['Header One', 'Header Two'],
+  },
+});
+
+staticHeaders.parameters = {
+  actions: { disabled: true },
+  knobs: { disabled: true },
+};
