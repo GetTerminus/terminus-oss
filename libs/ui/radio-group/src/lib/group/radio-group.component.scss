@@ -119,11 +119,9 @@
 
     // Create blue triangle at top right for the icon to display over
     &::after {
-      border-color: transparent;
+      border: 18px solid transparent;
       border-right-color: var(--ts-color-primary-500);
-      border-style: solid;
       border-top-color: var(--ts-color-primary-500);
-      border-width: 18px;
       content: '';
       opacity: 0;
       position: absolute;
