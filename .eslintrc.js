@@ -114,5 +114,12 @@ module.exports = {
       },
     },
 
+    // Story files
+    {
+      files: ['**/*.stories.ts'],
+      rules: {
+        '@angular-eslint/prefer-on-push-component-change-detection': DISABLED,
+      },
+    },
   ],
 };

@@ -1,6 +1,5 @@
 .github
 .jest-cache
-.storybook
 coverage
 dist
 docs
