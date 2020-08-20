@@ -29,9 +29,9 @@ export const allToggles = () => ({
         [aspectRatio]="aspectRatio"
         [border]="border"
         [centeredContent]="centeredContent"
-        [isDisabled]="isDisabled"
         [flat]="flat"
         [id]="id"
+        [isDisabled]="isDisabled"
         [supportsInteraction]="supportsInteraction"
         [theme]="theme"
       >My card content</ts-card>
@@ -40,10 +40,23 @@ export const allToggles = () => ({
     aspectRatio: select('aspectRatio', tsCardAspectRatioTypes, '1:1'),
     border: select('border', tsCardBorderOptionsList, 'none'),
     centeredContent: boolean('centeredContent', false),
-    isDisabled: boolean('isDisabled', false),
     flat: boolean('flat', false),
     id: text('id', ''),
+    isDisabled: boolean('isDisabled', false),
     supportsInteraction: boolean('supportsInteraction', false),
     theme: select('theme', ['primary', 'accent', 'warn'], 'primary'),
   },
+});
+
+export const cardWithTitle = () => ({
+  moduleMetadata: {
+    imports: [TsCardModule],
+  },
+  component: TsCardComponent,
+  template: `
+    <ts-card>
+      <h3 tsCardTitle>Card Title</h3>
+      <p>My card content</p>
+    </ts-card>
+  `,
 });
