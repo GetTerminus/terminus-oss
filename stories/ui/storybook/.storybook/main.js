@@ -1,6 +1,7 @@
 module.exports = {
+  stories: ['../src/lib/**/*.stories.@(ts|js)'],
   addons: [
-    '@storybook/addon-knobs/register',
+    '@storybook/addon-knobs',
     '@storybook/addon-viewport/register',
     '@storybook/addon-actions/register',
     '@storybook/addon-notes/register',
