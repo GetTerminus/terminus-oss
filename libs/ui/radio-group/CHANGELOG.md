@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.11](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@2.0.10...@terminus/ui-radio-group@2.0.11) (2020-08-21)
+
+
+### Bug Fixes
+
+* **RadioGroup:** correctly passing theme info to material component ([54ee0ff](https://github.com/GetTerminus/terminus-oss/commit/54ee0ffd2d7d8f55848bf9221d70776999992f58))
+
+
+
+
+
 ## [2.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@2.0.9...@terminus/ui-radio-group@2.0.10) (2020-08-20)
 
 
