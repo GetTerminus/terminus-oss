@@ -27,7 +27,7 @@ import {
 
 
 /**
- * Define the allowed keys for an item passed to the {@link TsRadioComponent}
+ * Define the allowed keys for an item passed to the {@link TsRadioGroupComponent}
  */
 export interface TsRadioOption {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
