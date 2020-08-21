@@ -35,8 +35,9 @@
     --menu-item-backgroundColor: transparent;
     background-color: var(--menu-item-backgroundColor);
     display: block;
-    font-weight: var(--ts-link-fontWeight);
-    padding: var(--ts-space-inset-300) var(--ts-space-inset-500);
+    font: var(--ts-typography-compound-body2);
+    font-size: 14px;
+    padding: var(--ts-space-inset-300) var(--ts-space-inset-400);
     text-decoration: none;
     transition-duration: var(--ts-animation-time-duration-400);
     transition-property: background-color, color;
