@@ -4,7 +4,6 @@
     "defaultBase": "release"
   },
   "implicitDependencies": {
-    "angular.json": "*",
     "package.json": {
       "dependencies": "*"
     },
