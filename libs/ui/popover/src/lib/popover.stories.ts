@@ -9,7 +9,7 @@ import {
 } from '@terminus/ui-popover';
 
 export default {
-  title: 'TsPopoverComponent',
+  title: 'Components/Popover',
   decorators: [withKnobs],
 };
 

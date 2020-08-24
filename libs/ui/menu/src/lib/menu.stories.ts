@@ -20,7 +20,7 @@ import {
 } from '@terminus/ui-menu';
 
 export default {
-  title: 'TsMenuComponent',
+  title: 'Components/Menu',
   decorators: [withPseudo, withKnobs],
   parameters: {
     withPseudo: {

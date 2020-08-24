@@ -21,10 +21,8 @@ const MODULE_METADATA = {
 };
 
 export default {
-  title: 'TsCheckboxComponent',
-  decorators: [
-    withKnobs,
-  ],
+  title: 'Components/Checkbox',
+  decorators: [withKnobs],
 };
 
 @Component({

@@ -15,7 +15,7 @@ import {
 } from '@terminus/ui-csv-entry';
 
 export default {
-  title: 'TsCSVEntryComponent',
+  title: 'Components/CSV Entry',
   decorators: [withKnobs],
 };
 
