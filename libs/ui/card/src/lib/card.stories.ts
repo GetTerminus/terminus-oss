@@ -16,7 +16,7 @@ const MODULE_METADATA = {
 };
 
 export default {
-  title: 'TsCardComponent',
+  title: 'Components/Card',
   decorators: [
     withKnobs,
   ],

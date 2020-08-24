@@ -14,7 +14,7 @@ import {
 } from '@terminus/ui-expansion-panel';
 
 export default {
-  title: 'TsExpansionPanelComponent',
+  title: 'Components/Expansion Panel',
   decorators: [withKnobs],
 };
 
