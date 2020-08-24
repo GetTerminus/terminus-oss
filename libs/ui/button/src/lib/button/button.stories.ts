@@ -1,7 +1,6 @@
 import { APP_INITIALIZER } from '@angular/core';
 import {
   AttributesStatesDefault,
-  Orientation,
   PseudoStatesDefault,
   withPseudo,
 } from '@ergosign/storybook-addon-pseudo-states-angular';
@@ -13,21 +12,14 @@ import { faHome } from '@fortawesome/pro-solid-svg-icons/faHome';
 import { action } from '@storybook/addon-actions';
 import {
   boolean,
-  number,
-  select,
-  text,
   withKnobs,
 } from '@storybook/addon-knobs';
 
 import {
   TsButtonModule,
   TsButtonComponent,
-  tsButtonFormatTypesArray,
 } from '@terminus/ui-button';
 import { TsIconModule } from '@terminus/ui-icon';
-
-// const IS_CHROMATIC = isChromatic();
-const IS_CHROMATIC = true;
 
 const BUTTON_METADATA = {
   imports: [
@@ -52,7 +44,7 @@ const BUTTON_METADATA = {
 // NOTE: There is an issue with permutations for components using OnPush. Waiting for this issue to be ironed out:
 // https://github.com/Ergosign/storybook-addon-pseudo-states/issues/19
 export default {
-  title: 'Simple Button',
+  title: 'Components/Button',
   decorators: [withPseudo, withKnobs],
   parameters: {
     withPseudo: {
