@@ -44,6 +44,10 @@
   recordCountTooHighMessage="Please refine your filters."
   (recordsPerPageChange)="perPageChange($event)"
   (pageSelect)="onPageSelect($event)"
+  (previousPageClicked)="prevPage()"
+  (nextPageClicked)="nextPage()"
+  (firstPageClicked)="firstPage()"
+  (lastPageClicked)="lastPage()"
 ></ts-paginator>
 
 <ng-template #myTemplate let-message>

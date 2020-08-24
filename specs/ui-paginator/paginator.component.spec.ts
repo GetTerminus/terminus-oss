@@ -108,6 +108,7 @@ describe(`TsPaginatorComponent`, function() {
 
       expect(titleEl.textContent).toContain('11 - 20 of 100');
       expect(nextPageIndex).toEqual(1);
+      expect(fixture.componentInstance.nextPage).toHaveBeenCalled();
     }));
 
     test(`should go to the previous page`, fakeAsync(() => {
@@ -123,6 +124,7 @@ describe(`TsPaginatorComponent`, function() {
       clickToChangePage(fixture, dir);
 
       expect(titleEl.textContent).toContain('1 - 10 of 100');
+      expect(fixture.componentInstance.prevPage).toHaveBeenCalled();
     }));
 
     test(`should go to the first page and disable first & prev buttons`, fakeAsync(() => {
@@ -145,6 +147,7 @@ describe(`TsPaginatorComponent`, function() {
       expect(titleEl.textContent).toContain('1 - 10 of 100');
       expect(firstPageBut.disabled).toEqual(true);
       expect(previousPageBut.disabled).toEqual(true);
+      expect(fixture.componentInstance.firstPage).toHaveBeenCalled();
     }));
 
     test(`should go to the last page and disable last and next buttons`, fakeAsync(() => {
@@ -162,6 +165,7 @@ describe(`TsPaginatorComponent`, function() {
       expect(titleEl.textContent).toContain('91 - 100 of 100');
       expect(lastPageBut.disabled).toEqual(true);
       expect(nextPageBut.disabled).toEqual(true);
+      expect(fixture.componentInstance.lastPage).toHaveBeenCalled();
     }));
   });
 

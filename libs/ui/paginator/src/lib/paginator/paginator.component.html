@@ -26,6 +26,7 @@
         [theme]="theme"
         [isDisabled]="isFirstPage(currentPageIndex)"
         (clicked)="changePage(firstPageIndex, currentPageIndex, pagesArray)"
+        (clicked)="firstPageClicked.emit()"
       >
         <ts-icon [icon]="firstPageIcon" size="1x"></ts-icon>
       </ts-button>
@@ -37,6 +38,7 @@
         [theme]="theme"
         [isDisabled]="isFirstPage(currentPageIndex)"
         (clicked)="changePage(currentPageIndex - 1, currentPageIndex, pagesArray)"
+        (clicked)="previousPageClicked.emit()"
       >
         <ts-icon [icon]="previousPageIcon" size="1x"></ts-icon>
       </ts-button>
@@ -63,6 +65,7 @@
         [theme]="theme"
         [isDisabled]="isNextButtonDisabled(currentPageIndex)"
         (clicked)="changePage(currentPageIndex + 1, currentPageIndex, pagesArray)"
+        (clicked)="nextPageClicked.emit()"
       >
         <ts-icon [icon]="nextPageIcon" size="1x"></ts-icon>
       </ts-button>
@@ -77,6 +80,7 @@
         [theme]="theme"
         [isDisabled]="isNextButtonDisabled(currentPageIndex)"
         (clicked)="changePage(lastPageIndex, currentPageIndex, pagesArray)"
+        (clicked)="lastPageClicked.emit()"
       >
         <ts-icon [icon]="lastPageIcon" size="1x"></ts-icon>
       </ts-button>

@@ -55,4 +55,20 @@ export class PaginatorComponent {
     console.log('DEMO: records per page changed: ', e);
   }
 
+  prevPage(): void {
+    console.log('DEMO: previous page button clicked');
+  }
+
+  nextPage(): void {
+    console.log('DEMO: next page button clicked');
+  }
+
+  firstPage(): void {
+    console.log('DEMO: first page button clicked');
+  }
+
+  lastPage(): void {
+    console.log('DEMO: last page button clicked');
+  }
+
 }

@@ -22,6 +22,10 @@ export class Basic {
       [showRecordsPerPageSelector]="showRecordsPerPageSelector"
       [totalRecords]="totalRecords"
       [isZeroBased]="zeroBased"
+      (previousPageClicked)="prevPage()"
+      (nextPageClicked)="nextPage()"
+      (firstPageClicked)="firstPage()"
+      (lastPageClicked)="lastPage()"
     ></ts-paginator>
   `,
 })
@@ -30,6 +34,10 @@ export class RecordsPerPage {
   public recordsPerPageChoices = [10, 20, 50];
   public totalRecords = 100;
   public zeroBased = true;
+  prevPage = jest.fn();
+  nextPage = jest.fn();
+  firstPage = jest.fn();
+  lastPage = jest.fn();
 }
 
 @Component({
