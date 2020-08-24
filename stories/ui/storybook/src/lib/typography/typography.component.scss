@@ -1,0 +1,131 @@
+@import '~modern-normalize/modern-normalize.css';
+@import '~@terminus/design-tokens/css/design-tokens.css';
+
+// Reset:
+html {
+  background-color: var(--ts-color-base-white);
+  color: var(--ts-color-base-black);
+  font-family: var(--ts-typography-family-base-roboto);
+  font-size: var(--ts-typography-size-300);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+dl,
+dt,
+dd {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--selection-background);
+  color: var(--selection-color);
+}
+
+::-moz-selection {
+  background: var(--selection-background);
+  color: var(--selection-color);
+}
+
+:root {
+  --selection-background: var(--ts-color-base-palette4-500);
+  --selection-color: var(--ts-color-base-white);
+}
+
+
+.card {
+  background-color: var(--ts-color-base-white);
+  border-radius: var(--ts-border-radius-base);
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .20), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+}
+
+header {
+  margin-bottom: var(--ts-space-stack-600);
+}
+
+// wrapper for stack
+.stack {
+  margin-bottom: var(--ts-space-stack-800);
+  // Set up for local anchor link
+  position: relative;
+
+  // wrapper for stacks info and display
+  &__info {
+    padding: var(--ts-space-inset-600);
+  }
+}
+
+// wrapper for individual stack content
+.type {
+  --type-display-maxHeight: 400px;
+  --display-bg: var(--ts-color-base-palette7-100);
+
+  &__display {
+    background-color: var(--display-bg);
+    border-left: 1px solid var(--ts-color-base-palette7-300);
+    overflow: scroll;
+    position: relative;
+
+    // ul
+    &-item {
+      --gradient-size: 30px;
+      list-style-type: none;
+      margin: 0;
+      padding: var(--ts-space-inset-400) var(--ts-space-inset-400) var(--gradient-size) var(--ts-space-inset-400);
+
+      &::after {
+        background: linear-gradient(to top, var(--display-bg) 20%, transparent 100%);
+        bottom: 0;
+        content: '';
+        display: block;
+        height: var(--gradient-size);
+        left: 0;
+        position: absolute;
+        // Don't cover the scrollbar
+        right: 10px;
+      }
+
+      li {
+        margin-bottom: var(--ts-space-stack-500);
+      }
+
+      h6 {
+        color: var(--ts-color-base-palette7-700);
+        font-size: var(--ts-typography-size-200);
+        margin: var(--ts-space-stack-300) 0;
+      }
+    }
+
+    // div container for demo text
+    &-example {
+      overflow: hidden;
+      padding-left: var(--ts-space-inline-600);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      &::before {
+        display: inline-block;
+        outline: 1px solid green;
+      }
+    }
+  }
+
+  &__definition {
+    background-color: lightcoral;
+  }
+}
