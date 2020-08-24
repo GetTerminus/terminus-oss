@@ -1,0 +1,27 @@
+<div fxLayout="column">
+  <div
+    fxLayout="row"
+    fxLayoutAlign="space-around center"
+    class="nav__toolbar"
+  >
+    <form [formGroup]="toolbarForm" fxLayout="row" fxLayoutGap="16px">
+      <mat-form-field>
+        <mat-label>Visible references:</mat-label>
+        <mat-select formControlName="selectedReferences" multiple>
+          <mat-option *ngFor="let reference of allPossibleReferences" [value]="reference.value">
+            {{ reference.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Color format:</mat-label>
+        <mat-select formControlName="selectedColorFormat">
+          <mat-option *ngFor="let format of allPossibleColorFormats" [value]="format">
+            {{ format }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+</div>

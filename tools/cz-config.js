@@ -97,6 +97,7 @@ module.exports = {
 
     // Dev
     { name: 'CI' },
+    { name: 'Storybook' },
     { name: 'VR' },
     { name: 'Dependencies' },
   ],

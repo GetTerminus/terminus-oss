@@ -1,0 +1,45 @@
+<tsdt-toolbar></tsdt-toolbar>
+<div class="color" fxLayout="row" fxLayoutGap="16px">
+  <div class="palettes" fxFlex>
+    <header fxLayout="row" fxLayoutAlign="center center">
+      <h2 fxFlex>Base Palettes</h2>
+    </header>
+
+    <div
+      class="palette"
+      *ngFor="let palette of colors"
+    >
+      <span id="{{ palette.name }}" class="visually-hidden fake-link"></span>
+      <h2 class="palette__name">
+        {{ palette.name | titlecase }}
+      </h2>
+
+      <div
+          class="palette__colors"
+          gdAuto
+          gdGap="16px"
+          gdColumns="repeat(auto-fill, minmax(300px, 1fr))"
+      >
+        <div class="color card" *ngFor="let color of palette.colors">
+          <span id="{{ color.name }}" class="visually-hidden fake-link--large"></span>
+          <div
+            class="color__display"
+            [style.backgroundColor]="color.value"
+            fxLayout="row"
+            fxLayoutAlign="start end"
+          >
+            <h3>{{ color.humanName | titlecase }}</h3>
+          </div>
+
+          <tsdt-tokens
+            [isColor]="true"
+            [item]="color"
+            [selectedReferences]="settingsService.selectedReferences$ | async"
+            [colorFormat]="settingsService.selectedColorFormat$ | async"
+          ></tsdt-tokens>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
