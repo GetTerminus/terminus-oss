@@ -78,6 +78,10 @@ const DEFAULT_RECORDS_PER_PAGE_OPTIONS = [10, 20, 50];
  *              totalRecords="1450"
  *              (pageSelect)="myMethod($event)"
  *              (recordsPerPageChange)="myMethod($event)"
+ *              (previousPageClicked)="myMethod()"
+ *              (nextPageClicked)="myMethod()"
+ *              (lastPageClicked)="myMethod()"
+ *              (firstPageClicked)="myMethod()"
  * ></ts-paginator>
  *
  * <ng-template #myTemplate let-message>
@@ -315,6 +319,29 @@ export class TsPaginatorComponent implements OnChanges, AfterViewInit {
   @Output()
   public readonly recordsPerPageChange = new EventEmitter<number>();
 
+  /**
+   * Emit an event when previous page button clicked
+   */
+  @Output()
+  public readonly previousPageClicked = new EventEmitter();
+
+  /**
+   * Emit an event when next page button clicked
+   */
+  @Output()
+  public readonly nextPageClicked = new EventEmitter();
+
+  /**
+   * Emit an event when first page button clicked
+   */
+  @Output()
+  public readonly firstPageClicked = new EventEmitter();
+
+  /**
+   * Emit an event when last page button clicked
+   */
+  @Output()
+  public readonly lastPageClicked = new EventEmitter();
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
     this.pageControl.setValue([this.recordsPerPage]);

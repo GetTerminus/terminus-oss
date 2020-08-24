@@ -101,6 +101,33 @@ myChangeFunc(v: number) {
 }
 ```
 
+The paginator will emit previous page clicked, next page clicked, first page clicked or last page clicked event when corresponding button is clicked.
+
+```html
+<ts-paginator
+  [totalRecords]="100"
+  (previousPageClicked)="prevPage()"
+  (nextPageClicked)="nextPage()"
+  (firstPageClicked)="firstPage()"
+  (lastPageClicked)="lastPage()"
+></ts-paginator>
+```
+
+```typescript
+prevPage() {
+  console.log('previous page button clicked');
+}
+nextPage() {
+  console.log('next page button clicked');
+}
+firstPage() {
+  console.log('first page button clicked');
+}
+lastPage() {
+  console.log('last page button clicked');
+}
+```
+
 ### Current page
 
 Define the current active page by index:
