@@ -1,0 +1,46 @@
+<dl class="tokens">
+  <dt>Value</dt>
+  <dd>
+    <ng-container *ngIf="isColor; else notColor">
+      <tsdt-grab [value]="item?.value | colorFormat:colorFormat"></tsdt-grab>
+    </ng-container>
+    <ng-template #notColor>
+      <tsdt-grab [value]="item?.value"></tsdt-grab>
+    </ng-template>
+  </dd>
+
+  <ng-container *ngIf="visibleReferences.indexOf('css') >= 0">
+    <dt>CSS custom property</dt>
+    <dd>
+      <tsdt-grab [value]="'--' + item?.sassName"></tsdt-grab>
+    </dd>
+  </ng-container>
+
+  <ng-container *ngIf="visibleReferences.indexOf('sass-variable') >= 0">
+    <dt>Sass variable</dt>
+    <dd>
+      <tsdt-grab [value]="'$' + item?.sassName"></tsdt-grab>
+    </dd>
+  </ng-container>
+
+  <ng-container *ngIf="visibleReferences.indexOf('sass-map') >= 0">
+    <dt>Sass map</dt>
+    <dd>
+      <tsdt-grab [value]="'map-get($tokens, ' + item?.sassName + ')'"></tsdt-grab>
+    </dd>
+  </ng-container>
+
+  <ng-container *ngIf="visibleReferences.indexOf('js') >= 0">
+    <dt>JavaScript constant</dt>
+    <dd>
+      <tsdt-grab [value]="item?.jsName"></tsdt-grab>
+    </dd>
+  </ng-container>
+
+  <ng-container *ngIf="visibleReferences.indexOf('json') >= 0">
+    <dt>JSON path</dt>
+    <dd>
+      <tsdt-grab [value]="item?.jsonPath"></tsdt-grab>
+    </dd>
+  </ng-container>
+</dl>
