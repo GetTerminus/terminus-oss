@@ -194,6 +194,7 @@ const DEFAULT_DATE_LOCALE = 'en-US';
  *              [(ngModel]="myModel"
  *              openTo="{{ new Date(1990, 1, 1) }}"
  *              prefixIcon="myIconReference"
+ *              suffixIcon="myIconReference"
  *              [readOnly]="false"
  *              [spellcheck]="false"
  *              startingView="year"
@@ -768,6 +769,8 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
 
   /**
    * Define the clear icon
+   *
+   * @deprecated This input should not be used. This icon is only used as the 'clearable' trigger.
    */
   @Input()
   public suffixIcon = faTimesCircle;
