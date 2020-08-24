@@ -116,9 +116,14 @@ module.exports = {
 
     // Story files
     {
-      files: ['**/*.stories.ts'],
+      files: [
+        '**/*.stories.ts',
+        'stories/**/*.ts',
+      ],
       rules: {
         '@angular-eslint/prefer-on-push-component-change-detection': DISABLED,
+        '@angular-eslint/component-selector': DISABLED,
+        '@angular-eslint/directive-selector': SEVERITY,
       },
     },
   ],
