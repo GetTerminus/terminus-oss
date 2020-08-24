@@ -72,6 +72,11 @@ $ nx serve showcase-ui
 # See contribution types here: http://bnj.bz/3C1S0A0d1c3U
 $ yarn run contributors:add [your-github-handle] [contribution-type]
 $ yarn run contributors:generate
+
+# Run storybook for single module
+$ nx storybook ui-button
+# Serve all storybooks
+$ nx run ui-storybook:allstorybook
 ```
 
 Alternatively, a user can be added as a contributor through a GitHub comment. e.g.
