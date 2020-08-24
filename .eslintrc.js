@@ -116,10 +116,7 @@ module.exports = {
 
     // TEMPORARY: ESLint release coming that will remove the need for this
     {
-      files: [
-        '**/*.stories.ts',
-        'stories/**/*.ts',
-      ],
+      files: ['**/*.stories.ts'],
       rules: {
         '@angular-eslint/component-class-suffix': DISABLED,
         '@angular-eslint/component-max-inline-declarations': DISABLED,
