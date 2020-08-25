@@ -12,7 +12,7 @@ if [[ -n "$LERNA_OUTPUT" ]]; then
   echo "Cat changed.json: "
   cat CHANGED.json
 
-  export CHANGED_PROJECTS="$(node json-to-projects-list.js)"
+  export CHANGED_PROJECTS="$(node tools/ci/json-to-projects-list.js)"
   echo "Building: $CHANGED_PROJECTS.."
   yarn run build:changed
 
