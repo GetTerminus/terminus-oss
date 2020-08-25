@@ -5252,10 +5252,10 @@
   resolved "https://registry.yarnpkg.com/@terminus/design-tokens/-/design-tokens-3.1.0.tgz#f838440816ee4dc47af4198a311c195ace28c92e"
   integrity sha512-zLNVPSoX2d927pJSKIjiSKrn2VSnrAGiWHhuXBssOHK/u6vB2cmLMnuDkRgtRzZr/gvzkogdPm2W2ybXTYWyaQ==
 
-"@terminus/eslint-config-frontend@3.0.3":
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/@terminus/eslint-config-frontend/-/eslint-config-frontend-3.0.3.tgz#3cfd01655c59dc933db2b5511338ffac823cf09c"
-  integrity sha512-rnsJFWwWi2QQMMcRS/E4In/K70CsFI+s2KCBOqm+RY83nv5jxzzgGn/BEeN5oLC4TLw3h7dcM+JZRYIcT8U6EA==
+"@terminus/eslint-config-frontend@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@terminus/eslint-config-frontend/-/eslint-config-frontend-3.1.0.tgz#d537a301c46db95a92b2acc37f3d41d8174dc4c4"
+  integrity sha512-L/1MHf52T7JgfA2gd6f848B/U9jptjZnw+UwjSLDJglBSu8MVThlUS5lcEKw4TUJjlTdeDu85SlTOJCzJRxodg==
 
 "@terminus/fe-testing@1.1.0":
   version "1.1.0"
