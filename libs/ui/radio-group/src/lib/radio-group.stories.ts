@@ -11,7 +11,6 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { withPseudo } from '@ergosign/storybook-addon-pseudo-states-angular';
 import { action } from '@storybook/addon-actions';
 import {
   array,
@@ -55,7 +54,6 @@ export default {
   decorators: [withKnobs],
 };
 
-// noinspection AngularMissingOrInvalidDeclarationInModule
 @Component({
   selector: 'ts-radio-wrapper',
   template: `
