@@ -1,7 +1,7 @@
 {
   "name": "@terminus/eslint-config-frontend",
   "description": "Terminus shared ESLint configuration",
-  "version": "3.0.4",
+  "version": "3.1.0",
   "license": "MIT",
   "author": "@terminus",
   "private": false,
