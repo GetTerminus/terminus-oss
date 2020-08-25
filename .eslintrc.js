@@ -114,7 +114,7 @@ module.exports = {
       },
     },
 
-    // TEMPORARY: ESLint release coming that will remove the need for this
+    // FIXME: This shouldn't be needed as it exists in the base config.
     {
       files: ['**/*.stories.ts'],
       rules: {
