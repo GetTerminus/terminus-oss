@@ -43,4 +43,8 @@ export const color = () => ({
   moduleMetadata: MODULE_METADATA,
   component: ColorComponent,
 });
+color.parameters = {
+  knobs: { disabled: true },
+  actions: { disabled: true },
+};
 
