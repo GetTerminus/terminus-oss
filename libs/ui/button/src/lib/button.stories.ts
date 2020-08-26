@@ -21,7 +21,7 @@ import {
 } from '@terminus/ui-button';
 import { TsIconModule } from '@terminus/ui-icon';
 
-const BUTTON_METADATA = {
+const MODULE_METADATA = {
   imports: [
     TsButtonModule,
     TsIconModule,
@@ -65,7 +65,7 @@ export const themes = () => ({
       <ts-button [icon]="icon" (clicked)="onClick($event)">My Button</ts-button>
     </ng-container>
 `,
-  moduleMetadata: BUTTON_METADATA,
+  moduleMetadata: MODULE_METADATA,
   props: {
     withIcon: boolean('With Icon', true),
     icon: faHome,
