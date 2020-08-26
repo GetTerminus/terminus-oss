@@ -69,11 +69,11 @@ export const basic = () => ({
     </div>
   `,
   props: {
-    label: text('label', 'My Input'),
+    label: text('Label', 'My Input'),
     myValue: 'hello there',
     onBlur: action('Blur: '),
     onFocus: action('Focus: '),
-    theme: select('theme', ['primary', 'accent', 'warn'], 'primary'),
+    theme: select('Theme', ['primary', 'accent', 'warn'], 'primary'),
     width: number('Container width', 300),
   },
 });
@@ -140,10 +140,10 @@ export const hideRequiredMarker = () => ({
     </div>
   `,
   props: {
-    label: text('label', 'My input'),
+    label: text('Label', 'My input'),
     hideRequiredMarker: boolean('Hide required marker', true),
     myValue: 'hello there',
-    theme: select('theme', ['primary', 'accent', 'warn'], 'primary'),
+    theme: select('Theme', ['primary', 'accent', 'warn'], 'primary'),
     width: number('Container width', 300),
   },
 });
@@ -161,8 +161,8 @@ export const hint = () => ({
     </div>
   `,
   props: {
-    label: text('label', 'My input'),
-    hint: text('hint', 'My custom hint'),
+    label: text('Label', 'My input'),
+    hint: text('Hint', 'My custom hint'),
     myValue: 'hello there',
     width: number('Container width', 300),
   },
@@ -222,5 +222,25 @@ export const prefixIcon = () => ({
     prefixIcon: faAirFreshener,
     myValue: 'hello there',
     width: number('Container width', 300),
+  },
+});
+
+export const textarea = () => ({
+  moduleMetadata: MODULE_METADATA,
+  component: TsInputComponent,
+  template: `
+    <div [style.width.px]="width">
+      <ts-input
+        [isTextarea]="true"
+        [textareaRows]="textareaRows"
+        [(ngModel)]="myValue"
+        label="My textarea"
+      ></ts-input>
+    </div>
+  `,
+  props: {
+    myValue: 'hello there',
+    width: number('Container width', 300),
+    textareaRows: number('Textarea rows', 4),
   },
 });
