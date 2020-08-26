@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  Input,
+} from '@angular/core';
 import {
   FormBuilder,
   ReactiveFormsModule,
@@ -8,10 +11,7 @@ import {
   withKnobs,
 } from '@storybook/addon-knobs';
 
-import {
-  TsCheckboxComponent,
-  TsCheckboxModule,
-} from '@terminus/ui-checkbox';
+import { TsCheckboxModule } from '@terminus/ui-checkbox';
 
 const MODULE_METADATA = {
   imports: [
@@ -21,7 +21,7 @@ const MODULE_METADATA = {
 };
 
 export default {
-  title: 'Components/Checkbox',
+  title: 'Components/Data Entry/Checkbox',
   decorators: [withKnobs],
 };
 
@@ -42,6 +42,8 @@ export default {
 })
 class CheckboxWrapper {
   myForm = this.formBuilder.group({ myCheck: [false] });
+  @Input() public isChecked: boolean;
+  @Input() public isDisabled: boolean;
 
   constructor(private formBuilder: FormBuilder) {}
 

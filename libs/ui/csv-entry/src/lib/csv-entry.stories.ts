@@ -1,10 +1,6 @@
 /* eslint-disable @angular-eslint/prefer-on-push-component-change-detection */
-import { Component } from '@angular/core';
-import { Validators } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { action } from '@storybook/addon-actions';
 import {
-  boolean,
   select,
   withKnobs,
 } from '@storybook/addon-knobs';
@@ -15,7 +11,7 @@ import {
 } from '@terminus/ui-csv-entry';
 
 export default {
-  title: 'Components/CSV Entry',
+  title: 'Components/Data Entry/CSV Entry',
   decorators: [withKnobs],
 };
 

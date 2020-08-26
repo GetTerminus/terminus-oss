@@ -16,7 +16,7 @@ const MODULE_METADATA = {
 };
 
 export default {
-  title: 'Components/Card',
+  title: 'Components/Structure/Card',
   decorators: [
     withKnobs,
   ],
