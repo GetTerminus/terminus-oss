@@ -29,7 +29,6 @@ import { TsButtonComponent } from '@terminus/ui-button';
 
 import { TsConfirmationOverlayComponent } from '../overlay/confirmation-overlay.component';
 
-
 /**
  * Define the accepted string values for the {@link TsConfirmationOverlayComponent} position
  */
@@ -61,9 +60,7 @@ export const allowedOverlayPositionTypes: TsConfirmationOverlayPositionTypes[] =
  *           explanationText="Are you sure you want to do this?"
  *           overlayPosition="before"
  *           (cancelled)="myFunction($event)"
- *         >
- *           Click me!
- *         </ts-button>
+ *         >Click me!</ts-button>
  *
  * <example-url>https://getterminus.github.io/ui-demos-release/components/confirmation</example-url>
  */
@@ -143,14 +140,12 @@ export class TsConfirmationDirective implements OnDestroy, OnInit {
   @Output()
   public readonly cancelled = new EventEmitter<boolean>();
 
-
   constructor(
     private elementRef: ElementRef,
     private overlay: Overlay,
     private host: TsButtonComponent,
     private changeDetectorRef: ChangeDetectorRef,
   ) {}
-
 
   /**
    * Spawn the confirmation overlay on click
@@ -161,9 +156,11 @@ export class TsConfirmationDirective implements OnDestroy, OnInit {
    */
   @HostListener('click', ['$event'])
   public onClick(event: Event): void {
-    this.createOverlay();
+    // istanbul ignore else
+    if (!this.host.isDisabled) {
+      this.createOverlay();
+    }
   }
-
 
   /**
    * Dismiss the confirmation overlay on pressing escape
@@ -173,14 +170,12 @@ export class TsConfirmationDirective implements OnDestroy, OnInit {
     this.dismissOverlay();
   }
 
-
   /**
    * Set a flag in the {@link TsButtonComponent} to intercept the click
    */
   public ngOnInit(): void {
     this.host.interceptClick = true;
   }
-
 
   /**
    * Dismiss the overlay and clean up observables
@@ -189,7 +184,6 @@ export class TsConfirmationDirective implements OnDestroy, OnInit {
     this.dismissOverlay();
     this.host.interceptClick = false;
   }
-
 
   /**
    * Create and attach the confirmation overlay
@@ -308,7 +302,6 @@ export class TsConfirmationDirective implements OnDestroy, OnInit {
       panelClass: ['qa-confirmation', 'ts-confirmation-overlay__panel', `${positionClass}`],
     });
   }
-
 
   /**
    * Dismiss the overlay
