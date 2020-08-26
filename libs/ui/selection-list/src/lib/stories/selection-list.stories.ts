@@ -32,6 +32,7 @@ import { untilComponentDestroyed } from '@terminus/fe-utilities';
 import { TsOptionModule } from '@terminus/ui-option';
 import {
   TsSelectionListChange,
+  TsSelectionListComponent,
   TsSelectionListModule,
 } from '@terminus/ui-selection-list';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
@@ -42,7 +43,7 @@ import {
 } from './data';
 
 export default {
-  title: 'Components/Selection List',
+  title: 'Components/Data Entry/Selection List',
   decorators: [withKnobs],
 };
 
@@ -52,6 +53,34 @@ const MODULE_IMPORTS = [
   TsOptionModule,
   TsSelectionListModule,
 ];
+
+export const basic = () => ({
+  moduleMetadata: { imports: [...MODULE_IMPORTS] },
+  component: TsSelectionListComponent,
+  template: `
+    <ts-selection-list
+      [allowMultiple]="allowMultiple"
+      [label]="label"
+      [hint]="hint"
+      [formControl]="formControl"
+      [allowUserInput]="false"
+      [displayFormatter]="formatter"
+      [theme]="theme"
+    >
+      <ts-option [value]="f" [option]="f" *ngFor="let f of fruit">{{ f }}</ts-option>
+    </ts-selection-list>
+  `,
+  props: {
+    hint: text('Hint', 'Begin typing to search..'),
+    isDisabled: boolean('Disabled', false),
+    label: text('Label', 'Select states'),
+    theme: select('Theme', ['primary', 'accent', 'warn'], 'primary'),
+    results: STATES.slice(0, 10),
+    formControl: new FormControl([]),
+    allowMultiple: boolean('Allow multiple selections', false),
+    fruit: ['apple', 'grape', 'peach', 'pear', 'banana'],
+  },
+});
 
 @Component({
   selector: 'ts-selection-list-wrapper',
@@ -109,7 +138,7 @@ class SelectionListWrapper implements OnInit, OnDestroy {
         tap(() => {
           this.inProgress = true;
         }),
-        delay(this.emulateLongQuery ? 6000 : 0),
+        delay(this.emulateLongQuery ? 2000 : 0),
         tap(() => {
           this.inProgress = false;
         }),
@@ -124,9 +153,8 @@ class SelectionListWrapper implements OnInit, OnDestroy {
   }
 
   public queryStates(query: string): State[] {
-    query = query.toLowerCase();
-    console.log('query: ', query);
     if (query) {
+      query = query.toLowerCase();
       const letters = query.split('').map(l => `${l}.*`).join('');
       const regex = new RegExp(letters, 'ig');
       return this.states.filter(s => !!s.name.match(regex));
@@ -145,15 +173,15 @@ class SelectionListWrapper implements OnInit, OnDestroy {
   }
 }
 
-export const userInput = () => ({
+export const allowUserInput = () => ({
   moduleMetadata: { imports: [...MODULE_IMPORTS] },
   component: SelectionListWrapper,
   props: {
-    emulateLongQuery: boolean('emulateLongQuery', true),
+    emulateLongQuery: boolean('emulateLongQuery', false),
     hint: text('Hint', 'Begin typing to search..'),
-    isDisabled: boolean('isDisabled', false),
+    isDisabled: boolean('Disabled', false),
     label: text('Label', 'Select states'),
-    theme: select('theme', ['primary', 'accent', 'warn'], 'primary'),
+    theme: select('Theme', ['primary', 'accent', 'warn'], 'primary'),
     closed: action('Closed'),
     duplicate: action('Duplicate selection'),
     opened: action('Opened'),
@@ -163,4 +191,3 @@ export const userInput = () => ({
     optionDeselected: action('Option deselected'),
   },
 });
-
