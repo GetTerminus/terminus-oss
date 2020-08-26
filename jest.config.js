@@ -5,6 +5,7 @@ module.exports = {
     `**/*.{ts,js}`,
     `libs/**/*.ts`,
     `!**/*.stories.ts`,
+    `!**/stories/*`,
     `!**/*.module.ts`,
     `!**/testing/**`,
     `!**/index.ts`,
