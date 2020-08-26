@@ -6,9 +6,8 @@
 
   &.ts-selection-list--single {
     .ts-selection-list__input {
-      // ts icon wraps around material icon, which defines width 24px.
-      $MAT_ICON_WIDTH: 24px;
-      width: calc(100% - #{$MAT_ICON_WIDTH});
+      $ICON_WIDTH: 24px;
+      width: calc(100% - #{$ICON_WIDTH});
     }
   }
 
@@ -29,21 +28,18 @@
     }
   }
 
-  // Static trigger when user input is not allowed
-  .ts-selection-list__custom-trigger {
-    cursor: pointer;
-    // This magic number forces the div to fill the same vertical space the input would normally
-    min-height: 19px;
-    // Don't let it fully collapse when empty
-    min-width: 1px;
-  }
-
   .ts-chip-collection-wrapper {
     z-index: 1;
   }
 
   .ts-chip {
     z-index: var(--chip-zIndex);
+  }
+
+  .ts-icon {
+    &.c-selection-list__spinner {
+      right: var(--ts-space-inline-600);
+    }
   }
 }
 
