@@ -50,7 +50,7 @@ const MODULE_METADATA = {
 // NOTE: Using the storybook states causes a circular issue with the plugin
 // "Converting circular structure to JSON"
 export default {
-  title: 'Components/Input',
+  title: 'Components/Data Entry/Input',
   decorators: [withKnobs],
 };
 

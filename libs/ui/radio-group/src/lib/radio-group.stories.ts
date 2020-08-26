@@ -50,7 +50,7 @@ const DEMO_ITEMS: TsRadioOption[] = [
 ];
 
 export default {
-  title: 'Components/Radio Group',
+  title: 'Components/Data Entry/Radio Group',
   decorators: [withKnobs],
 };
 

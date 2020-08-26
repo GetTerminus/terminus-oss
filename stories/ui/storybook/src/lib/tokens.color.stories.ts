@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   FormsModule,
@@ -15,7 +14,6 @@ import { GrabComponent } from './shared/grab/grab.component';
 import { ColorFormatPipe } from './shared/pipes/color-format.pipe';
 import { TokensComponent } from './shared/tokens/tokens.component';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
-import { TypographyComponent } from './typography/typography.component';
 
 const MODULE_METADATA = {
   imports: [
@@ -24,7 +22,6 @@ const MODULE_METADATA = {
     ClipboardModule,
     FlexLayoutModule,
     FormsModule,
-    HttpClientModule,
     MatSelectModule,
     MatToolbarModule,
     ReactiveFormsModule,
@@ -35,12 +32,11 @@ const MODULE_METADATA = {
     GrabComponent,
     TokensComponent,
     ToolbarComponent,
-    TypographyComponent,
   ],
 };
 
 export default {
-  title: 'Tokens',
+  title: 'Tokens/Color',
 };
 
 export const color = () => ({
@@ -48,7 +44,3 @@ export const color = () => ({
   component: ColorComponent,
 });
 
-export const typography = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TypographyComponent,
-});

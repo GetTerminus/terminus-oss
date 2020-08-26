@@ -44,7 +44,7 @@ const BUTTON_METADATA = {
 // NOTE: There is an issue with permutations for components using OnPush. Waiting for this issue to be ironed out:
 // https://github.com/Ergosign/storybook-addon-pseudo-states/issues/19
 export default {
-  title: 'Components/Button',
+  title: 'Components/Actions/Button',
   decorators: [withPseudo, withKnobs],
   parameters: {
     withPseudo: {
