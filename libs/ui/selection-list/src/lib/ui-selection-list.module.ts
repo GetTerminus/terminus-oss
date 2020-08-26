@@ -7,7 +7,6 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { MatRippleModule } from '@angular/material/core';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { TsCheckboxModule } from '@terminus/ui-checkbox';
 import { TsChipModule } from '@terminus/ui-chip';
@@ -33,7 +32,6 @@ export * from './trigger/selection-list-trigger.directive';
     CommonModule,
     FlexLayoutModule,
     FormsModule,
-    MatProgressSpinnerModule,
     MatRippleModule,
     OverlayModule,
     ReactiveFormsModule,

@@ -44,7 +44,7 @@ let nextUniqueId = 0;
  * <ts-selection-list-panel
  *              [options]="myOptionsQueryList"
  *              [optionGroups]="myOptionGroupsQueryList"
- *              (optionsSelected)="doSomething($event)"
+ *              (optionSelected)="doSomething($event)"
  * ></ts-selection-list-panel>
  */
 @Component({

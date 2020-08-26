@@ -21,6 +21,7 @@ import {
   FormControl,
   NgControl,
 } from '@angular/forms';
+import { faSpinnerThird } from '@fortawesome/pro-solid-svg-icons';
 import { faCaretDown } from '@fortawesome/pro-solid-svg-icons/faCaretDown';
 import {
   BehaviorSubject,
@@ -189,6 +190,11 @@ export class TsSelectionListComponent implements
    * Whether or not the overlay panel is open
    */
   public panelOpen = false;
+
+  /**
+   * Define the icon for progress indication
+   */
+  public progressIcon = faSpinnerThird;
 
   /**
    * Since the FormFieldComponent is inside this template, we cannot use a provider to pass this component instance to the form field.
