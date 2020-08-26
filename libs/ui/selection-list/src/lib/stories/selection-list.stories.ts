@@ -36,11 +36,10 @@ import {
 } from '@terminus/ui-selection-list';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
-// TODO: Move data when removing existing demos app
 import {
   State,
   STATES,
-} from '../../../../../apps/showcase-ui/src/app/components/selection-list/data';
+} from './data';
 
 export default {
   title: 'Components/Selection List',
