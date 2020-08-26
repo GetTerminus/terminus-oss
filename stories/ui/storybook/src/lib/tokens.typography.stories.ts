@@ -31,3 +31,7 @@ export const typography = () => ({
   moduleMetadata: MODULE_METADATA,
   component: TypographyComponent,
 });
+typography.parameters = {
+  knobs: { disabled: true },
+  actions: { disabled: true },
+};
