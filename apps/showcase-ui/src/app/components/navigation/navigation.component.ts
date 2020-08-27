@@ -7,6 +7,7 @@ import {
 import {
   TsNavigationItem,
   TsNavigationPayload,
+  TsUser,
 } from '@terminus/ui-navigation';
 
 
@@ -61,11 +62,9 @@ const NEW_NAV_ITEM: TsNavigationItem = {
   templateUrl: './navigation.component.html',
 })
 export class NavigationComponent {
-  public currentUser$: Observable<any> = of({
+  public currentUser$: Observable<TsUser> = of({
     id: 1,
     email: 'max@roadwarrior.com',
-    firstname: 'Max',
-    lastname: 'Rockatansky',
     fullName: 'Max Rockatansky',
   });
   public navigationItems$: Observable<any> = of(NAV_ITEMS_MOCK);
