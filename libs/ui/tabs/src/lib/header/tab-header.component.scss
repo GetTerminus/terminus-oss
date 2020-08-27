@@ -63,6 +63,10 @@
     justify-content: center;
     white-space: nowrap;
   }
+
+  .ts-tab-collection--inverted-header & {
+    border-radius: 0 0 var(--ts-border-radius-base) var(--ts-border-radius-base);
+  }
 }
 
 // Pagination controls for when tabs are wider than allowed width
