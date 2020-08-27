@@ -37,6 +37,9 @@
   - [Build storybook for each project](#build-storybook-for-each-project)
   - [Build storybook for all the projects](#build-storybook-for-all-the-projects)
   - [Run Chromatic on affected projects](#run-chromatic-on-affected-projects)
+  - [Storybook global styles](#storybook-global-styles)
+    - [For all stories](#for-all-stories)
+    - [For an individual story](#for-an-individual-story)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -723,6 +726,38 @@ PLEASE **DO NOT** COMMIT CHANGES in `storybook/main.js`
 
 After that, we'd use `build-storybook -c .storybook -o dist/storybook` to build one storybook with the stories from
 `button`, `card` and `csv-entry`. Then chromatic could run through that storybook for visual comparison.
+
+### Storybook global styles
+
+#### For all stories
+
+When running all storybooks together, global styles or fonts can be added to the root UI Storybook `preview-head.html`:
+
+```html
+<!-- stories/ui/storybook/.storybook/preview-head.html -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style type="text/css">
+  html, body {
+    outline: 4px solid gray;
+  }
+</style>
+```
+
+#### For an individual story
+
+When running a single storybook, global styles or fonts can be added to the root UI Storybook `preview-head.html` for
+that package:
+
+```html
+<!-- Example: -->
+<!-- libs/ui/button/.storybook/preview-head.html -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style type="text/css">
+  html, body {
+    outline: 4px solid gray;
+  }
+</style>
+```
 
 🎉 Happy Coding! 🎉
 
