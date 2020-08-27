@@ -14,10 +14,8 @@ import { untilComponentDestroyed } from '@terminus/fe-utilities';
 
 import { TsTabBodyComponent } from './tab-body.component';
 
-
 // Unique ID for each instance
 let nextUniqueId = 0;
-
 
 /**
  * The portal host directive for the contents of the tab.
@@ -34,7 +32,6 @@ export class TsTabBodyHostDirective extends CdkPortalOutlet implements OnInit, O
    */
   protected id: number = nextUniqueId++;
 
-
   constructor(
     componentFactoryResolver: ComponentFactoryResolver,
     viewContainerRef: ViewContainerRef,
@@ -42,7 +39,6 @@ export class TsTabBodyHostDirective extends CdkPortalOutlet implements OnInit, O
   ) {
     super(componentFactoryResolver, viewContainerRef);
   }
-
 
   /**
    * Set initial visibility or set up subscription for changing visibility

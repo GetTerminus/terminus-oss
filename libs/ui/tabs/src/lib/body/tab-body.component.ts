@@ -96,14 +96,13 @@ export class TsTabBodyComponent implements OnInit, OnDestroy {
    */
   private get computedPositionAnimationState(): 'left' | 'right' | 'center' {
     // eslint-disable-next-line no-negated-condition
-    const position = !this.positionIndex
+    return !this.positionIndex
       ? 'center'
       : (this.positionIndex < 0)
         ? 'left'
         : (this.positionIndex > 0)
           ? 'right'
           : 'center';
-    return position;
   }
 
   /**
@@ -141,31 +140,27 @@ export class TsTabBodyComponent implements OnInit, OnDestroy {
    * Event emitted when the tab begins to animate towards the center as the active tab
    */
   @Output()
-  public readonly centering: EventEmitter<number> = new EventEmitter<number>();
+  public readonly centering = new EventEmitter<number>();
 
   /**
    * Event emitted before the centering of the tab begins
    */
   @Output()
-  public readonly beforeCentering: EventEmitter<boolean> = new EventEmitter<boolean>();
+  public readonly beforeCentering = new EventEmitter<boolean>();
 
   /**
    * Event emitted after the tab has left the center position
    */
   @Output()
-  public readonly afterLeavingCenter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  public readonly afterLeavingCenter = new EventEmitter<boolean>();
 
   /**
    * Event emitted when the tab completes its animation towards the center
    */
   @Output()
-  public readonly centered: EventEmitter<void> = new EventEmitter<void>(true);
+  public readonly centered = new EventEmitter<void>(true);
 
-
-  constructor(
-    private elementRef: ElementRef<HTMLElement>,
-  ) {}
-
+  constructor(private elementRef: ElementRef<HTMLElement>) {}
 
   /**
    * After initialized, check if the content is centered and has an origin. If so, set the special position states that transition the tab
@@ -194,9 +189,8 @@ export class TsTabBodyComponent implements OnInit, OnDestroy {
     }
   }
 
-  public ngOnDestroy(): void {
-    // Needed for untilComponentDestroyed
-  }
+  // Needed for untilComponentDestroyed
+  public ngOnDestroy(): void {}
 
   /**
    * Emit events when a tab translation begins
