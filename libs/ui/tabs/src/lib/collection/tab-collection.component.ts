@@ -28,7 +28,6 @@ import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 import { TsTabHeaderComponent } from '../header/tab-header.component';
 import { TsTabComponent } from '../tab/tab.component';
 
-
 /**
  * A change event emitted on focus or selection changes
  */
@@ -48,6 +47,12 @@ export type TsTabAlignmentOptions
   | 'end'
   | 'stretch'
 ;
+export const tsTabAlignmentOptions = [
+  'start',
+  'center',
+  'end',
+  'stretch',
+];
 
 /**
  * Possible positions for the tab header
@@ -56,6 +61,10 @@ export type TsTabHeaderPosition
   = 'above'
   | 'below'
 ;
+export const tsTabHeaderPositions = [
+  'above',
+  'below',
+];
 
 // Unique ID for each instance
 let nextUniqueId = 0;
@@ -206,11 +215,7 @@ export class TsTabCollectionComponent implements AfterContentInit, AfterContentC
   @Output()
   public readonly selectedTabChange: EventEmitter<TsTabChangeEvent> = new EventEmitter<TsTabChangeEvent>(true);
 
-
-  constructor(
-    private changeDetectorRef: ChangeDetectorRef,
-  ) {}
-
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
 
   /**
    * Set up tab and label subscriptions
