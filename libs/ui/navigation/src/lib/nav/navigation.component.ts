@@ -37,18 +37,15 @@ export interface NavigationItemBase {
    * The value to use as the item text
    */
   name: string;
-
   /**
    * Define if the item should only be allowed in the secondary navigation
    */
   // TODO: API change for clarity
   alwaysHidden: boolean;
-
   /**
    * Define if the item is disabled
    */
   isDisabled?: boolean;
-
   /**
    * Define if the item is for admin functionality only
    */
@@ -66,7 +63,6 @@ export interface TsNavigationLinkItem extends NavigationItemBase {
    * locations while an array of strings are used for routerLinks
    */
   destination: string | string[];
-
   /**
    * Whether this link should navigate via the router or standard href
    */
@@ -129,7 +125,7 @@ const DEFAULT_WELCOME_MESSAGE_MAX_LENGTH = 20;
  *              userNameLength="20"
  *              welcomeMessage="Hi!"
  *              welcomeMsgLength="25"
- *              (itemSelected)="myMethod($event)"
+ *              (action)="myMethod($event)"
  * ></ts-navigation>
  *
  * <example-url>https://getterminus.github.io/ui-demos-release/components/navigation</example-url>
@@ -190,7 +186,7 @@ export class TsNavigationComponent implements OnInit, AfterViewInit {
   /**
    * The collection of visible navigation items
    */
-  public visibleItems: BehaviorSubject<TsNavigationItem[]> = new BehaviorSubject([] as TsNavigationItem[]);
+  public visibleItems = new BehaviorSubject<TsNavigationItem[]>([]);
 
   /**
    * Getter to return the count of visible items
@@ -265,9 +261,7 @@ export class TsNavigationComponent implements OnInit, AfterViewInit {
     this.updateLists();
   }
 
-  constructor(
-   private changeDetectorRef: ChangeDetectorRef,
-  ) {}
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
 
   /**
    * Set up initial link groups
@@ -296,7 +290,6 @@ export class TsNavigationComponent implements OnInit, AfterViewInit {
     this.visibleLinkElement.forEach((item: ElementRef) => {
       // Tally up the total space
       totalSpace += item.nativeElement.offsetWidth;
-
       // Add the total space as a breakpoint
       this.breakWidths.push(totalSpace);
     });
