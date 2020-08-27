@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { action } from '@storybook/addon-actions';
 import {
   boolean,
   number,
+  text,
   withKnobs,
 } from '@storybook/addon-knobs';
 
@@ -27,22 +29,33 @@ export const basic = () => ({
   moduleMetadata: { imports: [...MODULE_IMPORTS] },
   component: TsExpansionPanelComponent,
   template: `
-    <ts-expansion-panel [isDisabled]="isDisabled">
-      <ts-expansion-panel-trigger>
-        Here is my trigger!
-      </ts-expansion-panel-trigger>
-
-      <p>And here is my standard panel content.</p>
+    <ts-expansion-panel
+      [isDisabled]="isDisabled"
+      (opened)="panelOpened()"
+      (closed)="panelClosed()"
+      (expandedChange)="panelExpandedChange($event)"
+      (destroyed)="destroyed()"
+      (afterExpand)="afterExpand()"
+      (afterCollapse)="afterCollapse()"
+    >
+      <ts-expansion-panel-trigger>{{ triggerContent }}</ts-expansion-panel-trigger>
+      <p>{{ panelContent }}</p>
     </ts-expansion-panel>
   `,
   props: {
+    triggerContent: text('Trigger content', 'Here is my trigger!'),
+    panelContent: text('Trigger content', 'And here is my standard panel content.'),
     isDisabled: boolean('isDisabled', false),
+    panelOpened: action('Panel opened'),
+    panelClosed: action('Panel closed'),
+    panelExpandedChange: action('Panel expanded change'),
+    afterExpand: action('After expand'),
+    afterCollapse: action('After collapse'),
+    destroyed: action('Panel destroyed'),
   },
 });
-
 basic.parameters = {
   knobs: { disabled: true },
-  actions: { disabled: true },
 };
 
 export const customTriggerSizes = () => ({
@@ -63,7 +76,6 @@ export const customTriggerSizes = () => ({
     expandedHeight: number('expandedHeight', 200),
   },
 });
-
 customTriggerSizes.parameters = {
   actions: { disabled: true },
 };
@@ -84,60 +96,9 @@ export const defaultOpen = () => ({
     isExpanded: boolean('isExpanded', true),
   },
 });
-
 defaultOpen.parameters = {
   knobs: { disabled: true },
   actions: { disabled: true },
-};
-
-// noinspection AngularMissingOrInvalidDeclarationInModule
-@Component({
-  selector: 'ts-expansion-panel-wrapper-events',
-  template: `
-    <ts-expansion-panel
-      (opened)="panelOpened()"
-      (closed)="panelClosed()"
-      (expandedChange)="panelExpandedChange($event)"
-      (destroyed)="panelDestroyed()"
-      (afterExpand)="afterPanelExpanded()"
-      (afterCollapse)="afterPanelCollapsed()"
-    >
-      <ts-expansion-panel-trigger>
-        Here is my trigger!
-      </ts-expansion-panel-trigger>
-
-      <p>And here is my standard panel content.</p>
-    </ts-expansion-panel>
-`,
-})
-class AccordionWrapperEvents {
-  panelOpened() {
-    console.log('DEMO: Panel opened');
-  }
-  panelClosed() {
-    console.log('DEMO: Panel closed');
-  }
-  panelExpandedChange(event) {
-    console.log('DEMO: Panel expanded state changed: ', event);
-  }
-  panelDestroyed() {
-    console.log('DEMO: Panel destroyed');
-  }
-  afterPanelExpanded() {
-    console.log('DEMO: Panel expand animation finished');
-  }
-  afterPanelCollapsed() {
-    console.log('DEMO: Panel collapse animation finished');
-  }
-}
-
-export const events = () => ({
-  moduleMetadata: { imports: [...MODULE_IMPORTS] },
-  component: AccordionWrapperEvents,
-});
-
-events.parameters = {
-  knobs: { disabled: true },
 };
 
 export const lazyLoad = () => ({
@@ -155,13 +116,11 @@ export const lazyLoad = () => ({
     </ts-expansion-panel>
   `,
 });
-
 lazyLoad.parameters = {
   knobs: { disabled: true },
   actions: { disabled: true },
 };
 
-// noinspection AngularMissingOrInvalidDeclarationInModule
 @Component({
   selector: 'ts-expansion-panel-wrapper',
   template: `
@@ -215,11 +174,9 @@ class AccordionWrapper {
   nextStep() {
     this.activeStep++;
   }
-
   previousStep() {
     this.activeStep--;
   }
-
   setStep(index) {
     this.activeStep = index;
   }
@@ -229,7 +186,6 @@ export const stepperOrWizard = () => ({
   moduleMetadata: { imports: [...MODULE_IMPORTS, TsButtonModule] },
   component: AccordionWrapper,
 });
-
 stepperOrWizard.parameters = {
   knobs: { disabled: true },
   actions: { disabled: true },
@@ -240,6 +196,7 @@ export const transparent = () => ({
   component: TsExpansionPanelComponent,
   template: `
     <ts-card>
+      <h3 tsCardTitle>This panel is wrapped in a TsCardComponent</h3>
       <ts-expansion-panel [transparentMode]="transparent">
         <ts-expansion-panel-trigger>
           Here is my transparent trigger!
@@ -253,7 +210,6 @@ export const transparent = () => ({
     transparent: boolean('transparent', true),
   },
 });
-
 transparent.parameters = {
   actions: { disabled: true },
 };
