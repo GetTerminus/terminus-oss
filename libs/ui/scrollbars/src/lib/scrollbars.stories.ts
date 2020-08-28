@@ -145,8 +145,3 @@ export const basic = () => ({
     yReachStartEvent: action('Y reach start'),
   },
 });
-basic.parameters = {
-  // knobs: { disabled: true },
-  // actions: { disabled: true },
-};
-
