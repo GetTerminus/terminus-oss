@@ -63,7 +63,7 @@ const MARGIN_SIZE_CONVERSION = 16;
  * @example
  * <ts-drawer-container
  *              [hasBackdrop]="hasBackdrop"
- *              (backdropClick)="backdropClicked($event)"
+ *              (backdropClick)="myFunction($event)"
  * ></ts-drawer-container>
  *
  * <example-url>https://getterminus.github.io/ui-demos-release/components/drawer</example-url>
