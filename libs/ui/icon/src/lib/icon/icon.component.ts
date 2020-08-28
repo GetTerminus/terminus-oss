@@ -15,6 +15,21 @@ import {
   Transform,
 } from '@fortawesome/fontawesome-svg-core';
 
+export const tsIconSizes: ReadonlyArray<string> = [
+  'xs',
+  'sm',
+  'lg',
+  '1x',
+  '2x',
+  '3x',
+  '4x',
+  '5x',
+  '6x',
+  '7x',
+  '8x',
+  '9x',
+  '10x',
+];
 
 /**
  * This is the icon UI Component
@@ -24,7 +39,6 @@ import {
  *              [icon]="myIconReference"
  *              classes="foo bar"
  *              title="My title."
- *              [mask]="['fas', 'square']"
  *              [styles]="{'stroke': 'red', 'color': 'red'}"
  *              size="2x"
  *              pull="left"
@@ -72,14 +86,6 @@ export class TsIconComponent {
    */
   @Input()
   public title?: string;
-
-  /**
-   * Add a mask
-   *
-   * See: https://fontawesome.com/how-to-use/on-the-web/styling/masking
-   */
-  @Input()
-  public mask?: IconProp;
 
   /**
    * Add custom styles
