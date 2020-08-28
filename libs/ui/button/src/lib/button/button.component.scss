@@ -1,24 +1,3 @@
-// Styles applied when the button is collapsed
-@mixin collapsed {
-  padding: var(--tsb-padding-collapsed);
-
-  .ts-icon {
-    margin-right: 0;
-  }
-
-  .c-icon {
-    position: relative;
-    transform: rotate(var(--tsb-rotation));
-    transition-duration: var(--tsb-icon-transitionDuration-collapse);
-  }
-
-  // collapse the text content
-  .c-button__content {
-    max-width: 0;
-    padding: 0;
-  }
-}
-
 :root {
   // Theme styles
   // DEFAULT
@@ -210,22 +189,40 @@
       &[disabled] {
         &:not(:hover) {
           &:not(:focus) {
-            @include collapsed;
+            padding: var(--tsb-padding-collapsed);
+
+            .ts-icon {
+              margin-right: 0;
+            }
+
+            .c-icon {
+              position: relative;
+              transform: rotate(var(--tsb-rotation));
+              transition-duration: var(--tsb-icon-transitionDuration-collapse);
+            }
+
+            // collapse the text content
+            .c-button__content {
+              max-width: 0;
+              padding: 0;
+            }
           }
         }
       }
 
       // Fix left alignment when button is expanded and an icon is the first item
-      &:hover,
-      &:focus {
-        .c-icon {
-          margin-left: var(--tsb-collapsible-first-icon-adjustment);
+      &.c-button--collapsed {
+        &:hover,
+        &:focus {
+          .c-icon {
+            margin-left: var(--tsb-collapsible-first-icon-adjustment);
+          }
         }
       }
 
       // Padding addition for FontAwesome switch
       .c-icon {
-        padding: 0 .25em;
+        padding: 0 .2em;
       }
 
       .c-button__content {
