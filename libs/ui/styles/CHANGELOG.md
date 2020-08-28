@@ -8,7 +8,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **Styles:** responsive ratio now correctly emits image styles ([a3d96b5](https://github.com/GetTerminus/terminus-oss/commit/a3d96b5745e3f5f8b76ab70a44fdc8388f7212cc))
+* **Styles:** responsive ratio now correctly omits image styles ([a3d96b5](https://github.com/GetTerminus/terminus-oss/commit/a3d96b5745e3f5f8b76ab70a44fdc8388f7212cc))
 
 
 
