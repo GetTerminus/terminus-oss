@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.11](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tabs@2.0.10...@terminus/ui-tabs@2.0.11) (2020-08-28)
+
+
+### Bug Fixes
+
+* **Tabs:** expose tab options as arrays ([16b86f1](https://github.com/GetTerminus/terminus-oss/commit/16b86f1aca2ec6f374f37abd88b9aeab5f1adf99))
+* **Tabs:** tab radius now correct when header is inverted ([63dd1ee](https://github.com/GetTerminus/terminus-oss/commit/63dd1ee515fc108f2fc8cb436faf7be32945cef3))
+
+
+
+
+
 ## [2.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tabs@2.0.9...@terminus/ui-tabs@2.0.10) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/ui-tabs
