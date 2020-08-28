@@ -96,7 +96,7 @@
     padding-top: $padding;
   }
 
-  @if image != null {
+  @if $image != null {
     background-image: url($image);
     background-position: center;
     background-repeat: no-repeat;
