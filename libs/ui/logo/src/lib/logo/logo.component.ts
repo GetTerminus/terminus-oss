@@ -17,7 +17,6 @@ import { FULL_SOLID_LOGO } from '../logo-types/full-solid';
 import { MARK_GRADIENT_LOGO } from '../logo-types/mark-gradient';
 import { MARK_SOLID_LOGO } from '../logo-types/mark-solid';
 
-
 /**
  * Currently supported logo types
  */
@@ -28,7 +27,6 @@ export type TS_LOGO_TYPE
   | 'mark-gradient'
   | 'mark-solid'
 ;
-
 
 /**
  * An array of supported logo types.
@@ -50,7 +48,6 @@ export type TS_LOGO_COLOR
   | 'gray'
 ;
 
-
 /**
  * An array of supported logo colors.
  */
@@ -63,9 +60,6 @@ export const TS_LOGO_COLORS: TS_LOGO_COLOR[] = [
 
 /**
  * This is the logo UI Component
- *
- * #### QA CSS CLASSES
- * - `qa-label`: Placed on the primary container
  *
  * @example
  * <ts-logo type="full-gradient"></ts-logo>
@@ -132,11 +126,9 @@ export class TsLogoComponent implements OnInit {
   }
   private _logoColor: TS_LOGO_COLOR = 'white';
 
-
   constructor(
     private domSanitizer: DomSanitizer,
   ) {}
-
 
   public ngOnInit(): void {
     this.setType();
