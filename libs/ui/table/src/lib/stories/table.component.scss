@@ -1,0 +1,59 @@
+.example-container {
+  overflow-y: scroll;
+  width: 100%;
+
+  &--constrained {
+    height: 440px;
+    outline: 2px solid #add8e6;
+    width: 640px;
+  }
+}
+
+.truncate {
+  display: block;
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-word;
+}
+
+.expandable-demo {
+  tr {
+    cursor: pointer;
+  }
+  .expanded-row {
+    cursor: default;
+  }
+}
+
+tr {
+  &.expanded-row {
+    &::after {
+      display: none;
+    }
+
+    // Expanded rows should not have a background change on hover
+    &:hover {
+      .ts-cell {
+        background: var(--ts-color-base-white);
+      }
+    }
+
+    .expanded-cell {
+      // Override the pinned cell border for expanded cells
+      border-bottom-color: transparent;
+      // stylelint-disable-next-line declaration-no-important
+      border-right-color: transparent !important;
+      display: block;
+      padding: 0;
+      width: 95vw;
+    }
+  }
+}
+
+.ts-table {
+  a {
+    color: var(--ts-color-primary-500);
+  }
+}

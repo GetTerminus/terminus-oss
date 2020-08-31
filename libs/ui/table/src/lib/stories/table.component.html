@@ -1,0 +1,196 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" tsVerticalSpacing>
+  <div style="font-size: 12px;" tsVerticalSpacing>
+    <p>
+      To get around GitHub rate limiting, we cache response data by default.
+      <br>
+      Clear cached data and/or disable below.
+    </p>
+
+    <div tsVerticalSpacing>
+      <label style="margin-right: 1rem;">
+        Use cached data:
+        <input type="checkbox" [(ngModel)]="useCachedData">
+      </label>
+
+      <button (click)="clearCachedData()">Clear cached GitHub data</button>
+    </div>
+
+    <p *ngIf="firstColumnNoWrap">Note: The `title` column has `noWrap: false` set.</p>
+  </div>
+
+  <span fxFlex></span>
+
+  <div style="text-align: right;">
+    <ts-menu [menuItemsTemplate]="columns" theme="secondary">
+      <ts-icon [icon]="iconTable"></ts-icon>
+      Edit Columns
+    </ts-menu>
+    <small style="display: block; max-width: 220px;">
+      Note: Column disabling & reordering is not built into the table.
+      <br>
+      It is added here for demo purposes.
+    </small>
+  </div>
+
+  <ng-template #columns>
+    <form
+      [formGroup]="columnsForm"
+      cdkDropList
+      cdkDropListLockAxis="y"
+      (cdkDropListDropped)="columnDropped($event)"
+    >
+      <ng-container *ngFor="let column of allPossibleColumns">
+        <!-- The menu normally closes after each interaction, so we need to stop propagation here to
+        support multiple selections while open -->
+        <ts-checkbox
+          [formControl]="column.control"
+          (click)="$event.stopPropagation()"
+          theme="accent"
+          cdkDrag
+        >
+          <span>
+            {{ column.display }}
+          </span>
+
+          <!-- Stop drag interactions from affecting the checkbox status -->
+          <ts-icon
+            cdkDragHandle
+            transform="shrink-4"
+            [icon]="iconDrag"
+            (click)="$event.preventDefault() && $event.stopPropagation()"
+          ></ts-icon>
+
+          <div *cdkDragPlaceholder></div>
+        </ts-checkbox>
+      </ng-container>
+    </form>
+  </ng-template>
+</div>
+
+
+<div class="example-container" [class.example-container--constrained]="constrainContainer">
+  <table
+    [class.expandable-demo]="isExpandable"
+    ts-table
+    multiTemplateDataRows
+    [density]="density"
+    [dataSource]="dataSource"
+    [columns]="visibleColumns"
+    (columnsChange)="columnsChange.emit($event)"
+    tsSort
+    [trackBy]="trackBy"
+    #myTable="tsTable"
+  >
+
+    <ng-container tsColumnDef="title" [sticky]="firstSticky" [noWrap]="firstColumnNoWrap">
+      <th ts-header-cell *tsHeaderCellDef>Title</th>
+      <td ts-cell *tsCellDef="let item">{{ item.title }}</td>
+      <td ts-footer-cell *tsFooterCellDef>TEST footer content</td>
+    </ng-container>
+
+    <ng-container tsColumnDef="updated" alignment="right">
+      <th ts-header-cell *tsHeaderCellDef ts-sort-header>Updated</th>
+      <td ts-cell *tsCellDef="let item">{{ item.updated_at | date:"shortDate" }}</td>
+      <td ts-footer-cell *tsFooterCellDef>-</td>
+    </ng-container>
+
+    <ng-container tsColumnDef="comments" alignment="right">
+      <th ts-header-cell *tsHeaderCellDef>Comments</th>
+      <td ts-cell *tsCellDef="let item">{{ item.comments }}</td>
+      <td ts-footer-cell *tsFooterCellDef>427</td>
+    </ng-container>
+
+    <ng-container tsColumnDef="assignee">
+      <th ts-header-cell *tsHeaderCellDef ts-sort-header>Assignee</th>
+      <td ts-cell *tsCellDef="let item">{{ item.login }}</td>
+      <td ts-footer-cell *tsFooterCellDef>-</td>
+    </ng-container>
+
+    <ng-container tsColumnDef="number" alignment="right">
+      <th ts-header-cell *tsHeaderCellDef ts-sort-header>Number</th>
+      <td ts-cell *tsCellDef="let item">{{ item.number }}</td>
+      <td ts-footer-cell *tsFooterCellDef>-</td>
+    </ng-container>
+
+    <ng-container tsColumnDef="labels">
+      <th ts-header-cell *tsHeaderCellDef>Labels</th>
+      <td ts-cell *tsCellDef="let item">
+        <span *ngFor="let l of item.labels">{{ l.name }},</span>
+      </td>
+      <td ts-footer-cell *tsFooterCellDef>-</td>
+    </ng-container>
+
+    <ng-container tsColumnDef="created">
+      <th ts-header-cell *tsHeaderCellDef ts-sort-header>Created</th>
+      <td ts-cell *tsCellDef="let item">{{ item.created_at | date:"shortDate" }}</td>
+      <td ts-footer-cell *tsFooterCellDef>{{ latestCreationDate | tsDate:'short' }}</td>
+    </ng-container>
+
+    <ng-container tsColumnDef="body">
+      <th ts-header-cell *tsHeaderCellDef>
+        Body
+      </th>
+      <td ts-cell *tsCellDef="let item">
+        <span class="truncate" [innerHTML]="sanitize(item.body)"></span>
+      </td>
+      <td ts-footer-cell *tsFooterCellDef>-</td>
+    </ng-container>
+
+    <ng-container tsColumnDef="state">
+      <th ts-header-cell *tsHeaderCellDef>State</th>
+      <td ts-cell *tsCellDef="let item">{{ item.state }}</td>
+      <td ts-footer-cell *tsFooterCellDef>-</td>
+    </ng-container>
+
+    <ng-container tsColumnDef="id" alignment="right">
+      <th ts-header-cell *tsHeaderCellDef>ID</th>
+      <td ts-cell *tsCellDef="let item">{{ item.id }}</td>
+      <td ts-footer-cell *tsFooterCellDef>-</td>
+    </ng-container>
+
+    <ng-container tsColumnDef="html_url" [stickyEnd]="lastSticky">
+      <th ts-header-cell *tsHeaderCellDef>View</th>
+      <td ts-cell *tsCellDef="let item">
+        <a href="{{ item.html_url }}">
+          <ts-icon [icon]="iconExternal"></ts-icon>
+        </a>
+      </td>
+      <td ts-footer-cell *tsFooterCellDef>-</td>
+    </ng-container>
+
+    <!-- Custom column definition for the 'expanded' row -->
+    <ng-container
+      tsColumnDef="expanded"
+      sticky
+    >
+      <td
+        ts-cell
+        *tsCellDef="let item"
+        class="expanded-cell"
+        [attr.colspan]="visibleColumns.length"
+      >
+        <ts-expansion-panel
+          [hideToggle]="true"
+          [isExpanded]="expandedRow && expandedRow === item.id"
+          [transparentMode]="true"
+        >
+          <ts-expansion-panel-trigger
+            collapsedHeight="0px"
+            expandedHeight="0px"
+          ></ts-expansion-panel-trigger>
+
+          <ng-template tsExpansionPanelContent>
+            <div fxLayout="row" fxLayoutAlign="center center">
+              <div style="padding: 2rem;">😬</div>
+            </div>
+          </ng-template>
+        </ts-expansion-panel>
+      </td>
+    </ng-container>
+
+    <tr ts-header-row *tsHeaderRowDef="myTable.columnNames; sticky: headerSticky"></tr>
+    <tr (click)="expand(row)" ts-row *tsRowDef="let row; columns: myTable.columnNames;"></tr>
+    <tr ts-row *tsRowDef="let row; columns: ['expanded']" class="expanded-row"></tr>
+    <tr ts-footer-row *tsFooterRowDef="myTable.columnNames; sticky: footerSticky"></tr>
+  </table>
+</div>
