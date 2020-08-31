@@ -116,7 +116,11 @@ module.exports = {
 
     // FIXME: This shouldn't be needed as it exists in the base config.
     {
-      files: ['**/*.stories.ts'],
+      files: [
+        '**/*.stories.ts',
+        '**/stories/**/*',
+        'stories/**/*',
+      ],
       rules: {
         '@angular-eslint/component-class-suffix': DISABLED,
         '@angular-eslint/component-max-inline-declarations': DISABLED,
