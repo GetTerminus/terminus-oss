@@ -45,6 +45,11 @@
     }
   }
 
+  .c-copy__tooltip,
+  .c-tooltip {
+    height: calc(100% + 2px);
+  }
+
   //
   // Theme support
   //
@@ -196,7 +201,7 @@
     bottom: 0;
     color: var(--ts-color-base-white);
     cursor: pointer;
-    height: 100%;
+    height: calc(100% - 2px);
     padding: var(--copy-icon-padding);
     transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeIn);
   }

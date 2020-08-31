@@ -164,7 +164,7 @@ export class TsCopyComponent {
    * @param disabled - The flag defining if the selection functionality should be disabled
    * @returns The value representing if the copy was successful
    */
-  public selectText(element: ElementRef, hasSelected: boolean, disabled: boolean): boolean {
+  public selectText(element: HTMLDivElement, hasSelected: boolean, disabled: boolean): boolean {
     // If this functionality is disabled OR the text has already been selected,
     // do not intercept any more clicks until the focus is reset
     if (disabled || hasSelected) {
