@@ -32,9 +32,7 @@ import {
   preserveWhitespaces: false,
 })
 export class TsHeaderRowComponent extends CdkHeaderRow {
-  constructor(
-    public elementRef: ElementRef,
-  ) {
+  constructor(public elementRef: ElementRef) {
     super();
   }
 }
@@ -55,9 +53,7 @@ export class TsHeaderRowComponent extends CdkHeaderRow {
   preserveWhitespaces: false,
 })
 export class TsRowComponent extends CdkRow {
-  constructor(
-    public elementRef: ElementRef,
-  ) {
+  constructor(public elementRef: ElementRef) {
     super();
   }
 }
