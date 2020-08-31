@@ -29,6 +29,12 @@ export type TsButtonActionTypes
   | 'Menu'
   | 'Reset'
 ;
+export const tsButtonActionTypes = [
+  'Button',
+  'Submit',
+  'Menu',
+  'Reset',
+];
 
 /**
  * Define the allowed {@link TsButtonComponent} action types
@@ -38,6 +44,11 @@ export type TsButtonFunctionTypes
   | 'search'
   | 'submit'
 ;
+export const tsButtonFunctionTypes = [
+  'button',
+  'search',
+  'submit',
+];
 
 /**
  * Define the allowed {@link TsButtonComponent} format types
