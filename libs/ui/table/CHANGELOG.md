@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@2.0.9...@terminus/ui-table@3.0.0) (2020-08-31)
+
+
+### Bug Fixes
+
+* **Table:** last column no longer causing overflow ([5f20d7a](https://github.com/GetTerminus/terminus-oss/commit/5f20d7a565283106b4343f1b09670dae4cfec3f8)), closes [#298](https://github.com/GetTerminus/terminus-oss/issues/298)
+
+
+### BREAKING CHANGES
+
+* **Table:** Column sizing has changed. Previously the width calculation did not include padding etc. This change
+may make your columns seem smaller than before.
+
+
+
+
+
 ## [2.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@2.0.8...@terminus/ui-table@2.0.9) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/ui-table
