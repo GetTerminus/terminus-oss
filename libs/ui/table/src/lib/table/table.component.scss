@@ -141,6 +141,7 @@
   .ts-header-cell {
     background-color: var(--ts-table-header-bg);
     border-color: var(--ts-table-header-border-color);
+    box-sizing: border-box;
     color: var(--ts-color-utility-600);
     font-weight: 500;
     padding: var(--ts-table-cell-padding);
