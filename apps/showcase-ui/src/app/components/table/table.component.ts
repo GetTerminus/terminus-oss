@@ -111,31 +111,31 @@ export class TableComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       display: 'Comments',
       name: 'comments',
-      width: 100,
+      width: 140,
       control: new FormControl(false),
     },
     {
       display: 'Number',
       name: 'number',
-      width: 80,
+      width: 160,
       control: new FormControl(true),
     },
     {
       display: 'Updated',
       name: 'updated',
-      width: 80,
+      width: 160,
       control: new FormControl(true),
     },
     {
       display: 'State',
       name: 'state',
-      width: 100,
+      width: 140,
       control: new FormControl(false),
     },
     {
       display: 'Labels',
       name: 'labels',
-      width: 200,
+      width: 260,
       control: new FormControl(true),
     },
     // {
