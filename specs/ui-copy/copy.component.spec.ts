@@ -49,11 +49,11 @@ describe(`TsCopyComponent`, function() {
 
   describe(`selectText()`, () => {
     test(`should return false if disabled`, () => {
-      expect(component.selectText(component.content, false, true)).toEqual(false);
+      expect(component.selectText(component.content.nativeElement, false, true)).toEqual(false);
     });
 
     test(`should return if already selected`, () => {
-      expect(component.selectText(component.content, true, false)).toEqual(false);
+      expect(component.selectText(component.content.nativeElement, true, false)).toEqual(false);
     });
 
     test(`should select the text within the passed in element`, () => {
