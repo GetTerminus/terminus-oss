@@ -1,6 +1,6 @@
 <form
   *ngIf="searchForm"
-  class="c-search qa-search"
+  class="c-search"
   [formGroup]="searchForm"
   [ngClass]="{'c-search--disabled': isSubmitting}"
   (keyup)="keyup()"
@@ -8,11 +8,10 @@
   fxLayoutAlign="start center"
 >
   <ts-input
-    class="qa-search-input"
     [label]="inputLabel"
     [prefixIcon]="icon"
     [isClearable]="userCanClear"
-    [isDisabled]="isDisabled"
+    [isDisabled]="isDisabled || isSubmitting"
     [formControl]="searchFormControl"
     [hint]="inputHint"
     [isFocused]="isFocused"
@@ -26,7 +25,7 @@
   ></ts-input>
 
   <ts-button
-    class="qa-search-button"
+    [class.no-validation-or-hint]="noValidationOrHint"
     *ngIf="!autoSubmit"
     [theme]="buttonTheme"
     [isDisabled]="!searchForm.valid || !currentQuery"
