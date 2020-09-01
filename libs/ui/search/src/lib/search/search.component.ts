@@ -8,8 +8,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import {
-  AbstractControl,
   FormBuilder,
+  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
@@ -83,8 +83,8 @@ export class TsSearchComponent implements OnInit {
   /**
    * Get a reference to the search form control
    */
-  public get searchFormControl(): AbstractControl | null {
-    return this.searchForm.get('query');
+  public get searchFormControl(): FormControl | null {
+    return this.searchForm.get('query') as FormControl;
   }
 
   /**
@@ -92,7 +92,7 @@ export class TsSearchComponent implements OnInit {
    */
   public get currentQuery(): string {
     return this.searchForm.value.query
-    && this.searchForm.value.query.length >= this.queryMinLength ? this.searchForm.value.query.trim() : '';
+      && this.searchForm.value.query.length >= this.queryMinLength ? this.searchForm.value.query.trim() : '';
   }
 
   /**
@@ -121,9 +121,7 @@ export class TsSearchComponent implements OnInit {
   public searchForm: FormGroup = this.formBuilder.group({
     query: [
       null,
-      [
-        Validators.pattern(this.inputPatternRegex),
-      ],
+      [Validators.pattern(this.inputPatternRegex)],
     ],
   });
 
@@ -216,11 +214,7 @@ export class TsSearchComponent implements OnInit {
   @Output()
   public readonly submitted = new EventEmitter<TsSearchResponse>();
 
-
-  constructor(
-    private formBuilder: FormBuilder,
-  ) {}
-
+  constructor(private formBuilder: FormBuilder) {}
 
   /**
    * Seed the value if needed on initialization

@@ -1,20 +1,25 @@
-@import '~@terminus/ui-styles/helpers';
-
-
-//
-// @component
-//  Search form
-// @description
-//  A search form with an input and a button
-//
-.ts-search {
-  @include reset;
-  display: block;
+:root {
+  --ts-search-button-marginLeft: 6px;
 }
 
-// <form> primary container
+.ts-search {
+  display: block;
+
+  // Match button vertical alignment with search input
+  .ts-button {
+    position: relative;
+    top: -1px;
+
+    // Add more space if the search IS displaying validations or hints
+    &:not(.no-validation-or-hint) {
+      // Offset to account for space under input for error messages
+      top: calc(var(--ts-space-stack-400) * -1);
+    }
+  }
+}
+
 .c-search {
   ts-button {
-    margin-left: spacing(default);
+    margin-left: var(--ts-search-button-marginLeft);
   }
 }
