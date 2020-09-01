@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-login-form@1.0.12...@terminus/ui-login-form@1.0.13) (2020-09-01)
+
+
+### Bug Fixes
+
+* **LoginForm:** add TsDatePipe in list of providers ([d18c432](https://github.com/GetTerminus/terminus-oss/commit/d18c432d468ee44d0cb586df16650b19af8666f5))
+
+
+
+
+
 ## [1.0.12](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-login-form@1.0.11...@terminus/ui-login-form@1.0.12) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/ui-login-form
