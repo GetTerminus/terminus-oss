@@ -15,8 +15,7 @@ assignees: benjamincharity
 
 #### 3. What are the steps to reproduce?
 
-> Providing a reproduction is the *best* way to share your issue. You can quickly begin with our
-> [StackBlitz Bug Report Starter](https://stackblitz.com/edit/terminus-oss-bug-report-starter?file=src/app/app.component.html)
+> Providing a reproduction is the *best* way to share your issue.
 
 
 #### 4. Provide environment information
