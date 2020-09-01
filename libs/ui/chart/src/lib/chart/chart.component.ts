@@ -37,7 +37,15 @@ export type TsChartVisualizationOptions
   | 'sankey'
   | 'chord'
 ;
-
+export const tsChartVisualizationOptions: ReadonlyArray<TsChartVisualizationOptions> = [
+  'xy',
+  'pie',
+  'map',
+  'radar',
+  'tree',
+  'sankey',
+  'chord',
+];
 
 /**
  * Define possible chart types
@@ -51,7 +59,6 @@ export type TsChart
   | am4charts.SankeyDiagram
   | am4charts.ChordDiagram
 ;
-
 
 /**
  * This is the chart UI Component
@@ -113,7 +120,6 @@ export class TsChartComponent implements OnInit, OnChanges, OnDestroy {
   @Output()
   public readonly chartInitialized = new EventEmitter<TsChart>();
 
-
   constructor(
     private zone: NgZone,
     private amChartsService: TsAmChartsService,
@@ -121,14 +127,12 @@ export class TsChartComponent implements OnInit, OnChanges, OnDestroy {
     this.amCharts = this.amChartsService.amCharts;
   }
 
-
   /**
    * Initialize the chart if amCharts exists
    */
   public ngOnInit(): void {
     this.protectedInitialize();
   }
-
 
   /**
    * Re-initialize the chart if the visualization type has changed
@@ -142,14 +146,12 @@ export class TsChartComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-
   /**
    * Destroy the chart when the component is destroyed
    */
   public ngOnDestroy(): void {
     this.destroyChart();
   }
-
 
   /**
    * A function to verify the initialization requirements before creating the chart
@@ -158,7 +160,7 @@ export class TsChartComponent implements OnInit, OnChanges, OnDestroy {
     if (!this.amCharts) {
       throw new TsUILibraryError(`
         TsChartComponent: The amCharts library was not provided via injection token!
-        Please see: https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/chart/src/chart.component.md%23inject-the-needed-libraries
+        Please see: https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/chart/README.md#inject-the-needed-libraries
       `);
     }
 
@@ -179,7 +181,6 @@ export class TsChartComponent implements OnInit, OnChanges, OnDestroy {
       }
     });
   }
-
 
   /**
    * Initialize a chart
@@ -213,5 +214,4 @@ export class TsChartComponent implements OnInit, OnChanges, OnDestroy {
       }
     });
   }
-
 }

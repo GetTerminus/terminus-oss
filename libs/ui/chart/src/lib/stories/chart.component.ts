@@ -3,7 +3,10 @@ import am4geodata_worldLow from '@amcharts/amcharts4-geodata/worldLow';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4maps from '@amcharts/amcharts4/maps';
-import { Component } from '@angular/core';
+import {
+  Component,
+  Input,
+} from '@angular/core';
 
 import {
   TsChart,
@@ -13,7 +16,6 @@ import {
   tsChartRadarTypeCheck,
   tsChartSankeyTypeCheck,
   tsChartTreeTypeCheck,
-  tsChartVisualizationOptions,
   TsChartVisualizationOptions,
   tsChartXYTypeCheck,
 } from '@terminus/ui-chart';
@@ -23,7 +25,7 @@ let visits = 10;
 for (let i = 1; i < 366; i++) {
   visits += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 10);
   XY_DATA.push({
-    date: new Date(2018, 0, i),
+    date: new Date(2019, 0, i),
     name: `name${i}`,
     value: visits,
   });
@@ -42,20 +44,20 @@ const MAP_DATA: Record<string, any>[] = [{
   title: 'Vancouver',
 }];
 
-
 @Component({
-  selector: 'demo-chart',
+  selector: 'ts-chart-wrapper',
   templateUrl: './chart.component.html',
 })
-export class ChartComponent {
-  public visualizationOptions: TsChartVisualizationOptions[] = tsChartVisualizationOptions.slice();
-  visualization: TsChartVisualizationOptions = this.visualizationOptions[0];
+export class ChartWrapper {
+  @Input() public visualization: TsChartVisualizationOptions;
 
   chartCreated(chart: TsChart) {
+    console.log('chartCreated: ', chart, this.visualization);
     this.setChartData(chart, this.visualization);
   }
 
   setChartData(chart: TsChart, type: TsChartVisualizationOptions) {
+    chart.logo.disabled = true;
     /**
      * XY
      */
@@ -446,7 +448,6 @@ export class ChartComponent {
           },
         ],
       }];
-
 
       /* Set color step */
       chart.colors.step = 2;
