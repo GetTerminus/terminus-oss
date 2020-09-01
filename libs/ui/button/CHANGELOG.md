@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.19](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.0.18...@terminus/ui-button@2.0.19) (2020-09-01)
+
+
+### Bug Fixes
+
+* **Button:** publish arrays of allowed type and action ([dc8798d](https://github.com/GetTerminus/terminus-oss/commit/dc8798d67926dde9d325d3c683e76f760a7230e5))
+* **Button:** update collapsed padding ([3765a5c](https://github.com/GetTerminus/terminus-oss/commit/3765a5cfc335d16f069f82197f77455c7350936f))
+
+
+
+
+
 ## [2.0.18](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.0.17...@terminus/ui-button@2.0.18) (2020-08-26)
 
 **Note:** Version bump only for package @terminus/ui-button

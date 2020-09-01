@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-copy@2.0.8...@terminus/ui-copy@2.0.9) (2020-09-01)
+
+
+### Bug Fixes
+
+* **Copy:** fix button size regression after LPS ([e2142fe](https://github.com/GetTerminus/terminus-oss/commit/e2142fe4a8d39a89b0444c6733bf5c88e9f167f6))
+
+
+
+
+
 ## [2.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-copy@2.0.7...@terminus/ui-copy@2.0.8) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/ui-copy

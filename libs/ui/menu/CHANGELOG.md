@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.14](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@2.0.13...@terminus/ui-menu@2.0.14) (2020-09-01)
+
+
+### Bug Fixes
+
+* **Menu:** add button specific styles ([ab8fe9f](https://github.com/GetTerminus/terminus-oss/commit/ab8fe9fb50fea82390542eddbec7e93b1609bd5b))
+
+
+
+
+
 ## [2.0.13](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@2.0.12...@terminus/ui-menu@2.0.13) (2020-08-26)
 
 **Note:** Version bump only for package @terminus/ui-menu
