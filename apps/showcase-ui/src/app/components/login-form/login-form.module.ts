@@ -1,3 +1,4 @@
+/* eslint-disable deprecation/deprecation */
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 

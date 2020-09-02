@@ -25,6 +25,8 @@ import { TsValidatorsService } from '@terminus/ui-validators';
 
 /**
  * Define the structure of the login form response
+ *
+ * @deprecated This component is no longer maintained.
  */
 export interface TsLoginFormResponse {
   /**
@@ -41,9 +43,10 @@ export interface TsLoginFormResponse {
   rememberMe: boolean;
 }
 
-
 /**
  * This is the login-form UI Component
+ *
+ * @deprecated This component is no longer maintained.
  *
  * @example
  * <ts-login-form
@@ -146,6 +149,7 @@ export class TsLoginFormComponent implements OnChanges {
    * Emit an event on form submission
    */
   @Output()
+  // eslint-disable-next-line deprecation/deprecation
   public readonly submission: EventEmitter<TsLoginFormResponse> = new EventEmitter();
 
 
