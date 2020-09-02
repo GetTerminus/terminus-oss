@@ -11,6 +11,7 @@ import {
   select,
   text,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
 import {
   TsDrawerComponent,
@@ -20,16 +21,18 @@ import {
 } from '@terminus/ui-drawer';
 import { TsSpacingModule } from '@terminus/ui-spacing';
 
-const MODULE_METADATA = {
-  imports: [
-    BrowserAnimationsModule,
-    TsDrawerModule,
-    TsSpacingModule,
-  ],
-};
-
 export default {
   title: 'Components/Structure/Drawer',
+  component: TsDrawerComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [
+        BrowserAnimationsModule,
+        TsDrawerModule,
+        TsSpacingModule,
+      ],
+    }),
+  ],
 };
 
 @Component({
@@ -179,8 +182,6 @@ class DrawerWrapper {
 }
 
 export const basic = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: DrawerWrapper,
   props: {
     collapsedSize: text('Collapsed size', '0'),
     expandedSize: text('Expanded size', '15rem'),
@@ -196,8 +197,6 @@ export const basic = () => ({
 });
 
 export const mode = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: DrawerWrapper,
   props: {
     expanded: true,
     collapsedSize: '0',
@@ -211,13 +210,12 @@ mode.parameters = {
 };
 
 export const backdrop = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: DrawerWrapper,
   props: {
     expanded: true,
     hasBackdrop: true,
     collapsedSize: '0',
     expandedSize: '15rem',
+    position: 'end',
     backdropClicked: action('Backdrop clicked'),
   },
 });

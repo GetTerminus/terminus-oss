@@ -18,6 +18,7 @@ import {
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 import {
   BehaviorSubject,
   Observable,
@@ -41,46 +42,6 @@ import {
   State,
   STATES,
 } from './data';
-
-export default {
-  title: 'Components/Data Entry/Selection List',
-  decorators: [withKnobs],
-};
-
-const MODULE_IMPORTS = [
-  BrowserAnimationsModule,
-  ReactiveFormsModule,
-  TsOptionModule,
-  TsSelectionListModule,
-];
-
-export const basic = () => ({
-  moduleMetadata: { imports: [...MODULE_IMPORTS] },
-  component: TsSelectionListComponent,
-  template: `
-    <ts-selection-list
-      [allowMultiple]="allowMultiple"
-      [label]="label"
-      [hint]="hint"
-      [formControl]="formControl"
-      [allowUserInput]="false"
-      [displayFormatter]="formatter"
-      [theme]="theme"
-    >
-      <ts-option [value]="f" [option]="f" *ngFor="let f of fruit">{{ f }}</ts-option>
-    </ts-selection-list>
-  `,
-  props: {
-    hint: text('Hint', 'Begin typing to search..'),
-    isDisabled: boolean('Disabled', false),
-    label: text('Label', 'Select states'),
-    theme: select('Theme', ['primary', 'accent', 'warn'], 'primary'),
-    results: STATES.slice(0, 10),
-    formControl: new FormControl([]),
-    allowMultiple: boolean('Allow multiple selections', false),
-    fruit: ['apple', 'grape', 'peach', 'pear', 'banana'],
-  },
-});
 
 @Component({
   selector: 'ts-selection-list-wrapper',
@@ -117,7 +78,6 @@ class SelectionListWrapper implements OnInit, OnDestroy {
   @Input() public label: string;
   @Input() public theme: TsStyleThemeTypes;
   @Input() public emulateLongQuery: boolean;
-
   public inProgress: boolean;
   public states = STATES.slice();
   public formControl = new FormControl('');
@@ -173,9 +133,52 @@ class SelectionListWrapper implements OnInit, OnDestroy {
   }
 }
 
+export default {
+  title: 'Components/Data Entry/Selection List',
+  component: TsSelectionListComponent,
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        TsOptionModule,
+        TsSelectionListModule,
+      ],
+    }),
+  ],
+};
+
+export const basic = () => ({
+  template: `
+    <ts-selection-list
+      [allowMultiple]="allowMultiple"
+      [label]="label"
+      [hint]="hint"
+      [formControl]="formControl"
+      [allowUserInput]="false"
+      [displayFormatter]="formatter"
+      [theme]="theme"
+    >
+      <ts-option [value]="f" [option]="f" *ngFor="let f of fruit">{{ f }}</ts-option>
+    </ts-selection-list>
+  `,
+  props: {
+    hint: text('Hint', 'Begin typing to search..'),
+    isDisabled: boolean('Disabled', false),
+    label: text('Label', 'Select states'),
+    theme: select('Theme', ['primary', 'accent', 'warn'], 'primary'),
+    results: STATES.slice(0, 10),
+    formControl: new FormControl([]),
+    allowMultiple: boolean('Allow multiple selections', false),
+    fruit: ['apple', 'grape', 'peach', 'pear', 'banana'],
+  },
+});
+basic.parameters = {
+  actions: { disabled: true },
+};
+
 export const allowUserInput = () => ({
-  moduleMetadata: { imports: [...MODULE_IMPORTS] },
-  component: SelectionListWrapper,
   props: {
     emulateLongQuery: boolean('emulateLongQuery', false),
     hint: text('Hint', 'Begin typing to search..'),

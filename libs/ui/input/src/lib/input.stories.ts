@@ -15,6 +15,7 @@ import {
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 import {
   add,
   sub,
@@ -26,37 +27,37 @@ import {
   TsInputModule,
 } from '@terminus/ui-input';
 
-const MODULE_METADATA = {
-  imports: [
-    BrowserAnimationsModule,
-    FontAwesomeModule,
-    TsIconModule,
-    TsInputModule,
-  ],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: (iconLibrary: FaIconLibrary) => async() => {
-        // Add the necessary icons inside the initializer body.
-        iconLibrary.addIcons(faHome);
-      },
-      // When using a factory provider you need to explicitly specify its dependencies.
-      deps: [FaIconLibrary],
-      multi: true,
-    },
-  ],
-};
-
 // NOTE: Using the storybook states causes a circular issue with the plugin
 // "Converting circular structure to JSON"
 export default {
   title: 'Components/Data Entry/Input',
-  decorators: [withKnobs],
+  component: TsInputComponent,
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [
+        BrowserAnimationsModule,
+        FontAwesomeModule,
+        TsIconModule,
+        TsInputModule,
+      ],
+      providers: [
+        {
+          provide: APP_INITIALIZER,
+          useFactory: (iconLibrary: FaIconLibrary) => async() => {
+            // Add the necessary icons inside the initializer body.
+            iconLibrary.addIcons(faHome);
+          },
+          // When using a factory provider you need to explicitly specify its dependencies.
+          deps: [FaIconLibrary],
+          multi: true,
+        },
+      ],
+    }),
+  ],
 };
 
 export const basic = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsInputComponent,
   template: `
     <div [style.width.px]="width">
       <ts-input
@@ -69,18 +70,16 @@ export const basic = () => ({
     </div>
   `,
   props: {
-    label: text('Label', 'My Input'),
     myValue: 'hello there',
-    onBlur: action('Blur: '),
-    onFocus: action('Focus: '),
+    label: text('Label', 'My Input'),
     theme: select('Theme', ['primary', 'accent', 'warn'], 'primary'),
     width: number('Container width', 300),
+    onBlur: action('Blur: '),
+    onFocus: action('Focus: '),
   },
 });
 
 export const clearable = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsInputComponent,
   template: `
     <div [style.width.px]="width">
       <ts-input
@@ -93,8 +92,8 @@ export const clearable = () => ({
   `,
   props: {
     myValue: 'Test content..',
-    cleared: action('Cleared: '),
     width: number('Container width', 300),
+    cleared: action('Cleared: '),
   },
 });
 
@@ -102,8 +101,6 @@ const DEFAULT_DATE = new Date();
 const MIN_DATE = sub(DEFAULT_DATE, { days: 7 });
 const MAX_DATE = add(DEFAULT_DATE, { days: 7 });
 export const datepicker = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsInputComponent,
   template: `
     <ts-input
       label="My datepicker input"
@@ -120,14 +117,12 @@ export const datepicker = () => ({
     minDate: date('Minimum Date', MIN_DATE),
     myValue: DEFAULT_DATE,
     openTo: date('Open calendar to', DEFAULT_DATE),
-    selected: action('Selected: '),
     startingView: select('Starting View', ['month', 'year'], 'month'),
+    selected: action('Selected: '),
   },
 });
 
 export const hideRequiredMarker = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsInputComponent,
   template: `
     <div [style.width.px]="width">
       <ts-input
@@ -140,17 +135,18 @@ export const hideRequiredMarker = () => ({
     </div>
   `,
   props: {
-    label: text('Label', 'My input'),
-    hideRequiredMarker: boolean('Hide required marker', true),
     myValue: 'hello there',
+    hideRequiredMarker: boolean('Hide required marker', true),
+    label: text('Label', 'My input'),
     theme: select('Theme', ['primary', 'accent', 'warn'], 'primary'),
     width: number('Container width', 300),
   },
 });
+hideRequiredMarker.parameters = {
+  actions: { disabled: true },
+};
 
 export const hint = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsInputComponent,
   template: `
     <div [style.width.px]="width">
       <ts-input
@@ -161,16 +157,17 @@ export const hint = () => ({
     </div>
   `,
   props: {
-    label: text('Label', 'My input'),
-    hint: text('Hint', 'My custom hint'),
     myValue: 'hello there',
+    hint: text('Hint', 'My custom hint'),
+    label: text('Label', 'My input'),
     width: number('Container width', 300),
   },
 });
+hint.parameters = {
+  actions: { disabled: true },
+};
 
 export const mask = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsInputComponent,
   template: `
     <div [style.width.px]="width">
       <label>
@@ -199,16 +196,17 @@ export const mask = () => ({
   `,
   props: {
     activeMask: 'phone',
-    allowDecimal: boolean('Allow decimal', true),
     myValue: '8081234567',
+    allowDecimal: boolean('Allow decimal', true),
     sanitizeValue: boolean('Sanitize value (update input value after changing)', true),
     width: number('Container width', 300),
   },
 });
+mask.parameters = {
+  actions: { disabled: true },
+};
 
 export const prefixIcon = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsInputComponent,
   template: `
     <div [style.width.px]="width">
       <ts-input
@@ -224,10 +222,11 @@ export const prefixIcon = () => ({
     width: number('Container width', 300),
   },
 });
+prefixIcon.parameters = {
+  actions: { disabled: true },
+};
 
 export const textarea = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsInputComponent,
   template: `
     <div [style.width.px]="width">
       <ts-input
@@ -244,3 +243,6 @@ export const textarea = () => ({
     textareaRows: number('Textarea rows', 4),
   },
 });
+textarea.parameters = {
+  actions: { disabled: true },
+};

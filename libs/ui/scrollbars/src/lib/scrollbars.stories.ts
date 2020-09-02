@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
 import {
   TsScrollbarsComponent,
@@ -14,15 +15,16 @@ import {
 } from '@terminus/ui-scrollbars';
 import { TsSpacingModule } from '@terminus/ui-spacing';
 
-const MODULE_METADATA = {
-  imports: [
-    TsScrollbarsModule,
-    TsSpacingModule,
-  ],
-};
-
 export default {
   title: 'Components/Structure/Scrollbars',
+  decorators: [
+    moduleMetadata({
+      imports: [
+        TsScrollbarsModule,
+        TsSpacingModule,
+      ],
+    }),
+  ],
 };
 
 @Component({
@@ -128,7 +130,6 @@ class ScrollbarsWrapper {
 }
 
 export const basic = () => ({
-  moduleMetadata: MODULE_METADATA,
   component: ScrollbarsWrapper,
   props: {
     isDisabled: boolean('Disable scrollbars', false),

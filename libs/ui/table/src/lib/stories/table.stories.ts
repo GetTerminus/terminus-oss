@@ -21,6 +21,7 @@ import {
   boolean,
   select,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
 import { TsCheckboxModule } from '@terminus/ui-checkbox';
 import { TsExpansionPanelModule } from '@terminus/ui-expansion-panel';
@@ -29,45 +30,15 @@ import { TsMenuModule } from '@terminus/ui-menu';
 import { TsPipesModule } from '@terminus/ui-pipes';
 import { TsSortModule } from '@terminus/ui-sort';
 import { TsSpacingModule } from '@terminus/ui-spacing';
-import { TsTableModule } from '@terminus/ui-table';
+import {
+  TsTableComponent,
+  TsTableModule,
+} from '@terminus/ui-table';
 
 import {
   CustomColumn,
   TableWrapper,
 } from './table.component';
-
-const MODULE_METADATA = {
-  imports: [
-    BrowserAnimationsModule,
-    DragDropModule,
-    FlexLayoutModule,
-    FontAwesomeModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    TsCheckboxModule,
-    TsExpansionPanelModule,
-    TsIconModule,
-    TsMenuModule,
-    TsPipesModule,
-    TsSortModule,
-    TsSpacingModule,
-    TsTableModule,
-  ],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: (iconLibrary: FaIconLibrary) => async() => {
-        // Add the necessary icons inside the initializer body.
-        iconLibrary.addIcons(faExternalLink);
-        iconLibrary.addIcons(faTable);
-        iconLibrary.addIcons(faGripLines);
-      },
-      // When using a factory provider you need to explicitly specify its dependencies.
-      deps: [FaIconLibrary],
-      multi: true,
-    },
-  ],
-};
 
 const COLUMNS_SOURCE: CustomColumn[] = [
   {
@@ -134,10 +105,44 @@ const COLUMNS_SOURCE: CustomColumn[] = [
 
 export default {
   title: 'Components/Data Display/Table',
+  component: TsTableComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [
+        BrowserAnimationsModule,
+        DragDropModule,
+        FlexLayoutModule,
+        FontAwesomeModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        TsCheckboxModule,
+        TsExpansionPanelModule,
+        TsIconModule,
+        TsMenuModule,
+        TsPipesModule,
+        TsSortModule,
+        TsSpacingModule,
+        TsTableModule,
+      ],
+      providers: [
+        {
+          provide: APP_INITIALIZER,
+          useFactory: (iconLibrary: FaIconLibrary) => async() => {
+            // Add the necessary icons inside the initializer body.
+            iconLibrary.addIcons(faExternalLink);
+            iconLibrary.addIcons(faTable);
+            iconLibrary.addIcons(faGripLines);
+          },
+          // When using a factory provider you need to explicitly specify its dependencies.
+          deps: [FaIconLibrary],
+          multi: true,
+        },
+      ],
+    }),
+  ],
 };
 
 export const density = () => ({
-  moduleMetadata: MODULE_METADATA,
   component: TableWrapper,
   props: {
     columnsSource: COLUMNS_SOURCE.slice(),
@@ -148,7 +153,6 @@ export const density = () => ({
 });
 
 export const stickyColumnsAndRows = () => ({
-  moduleMetadata: MODULE_METADATA,
   component: TableWrapper,
   props: {
     columnsSource: COLUMNS_SOURCE.slice().map(c => {
@@ -167,7 +171,6 @@ stickyColumnsAndRows.parameters = {
 };
 
 export const noWrapFalse = () => ({
-  moduleMetadata: MODULE_METADATA,
   component: TableWrapper,
   props: {
     columnsSource: COLUMNS_SOURCE.slice(0, 5).map(c => {
@@ -184,7 +187,6 @@ stickyColumnsAndRows.parameters = {
 };
 
 export const expandableRows = () => ({
-  moduleMetadata: MODULE_METADATA,
   component: TableWrapper,
   props: {
     columnsSource: COLUMNS_SOURCE.slice(),

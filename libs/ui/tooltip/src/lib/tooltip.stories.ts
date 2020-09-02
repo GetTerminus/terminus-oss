@@ -8,6 +8,7 @@ import {
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
 import {
   allowedTooltipTypes,
@@ -15,16 +16,17 @@ import {
   TsTooltipPositionTypes,
 } from '@terminus/ui-tooltip';
 
-const MODULE_METADATA = {
-  imports: [
-    BrowserAnimationsModule,
-    TsTooltipModule,
-  ],
-};
-
 export default {
   title: 'Components/Feedback/Tooltip',
-  decorators: [withKnobs],
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [
+        BrowserAnimationsModule,
+        TsTooltipModule,
+      ],
+    }),
+  ],
 };
 
 @Component({
@@ -78,7 +80,7 @@ export default {
     </div>
   `,
 })
-class LoadingOverlayWrapper {
+class TooltipWrapper {
   @Input() public tooltipPosition: TsTooltipPositionTypes;
   @Input() public tooltipValue: string;
   @Input() public hasUnderline: boolean;
@@ -88,12 +90,11 @@ class LoadingOverlayWrapper {
 }
 
 export const basic = () => ({
-  component: LoadingOverlayWrapper,
-  moduleMetadata: MODULE_METADATA,
+  component: TooltipWrapper,
   props: {
+    showContentBorder: true,
     tooltipPosition: select('Tooltip position', allowedTooltipTypes, 'below'),
     tooltipValue: text('Tooltip value', 'My tooltip content!'),
-    showContentBorder: true,
   },
 });
 basic.parameters = {
@@ -101,13 +102,12 @@ basic.parameters = {
 };
 
 export const underline = () => ({
-  component: LoadingOverlayWrapper,
-  moduleMetadata: MODULE_METADATA,
+  component: TooltipWrapper,
   props: {
     tooltipPosition: 'below',
-    tooltipValue: text('Tooltip value', 'My tooltip content!'),
     hasUnderline: true,
     triggerContent: 'This trigger has an underline!',
+    tooltipValue: text('Tooltip value', 'My tooltip content!'),
   },
 });
 underline.parameters = {
@@ -116,13 +116,12 @@ underline.parameters = {
 
 // manual control
 export const manualControl = () => ({
-  component: LoadingOverlayWrapper,
-  moduleMetadata: MODULE_METADATA,
+  component: TooltipWrapper,
   props: {
     tooltipPosition: 'below',
-    tooltipValue: text('Tooltip value', 'My tooltip content!'),
     showButton: true,
     showContentBorder: true,
+    tooltipValue: text('Tooltip value', 'My tooltip content!'),
   },
 });
 underline.parameters = {
@@ -130,8 +129,7 @@ underline.parameters = {
 };
 
 export const longContent = () => ({
-  component: LoadingOverlayWrapper,
-  moduleMetadata: MODULE_METADATA,
+  component: TooltipWrapper,
   props: {
     tooltipPosition: 'below',
     tooltipValue: `
@@ -144,4 +142,5 @@ export const longContent = () => ({
 });
 underline.parameters = {
   actions: { disabled: true },
+  knobs: { disabled: true },
 };

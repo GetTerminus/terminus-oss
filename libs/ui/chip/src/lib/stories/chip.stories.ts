@@ -10,37 +10,38 @@ import {
   select,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
 import {
   TsChipCollectionChange,
+  TsChipCollectionComponent,
   TsChipCollectionOrientation,
-  TsChipComponent,
   TsChipEvent,
   TsChipModule,
 } from '@terminus/ui-chip';
 import { TsSpacingModule } from '@terminus/ui-spacing';
 
-const MODULE_METADATA = {
-  imports: [
-    TsChipModule,
-    TsSpacingModule,
+export default {
+  title: 'Components/Data Display/Chip',
+  component: TsChipCollectionComponent,
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [
+        TsChipModule,
+        TsSpacingModule,
+      ],
+    }),
   ],
 };
 
-export default {
-  title: 'Components/Data Display/Chip',
-  decorators: [withKnobs],
-};
-
 export const basic = () => ({
-  component: TsChipComponent,
   template: `
     <ts-chip
       [isRemovable]="isRemovable"
       [isDisabled]="isDisabled"
     >My chip</ts-chip>
   `,
-  moduleMetadata: MODULE_METADATA,
   props: {
     isRemovable: boolean('Removable', true),
     isDisabled: boolean('Disabled', false),
@@ -95,7 +96,6 @@ class ChipWrapper {
 
 export const chipCollection = () => ({
   component: ChipWrapper,
-  moduleMetadata: MODULE_METADATA,
   props: {
     isRemovable: boolean('Removable', true),
     isDisabled: boolean('Disabled', false),

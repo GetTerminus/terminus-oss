@@ -24,14 +24,13 @@ import { moduleMetadata } from '@storybook/angular';
 import { TsIconModule } from '@terminus/ui-icon';
 import { TsSpacingModule } from '@terminus/ui-spacing';
 import {
-  tsTabAlignmentOptions,
-  TsTabAlignmentOptions,
   TsTabCollectionComponent,
   TsTabsModule,
 } from '@terminus/ui-tabs';
 
 export default {
   title: 'Components/Structure/Tabs',
+  component: TsTabCollectionComponent,
   decorators: [
     withKnobs,
     moduleMetadata({
@@ -59,7 +58,6 @@ export default {
 };
 
 export const basic = () => ({
-  component: TsTabCollectionComponent,
   template: `
     <ts-tab-collection
       [theme]="theme"
@@ -83,7 +81,6 @@ export const basic = () => ({
 });
 
 export const tabAlignment = () => ({
-  component: TsTabCollectionComponent,
   template: `
     <h3>Start</h3>
     <ts-tab-collection tabAlignment="start" tsVerticalSpacing="large--2">
@@ -120,7 +117,6 @@ tabAlignment.parameters = {
 };
 
 export const headerPosition = () => ({
-  component: TsTabCollectionComponent,
   template: `
     <h3>Above:</h3>
     <ts-tab-collection tsVerticalSpacing="large--2">
@@ -141,7 +137,6 @@ headerPosition.parameters = {
 };
 
 export const disabledTabs = () => ({
-  component: TsTabCollectionComponent,
   template: `
     <ts-tab-collection>
       <ts-tab label="First" [isDisabled]="disabled1 || disabledAll">Content 1</ts-tab>
@@ -199,7 +194,6 @@ dynamicTabs.parameters = {
 };
 
 export const customLabels = () => ({
-  component: TsTabCollectionComponent,
   template: `
     <ts-tab-collection>
       <ts-tab>
@@ -230,7 +224,6 @@ customLabels.parameters = {
 };
 
 export const lazyLoadedContent = () => ({
-  component: TsTabCollectionComponent,
   template: `
     <ts-tab-collection>
       <ts-tab label="First">

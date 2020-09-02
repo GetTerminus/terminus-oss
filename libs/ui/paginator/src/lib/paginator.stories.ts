@@ -7,6 +7,7 @@ import {
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
 import { tsButtonThemes } from '@terminus/ui-button';
 import {
@@ -16,19 +17,19 @@ import {
 
 export default {
   title: 'Components/Navigation/Paginator',
-  decorators: [withKnobs],
-};
-
-const MODULE_METADATA = {
-  imports: [
-    BrowserAnimationsModule,
-    TsPaginatorModule,
+  component: TsPaginatorComponent,
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [
+        BrowserAnimationsModule,
+        TsPaginatorModule,
+      ],
+    }),
   ],
 };
 
 export const basic = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsPaginatorComponent,
   template: `
     <ts-paginator
       [theme]="theme"
@@ -50,13 +51,8 @@ export const basic = () => ({
     recordsPerPageChange: action('Records per-page changed'),
   },
 });
-// basic.properties = {
-//   actions: { disabled: true },
-// };
 
 export const recordCountMaximum = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsPaginatorComponent,
   template: `
     <ts-paginator
       [totalRecords]="recordCount"
@@ -73,10 +69,11 @@ export const recordCountMaximum = () => ({
     maxPreferredRecords: number('Maximum preferred records', 100),
   },
 });
+recordCountMaximum.properties = {
+  actions: { disabled: true },
+};
 
 export const baseZeroOrOne = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsPaginatorComponent,
   template: `
     <ts-paginator
       [totalRecords]="recordCount"
@@ -88,10 +85,11 @@ export const baseZeroOrOne = () => ({
     isZeroBased: boolean('Zero based', true),
   },
 });
+baseZeroOrOne.properties = {
+  actions: { disabled: true },
+};
 
 export const simpleMode = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsPaginatorComponent,
   template: `
     <ts-paginator
       [totalRecords]="recordCount"
@@ -103,10 +101,11 @@ export const simpleMode = () => ({
     isSimpleMode: boolean('Simple mode', true),
   },
 });
+simpleMode.properties = {
+  actions: { disabled: true },
+};
 
 export const noRecordsPerPageSelector = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsPaginatorComponent,
   template: `
     <ts-paginator
       [totalRecords]="recordCount"
@@ -118,10 +117,11 @@ export const noRecordsPerPageSelector = () => ({
     showRecordsPerPageSelector: boolean('Show the Records Per Page menu', false),
   },
 });
+noRecordsPerPageSelector.properties = {
+  actions: { disabled: true },
+};
 
 export const setInitialPage = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsPaginatorComponent,
   template: `
     <ts-paginator
       [totalRecords]="recordCount"
@@ -133,10 +133,11 @@ export const setInitialPage = () => ({
     currentPageIndex: number('Current page index', 3),
   },
 });
+setInitialPage.properties = {
+  actions: { disabled: true },
+};
 
 export const customTooltips = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsPaginatorComponent,
   template: `
     <ts-paginator
       [totalRecords]="recordCount"
@@ -154,3 +155,6 @@ export const customTooltips = () => ({
     lastPageTooltip: text('Last page tooltip', 'My LAST page tooltip!'),
   },
 });
+customTooltips.properties = {
+  actions: { disabled: true },
+};
