@@ -36,7 +36,7 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     const nodeDependency: NodeDependency = {
       type: NodeDependencyType.Default,
       name: individualPackage[0],
-      version: individualPackage[1],
+      version: individualPackage[1].trim(),
       overwrite: false,
     };
     addPackageJsonDependency(tree, nodeDependency);
