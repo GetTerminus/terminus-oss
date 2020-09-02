@@ -185,7 +185,6 @@
     "@angular/language-service": "9.1.11",
     "@babel/core": "7.11.0",
     "@compodoc/compodoc": "1.1.11",
-    "@ergosign/storybook-addon-pseudo-states-angular": "0.0.1-alpha.33",
     "@nrwl/angular": "9.6.0",
     "@nrwl/cypress": "9.6.0",
     "@nrwl/jest": "9.6.0",

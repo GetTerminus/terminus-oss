@@ -2699,11 +2699,6 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@ergosign/storybook-addon-pseudo-states-angular@0.0.1-alpha.33":
-  version "0.0.1-alpha.33"
-  resolved "https://registry.yarnpkg.com/@ergosign/storybook-addon-pseudo-states-angular/-/storybook-addon-pseudo-states-angular-0.0.1-alpha.33.tgz#23b51c8d78ff984d370eacf6ebde22b90ce5fe08"
-  integrity sha512-EerwVju4W1KbVwPoAExoL7IQTfovGjhDtRTBoLzJESmFm+V+Wk+Ye2j7Q2UaXEPx01uL7myQouUXWIiKuAAHDg==
-
 "@evocateur/libnpmaccess@^3.1.2":
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/@evocateur/libnpmaccess/-/libnpmaccess-3.1.2.tgz#ecf7f6ce6b004e9f942b098d92200be4a4b1c845"
