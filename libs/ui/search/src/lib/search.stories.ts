@@ -5,6 +5,7 @@ import {
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
 import {
   TsSearchComponent,
@@ -12,21 +13,21 @@ import {
 } from '@terminus/ui-search';
 import { TsSpacingModule } from '@terminus/ui-spacing';
 
-const MODULE_METADATA = {
-  imports: [
-    TsSearchModule,
-    TsSpacingModule,
+export default {
+  title: 'Components/Actions/Search',
+  component: TsSearchComponent,
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [
+        TsSearchModule,
+        TsSpacingModule,
+      ],
+    }),
   ],
 };
 
-export default {
-  title: 'Components/Actions/Search',
-  decorators: [withKnobs],
-};
-
 export const basic = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsSearchComponent,
   props: {
     initialValue: 'My search query',
     inputHint: text('Hint', 'Enter at least two characters.'),
@@ -41,8 +42,6 @@ export const basic = () => ({
 });
 
 export const themes = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsSearchComponent,
   template: `
   <div tsVerticalSpacing="large--1">
     <div tsVerticalSpacing="small--0">
@@ -76,8 +75,6 @@ themes.parameters = {
 };
 
 export const initialValue = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsSearchComponent,
   props: {
     initialValue: 'My initial value',
   },
@@ -88,8 +85,6 @@ initialValue.parameters = {
 };
 
 export const focusOnLoad = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsSearchComponent,
   props: {
     isFocused: true,
   },
@@ -100,8 +95,6 @@ focusOnLoad.parameters = {
 };
 
 export const isSubmitting = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsSearchComponent,
   props: {
     initialValue: 'My search query',
     isSubmitting: boolean('Submitting', true),
@@ -112,8 +105,6 @@ isSubmitting.parameters = {
 };
 
 export const autoSubmit = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsSearchComponent,
   props: {
     autoSubmit: true,
     submitted: action('Submitted'),

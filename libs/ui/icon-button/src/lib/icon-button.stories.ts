@@ -7,6 +7,7 @@ import {
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
 import {
   tsButtonActionTypes,
@@ -22,21 +23,21 @@ import {
 } from '@terminus/ui-icon-button';
 import { TsSpacingModule } from '@terminus/ui-spacing';
 
-const MODULE_METADATA = {
-  imports: [
-    TsIconButtonModule,
-    TsSpacingModule,
+export default {
+  title: 'Components/Actions/Icon Button',
+  component: TsIconButtonComponent,
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [
+        TsIconButtonModule,
+        TsSpacingModule,
+      ],
+    }),
   ],
 };
 
-export default {
-  title: 'Components/Actions/Icon Button',
-  decorators: [withKnobs],
-};
-
 export const basic = () => ({
-  component: TsIconButtonComponent,
-  moduleMetadata: MODULE_METADATA,
   props: {
     actionName: select('Action name', tsButtonActionTypes, 'Button'),
     buttonType: select('Button type', tsButtonFunctionTypes, 'button'),
@@ -47,7 +48,6 @@ export const basic = () => ({
 });
 
 export const themes = () => ({
-  component: TsIconButtonComponent,
   template: `
     <div>
       <h3>Primary</h3>
@@ -62,7 +62,6 @@ export const themes = () => ({
       <ts-icon-button theme="warn" [icon]="icon"></ts-icon-button>
     </div>
   `,
-  moduleMetadata: MODULE_METADATA,
   props: {
     icon: faAbacus,
   },

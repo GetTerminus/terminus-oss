@@ -3,6 +3,7 @@ import {
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
 import {
   TsLinkComponent,
@@ -11,19 +12,19 @@ import {
 
 export default {
   title: 'Components/Navigation/Link',
-  decorators: [withKnobs],
-};
-
-const MODULE_METADATA = {
-  imports: [
-    RouterTestingModule,
-    TsLinkModule,
+  component: TsLinkComponent,
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [
+        RouterTestingModule,
+        TsLinkModule,
+      ],
+    }),
   ],
 };
 
 export const basic = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsLinkComponent,
   template: `<ts-link>{{ content }}</ts-link>`,
   props: {
     content: text('Content', 'My link!'),
@@ -34,8 +35,6 @@ basic.properties = {
 };
 
 export const external = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsLinkComponent,
   template: `<ts-link [isExternal]="true" [destination]="destination">{{ content }}</ts-link>`,
   props: {
     destination: text('Destination', 'http://google.com'),
@@ -47,8 +46,6 @@ external.properties = {
 };
 
 export const fragment = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsLinkComponent,
   template: `<ts-link fragment="myLocalId">{{ content }}</ts-link>`,
   props: {
     content: text('Content', 'My link!'),
@@ -57,4 +54,3 @@ export const fragment = () => ({
 fragment.properties = {
   actions: { disabled: true },
 };
-

@@ -7,6 +7,7 @@ import {
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
 import { TsButtonModule } from '@terminus/ui-button';
 import { TsCardModule } from '@terminus/ui-card';
@@ -17,17 +18,21 @@ import {
 
 export default {
   title: 'Components/Structure/Expansion Panel',
-  decorators: [withKnobs],
+  component: TsExpansionPanelComponent,
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [
+        BrowserAnimationsModule,
+        TsButtonModule,
+        TsCardModule,
+        TsExpansionPanelModule,
+      ],
+    }),
+  ],
 };
 
-const MODULE_IMPORTS = [
-  TsExpansionPanelModule,
-  BrowserAnimationsModule,
-];
-
 export const basic = () => ({
-  moduleMetadata: { imports: [...MODULE_IMPORTS] },
-  component: TsExpansionPanelComponent,
   template: `
     <ts-expansion-panel
       [isDisabled]="isDisabled"
@@ -59,8 +64,6 @@ basic.parameters = {
 };
 
 export const customTriggerSizes = () => ({
-  moduleMetadata: { imports: [...MODULE_IMPORTS] },
-  component: TsExpansionPanelComponent,
   template: `
     <ts-expansion-panel>
       <ts-expansion-panel-trigger
@@ -81,8 +84,6 @@ customTriggerSizes.parameters = {
 };
 
 export const defaultOpen = () => ({
-  moduleMetadata: { imports: [...MODULE_IMPORTS] },
-  component: TsExpansionPanelComponent,
   template: `
     <ts-expansion-panel [isExpanded]="isExpanded">
       <ts-expansion-panel-trigger>
@@ -102,8 +103,6 @@ defaultOpen.parameters = {
 };
 
 export const lazyLoad = () => ({
-  moduleMetadata: { imports: [...MODULE_IMPORTS] },
-  component: TsExpansionPanelComponent,
   template: `
     <ts-expansion-panel>
       <ts-expansion-panel-trigger>
@@ -183,7 +182,6 @@ class AccordionWrapper {
 }
 
 export const stepperOrWizard = () => ({
-  moduleMetadata: { imports: [...MODULE_IMPORTS, TsButtonModule] },
   component: AccordionWrapper,
 });
 stepperOrWizard.parameters = {
@@ -192,8 +190,6 @@ stepperOrWizard.parameters = {
 };
 
 export const transparent = () => ({
-  moduleMetadata: { imports: [...MODULE_IMPORTS, TsCardModule] },
-  component: TsExpansionPanelComponent,
   template: `
     <ts-card>
       <h3 tsCardTitle>This panel is wrapped in a TsCardComponent</h3>

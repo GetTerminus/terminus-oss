@@ -15,6 +15,7 @@ import {
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
 import {
   TsIconComponent,
@@ -22,35 +23,35 @@ import {
   tsIconSizes,
 } from '@terminus/ui-icon';
 
-const MODULE_METADATA = {
-  imports: [
-    TsIconModule,
-    FontAwesomeModule,
-  ],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: (iconLibrary: FaIconLibrary) => async() => {
-        // Add the necessary icons inside the initializer body.
-        iconLibrary.addIcons(faHome);
-      },
-      // When using a factory provider you need to explicitly specify its dependencies.
-      deps: [FaIconLibrary],
-      multi: true,
-    },
-  ],
-};
-
 // NOTE: There is an issue with permutations for components using OnPush. Waiting for this issue to be ironed out:
 // https://github.com/Ergosign/storybook-addon-pseudo-states/issues/19
 export default {
   title: 'Components/Media/Icon',
-  decorators: [withKnobs],
+  component: TsIconComponent,
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [
+        TsIconModule,
+        FontAwesomeModule,
+      ],
+      providers: [
+        {
+          provide: APP_INITIALIZER,
+          useFactory: (iconLibrary: FaIconLibrary) => async() => {
+            // Add the necessary icons inside the initializer body.
+            iconLibrary.addIcons(faHome);
+          },
+          // When using a factory provider you need to explicitly specify its dependencies.
+          deps: [FaIconLibrary],
+          multi: true,
+        },
+      ],
+    }),
+  ],
 };
 
 export const basic = () => ({
-  component: TsIconComponent,
-  moduleMetadata: MODULE_METADATA,
   template: `
     <style>
       dl {

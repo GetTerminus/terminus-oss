@@ -13,9 +13,11 @@ import {
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 import { BehaviorSubject } from 'rxjs';
 
 import {
+  TsNavigationComponent,
   TsNavigationItem,
   TsNavigationModule,
   TsNavigationPayload,
@@ -24,14 +26,16 @@ import {
 
 export default {
   title: 'Components/Navigation/Navigation (horizontal)',
-  decorators: [withKnobs],
-};
-
-const MODULE_METADATA = {
-  imports: [
-    BrowserAnimationsModule,
-    RouterTestingModule,
-    TsNavigationModule,
+  component: TsNavigationComponent,
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [
+        BrowserAnimationsModule,
+        RouterTestingModule,
+        TsNavigationModule,
+      ],
+    }),
   ],
 };
 
@@ -119,7 +123,6 @@ class NavigationWrapper {
 }
 
 export const basic = () => ({
-  moduleMetadata: MODULE_METADATA,
   component: NavigationWrapper,
   props: {
     currentUser: object(
@@ -138,4 +141,3 @@ export const basic = () => ({
     action: action('Action triggered'),
   },
 });
-

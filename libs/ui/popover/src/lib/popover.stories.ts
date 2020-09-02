@@ -2,6 +2,7 @@ import {
   select,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
 import {
   TsPopoverModule,
@@ -10,12 +11,16 @@ import {
 
 export default {
   title: 'Components/Structure/Popover',
-  decorators: [withKnobs],
+  component: TsPopoverComponent,
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [TsPopoverModule],
+    }),
+  ],
 };
 
 export const basic = () => ({
-  moduleMetadata: { imports: [TsPopoverModule] },
-  component: TsPopoverComponent,
   template: `
     <div>
       <button
@@ -37,7 +42,6 @@ export const basic = () => ({
     popoverTrigger: select('popoverTrigger', ['click', 'hover'], 'click'),
   },
 });
-
 basic.parameters = {
   actions: { disabled: true },
 };

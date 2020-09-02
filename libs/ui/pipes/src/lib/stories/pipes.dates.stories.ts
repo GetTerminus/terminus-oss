@@ -6,6 +6,7 @@ import {
   date,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 import { sub } from 'date-fns';
 
 import { TsPipesModule } from '@terminus/ui-pipes';
@@ -27,10 +28,13 @@ function myDateKnob(name, defaultValue) {
 
 export default {
   title: 'Utilities/Pipes/Dates',
-  decorators: [withKnobs],
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [TsPipesModule],
+    }),
+  ],
 };
-
-const MODULE_IMPORTS = [TsPipesModule];
 
 @Component({
   selector: 'ts-date-pipes-wrapper',
@@ -55,7 +59,6 @@ class PipesDateWrapper {
 }
 
 export const datePipe = () => ({
-  moduleMetadata: { imports: [...MODULE_IMPORTS] },
   component: PipesDateWrapper,
   props: {
     value: myDateKnob('Value', customDate),
@@ -82,7 +85,6 @@ class PipesTimeAgoWrapper {
   @Input() public dateNow: Date;
 }
 export const timeAgo = () => ({
-  moduleMetadata: { imports: [...MODULE_IMPORTS] },
   component: PipesTimeAgoWrapper,
   props: {
     value: myDateKnob('Value', customDateOld),

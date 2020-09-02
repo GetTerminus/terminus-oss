@@ -6,18 +6,24 @@ import {
   boolean,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
-import { TsLoadingOverlayModule } from '@terminus/ui-loading-overlay';
-
-const MODULE_METADATA = {
-  imports: [
-    TsLoadingOverlayModule,
-  ],
-};
+import {
+  TsLoadingOverlayDirective,
+  TsLoadingOverlayModule,
+} from '@terminus/ui-loading-overlay';
 
 export default {
   title: 'Components/Feedback/Loading Overlay',
-  decorators: [withKnobs],
+  component: TsLoadingOverlayDirective,
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [
+        TsLoadingOverlayModule,
+      ],
+    }),
+  ],
 };
 
 @Component({
@@ -50,8 +56,6 @@ class LoadingOverlayWrapper {
 }
 
 export const basic = () => ({
-  component: LoadingOverlayWrapper,
-  moduleMetadata: MODULE_METADATA,
   props: {
     isLoading: boolean('Loading', true),
   },

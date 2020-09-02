@@ -1,24 +1,25 @@
 import { withKnobs } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
 import {
   TsLogoComponent,
   TsLogoModule,
 } from '@terminus/ui-logo';
 
-const MODULE_METADATA = {
-  imports: [
-    TsLogoModule,
+export default {
+  title: 'Components/Media/Logo',
+  component: TsLogoComponent,
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [
+        TsLogoModule,
+      ],
+    }),
   ],
 };
 
-export default {
-  title: 'Components/Media/Logo',
-  decorators: [withKnobs],
-};
-
 export const basic = () => ({
-  component: TsLogoComponent,
-  moduleMetadata: MODULE_METADATA,
   template: `
     <style>
     dt:after {

@@ -11,10 +11,12 @@ import {
   select,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
 import {
   TS_AMCHARTS_TOKEN,
   TsAmChartsToken,
+  TsChartComponent,
   TsChartModule,
 } from '@terminus/ui-chart';
 import { TsSpacingModule } from '@terminus/ui-spacing';
@@ -29,26 +31,27 @@ const amChartsFactory = (): TsAmChartsToken => ({
   themes: [am4themes_animated, am4themes_material],
 });
 
-const MODULE_METADATA = {
-  imports: [
-    TsChartModule,
-    TsSpacingModule,
-  ],
-  providers: [
-    // Use the factory function to overwrite the `TS_AMCHARTS_TOKEN` injectable:
-    {
-      provide: TS_AMCHARTS_TOKEN,
-      useFactory: amChartsFactory,
-    },
-  ],
-};
-
 export default {
   title: 'Components/Data Display/Chart',
+  component: TsChartComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [
+        TsChartModule,
+        TsSpacingModule,
+      ],
+      providers: [
+        // Use the factory function to overwrite the `TS_AMCHARTS_TOKEN` injectable:
+        {
+          provide: TS_AMCHARTS_TOKEN,
+          useFactory: amChartsFactory,
+        },
+      ],
+    }),
+  ],
 };
 
 export const XY = () => ({
-  moduleMetadata: MODULE_METADATA,
   component: ChartWrapper,
   props: {
     visualization: 'xy',
@@ -60,7 +63,6 @@ XY.parameters = {
 };
 
 export const pie = () => ({
-  moduleMetadata: MODULE_METADATA,
   component: ChartWrapper,
   props: {
     visualization: 'pie',
@@ -72,7 +74,6 @@ pie.parameters = {
 };
 
 export const map = () => ({
-  moduleMetadata: MODULE_METADATA,
   component: ChartWrapper,
   props: {
     visualization: 'map',
@@ -84,7 +85,6 @@ map.parameters = {
 };
 
 export const radar = () => ({
-  moduleMetadata: MODULE_METADATA,
   component: ChartWrapper,
   props: {
     visualization: 'radar',
@@ -96,7 +96,6 @@ radar.parameters = {
 };
 
 export const tree = () => ({
-  moduleMetadata: MODULE_METADATA,
   component: ChartWrapper,
   props: {
     visualization: 'tree',
@@ -108,7 +107,6 @@ tree.parameters = {
 };
 
 export const sankey = () => ({
-  moduleMetadata: MODULE_METADATA,
   component: ChartWrapper,
   props: {
     visualization: 'sankey',
@@ -120,7 +118,6 @@ sankey.parameters = {
 };
 
 export const chord = () => ({
-  moduleMetadata: MODULE_METADATA,
   component: ChartWrapper,
   props: {
     visualization: 'chord',

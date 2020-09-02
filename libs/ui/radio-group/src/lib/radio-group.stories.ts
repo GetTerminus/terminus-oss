@@ -17,6 +17,7 @@ import {
   boolean,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 import {
   Observable,
   of,
@@ -49,11 +50,6 @@ const DEMO_ITEMS: TsRadioOption[] = [
   },
 ];
 
-export default {
-  title: 'Components/Data Entry/Radio Group',
-  decorators: [withKnobs],
-};
-
 @Component({
   selector: 'ts-radio-wrapper',
   template: `
@@ -79,18 +75,23 @@ class RadioWrapper {
   @Output() public readonly selectionChange = new EventEmitter<TsRadioChange>();
 }
 
-const MODULE_METADATA = {
-  imports: [
-    FlexLayoutModule.withConfig({ useColumnBasisZero: false }),
-    FormsModule,
-    ReactiveFormsModule,
-    TsRadioGroupModule,
+export default {
+  title: 'Components/Data Entry/Radio Group',
+  component: TsRadioGroupComponent,
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [
+        FlexLayoutModule.withConfig({ useColumnBasisZero: false }),
+        FormsModule,
+        ReactiveFormsModule,
+        TsRadioGroupModule,
+      ],
+    }),
   ],
-  declarations: [RadioWrapper],
 };
 
 export const basicWithSubLabel = () => ({
-  moduleMetadata: MODULE_METADATA,
   component: RadioWrapper,
   props: {
     isDisabled: boolean('isDisabled', false),
@@ -99,8 +100,6 @@ export const basicWithSubLabel = () => ({
 });
 
 export const themes = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsRadioGroupComponent,
   template: `
     <div fxLayout="row" fxLayoutGap="4em">
       <div>
@@ -140,8 +139,6 @@ themes.parameters = {
 };
 
 export const visual = () => ({
-  moduleMetadata: MODULE_METADATA,
-  component: TsRadioGroupComponent,
   template: `
     Visual:
     <ts-radio-group

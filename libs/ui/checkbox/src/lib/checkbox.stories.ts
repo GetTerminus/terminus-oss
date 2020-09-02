@@ -10,19 +10,25 @@ import {
   boolean,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
-import { TsCheckboxModule } from '@terminus/ui-checkbox';
-
-const MODULE_METADATA = {
-  imports: [
-    TsCheckboxModule,
-    ReactiveFormsModule,
-  ],
-};
+import {
+  TsCheckboxComponent,
+  TsCheckboxModule,
+} from '@terminus/ui-checkbox';
 
 export default {
   title: 'Components/Data Entry/Checkbox',
-  decorators: [withKnobs],
+  component: TsCheckboxComponent,
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [
+        TsCheckboxModule,
+        ReactiveFormsModule,
+      ],
+    }),
+  ],
 };
 
 @Component({
@@ -56,7 +62,6 @@ class CheckboxWrapper {
 }
 
 export const basic = () => ({
-  moduleMetadata: MODULE_METADATA,
   component: CheckboxWrapper,
   props: {
     isChecked: boolean('isChecked', false),

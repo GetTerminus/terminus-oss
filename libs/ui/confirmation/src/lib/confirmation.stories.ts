@@ -11,23 +11,27 @@ import {
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { moduleMetadata } from '@storybook/angular';
 
 import { TsButtonModule } from '@terminus/ui-button';
 import {
+  TsConfirmationDirective,
   TsConfirmationModule,
   TsConfirmationOverlayPositionTypes,
 } from '@terminus/ui-confirmation';
 
-const MODULE_METADATA = {
-  imports: [
-    TsButtonModule,
-    TsConfirmationModule,
-  ],
-};
-
 export default {
   title: 'Components/Feedback/Confirmation',
-  decorators: [withKnobs],
+  component: TsConfirmationDirective,
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      imports: [
+        TsButtonModule,
+        TsConfirmationModule,
+      ],
+    }),
+  ],
 };
 
 @Component({
@@ -96,7 +100,6 @@ class ConfirmationWrapper {
 
 export const basic = () => ({
   component: ConfirmationWrapper,
-  moduleMetadata: MODULE_METADATA,
   props: {
     isDisabled: boolean('Disabled', false),
     cancelButtonText: text('Cancel button text', 'Cancel'),
@@ -107,7 +110,4 @@ export const basic = () => ({
     submitted: action('Submit success'),
   },
 });
-// basic.parameters = {
-//   actions: { disabled: true },
-// };
 
