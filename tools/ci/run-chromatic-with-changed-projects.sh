@@ -2,6 +2,9 @@
 
 . ~/.bashrc
 
+BRANCH=$1
+echo "Current branch: $BRANCH"
+
 LERNA_OUTPUT=$(npx lerna changed --include-merged-tags --loglevel=silent --json || :)
 echo "Lerna changed check: $LERNA_OUTPUT"
 
@@ -36,7 +39,15 @@ if [[ -n "$LERNA_OUTPUT" ]]; then
   if [[ $links != '' ]]; then
     grep -rl "STORIES" '.storybook/main.js' | xargs sed -i'' -e 's|'STORIES'|'$links'|g'
     echo "Running chromatic on affected projects.."
-    yarn affected:chromatic
+
+    if [ "$1" != "release" ]; then
+      echo "Not on base branch - NOT auto accepting changes."
+      yarn affected:chromatic
+    else
+      # We know any changes that make it to the base branch *must* have been accepted
+      echo "On base branch - auto accepting all changes."
+      yarn affected:chromatic --auto-accept-changes
+    fi
   else
     echo "No storybook built for chromatic visual testing"
   fi
