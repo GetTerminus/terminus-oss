@@ -1,12 +1,12 @@
 # Terminus Open-Source Software
 
-The monorepo that contains all Terminus open-source libraries and tools.
+Monorepo that contains all Terminus open-source packages.
 
-[![Release CI][github-badge-release]][github-ci-link] [![codecov][codecov-badge]][codecov-project]
-[![DavidDM][david-badge]][david-link] [![DavidDM Dev][david-dev-badge]][david-link]
-
-[![MIT License][license-badge]][license-url] [![semantic-release][semantic-release-badge]][semantic-release]
-[![Renovate][renovate-badge]][renovate-link] [![ZenHub][zenhub-image]][zenhub-url]
+![Release CI][github-badge-release] ![codecov][codecov-badge]
+![DavidDM][david-badge] ![DavidDM Dev][david-dev-badge]
+<br>  
+![MIT License][license-badge] ![semantic-release][semantic-release-badge]
+![Renovate][renovate-badge] ![ZenHub][zenhub-image]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -68,7 +68,7 @@ The monorepo that contains all Terminus open-source libraries and tools.
 | [ui-styles][src-styles]                           | A collection of base CSS, SCSS mixins and functions.         | [Changelog][changelog-styles]              |                                  | [Docs][docs-styles]              |                                          | ![styles latest][badge-latest-styles]                         | ![Styles next][badge-next-styles]                          |
 | [ui-table][src-table]                             | Datatable w/pinning, sorting, resizing                       | [Changelog][changelog-table]               | [Demo][demo-table]               | [Docs][docs-table]               | ![codecov][cov-badge-table]              | ![table latest][badge-latest-table]                           | ![Table next][badge-next-table]                            |
 | [ui-tabs][src-tabs]                               | Horizontal tab interface                                     | [Changelog][changelog-tabs]                | [Demo][demo-tabs]                | [Docs][docs-tabs]                | ![codecov][cov-badge-tabs]               | ![tabs latest][badge-latest-tabs]                             | ![Tabs next][badge-next-tabs]                              |
-| ui-textarea                                       | See `input`                                                  |                                            | <small>(see input demo)</small>  |                                  |                                          |                                                               |                                                            |
+| ui-textarea                                       | See `input`                                                  |                                            |                                  |                                  |                                          |                                                               |                                                            |
 | [ui-toggle][src-toggle]                           | Toggle switch                                                | [Changelog][changelog-toggle]              | [Demo][demo-toggle]              | [Docs][docs-toggle]              | ![codecov][cov-badge-toggle]             | ![toggle latest][badge-latest-toggle]                         | ![Toggle next][badge-next-toggle]                          |
 | [ui-tooltip][src-tooltip]                         | Simple tooltip                                               | [Changelog][changelog-tooltip]             | [Demo][demo-tooltip]             | [Docs][docs-tooltip]             | ![codecov][cov-badge-tooltip]            | ![tooltip latest][badge-latest-tooltip]                       | ![Tooltip next][badge-next-tooltip]                        |
 | [ui-validation-messages][src-validation-messages] | A component to display form validation errors                | [Changelog][changelog-validation-messages] | [Demo][demo-validation-messages] | [Docs][docs-validation-messages] | ![codecov][cov-badge-validationMessages] | ![validationMessages latest][badge-latest-validationMessages] | ![Validation Messages next][badge-next-validationMessages] |
