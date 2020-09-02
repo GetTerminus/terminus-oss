@@ -1,16 +1,12 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
-
-- [Contributor Code of Conduct](#contributor-code-of-conduct)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # Contributor Code of Conduct
 
-As contributors and maintainers of the Terminus UI project, we pledge to respect everyone who
-contributes by posting issues, updating documentation, submitting pull requests, providing feedback
-in comments, and any other activities.
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+As contributors and maintainers of Terminus open source software, we pledge to respect everyone who contributes by
+posting issues, updating documentation, submitting pull requests, providing feedback in comments, and any other
+activities.
 
 Communication through any of the Terminus channels (GitHub, Gitter, Slack, IRC, mailing lists,
 Google+, Twitter, etc.) must be constructive and never resort to personal attacks, trolling, public
