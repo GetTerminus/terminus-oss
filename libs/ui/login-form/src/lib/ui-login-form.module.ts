@@ -16,6 +16,9 @@ import { TsLoginFormComponent } from './form/login-form.component';
 export * from './form/login-form.component';
 
 
+/**
+ * @deprecated This module is no longer maintained.
+ */
 @NgModule({
   imports: [
     CommonModule,
@@ -31,7 +34,9 @@ export * from './form/login-form.component';
     TsValidatorsService,
     TsDatePipe,
   ],
+  // eslint-disable-next-line deprecation/deprecation
   exports: [TsLoginFormComponent],
+  // eslint-disable-next-line deprecation/deprecation
   declarations: [TsLoginFormComponent],
 })
 export class TsLoginFormModule {}
