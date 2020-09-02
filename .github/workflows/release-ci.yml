@@ -28,6 +28,14 @@ jobs:
         with:
           access_token: ${{ secrets.GH_TOKEN }}
 
+  test_var:
+    name: "Test variable"
+    steps:
+      - name: "PRINT"
+        run: |
+          MY_REF=${GITHUB_REF##*/}
+          echo "$MY_REF"
+
   #
   # Test affected projects
   #
