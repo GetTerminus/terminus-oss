@@ -1,10 +1,10 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { APP_INITIALIZER } from '@angular/core';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faAbacus } from '@fortawesome/pro-solid-svg-icons';
 import { action } from '@storybook/addon-actions';
 import {
   boolean,
   select,
-  text,
   withKnobs,
 } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
@@ -13,10 +13,6 @@ import {
   tsButtonActionTypes,
   tsButtonFunctionTypes,
 } from '@terminus/ui-button';
-import {
-  TsCopyComponent,
-  TsCopyModule,
-} from '@terminus/ui-copy';
 import {
   TsIconButtonComponent,
   TsIconButtonModule,
@@ -32,6 +28,18 @@ export default {
       imports: [
         TsIconButtonModule,
         TsSpacingModule,
+      ],
+      providers: [
+        {
+          provide: APP_INITIALIZER,
+          useFactory: (iconLibrary: FaIconLibrary) => async() => {
+            // Add the necessary icons inside the initializer body.
+            iconLibrary.addIcons(faAbacus);
+          },
+          // When using a factory provider you need to explicitly specify its dependencies.
+          deps: [FaIconLibrary],
+          multi: true,
+        },
       ],
     }),
   ],
