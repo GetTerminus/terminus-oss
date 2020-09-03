@@ -23,6 +23,7 @@ export default {
 };
 
 export const basic = () => ({
+  component: TsCSVEntryComponent,
   props: {
     blobGenerated: action('Generated file blob'),
   },
@@ -47,6 +48,7 @@ customFooterContent.parameters = {
 };
 
 export const customRowAndColumnCount = () => ({
+  component: TsCSVEntryComponent,
   props: {
     columnCount: 4,
     rowCount: 6,
@@ -58,6 +60,7 @@ customRowAndColumnCount.parameters = {
 };
 
 export const fullWidth = () => ({
+  component: TsCSVEntryComponent,
   props: {
     columnCount: 1,
     fullWidth: true,
@@ -69,6 +72,7 @@ fullWidth.parameters = {
 };
 
 export const staticHeaders = () => ({
+  component: TsCSVEntryComponent,
   props: {
     columnHeaders: ['Header One', 'Header Two'],
   },

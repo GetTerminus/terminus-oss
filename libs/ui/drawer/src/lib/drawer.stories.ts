@@ -182,6 +182,7 @@ class DrawerWrapper {
 }
 
 export const basic = () => ({
+  component: DrawerWrapper,
   props: {
     collapsedSize: text('Collapsed size', '0'),
     expandedSize: text('Expanded size', '15rem'),
@@ -197,6 +198,7 @@ export const basic = () => ({
 });
 
 export const mode = () => ({
+  component: DrawerWrapper,
   props: {
     expanded: true,
     collapsedSize: '0',
@@ -210,6 +212,7 @@ mode.parameters = {
 };
 
 export const backdrop = () => ({
+  component: DrawerWrapper,
   props: {
     expanded: true,
     hasBackdrop: true,

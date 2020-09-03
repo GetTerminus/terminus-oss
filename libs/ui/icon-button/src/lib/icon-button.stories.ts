@@ -46,6 +46,7 @@ export default {
 };
 
 export const basic = () => ({
+  component: TsIconButtonComponent,
   props: {
     actionName: select('Action name', tsButtonActionTypes, 'Button'),
     buttonType: select('Button type', tsButtonFunctionTypes, 'button'),
@@ -78,4 +79,3 @@ themes.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
 };
-

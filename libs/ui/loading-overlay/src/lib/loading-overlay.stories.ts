@@ -56,6 +56,7 @@ class LoadingOverlayWrapper {
 }
 
 export const basic = () => ({
+  component: LoadingOverlayWrapper,
   props: {
     isLoading: boolean('Loading', true),
   },
