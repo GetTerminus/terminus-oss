@@ -47,4 +47,5 @@ export const typography = () => ({
 typography.parameters = {
   knobs: { disabled: true },
   actions: { disabled: true },
+  docs: { page: null },
 };

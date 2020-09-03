@@ -1,3 +1,5 @@
+const addonConfigs = require('../../../../.storybook/utilities/addon-configs');
+
 module.exports = {
   stories: [
     '../../../../libs/**/*.stories.@(js|ts|mdx)',
@@ -5,7 +7,6 @@ module.exports = {
   ],
   addons: [
     '@storybook/addon-essentials',
-    '@storybook/addon-knobs',
-    '@storybook/addon-storysource',
+    ...addonConfigs.addonsNoEssentials,
   ],
 }
