@@ -80,7 +80,7 @@ jobs:
         run: yarn nx affected --target=test --codeCoverage --base=${{ env.NX_BASE }} --head=origin/release
         if: env.SHOULD_RUN == 'true'
       - name: "Run Chromatic"
-        run: tools/ci/run-chromatic-with-changed-projects.sh ${GITHUB_REF##*/}
+        run: tools/ci/run-chromatic-with-changed-projects.sh
         env:
           CHROMATIC_BRANCH: 'release'
           CHROMATIC_SHA: ${{ env.GITHUB_SHA }}
