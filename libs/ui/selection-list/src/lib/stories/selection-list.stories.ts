@@ -179,6 +179,7 @@ basic.parameters = {
 };
 
 export const allowUserInput = () => ({
+  component: TsSelectionListComponent,
   props: {
     emulateLongQuery: boolean('emulateLongQuery', false),
     hint: text('Hint', 'Begin typing to search..'),

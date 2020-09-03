@@ -28,6 +28,7 @@ export default {
 };
 
 export const basic = () => ({
+  component: TsSearchComponent,
   props: {
     initialValue: 'My search query',
     inputHint: text('Hint', 'Enter at least two characters.'),
@@ -75,6 +76,7 @@ themes.parameters = {
 };
 
 export const initialValue = () => ({
+  component: TsSearchComponent,
   props: {
     initialValue: 'My initial value',
   },
@@ -85,6 +87,7 @@ initialValue.parameters = {
 };
 
 export const focusOnLoad = () => ({
+  component: TsSearchComponent,
   props: {
     isFocused: true,
   },
@@ -95,6 +98,7 @@ focusOnLoad.parameters = {
 };
 
 export const isSubmitting = () => ({
+  component: TsSearchComponent,
   props: {
     initialValue: 'My search query',
     isSubmitting: boolean('Submitting', true),
@@ -105,6 +109,7 @@ isSubmitting.parameters = {
 };
 
 export const autoSubmit = () => ({
+  component: TsSearchComponent,
   props: {
     autoSubmit: true,
     submitted: action('Submitted'),
