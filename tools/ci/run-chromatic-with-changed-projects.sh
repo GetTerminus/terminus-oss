@@ -46,7 +46,7 @@ if [[ -n "$LERNA_OUTPUT" ]]; then
     else
       # We know any changes that make it to the base branch *must* have been accepted
       echo "On base branch - auto accepting all changes."
-      yarn chromatic:all --auto-accept-changes
+      yarn chromatic:all --auto-accept-changes --exit-once-uploaded
     fi
   else
     echo "No storybook built for chromatic visual testing"
