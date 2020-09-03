@@ -46,7 +46,7 @@ if [[ -n "$LERNA_OUTPUT" ]]; then
     else
       # We know any changes that make it to the base branch *must* have been accepted
       echo "On base branch - auto accepting all changes."
-      yarn affected:chromatic --auto-accept-changes
+      yarn chromatic:all --auto-accept-changes
     fi
   else
     echo "No storybook built for chromatic visual testing"
@@ -54,3 +54,7 @@ if [[ -n "$LERNA_OUTPUT" ]]; then
 else
   echo "No changed projects found."
 fi
+
+# Delete edit reference files left over from the sed replacement
+# NOTE: The force flag is required so that the build isn't cancelled if these files don't exist
+rm -f .storybook/*-e
