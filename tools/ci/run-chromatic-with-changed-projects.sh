@@ -2,9 +2,6 @@
 
 . ~/.bashrc
 
-BRANCH=$1
-echo "Current branch: $BRANCH"
-
 LERNA_OUTPUT=$(npx lerna changed --include-merged-tags --loglevel=silent --json || :)
 echo "Lerna changed check: $LERNA_OUTPUT"
 
