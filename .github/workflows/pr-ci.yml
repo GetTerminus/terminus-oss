@@ -77,7 +77,7 @@ jobs:
         run: yarn nx affected:test --base=remotes/origin/release --head=${{ github.event.pull_request.head.ref }} --codeCoverage
         if: env.SHOULD_RUN == 'true'
       - name: "Regression test on affected projects"
-        run: tools/ci/run-chromatic-with-changed-projects.sh
+        run: tools/ci/run-chromatic-with-changed-projects.sh ${GITHUB_REF#refs/*/}
         env:
           CHROMATIC_BRANCH: ${{ github.event.pull_request.head.ref }}
           CHROMATIC_SHA: ${{ github.event.pull_request.head.sha }}
