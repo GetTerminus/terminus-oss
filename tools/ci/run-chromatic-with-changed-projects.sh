@@ -36,21 +36,21 @@ if [[ -n "$LERNA_OUTPUT" ]]; then
   echo "Storybook main stories: "
   echo "$links"
 
-#  if [[ $links != '' ]]; then
-#    grep -rl "STORIES" '.storybook/main.js' | xargs sed -i'' -e 's|'STORIES'|'$links'|g'
-#    echo "Running chromatic on affected projects.."
-#
-#    if [ "$1" != "release" ]; then
-#      echo "Not on base branch - NOT auto accepting changes."
-#      yarn affected:chromatic
-#    else
-#      # We know any changes that make it to the base branch *must* have been accepted
-#      echo "On base branch - auto accepting all changes."
-#      yarn chromatic:all --auto-accept-changes --exit-once-uploaded
-#    fi
-#  else
-#    echo "No storybook built for chromatic visual testing"
-#  fi
+  if [[ $links != '' ]]; then
+    grep -rl "STORIES" '.storybook/main.js' | xargs sed -i'' -e 's|'STORIES'|'$links'|g'
+    echo "Running chromatic on affected projects.."
+
+    if [ "$1" != "release" ]; then
+      echo "Not on base branch - NOT auto accepting changes."
+      yarn affected:chromatic
+    else
+      # We know any changes that make it to the base branch *must* have been accepted
+      echo "On base branch - auto accepting all changes."
+      yarn chromatic:all --auto-accept-changes --exit-once-uploaded
+    fi
+  else
+    echo "No storybook built for chromatic visual testing"
+  fi
 else
   echo "No changed projects found."
 fi
