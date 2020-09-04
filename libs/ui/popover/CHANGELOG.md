@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-popover@2.1.8...@terminus/ui-popover@2.1.9) (2020-09-04)
+
+**Note:** Version bump only for package @terminus/ui-popover
+
+
+
+
+
 ## [2.1.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-popover@2.1.7...@terminus/ui-popover@2.1.8) (2020-09-03)
 
 **Note:** Version bump only for package @terminus/ui-popover
