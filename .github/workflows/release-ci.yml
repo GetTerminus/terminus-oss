@@ -79,11 +79,6 @@ jobs:
       - name: "Test affected projects"
         run: yarn nx affected --target=test --codeCoverage --base=${{ env.NX_BASE }} --head=origin/release
         if: env.SHOULD_RUN == 'true'
-#      - name: "Set output to current branch name"
-#        id: current_branch
-#        run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
-#      - name: Check output
-#        run: echo ${{ steps.current_branch.outputs.short_ref }}
       - name: "Run Chromatic"
         run: tools/ci/run-chromatic-with-changed-projects.sh ${GITHUB_REF#refs/*/}
         env:
@@ -239,10 +234,10 @@ jobs:
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       # TODO: This should not be needed
-#      - name: "Build all projects"
-#        run: yarn run build:all
-#        working-directory: ${{ env.working-directory }}
-#        if: env.SHOULD_RUN == 'true'
+      - name: "Build all projects"
+        run: yarn run build:all
+        working-directory: ${{ env.working-directory }}
+        if: env.SHOULD_RUN == 'true'
       - name: "Build all projects schematics"
         run: yarn run build:all:schematics
         working-directory: ${{ env.working-directory }}
