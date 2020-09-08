@@ -67,7 +67,7 @@ let nextUniqueId = 0;
 
 
 /**
- * The radio UI Component
+ * A radio button or group.
  *
  * @example
  * <ts-radio-group

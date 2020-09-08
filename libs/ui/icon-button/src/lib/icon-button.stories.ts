@@ -78,4 +78,5 @@ export const themes = () => ({
 themes.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 400 },
 };

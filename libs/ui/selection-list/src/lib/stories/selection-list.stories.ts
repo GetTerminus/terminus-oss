@@ -30,11 +30,16 @@ import {
 } from 'rxjs/operators';
 
 import { untilComponentDestroyed } from '@terminus/fe-utilities';
-import { TsOptionModule } from '@terminus/ui-option';
+import {
+  TsOptionComponent,
+  TsOptionModule,
+} from '@terminus/ui-option';
 import {
   TsSelectionListChange,
   TsSelectionListComponent,
   TsSelectionListModule,
+  TsSelectionListPanelComponent,
+  TsSelectionListTriggerDirective,
 } from '@terminus/ui-selection-list';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
@@ -136,6 +141,11 @@ class SelectionListWrapper implements OnInit, OnDestroy {
 export default {
   title: 'Components/Data Entry/Selection List',
   component: TsSelectionListComponent,
+  subcomponents: {
+    TsOptionComponent,
+    TsSelectionListPanelComponent,
+    TsSelectionListTriggerDirective,
+  },
   decorators: [
     withKnobs,
     moduleMetadata({
@@ -176,12 +186,13 @@ export const basic = () => ({
 });
 basic.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 340 },
 };
 
 export const allowUserInput = () => ({
   component: TsSelectionListComponent,
   props: {
-    emulateLongQuery: boolean('emulateLongQuery', false),
+    emulateLongQuery: boolean('Emulate long-running query', false),
     hint: text('Hint', 'Begin typing to search..'),
     isDisabled: boolean('Disabled', false),
     label: text('Label', 'Select states'),
@@ -195,3 +206,6 @@ export const allowUserInput = () => ({
     optionDeselected: action('Option deselected'),
   },
 });
+allowUserInput.parameters = {
+  docs: { iframeHeight: 340 },
+};

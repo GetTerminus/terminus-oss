@@ -15,6 +15,10 @@ import { moduleMetadata } from '@storybook/angular';
 
 import {
   TsDrawerComponent,
+  TsDrawerContainerComponent,
+  TsDrawerContentComponent,
+  TsDrawerFooterComponent,
+  TsDrawerHeaderComponent,
   TsDrawerModes,
   TsDrawerModule,
   TsDrawerPosition,
@@ -24,6 +28,12 @@ import { TsSpacingModule } from '@terminus/ui-spacing';
 export default {
   title: 'Components/Structure/Drawer',
   component: TsDrawerComponent,
+  subcomponents: {
+    TsDrawerContainerComponent,
+    TsDrawerContentComponent,
+    TsDrawerHeaderComponent,
+    TsDrawerFooterComponent,
+  },
   decorators: [
     moduleMetadata({
       imports: [
@@ -196,6 +206,9 @@ export const basic = () => ({
     positionChanged: action('Position changed'),
   },
 });
+basic.parameters = {
+  docs: { iframeHeight: 660 },
+};
 
 export const mode = () => ({
   component: DrawerWrapper,
@@ -209,6 +222,7 @@ export const mode = () => ({
 });
 mode.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 660 },
 };
 
 export const backdrop = () => ({
@@ -224,4 +238,5 @@ export const backdrop = () => ({
 });
 mode.parameters = {
   knobs: { disabled: true },
+  docs: { iframeHeight: 660 },
 };

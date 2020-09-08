@@ -54,7 +54,7 @@ export const TS_DRAWER_DEFAULT_COLLAPSE_SIZE = '3.75rem';
 export const TS_DRAWER_DEFAULT_EXPAND_SIZE = '12.5rem';
 
 /**
- * This drawer component corresponds to a drawer that is nested inside a {@link TsDrawerContainerComponent}
+ * A drawer that can overlay or push content.
  *
  * @example
  * <ts-drawer

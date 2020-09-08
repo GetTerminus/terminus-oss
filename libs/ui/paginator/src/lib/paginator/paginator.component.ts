@@ -58,7 +58,7 @@ const DEFAULT_MAX_PREFERRED_RECORDS = 100;
 const DEFAULT_RECORDS_PER_PAGE_OPTIONS = [10, 20, 50];
 
 /**
- * A paginator component
+ * A paginator component for tabular data.
  *
  * @example
  * <ts-paginator

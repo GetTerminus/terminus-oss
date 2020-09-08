@@ -241,7 +241,7 @@ export class TsSelectionListComponent implements
   public chipList: TsChipCollectionComponent | undefined;
 
   /**
-   * Access the actual HTML <input> element
+   * Access the actual HTMLInputElement
    */
   @ViewChild('input')
   public inputElement!: ElementRef<HTMLInputElement>;

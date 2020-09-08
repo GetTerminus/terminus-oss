@@ -1,4 +1,3 @@
-/* eslint-disable @angular-eslint/prefer-on-push-component-change-detection */
 import { action } from '@storybook/addon-actions';
 import {
   select,
@@ -30,6 +29,7 @@ export const basic = () => ({
 });
 basic.parameters = {
   knobs: { disabled: true },
+  docs: { iframeHeight: 300 },
 };
 
 export const customFooterContent = () => ({
@@ -45,6 +45,7 @@ export const customFooterContent = () => ({
 });
 customFooterContent.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 300 },
 };
 
 export const customRowAndColumnCount = () => ({
@@ -57,6 +58,7 @@ export const customRowAndColumnCount = () => ({
 customRowAndColumnCount.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 370 },
 };
 
 export const fullWidth = () => ({
@@ -69,6 +71,7 @@ export const fullWidth = () => ({
 fullWidth.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 300 },
 };
 
 export const staticHeaders = () => ({
@@ -80,4 +83,5 @@ export const staticHeaders = () => ({
 staticHeaders.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 300 },
 };

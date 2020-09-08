@@ -128,4 +128,7 @@ export const basic = () => ({
     flip: select('Flip', ['horizontal', 'vertical', 'both'], 'vertical'),
   },
 });
+basic.parameters = {
+  docs: { iframeHeight: 500 },
+};
 

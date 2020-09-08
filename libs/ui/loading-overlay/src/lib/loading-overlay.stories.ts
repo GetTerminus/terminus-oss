@@ -63,4 +63,5 @@ export const basic = () => ({
 });
 basic.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 300 },
 };

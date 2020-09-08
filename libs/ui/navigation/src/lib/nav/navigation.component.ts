@@ -116,7 +116,7 @@ const DEFAULT_USER_NAME_MAX_LENGTH = 20;
 const DEFAULT_WELCOME_MESSAGE_MAX_LENGTH = 20;
 
 /**
- * This is the navigation UI Component
+ * A responsive, horizontal navigation.
  *
  * @example
  * <ts-navigation

@@ -98,6 +98,9 @@ export const basicWithSubLabel = () => ({
     selectionChange: action('DEMO: Radio change: '),
   },
 });
+basicWithSubLabel.parameters = {
+  docs: { iframeHeight: 160 },
+};
 
 export const themes = () => ({
   template: `
@@ -136,6 +139,7 @@ export const themes = () => ({
 themes.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 140 },
 };
 
 export const visual = () => ({
@@ -161,4 +165,5 @@ export const visual = () => ({
 });
 visual.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 500 },
 };

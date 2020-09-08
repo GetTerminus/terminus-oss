@@ -81,12 +81,13 @@ export const TS_LOGO_COLORS: TS_LOGO_COLOR[] = [
   exportAs: 'tsLogo',
 })
 export class TsLogoComponent implements OnInit {
+  /**
+   * Store the final SVG
+   */
   public svg: SafeHtml = ``;
 
   /**
-   * Name of the logo types
-   *
-   * @param value
+   * Define the logo type
    */
   @Input()
   public set type(value: TS_LOGO_TYPE) {
@@ -104,11 +105,8 @@ export class TsLogoComponent implements OnInit {
   }
   private _type: TS_LOGO_TYPE = 'full-gradient';
 
-
   /**
-   * Name of the logo colors
-   *
-   * @param value
+   * Define the logo color
    */
   @Input()
   public set logoColor(value: TS_LOGO_COLOR) {
@@ -126,9 +124,7 @@ export class TsLogoComponent implements OnInit {
   }
   private _logoColor: TS_LOGO_COLOR = 'white';
 
-  constructor(
-    private domSanitizer: DomSanitizer,
-  ) {}
+  constructor(private domSanitizer: DomSanitizer) {}
 
   public ngOnInit(): void {
     this.setType();

@@ -13,6 +13,7 @@ import {
 import { moduleMetadata } from '@storybook/angular';
 
 import {
+  TsChipBadgeDirective,
   TsChipCollectionChange,
   TsChipCollectionComponent,
   TsChipCollectionOrientation,
@@ -24,6 +25,10 @@ import { TsSpacingModule } from '@terminus/ui-spacing';
 export default {
   title: 'Components/Data Display/Chip',
   component: TsChipCollectionComponent,
+  subcomponents: {
+    TsChipCollectionComponent,
+    TsChipBadgeDirective,
+  },
   decorators: [
     withKnobs,
     moduleMetadata({
@@ -49,6 +54,7 @@ export const basic = () => ({
 });
 basic.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 60 },
 };
 
 @Component({
@@ -106,3 +112,6 @@ export const chipCollection = () => ({
     tabUpdateFocus: action('Tab focus updated'),
   },
 });
+chipCollection.parameters = {
+  docs: { iframeHeight: 60 },
+};

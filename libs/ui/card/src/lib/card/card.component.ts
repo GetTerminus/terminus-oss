@@ -52,7 +52,7 @@ export const tsCardBorderOptionsList: TsCardBorderOptions[] = [
 let nextUniqueId = 0;
 
 /**
- * A presentational component to render a card
+ * A presentational card with menu and interaction support.
  *
  * @example
  * <ts-card
@@ -78,6 +78,9 @@ let nextUniqueId = 0;
   exportAs: 'tsCard',
 })
 export class TsCardComponent {
+  /**
+   * Icon for disabled cards
+   */
   public lockIcon = faLockAlt;
 
   /**

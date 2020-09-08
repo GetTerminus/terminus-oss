@@ -7,11 +7,15 @@ import { moduleMetadata } from '@storybook/angular';
 import {
   TsPopoverModule,
   TsPopoverComponent,
+  TsPopoverTriggerDirective,
 } from '@terminus/ui-popover';
 
 export default {
   title: 'Components/Structure/Popover',
   component: TsPopoverComponent,
+  subcomponents: {
+    TsPopoverTriggerDirective,
+  },
   decorators: [
     withKnobs,
     moduleMetadata({
@@ -38,10 +42,11 @@ export const basic = () => ({
     </ts-popover>
   `,
   props: {
-    position: select('position', ['top', 'bottom', 'left', 'right'], 'right'),
+    position: select('position', ['top', 'bottom', 'left', 'right'], 'top'),
     popoverTrigger: select('popoverTrigger', ['click', 'hover'], 'click'),
   },
 });
 basic.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 400 },
 };

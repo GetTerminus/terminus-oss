@@ -32,6 +32,7 @@ export const basic = () => ({
 });
 basic.properties = {
   actions: { disabled: true },
+  docs: { iframeHeight: 60 },
 };
 
 export const external = () => ({
@@ -43,6 +44,7 @@ export const external = () => ({
 });
 external.properties = {
   actions: { disabled: true },
+  docs: { iframeHeight: 60 },
 };
 
 export const fragment = () => ({
@@ -53,4 +55,5 @@ export const fragment = () => ({
 });
 fragment.properties = {
   actions: { disabled: true },
+  docs: { iframeHeight: 60 },
 };

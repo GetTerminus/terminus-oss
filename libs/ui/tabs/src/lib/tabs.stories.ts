@@ -1,11 +1,7 @@
 import {
   APP_INITIALIZER,
   Component,
-  Input,
-  OnInit,
-  ViewChild,
 } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   FaIconLibrary,
@@ -24,13 +20,21 @@ import { moduleMetadata } from '@storybook/angular';
 import { TsIconModule } from '@terminus/ui-icon';
 import { TsSpacingModule } from '@terminus/ui-spacing';
 import {
+  TsTabBodyComponent,
   TsTabCollectionComponent,
+  TsTabHeaderComponent,
+  TsTabInkBarComponent,
   TsTabsModule,
 } from '@terminus/ui-tabs';
 
 export default {
   title: 'Components/Structure/Tabs',
   component: TsTabCollectionComponent,
+  subcomponents: {
+    TsTabInkBarComponent,
+    TsTabHeaderComponent,
+    TsTabBodyComponent,
+  },
   decorators: [
     withKnobs,
     moduleMetadata({
@@ -79,6 +83,9 @@ export const basic = () => ({
     selectedTabChange: action('Selected tab changed'),
   },
 });
+basic.parameters = {
+  docs: { iframeHeight: 140 },
+};
 
 export const tabAlignment = () => ({
   template: `
@@ -114,6 +121,7 @@ export const tabAlignment = () => ({
 tabAlignment.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 700 },
 };
 
 export const headerPosition = () => ({
@@ -134,6 +142,7 @@ export const headerPosition = () => ({
 headerPosition.parameters = {
   knobs: { disabled: true },
   actions: { disabled: true },
+  docs: { iframeHeight: 400 },
 };
 
 export const disabledTabs = () => ({
@@ -153,6 +162,7 @@ export const disabledTabs = () => ({
 });
 disabledTabs.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 140 },
 };
 
 @Component({
@@ -191,6 +201,7 @@ export const dynamicTabs = () => ({
 dynamicTabs.parameters = {
   knobs: { disabled: true },
   actions: { disabled: true },
+  docs: { iframeHeight: 180 },
 };
 
 export const customLabels = () => ({
@@ -221,6 +232,7 @@ export const customLabels = () => ({
 customLabels.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 140 },
 };
 
 export const lazyLoadedContent = () => ({
@@ -238,4 +250,5 @@ export const lazyLoadedContent = () => ({
 lazyLoadedContent.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 140 },
 };

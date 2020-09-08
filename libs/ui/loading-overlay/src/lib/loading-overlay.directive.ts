@@ -20,9 +20,7 @@ import { TsLoadingOverlayComponent } from './overlay/loading-overlay.component';
 
 
 /**
- * The tsLoadingOverlay UI Directive.
- *
- * Provides a spinner overlay to demonstrate loading for async data.
+ * A spinner overlay to demonstrate loading for async data.
  *
  * @example
  * <div [tsLoadingOverlay]="true"></div>
@@ -42,7 +40,7 @@ export class TsLoadingOverlayDirective implements OnInit, OnDestroy {
   private readonly bodyPortalHost: DomPortalOutlet;
 
   /**
-   * Define a setter to show/hide the loading overlay
+   * Show or hide the loading overlay
    *
    * @param value
    */
@@ -63,7 +61,6 @@ export class TsLoadingOverlayDirective implements OnInit, OnDestroy {
   @HostBinding('style.position')
   public position!: string;
 
-
   constructor(
     private elementRef: ElementRef,
     private windowService: TsWindowService,
@@ -82,7 +79,6 @@ export class TsLoadingOverlayDirective implements OnInit, OnDestroy {
     // Create the component portal
     this.loadingOverlayPortal = new ComponentPortal(TsLoadingOverlayComponent);
   }
-
 
   /**
    * Determine and set the needed position

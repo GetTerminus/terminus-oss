@@ -121,6 +121,9 @@ export const datepicker = () => ({
     selected: action('Selected: '),
   },
 });
+datepicker.parameters = {
+  docs: { iframeHeight: 440 },
+};
 
 export const hideRequiredMarker = () => ({
   template: `
@@ -204,6 +207,7 @@ export const mask = () => ({
 });
 mask.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 200 },
 };
 
 export const prefixIcon = () => ({
@@ -245,4 +249,5 @@ export const textarea = () => ({
 });
 textarea.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 140 },
 };

@@ -28,9 +28,19 @@ import { TsExpansionPanelModule } from '@terminus/ui-expansion-panel';
 import { TsIconModule } from '@terminus/ui-icon';
 import { TsMenuModule } from '@terminus/ui-menu';
 import { TsPipesModule } from '@terminus/ui-pipes';
-import { TsSortModule } from '@terminus/ui-sort';
+import {
+  TsSortDirective,
+  TsSortModule,
+} from '@terminus/ui-sort';
 import { TsSpacingModule } from '@terminus/ui-spacing';
 import {
+  TsCellDirective,
+  TsColumnDefDirective,
+  TsFooterCellDirective,
+  TsFooterRowComponent,
+  TsHeaderCellDirective,
+  TsHeaderRowComponent,
+  TsRowComponent,
   TsTableComponent,
   TsTableModule,
 } from '@terminus/ui-table';
@@ -106,6 +116,16 @@ const COLUMNS_SOURCE: CustomColumn[] = [
 export default {
   title: 'Components/Data Display/Table',
   component: TsTableComponent,
+  subcomponents: {
+    TsSortDirective,
+    TsCellDirective,
+    TsHeaderCellDirective,
+    TsFooterCellDirective,
+    TsColumnDefDirective,
+    TsHeaderRowComponent,
+    TsRowComponent,
+    TsFooterRowComponent,
+  },
   decorators: [
     moduleMetadata({
       imports: [
@@ -142,15 +162,30 @@ export default {
   ],
 };
 
+export const basic = () => ({
+  component: TableWrapper,
+  props: {
+    columnsSource: COLUMNS_SOURCE.slice(),
+    firstColumnNoWrap: true,
+    columnsChange: action('Columns changed'),
+  },
+});
+basic.parameters = {
+  docs: { iframeHeight: 740 },
+};
+
 export const density = () => ({
   component: TableWrapper,
   props: {
     columnsSource: COLUMNS_SOURCE.slice(),
-    density: select('Density', ['comfy', 'compact'], 'comfy'),
+    density: select('Density', ['comfy', 'compact'], 'compact'),
     firstColumnNoWrap: false,
     columnsChange: action('Columns changed'),
   },
 });
+density.parameters = {
+  docs: { iframeHeight: 740 },
+};
 
 export const stickyColumnsAndRows = () => ({
   component: TableWrapper,
@@ -168,6 +203,7 @@ export const stickyColumnsAndRows = () => ({
 });
 stickyColumnsAndRows.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 640 },
 };
 
 export const noWrapFalse = () => ({
@@ -181,9 +217,10 @@ export const noWrapFalse = () => ({
     constrainContainer: true,
   },
 });
-stickyColumnsAndRows.parameters = {
+noWrapFalse.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 640 },
 };
 
 export const expandableRows = () => ({
@@ -196,4 +233,5 @@ export const expandableRows = () => ({
 expandableRows.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 800 },
 };
