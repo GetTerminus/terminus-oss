@@ -19,7 +19,7 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@angular/core: ^9.1.0',
     '@angular/flex-layout: ~9.0.0-beta.29',
     '@angular/forms: ^9.1.0',
-    '@angular/material: ^9.1.0',
+    '@angular/material: ^9.2.4',
     '@angular/platform-browser: ^9.1.0',
     '@terminus/design-tokens: ^3.1.0',
     '@terminus/fe-utilities: ^1.0.0',

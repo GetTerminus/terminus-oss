@@ -21,7 +21,7 @@
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
     "@angular/flex-layout": "~9.0.0-beta.29",
-    "@angular/material": "^9.1.0",
+    "@angular/material": "^9.2.4",
     "@angular/router": "^9.1.0",
     "@terminus/design-tokens": "^3.1.0",
     "@terminus/fe-utilities": "^1.0.0",

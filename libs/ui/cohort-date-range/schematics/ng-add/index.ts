@@ -29,7 +29,7 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     'tslib: ^1.10.0',
     '@terminus/ui-cohort-date-range: ^1.0.10',
     '@angular/cdk: 9.2.4',
-    '@angular/material: ^9.1.0',
+    '@angular/material: ^9.2.4',
     '@terminus/ui-checkbox: ^2.0.6',
     '@terminus/ui-chip: ^2.0.4',
     '@terminus/ui-form-field: ^2.0.8',

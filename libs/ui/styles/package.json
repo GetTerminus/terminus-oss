@@ -25,7 +25,7 @@
   ],
   "styles": "helpers.scss",
   "peerDependencies": {
-    "@angular/material": "^9.1.0",
+    "@angular/material": "^9.2.4",
     "@terminus/design-tokens": "^3.1.0"
   },
   "scripts": {
