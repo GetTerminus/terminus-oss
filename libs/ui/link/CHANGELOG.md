@@ -7,36 +7,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/ui-link
 
-
-
-
-
 ## [2.0.13](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-link@2.0.12...@terminus/ui-link@2.0.13) (2020-08-27)
 
 **Note:** Version bump only for package @terminus/ui-link
 
-
-
-
-
 ## [2.0.12](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-link@2.0.11...@terminus/ui-link@2.0.12) (2020-08-21)
-
 
 ### Bug Fixes
 
 * **Link:** fix style regression for links inside menu panels ([b8161c9](https://github.com/GetTerminus/terminus-oss/commit/b8161c91c945c96cf80792ae7f3765cd081d597c)), closes [#280](https://github.com/GetTerminus/terminus-oss/issues/280)
 
-
-
-
-
 ## [2.0.11](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-link@2.0.10...@terminus/ui-link@2.0.11) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/ui-link
-
-
-
-
 
 ## [2.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-link@2.0.9...@terminus/ui-link@2.0.10) (2020-08-10)
 

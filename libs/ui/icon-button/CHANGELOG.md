@@ -7,25 +7,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/ui-icon-button
 
-
-
-
-
 ## [2.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon-button@2.0.7...@terminus/ui-icon-button@2.0.8) (2020-09-01)
 
 **Note:** Version bump only for package @terminus/ui-icon-button
 
-
-
-
-
 ## [2.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon-button@2.0.6...@terminus/ui-icon-button@2.0.7) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/ui-icon-button
-
-
-
-
 
 ## [2.0.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon-button@2.0.5...@terminus/ui-icon-button@2.0.6) (2020-08-10)
 

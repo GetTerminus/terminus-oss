@@ -7,65 +7,33 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/ui-expansion-panel
 
-
-
-
-
 ## [1.0.23](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.0.22...@terminus/ui-expansion-panel@1.0.23) (2020-08-28)
 
 **Note:** Version bump only for package @terminus/ui-expansion-panel
-
-
-
-
 
 ## [1.0.22](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.0.21...@terminus/ui-expansion-panel@1.0.22) (2020-08-28)
 
 **Note:** Version bump only for package @terminus/ui-expansion-panel
 
-
-
-
-
 ## [1.0.21](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.0.20...@terminus/ui-expansion-panel@1.0.21) (2020-08-26)
 
 **Note:** Version bump only for package @terminus/ui-expansion-panel
-
-
-
-
 
 ## [1.0.20](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.0.19...@terminus/ui-expansion-panel@1.0.20) (2020-08-25)
 
 **Note:** Version bump only for package @terminus/ui-expansion-panel
 
-
-
-
-
 ## [1.0.19](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.0.18...@terminus/ui-expansion-panel@1.0.19) (2020-08-21)
 
 **Note:** Version bump only for package @terminus/ui-expansion-panel
-
-
-
-
 
 ## [1.0.18](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.0.17...@terminus/ui-expansion-panel@1.0.18) (2020-08-21)
 
 **Note:** Version bump only for package @terminus/ui-expansion-panel
 
-
-
-
-
 ## [1.0.17](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.0.16...@terminus/ui-expansion-panel@1.0.17) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/ui-expansion-panel
-
-
-
-
 
 ## [1.0.16](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.0.15...@terminus/ui-expansion-panel@1.0.16) (2020-08-10)
 

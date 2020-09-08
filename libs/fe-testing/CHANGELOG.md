@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/fe-testing
 
-
-
-
-
 ## [1.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/fe-testing@0.3.0...@terminus/fe-testing@1.1.0) (2020-08-10)
 
 ### Features

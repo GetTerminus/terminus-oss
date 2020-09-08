@@ -7,85 +7,44 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/ui-button
 
-
-
-
-
 ## [2.0.19](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.0.18...@terminus/ui-button@2.0.19) (2020-09-01)
-
 
 ### Bug Fixes
 
 * **Button:** publish arrays of allowed type and action ([dc8798d](https://github.com/GetTerminus/terminus-oss/commit/dc8798d67926dde9d325d3c683e76f760a7230e5))
 * **Button:** update collapsed padding ([3765a5c](https://github.com/GetTerminus/terminus-oss/commit/3765a5cfc335d16f069f82197f77455c7350936f))
 
-
-
-
-
 ## [2.0.18](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.0.17...@terminus/ui-button@2.0.18) (2020-08-26)
 
 **Note:** Version bump only for package @terminus/ui-button
-
-
-
-
 
 ## [2.0.17](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.0.16...@terminus/ui-button@2.0.17) (2020-08-26)
 
 **Note:** Version bump only for package @terminus/ui-button
 
-
-
-
-
 ## [2.0.16](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.0.15...@terminus/ui-button@2.0.16) (2020-08-25)
 
 **Note:** Version bump only for package @terminus/ui-button
-
-
-
-
 
 ## [2.0.15](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.0.14...@terminus/ui-button@2.0.15) (2020-08-24)
 
 **Note:** Version bump only for package @terminus/ui-button
 
-
-
-
-
 ## [2.0.14](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.0.13...@terminus/ui-button@2.0.14) (2020-08-21)
 
 **Note:** Version bump only for package @terminus/ui-button
-
-
-
-
 
 ## [2.0.13](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.0.12...@terminus/ui-button@2.0.13) (2020-08-21)
 
 **Note:** Version bump only for package @terminus/ui-button
 
-
-
-
-
 ## [2.0.12](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.0.11...@terminus/ui-button@2.0.12) (2020-08-20)
 
 **Note:** Version bump only for package @terminus/ui-button
 
-
-
-
-
 ## [2.0.11](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.0.10...@terminus/ui-button@2.0.11) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/ui-button
-
-
-
-
 
 ## [2.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.0.9...@terminus/ui-button@2.0.10) (2020-08-10)
 

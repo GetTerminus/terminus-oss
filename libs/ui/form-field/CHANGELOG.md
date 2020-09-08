@@ -5,22 +5,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [2.0.13](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-form-field@2.0.12...@terminus/ui-form-field@2.0.13) (2020-08-25)
 
-
 ### Bug Fixes
 
 * **FormField:** lighten accent focus shadow ([ce55b00](https://github.com/GetTerminus/terminus-oss/commit/ce55b006eeb4983cfa8be43b168eda2be5a762f4))
 
-
-
-
-
 ## [2.0.12](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-form-field@2.0.11...@terminus/ui-form-field@2.0.12) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/ui-form-field
-
-
-
-
 
 ## [2.0.11](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-form-field@2.0.10...@terminus/ui-form-field@2.0.11) (2020-08-13)
 

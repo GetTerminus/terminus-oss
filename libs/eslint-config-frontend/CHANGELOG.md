@@ -5,22 +5,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [3.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/eslint-config-frontend@3.0.4...@terminus/eslint-config-frontend@3.1.0) (2020-08-25)
 
-
 ### Features
 
 * **ESLintConfig:** treat new stories dir the same as test files ([5408872](https://github.com/GetTerminus/terminus-oss/commit/54088724fc1d3f8dcbd2724c403a12e7c79c7b35))
 
-
-
-
-
 ## [3.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/eslint-config-frontend@3.0.3...@terminus/eslint-config-frontend@3.0.4) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/eslint-config-frontend
-
-
-
-
 
 ## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/eslint-config-frontend@3.0.2...@terminus/eslint-config-frontend@3.0.3) (2020-08-06)
 

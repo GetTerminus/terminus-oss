@@ -83,6 +83,10 @@ Monorepo that contains all Terminus open-source packages.
 
 See the 'demos' column in the [table above](#packages).
 
+We are slowly moving our documentation to a [Storybook deployed by Chromatic][chromatic-storybook].
+
+During this conversion, all legacy demos can be viewed here: <https://getterminus.github.io/ui-demos-release>
+
 ### Generated Documentation
 
 [http://uilibrary-docs.terminus.ninja/release](http://uilibrary-docs.terminus.ninja/release)
@@ -105,6 +109,7 @@ See the 'demos' column in the [table above](#packages).
 [github-ci-link]:         https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22Release+CI%22
 [url-showcase-ui]:        https://getterminus.github.io/ui-demos-release/components
 [url-showcase-tokens]:    https://getterminus.github.io/design-tokens/color
+[chromatic-storybook]:    https://release--5f0ca4e61af3790022cad2fe.chromatic.com
 
 <!-- Source Directories -->
 [src-tokens]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/design-tokens/

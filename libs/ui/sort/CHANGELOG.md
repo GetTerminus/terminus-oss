@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/ui-sort
 
-
-
-
-
 ## [1.0.15](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sort@1.0.14...@terminus/ui-sort@1.0.15) (2020-08-10)
 
 **Note:** Version bump only for package @terminus/ui-sort

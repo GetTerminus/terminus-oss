@@ -7,25 +7,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/ui-logo
 
-
-
-
-
 ## [1.0.14](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-logo@1.0.13...@terminus/ui-logo@1.0.14) (2020-08-28)
 
 **Note:** Version bump only for package @terminus/ui-logo
 
-
-
-
-
 ## [1.0.13](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-logo@1.0.12...@terminus/ui-logo@1.0.13) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/ui-logo
-
-
-
-
 
 ## [1.0.12](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-logo@1.0.11...@terminus/ui-logo@1.0.12) (2020-08-10)
 

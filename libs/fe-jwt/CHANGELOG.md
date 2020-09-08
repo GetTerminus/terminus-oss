@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/fe-jwt
 
-
-
-
-
 ## [1.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/fe-jwt@0.4.0...@terminus/fe-jwt@1.1.0) (2020-08-07)
 
 ### Features

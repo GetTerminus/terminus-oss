@@ -7,36 +7,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/ui-paginator
 
-
-
-
-
 ## [2.1.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@2.1.0...@terminus/ui-paginator@2.1.1) (2020-08-27)
 
 **Note:** Version bump only for package @terminus/ui-paginator
 
-
-
-
-
 # [2.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@2.0.7...@terminus/ui-paginator@2.1.0) (2020-08-26)
-
 
 ### Features
 
 * **Paginator:** Emit previous and next page button click events ([92462ae](https://github.com/GetTerminus/terminus-oss/commit/92462aed5d3e93fac84192f1c9e1b8165e77c9ab))
 
-
-
-
-
 ## [2.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@2.0.6...@terminus/ui-paginator@2.0.7) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/ui-paginator
-
-
-
-
 
 ## [2.0.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@2.0.5...@terminus/ui-paginator@2.0.6) (2020-08-10)
 

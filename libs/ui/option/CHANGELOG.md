@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/ui-option
 
-
-
-
-
 ## [1.0.11](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-option@1.0.10...@terminus/ui-option@1.0.11) (2020-08-10)
 
 **Note:** Version bump only for package @terminus/ui-option
