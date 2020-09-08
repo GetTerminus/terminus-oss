@@ -2,6 +2,7 @@ module.exports = {
   addonsNoEssentials: [
     '@storybook/addon-knobs',
     '@storybook/addon-storysource',
+    '@storybook/addon-a11y',
   ],
   essentialsNoDocs: [
     {
