@@ -93,8 +93,6 @@ See the [bot usage docs][all-contrib-bot] for more.
 2. Navigate to `http://localhost:4200/components/`
 3. Select a component from the menu (top right)
 
-![Showcase UI Screenshot](https://user-images.githubusercontent.com/270193/35576969-67e0eab6-05ae-11e8-9c38-7d44bcf2c848.png)
-
 ### Visual Regression (vr)
 
 1. `nx build vr && nx serve vr`
@@ -131,7 +129,7 @@ FONTAWESOME_NPM_AUTH_TOKEN=<TOKEN>
 1. Create a new package using NX
    - `nx g lib my-lib --skip-package-json --publishable --style scss`
 2. Comment all methods, constants & `@Input`s using the supported [JSDoc style][compodoc_comments].
-3. Add installation and usage examples in the component documentation with every possible input and output included.
+3. Add installation and usage examples in the component documentation with all possible inputs and outputs included.
 4. Add the component to the [primary README's packages table][packages-table].
 
 See the [official NX docs][nx-angular-docs] for more information.
@@ -160,14 +158,13 @@ Note: Our base branch, `release`, is **always deployable**.
 ##### Beginning a feature
 
 1. Checkout `release`
-2. Pull `release`
-3. Create a feature branch from `release` (see [branch naming](#naming))
+1. Pull `release`
+1. Create a feature branch from `release` (see [branch naming](#naming))
 
 ##### Working on a feature
 
 1. Commit all work on the feature branch
-1. Create a [pull request](#pull-requests) at any time (just don't request a review until you are
-   finished)
+1. Create a [pull request](#pull-requests) at any time (if you are not ready for a review, open a draft PR)
 1. Keep the remote up to date with your latest changes. Committing often locally is good, but those
    commits should be pushed to the remote (i.e. GitHub) at _least_ once a day so that the code is
    available to all engineers.
@@ -241,8 +238,8 @@ All projects should pass all available linters _before_ committing.
 
 TypeScript & JavaScript projects use ESLint and SASS/SCSS projects use Stylelint.
 
-To edit configuration, look for the files `.eslintrc`, or `stylelint.config.js`. **These files should not be edited
-without a discussion with the team.**
+To edit configuration, look for the files `.eslintrc`, `stylelint.config.js`, or `.mardownlint.json`. **These files
+should not be edited without a discussion with the team.**
 
 Look at the scripts section in the project's `package.json` for the command to run tests.
 
@@ -253,7 +250,13 @@ changing software startup, but a project should never dip below 80% coverage.
 
 We use [Jest][jest] for unit tests.
 
-Look at the scripts section in the project's `package.json` for the command to run tests.
+```bash
+# Test a specific package
+$ nx test ui-button
+
+# Test all affected packages
+$ nx affected:test --base=release --head=HEAD
+```
 
 ### Pull Requests
 
@@ -284,10 +287,10 @@ Releases are handled automatically when code is merged to `release`. Never merge
 consumers!
 
 1. [Semantic Release][semantic-release] looks at all commits since the last tag on `release`.
-2. Based on those commits it will [bump the version number appropriately][semver].
-3. The package changelog is generated on [Github][oss-github].
-4. The new version is published to [NPM][ui-npm] under the `next` tag.
-5. When the new functionality is verified, it is tagged as `latest`:
+1. Based on those commits it will [bump the version number appropriately][semver].
+1. The package changelog is generated on [Github][oss-github].
+1. The new version is published to [NPM][ui-npm] under the `next` tag.
+1. When the new functionality is verified, it is tagged as `latest`:
    - `npm dist-tag add @terminus/ui-<package>@<version to promote> latest`
 
 > NOTE: currently `yarn tag` outputs an error even though the tagging seems to work. Because of
@@ -712,13 +715,13 @@ stories: [
 
 ---
 
-NOTE: `.storybook/main.js` needs to have this entry"
+NOTE: `.storybook/main.js` needs to have this entry:
 
 ```bash
 stories: [STORIES]
 ```
 
-to start with. Then bash script will replace `STORIES` with proper affected project story link.
+During the CI process, `STORIES` will be replaced with a list of affected storybooks.
 
 PLEASE **DO NOT** COMMIT CHANGES in `storybook/main.js`
 
