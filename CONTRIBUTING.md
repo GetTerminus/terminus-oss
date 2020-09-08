@@ -30,8 +30,7 @@ Help us keep Terminus open and inclusive. Please read and follow our [Code of Co
 
 If you find a bug in the source code or a mistake in the documentation, you can help us by
 [submitting an issue](#submitting-an-issue) to our [GitHub repository][github]. Including an issue
--reproduction (via our [starter app][starter-app]) is the absolute best way to help the team quickly diagnose the problem.
-Screenshots are also helpful.
+reproduction is the absolute best way to help the team quickly diagnose the problem. Screenshots are also helpful.
 
 You can help the team even more and [submit a Pull Request](#submitting-a-pull-request-pr) with a fix! :pray:
 
@@ -61,7 +60,7 @@ chances of your issue being dealt with quickly:
 - **Motivation for or Use Case** - explain what are you trying to do and why the current behavior
     is a bug for you
 - **Browsers and Operating System** - is this a problem with all browsers?
-- **Reproduce the Error** - Please fork our [starter app][starter-app] to replicate your issue and then share that link.
+- **Reproduce the Error** - Please create a simple replication of your issue and add that link to the issue.
 - **Screenshots** - Due to the visual nature of this library, screenshots can help the team triage
     issues far more quickly than a text description.
 - **Related Issues** - has a similar issue been reported before?
@@ -93,7 +92,8 @@ Before you submit your Pull Request (PR) consider the following guidelines:
   - Make the required updates.
   - Re-run all test suites to ensure tests are still passing.
   - Re-run all linters.
-  - Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
+  - Rebase your branch and force push to your GitHub repository (this will update your Pull Request and trigger a new CI
+    run):
     1. `git rebase release -i`
     1. `git push -f`
 
@@ -129,4 +129,3 @@ To ensure consistency throughout the source code, keep these rules in mind as yo
 [pulls]: https://github.com/GetTerminus/terminus-oss/pulls
 [dev-docs]: https://github.com/GetTerminus/terminus-oss/blob/release/DEVELOPMENT.md
 [commit]: https://github.com/GetTerminus/terminus-oss/blob/release/DEVELOPMENT.md#committing
-[starter-app]: https://github.com/GetTerminus/ui-stackblitz-starter
