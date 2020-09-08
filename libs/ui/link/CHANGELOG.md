@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-link@2.0.15...@terminus/ui-link@2.1.0) (2020-09-08)
+
+
+### Features
+
+* clean all markdown ([5249a59](https://github.com/GetTerminus/terminus-oss/commit/5249a59486be63b6d9a0be7a801defb9b6adcedc))
+
+
+
+
+
 ## [2.0.15](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-link@2.0.14...@terminus/ui-link@2.0.15) (2020-09-04)
 
 **Note:** Version bump only for package @terminus/ui-link

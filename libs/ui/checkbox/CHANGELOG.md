@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@2.0.13...@terminus/ui-checkbox@2.1.0) (2020-09-08)
+
+
+### Bug Fixes
+
+* force material & cdk ^9.2.4 for consumers ([ea09a6f](https://github.com/GetTerminus/terminus-oss/commit/ea09a6ff88a1ea239fe0e24cb011abfb3ffc8908)), closes [#275](https://github.com/GetTerminus/terminus-oss/issues/275)
+
+
+### Features
+
+* clean all markdown ([5249a59](https://github.com/GetTerminus/terminus-oss/commit/5249a59486be63b6d9a0be7a801defb9b6adcedc))
+
+
+
+
+
 ## [2.0.13](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@2.0.12...@terminus/ui-checkbox@2.0.13) (2020-09-04)
 
 **Note:** Version bump only for package @terminus/ui-checkbox

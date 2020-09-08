@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.2.0 (2020-09-08)
+
+
+### Features
+
+* clean all markdown ([5249a59](https://github.com/GetTerminus/terminus-oss/commit/5249a59486be63b6d9a0be7a801defb9b6adcedc))
+
+
+
+
+
 # [3.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/eslint-config-frontend@3.0.4...@terminus/eslint-config-frontend@3.1.0) (2020-08-25)
 
 ### Features

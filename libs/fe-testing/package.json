@@ -1,7 +1,7 @@
 {
   "name": "@terminus/fe-testing",
   "description": "A collection of helpers to facilitate testing UI components",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "license": "MIT",
   "author": "@terminus",
   "private": false,

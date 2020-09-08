@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.3.0 (2020-09-08)
+
+
+### Features
+
+* clean all markdown ([5249a59](https://github.com/GetTerminus/terminus-oss/commit/5249a59486be63b6d9a0be7a801defb9b6adcedc))
+
+
+
+
+
 ## [1.2.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/stylelint-config-frontend@1.2.6...@terminus/stylelint-config-frontend@1.2.7) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/stylelint-config-frontend
