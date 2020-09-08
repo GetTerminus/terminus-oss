@@ -12,8 +12,9 @@ export function customStorySort(a, b) {
   };
   const pipe = (...fns) => value => fns.reduce((result, fn) => fn(result), value);
   const prefixFn = pipe(
-    prefix('welcome-', '0'),
-    prefix('getting-started', 'a'),
+    prefix('home-', 'a'),
+    prefix('overview-', 'b'),
+    prefix('getting-started', '0'),
     prefix('tokens-', '1'),
     prefix('components-', '2'),
     prefix('utilities-', '3'),

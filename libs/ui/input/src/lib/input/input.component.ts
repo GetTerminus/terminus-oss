@@ -166,7 +166,7 @@ const DEFAULT_TEXTAREA_ROWS = 4;
 const DEFAULT_DATE_LOCALE = 'en-US';
 
 /**
- * A presentational component to render a text input
+ * A presentational component to render a text input, textarea, or datepicker.
  *
  * @example
  * <ts-input

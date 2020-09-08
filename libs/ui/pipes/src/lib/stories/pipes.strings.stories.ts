@@ -3,23 +3,21 @@ import {
   Input,
 } from '@angular/core';
 import {
-  date,
   number,
   select,
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
-import { sub } from 'date-fns';
 
 import {
   allowedTruncationTypes,
   TsPipesModule,
+  TsSentenceCasePipe,
+  TsTitleCasePipe,
+  TsTruncateAtPipe,
   TsTruncatePositionType,
 } from '@terminus/ui-pipes';
 
-const NO_ACTION_PARAMS = {
-  actions: { disabled: true },
-};
 const DL_STYLES = `
   dd {font-weight: bold;}
   dd:first-of-type {margin-bottom: 2rem;}
@@ -29,6 +27,11 @@ const DL_STYLES = `
 export default {
   title: 'Utilities/Pipes/Strings',
   decorators: [withKnobs],
+  subcomponents: {
+    TsSentenceCasePipe,
+    TsTitleCasePipe,
+    TsTruncateAtPipe,
+  },
 };
 
 const MODULE_IMPORTS = [TsPipesModule];
@@ -55,7 +58,10 @@ export const sentenceCase = () => ({
     value: text('Value', 'THE QUICK BROWN FOX'),
   },
 });
-sentenceCase.parameters = NO_ACTION_PARAMS;
+sentenceCase.parameters = {
+  actions: { disabled: true },
+  docs: { iframeHeight: 140 },
+};
 
 @Component({
   selector: 'ts-title-pipes-wrapper',
@@ -89,7 +95,10 @@ export const titleCase = () => ({
     value2: text('Value 2', 'THAT RUG REALLY TIED THE ROOM TOGETHER.'),
   },
 });
-titleCase.parameters = NO_ACTION_PARAMS;
+titleCase.parameters = {
+  actions: { disabled: true },
+  docs: { iframeHeight: 200 },
+};
 
 @Component({
   selector: 'ts-truncate-pipes-wrapper',
@@ -119,4 +128,7 @@ export const truncate = () => ({
     position: select('Position', allowedTruncationTypes, 'end'),
   },
 });
-truncate.parameters = NO_ACTION_PARAMS;
+truncate.parameters = {
+  actions: { disabled: true },
+  docs: { iframeHeight: 140 },
+};

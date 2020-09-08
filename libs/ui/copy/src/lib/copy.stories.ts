@@ -1,7 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  boolean,
-  select,
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
@@ -39,9 +37,9 @@ export const basic = () => ({
 });
 basic.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 180 },
 };
 
-// themes
 export const themes = () => ({
   template: `
     <ts-copy theme="primary" tsVerticalSpacing>{{ content }}</ts-copy>
@@ -54,9 +52,9 @@ export const themes = () => ({
 });
 themes.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 260 },
 };
 
-// format
 export const format = () => ({
   template: `
     <h3>Standard</h3>
@@ -72,4 +70,5 @@ export const format = () => ({
 });
 format.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 400 },
 };

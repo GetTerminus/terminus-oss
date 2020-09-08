@@ -86,7 +86,7 @@ interface StoryActionPayload {
     `
       :host {
         display: block;
-        min-height: 360px;
+        height: 300px;
       }
     `,
   ],
@@ -141,3 +141,6 @@ export const basic = () => ({
     action: action('Action triggered'),
   },
 });
+basic.parameters = {
+  docs: { iframeHeight: 300 },
+};

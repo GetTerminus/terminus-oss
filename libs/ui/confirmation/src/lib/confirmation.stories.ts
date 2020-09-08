@@ -110,4 +110,7 @@ export const basic = () => ({
     submitted: action('Submit success'),
   },
 });
+basic.parameters = {
+  docs: { iframeHeight: 300 },
+};
 

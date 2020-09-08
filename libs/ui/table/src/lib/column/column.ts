@@ -5,7 +5,6 @@ import {
   Input,
 } from '@angular/core';
 
-
 /**
  * Allowed column alignments
  */
@@ -23,7 +22,6 @@ export const tsTableColumnAlignmentTypesArray: TsTableColumnAlignment[] = [
   'center',
   'right',
 ];
-
 
 /**
  * Column definition for the {@link TsTableComponent}.
@@ -74,7 +72,6 @@ export class TsColumnDefDirective extends CdkColumnDef {
    */
   @Input()
   public stickyEnd = false;
-
 
   constructor(public elementRef: ElementRef) {
     super();

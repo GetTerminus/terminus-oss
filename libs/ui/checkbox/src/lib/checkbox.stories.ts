@@ -4,8 +4,10 @@ import {
 } from '@angular/core';
 import {
   FormBuilder,
+  FormControl,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { action } from '@storybook/addon-actions';
 import {
   boolean,
   withKnobs,
@@ -31,41 +33,27 @@ export default {
   ],
 };
 
-@Component({
-  selector: 'ts-checkbox-demo-wrapper',
-  template: `
-    <h1>Hello</h1>
-    <form [formGroup]="myForm">
-      <ts-checkbox
-        [formControl]="myForm.get('myCheck')"
-        [isChecked]="isChecked"
-        [isDisabled]="isDisabled"
-        (inputChange)="changed($event)"
-        (indeterminateChange)="interChanged($event)"
-      >My checkbox!</ts-checkbox>
-    </form>
-  `,
-})
-class CheckboxWrapper {
-  myForm = this.formBuilder.group({ myCheck: [false] });
-  @Input() public isChecked: boolean;
-  @Input() public isDisabled: boolean;
-
-  constructor(private formBuilder: FormBuilder) {}
-
-  changed(e: boolean) {
-    console.log('DEMO: Checkbox change: ', e);
-  }
-  interChanged(e: boolean) {
-    console.log('DEMO: Indeterminate change: ', e);
-  }
-}
-
 export const basic = () => ({
-  component: CheckboxWrapper,
+  component: TsCheckboxComponent,
+  template: `
+    <ts-checkbox
+      [formControl]="formControl"
+      [isChecked]="isChecked"
+      [isDisabled]="isDisabled"
+      (inputChange)="inputChange($event)"
+      (indeterminateChange)="interChanged($event)"
+    >My checkbox!</ts-checkbox>
+  `,
   props: {
+    formControl: new FormControl(false),
     isChecked: boolean('isChecked', false),
     isDisabled: boolean('isDisabled', false),
+    inputChange: action('Input changed'),
+    interChanged: action('Indeterminate changed'),
   },
 });
+basic.parameters = {
+  actions: { disabled: true },
+  docs: { iframeHeight: 60 },
+};
 

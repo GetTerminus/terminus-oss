@@ -12,12 +12,14 @@ import { moduleMetadata } from '@storybook/angular';
 
 import {
   allowedTooltipTypes,
+  TsTooltipComponent,
   TsTooltipModule,
   TsTooltipPositionTypes,
 } from '@terminus/ui-tooltip';
 
 export default {
   title: 'Components/Feedback/Tooltip',
+  component: TsTooltipComponent,
   decorators: [
     withKnobs,
     moduleMetadata({
@@ -35,12 +37,13 @@ export default {
     `
       :host {
         display: block;
+        height: 200px;
       }
       .wrapper {
         align-items: flex-start;
         display: flex;
         flex-direction: row;
-        min-height: 260px;
+        min-height: 200px;
         justify-content: center;
       }
       .wrapper--before {
@@ -63,7 +66,8 @@ export default {
   ],
   template: `
     <button *ngIf="showButton" (click)="tooltip.toggleTooltip()">
-      Show/Hide Tooltip
+      {{ tooltip.isVisible ? 'Hide' : 'Show' }}
+      Tooltip
     </button>
 
     <div class="wrapper wrapper--{{ tooltipPosition }}">
@@ -99,6 +103,7 @@ export const basic = () => ({
 });
 basic.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 200 },
 };
 
 export const underline = () => ({
@@ -112,6 +117,7 @@ export const underline = () => ({
 });
 underline.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 200 },
 };
 
 // manual control
@@ -124,8 +130,9 @@ export const manualControl = () => ({
     tooltipValue: text('Tooltip value', 'My tooltip content!'),
   },
 });
-underline.parameters = {
+manualControl.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 200 },
 };
 
 export const longContent = () => ({
@@ -140,7 +147,8 @@ export const longContent = () => ({
     showContentBorder: true,
   },
 });
-underline.parameters = {
+longContent.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 300 },
 };

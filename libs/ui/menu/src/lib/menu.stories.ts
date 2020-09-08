@@ -53,6 +53,10 @@ export const basic = () => ({
     isDisabled: boolean('isDisabled', false),
   },
 });
+basic.parameters = {
+  actions: { disabled: true },
+  docs: { iframeHeight: 200 },
+};
 
 export const themes = () => ({
   template: `
@@ -77,6 +81,7 @@ export const themes = () => ({
 themes.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 400 },
 };
 
 export const customPanelPosition = () => ({
@@ -102,6 +107,7 @@ export const customPanelPosition = () => ({
 customPanelPosition.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 400 },
 };
 
 export const utilityTrigger = () => ({
@@ -119,4 +125,5 @@ export const utilityTrigger = () => ({
 utilityTrigger.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 200 },
 };

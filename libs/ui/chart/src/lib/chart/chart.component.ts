@@ -63,9 +63,6 @@ export type TsChart
 /**
  * This is the chart UI Component
  *
- * FIXME: Once amCharts v4 is TypeScript script compliant, we should set the `tsconfig.skipLibCheck` to true.
- * https://github.com/GetTerminus/terminus-ui/issues/1327
- *
  * @example
  * <ts-chart
  *              visualization="xy"

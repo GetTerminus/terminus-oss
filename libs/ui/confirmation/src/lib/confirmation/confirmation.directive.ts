@@ -50,7 +50,7 @@ export const allowedOverlayPositionTypes: TsConfirmationOverlayPositionTypes[] =
 ];
 
 /**
- * A directive to inject a confirmation step into any button
+ * A directive to inject a confirmation step into any button click flow.
  *
  * @example
  *         <ts-button

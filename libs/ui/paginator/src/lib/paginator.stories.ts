@@ -51,6 +51,9 @@ export const basic = () => ({
     recordsPerPageChange: action('Records per-page changed'),
   },
 });
+basic.parameters = {
+  docs: { iframeHeight: 300 },
+};
 
 export const recordCountMaximum = () => ({
   template: `
@@ -69,7 +72,7 @@ export const recordCountMaximum = () => ({
     maxPreferredRecords: number('Maximum preferred records', 100),
   },
 });
-recordCountMaximum.properties = {
+recordCountMaximum.parameters = {
   actions: { disabled: true },
 };
 
@@ -85,7 +88,7 @@ export const baseZeroOrOne = () => ({
     isZeroBased: boolean('Zero based', true),
   },
 });
-baseZeroOrOne.properties = {
+baseZeroOrOne.parameters = {
   actions: { disabled: true },
 };
 
@@ -101,7 +104,7 @@ export const simpleMode = () => ({
     isSimpleMode: boolean('Simple mode', true),
   },
 });
-simpleMode.properties = {
+simpleMode.parameters = {
   actions: { disabled: true },
 };
 
@@ -117,7 +120,7 @@ export const noRecordsPerPageSelector = () => ({
     showRecordsPerPageSelector: boolean('Show the Records Per Page menu', false),
   },
 });
-noRecordsPerPageSelector.properties = {
+noRecordsPerPageSelector.parameters = {
   actions: { disabled: true },
 };
 
@@ -133,7 +136,7 @@ export const setInitialPage = () => ({
     currentPageIndex: number('Current page index', 3),
   },
 });
-setInitialPage.properties = {
+setInitialPage.parameters = {
   actions: { disabled: true },
 };
 

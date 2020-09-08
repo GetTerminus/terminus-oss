@@ -30,7 +30,7 @@ export const allowedTooltipTypes: TsTooltipPositionTypes[] = [
 ];
 
 /**
- * This is the tooltip UI Component
+ * Add a text-only tooltip to any component or element.
  *
  * @example
  * <ts-tooltip
@@ -51,6 +51,14 @@ export const allowedTooltipTypes: TsTooltipPositionTypes[] = [
   exportAs: 'tsTooltipComponent',
 })
 export class TsTooltipComponent {
+  /**
+   * Return the current visibility state of the tooltip
+   */
+  public get isVisible(): boolean {
+    // NOTE: Naming controlled by Material
+    // eslint-disable-next-line no-underscore-dangle
+    return this.matTooltip._isTooltipVisible();
+  }
   /**
    * Define whether there is a dotted underline shown on the text
    */

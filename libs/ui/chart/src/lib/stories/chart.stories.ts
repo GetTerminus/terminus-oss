@@ -60,6 +60,7 @@ export const XY = () => ({
 XY.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 600 },
 };
 
 export const pie = () => ({
@@ -71,6 +72,7 @@ export const pie = () => ({
 pie.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 640 },
 };
 
 export const map = () => ({
@@ -82,6 +84,7 @@ export const map = () => ({
 map.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 700 },
 };
 
 export const radar = () => ({
@@ -93,6 +96,7 @@ export const radar = () => ({
 radar.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 600 },
 };
 
 export const tree = () => ({
@@ -104,6 +108,7 @@ export const tree = () => ({
 tree.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 600 },
 };
 
 export const sankey = () => ({
@@ -115,6 +120,7 @@ export const sankey = () => ({
 sankey.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 640 },
 };
 
 export const chord = () => ({
@@ -126,5 +132,5 @@ export const chord = () => ({
 chord.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
+  docs: { iframeHeight: 600 },
 };
-

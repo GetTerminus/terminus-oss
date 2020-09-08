@@ -12,13 +12,28 @@ import { moduleMetadata } from '@storybook/angular';
 import { TsButtonModule } from '@terminus/ui-button';
 import { TsCardModule } from '@terminus/ui-card';
 import {
+  TsAccordionComponent,
+  TsExpansionPanelActionRowComponent,
   TsExpansionPanelComponent,
+  TsExpansionPanelContentDirective,
   TsExpansionPanelModule,
+  TsExpansionPanelTriggerComponent,
+  TsExpansionPanelTriggerDescriptionComponent,
+  TsExpansionPanelTriggerTitleComponent,
 } from '@terminus/ui-expansion-panel';
 
 export default {
   title: 'Components/Structure/Expansion Panel',
   component: TsExpansionPanelComponent,
+  subcomponents: {
+    TsAccordionComponent,
+    TsExpansionPanelActionRowComponent,
+    TsExpansionPanelContentDirective,
+    TsExpansionPanelTriggerComponent,
+    TsExpansionPanelTriggerDescriptionComponent,
+    TsExpansionPanelTriggerTitleComponent,
+  }
+  ,
   decorators: [
     withKnobs,
     moduleMetadata({
@@ -61,6 +76,7 @@ export const basic = () => ({
 });
 basic.parameters = {
   knobs: { disabled: true },
+  docs: { iframeHeight: 200 },
 };
 
 export const customTriggerSizes = () => ({
@@ -81,6 +97,7 @@ export const customTriggerSizes = () => ({
 });
 customTriggerSizes.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 320 },
 };
 
 export const defaultOpen = () => ({
@@ -100,6 +117,7 @@ export const defaultOpen = () => ({
 defaultOpen.parameters = {
   knobs: { disabled: true },
   actions: { disabled: true },
+  docs: { iframeHeight: 160 },
 };
 
 export const lazyLoad = () => ({
@@ -118,6 +136,7 @@ export const lazyLoad = () => ({
 lazyLoad.parameters = {
   knobs: { disabled: true },
   actions: { disabled: true },
+  docs: { iframeHeight: 160 },
 };
 
 @Component({
@@ -187,6 +206,7 @@ export const stepperOrWizard = () => ({
 stepperOrWizard.parameters = {
   knobs: { disabled: true },
   actions: { disabled: true },
+  docs: { iframeHeight: 340 },
 };
 
 export const transparent = () => ({
@@ -208,4 +228,5 @@ export const transparent = () => ({
 });
 transparent.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 200 },
 };

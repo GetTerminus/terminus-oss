@@ -146,3 +146,6 @@ export const basic = () => ({
     yReachStartEvent: action('Y reach start'),
   },
 });
+basic.parameters = {
+  docs: { iframeHeight: 440 },
+};

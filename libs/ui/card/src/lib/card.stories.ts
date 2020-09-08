@@ -12,17 +12,29 @@ import {
   tsCardBorderOptionsList,
   TsCardComponent,
   TsCardModule,
+  TsCardTitleDirective,
 } from '@terminus/ui-card';
 
 export default {
   title: 'Components/Structure/Card',
   component: TsCardComponent,
+  subcomponents: {
+    TsCardTitleDirective,
+  },
   decorators: [
     withKnobs,
     moduleMetadata({
       imports: [TsCardModule],
     }),
   ],
+};
+
+export const basic = () => ({
+  template: `<ts-card>My card content</ts-card>`,
+});
+basic.parameters = {
+  actions: { disabled: true },
+  docs: { iframeHeight: 140 },
 };
 
 export const aspectRatio = () => ({

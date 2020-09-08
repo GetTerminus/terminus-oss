@@ -9,11 +9,12 @@ import {
 import { moduleMetadata } from '@storybook/angular';
 import { sub } from 'date-fns';
 
-import { TsPipesModule } from '@terminus/ui-pipes';
+import {
+  TsDatePipe,
+  TsPipesModule,
+  TsTimeAgoPipe,
+} from '@terminus/ui-pipes';
 
-const NO_ACTION_PARAMS = {
-  actions: { disabled: true },
-};
 const DL_STYLES = `
   dd {font-weight: bold;}
   dd:first-of-type {margin-bottom: 2rem;}
@@ -28,6 +29,10 @@ function myDateKnob(name, defaultValue) {
 
 export default {
   title: 'Utilities/Pipes/Dates',
+  subcomponents: {
+    TsDatePipe,
+    TsTimeAgoPipe,
+  },
   decorators: [
     withKnobs,
     moduleMetadata({
@@ -64,7 +69,10 @@ export const datePipe = () => ({
     value: myDateKnob('Value', customDate),
   },
 });
-datePipe.parameters = NO_ACTION_PARAMS;
+datePipe.parameters = {
+  actions: { disabled: true },
+  docs: { iframeHeight: 300 },
+};
 
 @Component({
   selector: 'ts-time-ago-pipes-wrapper',
@@ -91,4 +99,7 @@ export const timeAgo = () => ({
     dateNow: customDate,
   },
 });
-timeAgo.parameters = NO_ACTION_PARAMS;
+timeAgo.parameters = {
+  actions: { disabled: true },
+  docs: { iframeHeight: 140 },
+};
