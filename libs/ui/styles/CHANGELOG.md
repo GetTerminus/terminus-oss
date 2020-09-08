@@ -15,28 +15,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/ui-styles
 
-
-
-
-
 ## [1.0.16](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-styles@1.0.15...@terminus/ui-styles@1.0.16) (2020-08-28)
-
 
 ### Bug Fixes
 
 * **Styles:** responsive ratio now correctly omits image styles ([a3d96b5](https://github.com/GetTerminus/terminus-oss/commit/a3d96b5745e3f5f8b76ab70a44fdc8388f7212cc))
 
-
-
-
-
 ## [1.0.15](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-styles@1.0.14...@terminus/ui-styles@1.0.15) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/ui-styles
-
-
-
-
 
 ## [1.0.14](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-styles@1.0.13...@terminus/ui-styles@1.0.14) (2020-08-10)
 

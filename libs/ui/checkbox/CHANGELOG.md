@@ -15,41 +15,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/ui-checkbox
 
-
-
-
-
 ## [2.0.11](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@2.0.10...@terminus/ui-checkbox@2.0.11) (2020-08-26)
 
 **Note:** Version bump only for package @terminus/ui-checkbox
-
-
-
-
 
 ## [2.0.10](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@2.0.9...@terminus/ui-checkbox@2.0.10) (2020-08-25)
 
 **Note:** Version bump only for package @terminus/ui-checkbox
 
-
-
-
-
 ## [2.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@2.0.8...@terminus/ui-checkbox@2.0.9) (2020-08-21)
 
 **Note:** Version bump only for package @terminus/ui-checkbox
 
-
-
-
-
 ## [2.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@2.0.7...@terminus/ui-checkbox@2.0.8) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/ui-checkbox
-
-
-
-
 
 ## [2.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@2.0.6...@terminus/ui-checkbox@2.0.7) (2020-08-10)
 

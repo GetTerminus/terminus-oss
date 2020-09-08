@@ -15,28 +15,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/ui-search
 
-
-
-
-
 ## [2.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@2.0.8...@terminus/ui-search@2.0.9) (2020-09-01)
-
 
 ### Bug Fixes
 
 * **Search:** correctly disable button when search is disabled ([7430b0f](https://github.com/GetTerminus/terminus-oss/commit/7430b0fa67bf6fb28af57a2b2fee0ed57580a143))
 
-
-
-
-
 ## [2.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@2.0.7...@terminus/ui-search@2.0.8) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/ui-search
-
-
-
-
 
 ## [2.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@2.0.6...@terminus/ui-search@2.0.7) (2020-08-10)
 

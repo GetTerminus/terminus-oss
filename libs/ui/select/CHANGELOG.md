@@ -15,10 +15,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/ui-select
 
-
-
-
-
 ## [2.0.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-select@2.0.5...@terminus/ui-select@2.0.6) (2020-08-10)
 
 **Note:** Version bump only for package @terminus/ui-select

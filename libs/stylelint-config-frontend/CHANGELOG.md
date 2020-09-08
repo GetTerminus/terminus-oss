@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/stylelint-config-frontend
 
-
-
-
-
 ## [1.2.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/stylelint-config-frontend@1.2.5...@terminus/stylelint-config-frontend@1.2.6) (2020-08-05)
 
 ### Bug Fixes

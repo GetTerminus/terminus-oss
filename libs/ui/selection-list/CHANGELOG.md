@@ -15,28 +15,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/ui-selection-list
 
-
-
-
-
 ## [2.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@2.0.8...@terminus/ui-selection-list@2.0.9) (2020-08-26)
-
 
 ### Bug Fixes
 
 * **SelectionList:** progress indicator now positioned correctly ([0e1bb30](https://github.com/GetTerminus/terminus-oss/commit/0e1bb304fd706456cca7a3409398a537ee8af2f6)), closes [#292](https://github.com/GetTerminus/terminus-oss/issues/292) [#291](https://github.com/GetTerminus/terminus-oss/issues/291)
 
-
-
-
-
 ## [2.0.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@2.0.7...@terminus/ui-selection-list@2.0.8) (2020-08-14)
 
 **Note:** Version bump only for package @terminus/ui-selection-list
-
-
-
-
 
 ## [2.0.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@2.0.6...@terminus/ui-selection-list@2.0.7) (2020-08-10)
 

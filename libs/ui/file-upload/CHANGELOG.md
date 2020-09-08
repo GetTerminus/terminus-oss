@@ -15,10 +15,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/ui-file-upload
 
-
-
-
-
 ## [2.0.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@2.0.8...@terminus/ui-file-upload@2.0.9) (2020-08-10)
 
 **Note:** Version bump only for package @terminus/ui-file-upload

@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @terminus/design-tokens
 
-
-
-
-
 ## [3.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/design-tokens@3.1.1...@terminus/design-tokens@3.1.2) (2020-08-05)
 
 ### Bug Fixes
