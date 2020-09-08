@@ -501,6 +501,38 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/autofocus/src/test-setup.ts"
           }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui/autofocus/.storybook"
+            },
+            "docsMode": false
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ui-autofocus",
+            "config": {
+              "configFolder": "libs/ui/autofocus/.storybook"
+            },
+            "docsMode": false
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
         }
       },
       "schematics": {
