@@ -97,7 +97,7 @@ export const clearable = () => ({
   },
 });
 
-const DEFAULT_DATE = new Date();
+const DEFAULT_DATE = new Date(2020, 2, 12);
 const MIN_DATE = sub(DEFAULT_DATE, { days: 7 });
 const MAX_DATE = add(DEFAULT_DATE, { days: 7 });
 export const datepicker = () => ({
