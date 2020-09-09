@@ -197,6 +197,30 @@ export class Basic {
   template: `
     <ts-selection-list
       [formControl]="myCtrl"
+    >
+      <ts-option
+        *ngFor="let option of states"
+        [value]="option"
+        [option]="option"
+      >
+        {{ option.name }}
+      </ts-option>
+    </ts-selection-list>
+  `,
+})
+export class ShowIcon {
+  public myCtrl = new FormControl();
+  public states: State[] = [];
+
+  public changeOptionsLength() {
+    this.states = STATES.slice(0, 5);
+  }
+}
+
+@Component({
+  template: `
+    <ts-selection-list
+      [formControl]="myCtrl"
       [allowMultiple]="allowMultiple"
       [reopenAfterSelection]="keepOpen"
       [showProgress]="showProgress"
@@ -1062,6 +1086,7 @@ export const testComponents = {
   PassingInObjectValue,
   Required,
   Seeded,
+  ShowIcon,
   ManualSeeded,
   SeededNgModel,
   SeededNgModelError,
