@@ -77,7 +77,7 @@ let nextUniqueId = 0;
 
 
 /**
- * This is the file-upload UI Component
+ * A component that offers classic file uploading or drag and drop file uploading.
  *
  * @example
  * <ts-file-upload
