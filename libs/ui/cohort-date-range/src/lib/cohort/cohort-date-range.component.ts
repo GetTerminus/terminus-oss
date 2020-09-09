@@ -254,9 +254,7 @@ export class TsCohortDateRangeComponent implements OnInit, OnDestroy {
   @Output()
   public readonly cohortDateRangeChanged = new EventEmitter<TsCohortDateRangeChanged>();
 
-  constructor(
-    public formBuilder: FormBuilder,
-  ) { }
+  constructor(public formBuilder: FormBuilder) {}
 
   public ngOnInit(): void {
     this.updateSelectOnRangeChange();
