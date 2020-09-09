@@ -42,16 +42,16 @@ export interface TsDateRange {
  * @example
  * <ts-date-range
  *              [dateFormGroup]="myForm.get('dateRange')"
- *              endMaxDate="{{ new Date(2017, 4, 30) }}"
  *              endMinDate="{{ new Date(2017, 4, 1) }}"
+ *              endMaxDate="{{ new Date(2017, 4, 30) }}"
  *              [isDisabled]="true"
  *              startingView="year"
- *              startMaxDate="{{ new Date(2017, 4, 30) }}"
  *              startMinDate="{{ new Date(2017, 4, 1) }}"
+ *              startMaxDate="{{ new Date(2017, 4, 30) }}"
  *              theme="primary"
- *              (dateRangeChange)="myMethod($event)"
- *              (endSelected)="myMethod($event)"
  *              (startSelected)="myMethod($event)"
+ *              (endSelected)="myMethod($event)"
+ *              (dateRangeChange)="myMethod($event)"
  * ></ts-date-range>
  *
  * <example-url>https://getterminus.github.io/ui-demos-release/components/date-range</example-url>
@@ -215,11 +215,7 @@ export class TsDateRangeComponent implements OnInit, OnDestroy {
   @Output()
   public readonly startSelected: EventEmitter<Date | undefined> = new EventEmitter();
 
-
-  constructor(
-    private changeDetectorRef: ChangeDetectorRef,
-  ) { }
-
+  constructor(private changeDetectorRef: ChangeDetectorRef) { }
 
   /**
    * Seed initial date range values
