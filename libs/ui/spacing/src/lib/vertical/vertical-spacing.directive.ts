@@ -25,10 +25,24 @@ export type TsVerticalSpacingTypes
   | 'large--5'
   | 'large--6'
 ;
+export const tsVerticalSpacingTypes = [
+  'small--2',
+  'small--1',
+  'small--0',
+  'none',
+  'default--0',
+  'large--0',
+  'large--1',
+  'large--2',
+  'large--3',
+  'large--4',
+  'large--5',
+  'large--6',
+];
 
 
 /**
- * This is the vertical spacing UI directive. Accepts {@link TsVerticalSpacingTypes}
+ * Adds vertical space below a DOM element.
  *
  * @example
  * <div tsVerticalSpacing>
