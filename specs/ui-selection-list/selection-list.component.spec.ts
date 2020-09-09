@@ -94,6 +94,19 @@ describe(`TsSelectionListComponent`, function() {
     expect.assertions(2);
   });
 
+  test(`should show icon when options are not empty`, () => {
+    const fixture = createComponent(testComponents.ShowIcon);
+    fixture.detectChanges();
+
+    let icon = fixture.debugElement.query(By.css('.ts-icon'));
+    expect(icon).toBeFalsy();
+
+    fixture.componentInstance.changeOptionsLength();
+    fixture.detectChanges();
+    icon = fixture.debugElement.query(By.css('.ts-icon'));
+    expect(icon).toBeTruthy();
+  });
+
   test(`should set the disabled state when called`, () => {
     const fixture = createComponent(testComponents.Basic);
     fixture.detectChanges();

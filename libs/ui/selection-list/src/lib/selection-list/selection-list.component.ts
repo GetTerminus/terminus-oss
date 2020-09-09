@@ -149,6 +149,11 @@ export class TsSelectionListComponent implements
   TsFormFieldControl<unknown> {
 
   /**
+   * Determine if the dropdown arrow icon should be visible
+   */
+  public showArrow: boolean;
+
+  /**
    * Give the component an explicit name
    * TODO: remove once select & autocomplete have been removed https://github.com/GetTerminus/terminus-ui/issues/1678
    */
@@ -286,13 +291,6 @@ export class TsSelectionListComponent implements
    */
   public get shouldLabelFloat(): boolean {
     return this.focused || !this.empty;
-  }
-
-  /**
-   * Determine if the dropdown arrow icon should be visible
-   */
-  public get shouldShowDropdownIcon(): boolean {
-    return !!this.options.length;
   }
 
   /**
@@ -638,6 +636,13 @@ export class TsSelectionListComponent implements
    * Subscribe to panel events and query subject changes
    */
   public ngAfterViewInit(): void {
+    // Initialize arrow icon based on options length
+    this.showArrow = !!this.options.length;
+    // Subscribe to options change to determine arrow icon visibility
+    this.options.changes.pipe(untilComponentDestroyed(this)).subscribe(v => {
+      this.showArrow = !!v.length;
+      this.changeDetectorRef.detectChanges();
+    });
     // Seed any initial value into the query subject
     this.querySubject.next(this.inputElement.nativeElement.value);
 
