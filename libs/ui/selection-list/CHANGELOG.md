@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@2.1.0...@terminus/ui-selection-list@2.1.1) (2020-09-10)
+
+
+### Bug Fixes
+
+* **SelectionList:** icon updates when option list gets updated ([09a2f44](https://github.com/GetTerminus/terminus-oss/commit/09a2f44dee618b542909a409fa3350a4dc61cbe2))
+
+
+
+
+
 # [2.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@2.0.11...@terminus/ui-selection-list@2.1.0) (2020-09-08)
 
 
