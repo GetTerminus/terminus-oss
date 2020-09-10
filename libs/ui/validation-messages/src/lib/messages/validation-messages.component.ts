@@ -24,8 +24,7 @@ let nextUniqueId = 0;
 
 
 /**
- * A presentational component to render validation messages
- * NOTE: ChangeDetectionStrategy.OnPush is disabled here because it affects control getting to this service on the first change cycle.
+ * A presentational component to render validation messages.
  *
  * @example
  * <ts-validation-messages
@@ -45,6 +44,7 @@ let nextUniqueId = 0;
   styleUrls: ['./validation-messages.component.scss'],
   host: { class: 'ts-validation-messages' },
   encapsulation: ViewEncapsulation.None,
+  // NOTE: ChangeDetectionStrategy.OnPush is disabled here because it affects control getting to this service on the first change cycle.
   exportAs: 'tsValidationMessages',
 })
 export class TsValidationMessagesComponent implements OnDestroy {

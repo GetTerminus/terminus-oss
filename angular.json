@@ -3633,6 +3633,38 @@
             "passWithNoTests": true,
             "setupFile": "libs/ui/validators/src/test-setup.ts"
           }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui/validators/.storybook"
+            },
+            "docsMode": false
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ui-validators",
+            "config": {
+              "configFolder": "libs/ui/validators/.storybook"
+            },
+            "docsMode": false
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
         }
       },
       "schematics": {
