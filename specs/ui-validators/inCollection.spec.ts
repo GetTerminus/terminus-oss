@@ -4,7 +4,6 @@ import { inCollectionValidator } from '@terminus/ui-validators';
 
 describe(`inCollectionValidator`, function() {
   const myCollectionFn = a => a.name;
-  const shallowCollection = ['foo', 'bar', 'baz'];
   const deepCollection = [
     {
       name: 'foo',
@@ -19,6 +18,7 @@ describe(`inCollectionValidator`, function() {
       id: 3,
     },
   ];
+  const shallowCollection = deepCollection.slice().map(v => v.name);
 
   test(`should return null if no control is passed in`, () => {
     const validatorFn = inCollectionValidator(shallowCollection);
@@ -63,7 +63,7 @@ describe(`inCollectionValidator`, function() {
     test(`should return null if the value is valid`, () => {
       const validatorFn = inCollectionValidator(deepCollection, myCollectionFn);
 
-      expect(validatorFn(new FormControl(obj))).toBeNull();
+      expect(validatorFn(new FormControl('bar'))).toBeNull();
     });
 
     test(`should return an error object if invalid`, () => {
@@ -73,12 +73,5 @@ describe(`inCollectionValidator`, function() {
       expect(result?.inCollection.valid).toEqual(false);
       expect(result?.inCollection.actual).toEqual('234');
     });
-  });
-
-  test(`should return null if passed in value is valid string`, () => {
-    const obj2 = '{"name": "bar", "id": 2}';
-    const validatorFn = inCollectionValidator(deepCollection, myCollectionFn);
-
-    expect(validatorFn(new FormControl(obj2))).toBeNull();
   });
 });
