@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-validators@1.1.0...@terminus/ui-validators@2.0.0) (2020-09-11)
+
+
+### Bug Fixes
+
+* **Validators:** remove broken object comparison ([661c8e5](https://github.com/GetTerminus/terminus-oss/commit/661c8e52b80549fbc58a9acae3fe0062d971915a))
+
+
+### BREAKING CHANGES
+
+* **Validators:** Control value no longer allows complex objects.
+
+
+
+
+
 # [1.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-validators@1.0.13...@terminus/ui-validators@1.1.0) (2020-09-08)
 
 
