@@ -3993,5 +3993,5 @@
       "jest": true
     }
   },
-  "defaultProject": "showcase-ui"
+  "defaultProject": ""
 }
