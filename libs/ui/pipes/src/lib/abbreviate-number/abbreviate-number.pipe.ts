@@ -13,7 +13,7 @@ import { abbreviateNumber } from '@terminus/fe-utilities';
  * {{ 1234 | tsAbbreviateNumber }}
  * {{ 1200 | tsAbbreviateNumber:2 }}
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/pipes</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/utilities-pipes-number</example-url>
  */
 @Pipe({ name: 'tsAbbreviateNumber' })
 export class TsAbbreviateNumberPipe implements PipeTransform {

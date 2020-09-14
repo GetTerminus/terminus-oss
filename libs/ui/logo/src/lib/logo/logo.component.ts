@@ -65,7 +65,7 @@ export const TS_LOGO_COLORS: TS_LOGO_COLOR[] = [
  * <ts-logo type="full-gradient"></ts-logo>
  * <ts-logo type="solid-mark" logoColor="gray"></ts-logo>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/logo</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-media-logo</example-url>
  */
 @Component({
   selector: 'ts-logo',

@@ -45,7 +45,7 @@ let nextUniqueId = 0;
  *              (indeterminateChange)="myMethod($event)"
  * ></ts-checkbox>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/checkbox</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-checkbox</example-url>
  */
 @Component({
   selector: 'ts-checkbox',

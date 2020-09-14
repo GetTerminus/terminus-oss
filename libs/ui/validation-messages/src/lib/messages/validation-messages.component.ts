@@ -35,7 +35,7 @@ let nextUniqueId = 0;
  *              [messagesFactory]="myFunc"
  * ></ts-validation-messages>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/validation</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/utilities-input-validation</example-url>
  */
 // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
 @Component({

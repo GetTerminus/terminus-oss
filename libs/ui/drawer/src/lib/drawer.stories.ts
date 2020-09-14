@@ -225,7 +225,7 @@ mode.parameters = {
   docs: { iframeHeight: 660 },
 };
 
-export const backdrop = () => ({
+export const withBackdrop = () => ({
   component: DrawerWrapper,
   props: {
     expanded: true,

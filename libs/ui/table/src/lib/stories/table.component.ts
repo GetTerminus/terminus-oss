@@ -1,11 +1,4 @@
 import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
-import {
   CdkDragDrop,
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
@@ -45,10 +38,6 @@ import {
 } from 'rxjs/operators';
 
 import { untilComponentDestroyed } from '@terminus/fe-utilities';
-import {
-  TsPaginatorComponent,
-  TsPaginatorMenuItem,
-} from '@terminus/ui-paginator';
 import { TsSortDirective } from '@terminus/ui-sort';
 import {
   TsColumn,

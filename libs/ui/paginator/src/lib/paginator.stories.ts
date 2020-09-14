@@ -76,7 +76,7 @@ recordCountMaximum.parameters = {
   actions: { disabled: true },
 };
 
-export const baseZeroOrOne = () => ({
+export const zeroOrOneBased = () => ({
   template: `
     <ts-paginator
       [totalRecords]="recordCount"
@@ -88,7 +88,7 @@ export const baseZeroOrOne = () => ({
     isZeroBased: boolean('Zero based', true),
   },
 });
-baseZeroOrOne.parameters = {
+zeroOrOneBased.parameters = {
   actions: { disabled: true },
 };
 

@@ -25,7 +25,7 @@ import { TsLoadingOverlayComponent } from './overlay/loading-overlay.component';
  * @example
  * <div [tsLoadingOverlay]="true"></div>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/loading-overlay</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-feedback-loading-overlay</example-url>
  */
 @Directive({ selector: '[tsLoadingOverlay]' })
 export class TsLoadingOverlayDirective implements OnInit, OnDestroy {

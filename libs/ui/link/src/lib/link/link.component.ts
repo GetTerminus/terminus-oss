@@ -24,7 +24,7 @@ import { TsStyleThemeTypes } from '@terminus/ui-utilities';
  *              tabIndex="2"
  * >My link</ts-link>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/link</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-navigation-link</example-url>
  */
 @Component({
   selector: 'ts-link',

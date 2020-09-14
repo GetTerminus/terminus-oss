@@ -29,7 +29,7 @@ import { TsStyleThemeTypes } from '@terminus/ui-utilities';
  *              (clicked)="myMethod($event)"
  * ></ts-icon-button>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/icon-button</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-actions-icon-button</example-url>
  */
 @Component({
   selector: 'ts-icon-button',

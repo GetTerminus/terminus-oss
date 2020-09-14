@@ -100,7 +100,7 @@ let nextUniqueId = 0;
  *              (selectedMultiple)="handleMultipleFiles($event)"
  * ></ts-file-upload>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/file-upload</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-file-upload</example-url>
  */
 @Component({
   selector: 'ts-file-upload',

@@ -189,7 +189,7 @@ basic.parameters = {
   docs: { iframeHeight: 340 },
 };
 
-export const allowUserInput = () => ({
+export const userInput = () => ({
   component: TsSelectionListComponent,
   props: {
     emulateLongQuery: boolean('Emulate long-running query', false),
@@ -206,6 +206,6 @@ export const allowUserInput = () => ({
     optionDeselected: action('Option deselected'),
   },
 });
-allowUserInput.parameters = {
+userInput.parameters = {
   docs: { iframeHeight: 340 },
 };

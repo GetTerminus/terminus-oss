@@ -67,7 +67,7 @@ let nextUniqueId = 0;
  *              [utilityMenuTemplate]="myTemplate"
  * >Here is my card!</ts-card>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/card</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-card</example-url>
  */
 @Component({
   selector: 'ts-card',
