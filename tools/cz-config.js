@@ -91,14 +91,9 @@ module.exports = {
     { name: 'FEUtilities' },
     { name: 'StylelintConfig' },
 
-    // Applications
-    { name: 'ShowcaseUI' },
-    { name: 'ShowcaseTokens' },
-
     // Dev
     { name: 'CI' },
     { name: 'Storybook' },
-    { name: 'VR' },
     { name: 'Dependencies' },
   ],
 

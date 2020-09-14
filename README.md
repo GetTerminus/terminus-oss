@@ -74,21 +74,15 @@ Monorepo that contains all Terminus open-source packages.
 | [ui-validation-messages][src-validation-messages] | A component to display form validation errors                | [Changelog][changelog-validation-messages] | [Demo][demo-validation-messages] | [Docs][docs-validation-messages] | ![codecov][cov-badge-validationMessages] | ![validationMessages latest][badge-latest-validationMessages] | ![Validation Messages next][badge-next-validationMessages] |
 | [ui-validators][src-validators]                   | A collection of form validators                              | [Changelog][changelog-validators]          | [Demo][demo-validators]          | [Docs][docs-validators]          | ![codecov][cov-badge-validators]         | ![validators latest][badge-latest-validators]                 | ![Validators next][badge-next-validators]                  |
 
-|                  App                   |             Description              |                                   |
-|----------------------------------------|--------------------------------------|-----------------------------------|
-| [UI Showcase][src-showcase-ui]         | Various live demos                   | [Visit Site][url-showcase-ui]     |
-| [Tokens Showcase][src-showcase-tokens] | Live reference for our design tokens | [Visit Site][url-showcase-tokens] |
-
 ### Live Demos
 
-See the 'demos' column in the [table above](#packages).
-
-We are slowly moving our documentation to a [Storybook deployed by Chromatic][chromatic-storybook].
-
-During this conversion, all legacy demos can be viewed here: <https://getterminus.github.io/ui-demos-release>
+See the 'demos' column in the [table above](#packages) or view all the demos [here][chromatic-storybook].
 
 ### Generated Documentation
 
+Component docs are now displayed directly inside the [new demos][chromatic-storybook].
+
+Legacy, stand-alone API docs can be found here:
 [http://uilibrary-docs.terminus.ninja/release](http://uilibrary-docs.terminus.ninja/release)
 
 <!-- Links -->
@@ -107,8 +101,6 @@ During this conversion, all legacy demos can be viewed here: <https://getterminu
 [zenhub-url]:             https://github.com/GetTerminus/terminus-oss#zenhub
 [github-badge-release]:   https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-ci-link]:         https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22Release+CI%22
-[url-showcase-ui]:        https://getterminus.github.io/ui-demos-release/components
-[url-showcase-tokens]:    https://getterminus.github.io/design-tokens/color
 [chromatic-storybook]:    https://release--5f0ca4e61af3790022cad2fe.chromatic.com
 
 <!-- Source Directories -->
@@ -160,8 +152,6 @@ During this conversion, all legacy demos can be viewed here: <https://getterminu
 [src-tooltip]:             https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/tooltip/
 [src-validation-messages]: https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/validation-messages/
 [src-validators]:          https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/validators/
-[src-showcase-ui]:         https://github.com/GetTerminus/terminus-oss/blob/release/apps/showcase-ui/
-[src-showcase-tokens]:     https://github.com/GetTerminus/terminus-oss/blob/release/apps/showcase-tokens/
 
 <!-- Changelogs -->
 [changelog-tokens]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/design-tokens/CHANGELOG.md
@@ -263,48 +253,48 @@ During this conversion, all legacy demos can be viewed here: <https://getterminu
 [legacy-src-validators]:          https://github.com/GetTerminus/terminus-ui/blob/release/projects/library/validators/
 
 <!-- Demos -->
-[demo-tokens]:              https://getterminus.github.io/design-tokens
+[demo-tokens]:              https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/tokens
 [demo-autocomplete]:        https://getterminus.github.io/ui-demos-release/components/autocomplete
-[demo-autofocus]:           https://getterminus.github.io/ui-demos-release/components/autofocus
-[demo-button]:              https://getterminus.github.io/ui-demos-release/components/button
-[demo-card]:                https://getterminus.github.io/ui-demos-release/components/card
-[demo-chart]:               https://getterminus.github.io/ui-demos-release/components/chart
-[demo-chip]:                https://getterminus.github.io/ui-demos-release/components/chip
-[demo-checkbox]:            https://getterminus.github.io/ui-demos-release/components/checkbox
-[demo-cohort-date-range]:   https://getterminus.github.io/ui-demos-release/components/cohort-date-range
-[demo-confirmation]:        https://getterminus.github.io/ui-demos-release/components/confirmation
-[demo-copy]:                https://getterminus.github.io/ui-demos-release/components/copy
-[demo-csv-entry]:           https://getterminus.github.io/ui-demos-release/components/csv-entry
-[demo-date-range]:          https://getterminus.github.io/ui-demos-release/components/date-range
-[demo-drawer]:              https://getterminus.github.io/ui-demos-release/components/drawer
-[demo-expansion-panel]:     https://getterminus.github.io/ui-demos-release/components/expansion-panel
-[demo-file-upload]:         https://getterminus.github.io/ui-demos-release/components/file-upload
-[demo-icon-button]:         https://getterminus.github.io/ui-demos-release/components/icon-button
-[demo-icon]:                https://getterminus.github.io/ui-demos-release/components/icon
-[demo-input]:               https://getterminus.github.io/ui-demos-release/components/input
-[demo-link]:                https://getterminus.github.io/ui-demos-release/components/link
-[demo-loading-overlay]:     https://getterminus.github.io/ui-demos-release/components/loading-overlay
+[demo-autofocus]:           https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/utilities-autofocus
+[demo-button]:              https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-actions-button
+[demo-card]:                https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-card
+[demo-chart]:               https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-display-chart
+[demo-chip]:                https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-display-chip
+[demo-checkbox]:            https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-checkbox
+[demo-cohort-date-range]:   https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-cohort-date-range
+[demo-confirmation]:        https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-feedback-confirmation
+[demo-copy]:                https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-actions-copy
+[demo-csv-entry]:           https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-csv-entry
+[demo-date-range]:          https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-date-range
+[demo-drawer]:              https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-drawer
+[demo-expansion-panel]:     https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-expansion-panel
+[demo-file-upload]:         https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-file-upload
+[demo-icon-button]:         https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-actions-icon-button
+[demo-icon]:                https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-media-icon
+[demo-input]:               https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-input
+[demo-link]:                https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-navigation-link
+[demo-loading-overlay]:     https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-feedback-loading-overlay
 [demo-log-in-form]:         https://getterminus.github.io/ui-demos-release/components/log-in-form
-[demo-logo]:                https://getterminus.github.io/ui-demos-release/components/logo
-[demo-menu]:                https://getterminus.github.io/ui-demos-release/components/menu
-[demo-option]:              https://getterminus.github.io/ui-demos-release/components/option
-[demo-navigation]:          https://getterminus.github.io/ui-demos-release/components/navigation
-[demo-paginator]:           https://getterminus.github.io/ui-demos-release/components/paginator
-[demo-pipes]:               https://getterminus.github.io/ui-demos-release/components/pipes
-[demo-popover]:             https://getterminus.github.io/ui-demos-release/components/popover
-[demo-radio-group]:         https://getterminus.github.io/ui-demos-release/components/radio
-[demo-scrollbars]:          https://getterminus.github.io/ui-demos-release/components/scrollbars
-[demo-search]:              https://getterminus.github.io/ui-demos-release/components/search
+[demo-logo]:                https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-media-logo
+[demo-menu]:                https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-actions-menu
+[demo-option]:              https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-selection-list
+[demo-navigation]:          https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-navigation-navigation-horizontal
+[demo-paginator]:           https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-navigation-paginator
+[demo-pipes]:               https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/utilities-pipes
+[demo-popover]:             https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-popover
+[demo-radio-group]:         https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-radio-group
+[demo-scrollbars]:          https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-scrollbars
+[demo-search]:              https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-actions-search
 [demo-select]:              https://getterminus.github.io/ui-demos-release/components/select
-[demo-selection-list]:      https://getterminus.github.io/ui-demos-release/components/selection-list
+[demo-selection-list]:      https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-selection-list
 [demo-spacing-constant]:    https://getterminus.github.io/ui-demos-release/components/spacing-constant
-[demo-spacing]:             https://getterminus.github.io/ui-demos-release/components/spacing
-[demo-table]:               https://getterminus.github.io/ui-demos-release/components/table
-[demo-tabs]:                https://getterminus.github.io/ui-demos-release/components/tabs
-[demo-toggle]:              https://getterminus.github.io/ui-demos-release/components/toggle
-[demo-tooltip]:             https://getterminus.github.io/ui-demos-release/components/tooltip
-[demo-validation-messages]: https://getterminus.github.io/ui-demos-release/components/validation-messages
-[demo-validators]:          https://getterminus.github.io/ui-demos-release/components/validation
+[demo-spacing]:             https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-spacing
+[demo-table]:               https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-display-table
+[demo-tabs]:                https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-tabs
+[demo-toggle]:              https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-toggle
+[demo-tooltip]:             https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-feedback-tooltip
+[demo-validation-messages]: https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/utilities-input-validation
+[demo-validators]:          https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/utilities-input-validation
 
 <!-- TS Primary Docs -->
 [docs-fe-jwt]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/fe-jwt/README.md

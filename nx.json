@@ -25,12 +25,20 @@
     "design-tokens": {
       "tags": []
     },
-    "showcase-tokens": {
+    "eslint-config-frontend": {
       "tags": []
     },
-    "showcase-tokens-e2e": {
-      "tags": [],
-      "implicitDependencies": ["showcase-tokens"]
+    "fe-utilities": {
+      "tags": []
+    },
+    "fe-jwt": {
+      "tags": []
+    },
+    "fe-testing": {
+      "tags": []
+    },
+    "stylelint-config-frontend": {
+      "tags": []
     },
     "ui-autocomplete": {
       "tags": []
@@ -165,21 +173,6 @@
       "tags": []
     },
     "ui-validators": {
-      "tags": []
-    },
-    "eslint-config-frontend": {
-      "tags": []
-    },
-    "stylelint-config-frontend": {
-      "tags": []
-    },
-    "fe-utilities": {
-      "tags": []
-    },
-    "fe-jwt": {
-      "tags": []
-    },
-    "fe-testing": {
       "tags": []
     }
   }

@@ -66,9 +66,6 @@ jobs:
       - name: List affected LIBS
         run: yarn affected:libs --base=remotes/origin/release --head=${{ github.event.pull_request.head.ref }}
         if: env.SHOULD_RUN == 'true'
-      - name: List affected APPS
-        run: yarn affected:apps --base=remotes/origin/release --head=${{ github.event.pull_request.head.ref }}
-        if: env.SHOULD_RUN == 'true'
 
       #
       # Test affected

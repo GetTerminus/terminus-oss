@@ -72,10 +72,6 @@ jobs:
         run: yarn run affected:libs --base=${{ env.NX_BASE }} --head=origin/release
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
-      - name: "List affected APPS"
-        run: yarn run affected:apps --base=${{ env.NX_BASE }} --head=origin/release
-        working-directory: ${{ env.working-directory }}
-        if: env.SHOULD_RUN == 'true'
       - name: "Test affected projects"
         run: yarn nx affected --target=test --codeCoverage --base=${{ env.NX_BASE }} --head=origin/release
         if: env.SHOULD_RUN == 'true'
@@ -197,18 +193,10 @@ jobs:
         run: yarn run affected:libs --base=${{ env.NX_BASE }} --head=origin/release
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
-      - name: "List affected APPS"
-        run: yarn run affected:apps --base=${{ env.NX_BASE }} --head=origin/release
-        working-directory: ${{ env.working-directory }}
-        if: env.SHOULD_RUN == 'true'
       - name: "Build styles before all packages"
         run: yarn nx build ui-styles --prod --skip-nx-cache
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
-#      - name: "TEMP: Build ALL projects"
-#        run: yarn run build:all --skip-nx-cache
-#        working-directory: ${{ env.working-directory }}
-#        if: env.SHOULD_RUN == 'true'
       - name: "Build affected projects"
         run: yarn run affected --target=build --withDeps --prod --base=${{ env.NX_BASE }} --head=origin/release
         working-directory: ${{ env.working-directory }}
@@ -248,14 +236,6 @@ jobs:
         if: env.SHOULD_RUN == 'true'
       - name: "Deploy affected libs"
         run: yarn run publish:libs
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        working-directory: ${{ env.working-directory }}
-        if: env.SHOULD_RUN == 'true'
-      - name: "Deploy affected apps"
-        run: yarn run affected --target=deploy --base=${{ env.NX_BASE }} --head=origin/release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
