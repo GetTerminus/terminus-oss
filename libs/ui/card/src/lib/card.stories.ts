@@ -45,6 +45,7 @@ export const aspectRatio = () => ({
 });
 aspectRatio.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 580 },
 };
 
 export const border = () => ({
@@ -72,11 +73,12 @@ export const cardWithTitle = () => ({
 });
 cardWithTitle.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 200 },
 };
 
 export const centeredContent = () => ({
   template: `<ts-card [centeredContent]="centeredContent">My card content</ts-card>`,
-  props: { centeredContent: boolean('Centered content', false) },
+  props: { centeredContent: boolean('Centered content', true) },
 });
 centeredContent.parameters = {
   actions: { disabled: true },
