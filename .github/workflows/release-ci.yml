@@ -246,21 +246,6 @@ jobs:
         run: tools/ci/update-release-tag.sh
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
-      - name: "Generate & Upload documentation"
-        run: yarn run docs:ci
-        working-directory: ${{ env.working-directory }}
-        if: env.SHOULD_RUN == 'true'
-      - uses: jakejarvis/s3-sync-action@master
-        with:
-          args: --acl public-read --cache-control "max-age=86400" --follow-symlinks --delete
-        env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          SOURCE_DIR: ${{ env.docs-publish-directory }}
-          DEST_DIR: 'release'
-        if: env.SHOULD_RUN == 'true'
 
   #
   # Upload coverage reports
