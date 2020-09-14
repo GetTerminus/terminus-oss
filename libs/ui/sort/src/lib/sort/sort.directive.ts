@@ -72,7 +72,7 @@ export interface TsSortState {
  *   ...
  * </ts-table>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/table</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-display-table</example-url>
  */
 @Directive({
   selector: '[tsSort]',

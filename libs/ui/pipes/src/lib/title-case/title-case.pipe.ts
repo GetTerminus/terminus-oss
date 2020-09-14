@@ -10,7 +10,7 @@ import {
  * @example
  * {{ 'MY TEXT' | tsTitleCase }}
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/pipes</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/utilities-pipes-strings</example-url>
  */
 @Pipe({ name: 'tsTitleCase' })
 export class TsTitleCasePipe implements PipeTransform {

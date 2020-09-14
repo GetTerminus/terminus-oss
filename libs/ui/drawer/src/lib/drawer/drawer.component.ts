@@ -71,7 +71,7 @@ export const TS_DRAWER_DEFAULT_EXPAND_SIZE = '12.5rem';
  *              (positionChange)="positionChanged($event)"
  * ></ts-drawer>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/drawer</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-drawer</example-url>
  */
 @Component({
   selector: 'ts-drawer',

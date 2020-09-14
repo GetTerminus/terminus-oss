@@ -43,7 +43,7 @@ import { TsSortHeaderIntl } from './sort-header-intl';
  *              Created
  * </ts-header-cell>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/table</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-display-table</example-url>
  */
 @Component({
   // NOTE: This component needs to be added to another component so we need a non-element selector

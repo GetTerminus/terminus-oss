@@ -57,7 +57,7 @@ export const tsVerticalSpacingTypes = [
  *   My content!
  * </div>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/spacing</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-spacing</example-url>
  */
 @Directive({ selector: '[tsVerticalSpacing]' })
 export class TsVerticalSpacingDirective {

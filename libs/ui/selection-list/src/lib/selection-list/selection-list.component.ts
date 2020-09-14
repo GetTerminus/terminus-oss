@@ -112,7 +112,7 @@ export type TsSelectionListComparator = (a: unknown, b: unknown) => boolean;
  *              (selectionChange)="mySelection($event)"
  * ></ts-selection-list>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/selection-list</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-selection-list</example-url>
  */
 @Component({
   selector: 'ts-selection-list',

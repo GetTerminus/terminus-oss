@@ -20,7 +20,7 @@ import { TsUILibraryError } from '@terminus/ui-utilities';
  * <input type="text" tsAutofocus />
  * <button [tsAutofocus]="true">Click Me</button>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/autofocus</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/utilities-autofocus</example-url>
  */
 @Directive({ selector: '[tsAutofocus]' })
 export class TsAutofocusDirective implements AfterViewInit {

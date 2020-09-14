@@ -58,7 +58,7 @@ const INPUT_MINIMUM_LENGTH = 2;
  *              (submitted)="doSomething($event)"
  * ></ts-search>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/search</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-actions-search</example-url>
  */
 @Component({
   selector: 'ts-search',

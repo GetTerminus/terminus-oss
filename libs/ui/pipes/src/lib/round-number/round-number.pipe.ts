@@ -13,7 +13,7 @@ import { roundNumber } from '@terminus/fe-utilities';
  * {{ 3456.3456 | tsRoundNumber }}
  * {{ 3456.3456 | tsRoundNumber:2 }}
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/pipes</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/utilities-pipes-strings</example-url>
  */
 @Pipe({ name: 'tsRoundNumber' })
 export class TsRoundNumberPipe implements PipeTransform {

@@ -56,7 +56,7 @@ export type TsMenuTriggerTypes
  *              triggerType="utility"
  * >Select Item</ts-menu>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/menu</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-actions-menu</example-url>
  */
 @Component({
   selector: 'ts-menu',

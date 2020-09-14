@@ -14,7 +14,7 @@ import { isValidDate } from '@terminus/fe-utilities';
  * @example
  * {{ date | tsTimeAgo:oldDate }}
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/pipes</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/utilities-pipes-dates</example-url>
  */
 @Pipe({ name: 'tsTimeAgo' })
 export class TsTimeAgoPipe implements PipeTransform {

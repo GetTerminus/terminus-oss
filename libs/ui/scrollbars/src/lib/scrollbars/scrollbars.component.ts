@@ -61,7 +61,7 @@ const DEFAULT_SCROLL_SPEED = 400;
  *              (yReachStart)="myFunc($event)
  * >My content...</ts-scrollbars>
  *
- * <example-url>https://getterminus.github.io/ui-demos-release/components/scrollbars</example-url>
+ * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-scrollbars</example-url>
  */
 @Component({
   selector: 'ts-scrollbars',
