@@ -101,7 +101,7 @@ Legacy, stand-alone API docs can be found here:
 [zenhub-url]:             https://github.com/GetTerminus/terminus-oss#zenhub
 [github-badge-release]:   https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-ci-link]:         https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22Release+CI%22
-[chromatic-storybook]:    https://release--5f0ca4e61af3790022cad2fe.chromatic.com
+[chromatic-storybook]:    https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/docs/home--page
 
 <!-- Source Directories -->
 [src-tokens]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/design-tokens/
