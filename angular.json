@@ -1,132 +1,6 @@
 {
   "version": 1,
   "projects": {
-    "showcase-tokens": {
-      "projectType": "application",
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      },
-      "root": "apps/showcase-tokens",
-      "sourceRoot": "apps/showcase-tokens/src",
-      "prefix": "terminus",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/apps/showcase-tokens",
-            "index": "apps/showcase-tokens/src/index.html",
-            "main": "apps/showcase-tokens/src/main.ts",
-            "polyfills": "apps/showcase-tokens/src/polyfills.ts",
-            "tsConfig": "apps/showcase-tokens/tsconfig.app.json",
-            "aot": true,
-            "assets": [
-              "apps/showcase-tokens/src/favicon.ico",
-              "apps/showcase-tokens/src/assets"
-            ],
-            "styles": ["apps/showcase-tokens/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "baseHref": "/design-tokens/",
-              "fileReplacements": [
-                {
-                  "replace": "apps/showcase-tokens/src/environments/environment.ts",
-                  "with": "apps/showcase-tokens/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "showcase-tokens:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "showcase-tokens:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "showcase-tokens:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "yarn run lint:ts 'apps/showcase-tokens/**/*.{js,ts}'"
-              }
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/showcase-tokens/jest.config.js",
-            "tsConfig": "apps/showcase-tokens/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "apps/showcase-tokens/src/test-setup.ts"
-          }
-        },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy",
-          "options": {
-            "repo": "https://github.com/GetTerminus/design-tokens.git",
-            "baseHref": "/design-tokens/",
-            "name": "terminus-devops",
-            "email": "devops@terminus.com",
-            "dryRun": false,
-            "noSilent": false
-          }
-        }
-      }
-    },
-    "showcase-tokens-e2e": {
-      "root": "apps/showcase-tokens-e2e",
-      "sourceRoot": "apps/showcase-tokens-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/showcase-tokens-e2e/cypress.json",
-            "tsConfig": "apps/showcase-tokens-e2e/tsconfig.e2e.json",
-            "devServerTarget": "showcase-tokens:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "showcase-tokens:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "yarn run lint:ts 'apps/showcase-tokens-e2e/**/*.{js,ts}'"
-              }
-            ]
-          }
-        }
-      }
-    },
     "design-tokens": {
       "root": "libs/design-tokens",
       "sourceRoot": "libs/design-tokens/src",
@@ -157,6 +31,198 @@
             "commands": [
               {
                 "command": "yarn run tokens:build"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "eslint-config-frontend": {
+      "root": "libs/eslint-config-frontend",
+      "sourceRoot": "libs/eslint-config-frontend/src",
+      "prefix": "terminus",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run lint:ts 'libs/eslint-config-frontend/**/*.{js,ts}'"
+              }
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/eslint-config-frontend/jest.config.js",
+            "tsConfig": "libs/eslint-config-frontend/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run eslint:build"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "fe-utilities": {
+      "root": "libs/fe-utilities",
+      "sourceRoot": "libs/fe-utilities/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run lint:ts 'libs/fe-utilities/**/*.{js,ts}'"
+              }
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/fe-utilities/jest.config.js",
+            "tsConfig": "libs/fe-utilities/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/fe-utilities/src/test-setup.ts"
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/fe-utilities",
+            "tsConfig": "libs/fe-utilities/tsconfig.lib.json",
+            "packageJson": "libs/fe-utilities/package.json",
+            "main": "libs/fe-utilities/src/index.ts",
+            "assets": ["libs/fe-utilities/*.md"]
+          }
+        }
+      }
+    },
+    "fe-jwt": {
+      "root": "libs/fe-jwt",
+      "sourceRoot": "libs/fe-jwt/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run lint:ts 'libs/fe-jwt/**/*.{js,ts}'"
+              }
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/fe-jwt/jest.config.js",
+            "tsConfig": "libs/fe-jwt/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/fe-jwt/src/test-setup.ts"
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/fe-jwt",
+            "tsConfig": "libs/fe-jwt/tsconfig.lib.json",
+            "packageJson": "libs/fe-jwt/package.json",
+            "main": "libs/fe-jwt/src/index.ts",
+            "assets": ["libs/fe-jwt/*.md"]
+          }
+        }
+      }
+    },
+    "fe-testing": {
+      "projectType": "library",
+      "root": "libs/fe-testing",
+      "sourceRoot": "libs/fe-testing/src",
+      "prefix": "terminus",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/fe-testing/tsconfig.lib.json",
+            "project": "libs/fe-testing/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/fe-testing/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/fe-testing/tsconfig.lib.json",
+              "libs/fe-testing/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/fe-testing/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/fe-testing/jest.config.js",
+            "tsConfig": "libs/fe-testing/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/fe-testing/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "stylelint-config-frontend": {
+      "root": "libs/stylelint-config-frontend",
+      "sourceRoot": "libs/stylelint-config-frontend/src",
+      "prefix": "terminus",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run lint:ts 'libs/stylelint-config-frontend/**/*.{js,ts}'"
+              }
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/stylelint-config-frontend/jest.config.js",
+            "tsConfig": "libs/stylelint-config-frontend/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run stylelint:build"
               }
             ]
           }
@@ -3626,80 +3692,6 @@
         }
       }
     },
-    "eslint-config-frontend": {
-      "root": "libs/eslint-config-frontend",
-      "sourceRoot": "libs/eslint-config-frontend/src",
-      "prefix": "terminus",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "yarn run lint:ts 'libs/eslint-config-frontend/**/*.{js,ts}'"
-              }
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/eslint-config-frontend/jest.config.js",
-            "tsConfig": "libs/eslint-config-frontend/tsconfig.spec.json",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "yarn run eslint:build"
-              }
-            ]
-          }
-        }
-      }
-    },
-    "stylelint-config-frontend": {
-      "root": "libs/stylelint-config-frontend",
-      "sourceRoot": "libs/stylelint-config-frontend/src",
-      "prefix": "terminus",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "yarn run lint:ts 'libs/stylelint-config-frontend/**/*.{js,ts}'"
-              }
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/stylelint-config-frontend/jest.config.js",
-            "tsConfig": "libs/stylelint-config-frontend/tsconfig.spec.json",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "yarn run stylelint:build"
-              }
-            ]
-          }
-        }
-      }
-    },
     "ui-storybook": {
       "projectType": "application",
       "root": "stories",
@@ -3736,124 +3728,6 @@
             "ci": {
               "quiet": true
             }
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
-    "fe-utilities": {
-      "root": "libs/fe-utilities",
-      "sourceRoot": "libs/fe-utilities/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "yarn run lint:ts 'libs/fe-utilities/**/*.{js,ts}'"
-              }
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/fe-utilities/jest.config.js",
-            "tsConfig": "libs/fe-utilities/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/fe-utilities/src/test-setup.ts"
-          }
-        },
-        "build": {
-          "builder": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/libs/fe-utilities",
-            "tsConfig": "libs/fe-utilities/tsconfig.lib.json",
-            "packageJson": "libs/fe-utilities/package.json",
-            "main": "libs/fe-utilities/src/index.ts",
-            "assets": ["libs/fe-utilities/*.md"]
-          }
-        }
-      }
-    },
-    "fe-jwt": {
-      "root": "libs/fe-jwt",
-      "sourceRoot": "libs/fe-jwt/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "yarn run lint:ts 'libs/fe-jwt/**/*.{js,ts}'"
-              }
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/fe-jwt/jest.config.js",
-            "tsConfig": "libs/fe-jwt/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/fe-jwt/src/test-setup.ts"
-          }
-        },
-        "build": {
-          "builder": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/libs/fe-jwt",
-            "tsConfig": "libs/fe-jwt/tsconfig.lib.json",
-            "packageJson": "libs/fe-jwt/package.json",
-            "main": "libs/fe-jwt/src/index.ts",
-            "assets": ["libs/fe-jwt/*.md"]
-          }
-        }
-      }
-    },
-    "fe-testing": {
-      "projectType": "library",
-      "root": "libs/fe-testing",
-      "sourceRoot": "libs/fe-testing/src",
-      "prefix": "terminus",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/fe-testing/tsconfig.lib.json",
-            "project": "libs/fe-testing/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/fe-testing/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/fe-testing/tsconfig.lib.json",
-              "libs/fe-testing/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/fe-testing/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/fe-testing/jest.config.js",
-            "tsConfig": "libs/fe-testing/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/fe-testing/src/test-setup.ts"
           }
         }
       },
