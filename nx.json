@@ -32,13 +32,6 @@
       "tags": [],
       "implicitDependencies": ["showcase-tokens"]
     },
-    "showcase-ui": {
-      "tags": []
-    },
-    "showcase-ui-e2e": {
-      "tags": [],
-      "implicitDependencies": ["showcase-ui"]
-    },
     "vr": {
       "tags": []
     },
