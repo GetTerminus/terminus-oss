@@ -16,12 +16,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **Validators:** remove broken object comparison ([661c8e5](https://github.com/GetTerminus/terminus-oss/commit/661c8e52b80549fbc58a9acae3fe0062d971915a))
+* **Validators:** remove broken object comparison for `inCollection` ([661c8e5](https://github.com/GetTerminus/terminus-oss/commit/661c8e52b80549fbc58a9acae3fe0062d971915a))
 
 
 ### BREAKING CHANGES
 
-* **Validators:** Control value no longer allows complex objects.
+* **Validators:** `inCollection` control value no longer allows complex objects.
 
 
 
