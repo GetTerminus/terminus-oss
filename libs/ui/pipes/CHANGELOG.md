@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-pipes@1.1.2...@terminus/ui-pipes@1.1.3) (2020-09-15)
+
+
+### Bug Fixes
+
+* **Pipes:** abbreviate pipe now accepts numbers or strings ([a1a4c08](https://github.com/GetTerminus/terminus-oss/commit/a1a4c082ebf4fc987f21a1475fb0269bb9d7ce96)), closes [#338](https://github.com/GetTerminus/terminus-oss/issues/338)
+
+
+
+
+
 ## [1.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-pipes@1.1.1...@terminus/ui-pipes@1.1.2) (2020-09-14)
 
 **Note:** Version bump only for package @terminus/ui-pipes

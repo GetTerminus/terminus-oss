@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/fe-utilities@1.2.0...@terminus/fe-utilities@1.2.1) (2020-09-15)
+
+
+### Bug Fixes
+
+* **FEUtilities:** abbreviate number now accepts strings or numbers ([ebc7979](https://github.com/GetTerminus/terminus-oss/commit/ebc7979c8e5ca2d51e8570022798e41599baab8a))
+
+
+
+
+
 # 1.2.0 (2020-09-08)
 
 
