@@ -9,7 +9,10 @@ describe(`abbreviateNumber`, function() {
     const input5 = 1200;
     const input6 = 450;
     const input7 = 123456;
+    const input8 = '123456';
     expect(abbreviateNumber(null)).toEqual('');
+    expect(abbreviateNumber('')).toEqual('');
+    expect(abbreviateNumber(void 0)).toEqual('');
     expect(abbreviateNumber(input1)).toEqual('1.2K');
     expect(abbreviateNumber(input1, 1)).toEqual('1.2K');
     expect(abbreviateNumber(input2, 1)).toEqual('1.2M');
@@ -18,5 +21,6 @@ describe(`abbreviateNumber`, function() {
     expect(abbreviateNumber(input5, 3)).toEqual('1.200K');
     expect(abbreviateNumber(input6, 1)).toEqual('450');
     expect(abbreviateNumber(input7, 2)).toEqual('123.46K');
+    expect(abbreviateNumber(input8, 2)).toEqual('123.46K');
   });
 });

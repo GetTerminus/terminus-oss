@@ -1,15 +1,17 @@
+import { coerceNumberProperty } from '../coercion/number-property';
 
 /**
  * Helper function to abbreviate a number
  *
- * @param input - The number to be abbreviated.
+ * @param value - The number to be abbreviated.
  * @param decimalPlace - The decimals users define for final abbreviated number. Default to 1.
  * @returns The abbreviated number
  *
  * @example
  * abbreviateNumber(1234, '1')              // Returns: '1.2K'
  */
-export function abbreviateNumber(input: number | null, decimalPlace = 1): string {
+export function abbreviateNumber(value: number | string | null, decimalPlace = 1): string {
+  const input = coerceNumberProperty(value);
   const SCALE_NUMBER = 3;
   const MATH_POWER = 10;
 
