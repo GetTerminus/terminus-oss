@@ -21,6 +21,11 @@ describe(`TsAbbreviateNumberPipe`, function() {
     expect(pipe(num2, 2)).toEqual('12.35M');
   });
 
+  test(`should abbreviate a string`, () => {
+    expect(pipe(num.toString(), 2)).toEqual('1.23K');
+    expect(pipe(num2.toString(), 2)).toEqual('12.35M');
+  });
+
   test(`should default to a precision of 1`, () => {
     expect(pipe(num)).toEqual('1.2K');
   });
