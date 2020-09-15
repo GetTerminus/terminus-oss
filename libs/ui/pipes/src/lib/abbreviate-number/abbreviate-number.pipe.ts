@@ -17,7 +17,7 @@ import { abbreviateNumber } from '@terminus/fe-utilities';
  */
 @Pipe({ name: 'tsAbbreviateNumber' })
 export class TsAbbreviateNumberPipe implements PipeTransform {
-  public transform(value: number, decimalPlace = 1): string {
+  public transform(value: number | string, decimalPlace = 1): string {
     // Check for null values to avoid issues during data-binding
     if (!value) {
       return '';
