@@ -3736,6 +3736,59 @@
           "style": "scss"
         }
       }
+    },
+    "storybook-dummy": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/storybook-dummy",
+      "sourceRoot": "apps/storybook-dummy/src",
+      "prefix": "terminus",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/storybook-dummy",
+            "index": "apps/storybook-dummy/src/index.html",
+            "main": "apps/storybook-dummy/src/main.ts",
+            "polyfills": "apps/storybook-dummy/src/polyfills.ts",
+            "tsConfig": "apps/storybook-dummy/tsconfig.app.json",
+            "aot": true,
+            "assets": [],
+            "styles": ["apps/storybook-dummy/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/storybook-dummy/src/environments/environment.ts",
+                  "with": "apps/storybook-dummy/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": []
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "storybook-dummy:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "storybook-dummy:build:production"
+            }
+          }
+        }
+      }
     }
   },
   "cli": {
@@ -3756,5 +3809,5 @@
       "jest": true
     }
   },
-  "defaultProject": ""
+  "defaultProject": "storybook-dummy"
 }
