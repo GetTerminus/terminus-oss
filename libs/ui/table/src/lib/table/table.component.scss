@@ -199,7 +199,7 @@
       &:nth-child(#{$i}) {
         $z: #{$possible-columns - $i};
         // NOTE: important needed to overwrite inline styles
-        // stylelint-disable-next-line declaration-no-important
+        /* stylelint-disable-next-line declaration-no-important */
         z-index: $z !important;
       }
     }
@@ -207,7 +207,7 @@
     // Raise sticky-end cells above others
     &.ts-table__column--sticky-end {
       // NOTE: important needed to overwrite inline styles
-      // stylelint-disable-next-line declaration-no-important
+      /* stylelint-disable-next-line declaration-no-important */
       z-index: var(--ts-table-sticky-end-z) !important;
     }
 
