@@ -58,7 +58,7 @@
 
     .mat-ripple-element {
       // NOTE: Important needed to override inline Material styles
-      // stylelint-disable-next-line declaration-no-important
+      /* stylelint-disable-next-line declaration-no-important */
       background-color: $ripple-primary !important;
     }
   }
@@ -72,7 +72,7 @@
 
     .mat-ripple-element {
       // NOTE: Important needed to override inline Material styles
-      // stylelint-disable-next-line declaration-no-important
+      /* stylelint-disable-next-line declaration-no-important */
       background-color: $ripple-accent !important;
     }
   }
@@ -86,7 +86,7 @@
 
     .mat-ripple-element {
       // NOTE: Important needed to override inline Material styles
-      // stylelint-disable-next-line declaration-no-important
+      /* stylelint-disable-next-line declaration-no-important */
       background-color: $ripple-warn !important;
     }
   }
