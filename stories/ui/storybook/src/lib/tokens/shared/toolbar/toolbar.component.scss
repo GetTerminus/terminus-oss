@@ -25,6 +25,7 @@
   &__toolbar {
     background-color: var(--ts-color-base-palette7-300);
     // Match bottom padding added by mat-form-field
+    margin-bottom: 2rem;
     padding-top: 1.25em;
   }
 }

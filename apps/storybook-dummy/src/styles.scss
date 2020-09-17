@@ -1,0 +1,54 @@
+@import '~@terminus/design-tokens/css/design-tokens.css';
+
+// NOTE: Storybook uses this stylesheet when compiling all stories.
+
+:root {
+  --selection-background: var(--ts-color-base-palette4-500);
+  --selection-color: var(--ts-color-base-white);
+}
+
+html {
+  background-color: var(--ts-color-base-white);
+  box-sizing: border-box;
+  color: var(--ts-color-base-black);
+  font-family: var(--ts-typography-family-base-roboto);
+  font-size: var(--ts-typography-size-300);
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: inherit;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+dl,
+dt,
+dd {
+  margin: 0;
+}
+
+::selection {
+  background: var(--selection-background);
+  color: var(--selection-color);
+}
+
+::-moz-selection {
+  background: var(--selection-background);
+  color: var(--selection-color);
+}

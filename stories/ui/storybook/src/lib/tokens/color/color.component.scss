@@ -1,36 +1,4 @@
-@import '~modern-normalize/modern-normalize.css';
 @import '~@terminus/design-tokens/css/design-tokens.css';
-
-// Reset:
-html {
-  background-color: var(--ts-color-base-white);
-  color: var(--ts-color-base-black);
-  font-family: var(--ts-typography-family-base-roboto);
-  font-size: var(--ts-typography-size-300);
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  margin: 0;
-}
-
-dl,
-dt,
-dd {
-  margin: 0;
-}
-
-* {
-  box-sizing: border-box;
-}
 
 ::selection {
   background: var(--selection-background);
@@ -50,15 +18,15 @@ dd {
 .card {
   background-color: var(--ts-color-base-white);
   border-radius: var(--ts-border-radius-base);
-  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .20), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
 }
 
 // Container for individual palette
 .palette {
   --color-block-height: 120px;
-  --grey-background: #EAEAEA;
-  --grey-blue-text-color: #62748C;
-  --title-shadow: 6px 1px 15px -7px black;
+  --grey-background: #eaeaea;
+  --grey-blue-text-color: #62748c;
+  --title-shadow: 6px 1px 15px -7px #000;
   margin-bottom: var(--ts-space-stack-700);
   padding: var(--ts-space-inset-500);
   // Set up for local link location
