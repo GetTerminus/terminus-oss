@@ -4,7 +4,7 @@
   // The max-height of the panel, currently matching ts-select value
   --ts-selection-list-panel-maxHeight: 256px;
   --ts-selection-list-panel-borderRadius: var(--ts-border-radius-base);
-  --ts-select-item-height: 3em;
+  --ts-checkbox-select-item-height: 3em;
   // Menu width must be a multiple of 56px
   // 56 * 2:
   --ts-menu-overlay-minWidth: 112px;
@@ -41,8 +41,8 @@
 
     &:not(.ts-option--template) {
       font-size: inherit;
-      height: var(--ts-select-item-height);
-      line-height: var(--ts-select-item-height);
+      height: var(--ts-checkbox-select-item-height);
+      line-height: var(--ts-checkbox-select-item-height);
     }
   }
 

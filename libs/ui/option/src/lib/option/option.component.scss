@@ -1,7 +1,7 @@
 @import '~@terminus/ui-styles/helpers';
 
 :root {
-  --ts-select-item-height: 3em;
+  --ts-checkbox-select-item-height: 3em;
   --ts-option-active-color: #cee1ef;
 }
 
@@ -45,8 +45,8 @@
   .ts-option {
     &:not(.ts-option--template) {
       font-size: inherit;
-      height: var(--ts-select-item-height);
-      line-height: var(--ts-select-item-height);
+      height: var(--ts-checkbox-select-item-height);
+      line-height: var(--ts-checkbox-select-item-height);
     }
   }
 
