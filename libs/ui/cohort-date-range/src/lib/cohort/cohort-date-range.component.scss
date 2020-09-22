@@ -1,11 +1,15 @@
+:root {
+  --ts-cohort-selection-list-minWidth: 200px;
+  --ts-cohort-dateRange-marginRight: var(--ts-space-inline-600);
+}
+
 .ts-cohort-date-range {
-  --cohort-selection-list-minWidth: 200px;
   display: block;
 
   .ts-selection-list {
     &.ts-cohort-date-range__select {
       display: inline-block;
-      min-width: var(--cohort-selection-list-minWidth);
+      min-width: var(--ts-cohort-selection-list-minWidth);
     }
   }
 }
@@ -13,6 +17,6 @@
 .ts-date-range {
   &.ts-cohort-date-range__date-range {
     display: inline-block;
-    margin-right: var(--ts-space-inline-600);
+    margin-right: var(--ts-cohort-dateRange-marginRight);
   }
 }
