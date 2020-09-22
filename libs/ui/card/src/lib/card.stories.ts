@@ -49,10 +49,9 @@ aspectRatio.parameters = {
 };
 
 export const border = () => ({
-  template: `<ts-card [border]="border" [theme]="theme">My card content</ts-card>`,
+  template: `<ts-card [border]="border">My card content</ts-card>`,
   props: {
     border: select('Border side', tsCardBorderOptionsList, 'left'),
-    theme: select('Theme', ['primary', 'accent', 'warn'], 'primary'),
   },
 });
 border.parameters = {

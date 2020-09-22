@@ -7,27 +7,15 @@
   --ts-card-boxShadow: 0 0 0 1px rgba(0, 0, 0, .04), 0 2px 5px 0 rgba(0, 0, 0, .06);
   --ts-card-hover-boxShadow: 0 0 0 1px rgba(0, 0, 0, .06), 0 2px 5px 0 rgba(0, 0, 0, .09);
   --ts-card-2x-boxShadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 5px 0 rgba(0, 0, 0, .12);
-}
-
-// Add a card border for a side
-@mixin card-border($side) {
-  &.c-card--primary {
-    .c-card__inner {
-      border-#{$side}: 2px solid var(--ts-color-primary-500);
-    }
-  }
-
-  &.c-card--accent {
-    .c-card__inner {
-      border-#{$side}: 2px solid var(--ts-color-accent-500);
-    }
-  }
-
-  &.c-card--warn {
-    .c-card__inner {
-      border-#{$side}: 2px solid var(--ts-color-warn-500);
-    }
-  }
+  --ts-card-border-color: var(--ts-color-primary-500);
+  --ts-card-border: 2px solid var(--ts-card-border-color);
+  --ts-card-borderRadius: var(--ts-border-radius-base);
+  --ts-card-margin: var(--ts-space-inline-600);
+  --ts-card-lock-color: var(--ts-color-utility-500);
+  --ts-card-utility-paddingRight: var(--ts-space-base-large4);
+  --ts-card-flat-borderColor: var(--ts-color-utility-300);
+  --ts-card-title-typography: var(--ts-typography-compound-title);
+  --ts-card-title-padding: var(--ts-space-inset-300);
 }
 
 .ts-card {
@@ -60,32 +48,25 @@
 
 .c-card {
   .c-card__inner {
-    border-radius: var(--ts-border-radius-base);
+    --base-spacing: var(--ts-space-base-large0);
+    border-radius: var(--ts-card-borderRadius);
     box-shadow: var(--ts-card-boxShadow);
     box-sizing: border-box;
-    min-height: calc(100% - #{spacing(large) * 2});
-    padding: var(--ts-space-inset-600);
+    min-height: calc(100% - var(--base-spacing) * 2);
+    padding: var(--ts-card-margin);
     // Needed to contain the ripple effect
     position: relative;
     vertical-align: top;
     width: 100%;
 
     .c-card__title-accent-border {
-      border-left: 2px solid var(--ts-color-primary-500);
-      padding-left: var(--ts-space-inset-300);
-
-      &[theme='accent'] {
-        border-left-color: var(--ts-color-accent-500);
-      }
-
-      &[theme='warn'] {
-        border-left-color: var(--ts-color-warn-500);
-      }
+      border-left: 2px solid var(--ts-card-border-color);
+      padding-left: var(--ts-card-title-padding);
     }
 
     // Class added by the TsCardTitleDirective
     .c-card__title {
-      font: var(--ts-typography-compound-title);
+      font: var(--ts-card-title-typography);
     }
   }
 }
@@ -128,48 +109,41 @@
 
   // Lock icon
   .c-card__lock {
-    --lock-top-alignment: 2px;
-    --lock-scale: .7;
-    color: var(--ts-color-utility-500);
+    --ts-card-lock-top-alignment: 2px;
+    --ts-card-lock-scale: .7;
+    color: var(--ts-card-lock-color);
     position: absolute;
-    right: var(--ts-space-inline-600);
+    right: var(--ts-card-margin);
     // Magic number adjustment to align with title
-    top: calc(var(--ts-space-inline-600) - var(--lock-top-alignment));
-    transform: scale(var(--lock-scale));
+    top: calc(var(--ts-card-margin) - var(--ts-card-lock-top-alignment));
+    transform: scale(var(--ts-card-lock-scale));
   }
 }
 
 // Class added when padding needed on the right for icon or utility menu
 .c-card--right-spacing {
   .c-card__inner {
-    padding-right: var(--ts-space-base-large4);
+    padding-right: var(--ts-card-utility-paddingRight);
   }
 }
 
 // Class added for flat cards (no drop shadow)
 .c-card--flat {
   > .c-card__inner {
-    border: 1px solid var(--ts-color-utility-300);
+    border: 1px solid var(--ts-card-flat-borderColor);
     box-shadow: none;
   }
 }
 
+$sides: top, right, bottom, left;
 // Class added for borders on the side
 .c-card--border {
-  &-bottom {
-    @include card-border(bottom);
-  }
-
-  &-left {
-    @include card-border(left);
-  }
-
-  &-right {
-    @include card-border(right);
-  }
-
-  &-top {
-    @include card-border(top);
+  @each $side in $sides {
+    &-#{$side} {
+      .c-card__inner {
+        border-#{$side}: 2px solid var(--ts-card-border-color);
+      }
+    }
   }
 }
 
@@ -178,8 +152,8 @@
   .ts-table {
     ~ .ts-loading-overlay {
       .c-loading-overlay {
-        left: -(var(--ts-space-inline-600));
-        right: -(var(--ts-space-inline-600));
+        left: -(var(--ts-card-margin));
+        right: -(var(--ts-card-margin));
       }
     }
   }
