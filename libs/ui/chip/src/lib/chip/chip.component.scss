@@ -1,15 +1,23 @@
-.ts-chip {
-  --chip-backgroundColor-hover: var(--ts-color-utility-500);
-  --chip-backgroundColor: var(--ts-color-utility-300);
-  --chip-borderRadius: var(--ts-border-radius-base);
-  --chip-color: var(--ts-color-base-black);
-  --chip-fontSize: var(--ts-typography-size-200);
-  --chip-height: 24px;
-  --chip-margin: 0 var(--ts-space-inset-300) var(--ts-space-inset-200) 0;
-  --chip-padding: 2px 4px 2px 6px;
-  --chip-remove-size: 24px;
-  --badge-padding: 2px 4px 2px 4px;
+:root {
+  --ts-chip-backgroundColor-hover: var(--ts-color-utility-500);
+  --ts-chip-backgroundColor: var(--ts-color-utility-300);
+  --ts-chip-backgroundColor-primary: var(--ts-color-primary-500);
+  --ts-chip-backgroundColor-transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+  --ts-chip-borderRadius: var(--ts-border-radius-base);
+  --ts-chip-color: var(--ts-color-base-black);
+  --ts-chip-color-inverted: var(--ts-color-base-white);
+  --ts-chip-color-disabled: var(--ts-color-utility-700);
+  --ts-chip-fontSize: var(--ts-typography-size-200);
+  --ts-chip-typography: var(--ts-typography-compound-body);
+  --ts-chip-height: 24px;
+  --ts-chip-margin: 0 var(--ts-space-inset-300) var(--ts-space-inset-200) 0;
+  --ts-chip-padding: 2px 4px 2px 6px;
+  --ts-chip-remove-size: 24px;
+  --ts-chip-remove-transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+  --ts-chip-badge-padding: 2px 4px 2px 4px;
+}
 
+.ts-chip {
   &:focus,
   &:hover {
     outline: none;
@@ -17,7 +25,7 @@
     &:not(.ts-chip--badge) {
       .c-chip {
         &:not(.c-chip--disabled) {
-          --chip-backgroundColor: var(--chip-backgroundColor-hover);
+          --ts-chip-backgroundColor: var(--ts-chip-backgroundColor-hover);
           transition: opacity var(--ts-animation-time-duration-200) cubic-bezier(.35, 0, .25, 1);
         }
       }
@@ -26,46 +34,41 @@
 
   &.ts-chip--selected,
   &.ts-chip--badge {
-    color: var(--ts-color-base-white);
-    $themes: primary accent warn;
+    color: var(--ts-chip-color-inverted);
 
-    @each $theme in $themes {
-      &.ts-chip--#{$theme} {
-        .c-chip {
-          background-color: var(--ts-color-#{$theme}-500);
-        }
-      }
+    .c-chip {
+      background-color: var(--ts-chip-backgroundColor-primary);
     }
 
     .c-chip__remove {
-      color: var(--ts-color-base-white);
+      color: var(--ts-chip-color-inverted);
     }
   }
 
   &.ts-chip--badge {
     .c-chip {
-      --chip-color: var(--ts-color-base-white);
-      padding: var(--badge-padding);
+      --ts-chip-color: var(--ts-chip-color-inverted);
+      padding: var(--ts-chip-badge-padding);
     }
   }
 
   .c-chip {
     align-items: center;
-    background-color: var(--chip-backgroundColor);
-    border-radius: var(--chip-borderRadius);
+    background-color: var(--ts-chip-backgroundColor);
+    border-radius: var(--ts-chip-borderRadius);
     box-sizing: border-box;
-    color: var(--chip-color);
+    color: var(--ts-chip-color);
     display: inline-flex;
-    font: var(--ts-typography-compound-body);
-    font-size: var(--chip-fontSize);
-    height: var(--chip-height);
-    margin: var(--chip-margin);
+    font: var(--ts-chip-typography);
+    font-size: var(--ts-chip-fontSize);
+    height: var(--ts-chip-height);
+    margin: var(--ts-chip-margin);
     overflow: hidden;
-    padding: var(--chip-padding);
+    padding: var(--ts-chip-padding);
     position: relative;
     -webkit-tap-highlight-color: transparent;
     transform: translateZ(0);
-    transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+    transition: var(--ts-chip-backgroundColor-transition);
 
     &.c-chip--removable {
       .c-chip__remove {
@@ -74,8 +77,8 @@
     }
 
     &.c-chip--disabled {
-      --chip-color: var(--ts-color-utility-700);
-      padding: var(--chip-padding);
+      --ts-chip-color: var(--ts-chip-color-disabled);
+      padding: var(--ts-chip-padding);
       pointer-events: none;
 
       .c-chip__remove {
@@ -89,10 +92,10 @@
       backface-visibility: hidden;
       cursor: pointer;
       display: none;
-      height: var(--chip-remove-size);
+      height: var(--ts-chip-remove-size);
       margin-left: $margin-offset-for-new-icon;
       opacity: .4;
-      transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+      transition: var(--ts-chip-remove-transition);
 
       &:hover {
         opacity: .7;
