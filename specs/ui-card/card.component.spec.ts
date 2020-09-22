@@ -11,7 +11,6 @@ import {
   TsCardBorderOptions,
   TsCardComponent,
 } from '@terminus/ui-card';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 @Component({
   template: `
@@ -19,7 +18,6 @@ import { TsStyleThemeTypes } from '@terminus/ui-utilities';
       [isDisabled]="isDisabled"
       [flat]="flat"
       [supportsInteraction]="supportsInteraction"
-      [theme]="theme"
       [border]="border"
     >
       Here is my card!
@@ -31,7 +29,6 @@ class TestHostComponent {
   public isDisabled!: boolean;
   public flat!: boolean;
   public supportsInteraction!: boolean;
-  public theme: TsStyleThemeTypes | undefined;
 
   @ViewChild(TsCardComponent, { static: true })
   public cardComponent!: TsCardComponent;
@@ -132,22 +129,6 @@ describe(`TsCardComponent`, function() {
 
       cardComponent.id = null as any;
       expect(cardComponent.id).toEqual(cardComponent['uid']);
-    });
-  });
-
-  describe(`theme`, function() {
-    test(`should set a default and allow overrides`, () => {
-      expect(cardComponent.theme).toEqual('primary');
-      component.theme = 'warn';
-      fixture.detectChanges();
-      expect(cardComponent.theme).toEqual('warn');
-      expect(card.classList).toContain('c-card--warn');
-    });
-
-    test(`should do nothing if no value is passed in`, () => {
-      cardComponent.theme = '' as any;
-      expect(cardComponent.theme).toEqual('primary');
-      expect(card.classList).toContain('c-card--primary');
     });
   });
 

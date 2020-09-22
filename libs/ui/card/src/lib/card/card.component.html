@@ -1,5 +1,5 @@
 <div
-  class="c-card qa-card {{ borderClass }} c-card--{{ theme }}"
+  class="c-card {{ borderClass }}"
   [ngClass]="{
     'c-card--interaction': supportsInteraction,
     'c-card--centered': centeredContent,
@@ -27,7 +27,7 @@
 
   <ts-icon
     *ngIf="isDisabled && !utilityMenuTemplate"
-    class="c-card__lock qa-card-lock"
+    class="c-card__lock"
     [icon]="lockIcon"
   ></ts-icon>
 </div>

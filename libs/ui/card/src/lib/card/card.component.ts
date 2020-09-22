@@ -63,7 +63,6 @@ let nextUniqueId = 0;
  *              [flat]="true"
  *              id="my-id"
  *              [supportsInteraction]="true"
- *              theme="primary"
  *              [utilityMenuTemplate]="myTemplate"
  * >Here is my card!</ts-card>
  *
@@ -191,20 +190,6 @@ export class TsCardComponent {
    */
   @Input()
   public supportsInteraction = false;
-
-  /**
-   * Define the card theme
-   *
-   * @param value
-   */
-  @Input()
-  public set theme(value: TsStyleThemeTypes) {
-    this._theme = value ? value : 'primary';
-  }
-  public get theme(): TsStyleThemeTypes {
-    return this._theme;
-  }
-  private _theme: TsStyleThemeTypes = 'primary';
 
   /**
    * Allow a custom utility menu to be added
