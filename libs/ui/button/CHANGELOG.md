@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.1.2...@terminus/ui-button@2.1.3) (2020-09-22)
+
+
+### Bug Fixes
+
+* **Button:** smooth out collapse animation ([e06295d](https://github.com/GetTerminus/terminus-oss/commit/e06295dc275825e03d4c4b9ef478d98602c9e903))
+
+
+
+
+
 ## [2.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.1.1...@terminus/ui-button@2.1.2) (2020-09-14)
 
 **Note:** Version bump only for package @terminus/ui-button
