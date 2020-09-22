@@ -119,7 +119,7 @@ export class TsPaginatorComponent implements OnChanges, AfterViewInit {
   /**
    * Set up a form control to pass to {@link TsSelectionListComponent}
    */
-  public pageControl = new FormControl();
+  public pageControl = new FormControl<number[]>();
 
   /**
    * Define the icon for the 'previous page' button
@@ -145,21 +145,6 @@ export class TsPaginatorComponent implements OnChanges, AfterViewInit {
    * Store the label for the current page
    */
   public currentPageLabel!: string;
-
-  /**
-   * Define the amount of records show per page
-   *
-   * @param value
-   */
-  // public recordsPerPage: number = DEFAULT_RECORDS_PER_PAGE;
-  public set recordsPerPage(value: number) {
-    this._recordsPerPage = value;
-    this.pageControl.setValue([value]);
-  }
-  public get recordsPerPage(): number {
-    return this._recordsPerPage;
-  }
-  private _recordsPerPage = DEFAULT_RECORDS_PER_PAGE;
 
   /**
    * Define the template context for the record count message
@@ -274,6 +259,26 @@ export class TsPaginatorComponent implements OnChanges, AfterViewInit {
    */
   @Input()
   public recordCountTooHighMessage: string = this.DEFAULT_HIGH_RECORD_MESSAGE;
+
+  /**
+   * Define the amount of records show per page
+   *
+   * @param value
+   */
+  @Input()
+  public set recordsPerPage(value: number) {
+    if (value && !isNaN(value) && this.recordsPerPageChoices.includes(value)) {
+      this._recordsPerPage = value;
+      this.pageControl.setValue([value]);
+    } else {
+      this._recordsPerPage = this.recordsPerPageChoices[0];
+      this.pageControl.setValue([this.recordsPerPageChoices[0]]);
+    }
+  }
+  public get recordsPerPage(): number {
+    return this._recordsPerPage;
+  }
+  private _recordsPerPage = DEFAULT_RECORDS_PER_PAGE;
 
   /**
    * Define how many records are shown per page
