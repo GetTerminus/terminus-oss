@@ -40,21 +40,6 @@ basic.parameters = {
   docs: { iframeHeight: 180 },
 };
 
-export const themes = () => ({
-  template: `
-    <ts-copy theme="primary" tsVerticalSpacing>{{ content }}</ts-copy>
-    <ts-copy theme="accent" tsVerticalSpacing>{{ content }}</ts-copy>
-    <ts-copy theme="warn">{{ content }}</ts-copy>
-  `,
-  props: {
-    content: text('Text to copy', URL_LONG),
-  },
-});
-themes.parameters = {
-  actions: { disabled: true },
-  docs: { iframeHeight: 260 },
-};
-
 export const format = () => ({
   template: `
     <h3>Standard</h3>
