@@ -91,7 +91,7 @@ export const themes = () => ({
         (clicked)="onClick($event)"
       >My Button</ts-button>
     </div>
-    <div>
+    <div style="text-align: end">
       <ts-button
         [icon]="icon2"
         theme="default"
@@ -106,7 +106,7 @@ export const themes = () => ({
         (clicked)="onClick($event)"
       >My Button</ts-button>
     </div>
-    <div>
+    <div style="text-align: end">
       <ts-button
         [icon]="icon2"
         theme="secondary"
@@ -121,7 +121,7 @@ export const themes = () => ({
         (clicked)="onClick($event)"
       >My Button</ts-button>
     </div>
-    <div>
+    <div style="text-align: end">
       <ts-button
         [icon]="icon2"
         theme="warning"

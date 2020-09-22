@@ -48,12 +48,15 @@
 
   // Variables to overwrite with theme values
   --tsb-color: var(--ts-color-light);
+  --tsb-color-disabled: var(--ts-color-utility-600);
   --tsb-backgroundColor: var(--ts-color-primary-500);
   --tsb-borderColor: var(--ts-color-primary-500);
   --tsb-boxShadow-color: var(--ts-color-primary-300);
 
+  --tsb-typography: var(--ts-typography-compound-body2);
+  --tsb-fontSize: 14px;
   --tsb-lineHeight: 35px;
-  --tsb-rotation: 360deg;
+  --tsb-rotation: 180deg;
   --tsb-icon-negative-padding-adjustment: -4px;
   --tsb-collapsible-first-icon-adjustment: -.15em;
   // NOTE: This is to better align with inputs that have extra space above and below
@@ -62,18 +65,25 @@
   --tsb-padding-collapsed: 0 6px;
   --tsb-borderRadius: var(--ts-border-radius-base);
   --tsb-borderRadius-collapsible: 2em;
-  --tsb-padding-right-progress: 36px;
+  --tsb-padding-right-progress: 42px;
   --tsb-icon-vertical-adjustment: -.15em;
   --tsb-icon-horizontal-adjustment: .2em;
+  --tsb-icon-padding: 0 .2em;
+  --tsb-shadow-focus: 0 0 2px 2px var(--tsb-boxShadow-color);
+  --tsb-content-maxWidth: 400px;
+  --tsb-spinner-color: var(--ts-color-utility-500);
 
   // NOTE: All transition durations are based off of the content transition.
+  --tsb-animationEasing: var(--ts-animation-easing-ease);
   --tsb-content-transitionDuration: var(--ts-animation-time-duration-500);
   --tsb-icon-transitionDuration-collapse: calc(var(--tsb-content-transitionDuration) - 100ms);
   --tsb-icon-transitionDuration-expand: calc(var(--tsb-icon-transitionDuration-collapse) - 100ms);
   --tsb-label-transitionDuration: calc(var(--tsb-icon-transitionDuration-expand) - 100ms);
-  --tsb-maxWidth-transition: max-width var(--tsb-content-transitionDuration) var(--ts-animation-easing-ease);
-  --tsb-icon-transition: transform var(--tsb-icon-transitionDuration-expand) var(--ts-animation-easing-ease);
-  --tsb-spinner-transition: opacity var(--tsb-label-transitionDuration) var(--ts-animation-easing-ease);
+  --tsb-maxWidth-transition: max-width var(--tsb-content-transitionDuration) var(--tsb-animationEasing);
+  --tsb-icon-transition: transform var(--tsb-icon-transitionDuration-expand) var(--tsb-animationEasing);
+  --tsb-spinner-transition: opacity var(--tsb-label-transitionDuration) var(--tsb-animationEasing);
+  --tsb-icon-collapsed-transitionDelay: 150ms;
+  --tsb-icon-collapsed-hover-transitionDelay: 0ms;
 }
 
 .ts-button {
@@ -87,23 +97,23 @@
     border-radius: var(--tsb-borderRadius);
     color: var(--tsb-color);
     cursor: pointer;
-    font: var(--ts-typography-compound-body2);
-    font-size: 14px;
+    font: var(--tsb-typography);
+    font-size: var(--tsb-fontSize);
     line-height: var(--tsb-lineHeight);
     padding: var(--tsb-padding);
     position: relative;
     transition-duration: var(--tsb-icon-transitionDuration-collapse);
     transition-property: color, box-shadow, border-color, background-color;
-    transition-timing-function: var(--ts-animation-easing-ease);
+    transition-timing-function: var(--tsb-animationEasing);
 
     &[disabled] {
       --tsb-borderColor: var(--tsb-theme-default-borderColor-disabled);
-      --tsb-color: var(--ts-color-utility-600);
+      --tsb-color: var(--tsb-color-disabled);
       cursor: not-allowed;
     }
 
     &:focus {
-      box-shadow: 0 0 2px 2px var(--tsb-boxShadow-color);
+      box-shadow: var(--tsb-shadow-focus);
       outline: none;
     }
 
@@ -172,12 +182,12 @@
       }
 
       circle {
-        stroke: var(--ts-color-utility-500);
+        stroke: var(--tsb-spinner-color);
       }
     }
 
     &--progress {
-      padding-right: 42px;
+      padding-right: var(--tsb-padding-right-progress);
     }
 
     // COLLAPSIBLE
@@ -190,9 +200,13 @@
         &:not(:hover) {
           &:not(:focus) {
             padding: var(--tsb-padding-collapsed);
+            // Custom transition with delay needed to remove 'jump' during collapse
+            transition: padding 200ms ease 200ms;
 
             .ts-icon {
               margin-right: 0;
+              // Custom transition with delay needed to remove 'jump' during collapse
+              transition: margin-right 100ms ease-out 100ms;
             }
 
             .c-icon {
@@ -203,8 +217,7 @@
 
             // collapse the text content
             .c-button__content {
-              max-width: 0;
-              padding: 0;
+              --tsb-content-maxWidth: 0;
             }
           }
         }
@@ -216,18 +229,23 @@
         &:focus {
           .c-icon {
             margin-left: var(--tsb-collapsible-first-icon-adjustment);
+            transition-delay: var(--tsb-icon-collapsed-hover-transitionDelay);
           }
+        }
+
+        .c-icon {
+          transition-delay: var(--tsb-icon-collapsed-transitionDelay);
         }
       }
 
       // Padding addition for FontAwesome switch
       .c-icon {
-        padding: 0 .2em;
+        padding: var(--tsb-icon-padding);
       }
 
       .c-button__content {
         display: inline-block;
-        max-width: 400px;
+        max-width: var(--tsb-content-maxWidth);
         overflow: hidden;
         transition: var(--tsb-maxWidth-transition);
         vertical-align: bottom;
