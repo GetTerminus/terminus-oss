@@ -1,24 +1,31 @@
 @import '~@terminus/ui-styles/helpers';
 @import '~@terminus/design-tokens/css/library-design-tokens.scss';
 
+:root {
+  --ts-confirmation-overlay-backgroundColor: rgba(255, 255, 255, .5);
+  --ts-confirmation-backgroundColor: var(--ts-color-base-white);
+  --ts-confirmation-padding: var(--ts-space-inset-500);
+  --ts-confirmation-borderRadius: var(--ts-border-radius-base);
+  --ts-confirmation-explanation-marginBottom: var(--ts-space-stack-600);
+}
+
 // CDK overlay container
 .ts-confirmation-overlay {
-  $opaque: transparentize($ts-color-base-white, .5);
   @include reset;
-  background-color: $opaque;
+  background-color: var(--ts-confirmation-overlay-backgroundColor);
 }
 
 // Wrapper for overlay component
 .ts-confirmation-overlay__panel {
   $arrow-size: 12px;
   @include elevation-element(menu);
-  background-color: var(--ts-color-base-white);
-  border-radius: var(--ts-border-radius-base);
+  background-color: var(--ts-confirmation-backgroundColor);
+  border-radius: var(--ts-confirmation-borderRadius);
   display: block;
-  padding: var(--ts-space-inset-500);
+  padding: var(--ts-confirmation-padding);
 
   .ts-confirmation-overlay__explanation {
-    margin-bottom: var(--ts-space-stack-600);
+    margin-bottom: var(--ts-confirmation-explanation-marginBottom);
   }
 
   // Create the triangle above the popup box
