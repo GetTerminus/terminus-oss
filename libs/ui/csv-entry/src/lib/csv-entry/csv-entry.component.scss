@@ -1,8 +1,33 @@
 @import '~@terminus/ui-styles/helpers';
 
+:root {
+  --ts-csv-row-height: 39px;
+  --ts-csv-cell-padding: var(--ts-space-inset-300);
+  --ts-csv-external-row-height: 35px;
+  --ts-csv-right-column-width: 40px;
+  --ts-csv-left-column-width: 15px;
+  // Odd height used to ensure that the table cuts off mid-cell so the user knows there is more content
+  --ts-csv-scroll-maxHeight: 28.5em;
+  --ts-csv-input-minWidth: 72px;
+  --ts-csv-focus-backgroundColor: #d3eaf9;
+  --ts-csv-invalid-fontWeight: 400;
+  --ts-csv-typography: var(--ts-typography-compound-body);
+  --ts-csv-info-typography: var(--ts-typography-compound-caption);
+  --ts-csv-info-marginBottom: var(--ts-space-stack-200);
+  --ts-csv-input-border: 1px solid var(--ts-color-utility-300);
+  --ts-csv-header-borderBottomWidth: 3px;
+  --ts-csv-color-warn: var(--ts-color-warn-500);
+  --ts-csv-entry-message-typography: var(--ts-typography-compound-hint);
+  --ts-csv-entry-message-paddingTop: var(--ts-space-stack-200);
+  --ts-csv-message-button-marginRight: var(--ts-space-inline-200);
+  --ts-csv-delete-icon-color: var(--ts-color-utility-300);
+  --ts-csv-id-number: var(--ts-color-utility-600);
+  --ts-csv-id-typography: var(--ts-typography-compound-caption);
+}
+
 .ts-csv-entry {
   display: inline-block;
-  font: var(--ts-typography-compound-body);
+  font: var(--ts-csv-typography);
   max-width: 100%;
 
   &.c-csv-entry--full-width {
@@ -25,21 +50,9 @@
 
 // <div> primary container
 .c-csv-entry {
-  --csv-row-height: 39px;
-  --csv-cell-padding: var(--ts-space-inset-300);
-  --csv-external-row-height: 35px;
-  --csv-right-column-width: 40px;
-  --csv-left-column-width: 15px;
-  // Odd height used to ensure that the table cuts off mid-cell so the user knows there is more content
-  --csv-scroll-maxHeight: 28.5em;
-  --csv-input-minWidth: 72px;
-  // TODO: Use a standard color once a light blue is added
-  --csv-focus-backgroundColor: #d3eaf9;
-  --csv-invalid-fontWeight: 400;
-
   // <div> container for overall table to allow scrolling
   .c-csv-entry__scroll {
-    max-height: var(--csv-scroll-maxHeight);
+    max-height: var(--ts-csv-scroll-maxHeight);
     // To remove a horizontal scrollbar showing in firefox
     overflow-x: -moz-hidden-unscrollable;
     overflow-y: auto;
@@ -47,17 +60,17 @@
 
   // <div> container for table info
   .c-csv-entry__info {
-    font: var(--ts-typography-compound-caption);
+    font: var(--ts-csv-info-typography);
     line-height: 1.2em;
-    margin-bottom: var(--ts-space-stack-200);
+    margin-bottom: var(--ts-csv-info-marginBottom);
     // Match the size of the ts-icon-button
-    margin-right: var(--csv-right-column-width);
+    margin-right: var(--ts-csv-right-column-width);
     text-align: right;
   }
 
   // <form>
   .c-csv-entry__form {
-    border: 1px solid var(--ts-color-utility-300);
+    border: var(--ts-csv-input-border);
     // Allow horizontal scrolling when all columns cannot be displayed
     overflow-x: auto;
   }
@@ -76,11 +89,11 @@
   // <input> individual cell content
   .c-csv-entry__input {
     @include truncate-overflow;
-    border: 1px solid var(--ts-color-utility-300);
+    border: var(--ts-csv-input-border);
     flex: 1 1 auto;
     font-size: inherit;
-    min-width: var(--csv-input-minWidth);
-    padding: var(--csv-cell-padding);
+    min-width: var(--ts-csv-input-minWidth);
+    padding: var(--ts-csv-cell-padding);
 
     // remove double border between columns
     + .c-csv-entry__input {
@@ -96,50 +109,50 @@
     }
 
     &:focus {
-      background-color: var(--csv-focus-backgroundColor);
+      background-color: var(--ts-csv-focus-backgroundColor);
       outline: none;
     }
 
     // Class added to header cells
     &--header {
-      border-bottom-width: 3px;
+      border-bottom-width: var(--ts-csv-header-borderBottomWidth);
       border-top: 0;
     }
 
     &--invalid {
-      color: var(--ts-color-warn-500);
+      color: var(--ts-csv-color-warn);
     }
   }
 
   // <ts-icon-button> button to delete row
   .c-csv-entry__delete {
-    max-height: var(--csv-external-row-height);
+    max-height: var(--ts-csv-external-row-height);
 
     .ts-icon-button {
-      color: var(--ts-color-utility-300);
+      color: var(--ts-csv-delete-icon-color);
     }
   }
 
   // <div> cell in column of row IDs
   .c-csv-entry__column-id {
-    color: var(--ts-color-utility-600);
-    font: var(--ts-typography-compound-caption);
-    max-height: var(--csv-external-row-height);
-    padding: var(--csv-cell-padding);
+    color: var(--ts-csv-id-number);
+    font: var(--ts-csv-id-typography);
+    max-height: var(--ts-csv-external-row-height);
+    padding: var(--ts-csv-cell-padding);
   }
 
   // <div> container for all validation messages
   .c-csv-entry__messages {
     // Create margin matching column with 'delete' buttons
-    margin-left: var(--csv-left-column-width);
-    margin-right: var(--csv-right-column-width);
-    padding-top: var(--ts-space-stack-200);
+    margin-left: var(--ts-csv-left-column-width);
+    margin-right: var(--ts-csv-right-column-width);
+    padding-top: var(--ts-csv-entry-message-paddingTop);
 
     .ts-button {
       display: inline-block;
 
       &:not(:last-of-type) {
-        margin-right: var(--ts-space-inline-200);
+        margin-right: var(--ts-csv-message-button-marginRight);
       }
     }
 
@@ -149,8 +162,8 @@
   }
 
   .c-csv-entry__message {
-    color: var(--ts-color-warn-500);
-    font: var(--ts-typography-compound-hint);
+    color: var(--ts-csv-color-warn);
+    font: var(--ts-csv-entry-message-typography);
     line-height: 1.2em;
   }
 }
