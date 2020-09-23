@@ -1,3 +1,7 @@
+import {
+  AfterContentInit,
+  Component,
+} from '@angular/core';
 import { action } from '@storybook/addon-actions';
 import {
   select,
@@ -6,9 +10,15 @@ import {
 import { moduleMetadata } from '@storybook/angular';
 
 import {
+  createKeyboardEvent,
+  typeInElement,
+} from '@terminus/fe-testing';
+import { KEYS } from '@terminus/fe-utilities';
+import {
   TsCSVEntryComponent,
   TsCSVEntryModule,
 } from '@terminus/ui-csv-entry';
+import { TsValidatorsService } from '@terminus/ui-validators';
 
 export default {
   title: 'Components/Data Entry/CSV Entry',
@@ -81,6 +91,38 @@ export const staticHeaders = () => ({
   },
 });
 staticHeaders.parameters = {
+  actions: { disabled: true },
+  knobs: { disabled: true },
+  docs: { iframeHeight: 300 },
+};
+
+@Component({
+  selector: 'ts-csv-entry-wrapper',
+  template: `<ts-csv-entry [columnValidators]="columnValidators"></ts-csv-entry>`,
+})
+class TsCSVEntryWrapper implements AfterContentInit {
+  columnValidators = [null, this.validatorsService.url()];
+
+  get element(): HTMLInputElement {
+    return document.querySelectorAll("[id$='r_1Xc_1']")[0] as HTMLInputElement;
+  }
+
+  constructor(public validatorsService: TsValidatorsService) {}
+
+  ngAfterContentInit(): void {
+    // Fake user input to trigger a validation message
+    setTimeout(() => {
+      typeInElement('foo', this.element);
+      const keyboardEvent = createKeyboardEvent('keyup', KEYS.ENTER);
+      this.element.dispatchEvent(keyboardEvent);
+    }, 10);
+  }
+}
+
+export const columnValidation = () => ({
+  component: TsCSVEntryWrapper,
+});
+columnValidation.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
   docs: { iframeHeight: 300 },
