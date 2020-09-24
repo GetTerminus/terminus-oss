@@ -18,11 +18,11 @@ NOTE: This component does not support a `FormControl`; it is a simple collection
   - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Using the DOM as value](#using-the-dom-as-value)
-  - [Theme](#theme)
   - [Orientation](#orientation)
   - [Removable](#removable)
   - [Selectable](#selectable)
   - [Badge](#badge)
+    - [Background color](#background-color)
   - [Events](#events)
     - [Collection events](#collection-events)
     - [Chip events](#chip-events)
@@ -100,19 +100,6 @@ For string based collections, the value input can be disregarded as the value wi
 </ts-chip-collection>
 ```
 
-### Theme
-
-A theme can be defined at the chip level:
-
-```html
-<ts-chip-collection>
-  <ts-chip
-    *ngFor="let chip of chips"
-    theme="accent"
-  >{{ chip }}</ts-chip>
-</ts-chip-collection>
-```
-
 ### Orientation
 
 A collection of chips can be displayed in a row (`horizontal`) or a column (`vertical`) via the `orientation` input. By
@@ -175,8 +162,7 @@ The ability to remove a chip can be disabled per chip or as a collection:
 
 ### Selectable
 
-Chips can be selected and will visually show that selection. The style of the selected state reflects the current
-[theme](#theme).
+Chips can be selected and will visually show that selection.
 
 The ability to select chips can be disabled per chip or as a collection:
 
@@ -206,6 +192,16 @@ A chip can be used as a badge by placing the `tsChipBadge` directive on a standa
 ```
 
 This will disable the ability to remove, select or focus the chip.
+
+#### Background color
+
+You can change the badge background color by overriding this CSS custom property:
+
+```css
+:root {
+  --ts-chip-badge-backgroundColor: #bada55;
+}
+```
 
 ### Events
 

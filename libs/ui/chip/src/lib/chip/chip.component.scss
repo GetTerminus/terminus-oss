@@ -1,7 +1,7 @@
 :root {
   --ts-chip-backgroundColor-hover: var(--ts-color-utility-500);
   --ts-chip-backgroundColor: var(--ts-color-utility-300);
-  --ts-chip-backgroundColor-primary: var(--ts-color-primary-500);
+  --ts-chip-badge-backgroundColor: var(--ts-color-primary-500);
   --ts-chip-backgroundColor-transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
   --ts-chip-borderRadius: var(--ts-border-radius-base);
   --ts-chip-color: var(--ts-color-base-black);
@@ -37,7 +37,7 @@
     color: var(--ts-chip-color-inverted);
 
     .c-chip {
-      background-color: var(--ts-chip-backgroundColor-primary);
+      background-color: var(--ts-chip-badge-backgroundColor);
     }
 
     .c-chip__remove {

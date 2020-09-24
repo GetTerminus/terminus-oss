@@ -22,17 +22,7 @@ export default {
 };
 
 export const basic = () => ({
-  template: `
-    <style>
-      ts-chip:not(:last-of-type) {
-        margin-right: 2rem;
-      }
-    </style>
-
-    <ts-chip tsChipBadge>Primary</ts-chip>
-    <ts-chip tsChipBadge theme="accent">Accent</ts-chip>
-    <ts-chip tsChipBadge theme="warn">Warn</ts-chip>
-  `,
+  template: `<ts-chip tsChipBadge>My Badge</ts-chip>`,
 });
 basic.parameters = {
   knobs: { disabled: true },
