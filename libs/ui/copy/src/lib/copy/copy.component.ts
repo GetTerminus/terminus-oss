@@ -16,10 +16,7 @@ import {
   TsWindowService,
 } from '@terminus/fe-utilities';
 import { TsTooltipComponent } from '@terminus/ui-tooltip';
-import {
-  TsStyleThemeTypes,
-  TsUILibraryError,
-} from '@terminus/ui-utilities';
+import { TsUILibraryError } from '@terminus/ui-utilities';
 
 /**
  * The possible display formats for {@link TsCopyComponent}
@@ -38,7 +35,6 @@ export type TsCopyDisplayFormat
  *              [disableInitialSelection]="true"
  *              [enableQuickCopy]="true"
  *              [format]="icon"
- *              theme="accent"
  * >My text to copy!</ts-copy>
  *
  * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-actions-copy</example-url>
@@ -52,9 +48,6 @@ export type TsCopyDisplayFormat
     '[class.ts-copy--standard]': 'format === "standard"',
     '[class.ts-copy--minimal]': 'format === "minimal"',
     '[class.ts-copy--icon]': 'format === "icon"',
-    '[class.ts-copy--primary]': 'theme === "primary"',
-    '[class.ts-copy--accent]': 'theme === "accent"',
-    '[class.ts-copy--warn]': 'theme === "warn"',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
@@ -79,8 +72,6 @@ export class TsCopyComponent {
   /**
    * Define the color of the material ripple
    */
-  // TODO: This color should be coming from a config
-  // https://github.com/GetTerminus/terminus-ui/issues/1490
   public rippleColor = '#1a237e';
 
   /**
@@ -134,12 +125,6 @@ export class TsCopyComponent {
     return this._format;
   }
   private _format: TsCopyDisplayFormat = 'standard';
-
-  /**
-   * Define the component theme
-   */
-  @Input()
-  public theme: TsStyleThemeTypes = 'primary';
 
   constructor(
     private documentService: TsDocumentService,
@@ -199,10 +184,6 @@ export class TsCopyComponent {
    */
   public copyToClipboard(text: string): void {
     // Create a hidden textarea to seed with text content
-    // FIXME: During the upgrade to TS 3.7.x 'createElement' is marked as deprecated but the signature for the deprecated and new methods
-    // are the same. So even when using the 'new' method, a deprecation error is still reported.
-    // I believe the new format should be `this.document.createElement<textarea>('textarea');`
-    // eslint-disable-next-line deprecation/deprecation
     const target = this.document.createElement('textarea');
     target.className = 'targetElement';
     target.style.position = 'absolute';
