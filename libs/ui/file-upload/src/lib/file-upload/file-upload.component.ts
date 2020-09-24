@@ -36,7 +36,6 @@ import {
   TsDocumentService,
   untilComponentDestroyed,
 } from '@terminus/fe-utilities';
-import { TsButtonThemeTypes } from '@terminus/ui-button';
 import { TS_SPACING } from '@terminus/ui-spacing';
 import {
   ControlValueAccessorProviderFactory,
@@ -92,7 +91,6 @@ let nextUniqueId = 0;
  *              [progress]="myUploadProgress"
  *              ratioConstraints="['2:1', '3:4']"
  *              [seedFile]="myFile"
- *              theme="default"
  *              (cleared)="fileWasCleared($event)"
  *              (enter)="userDragBegin($event)"
  *              (exit)="userDragEnd($event)"
@@ -388,12 +386,6 @@ export class TsFileUploadComponent extends TsReactiveFormBaseComponent implement
     return this._seedFile;
   }
   private _seedFile: File | undefined;
-
-  /**
-   * Define the theme
-   */
-  @Input()
-  public theme: TsButtonThemeTypes = 'default';
 
   /**
    * Event emitted when the user clears a loaded file

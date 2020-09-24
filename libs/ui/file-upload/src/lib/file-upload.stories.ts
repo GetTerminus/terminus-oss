@@ -71,24 +71,6 @@ basic.parameters = {
   docs: { iframeHeight: 160 },
 };
 
-export const themes = () => ({
-  component: TsFileUploadComponent,
-  template: `
-    <ts-file-upload [formControl]="formControl" [isDisabled]="isDisabled" theme="default" tsVerticalSpacing="large--1"></ts-file-upload>
-    <ts-file-upload [formControl]="formControl" [isDisabled]="isDisabled" theme="secondary" tsVerticalSpacing="large--1"></ts-file-upload>
-    <ts-file-upload [formControl]="formControl" [isDisabled]="isDisabled" theme="warning"></ts-file-upload>
-  `,
-  props: {
-    formControl: new FormControl(),
-    isDisabled: boolean('Disabled', false),
-  },
-});
-themes.parameters = {
-  docs: { iframeHeight: 600 },
-  actions: { disabled: true },
-  knobs: { disabled: true },
-};
-
 export const progressAndSeededFile = () => ({
   component: TsFileUploadComponent,
   props: {
