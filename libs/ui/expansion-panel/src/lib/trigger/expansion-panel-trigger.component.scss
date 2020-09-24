@@ -1,15 +1,27 @@
+:root {
+  --ts-ep-trigger-arrow-padding: 3px;
+  --ts-ep-trigger-marginRight: 32px;
+  --ts-ep-trigger-typography: var(--ts-typography-compound-body);
+  --ts-ep-trigger-padding: 0 var(--ts-space-inset-600);
+  --ts-ep-trigger-custom-padding: 3px;
+  --ts-ep-trigger-transparent-padding: 0 2px 0 0;
+  --ts-ep-trigger-disabled-color: var(--ts-color-utility-300);
+  --ts-ep-trigger-backgroundColor: var(--ts-color-base-white);
+  --ts-ep-trigger-collapsed-backgroundColor: var(--ts-color-utility-100);
+  --ts-ep-trigger-description-color: var(--ts-color-utility-700);
+  --ts-ep-trigger-icon-color: var(--ts-color-utility-600);
+}
+
 .ts-expansion-panel__trigger {
-  --ep-arrow-inner-spacing: 3px;
-  --ep-trigger-marginRight: 32px;
   align-items: center;
   border-radius: inherit;
   display: flex;
   flex-direction: row;
-  font: var(--ts-typography-compound-body);
-  padding: 0 var(--ts-space-inset-600);
+  font: var(--ts-ep-trigger-typography);
+  padding: var(--ts-ep-trigger-padding);
 
   &.ts-expansion-panel__trigger--transparent {
-    padding: 0 2px 0 0;
+    --ts-ep-trigger-padding: var(--ts-ep-trigger-transparent-padding);
   }
 
   &:focus,
@@ -25,7 +37,7 @@
   }
 
   &[aria-disabled='true'] {
-    color: var(--ts-color-utility-300);
+    color: var(--ts-ep-trigger-disabled-color);
 
     .ts-expansion-panel__trigger-title,
     .ts-expansion-panel__trigger-description {
@@ -38,14 +50,14 @@
   }
 }
 
-
+// This is so the hover state doesn't 'stick' on touch devices
 @media (hover: none) {
   .ts-expansion-panel {
     &:not(.ts-expansion-panel--expanded) {
       &:not([aria-disabled='true']) {
         .ts-expansion-panel__trigger {
           &:hover {
-            background: var(--ts-color-base-white);
+            background: var(--ts-ep-trigger-backgroundColor);
           }
         }
       }
@@ -64,29 +76,31 @@
 .ts-expansion-panel__trigger-description {
   display: flex;
   flex-grow: 0;
-  margin-right: var(--ep-trigger-marginRight);
+  margin-right: var(--ts-ep-trigger-marginRight);
 }
 
 .ts-expansion-panel__trigger-description {
-  color: var(--ts-color-utility-700);
+  color: var(--ts-ep-trigger-description-color);
   flex-grow: 2;
 }
 
 /**
- * Creates the expansion indicator arrow. Done using ::after rather than having
- * additional nodes in the template.
+ * Creates the expansion indicator arrow. Done using ::after rather than having additional nodes in the template.
  */
 .ts-expansion-panel__indicator {
-  --ts-ep-custom-trigger-padding: 3px;
-  width: 10px;
+  height: 12px;
+  width: 12px;
 
   &::after {
     border-style: solid;
     border-width: 0 2px 2px 0;
-    color: var(--ts-color-utility-600);
+    color: var(--ts-ep-trigger-icon-color);
     content: '';
     display: inline-block;
-    padding: var(--ts-ep-custom-trigger-padding);
+    left: 2px;
+    padding: var(--ts-ep-trigger-custom-padding);
+    position: relative;
+    top: -6px;
     transform: rotate(45deg);
     transform-origin: center;
     vertical-align: middle;
@@ -100,7 +114,7 @@
         &.cdk-keyboard-focused,
         &.cdk-program-focused,
         &:hover {
-          background: var(--ts-color-utility-100);
+          background: var(--ts-ep-trigger-collapsed-backgroundColor);
         }
       }
     }
