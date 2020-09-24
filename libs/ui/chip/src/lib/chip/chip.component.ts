@@ -21,7 +21,6 @@ import {
   KEYS,
   TsDocumentService,
 } from '@terminus/fe-utilities';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 // Unique ID for each instance
 // @internal
@@ -31,9 +30,7 @@ let nextUniqueId = 0;
  * Represents an event fired on an individual {@link TsChipComponent}
  */
 export class TsChipEvent {
-  constructor(
-    public chip: TsChipComponent,
-  ) {}
+  constructor(public chip: TsChipComponent) {}
 }
 
 /**
@@ -55,7 +52,7 @@ export class TsChipSelectionChange {
     public source: TsChipComponent,
     // Whether the chip that emitted the event is selected
     public selected: boolean,
-  ) { }
+  ) {}
 }
 
 
@@ -68,7 +65,6 @@ export class TsChipSelectionChange {
  *              [isDisabled]="false"
  *              [isRemovable]="true"
  *              [isSelectable]="false"
- *              theme="primary"
  *              [selected]="true"
  *              (clicked)="chipClicked($event)"
  *              (destroyed)="destroyed($event)"
@@ -85,9 +81,6 @@ export class TsChipSelectionChange {
   styleUrls: ['./chip.component.scss'],
   host: {
     'class': 'ts-chip',
-    '[class.ts-chip--primary]': 'theme === "primary"',
-    '[class.ts-chip--accent]': 'theme === "accent"',
-    '[class.ts-chip--warn]': 'theme === "warn"',
     '[attr.tabindex]': 'isDisabled ? null : -1',
     '[class.ts-chip--selected]': 'selected',
     '[class.ts-chip--disabled]': 'isDisabled',
@@ -107,8 +100,6 @@ export class TsChipSelectionChange {
 export class TsChipComponent implements FocusableOption, OnDestroy {
   /**
    * Define if multiple chips are allowed
-   *
-   * Used by the {@link TsAutocompleteComponent} consumer
    *
    * @param value
    */
@@ -270,20 +261,6 @@ export class TsChipComponent implements FocusableOption, OnDestroy {
     return this._value;
   }
   private _value;
-
-  /**
-   * Define the theme for a chip
-   *
-   * @param value
-   */
-  @Input()
-  public set theme(value: TsStyleThemeTypes) {
-    this._theme = value || 'primary';
-  }
-  public get theme(): TsStyleThemeTypes {
-    return this._theme;
-  }
-  private _theme: TsStyleThemeTypes = 'primary';
 
   /**
    * Emitted when the chip is clicked

@@ -73,26 +73,6 @@ describe('Chips', () => {
         expect(chipInstance.isSelectable).toEqual(false);
       });
 
-      test(`should allow the theme to be set`, () => {
-        setup();
-        expect(chipInstance.theme).toEqual('primary');
-        chipInstance.theme = 'warn';
-        fixture.detectChanges();
-        expect(Array.from(chipNativeElement.classList)).toContain('ts-chip--warn');
-      });
-
-      test(`should fall back to the primary theme`, () => {
-        setup();
-        chipInstance.theme = 'warn';
-        fixture.detectChanges();
-        expect(chipInstance.theme).toEqual('warn');
-        chipInstance.theme = 'warn';
-
-        chipInstance.theme = undefined as any;
-        fixture.detectChanges();
-        expect(chipInstance.theme).toEqual('primary');
-      });
-
       test(`should allow selection`, () => {
         setup();
         testComponent.selectionChange = jest.fn();
