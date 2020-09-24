@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-copy@2.1.3...@terminus/ui-copy@3.0.0) (2020-09-24)
+
+
+### Bug Fixes
+
+* **Copy:** remove theme support ([ffeb926](https://github.com/GetTerminus/terminus-oss/commit/ffeb9268442781b7a123e8184e6c19d7f8ba3754))
+
+
+### BREAKING CHANGES
+
+* **Copy:** Theme input no longer supported.
+
+
+
+
+
 ## [2.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-copy@2.1.2...@terminus/ui-copy@2.1.3) (2020-09-17)
 
 **Note:** Version bump only for package @terminus/ui-copy

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-date-range@1.1.3...@terminus/ui-date-range@1.1.4) (2020-09-24)
+
+**Note:** Version bump only for package @terminus/ui-date-range
+
+
+
+
+
 ## [1.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-date-range@1.1.2...@terminus/ui-date-range@1.1.3) (2020-09-14)
 
 **Note:** Version bump only for package @terminus/ui-date-range

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@2.1.2...@terminus/ui-card@3.0.0) (2020-09-24)
+
+
+### Bug Fixes
+
+* **Card:** remove theme support ([f050b84](https://github.com/GetTerminus/terminus-oss/commit/f050b843e8efeb81b6f1b41691b1182351613599))
+
+
+### BREAKING CHANGES
+
+* **Card:** Theme no longer supported. Border will always be the primary blue.
+
+
+
+
+
 ## [2.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@2.1.1...@terminus/ui-card@2.1.2) (2020-09-14)
 
 **Note:** Version bump only for package @terminus/ui-card

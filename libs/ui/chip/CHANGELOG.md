@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chip@2.1.2...@terminus/ui-chip@3.0.0) (2020-09-24)
+
+
+### Bug Fixes
+
+* **Chip:** remove theme support ([8abdf13](https://github.com/GetTerminus/terminus-oss/commit/8abdf132fc89e5ca68ae6f2685523496e2f09a53))
+
+
+### BREAKING CHANGES
+
+* **Chip:** Theme input no longer supported. The badge background color can be set by overriding the CSS custom
+property: `--ts-chip-badge-backgroundColor`
+
+
+
+
+
 ## [2.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chip@2.1.1...@terminus/ui-chip@2.1.2) (2020-09-14)
 
 **Note:** Version bump only for package @terminus/ui-chip
