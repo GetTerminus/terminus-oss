@@ -1,29 +1,36 @@
 @import '~@terminus/ui-styles/helpers';
 
-$ts-drawer-content-z-index: 1;
-$ts-drawer-push-drawer-z-index: 2;
-$ts-drawer-backdrop-z-index: 3;
-$ts-drawer-over-drawer-z-index: 4;
-$ts-drawer-header-footer-z-index: 5;
-
-// Mixin that creates a new stacking context.
-@mixin ts-drawer-stacking-context($z-index: 1) {
-  position: relative;
-  // Use a z-index to create a new stacking context. (We can't use transform because it breaks fixed
-  // positioning inside of the transformed element).
-  z-index: $z-index;
+:root {
+  --ts-drawer-backgroundColor: var(--ts-color-base-white);
+  --ts-drawer-headerFooter-borderColor: var(--ts-color-utility-300);
+  --ts-drawer-horizontal-space-from-container: 0;
+  --ts-drawer-vertical-space-from-container: 0;
+  --ts-drawer-header-space-from-top: 0;
+  --ts-drawer-footer-space-from-bottom: 0;
+  --ts-drawer-content-zIndex: 1;
+  --ts-drawer-drawer-push-zIndex: 2;
+  --ts-drawer-backdrop-zIndex: 3;
+  --ts-drawer-drawer-over-zIndex: 4;
+  --ts-drawer-headerFooter-zIndex: 5;
+  --ts-drawer-animation-duration: var(--ts-animation-time-duration-400);
+  --ts-drawer-animation-function: var(--ts-animation-easing-ease);
+  --ts-drawer-visibility: hidden;
+  --ts-drawer-backdrop-backgroundColor: transparent;
 }
 
 .ts-drawer-container {
-  // We need a stacking context here so that the backdrop and drawers are clipped to the
-  // TsDrawerContainer. This creates a new z-index stack so we use low numbered z-indices.
-  // We create another stacking context in the '.ts-drawer-content' and in each drawer so that
-  // the application content does not get messed up with our own CSS.
-  @include ts-drawer-stacking-context;
   box-sizing: border-box;
   // Need this to take up space in the layout.
   display: block;
   -webkit-overflow-scrolling: touch;
+  // We need a stacking context here so that the backdrop and drawers are clipped to the
+  // TsDrawerContainer. This creates a new z-index stack so we use low numbered z-indices.
+  // We create another stacking context in the '.ts-drawer-content' and in each drawer so that
+  // the application content does not get messed up with our own CSS.
+  position: relative;
+  // Use a z-index to create a new stacking context. (We can't use transform because it breaks fixed
+  // positioning inside of the transformed element).
+  z-index: 1;
 
   // Note that the `NoopAnimationsModule` is being handled inside of the component code.
   &.ng-animate-disabled,
@@ -37,36 +44,30 @@ $ts-drawer-header-footer-z-index: 5;
 
 .ts-drawer__backdrop {
   @include take-space;
+  background-color: var(--ts-drawer-backdrop-backgroundColor);
   display: block;
   // We use 'visibility: hidden | visible' because 'display: none' will not animate any
   // transitions, while visibility will interpolate transitions properly.
-  visibility: hidden;
-  z-index: $ts-drawer-backdrop-z-index;
+  visibility: var(--ts-drawer-visibility);
+  z-index: var(--ts-drawer-backdrop-zIndex);
 
   &.ts-drawer__backdrop--visible {
-    visibility: visible;
-  }
-
-  .ts-drawer-transition & {
-    transition: {
-      duration: var(--ts-animation-time-duration-400);
-      property: background-color, visibility;
-      timing-function: var(--ts-animation-easing-ease);
-    }
+    --ts-drawer-visibility: visible;
   }
 }
 
 .ts-drawer-content {
-  @include ts-drawer-stacking-context($ts-drawer-content-z-index);
   display: block;
   height: 100%;
   overflow: auto;
+  position: relative;
+  z-index: var(--ts-drawer-content-zIndex);
 
   .ts-drawer-transition & {
     transition: {
-      duration: var(--ts-animation-time-duration-400);
+      duration: var(--ts-drawer-animation-duration);
       property: transform, margin-left, margin-right;
-      timing-function: var(--ts-animation-easing-ease);
+      timing-function: var(--ts-drawer-animation-function);
     }
   }
 }
@@ -77,43 +78,46 @@ $ts-drawer-header-footer-z-index: 5;
 }
 
 .ts-drawer {
-  @include ts-drawer-stacking-context($ts-drawer-over-drawer-z-index);
   @include elevation-element(menu);
-  background-color: var(--ts-color-base-white);
-  bottom: 0;
+  background-color: var(--ts-drawer-backgroundColor);
+  bottom: var(--ts-drawer-vertical-space-from-container);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
   position: absolute;
-  top: 0;
-  z-index: $ts-drawer-backdrop-z-index;
+  top: var(--ts-drawer-vertical-space-from-container);
+  z-index: var(--ts-drawer-backdrop-zIndex);
 
   &.ts-drawer--push {
-    z-index: $ts-drawer-push-drawer-z-index;
+    z-index: var(--ts-drawer-drawer-push-zIndex);
+  }
+
+  &.ts-drawer--start {
+    right: var(--ts-drawer-horizontal-space-from-container);
   }
 
   &.ts-drawer--end {
-    right: 0;
+    right: var(--ts-drawer-horizontal-space-from-container);
   }
 
   .ts-drawer-header {
-    border-bottom: 1px solid var(--ts-color-utility-300);
+    border-bottom: 1px solid var(--ts-drawer-headerFooter-borderColor);
     display: block;
     max-width: inherit;
     overflow-wrap: break-word;
-    top: 0;
+    top: var(--ts-drawer-header-space-from-top);
     width: inherit;
-    z-index: $ts-drawer-header-footer-z-index;
+    z-index: var(--ts-drawer-headerFooter-zIndex);
   }
 
   .ts-drawer-footer {
-    border-top: 1px solid var(--ts-color-utility-300);
-    bottom: 0;
+    border-top: 1px solid var(--ts-drawer-headerFooter-borderColor);
+    bottom: var(--ts-drawer-footer-space-from-bottom);
     max-width: inherit;
     overflow-wrap: break-word;
     width: inherit;
-    z-index: $ts-drawer-header-footer-z-index;
+    z-index: var(--ts-drawer-headerFooter-zIndex);
   }
 }
 
