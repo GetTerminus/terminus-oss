@@ -1,9 +1,36 @@
 @import '~@terminus/ui-styles/helpers';
 
 :root {
-  // TODO: Formalize this color
+  --ts-fu-color: var(--ts-color-utility-700);
+  --ts-fu-typography: var(--ts-typography-compound-hint);
+  --ts-fu-fontFamily-override: var(--ts-typography-stack-base-monospaced);
   --ts-fu-drag-backgroundColor: #d3eaf9;
+  --ts-fu-borderRadius: var(--ts-border-radius-base);
+  --ts-fu-stacked-marginTop: var(--ts-space-stack-600);
+  --ts-fu-border: 1px dashed var(--ts-color-utility-400);
+  --ts-fu-borderColor: var(--ts-color-primary-500);
+  --ts-fu-hover-borderColor: var(--ts-color-utility-500);
+  --ts-fu-error-borderColor: var(--ts-color-warn-500);
+  --ts-fu-dragOrSelected-borderColor: var(--ts-color-primary-100);
+  --ts-fu-shadow: 0 0 2px 2px var(--ts-color-primary-300);
+  --ts-fu-padding: var(--ts-space-inset-400);
+  --ts-fu-progress-marginTop: var(--ts-space-stack-400);
+  --ts-fu-transitions:
+    background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut),
+    border-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+  --ts-fu-empty-color: var(--ts-color-utility-700);
+  --ts-fu-empty-disabled-color: var(--ts-color-utility-600);
+  --ts-fu-empty-icon-marginRight: var(--ts-space-inline-200);
+  --ts-fu-preview-border: 1px solid var(--ts-color-utility-300);
+  --ts-fu-preview-height: 2.375rem;
+  --ts-fu-preview-marginRight: var(--ts-space-inset-400);
+  --ts-fu-preview-padding: var(--ts-space-inset-200);
+  --ts-fu-remove-transitions:
+    color var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease),
+    opacity var(--ts-animation-time-duration-100) var(--ts-animation-easing-ease);
   --ts-fu-hint-padding: .3em .4em .2em;
+  --ts-fu-hint-color: var(--ts-color-utility-600);
+  --ts-fu-hint-typography: var(--ts-typography-compound-hint);
 }
 
 .ts-file-upload {
@@ -19,37 +46,35 @@
 
   // If followed directly by another instance, add vertical spacing
   + .ts-file-upload {
-    margin-top: var(--ts-space-stack-600);
+    margin-top: var(--ts-fu-stacked-marginTop);
   }
 }
 
 .c-file-upload {
-  border: 1px dashed var(--ts-color-utility-400);
-  border-radius: var(--ts-border-radius-base);
-  padding: var(--ts-space-inset-400);
-  transition:
-    background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut),
-    border-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+  border: var(--ts-fu-border);
+  border-radius: var(--ts-fu-borderRadius);
+  padding: var(--ts-fu-padding);
+  transition: var(--ts-fu-transitions);
 
   &:focus {
     outline: none;
 
     &:not(.c-file-upload--disabled) {
-      border-color: var(--ts-color-primary-500);
-      box-shadow: 0 0 2px 2px var(--ts-color-primary-300);
+      border-color: var(--ts-fu-borderColor);
+      box-shadow: var(--ts-fu-shadow);
     }
   }
 
   &:hover {
     &:not(.c-file-upload--disabled) {
-      border-color: var(--ts-color-utility-500);
+      border-color: var(--ts-fu-hover-borderColor);
     }
   }
 
   // Class added when dragging over
   &--drag {
     background-color: var(--ts-fu-drag-backgroundColor);
-    border-color: var(--ts-color-primary-100);
+    border-color: var(--ts-fu-dragOrSelected-borderColor);
 
     // Hide the remove button during a drag if it's visible
     .c-file-upload__remove {
@@ -59,27 +84,27 @@
 
   // Class added when a file has been selected
   &--file {
-    border-color: var(--ts-color-primary-100);
+    border-color: var(--ts-fu-dragOrSelected-borderColor);
   }
 
   // Class added if any validation fails
   &--error {
-    border-color: var(--ts-color-warn-500);
+    border-color: var(--ts-fu-error-borderColor);
   }
 
   &.c-file-upload--disabled {
     cursor: not-allowed;
 
     .c-file-upload__empty {
-      color: var(--ts-color-utility-600);
+      color: var(--ts-fu-empty-disabled-color);
     }
   }
 
   // <div> container for the selected file
   .c-file-upload__file {
-    color: var(--ts-color-utility-700);
-    font: var(--ts-typography-compound-hint);
-    font-family: var(--ts-typography-stack-base-monospaced);
+    color: var(--ts-fu-color);
+    font: var(--ts-fu-typography);
+    font-family: var(--ts-fu-fontFamily-override);
     overflow: auto;
     // Set up for progress bar
     position: relative;
@@ -92,24 +117,23 @@
 
   // <div> content shown when no file has been selected
   .c-file-upload__empty {
-    color: var(--ts-color-utility-700);
+    color: var(--ts-fu-empty-color);
 
     .ts-icon {
-      margin-right: var(--ts-space-inline-200);
+      margin-right: var(--ts-fu-empty-icon-marginRight);
     }
   }
 
   // <div> container for the image preview
   .c-file-upload__preview {
-    $box-size: 2.375rem;
-    border: 1px solid var(--ts-color-utility-300);
-    border-radius: var(--ts-border-radius-base);
-    height: $box-size;
-    margin-right: var(--ts-space-inset-400);
-    max-width: $box-size * 2;
+    border: var(--ts-fu-preview-border);
+    border-radius: var(--ts-fu-borderRadius);
+    height: var(--ts-fu-preview-height);
+    margin-right: var(--ts-fu-preview-marginRight);
+    max-width: calc(var(--ts-fu-preview-height) * 2);
     // Don't let alt tag text spill out
     overflow: hidden;
-    padding: var(--ts-space-inset-200);
+    padding: var(--ts-fu-preview-padding);
     // Set up for remove button
     position: relative;
 
@@ -135,15 +159,13 @@
 
   // <ts-icon-button> remove the file
   .c-file-upload__remove {
-    transition:
-      color var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease),
-      opacity var(--ts-animation-time-duration-100) var(--ts-animation-easing-ease);
+    transition: var(--ts-fu-remove-transitions);
   }
 
   // <mat-progress-bar>
   .c-file-upload__progress {
     display: block;
-    margin-top: var(--ts-space-inset-400);
+    margin-top: var(--ts-fu-progress-marginTop);
 
     // NOTE: By default there is not enough variation between the progress background and progress content
     .mat-progress-bar-buffer {
@@ -167,8 +189,8 @@
 
 // <div> replication of mat-hint
 .c-file-upload__hints {
-  color: var(--ts-color-utility-600);
-  font: var(--ts-typography-compound-hint);
+  color: var(--ts-fu-hint-color);
+  font: var(--ts-fu-hint-typography);
   padding: var(--ts-fu-hint-padding);
   text-align: right;
 }
