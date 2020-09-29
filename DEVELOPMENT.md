@@ -6,7 +6,6 @@
 
 - [Developing](#developing)
   - [General commands](#general-commands)
-  - [Showcase-ui](#showcase-ui)
   - [Visual Regression (vr)](#visual-regression-vr)
   - [Setting up NX cloud](#setting-up-nx-cloud)
   - [Setting up FontAwesomePro](#setting-up-fontawesomepro)
@@ -86,12 +85,6 @@ Alternatively, a user can be added as a contributor through a GitHub comment. e.
 See the [bot usage docs][all-contrib-bot] for more.
 
 > :bulb: Check [package.json][pkg-json] for all available commands
-
-### Showcase-ui
-
-1. `nx build showcase-ui && nx serve showcase-ui`
-2. Navigate to `http://localhost:4200/components/`
-3. Select a component from the menu (top right)
 
 ### Visual Regression (vr)
 
