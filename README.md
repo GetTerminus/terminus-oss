@@ -15,6 +15,7 @@ Monorepo that contains all Terminus open-source packages.
 - [Packages](#packages)
   - [Live Demos](#live-demos)
   - [Generated Documentation](#generated-documentation)
+  - [Upgrading](#upgrading)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -78,12 +79,20 @@ Monorepo that contains all Terminus open-source packages.
 
 See the 'Docs' column in the [table above](#packages) for individual demos and documentation.
 
+You can also browse all demos by visiting our [chromatic storybook][chromatic-storybook].
+
 ### Generated Documentation
 
-Component docs are now displayed directly inside the [new demos][chromatic-storybook].
+Component docs now are displayed directly inside the [new demos][chromatic-storybook].
 
 Legacy, stand-alone API docs can be found here:
 [http://uilibrary-docs.terminus.ninja/release](http://uilibrary-docs.terminus.ninja/release)
+
+### Upgrading
+
+Upgrade all `@terminus` packages at once: `yarn upgrade --scope @terminus`.
+
+Upgrade to the latest stable version regardless of your current ranges: `yarn upgrade --scope @terminus --latest`.
 
 <!-- Links -->
 [semantic-release]:       https://github.com/semantic-release/semantic-release
