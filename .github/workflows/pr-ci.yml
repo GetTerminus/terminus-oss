@@ -18,7 +18,10 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
       - run: git fetch --no-tags --prune --depth=5 origin release
-      - uses: rokroskar/workflow-run-cleanup-action@master
+      - name: Workflow run cleanup action
+        uses: rokroskar/workflow-run-cleanup-action@v0.2.2
+        env:
+          GITHUB_TOKEN: "${{ secrets.GH_TOKEN }}"
     if: "!startsWith(github.ref, 'refs/tags/') && github.ref != 'refs/heads/release'"
 
   list_test_lint_build:
