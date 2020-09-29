@@ -13,11 +13,11 @@ jobs:
     name: "Cancel Duplicates"
     runs-on: ubuntu-latest
     steps:
+      - name: Debug Action
+        uses: hmarr/debug-action@v1.0.0
       - uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      - run: git fetch --no-tags --prune --depth=5 origin release
       - name: Workflow run cleanup action
         uses: rokroskar/workflow-run-cleanup-action@v0.2.2
         env:
@@ -31,7 +31,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
       - run: git fetch --no-tags --prune --depth=50 origin release
       - name: "Check last commit message"
