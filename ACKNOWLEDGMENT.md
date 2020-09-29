@@ -25,3 +25,4 @@ more on the communities needs.
 - <https://github.com/zefoy/ngx-perfect-scrollbar>
 - <https://github.com/popperjs/popper.js>
 - <https://github.com/actions/checkout>
+- <https://github.com/atlwendy/retrieve-commit-messages-from-pr>
