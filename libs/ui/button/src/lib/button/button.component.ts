@@ -285,6 +285,7 @@ export class TsButtonComponent implements OnInit, OnDestroy {
    */
   public ngOnInit(): void {
     console.log('yooooo');
+    console.log('Log this');
     if (this.collapseDelay) {
       this.collapseTimeoutId = this.collapseWithDelay(this.collapseDelay);
     }
