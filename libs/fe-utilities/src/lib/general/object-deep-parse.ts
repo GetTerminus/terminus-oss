@@ -20,6 +20,11 @@ export function objectDeepParse(object: Record<string, any> | string, keys: stri
   }
 
   keys = isArray(keys) ? keys : keys.split('.');
+
+  if (!keys.length || !keys[0]) {
+    return object;
+  }
+
   object = object[keys[0]];
 
   if (object && keys.length > 1) {
