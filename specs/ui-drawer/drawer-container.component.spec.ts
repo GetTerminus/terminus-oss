@@ -195,7 +195,7 @@ describe(`TsDrawerContainerComponent`, () => {
   });
 
   describe(`open on load`, () => {
-    test(`should not animated`, async(() => {
+    test(`should not animate`, async(() => {
       setUpTestComponent(testComponents.OpenOnLoadDrawer);
       fixture.detectChanges();
       fixture.whenStable().then(() => {
