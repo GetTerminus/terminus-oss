@@ -16,18 +16,10 @@ import {
 @Component({
   template: `
     <ts-drawer-container>
-      <ts-drawer
-        [mode]="mode"
-        [position]="position"
-        #drawer
-      >
-      <div>
-        Drawer's content
-      </div>
+      <ts-drawer [mode]="mode" [position]="position" #drawer>
+        <div>Drawer's content</div>
       </ts-drawer>
-      <ts-drawer-content>
-        Main content
-      </ts-drawer-content>
+      <ts-drawer-content>Main content</ts-drawer-content>
     </ts-drawer-container>
   `,
 })
@@ -47,13 +39,9 @@ export class RegularDrawer {
         #drawer
         style="width:100px"
       >
-      <div>
-        Drawer's content
-      </div>
+        <div>Drawer's content</div>
       </ts-drawer>
-      <ts-drawer-content>
-        Main content
-      </ts-drawer-content>
+      <ts-drawer-content>Main content</ts-drawer-content>
     </ts-drawer-container>
   `,
 })
@@ -82,7 +70,8 @@ export class SetSizeDrawer {
       </ts-drawer>
       <button (click)="drawer.expand()" class="open" #openButton></button>
       <button (click)="drawer.collapse()" class="close" #closeButton></button>
-    </ts-drawer-container>`,
+    </ts-drawer-container>
+  `,
 })
 export class BasicDrawer {
   public collapsedSize = '2rem';
@@ -128,13 +117,9 @@ export class BasicDrawer {
         [isExpanded]="isExpanded"
         #drawer
       >
-      <div>
-        Drawer's content
-      </div>
+        <div>Drawer's content</div>
       </ts-drawer>
-      <ts-drawer-content>
-        Main content
-      </ts-drawer-content>
+      <ts-drawer-content>Main content</ts-drawer-content>
     </ts-drawer-container>
   `,
 })
@@ -147,18 +132,11 @@ export class OpenOnLoadDrawer {
 @Component({
   template: `
     <ts-drawer-container>
-      <ts-drawer
-        #drawer1
-        [position]="drawer1Position"
-        [mode]="mode"
-      ></ts-drawer>
-      <ts-drawer
-        #drawer2
-        [position]="drawer2Position"
-        [mode]="mode2"
-      ></ts-drawer>
+      <ts-drawer #drawer1 [position]="drawer1Position" [mode]="mode"></ts-drawer>
+      <ts-drawer #drawer2 [position]="drawer2Position" [mode]="mode2"></ts-drawer>
       <ts-drawer-content>Content</ts-drawer-content>
-    </ts-drawer-container>`,
+    </ts-drawer-container>
+  `,
 })
 export class MultipleDrawer {
   public drawer1Position: TsDrawerPosition = 'end';
@@ -172,67 +150,55 @@ export class MultipleDrawer {
 @Component({
   template: `
     <ts-drawer-container>
-      <ts-drawer
-        position="start"
-        mode="push"
-      ></ts-drawer>
-      <ts-drawer
-        position="start"
-        mode="push"
-      ></ts-drawer>
+      <ts-drawer position="start" mode="push"></ts-drawer>
+      <ts-drawer position="start" mode="push"></ts-drawer>
       <ts-drawer-content>Content</ts-drawer-content>
-    </ts-drawer-container>`,
+    </ts-drawer-container>
+  `,
 })
-export class MultiDrawerSameSidePush {
-
-}
+export class MultiDrawerSameSidePush {}
 
 @Component({
   template: `
     <ts-drawer-container >
-      <ts-drawer
-        [mode]="mode"
-        [position]="position"
-        style="width:100px"
-      ></ts-drawer>
+      <ts-drawer [mode]="mode" [position]="position" style="width:100px"></ts-drawer>
       <ts-drawer-content>Content</ts-drawer-content>
-    </ts-drawer-container>`,
+    </ts-drawer-container>
+  `,
 })
 export class SetMargins {
   @ViewChild(TsDrawerComponent)
   public drawer!: TsDrawerComponent;
   @ViewChild(TsDrawerContentComponent)
   public drawerContent!: TsDrawerContentComponent;
-
   public mode = 'push';
   public position = 'start';
 }
 
 @Component({
   template: `
-    <ts-drawer-container >
-      <ts-drawer
-        [hideShadowWhenCollapsed]="hideShadowWhenCollapsed"
-      ></ts-drawer>
+    <ts-drawer-container>
+      <ts-drawer [hideShadowWhenCollapsed]="hideShadowWhenCollapsed"></ts-drawer>
       <ts-drawer-content>Content</ts-drawer-content>
-    </ts-drawer-container>`,
+    </ts-drawer-container>
+  `,
 })
 export class ShowShadow {
   @ViewChild(TsDrawerComponent)
   public drawer!: TsDrawerComponent;
 
-  public hideShadowWhenCollapsed = 'true';
+  public hideShadowWhenCollapsed = true;
 }
 
 @Component({
   template: `
     <ts-drawer-container>
-    <ts-drawer
-    [mode]="mode"
-    [position]="position"
-    [collapsedSize]="collapsedSize"
-    [expandedSize]="expandedSize"
-    >Drawer</ts-drawer>
+      <ts-drawer
+        [mode]="mode"
+        [position]="position"
+        [collapsedSize]="collapsedSize"
+        [expandedSize]="expandedSize"
+      >Drawer</ts-drawer>
     </ts-drawer-container>
   `,
 })
@@ -246,24 +212,16 @@ export class SimpleDrawer {
 @Component({
   template: `
     <ts-drawer-container>
-        <ts-drawer>
-            <ts-drawer-header>
-                HEADER
-            </ts-drawer-header>
-            <button>
-                BUTTON
-            </button>
-            <ts-drawer-footer>
-                FOOTER
-            </ts-drawer-footer>
-        </ts-drawer>
-        <ts-drawer-content>
-            CONTENT
-        </ts-drawer-content>
+      <ts-drawer>
+        <ts-drawer-header>HEADER</ts-drawer-header>
+        <button>BUTTON</button>
+        <ts-drawer-footer>FOOTER</ts-drawer-footer>
+      </ts-drawer>
+      <ts-drawer-content>CONTENT</ts-drawer-content>
     </ts-drawer-container>
   `,
 })
-export class DrawerWithHeaderAndFooter { }
+export class DrawerWithHeaderAndFooter {}
 
 export type TsDrawerTestComponents
   = RegularDrawer
