@@ -19,4 +19,9 @@ describe(`objectDeepParse`, function() {
   test(`should split a string path to find value`, () => {
     expect(objectDeepParse(objectInput, 'foo.bar.baz')).toEqual('xyz');
   });
+
+  test(`should output object as is, if no path`, () => {
+    expect(objectDeepParse(objectInput, [])).toBe(objectInput);
+    expect(objectDeepParse(objectInput, '')).toBe(objectInput);
+  });
 });

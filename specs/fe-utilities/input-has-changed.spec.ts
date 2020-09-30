@@ -41,4 +41,20 @@ describe(`inputHasChanged`, function() {
       expect(inputHasChanged(changed2, 'item2.foo')).toEqual(false);
     });
   });
+
+  describe(`with array input`, () => {
+    const linkedObject = ['baz'];
+    const changed3 = {
+      item1: new SimpleChange(['foo'], ['bar'], false),
+      item2: new SimpleChange(linkedObject, linkedObject, false),
+    } as SimpleChanges;
+
+    test(`should return true if the actual value has changed`, () => {
+      expect(inputHasChanged(changed3, 'item1')).toEqual(true);
+    });
+
+    test(`should return false if the actual value has not changed`, () => {
+      expect(inputHasChanged(changed3, 'item2')).toEqual(false);
+    });
+  });
 });
