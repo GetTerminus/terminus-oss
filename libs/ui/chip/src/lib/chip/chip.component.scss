@@ -95,6 +95,8 @@
       height: var(--ts-chip-remove-size);
       margin-left: $margin-offset-for-new-icon;
       opacity: .4;
+      position: relative;
+      top: -1px;
       transition: var(--ts-chip-remove-transition);
 
       &:hover {
