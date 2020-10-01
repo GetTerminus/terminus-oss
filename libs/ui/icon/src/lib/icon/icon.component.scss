@@ -1,6 +1,11 @@
+:root {
+  --ts-icon-color: inherit;
+}
+
 .ts-icon {
-  color: inherit;
+  color: var(--ts-icon-color);
   display: inline-block;
+  fill: var(--ts-icon-color);
 
   // Fix poor icon alignment inside a form field prefix|suffix
   .mat-form-field-prefix &,
