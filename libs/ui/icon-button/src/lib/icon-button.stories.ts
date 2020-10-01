@@ -1,9 +1,15 @@
-import { APP_INITIALIZER } from '@angular/core';
+import {
+  APP_INITIALIZER,
+  Component,
+  Input,
+} from '@angular/core';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faAbacus } from '@fortawesome/pro-solid-svg-icons';
 import { action } from '@storybook/addon-actions';
 import {
   boolean,
+  color,
   select,
   withKnobs,
 } from '@storybook/addon-knobs';
@@ -56,27 +62,36 @@ export const basic = () => ({
   },
 });
 
-export const themes = () => ({
-  template: `
-    <div>
-      <h3>Primary</h3>
-      <ts-icon-button theme="primary" [icon]="icon" tsVerticalSpacing></ts-icon-button>
-    </div>
-    <div>
-      <h3>Accent</h3>
-      <ts-icon-button theme="accent" [icon]="icon" tsVerticalSpacing></ts-icon-button>
-    </div>
-    <div>
-      <h3>Warn</h3>
-      <ts-icon-button theme="warn" [icon]="icon"></ts-icon-button>
-    </div>
-  `,
+@Component({
+  selector: 'ts-icon-button-wrapper',
+  template: `<ts-icon-button [icon]="icon"></ts-icon-button>`,
+})
+class IconButtonWrapper {
+  colorVariable = '--ts-ib-color';
+  @Input()
+  public isDisabled: boolean;
+  @Input()
+  public icon: IconProp;
+  @Input()
+  public set color(value: string) {
+    this._color = value ? value : 'pink';
+    this.setColor(this._color);
+  }
+  public get color(): string {
+    return this._color;
+  }
+  private _color = 'pink';
+
+  setColor(colorName: string): void {
+    document.documentElement.style.setProperty(this.colorVariable, colorName);
+  }
+}
+
+export const cssColorOverride = () => ({
+  component: IconButtonWrapper,
   props: {
     icon: faAbacus,
+    isDisabled: boolean('Disabled', false),
+    color: color('Color', 'pink'),
   },
 });
-themes.parameters = {
-  actions: { disabled: true },
-  knobs: { disabled: true },
-  docs: { iframeHeight: 400 },
-};

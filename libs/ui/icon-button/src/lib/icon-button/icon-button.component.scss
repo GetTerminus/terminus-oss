@@ -1,16 +1,17 @@
 @import '~@terminus/ui-styles/helpers';
 
-.ts-icon-button {
-  $ripple-opacity: .1;
-  $black: color(pure, dark);
-  $primary: color(primary);
-  $accent: color(accent);
-  $warn: color(warn);
-  --ts-ib-ripple-black: #{rgba($black, $ripple-opacity)};
-  --ts-ib-ripple-primary: #{rgba($primary, $ripple-opacity)};
-  --ts-ib-ripple-accent: #{rgba($accent, $ripple-opacity)};
-  --ts-ib-ripple-warn: #{rgba($warn, $ripple-opacity)};
+:root {
   --ts-ib-xy: 40px;
+  --ts-ib-color: var(--ts-color-base-black);
+  --ts-ib-color-disabled: var(--ts-color-utility-600);
+  --ts-ib-destructive-color: var(--ts-color-utility-500);
+  --ts-ib-destructive-hover-color: var(--ts-color-warn-500);
+  --ts-ib-borderRadius: var(--ts-border-radius-circle);
+  --ts-ib-padding: 0 var(--ts-space-inset-400);
+  --ts-ib-transition: color var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease);
+}
+
+.ts-icon-button {
   display: inline-block;
   height: var(--ts-ib-xy);
   // Set up for inner button
@@ -21,38 +22,29 @@
 
   // Top level styles belong here
   .c-icon-button {
+    --ts-icon-color: var(--ts-ib-color);
     $alignment-adjustment: 1px;
     @include button-base;
     @include take-space;
-    border-radius: var(--ts-border-radius-circle);
-    color: var(--ts-color-base-black);
+    border-radius: var(--ts-ib-borderRadius);
+    color: var(--ts-ib-color);
     margin-left: $alignment-adjustment;
-    padding: 0 var(--ts-space-inset-400);
-    transition: color var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease);
+    padding: var(--ts-ib-padding);
+    transition: var(--ts-ib-transition);
 
-    .mat-ripple-element {
-      background-color: var(--ts-ib-ripple-black);
+    svg {
+      path {
+        transition: var(--ts-ib-transition);
+      }
+    }
+
+    &[disabled] {
+      color: var(--ts-ib-color-disabled);
+      cursor: not-allowed;
     }
   }
 
-  $themes: primary accent warn;
-  // Loop through using each theme name to create styles
-  @each $theme in $themes {
-    &[theme='#{$theme}'] {
-      .c-icon-button {
-        color: var(--ts-color-#{$theme}-500);
-        &:focus,
-        &:hover {
-          color: var(--ts-color-#{$theme}-700);
-        }
-      }
-
-      .mat-ripple-element {
-        background-color: var(--ts-ib-ripple-#{$theme});
-      }
-    }
-  }
-
+  // @Deprecated 2020/10/01 Style overrides now live inside the component that is overriding.
   // When used within the file upload component, the button should be our utility color by default
   .c-file-upload & {
     &[theme] {
@@ -69,6 +61,7 @@
     }
   }
 
+  // @Deprecated 2020/10/01 Style overrides now live inside the component that is overriding.
   // When used within the csv-entry component
   .c-csv-entry & {
     .c-icon-button {

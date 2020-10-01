@@ -1,28 +1,23 @@
-import {
-  Component,
-  ViewChild,
-} from '@angular/core';
+import { Component } from '@angular/core';
 import { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { faHome } from '@fortawesome/pro-solid-svg-icons/faHome';
 
 import { createComponent } from '@terminus/fe-testing';
-import {
-  TsIconButtonModule,
-  TsIconButtonComponent,
-} from '@terminus/ui-icon-button';
+import { TsIconButtonModule } from '@terminus/ui-icon-button';
 
 @Component({
   template: `
     <ts-icon-button
       actionName="Menu"
       buttonType="button"
+      [icon]="icon"
       [isDisabled]="false"
-    >delete_forever</ts-icon-button>
+    ></ts-icon-button>
   `,
 })
 class TestHostComponent {
-  @ViewChild(TsIconButtonComponent, { static: true })
-  iconButtonComponent!: TsIconButtonComponent;
+  icon = faHome;
 }
 
 describe(`TsIconButtonComponent`, function() {
@@ -43,7 +38,6 @@ describe(`TsIconButtonComponent`, function() {
   });
 
   test(`should contain icon`, () => {
-    const externalLink = fixture.debugElement.query(By.css('.ts-icon'));
-    expect(externalLink).toBeTruthy();
+    expect(fixture.debugElement.query(By.css('fa-icon'))).toBeTruthy();
   });
 });
