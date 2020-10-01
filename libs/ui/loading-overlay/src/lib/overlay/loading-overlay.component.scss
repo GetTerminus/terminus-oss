@@ -1,13 +1,12 @@
 @import '~@terminus/ui-styles/helpers';
 
 :root {
-  --loading-overlay-backgroundColor: var(--ts-color-base-white);
-  // TODO: Formalize opaque tokens
-  // stylelint-disable plugin/stylelint-no-indistinguishable-colors
-  --loading-overlay-backgroundColor-opaque: rgba(250, 250, 250, .8);
-  --loading-overlay-offset: 187;
-  --loading-overlay-duration: 1.4s;
-  --loading-overlay-stroke-color: var(--ts-color-primary-500);
+  --ts-lo-backgroundColor: var(--ts-color-base-white);
+  --ts-lo-backgroundColor-opaque: rgba(250, 250, 250, .8);
+  --ts-lo-offset: 187;
+  --ts-lo-duration: 1.4s;
+  --ts-lo-stroke-color: var(--ts-color-primary-500);
+  --ts-lo-hidden-transition: opacity 200ms ease;
 }
 
 :host {
@@ -26,16 +25,16 @@
 
 @keyframes dash {
   0% {
-    stroke-dashoffset: var(--loading-overlay-offset);
+    stroke-dashoffset: var(--ts-lo-offset);
   }
 
   50% {
-    stroke-dashoffset: var(--loading-overlay-offset) / 4;
+    stroke-dashoffset: var(--ts-lo-offset) / 4;
     transform: rotate(135deg);
   }
 
   100% {
-    stroke-dashoffset: var(--loading-overlay-offset);
+    stroke-dashoffset: var(--ts-lo-offset);
     transform: rotate(450deg);
   }
 }
@@ -44,7 +43,7 @@
   .c-loading-overlay {
     align-content: center;
     align-items: center;
-    background-color: var(--loading-overlay-backgroundColor-opaque);
+    background-color: var(--ts-lo-backgroundColor-opaque);
     bottom: 0;
     display: flex;
     justify-content: center;
@@ -60,17 +59,17 @@
 .c-loading-overlay {
   &--hidden {
     opacity: 0;
-    transition: opacity 200ms ease;
+    transition: var(--ts-lo-hidden-transition);
   }
 
   &__spinner {
-    animation: rotator var(--loading-overlay-duration) linear infinite;
+    animation: rotator var(--ts-lo-duration) linear infinite;
   }
 
   .path {
-    animation: dash var(--loading-overlay-duration) ease-in-out infinite;
-    stroke: var(--loading-overlay-stroke-color);
-    stroke-dasharray: var(--loading-overlay-offset);
+    animation: dash var(--ts-lo-duration) ease-in-out infinite;
+    stroke: var(--ts-lo-stroke-color);
+    stroke-dasharray: var(--ts-lo-offset);
     stroke-dashoffset: 0;
     transform-origin: center;
   }
