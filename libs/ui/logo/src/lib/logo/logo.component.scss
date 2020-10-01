@@ -1,11 +1,15 @@
+:root {
+  --ts-logo-gray-fill: #44525e;
+  --ts-logo-black-fill: var(--ts-color-dark);
+}
+
 .ts-logo {
-  --logo-gray: #44525e;
   display: block;
 
   &.ts-logo--black {
     svg {
       path {
-        fill: var(--ts-color-dark);
+        fill: var(--ts-logo-black-fill);
       }
     }
   }
@@ -13,7 +17,7 @@
   &.ts-logo--gray {
     svg {
       path {
-        fill: var(--logo-gray);
+        fill: var(--ts-logo-gray-fill);
       }
     }
   }
