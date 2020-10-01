@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@2.1.3...@terminus/ui-file-upload@3.0.0) (2020-10-01)
+
+
+### Bug Fixes
+
+* **FileUpload:** change tabindex to pass a11y ([d8c4849](https://github.com/GetTerminus/terminus-oss/commit/d8c48496fa3d8991d8865476cf779974cbf4f766))
+* **FileUpload:** remove theme support ([1f34ef8](https://github.com/GetTerminus/terminus-oss/commit/1f34ef856ed8cd69594a7372404eb856c2130b38))
+
+
+### BREAKING CHANGES
+
+* **FileUpload:** Theme input no longer supported.
+
+
+
+
+
 ## [2.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@2.1.2...@terminus/ui-file-upload@2.1.3) (2020-09-14)
 
 **Note:** Version bump only for package @terminus/ui-file-upload

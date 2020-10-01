@@ -1,7 +1,7 @@
 {
   "name": "@terminus/fe-utilities",
   "description": "A collection of tools and utilities for Terminus applications",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "license": "MIT",
   "author": "@terminus",
   "private": false,

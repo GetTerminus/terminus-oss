@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-drawer@1.1.2...@terminus/ui-drawer@1.1.3) (2020-10-01)
+
+
+### Bug Fixes
+
+* **Drawer:** content now pushed correctly if opened by default ([8692d28](https://github.com/GetTerminus/terminus-oss/commit/8692d28cf6a4fefe32e8dbcf8a1bde7075b6ba6e))
+
+
+
+
+
 ## [1.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-drawer@1.1.1...@terminus/ui-drawer@1.1.2) (2020-09-14)
 
 **Note:** Version bump only for package @terminus/ui-drawer
