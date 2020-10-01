@@ -5378,11 +5378,6 @@
   dependencies:
     tslib "^1.10.0"
 
-"@terminus/fe-utilities@1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@terminus/fe-utilities/-/fe-utilities-1.2.1.tgz#efca9a02389ac95974eb91e69415b549c17c0ad5"
-  integrity sha512-/tbNQQHGNg0h/aNVUQTGhAToxQnGyCs/9yav7iZBO3R+/YcD/hmbhCMKyueOHqgGAWjPRyhvlSPASUiDlXkuzg==
-
 "@terminus/stylelint-config-frontend@1.3.0":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@terminus/stylelint-config-frontend/-/stylelint-config-frontend-1.3.0.tgz#8381ccd4fd0ffecce5bb049f97bf2a57307e5da5"
