@@ -94,7 +94,7 @@ const DEFAULT_VALIDATION_MESSAGES_MAX = 6;
 
 
 /**
- * A component that accepts manual or pasted CSV content and generates a file blob.
+ * A component that accepts typed or pasted CSV content and generates a file blob.
  *
  * @example
  * <ts-csv-entry
