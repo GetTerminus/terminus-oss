@@ -20,7 +20,8 @@
   --ts-csv-entry-message-typography: var(--ts-typography-compound-hint);
   --ts-csv-entry-message-paddingTop: var(--ts-space-stack-200);
   --ts-csv-message-button-marginRight: var(--ts-space-inline-200);
-  --ts-csv-delete-icon-color: var(--ts-color-utility-300);
+  --ts-csv-delete-icon-color: var(--ts-color-utility-500);
+  --ts-csv-delete-icon-hover-color: var(--ts-color-warn-500);
   --ts-csv-id-number: var(--ts-color-utility-600);
   --ts-csv-id-typography: var(--ts-typography-compound-caption);
 }
@@ -128,8 +129,13 @@
   .c-csv-entry__delete {
     max-height: var(--ts-csv-external-row-height);
 
-    .ts-icon-button {
-      color: var(--ts-csv-delete-icon-color);
+    .c-icon-button {
+      --ts-ib-color: var(--ts-csv-delete-icon-color);
+
+      &:focus,
+      &:hover {
+        --ts-ib-color: var(--ts-csv-delete-icon-hover-color);
+      }
     }
   }
 
