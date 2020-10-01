@@ -1,14 +1,26 @@
-.ts-link {
+:root {
   --ts-link-color: var(--ts-color-primary-500);
   --ts-link-fontWeight: 400;
   --ts-link-icon-marginLeft: 6px;
+  --ts-link-transition: color var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease);
+  --ts-link-menu-margin-adjustment: var(--ts-space-stack-300) 0;
+  --ts-link-menu-item-color: var(--ts-color-base-black);
+  --ts-link-menu-item-hover-color: var(--ts-color-primary-500);
+  --ts-link-menu-item-backgroundColor: transparent;
+  --ts-link-menu-typography: var(--ts-typography-compound-body2);
+  --ts-link-menu-padding: var(--ts-space-inset-300) var(--ts-space-inset-400);
+  --ts-link-menu-transitionDuration: var(--ts-animation-time-duration-400);
+  --ts-link-menu-transitionFunction: var(--ts-animation-easing-ease);
+}
+
+.ts-link {
   display: inline-block;
 
   .c-link {
     color: var(--ts-link-color);
     display: inline-block;
     text-decoration: none;
-    transition: color var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease);
+    transition: var(--ts-link-transition);
 
     &:focus,
     &:hover {
@@ -18,34 +30,31 @@
   }
 
   .ts-icon {
-    margin-left: 6px;
+    margin-left: var(--ts-link-icon-marginLeft);
   }
 }
 
 .c-link {
   // Target links inside a TsMenuComponent
   .c-menu & {
-    --menu-margin-adjustment-for-menu: var(--ts-space-stack-300) 0;
-    margin: var(--menu-margin-adjustment-for-menu);
+    margin: var(--ts-link-menu-margin-adjustment);
   }
 
   // Target links inside a TsMenuComponent
   .mat-menu-content & {
-    --menu-item-color: var(--ts-color-base-black);
-    --menu-item-backgroundColor: transparent;
-    background-color: var(--menu-item-backgroundColor);
+    background-color: var(--ts-link-menu-item-backgroundColor);
     display: block;
-    font: var(--ts-typography-compound-body2);
+    font: var(--ts-link-menu-typography);
     font-size: 14px;
-    padding: var(--ts-space-inset-300) var(--ts-space-inset-400);
-    text-decoration: none;
-    transition-duration: var(--ts-animation-time-duration-400);
+    padding: var(--ts-link-menu-padding);
+    transition-duration: var(--ts-link-menu-transitionDuration);
     transition-property: background-color, color;
-    transition-timing-function: var(--ts-animation-easing-ease);
+    transition-timing-function: var(--ts-link-menu-transitionFunction);
 
     &:focus,
     &:hover {
-      --menu-item-color: var(--ts-color-primary-500);
+      --ts-link-menu-item-color: var(--ts-link-menu-item-hover-color);
+      text-decoration: none;
     }
   }
 }
