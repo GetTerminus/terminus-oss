@@ -8,6 +8,7 @@ import {
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { action } from '@storybook/addon-actions';
 import {
+  color,
   select,
   text,
 } from '@storybook/addon-knobs';
@@ -49,8 +50,6 @@ export default {
   selector: 'ts-drawer-wrapper',
   styles: [
     `
-      .fake-content-wrapper {
-      }
       .fake-content-wrapper > div {
         margin: 1rem;
       }
@@ -90,7 +89,7 @@ export default {
     <ts-drawer-container
       class="drawer-container"
       [hasBackdrop]="hasBackdrop"
-      (backdropClick)="myBackdropClick($event)"
+      (backdropClick)="myBackdropClick()"
       #drawerContainer
     >
       <ts-drawer
@@ -144,8 +143,8 @@ export default {
 
       <ts-drawer-content>
         <div>
-          <div tsVerticalSpacing style="text-align:center;">
-            This is the standard page content...
+          <div tsVerticalSpacing [style.textAlign]="position === 'start' ? 'right' : 'left'" style="margin: 1rem;">
+            Page content...
             <div *ngIf="hasBackdrop">
               Example using custom callback to close the drawer on backdrop click.
             </div>
@@ -165,6 +164,7 @@ export default {
   `,
 })
 class DrawerWrapper {
+  backdropVariable = '--ts-drawer-backdrop-backgroundColor';
   @Input() collapsedSize: string;
   @Input() expanded: boolean;
   @Input() expandedSize: string;
@@ -172,6 +172,15 @@ class DrawerWrapper {
   @Input() mode: TsDrawerModes;
   @Input() position: TsDrawerPosition;
   @Input() role: string;
+  @Input()
+  public set backdropColor(value: string) {
+    this._backdropColor = value ? value : 'transparent';
+    this.setBackdropColor(this._backdropColor);
+  }
+  public get backdropColor(): string {
+    return this._backdropColor;
+  }
+  private _backdropColor = 'transparent';
   @Output() readonly backdropClicked = new EventEmitter<void>();
   @Output() readonly closed = new EventEmitter<void>();
   @Output() readonly collapsedStart = new EventEmitter<void>();
@@ -188,6 +197,10 @@ class DrawerWrapper {
       this.drawer.toggle();
       this.backdropClicked.emit();
     }
+  }
+
+  setBackdropColor(colorName: string): void {
+    document.documentElement.style.setProperty(this.backdropVariable, colorName);
   }
 }
 
@@ -217,7 +230,7 @@ export const mode = () => ({
     collapsedSize: '0',
     expandedSize: '15rem',
     position: select('Drawer position', ['start', 'end'], 'start'),
-    mode: select('Mode', ['overlay', 'push'], 'overlay'),
+    mode: select('Mode', ['overlay', 'push'], 'push'),
   },
 });
 mode.parameters = {
@@ -234,9 +247,9 @@ export const withBackdrop = () => ({
     expandedSize: '15rem',
     position: 'end',
     backdropClicked: action('Backdrop clicked'),
+    backdropColor: color('Backdrop color', 'lightblue'),
   },
 });
-mode.parameters = {
-  knobs: { disabled: true },
+withBackdrop.parameters = {
   docs: { iframeHeight: 660 },
 };

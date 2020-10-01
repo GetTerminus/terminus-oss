@@ -156,8 +156,7 @@ export class TsDrawerContainerComponent implements AfterContentInit, DoCheck, On
     public renderer: Renderer2,
     private changeDetectorRef: ChangeDetectorRef,
     @Optional() @Inject(ANIMATION_MODULE_TYPE) private animationMode?: string,
-  ) {
-  }
+  ) {}
 
   /**
    * After drawer initiated, subscribe to drawer and content changes.

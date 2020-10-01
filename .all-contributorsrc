@@ -1,7 +1,9 @@
 {
   "projectName": "terminus-oss",
   "projectOwner": "GetTerminus",
-  "files": ["README.md"],
+  "files": [
+    "README.md"
+  ],
   "imageSize": 100,
   "commit": true,
   "contributors": [
@@ -148,6 +150,16 @@
       "profile": "https://github.com/IraErshova",
       "contributions": [
         "bug"
+      ]
+    },
+    {
+      "login": "belinef",
+      "name": "Ievgenii Litvinov",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/11005870?v=4",
+      "profile": "https://github.com/belinef",
+      "contributions": [
+        "code",
+        "test"
       ]
     }
   ],

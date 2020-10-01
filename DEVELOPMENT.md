@@ -6,7 +6,6 @@
 
 - [Developing](#developing)
   - [General commands](#general-commands)
-  - [Showcase-ui](#showcase-ui)
   - [Visual Regression (vr)](#visual-regression-vr)
   - [Setting up NX cloud](#setting-up-nx-cloud)
   - [Setting up FontAwesomePro](#setting-up-fontawesomepro)
@@ -87,21 +86,9 @@ See the [bot usage docs][all-contrib-bot] for more.
 
 > :bulb: Check [package.json][pkg-json] for all available commands
 
-### Showcase-ui
-
-1. `nx build showcase-ui && nx serve showcase-ui`
-2. Navigate to `http://localhost:4200/components/`
-3. Select a component from the menu (top right)
-
 ### Visual Regression (vr)
 
-1. `nx build vr && nx serve vr`
-2. `npx cypress open` to actively develop on visual regression tests.
-3. `yarn run vr:percy:run` to trigger visual regression tests on command line.
-
-All cypress scripts live under `cypress/integration/`. Visual regression related tests are located at `cypress/integration/visual-regression/`.
-Currently each component has its own test file. The HTML and Typescript files that are used to build visual regression pages are stored at
-`apps/vr/src/app/components`.
+Visual regression is now handled by Storybook and Chromatic during the PR process.
 
 ### Setting up NX cloud
 

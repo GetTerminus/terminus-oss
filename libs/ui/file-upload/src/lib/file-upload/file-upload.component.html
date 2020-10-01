@@ -5,7 +5,7 @@
   [class.c-file-upload--file]="file"
   [class.c-file-upload--error]="file && !file.isValid"
   [id]="id"
-  tabindex="1"
+  tabindex="0"
   fxLayout="column"
 >
   <div
@@ -80,7 +80,6 @@
     <ts-button
       class="c-file-upload__prompt"
       [class.c-file-upload__prompt--hidden]="hideButton"
-      [theme]="theme"
       [isDisabled]="dragInProgress || isDisabled"
       (clicked)="promptForFiles()"
     >{{ buttonMessage }}</ts-button>

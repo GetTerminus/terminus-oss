@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.1.2...@terminus/ui-expansion-panel@1.1.3) (2020-10-01)
+
+
+### Bug Fixes
+
+* **ExpansionPanel:** refactor tokens & improve icon animation ([fd5348b](https://github.com/GetTerminus/terminus-oss/commit/fd5348b19470f6e0a5c8b6bbb4189a6568b2e5be))
+
+
+
+
+
 ## [1.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.1.1...@terminus/ui-expansion-panel@1.1.2) (2020-09-14)
 
 **Note:** Version bump only for package @terminus/ui-expansion-panel

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/fe-utilities@1.2.1...@terminus/fe-utilities@1.2.2) (2020-10-01)
+
+
+### Bug Fixes
+
+* **FEUtilities:** objectDeepParse now correctly handles arrays ([d84b3ff](https://github.com/GetTerminus/terminus-oss/commit/d84b3ffd070cec902c60fb438defb3b147b7be1d))
+
+
+
+
+
 ## [1.2.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/fe-utilities@1.2.0...@terminus/fe-utilities@1.2.1) (2020-09-15)
 
 

@@ -18,7 +18,6 @@ import {
   dispatchMouseEvent,
 } from '@terminus/fe-testing';
 import { KEYS } from '@terminus/fe-utilities';
-import { TsButtonThemeTypes } from '@terminus/ui-button';
 import {
   TS_ACCEPTED_MIME_TYPES,
   TsFileAcceptedMimeTypes,
@@ -54,7 +53,6 @@ const FILE_MOCK = FILE_BLOB as File;
       [seedFile]="fileToSeed"
       [dimensionConstraints]="constraints"
       [ratioConstraints]="ratioConstraints"
-      [theme]="theme"
       (enter)="userDragBegin($event)"
       (exit)="userDragEnd($event)"
       (selected)="handleFile($event)"
@@ -72,7 +70,6 @@ class TestHostComponent {
   public fileToSeed: File | undefined;
   public constraints: TsFileImageDimensionConstraints | undefined;
   public ratioConstraints: Array<string> | undefined;
-  public theme: TsButtonThemeTypes | undefined;
   public hideButton = false;
   public formControl = new FormControl('test');
 
@@ -106,7 +103,6 @@ describe(`TsFileUploadComponent`, function() {
       hostComponent.progress = undefined;
       hostComponent.fileToSeed = undefined;
       hostComponent.constraints = undefined;
-      hostComponent.theme = undefined;
       hostComponent.formControl = new FormControl();
       fixture.detectChanges();
     }
@@ -642,15 +638,6 @@ describe(`TsFileUploadComponent`, function() {
       component.ngOnInit();
 
       expect(component['dropProtectionService'].add).toHaveBeenCalled();
-    });
-  });
-
-  describe(`theme`, () => {
-    test(`should set the theme`, () => {
-      hostComponent.theme = 'warning';
-      fixture.detectChanges();
-
-      expect(component.theme).toEqual('warning');
     });
   });
 

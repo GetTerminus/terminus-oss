@@ -4,6 +4,7 @@ import { Platform } from '@angular/cdk/platform';
 import {
   AfterContentChecked,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
@@ -181,6 +182,7 @@ export class TsDrawerComponent implements AfterContentChecked, OnDestroy {
   @Input()
   public set isExpanded(value: boolean) {
     this.toggle(value);
+    this.changeDetectorRef.markForCheck();
   }
   public get isExpanded(): boolean {
     return this._isExpanded;
@@ -286,6 +288,7 @@ export class TsDrawerComponent implements AfterContentChecked, OnDestroy {
     public elementRef: ElementRef<HTMLElement>,
     private platform: Platform,
     private ngZone: NgZone,
+    private changeDetectorRef: ChangeDetectorRef,
     public renderer: Renderer2,
   ) {
     /**
