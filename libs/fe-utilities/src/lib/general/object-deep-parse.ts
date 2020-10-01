@@ -12,6 +12,7 @@ import { isString } from '../type-guards/is-string';
  * @example
  * objectDeepParse(myObject, ['foo', 'bar']) // Returns: myObject.foo.bar if found
  * objectDeepParse(myObject, 'foo.bar')      // Returns: myObject.foo.bar if found
+ * objectDeepParse(myObject, '')             // Returns: myObject
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function objectDeepParse(object: Record<string, any> | string, keys: string | string[]): any {
