@@ -38,50 +38,31 @@ export default {
 
 export const basic = () => ({
   template: `
+    <style>
+      ts-menu:not(last-of-type) {
+        margin-right: 2rem;
+      }
+    </style>
     <ts-menu
       [defaultOpened]="true"
-      [isDisabled]="isDisabled"
       [menuItemsTemplate]="myTemplate"
     >Select Item</ts-menu>
 
+    <ts-menu
+      [isDisabled]="true"
+      [menuItemsTemplate]="myTemplate"
+    >Disabled Select</ts-menu>
+
     <ng-template #myTemplate>
       <ts-button>Button One</ts-button>
       <ts-link>Link One</ts-link>
     </ng-template>
   `,
-  props: {
-    isDisabled: boolean('isDisabled', false),
-  },
 });
 basic.parameters = {
   actions: { disabled: true },
-  docs: { iframeHeight: 200 },
-};
-
-export const themes = () => ({
-  template: `
-    <div tsVerticalSpacing="large--1">
-      <h3>Default</h3>
-      <ts-menu [menuItemsTemplate]="myTemplate" theme="default">Select Item</ts-menu>
-    </div>
-    <div tsVerticalSpacing="large--1">
-      <h3>Accent</h3>
-      <ts-menu [menuItemsTemplate]="myTemplate" theme="accent">Select Item</ts-menu>
-    </div>
-    <div tsVerticalSpacing="large--1">
-      <h3>Warning</h3>
-      <ts-menu [menuItemsTemplate]="myTemplate" theme="warning">Select Item</ts-menu>
-    </div>
-    <ng-template #myTemplate>
-      <ts-button>Button One</ts-button>
-      <ts-link>Link One</ts-link>
-    </ng-template>
-  `,
-});
-themes.parameters = {
-  actions: { disabled: true },
   knobs: { disabled: true },
-  docs: { iframeHeight: 400 },
+  docs: { iframeHeight: 200 },
 };
 
 export const customPanelPosition = () => ({
@@ -106,7 +87,6 @@ export const customPanelPosition = () => ({
 });
 customPanelPosition.parameters = {
   actions: { disabled: true },
-  knobs: { disabled: true },
   docs: { iframeHeight: 400 },
 };
 

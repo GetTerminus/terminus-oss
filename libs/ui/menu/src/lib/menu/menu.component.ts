@@ -52,9 +52,14 @@ export type TsMenuTriggerTypes
  *              [menuItemsTemplate]="myTemplate"
  *              menuPositionX="20px"
  *              menuPositionY="20px"
- *              theme="secondary"
+ *              triggerTheme="secondary"
  *              triggerType="utility"
  * >Select Item</ts-menu>
+ *
+ * <ng-template #myTemplate>
+ *              <ts-button>Button One</ts-button>
+ *              <ts-link>Link One</ts-link>
+ * </ng-template>
  *
  * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-actions-menu</example-url>
  */
@@ -135,10 +140,10 @@ export class TsMenuComponent implements AfterViewInit, OnInit {
   public menuPositionY: TsMenuPositionTypesY = 'below';
 
   /**
-   * Define the menu theme
+   * Define the theme for the menu trigger
    */
   @Input()
-  public theme: TsButtonThemeTypes = 'default';
+  public triggerTheme: TsButtonThemeTypes = 'default';
 
   /**
    * Define the type of trigger {@link TsMenuTriggerTypes}
