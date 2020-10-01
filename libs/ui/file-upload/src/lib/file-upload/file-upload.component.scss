@@ -10,7 +10,8 @@
   --ts-fu-border: 1px dashed var(--ts-color-utility-400);
   --ts-fu-borderColor: var(--ts-color-primary-500);
   --ts-fu-hover-borderColor: var(--ts-color-utility-500);
-  --ts-fu-error-borderColor: var(--ts-color-warn-500);
+  --ts-fu-error-color: var(--ts-color-warn-500);
+  --ts-fu-removeIcon-color: var(--ts-color-utility-500);
   --ts-fu-dragOrSelected-borderColor: var(--ts-color-primary-100);
   --ts-fu-shadow: 0 0 2px 2px var(--ts-color-primary-300);
   --ts-fu-padding: var(--ts-space-inset-400);
@@ -89,7 +90,7 @@
 
   // Class added if any validation fails
   &--error {
-    border-color: var(--ts-fu-error-borderColor);
+    border-color: var(--ts-fu-error-color);
   }
 
   &.c-file-upload--disabled {
@@ -160,6 +161,15 @@
   // <ts-icon-button> remove the file
   .c-file-upload__remove {
     transition: var(--ts-fu-remove-transitions);
+
+    .c-icon-button {
+      --ts-ib-color: var(--ts-fu-removeIcon-color);
+
+      &:focus,
+      &:hover {
+        --ts-ib-color: var(--ts-fu-error-color);
+      }
+    }
   }
 
   // <mat-progress-bar>
