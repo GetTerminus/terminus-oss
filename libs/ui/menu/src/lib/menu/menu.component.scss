@@ -1,11 +1,18 @@
 :root {
+  --ts-menu-typography: var(--ts-typography-compound-body);
+  --ts-menu-trigger-color: var(--ts-color-primary-500);
+  --ts-menu-trigger-hover-color: var(--ts-color-primary-700);
+  --ts-menu-trigger-backgroundColor: var(--ts-color-base-white);
+  --ts-menu-secondary-borderColor: var(--ts-color-utility-400);
   --ts-menu-boxShadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 5px 0 rgba(0, 0, 0, .12);
+  --ts-menu-caret-icon-adjustment: -.4em;
+  --ts-menu-maxHeight: 12rem;
+  --ts-menu-drag-placeholder-minHeight: 50px;
+  --ts-menu-checkbox-drag-padding: 0 var(--ts-space-inset-500);
+  --ts-menu-card-utility-horizontalOffset: var(--ts-space-inset-200);
 }
 
 .ts-menu {
-  --menu-caret-icon-adjustment: -.4em;
-  --menu-maxHeight: 12rem;
-  --menu-drag-placeholder-minHeight: 50px;
   display: inline-block;
 
   &--disabled {
@@ -20,15 +27,15 @@
 
     .c-button {
       &.c-button--secondary {
-        --tsb-borderColor: var(--ts-color-utility-400);
+        --tsb-borderColor: var(--ts-menu-secondary-borderColor);
       }
     }
   }
 
   // Top level styles should be nested here
   .c-menu {
-    font: var(--ts-typography-compound-body);
-    max-height: var(--menu-maxHeight);
+    font: var(--ts-menu-typography);
+    max-height: var(--ts-menu-maxHeight);
   }
 }
 
@@ -47,7 +54,7 @@
     // For the dropdown caret, lessen the right side whitespace
     .c-button {
       .c-menu__caret {
-        margin-right: var(--menu-caret-icon-adjustment);
+        margin-right: var(--ts-menu-caret-icon-adjustment);
       }
     }
   }
@@ -59,7 +66,8 @@
   .ts-button {
     button {
       &.c-button {
-        background-color: var(--ts-color-light);
+        --tsb-color: var(--ts-menu-trigger-color);
+        background-color: var(--ts-menu-trigger-backgroundColor);
         border-color: transparent;
         border-radius: 0;
         text-align: left;
@@ -68,38 +76,9 @@
         &:focus,
         &:active,
         &:hover {
-          background-color: var(--ts-color-light);
+          --tsb-color: var(--ts-menu-trigger-hover-color);
+          background-color: var(--ts-menu-trigger-backgroundColor);
           border-color: transparent;
-        }
-
-        &--default {
-          --tsb-color: var(--ts-color-primary-500);
-
-          &:focus,
-          &:active,
-          &:hover {
-            --tsb-color: var(--ts-color-primary-700);
-          }
-        }
-
-        &--secondary {
-          --tsb-color: var(--ts-color-accent-500);
-
-          &:focus,
-          &:active,
-          &:hover {
-            --tsb-color: var(--ts-color-accent-700);
-          }
-        }
-
-        &--warning {
-          --tsb-color: var(--ts-color-warn-500);
-
-          &:focus,
-          &:active,
-          &:hover {
-            --tsb-color: var(--ts-color-warn-700);
-          }
         }
       }
     }
@@ -110,7 +89,7 @@
   box-shadow: var(--ts-menu-boxShadow);
 
   .mat-menu-content {
-    background-color: var(--ts-color-base-white);
+    background-color: var(--ts-menu-trigger-backgroundColor);
     // NOTE: Universal selector needed since we don't know what the first child will be
     > * {
       display: block;
@@ -119,13 +98,13 @@
 
   // Set a background so .cdk-drag items don't have a transparent background
   .ts-checkbox {
-    background-color: var(--ts-color-base-white);
+    background-color: var(--ts-menu-trigger-backgroundColor);
   }
 
   // Drop area
   .cdk-drag-placeholder {
     // Match the height of the default checkbox
-    min-height: var(--menu-drag-placeholder-minHeight);
+    min-height: var(--ts-menu-drag-placeholder-minHeight);
   }
 }
 
@@ -136,7 +115,7 @@
     align-items: center;
     display: flex;
     flex-direction: row;
-    padding: 0 var(--ts-space-inset-500);
+    padding: var(--ts-menu-checkbox-drag-padding);
   }
 }
 
@@ -146,8 +125,8 @@
   .c-menu {
     &.c-menu--utility {
       position: absolute;
-      right: var(--ts-space-inset-200);
-      top: var(--ts-space-inset-200);
+      right: var(--ts-menu-card-utility-horizontalOffset);
+      top: var(--ts-menu-card-utility-horizontalOffset);
     }
   }
 }
