@@ -13,10 +13,9 @@ import {
   TsButtonActionTypes,
   TsButtonFunctionTypes,
 } from '@terminus/ui-button';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 /**
- * This is the icon-button UI Component
+ * A round button that only contains an icon.
  *
  * @example
  * <ts-icon-button
@@ -24,7 +23,6 @@ import { TsStyleThemeTypes } from '@terminus/ui-utilities';
  *              buttonType="button"
  *              [isDisabled]="false"
  *              tabIndex="2"
- *              theme="primary"
  *              [icon]="myIconReference"
  *              (clicked)="myMethod($event)"
  * ></ts-icon-button>
@@ -44,7 +42,7 @@ export class TsIconButtonComponent {
   /**
    * Getter to return the native element
    */
-  public get hostElement(): ElementRef {
+  public get hostElement(): HTMLElement {
     return this.elementRef.nativeElement;
   }
 
@@ -79,16 +77,10 @@ export class TsIconButtonComponent {
   public tabIndex = 0;
 
   /**
-   * Define the theme
-   */
-  @Input()
-  public theme: TsStyleThemeTypes = 'primary';
-
-  /**
    * Pass the click event through to the parent
    */
   @Output()
-  public readonly clicked: EventEmitter<MouseEvent> = new EventEmitter();
+  public readonly clicked = new EventEmitter<MouseEvent>();
 
   constructor(private elementRef: ElementRef) {}
 
