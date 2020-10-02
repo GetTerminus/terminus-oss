@@ -50,7 +50,6 @@ const INPUT_MINIMUM_LENGTH = 2;
  *              [isDisabled]="false"
  *              [isFocused]="false"
  *              [isSubmitting]="false"
- *              theme="primary"
  *              buttonTheme="default"
  *              [userCanClear]="true"
  *              (changed)="doSomething($event)"
@@ -177,12 +176,6 @@ export class TsSearchComponent implements OnInit {
    */
   @Input()
   public noValidationOrHint = false;
-
-  /**
-   * Define the input theme
-   */
-  @Input()
-  public theme: TsStyleThemeTypes = 'primary';
 
   /**
    * Define the button theme

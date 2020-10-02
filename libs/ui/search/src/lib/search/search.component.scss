@@ -1,5 +1,7 @@
 :root {
   --ts-search-button-marginLeft: 6px;
+  --ts-search-button-offset-top: -1px;
+  --ts-search-withValidation-button-offset-top: calc(var(--ts-space-stack-400) * -1);
 }
 
 .ts-search {
@@ -7,19 +9,14 @@
 
   // Match button vertical alignment with search input
   .ts-button {
+    margin-left: var(--ts-search-button-marginLeft);
     position: relative;
-    top: -1px;
+    top: var(--ts-search-button-offset-top);
 
     // Add more space if the search IS displaying validations or hints
     &:not(.no-validation-or-hint) {
       // Offset to account for space under input for error messages
-      top: calc(var(--ts-space-stack-400) * -1);
+      top: var(--ts-search-withValidation-button-offset-top);
     }
-  }
-}
-
-.c-search {
-  ts-button {
-    margin-left: var(--ts-search-button-marginLeft);
   }
 }
