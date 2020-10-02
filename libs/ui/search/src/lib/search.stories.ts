@@ -30,7 +30,6 @@ export default {
 export const basic = () => ({
   component: TsSearchComponent,
   props: {
-    initialValue: 'My search query',
     inputHint: text('Hint', 'Enter at least two characters.'),
     inputLabel: text('Label', 'Search'),
     isDisabled: boolean('Disabled', false),
@@ -41,40 +40,6 @@ export const basic = () => ({
     cleared: action('Cleared'),
   },
 });
-
-export const themes = () => ({
-  template: `
-  <div tsVerticalSpacing="large--1">
-    <div tsVerticalSpacing="small--0">
-      theme: 'primary'<br>
-      buttonTheme: 'default'
-    </div>
-    <ts-search [initialValue]="initialValue" theme="primary" buttonTheme="default"></ts-search>
-  </div>
-  <div tsVerticalSpacing="large--1">
-    <div tsVerticalSpacing="small--0">
-      theme: 'accent'<br>
-      buttonTheme: 'secondary'
-    </div>
-    <ts-search [initialValue]="initialValue" theme="accent" buttonTheme="secondary"></ts-search>
-  </div>
-  <div tsVerticalSpacing="large--1">
-    <div tsVerticalSpacing="small--0">
-      theme: 'warn'<br>
-      buttonTheme: 'warning'
-    </div>
-    <ts-search [initialValue]="initialValue" theme="warn" buttonTheme="warning"></ts-search>
-  </div>
-  `,
-  props: {
-    initialValue: 'My initial value',
-  },
-});
-themes.parameters = {
-  actions: { disabled: true },
-  knobs: { disabled: true },
-  docs: { iframeHeight: 400 },
-};
 
 export const initialValue = () => ({
   component: TsSearchComponent,
@@ -98,14 +63,14 @@ focusOnLoad.parameters = {
   knobs: { disabled: true },
 };
 
-export const isSubmitting = () => ({
+export const submitting = () => ({
   component: TsSearchComponent,
   props: {
     initialValue: 'My search query',
     isSubmitting: boolean('Submitting', true),
   },
 });
-isSubmitting.parameters = {
+submitting.parameters = {
   actions: { disabled: true },
 };
 
