@@ -1,16 +1,22 @@
 @import '~@terminus/ui-styles/helpers';
 
+:root {
+  --ts-popover-placement-margin: var(--ts-space-base-small2);
+  --ts-popover-position-adjust: calc(var(--ts-space-base-small2) * -1);
+  --ts-popover-backgroundColor: var(--ts-color-base-white);
+  --ts-popover-borderRadius: var(--ts-border-radius-base);
+  --ts-popover-padding: var(--ts-space-inset-500);
+}
+
 .popover__container {
-  --popover-placement-margin: var(--ts-space-base-small2);
-  --popover-position-adjust: calc(var(--ts-space-base-small2) * -1);
   @include elevation-element(snackbar);
-  background-color: var(--ts-color-base-white);
-  border-radius: var(--ts-border-radius-base);
-  padding: var(--ts-space-inset-500);
+  background-color: var(--ts-popover-backgroundColor);
+  border-radius: var(--ts-popover-borderRadius);
+  padding: var(--ts-popover-padding);
   position: absolute;
 
   .popover__arrow {
-    border-color: var(--ts-color-base-white);
+    border-color: var(--ts-popover-backgroundColor);
     border-style: solid;
     height: 0;
     position: absolute;
@@ -28,63 +34,63 @@
   }
 
   &[data-popper-placement^='top'] {
-    margin-bottom: var(--popover-placement-margin);
+    margin-bottom: var(--ts-popover-placement-margin);
 
     .popover__arrow {
       border-bottom-color: transparent;
       border-left-color: transparent;
       border-right-color: transparent;
-      border-width: var(--popover-placement-margin) var(--popover-placement-margin) 0;
-      bottom: var(--popover-position-adjust);
-      left: calc(50% - var(--popover-placement-margin));
+      border-width: var(--ts-popover-placement-margin) var(--ts-popover-placement-margin) 0;
+      bottom: var(--ts-popover-position-adjust);
+      left: calc(50% - var(--ts-popover-placement-margin));
       margin-bottom: 0;
       margin-top: 0;
     }
   }
 
   &[data-popper-placement^='bottom'] {
-    margin-top: var(--popover-placement-margin);
+    margin-top: var(--ts-popover-placement-margin);
 
     .popover__arrow {
       border-left-color: transparent;
       border-right-color: transparent;
       border-top-color: transparent;
-      border-width: 0 var(--popover-placement-margin) var(--popover-placement-margin);
+      border-width: 0 var(--ts-popover-placement-margin) var(--ts-popover-placement-margin);
       left: calc(50% - 5px);
       margin-bottom: 0;
       margin-top: 0;
-      top: var(--popover-position-adjust);
+      top: var(--ts-popover-position-adjust);
     }
   }
 
   &[data-popper-placement^='right'] {
-    margin-left: var(--popover-placement-margin);
+    margin-left: var(--ts-popover-placement-margin);
 
     .popover__arrow {
       border-bottom-color: transparent;
       border-left-color: transparent;
       border-top-color: transparent;
-      border-width: var(--popover-placement-margin) var(--popover-placement-margin) var(--popover-placement-margin) 0;
-      left: var(--popover-position-adjust);
+      border-width: var(--ts-popover-placement-margin) var(--ts-popover-placement-margin) var(--ts-popover-placement-margin) 0;
+      left: var(--ts-popover-position-adjust);
       margin-left: 0;
       margin-right: 0;
-      top: calc(50% - var(--popover-placement-margin));
+      top: calc(50% - var(--ts-popover-placement-margin));
     }
   }
 
   &[data-popper-placement^='left'] {
     display: block;
-    margin-right: var(--popover-placement-margin);
+    margin-right: var(--ts-popover-placement-margin);
 
     .popover__arrow {
       border-bottom-color: transparent;
       border-right-color: transparent;
       border-top-color: transparent;
-      border-width: var(--popover-placement-margin) 0 var(--popover-placement-margin) var(--popover-placement-margin);
+      border-width: var(--ts-popover-placement-margin) 0 var(--ts-popover-placement-margin) var(--ts-popover-placement-margin);
       margin-left: 0;
       margin-right: 0;
-      right: var(--popover-position-adjust);
-      top: calc(50% - var(--popover-placement-margin));
+      right: var(--ts-popover-position-adjust);
+      top: calc(50% - var(--ts-popover-placement-margin));
     }
   }
 }
