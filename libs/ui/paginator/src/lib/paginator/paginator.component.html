@@ -47,9 +47,10 @@
     <ts-menu
       *ngIf="!isSimpleMode"
       class="qa-paginator-current-page-menu"
+      [isDisabled]="menuIsDisabled(pagesArray?.length)"
       [menuItemsTemplate]="menuItems"
       [menuPositionY]="menuLocation"
-      [isDisabled]="menuIsDisabled(pagesArray?.length)"
+      triggerTheme="secondary"
       [ngClass]="{'disabled': menuIsDisabled(pagesArray?.length)}"
     >{{ currentPageLabel }}</ts-menu>
 
