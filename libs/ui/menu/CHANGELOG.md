@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@2.1.2...@terminus/ui-menu@3.0.0) (2020-10-02)
+
+
+### Bug Fixes
+
+* **Menu:** convert theme support to trigger theme support ([572d7e4](https://github.com/GetTerminus/terminus-oss/commit/572d7e44a062b61116e160300e7fbe9166032f14))
+
+
+### BREAKING CHANGES
+
+* **Menu:** Theme input no longer supported
+
+
+
+
+
 ## [2.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@2.1.1...@terminus/ui-menu@2.1.2) (2020-09-14)
 
 **Note:** Version bump only for package @terminus/ui-menu

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@2.2.2...@terminus/ui-paginator@2.2.3) (2020-10-02)
+
+
+### Bug Fixes
+
+* **Paginator:** set menu trigger theme ([e876174](https://github.com/GetTerminus/terminus-oss/commit/e876174a3c596b31741bd26b8fdff5b8ddb45881))
+
+
+
+
+
 ## [2.2.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@2.2.1...@terminus/ui-paginator@2.2.2) (2020-09-14)
 
 **Note:** Version bump only for package @terminus/ui-paginator

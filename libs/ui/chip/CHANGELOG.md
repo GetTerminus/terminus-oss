@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chip@3.0.1...@terminus/ui-chip@3.0.2) (2020-10-02)
+
+
+### Bug Fixes
+
+* **Icon:** small adjustment to remove icon alignment ([09488c5](https://github.com/GetTerminus/terminus-oss/commit/09488c5a22f13018910f5c9f8e5d77990d87b70c))
+
+
+
+
+
 ## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chip@3.0.0...@terminus/ui-chip@3.0.1) (2020-10-01)
 
 **Note:** Version bump only for package @terminus/ui-chip

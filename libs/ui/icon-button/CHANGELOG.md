@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon-button@2.1.2...@terminus/ui-icon-button@3.0.0) (2020-10-02)
+
+
+### Bug Fixes
+
+* **IconButton:** remove theme support ([c3824e0](https://github.com/GetTerminus/terminus-oss/commit/c3824e0a5919e8c8f14ac138069474b291f30016))
+
+
+### BREAKING CHANGES
+
+* **IconButton:** Theme input no longer supported. Color can be overridden with the CSS custom property:
+`--ts-ib-color`.
+
+
+
+
+
 ## [2.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon-button@2.1.1...@terminus/ui-icon-button@2.1.2) (2020-09-14)
 
 **Note:** Version bump only for package @terminus/ui-icon-button
