@@ -1,9 +1,7 @@
-//
-// @component
-//  Scrollbars
-// @description
-//  Styles for custom scrollbars component
-//
+:root {
+  --ts-scrollbars-rail-opacity: .6;
+}
+
 .ts-scrollbars {
   display: block;
   height: 100%;
@@ -13,12 +11,10 @@
     max-height: 100%;
     position: relative;
   }
-}
 
-.c-scrollbars {
   // Make scrollbar rails always visible
   .ps__rail-x,
   .ps__rail-y {
-    opacity: .6;
+    opacity: var(--ts-scrollbars-rail-opacity);
   }
 }
