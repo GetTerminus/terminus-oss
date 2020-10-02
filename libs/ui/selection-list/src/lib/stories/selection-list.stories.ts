@@ -1,5 +1,6 @@
 import {
   Component,
+  ElementRef,
   EventEmitter,
   Input,
   OnDestroy,
@@ -14,7 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { action } from '@storybook/addon-actions';
 import {
   boolean,
-  select,
+  color,
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
@@ -41,7 +42,6 @@ import {
   TsSelectionListPanelComponent,
   TsSelectionListTriggerDirective,
 } from '@terminus/ui-selection-list';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 import {
   State,
@@ -63,7 +63,6 @@ import {
       [allowUserInput]="true"
       [reopenAfterSelection]="true"
       [displayFormatter]="formatter"
-      [theme]="theme"
       [showProgress]="inProgress"
       (duplicateSelection)="duplicate.emit($event)"
       (selectionChange)="selectionChange.emit($event)"
@@ -81,11 +80,10 @@ class SelectionListWrapper implements OnInit, OnDestroy {
   @Input() public hint: string;
   @Input() public isDisabled: boolean;
   @Input() public label: string;
-  @Input() public theme: TsStyleThemeTypes;
   @Input() public emulateLongQuery: boolean;
+  @Input() public formControl = new FormControl('');
   public inProgress: boolean;
   public states = STATES.slice();
-  public formControl = new FormControl('');
   public query$ = new BehaviorSubject('');
   public results: Observable<State[]> | undefined;
   @Output() public readonly opened = new EventEmitter<void>();
@@ -167,8 +165,7 @@ export const basic = () => ({
       [hint]="hint"
       [formControl]="formControl"
       [allowUserInput]="false"
-      [displayFormatter]="formatter"
-      [theme]="theme"
+      [isDisabled]="isDisabled"
     >
       <ts-option [value]="f" [option]="f" *ngFor="let f of fruit">{{ f }}</ts-option>
     </ts-selection-list>
@@ -177,7 +174,6 @@ export const basic = () => ({
     hint: text('Hint', 'Begin typing to search..'),
     isDisabled: boolean('Disabled', false),
     label: text('Label', 'Select states'),
-    theme: select('Theme', ['primary', 'accent', 'warn'], 'primary'),
     results: STATES.slice(0, 10),
     formControl: new FormControl([]),
     allowMultiple: boolean('Allow multiple selections', false),
@@ -189,14 +185,39 @@ basic.parameters = {
   docs: { iframeHeight: 340 },
 };
 
-export const userInput = () => ({
-  component: TsSelectionListComponent,
+export const disabled = () => ({
+  template: `
+    <ts-selection-list
+      [allowMultiple]="allowMultiple"
+      [label]="label"
+      [formControl]="formControl"
+      [allowUserInput]="false"
+      [isDisabled]="isDisabled"
+    >
+      <ts-option [value]="f" [option]="f" *ngFor="let f of fruit">{{ f }}</ts-option>
+    </ts-selection-list>
+  `,
+  props: {
+    isDisabled: boolean('Disabled', true),
+    label: 'Select states',
+    results: STATES.slice(0, 10),
+    formControl: new FormControl([]),
+    allowMultiple: boolean('Allow multiple selections', false),
+    fruit: ['apple', 'grape', 'peach', 'pear', 'banana'],
+  },
+});
+basic.parameters = {
+  actions: { disabled: true },
+  docs: { iframeHeight: 340 },
+};
+
+export const userInputMultiple = () => ({
+  component: SelectionListWrapper,
   props: {
     emulateLongQuery: boolean('Emulate long-running query', false),
-    hint: text('Hint', 'Begin typing to search..'),
+    hint: 'Begin typing to search..',
     isDisabled: boolean('Disabled', false),
-    label: text('Label', 'Select states'),
-    theme: select('Theme', ['primary', 'accent', 'warn'], 'primary'),
+    label: 'Select states',
     closed: action('Closed'),
     duplicate: action('Duplicate selection'),
     opened: action('Opened'),
@@ -204,8 +225,79 @@ export const userInput = () => ({
     selectionChange: action('Selection changed'),
     optionSelected: action('Option selected'),
     optionDeselected: action('Option deselected'),
+    formControl: new FormControl(STATES.slice(0, 4)),
   },
 });
-userInput.parameters = {
+userInputMultiple.parameters = {
+  docs: { iframeHeight: 340 },
+};
+
+export const disabledMultiple = () => ({
+  component: SelectionListWrapper,
+  props: {
+    hint: 'Begin typing to search..',
+    isDisabled: boolean('Disabled', true),
+    label: 'Select states',
+    formControl: new FormControl(STATES.slice(0, 4)),
+  },
+});
+disabledMultiple.parameters = {
+  actions: { disabled: true },
+  docs: { iframeHeight: 340 },
+};
+
+@Component({
+  selector: 'ts-selection-list-wrapper-css',
+  template: `
+    <ts-selection-list
+      label="Select a state"
+      [allowMultiple]="false"
+      [allowUserInput]="false"
+      [formControl]="myCtrl"
+    >
+      <ts-option [value]="f" [option]="f" *ngFor="let f of fruit">{{ f }}</ts-option>
+    </ts-selection-list>
+  `,
+})
+class SelectionListWrapperCss implements OnInit {
+  defaultColor = 'pink';
+  colorVariable = '--ts-sl-backdrop-backgroundColor';
+  public myCtrl = new FormControl(['peach']);
+  @Input() public fruit: ReadonlyArray<string>;
+  @Input()
+  public set color(value: string) {
+    this._color = value ? value : this.defaultColor;
+    this.setColor(this._color);
+  }
+  public get color(): string {
+    return this._color;
+  }
+  private _color = this.defaultColor;
+
+  constructor(public elementRef: ElementRef) {}
+
+  public ngOnInit(): void {
+    setTimeout(() => {
+      this.elementRef.nativeElement.querySelector('.ts-selection-list-trigger').click();
+    }, 10);
+  }
+
+  setColor(colorName: string): void {
+    document.documentElement.style.setProperty(this.colorVariable, colorName);
+  }
+}
+
+export const customBackdropColor = () => ({
+  component: SelectionListWrapperCss,
+  props: {
+    hint: 'Begin typing to search..',
+    label: 'Select states',
+    formControl: new FormControl(['peach']),
+    fruit: ['apple', 'grape', 'peach', 'pear', 'banana'],
+    color: color('Backdrop color', 'rgba(138, 8, 192, .4)'),
+  },
+});
+disabledMultiple.parameters = {
+  actions: { disabled: true },
   docs: { iframeHeight: 340 },
 };
