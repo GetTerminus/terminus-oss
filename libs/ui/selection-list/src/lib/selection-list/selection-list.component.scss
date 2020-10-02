@@ -1,24 +1,34 @@
-.ts-selection-list {
+:root {
+  --ts-sl-chipCollection-zIndex: 1;
   // This brings chips above the static trigger
-  --chip-zIndex: 2;
+  --ts-sl-chip-zIndex: 2;
+  --ts-sl-icon-width: 24px;
+  --ts-sl-input-width: calc(100% - var(--ts-sl-icon-width));
+  --ts-sl-multiple-margin-adustment: -3px;
+  --ts-sl-spinner-right: var(--ts-space-inline-600);
+  --ts-sl-icon-color: var(--ts-color-utility-600);
+  --ts-sl-input-marginBottom: 3px;
+  --ts-sl-input-color: var(--ts-color-utility-900);
+  --ts-sl-input-minHeight: 25px;
+  --ts-sl-backdrop-backgroundColor: transparent;
+}
+
+.ts-selection-list {
   cursor: pointer;
   display: block;
 
   &.ts-selection-list--single {
     .ts-selection-list__input {
-      $ICON_WIDTH: 24px;
-      width: calc(100% - #{$ICON_WIDTH});
+      width: var(--ts-sl-input-width);
     }
   }
 
   // NOTE: When chips are added, they increase the vertical height so we need to counteract that here.
   // We cannot change the outer padding as that will negatively impact the layout when no vales exist.
   &.ts-selection-list--multiple {
-    --margin-adustment: -3px;
-
     .ts-chip-collection {
-      margin-bottom: calc(var(--margin-adustment) * 2);
-      margin-top: var(--margin-adustment);
+      margin-bottom: calc(var(--ts-sl-multiple-margin-adustment) * 2);
+      margin-top: var(--ts-sl-multiple-margin-adustment);
     }
   }
 
@@ -29,16 +39,22 @@
   }
 
   .ts-chip-collection-wrapper {
-    z-index: 1;
+    z-index: var(--ts-sl-chipCollection-zIndex);
   }
 
   .ts-chip {
-    z-index: var(--chip-zIndex);
+    z-index: var(--ts-sl-chip-zIndex);
+    .c-chip {
+      // Override default vertical alignment when inside selection list
+      .c-chip__remove {
+        top: 0;
+      }
+    }
   }
 
   .ts-icon {
     &.c-selection-list__spinner {
-      right: var(--ts-space-inline-600);
+      right: var(--ts-sl-spinner-right);
     }
   }
 }
@@ -47,7 +63,7 @@
   position: relative;
 
   > .ts-icon {
-    color: var(--ts-color-utility-600);
+    color: var(--ts-sl-icon-color);
     position: absolute;
     right: 0;
     top: 50%;
@@ -57,15 +73,14 @@
 
 // NOTE: Bottom margin and min-height needed to keep vertical alignment consistent when no chips are present.
 .ts-selection-list__input {
-  --fake-margin: 3px;
   background: transparent;
   border: none;
-  color: var(--ts-color-utility-900);
+  color: var(--ts-sl-input-color);
   display: inline-block;
   font: inherit;
-  margin-bottom: var(--fake-margin);
+  margin-bottom: var(--ts-sl-input-marginBottom);
   max-width: 100%;
-  min-height: 25px;
+  min-height: var(--ts-sl-input-minHeight);
   outline: none;
   padding: 0;
   // User agent stylesheets set the text-align of inputs explicitly to "start". Those can be
@@ -84,15 +99,15 @@
 
   // Style overrides for the input trigger when in single selection mode
   .ts-selection-list--single & {
-    margin-bottom: 0;
-    min-height: auto;
+    --ts-sl-input-marginBottom: 0;
+    --ts-sl-input-minHeight: auto;
     padding-top: 0;
   }
 }
 
 
 .cdk-overlay-container {
-  .ts-autocomplete__backdrop {
-    background: transparent;
+  .ts-selection-list__backdrop {
+    background-color: var(--ts-sl-backdrop-backgroundColor);
   }
 }

@@ -52,10 +52,7 @@ import {
   TsOptgroupComponent,
   TsOptionComponent,
 } from '@terminus/ui-option';
-import {
-  TsStyleThemeTypes,
-  TsUILibraryError,
-} from '@terminus/ui-utilities';
+import { TsUILibraryError } from '@terminus/ui-utilities';
 
 import {
   TsSelectionListPanelComponent,
@@ -65,7 +62,6 @@ import {
   SELECTION_LIST_PANEL_MAX_HEIGHT,
   TsSelectionListTriggerDirective,
 } from '../trigger/selection-list-trigger.directive';
-
 
 // Unique ID for each instance
 let nextUniqueId = 0;
@@ -85,9 +81,8 @@ export class TsSelectionListChange<T = unknown> {
 export type TsSelectionListFormatter = (v: unknown) => string;
 export type TsSelectionListComparator = (a: unknown, b: unknown) => boolean;
 
-
 /**
- * The selection list UI Component
+ * A selection list (picklist/dropdown) that supports single or multiple selections and user input.
  *
  * @example
  * <ts-selection-list
@@ -102,7 +97,6 @@ export type TsSelectionListComparator = (a: unknown, b: unknown) => boolean;
  *              name="product selections"
  *              options="[{}, {}, ...]"
  *              [showProgress]="true"
- *              theme="primary"
  *              (closed)="panelWasClosed($event)"
  *              (duplicateSelection)="duplicateWasSelected($event)"
  *              (opened)="panelWasOpened($event)"
@@ -428,12 +422,6 @@ export class TsSelectionListComponent implements
   public showProgress = false;
 
   /**
-   * Define the component theme
-   */
-  @Input()
-  public theme: TsStyleThemeTypes = 'primary';
-
-  /**
    * Define if validation messages should be shown immediately or on blur
    */
   @Input()
@@ -547,7 +535,6 @@ export class TsSelectionListComponent implements
    */
   @Output()
   public readonly valueChange = new EventEmitter<string>();
-
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef,

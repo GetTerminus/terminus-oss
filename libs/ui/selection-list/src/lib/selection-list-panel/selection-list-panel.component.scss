@@ -1,25 +1,32 @@
 @import '~@terminus/ui-styles/helpers';
 
-.ts-selection-list-panel__inner {
+:root {
   // The max-height of the panel, currently matching ts-select value
-  --ts-selection-list-panel-maxHeight: 256px;
-  --ts-selection-list-panel-borderRadius: var(--ts-border-radius-base);
-  --ts-checkbox-select-item-height: 3em;
+  --ts-sl-panel-maxHeight: 256px;
+  --ts-sl-panel-borderRadius: var(--ts-border-radius-base);
+  --ts-sl-panel-checkbox-select-item-height: var(--ts-checkbox-select-item-height, 3em);
   // Menu width must be a multiple of 56px
   // 56 * 2:
-  --ts-menu-overlay-minWidth: 112px;
-  --ts-selectionList-boxShadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 5px 0 rgba(0, 0, 0, .12);
+  --ts-sl-panel-overlay-minWidth: 112px;
+  --ts-sl-panel-boxShadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 5px 0 rgba(0, 0, 0, .12);
+  --ts-sl-panel-backgroundColor: var(--ts-color-base-white);
+  --ts-sl-panel-color: var(--ts-color-base-black);
+  --ts-sl-panel-option-selected-backgroundColor: var(--ts-color-primary-100);
+  --ts-sl-panel-maxWidth: none;
+}
+
+.ts-selection-list-panel__inner {
   @include cdk-high-contrast {
     outline: solid 1px;
   }
-  background: var(--ts-color-base-white);
-  border-bottom-left-radius: var(--ts-selection-list-panel-border-radius);
-  border-bottom-right-radius: var(--ts-selection-list-panel-border-radius);
-  box-shadow: var(--ts-selectionList-boxShadow);
-  color: var(--ts-color-base-black);
-  max-height: var(--ts-selection-list-panel-maxHeight);
-  max-width: none;
-  min-width: var(--ts-menu-overlay-minWidth);
+  background-color: var(--ts-sl-panel-backgroundColor);
+  border-bottom-left-radius: var(--ts-sl-panel-borderRadius);
+  border-bottom-right-radius: var(--ts-sl-panel-borderRadius);
+  box-shadow: var(--ts-sl-panel-boxShadow);
+  color: var(--ts-sl-panel-color);
+  max-height: var(--ts-sl-panel-maxHeight);
+  max-width: var(--ts-sl-panel-maxWidth);
+  min-width: var(--ts-sl-panel-overlay-minWidth);
   overflow: auto;
   // Enable momentum scroll on mobile
   -webkit-overflow-scrolling: touch;
@@ -34,15 +41,15 @@
     &.ts-option--selected {
       &:not(.ts-active) {
         &:not(:hover) {
-          background: var(--ts-color-primary-100);
+          background: var(--ts-sl-panel-option-selected-backgroundColor);
         }
       }
     }
 
     &:not(.ts-option--template) {
       font-size: inherit;
-      height: var(--ts-checkbox-select-item-height);
-      line-height: var(--ts-checkbox-select-item-height);
+      height: var(--ts-sl-panel-checkbox-select-item-height);
+      line-height: var(--ts-sl-panel-checkbox-select-item-height);
     }
   }
 
@@ -51,7 +58,7 @@
   }
 
   .ts-selection-list-panel-above & {
-    border-radius: var(--ts-selection-list-panel-borderRadius) var(--ts-selection-list-panel-borderRadius) 0 0;
+    border-radius: var(--ts-sl-panel-borderRadius) var(--ts-sl-panel-borderRadius) 0 0;
   }
 
   .ts-divider-horizontal {

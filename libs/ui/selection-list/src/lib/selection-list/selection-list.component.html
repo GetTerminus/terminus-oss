@@ -5,7 +5,6 @@
   [hint]="hint"
   [id]="id"
   [noValidationOrHint]="noValidationOrHint"
-  [theme]="theme"
   cdk-overlay-origin
   #origin="cdkOverlayOrigin"
 >
@@ -15,9 +14,7 @@
 
   <div class="ts-selection-list__input-wrap">
     <ng-container *ngIf="allowMultiple">
-      <ts-chip-collection
-        (tabUpdateFocus)="focusInput()"
-      >
+      <ts-chip-collection (tabUpdateFocus)="focusInput()">
         <ts-chip
           *ngFor="let chip of ngControl.value; trackBy: trackByFn"
           [value]="chip"
@@ -91,7 +88,6 @@
   </ng-template>
 </ts-form-field>
 
-
 <ts-selection-list-panel
   class="ts-selection-list"
   #auto="tsSelectionListPanel"
@@ -104,8 +100,6 @@
   <!-- Outlet for options passed in by consumer -->
   <ng-template *ngTemplateOutlet="contentTemplate"></ng-template>
 </ts-selection-list-panel>
-
-
 
 <ng-template #contentTemplate>
   <ng-content></ng-content>
