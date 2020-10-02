@@ -156,11 +156,13 @@ export const visual = () => ({
       [small]="true"
       [options]="options"
       [formControl]="formControl"
+      [isDisabled]="isDisabled"
     ></ts-radio-group>
   `,
   props: {
     options: array('Options', ['one', 'two', 'three']),
     formControl: new FormControl('one'),
+    isDisabled: boolean('Disabled', false),
   },
 });
 visual.parameters = {
