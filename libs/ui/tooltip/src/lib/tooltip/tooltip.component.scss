@@ -1,7 +1,10 @@
 @import '~@terminus/ui-styles/helpers';
 
-
 :root {
+  --ts-tooltip-typograpy: var(--ts-typography-compound-caption);
+  --ts-tooltip-fontSize: 13px;
+  --ts-tooltip-color: var(--ts-color-base-white);
+  --ts-tooltip-backgroundColor: var(--ts-color-utility-900);
   --ts-tooltip-boxShadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 5px 0 rgba(0, 0, 0, .12);
 }
 
@@ -22,11 +25,11 @@
 // Override material styles
 .mat-tooltip-panel {
   .mat-tooltip {
-    background-color: var(--ts-color-utility-900);
+    background-color: var(--ts-tooltip-backgroundColor);
     box-shadow: var(--ts-tooltip-boxShadow);
-    color: var(--ts-color-light);
-    font: var(--ts-typography-compound-caption);
-    font-size: 13px;
+    color: var(--ts-tooltip-color);
+    font: var(--ts-tooltip-typograpy);
+    font-size: var(--ts-tooltip-fontSize);
     overflow-wrap: break-word;
     white-space: normal;
   }
