@@ -1,6 +1,8 @@
 import {
+  AfterViewInit,
   Component,
   Input,
+  ViewChild,
 } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -84,13 +86,21 @@ export default {
     </div>
   `,
 })
-class TooltipWrapper {
+class TooltipWrapper implements AfterViewInit {
   @Input() public tooltipPosition: TsTooltipPositionTypes;
   @Input() public tooltipValue: string;
   @Input() public hasUnderline: boolean;
   @Input() public showButton: boolean;
   @Input() public showContentBorder: boolean;
   @Input() public triggerContent = 'This content has a tooltip!';
+  @Input() public openOnLoad = false;
+  @ViewChild('tooltip') public tooltip: TsTooltipComponent;
+
+  ngAfterViewInit(): void {
+    if (this.openOnLoad) {
+      this.tooltip.toggleTooltip();
+    }
+  }
 }
 
 export const basic = () => ({
@@ -126,6 +136,7 @@ export const manualControl = () => ({
   props: {
     tooltipPosition: 'below',
     showButton: true,
+    openOnLoad: true,
     showContentBorder: true,
     tooltipValue: text('Tooltip value', 'My tooltip content!'),
   },
@@ -145,6 +156,7 @@ export const longContent = () => ({
       quisquam est. Sint unde corporis quae veniam error ex.
     `,
     showContentBorder: true,
+    openOnLoad: true,
   },
 });
 longContent.parameters = {
