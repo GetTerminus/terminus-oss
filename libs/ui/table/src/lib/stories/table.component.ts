@@ -87,7 +87,7 @@ class ExampleHttpDao {
   public getRepoIssues(sort: string, order: string, page: number, perPage: number): Observable<GithubApi> {
     console.log('Hitting the GitHub API');
     const href = `https://api.github.com/search/issues`;
-    const requestUrl = `${href}?q=repo:GetTerminus/terminus-ui`;
+    const requestUrl = `${href}?q=repo:GetTerminus/terminus-oss`;
     const requestParams = `&sort=${sort}&order=${order}&page=${page + 1}&per_page=${perPage}`;
     return this.http.get<GithubApi>(`${requestUrl}${requestParams}`);
   }
@@ -188,7 +188,7 @@ export class TableWrapper implements OnInit, AfterViewInit, OnDestroy {
           );
         }),
         map(data => {
-          // console.log('Demo: fetched data: ', data);
+          console.log('Demo: fetched data: ', data);
           this.savedResponse = data;
           this.resultsLength = data.total_count;
 
