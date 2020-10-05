@@ -49,11 +49,7 @@ export class TsTabLabelWrapperDirective {
   }
   private _isDisabled = false;
 
-
-  constructor(
-    public elementRef: ElementRef,
-  ) {}
-
+  constructor(public elementRef: ElementRef) {}
 
   /**
    * Set focus on the wrapper element

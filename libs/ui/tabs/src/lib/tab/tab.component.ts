@@ -15,8 +15,8 @@ import {
 } from '@angular/core';
 import { Subject } from 'rxjs';
 
-import { TsTabContentDirective } from './../body/tab-content.directive';
-import { TsTabLabelDirective } from './../label/tab-label.directive';
+import { TsTabContentDirective } from '../body/tab-content.directive';
+import { TsTabLabelDirective } from '../label/tab-label.directive';
 
 // Unique ID for each instance
 let nextUniqueId = 0;
@@ -131,11 +131,7 @@ export class TsTabComponent implements OnInit, OnChanges, OnDestroy {
   @Input()
   public label = '';
 
-
-  constructor(
-    private viewContainerRef: ViewContainerRef,
-  ) {}
-
+  constructor(private viewContainerRef: ViewContainerRef) {}
 
   /**
    * Inject the tab content

@@ -1,7 +1,6 @@
 import { CdkPortal } from '@angular/cdk/portal';
 import { Directive } from '@angular/core';
 
-
 /**
  * Used to flag tab labels for use with the portal directive
  */
@@ -9,4 +8,4 @@ import { Directive } from '@angular/core';
   selector: '[tsTabLabel]',
   exportAs: 'tsTabLabel',
 })
-export class TsTabLabelDirective extends CdkPortal { }
+export class TsTabLabelDirective extends CdkPortal {}

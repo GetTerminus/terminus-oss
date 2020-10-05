@@ -23,7 +23,6 @@ import {
   coerceNumberProperty,
   untilComponentDestroyed,
 } from '@terminus/fe-utilities';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 import { TsTabHeaderComponent } from '../header/tab-header.component';
 import { TsTabComponent } from '../tab/tab.component';
@@ -78,7 +77,6 @@ let nextUniqueId = 0;
  *               headerPosition="above"
  *               [selectedIndex]="2"
  *               tabAlignment="start"
- *               theme="primary"
  *               (animationFinished)="myFunc()"
  *               (focusChange)="myFunc($event)"
  *               (selectedIndexChange)="myFunc($event)"
@@ -102,10 +100,6 @@ let nextUniqueId = 0;
   host: {
     'class': 'ts-tab-collection',
     '[class.ts-tab-collection--inverted-header]': 'headerPosition === "below"',
-    // Themes:
-    '[class.ts-tab-collection--primary]': 'theme === "primary"',
-    '[class.ts-tab-collection--accent]': 'theme === "accent"',
-    '[class.ts-tab-collection--warn]': 'theme === "warn"',
     // Tab alignment:
     '[class.ts-tab-collection--start]': 'tabAlignment === "start"',
     '[class.ts-tab-collection--center]': 'tabAlignment === "center"',
@@ -182,12 +176,6 @@ export class TsTabCollectionComponent implements AfterContentInit, AfterContentC
    */
   @Input()
   public tabAlignment: TsTabAlignmentOptions = 'start';
-
-  /**
-   * Define the theme for the tabs
-   */
-  @Input()
-  public theme: TsStyleThemeTypes = 'primary';
 
   /**
    * Event emitted when the body animation has completed

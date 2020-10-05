@@ -1,5 +1,10 @@
 @import '~@terminus/ui-styles/helpers';
 
+:root {
+  --ts-tab-body-backgroundColor: var(--ts-color-base-white);
+  --ts-tab-body-padding: var(--ts-space-inset-500);
+}
+
 // Wraps each tab body
 .ts-tab-body {
   @include take-space;
@@ -18,8 +23,8 @@
 }
 
 .ts-tab-body__content {
-  background-color: var(--ts-color-base-white);
+  background-color: var(--ts-tab-body-backgroundColor);
   height: 100%;
   overflow: hidden;
-  padding: var(--ts-space-inset-500);
+  padding: var(--ts-tab-body-padding);
 }
