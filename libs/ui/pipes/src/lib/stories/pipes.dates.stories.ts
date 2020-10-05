@@ -20,7 +20,7 @@ const DL_STYLES = `
   dd:first-of-type {margin-bottom: 2rem;}
   dt:after {content: ':';}
 `;
-const customDate = new Date();
+const customDate = new Date(2020, 1, 15);
 const customDateOld = sub(customDate, { days: 3 });
 function myDateKnob(name, defaultValue) {
   const stringTimestamp = date(name, defaultValue);
