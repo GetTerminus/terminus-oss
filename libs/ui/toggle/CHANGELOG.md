@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-toggle@1.1.2...@terminus/ui-toggle@2.0.0) (2020-10-05)
+
+
+### Bug Fixes
+
+* **Toggle:** no longer supporting the theme input ([502fbda](https://github.com/GetTerminus/terminus-oss/commit/502fbdab8745bcbd96cf131096d8d511d6e0214d))
+
+
+### BREAKING CHANGES
+
+* **Toggle:** No longer supporting the `theme` input.
+
+
+
+
+
 ## [1.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-toggle@1.1.1...@terminus/ui-toggle@1.1.2) (2020-09-14)
 
 **Note:** Version bump only for package @terminus/ui-toggle

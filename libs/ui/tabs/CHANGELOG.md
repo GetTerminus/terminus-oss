@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tabs@2.1.2...@terminus/ui-tabs@3.0.0) (2020-10-05)
+
+
+### Bug Fixes
+
+* **Tabs:** no longer supporting the theme input ([bf2d374](https://github.com/GetTerminus/terminus-oss/commit/bf2d37418c2f263a3a542d1c78f7d7453bba6b84))
+
+
+### BREAKING CHANGES
+
+* **Tabs:** No longer supporting the `theme` input.
+
+
+
+
+
 ## [2.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tabs@2.1.1...@terminus/ui-tabs@2.1.2) (2020-09-14)
 
 **Note:** Version bump only for package @terminus/ui-tabs
