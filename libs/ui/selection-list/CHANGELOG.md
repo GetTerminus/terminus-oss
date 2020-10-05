@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@2.1.4...@terminus/ui-selection-list@3.0.0) (2020-10-05)
+
+
+### Bug Fixes
+
+* **SelectionList:** remove theme support ([241d171](https://github.com/GetTerminus/terminus-oss/commit/241d171a99c97fb204ac76e56bc5bd3921b8c522))
+
+
+### BREAKING CHANGES
+
+* **SelectionList:** Theme input no longer supported
+
+
+
+
+
 ## [2.1.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@2.1.3...@terminus/ui-selection-list@2.1.4) (2020-09-24)
 
 **Note:** Version bump only for package @terminus/ui-selection-list

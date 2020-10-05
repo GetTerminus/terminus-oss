@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@2.1.2...@terminus/ui-search@3.0.0) (2020-10-05)
+
+
+### Bug Fixes
+
+* **Search:** remove support for theme input ([aa4a8ac](https://github.com/GetTerminus/terminus-oss/commit/aa4a8ac86b286fb5ea83c079e35286b05a9c79f0))
+
+
+### BREAKING CHANGES
+
+* **Search:** No longer supporting `theme` input. Still supports `buttonTheme`
+
+
+
+
+
 ## [2.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@2.1.1...@terminus/ui-search@2.1.2) (2020-09-14)
 
 **Note:** Version bump only for package @terminus/ui-search
