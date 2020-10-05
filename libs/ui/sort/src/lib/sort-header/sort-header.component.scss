@@ -1,13 +1,21 @@
 @import '~@terminus/ui-styles/helpers';
 
 :root {
-  --ts-sort-header-arrow-margin: 6px;
   --ts-sort-header-arrow-container-size: 12px;
   --ts-sort-header-arrow-stem-size: 10px;
   --ts-sort-header-arrow-pointer-length: 6px;
   --ts-sort-header-arrow-thickness: 2px;
   --ts-sort-header-arrow-transition: 225ms cubic-bezier(.4, 0, .2, 1);
   --ts-sort-header-color: currentColor;
+  --ts-sort-header-icon-transition:
+    opacity
+    var(--ts-animation-time-duration-200)
+    var(--ts-animation-easing-easeOut)
+    var(--ts-animation-time-delay-300);
+  --ts-sort-header-icon-hidden-transition: opacity 100ms var(--ts-animation-easing-easeOut) 100ms;
+  --ts-sort-header-focus-color: var(--ts-color-primary-500);
+  --ts-sort-header-arrow-margin: -2px 0 0 6px;
+  --ts-sort-header-arrow-before-margin: 0 6px 0 0;
 }
 
 // When sorted don't show the icon on hover
@@ -45,12 +53,12 @@
     right: 3px;
     top: 50%;
     transform: translate(22%, -42%);
-    transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut) var(--ts-animation-time-delay-300);
+    transition: var(--ts-sort-header-arrow-transition);
 
     // Sort direction shown via Angular animation so we hide this icon
     &--hidden {
       opacity: 0;
-      transition: opacity 100ms var(--ts-animation-easing-easeOut) 100ms;
+      transition: var(--ts-sort-header-icon-hidden-transition);
     }
   }
 }
@@ -85,17 +93,16 @@
   }
 
   &:focus {
-    --ts-sort-header-color: var(--ts-color-primary-500);
+    --ts-sort-header-color: var(--ts-sort-header-focus-color);
   }
 }
 
 // <div> container for sorting arrow
 .ts-sort-header-arrow {
-  --arrow-margin: -2px 0 0 var(--ts-sort-header-arrow-margin);
   color: var(--ts-color-utility-600);
   display: flex;
   height: var(--ts-sort-header-arrow-container-size);
-  margin: var(--arrow-margin);
+  margin: var(--ts-sort-header-arrow-margin);
   min-width: var(--ts-sort-header-arrow-container-size);
   position: absolute;
   right: 0;
@@ -104,14 +111,14 @@
   width: var(--ts-sort-header-arrow-container-size);
 
   .ts-sort-header-position-before & {
-    margin: 0 var(--ts-sort-header-arrow-margin) 0 0;
+    --ts-sort-header-arrow-margin: var(--ts-sort-header-arrow-before-margin);
   }
 }
 
 // <div> stem of the arrow
 .ts-sort-header-stem {
   align-items: center;
-  background: currentColor;
+  background: var(--ts-sort-header-color);
   display: flex;
   height: var(--ts-sort-header-arrow-stem-size);
   margin: auto;
@@ -131,7 +138,7 @@
 }
 
 .ts-sort-header-pointer-middle {
-  background: currentColor;
+  background: var(--ts-sort-header-color);
   height: var(--ts-sort-header-arrow-thickness);
   margin: auto;
   transform: rotate(45deg);
@@ -140,7 +147,7 @@
 
 .ts-sort-header-pointer-left,
 .ts-sort-header-pointer-right {
-  background: currentColor;
+  background: var(--ts-sort-header-color);
   height: var(--ts-sort-header-arrow-thickness);
   position: absolute;
   top: 0;
