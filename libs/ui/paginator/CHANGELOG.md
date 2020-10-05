@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@2.2.3...@terminus/ui-paginator@2.2.4) (2020-10-05)
+
+
+### Bug Fixes
+
+* **Paginator:** per page output now has correct typing ([7419468](https://github.com/GetTerminus/terminus-oss/commit/741946805a0541f87dc2bc0c45bdd90c22f78d9e)), closes [#345](https://github.com/GetTerminus/terminus-oss/issues/345)
+
+
+
+
+
 ## [2.2.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@2.2.2...@terminus/ui-paginator@2.2.3) (2020-10-02)
 
 
