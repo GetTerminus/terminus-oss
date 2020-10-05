@@ -1,12 +1,16 @@
 @import '~@terminus/ui-styles/helpers';
 
-.ts-validation-messages {
-  --ts-vm-padding: .3em .4em .2em;
+:root {
+  --ts-vm-nested-padding: .3em .4em .2em;
+  --ts-vm-color: var(--ts-color-warn-500);
+  --ts-vm-typography: var(--ts-typography-compound-caption);
+}
 
+.ts-validation-messages {
   // Top level styles should be nested here
   .c-validation-message {
-    color: var(--ts-color-warn-500);
-    font: var(--ts-typography-compound-caption);
+    color: var(--ts-vm-color);
+    font: var(--ts-vm-typography);
     z-index: z(tooltip);
   }
 
@@ -18,14 +22,14 @@
   // Styles when inside a file upload component
   .ts-file-upload & {
     .c-validation-message {
-      padding: var(--ts-vm-padding);
+      padding: var(--ts-vm-nested-padding);
     }
   }
 
-  // Adjust the vertical layout when inside a radio button component
+  // @Deprecated TsSelectComponent is deprecated
   .c-select & {
     .c-validation-message {
-      --ts-vm-select-message-padding: var(--ts-vm-padding) 0;
+      --ts-vm-select-message-padding: var(--ts-vm-nested-padding) 0;
       $added-margin-for-select: .6em;
       margin-top: $added-margin-for-select;
       padding: var(--ts-vm-select-message-padding);
