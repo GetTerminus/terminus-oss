@@ -1,16 +1,30 @@
 @import '~@terminus/ui-styles/helpers';
 
-.ts-table {
+:root {
   --ts-table-bg: var(--ts-color-base-white);
+  --ts-table-typography: var(--ts-typography-compound-body);
   --ts-table-fontSize: 14px;
+  --ts-table-width: 100%;
+  --ts-table-maxHeight: 100%;
   --ts-table-header-bg: var(--ts-color-utility-300);
   --ts-table-header-text-color: var(--ts-color-utility-700);
   --ts-table-border-color: var(--ts-color-utility-300);
   --ts-table-header-border-color: var(--ts-color-utility-500);
   --ts-table-header-fontSize: 13px;
-  --ts-table-zindex-base-context: 2;
-  --ts-table-zindex-resize-background: calc(var(--ts-table-zindex-base-context) + 1);
-  --ts-table-zindex-resize-grabber: calc(var(--ts-table-zindex-resize-background) + 1);
+  --ts-table-headerRow-background-transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+  --ts-table-headerCell-color: var(--ts-color-utility-600);
+  --ts-table-headerCell-sorted-color: var(--ts-color-utility-700);
+  --ts-table-headerCell-pseudoElement-transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+  --ts-table-headerCell-unsorted-icon-color: var(--ts-color-utility-600);
+  --ts-table-headerCell-resizer-width: var(--ts-space-base-large0);
+  --ts-table-headerCell-resizer-transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+  --ts-table-headerCell-resizer-background-width: 7px;
+  --ts-table-headerCell-resizer-background-transition: width 100ms ease-out;
+  --ts-table-headerCell-resizer-backgroundColor: var(--ts-color-primary-500);
+  --ts-table-headerCell-resizer-dots-color: var(--ts-color-utility-100);
+  --ts-table-zIndex-base-context: 2;
+  --ts-table-zIndex-resize-background: calc(var(--ts-table-zIndex-base-context) + 1);
+  --ts-table-zIndex-resize-grabber: calc(var(--ts-table-zIndex-resize-background) + 1);
   --ts-table-cell-padding: var(--ts-space-inset-400) var(--ts-space-inset-500);
   // Must be greater than 40 as that is the length of the generated z-indexes for header cells
   --ts-table-sticky-end-z: 50;
@@ -18,12 +32,16 @@
   --ts-table-header-row-fontWeight: 500;
   --ts-table-grabber-icon-font-size: 14px;
   --ts-table-header-borderRadius: var(--ts-border-radius-base);
+  --ts-cell-backgroundColor-transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+}
+
+.ts-table {
   border-collapse: separate;
   border-spacing: unset;
-  font: var(--ts-typography-compound-body);
-  max-height: 100%;
+  font: var(--ts-table-typography);
+  max-height: var(--ts-table-maxHeight);
   table-layout: fixed;
-  width: 100%;
+  width: var(--ts-table-width);
 
   &.ts-table--compact {
     --ts-table-cell-padding: var(--ts-space-inset-200);
@@ -54,7 +72,7 @@
     font: var(--ts-typography-compound-caption);
     font-size: var(--ts-table-header-fontSize);
     font-weight: var(--ts-table-header-row-fontWeight);
-    transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+    transition: var(--ts-table-headerRow-background-transition);
 
     // NOTE: This is required for the tr background color to be visible.
     &::after {
@@ -119,7 +137,7 @@
   }
 
   .ts-cell {
-    border-bottom: 1px solid var(--ts-color-utility-300);
+    border-bottom: 1px solid var(--ts-table-border-color);
   }
 
   // Body cell
@@ -130,7 +148,7 @@
     overflow: hidden;
     padding: var(--ts-table-cell-padding);
     text-overflow: ellipsis;
-    transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+    transition: var(--ts-cell-backgroundColor-transition);
 
     &.ts-table__column--sticky {
       background-color: var(--ts-table-bg);
@@ -142,15 +160,15 @@
     background-color: var(--ts-table-header-bg);
     border-color: var(--ts-table-header-border-color);
     box-sizing: border-box;
-    color: var(--ts-color-utility-600);
+    color: var(--ts-table-headerCell-color);
     font-weight: 500;
     padding: var(--ts-table-cell-padding);
 
     // Class added when the column is sorted
     &.ts-sort-header-sorted {
-      color: var(--ts-color-utility-700);
+      color: var(--ts-table-headerCell-sorted-color);
       .ts-sort-header-arrow {
-        color: var(--ts-color-utility-700);
+        color: var(--ts-table-headerCell-sorted-color);
       }
     }
 
@@ -174,9 +192,9 @@
         opacity: 0;
         position: absolute;
         top: 0;
-        transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+        transition: var(--ts-table-headerCell-pseudoElement-transition);
         width: 1px;
-        z-index: var(--ts-table-zindex-base-context);
+        z-index: var(--ts-table-zIndex-base-context);
       }
 
       &:focus,
@@ -189,7 +207,7 @@
 
     // Icon for unsorted state
     .ts-sort-header-container__icon {
-      color: var(--ts-color-utility-600);
+      color: var(--ts-table-headerCell-unsorted-icon-color);
     }
 
     // Reverse the natural z-index order so that all borders on the right created with box-shadow are visible above the following cell.
@@ -217,7 +235,7 @@
         opacity: 1;
 
         &::before {
-          width: 7px;
+          width: var(--ts-table-headerCell-resizer-background-width);
         }
       }
     }
@@ -232,13 +250,13 @@
       right: 0;
       top: -1px;
       transform: translateX(50%);
-      transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
-      width: spacing(large);
-      z-index: calc(var(--ts-table-zindex-resize-background));
+      transition: var(--ts-table-headerCell-resizer-transition);
+      width: var(--ts-table-headerCell-resizer-width);
+      z-index: var(--ts-table-zIndex-resize-background);
 
       // Visible container for grabber
       &::before {
-        background-color: var(--ts-color-primary-500);
+        background-color: var(--ts-table-headerCell-resizer-backgroundColor);
         bottom: 1px;
         content: '';
         display: block;
@@ -246,13 +264,13 @@
         position: absolute;
         top: 0;
         transform: translateX(-50%);
-        transition: width 100ms ease-out;
+        transition: var(--ts-table-headerCell-resizer-background-transition);
         width: 1px;
       }
 
       // Dots inside grabber
       &::after {
-        color: var(--ts-color-utility-100);
+        color: var(--ts-table-headerCell-resizer-dots-color);
         content: '\2026';
         display: block;
         font-size: var(--ts-table-grabber-icon-font-size);
@@ -260,8 +278,8 @@
         left: 50%;
         position: absolute;
         top: 30%;
-        transform: rotate(90deg) translate(var(--ts-table-grip-vertical-adjustment), -3px);
-        z-index: var(--ts-table-zindex-resize-grabber);
+        transform: rotate(90deg) translate(var(--ts-table-grip-vertical-adjustment), -4px);
+        z-index: var(--ts-table-zIndex-resize-grabber);
       }
     }
   }
