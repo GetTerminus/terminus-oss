@@ -245,7 +245,6 @@ export class TsTabHeaderComponent implements AfterContentChecked, AfterContentIn
   @Output()
   public readonly selectFocusedIndex: EventEmitter<number> = new EventEmitter<number>();
 
-
   constructor(
     private elementRef: ElementRef,
     private changeDetectorRef: ChangeDetectorRef,
@@ -264,7 +263,6 @@ export class TsTabHeaderComponent implements AfterContentChecked, AfterContentIn
     // Bind the `mouseleave` event on the outside since it doesn't change anything in the view.
     ngZone.runOutsideAngular(bindEvent);
   }
-
 
   /**
    * After content is checked, update internals as needed

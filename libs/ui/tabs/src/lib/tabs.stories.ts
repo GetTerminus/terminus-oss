@@ -64,7 +64,6 @@ export default {
 export const basic = () => ({
   template: `
     <ts-tab-collection
-      [theme]="theme"
       (animationFinished)="animationFinished($event)"
       (focusChange)="focusChange($event)"
       (selectedIndexChange)="selectedIndexChange($event)"
@@ -76,7 +75,6 @@ export const basic = () => ({
     </ts-tab-collection>
   `,
   props: {
-    theme: select('Theme', ['primary', 'accent', 'warn'], 'primary'),
     animationFinished: action('Animation finished'),
     focusChange: action('Focus changed'),
     selectedIndexChange: action('Selected tab index changed'),
@@ -84,6 +82,7 @@ export const basic = () => ({
   },
 });
 basic.parameters = {
+  knobs: { disabled: true },
   docs: { iframeHeight: 140 },
 };
 

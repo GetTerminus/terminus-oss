@@ -2,11 +2,25 @@
 
 :root {
   --ts-tab-header-border: 1px solid var(--ts-color-utility-300);
-  --ts-tab-bar-height: 48px;
-  --ts-tab-zindex-lower: 1;
-  --ts-tab-zindex-upper: 2;
-  --ts-tab-pagination-minWidth: 32px;
-  --ts-tab-chevron-xy: 8px;
+  --ts-tab-header-bar-height: 48px;
+  --ts-tab-header-zIndex-lower: 1;
+  --ts-tab-header-zIndex-upper: 2;
+  --ts-tab-header-pagination-minWidth: 32px;
+  --ts-tab-header-chevron-xy: 8px;
+  --ts-tab-label-borderRadius: var(--ts-border-radius-base) var(--ts-border-radius-base) 0 0;
+  --ts-tab-label-inverted-borderRadius: 0 0 var(--ts-border-radius-base) var(--ts-border-radius-base);
+  --ts-tab-label-color: var(--ts-color-base-black);
+  --ts-tab-label-active-color: var(--ts-color-primary-500);
+  --ts-tab-label-hover-color: rgba(0, 83, 138, .2);
+  --ts-tab-label-disabled-color: var(--ts-color-utility-300);
+  --ts-tab-label-padding: var(--ts-space-inset-600);
+  --ts-tab-label-whitespace: nowrap;
+  --ts-tab-label-textAlign: center;
+  --ts-tab-label-transition: background-color var(--ts-animation-time-duration-200) var(--ts-tab-ease-in-out-curve-function);
+  --ts-tab-label-inner-transition: transform var(--ts-animation-time-duration-200) cubic-bezier(.35, 0, .25, 1);
+  --ts-tab-header-pagination-chevron-color: var(--ts-color-base-black);
+  --ts-tab-header-pagination-disabled-chevron-color: var(--ts-color-utility-500);
+  --ts-tab-header-pagination-firstLast-custom-padding: var(--ts-space-inset-200);
 }
 
 // The top section of the view containing the tab labels
@@ -24,26 +38,38 @@
     opacity: 1;
   }
   align-items: center;
-  border-radius: var(--ts-border-radius-base) var(--ts-border-radius-base) 0 0;
+  border-radius: var(--ts-tab-label-borderRadius);
   box-sizing: border-box;
-  color: var(--ts-color-base-black);
+  color: var(--ts-tab-label-color);
   cursor: pointer;
   display: inline-flex;
-  height: var(--ts-tab-bar-height);
+  height: var(--ts-tab-header-bar-height);
   justify-content: center;
-  padding: 0 var(--ts-space-inset-600);
+  padding: 0 var(--ts-tab-label-padding);
   position: relative;
-  text-align: center;
-  white-space: nowrap;
+  text-align: var(--ts-tab-label-textAlign);
+  transition: var(--ts-tab-label-transition);
+  white-space: var(--ts-tab-label-whitespace);
 
-  &:focus {
-    @include cdk-high-contrast {
-      outline: dotted 2px;
-    }
-    outline: none;
-
+  &--active {
     &:not(.ts-tab-label--disabled) {
+      --ts-tab-label-color: var(--ts-tab-label-active-color);
+    }
+  }
+
+  &:not(.ts-tab-label--disabled) {
+    &:focus {
+      @include cdk-high-contrast {
+        outline: dotted 2px;
+      }
+      color: var(--ts-tab-label-color);
       opacity: 1;
+      outline: none;
+    }
+
+    &:hover {
+      background-color: var(--ts-tab-label-hover-color);
+      color: var(--ts-tab-label-color);
     }
   }
 
@@ -51,7 +77,7 @@
     @include cdk-high-contrast {
       opacity: .5;
     }
-    color: var(--ts-color-utility-300);
+    --ts-tab-label-color: var(--ts-tab-label-disabled-color);
     cursor: not-allowed;
   }
 
@@ -65,7 +91,7 @@
   }
 
   .ts-tab-collection--inverted-header & {
-    border-radius: 0 0 var(--ts-border-radius-base) var(--ts-border-radius-base);
+    --ts-tab-label-borderRadius: var(--ts-tab-label-inverted-borderRadius);
   }
 }
 
@@ -75,12 +101,12 @@
   cursor: pointer;
   display: none;
   justify-content: center;
-  min-width: var(--ts-tab-pagination-minWidth);
+  min-width: var(--ts-tab-header-pagination-minWidth);
   position: relative;
   -webkit-tap-highlight-color: transparent;
   touch-action: none;
   user-select: none;
-  z-index: var(--ts-tab-zindex-upper);
+  z-index: var(--ts-tab-header-zIndex-upper);
 
   .ts-tab-header__pagination--enabled & {
     display: flex;
@@ -88,17 +114,17 @@
 
   // Icon within a pagination control
   .ts-tab-header__pagination-chevron {
-    border-color: var(--ts-color-base-black);
+    border-color: var(--ts-tab-header-pagination-chevron-color);
     border-style: solid;
     border-width: 2px 2px 0 0;
     content: '';
-    height: var(--ts-tab-chevron-xy);
-    width: var(--ts-tab-chevron-xy);
+    height: var(--ts-tab-header-chevron-xy);
+    width: var(--ts-tab-header-chevron-xy);
   }
 
   // The pagination control that is displayed at the beginning of the tab header
   &--before {
-    padding-left: var(--ts-space-inset-200);
+    padding-left: var(--ts-tab-header-pagination-firstLast-custom-padding);
 
     .ts-tab-header__pagination-chevron {
       transform: rotate(-135deg);
@@ -107,7 +133,7 @@
 
   // The pagination control that is displayed at the end of the tab header
   &--after {
-    padding-right: var(--ts-space-inset-200);
+    padding-right: var(--ts-tab-header-pagination-firstLast-custom-padding);
 
     .ts-tab-header__pagination-chevron {
       transform: rotate(45deg);
@@ -120,7 +146,7 @@
   cursor: default;
 
   .ts-tab-header__pagination-chevron {
-    color: var(--ts-color-utility-500);
+    --ts-tab-header-pagination-chevron-color: var(--ts-tab-header-pagination-disabled-chevron-color);
   }
 }
 
@@ -128,14 +154,14 @@
   display: flex;
   flex-grow: 1;
   overflow: hidden;
-  z-index: var(--ts-tab-zindex-lower);
+  z-index: var(--ts-tab-header-zIndex-lower);
 }
 
 // Inner container around tabs within the label container
 .ts-tab-header__labels-container-inner {
   flex-grow: 1;
   position: relative;
-  transition: transform var(--ts-tab-animation-duration) var(--ts-tab-ease-in-out-curve-function);
+  transition: var(--ts-tab-label-inner-transition);
 }
 
 // The innermost wrapper for the collection of labels
@@ -143,45 +169,8 @@
   display: flex;
 }
 
-
-// Layout and theming support based on parent classes
+// Layout support based on parent classes
 .ts-tab-collection {
-  $theme-colors: (
-    primary: var(--ts-color-primary-500),
-    accent: var(--ts-color-accent-500),
-    warn: var(--ts-color-warn-500),
-  );
-  --ts-tab-primary-color-hover: rgba(0, 83, 138, .2);
-  --ts-tab-accent-color-hover: rgba(47, 133, 77, .2);
-  --ts-tab-warn-color-hover: rgba(200, 96, 77, .2);
-
-  // Add hover states for labels that match the current theme
-  @each $name, $color in $theme-colors {
-    &.ts-tab-collection--#{$name} {
-      .ts-tab-label {
-        transition: background-color var(--ts-tab-animation-duration) var(--ts-tab-ease-in-out-curve-function);
-
-        &--active {
-          &:not(.ts-tab-label--disabled) {
-            color: $color;
-          }
-        }
-
-
-        &:not(.ts-tab-label--disabled) {
-          &:focus {
-            color: $color;
-          }
-
-          &:hover {
-            background-color: var(--ts-tab-#{$name}-color-hover);
-            color: $color;
-          }
-        }
-      }
-    }
-  }
-
   // Align the tabs according to the container classes
   &.ts-tab-collection--start {
     .ts-tab-header__labels {

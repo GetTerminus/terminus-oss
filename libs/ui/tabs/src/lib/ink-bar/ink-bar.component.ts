@@ -27,7 +27,6 @@ export class TsTabInkBarComponent {
     private ngZone: NgZone,
   ) {}
 
-
   /**
    * Calculate the styles from the provided element in order to align the ink-bar to that element.
    * Shows the ink bar if previously set as hidden.

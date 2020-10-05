@@ -1,3 +1,8 @@
+:root {
+  --ts-tab-ease-in-out-curve-function: cubic-bezier(.35, 0, .25, 1);
+  --ts-tab-collection-wrapper-transition: height var(--ts-animation-time-duration-200) var(--ts-tab-ease-in-out-curve-function);
+}
+
 // Container around all tabs
 .ts-tab-collection {
   display: flex;
@@ -14,5 +19,5 @@
   display: flex;
   overflow: hidden;
   position: relative;
-  transition: height var(--ts-tab-animation-duration) var(--ts-tab-ease-in-out-curve-function);
+  transition: var(--ts-tab-collection-wrapper-transition);
 }
