@@ -317,7 +317,7 @@ export class TsPaginatorComponent implements OnChanges, AfterViewInit {
    * Emit a change event when the records per page changes
    */
   @Output()
-  public readonly recordsPerPageChange = new EventEmitter<number>();
+  public readonly recordsPerPageChange = new EventEmitter<number[]>();
 
   /**
    * Emit an event when previous page button clicked
@@ -488,8 +488,8 @@ export class TsPaginatorComponent implements OnChanges, AfterViewInit {
    *
    * @param selection - The selected records-per-page count
    */
-  public recordsPerPageUpdated(selection: TsSelectionListChange<number>): void {
-    this.recordsPerPage = selection.value;
+  public recordsPerPageUpdated(selection: TsSelectionListChange<number[]>): void {
+    this.recordsPerPage = selection.value[0];
     this.currentPageIndex = this.firstPageIndex;
     this.recordsPerPageChange.emit(selection.value);
     this.initialize();
