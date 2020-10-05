@@ -11,15 +11,12 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import {
   ControlValueAccessorProviderFactory,
   TsReactiveFormBaseComponent,
-  TsStyleThemeTypes,
 } from '@terminus/ui-utilities';
-
 
 /**
  * Expose the MatSlideToggleChange event as TsSlideToggleChange. Used by {@link TsToggleComponent}
  */
 export class TsSlideToggleChange extends MatSlideToggleChange {}
-
 
 /**
  * The is a toggle component
@@ -32,7 +29,6 @@ export class TsSlideToggleChange extends MatSlideToggleChange {}
  *              [isRequired]="true"
  *              labelPosition="before"
  *              name="My toggle"
- *              theme="accent"
  *              (selectionChange)="myMethod($event)"
  * >My Toggle!</ts-toggle>
  *
@@ -95,14 +91,8 @@ export class TsToggleComponent extends TsReactiveFormBaseComponent {
   public name = 'toggle';
 
   /**
-   * Define the theme
-   */
-  @Input()
-  public theme: TsStyleThemeTypes = 'primary';
-
-  /**
    * Emit an event each time the toggle value changes
    */
   @Output()
-  public readonly selectionChange: EventEmitter<TsSlideToggleChange> = new EventEmitter();
+  public readonly selectionChange = new EventEmitter<TsSlideToggleChange>();
 }

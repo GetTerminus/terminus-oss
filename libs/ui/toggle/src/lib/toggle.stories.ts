@@ -35,34 +35,6 @@ export const basic = () => ({
   },
 });
 
-export const themes = () => ({
-  component: TsToggleComponent,
-  template: `
-    <style>
-      ts-toggle:not(:last-of-type) {
-        margin-right: 1rem;
-      }
-    </style>
-    <div tsVerticalSpacing="large--1">
-      <ts-toggle theme="primary" [isChecked]="true">Primary Toggle</ts-toggle>
-      <ts-toggle theme="primary" [isChecked]="true" [isDisabled]="true">Primary Disabled</ts-toggle>
-    </div>
-    <div tsVerticalSpacing="large--1">
-      <ts-toggle theme="accent" [isChecked]="true">Accent Toggle</ts-toggle>
-      <ts-toggle theme="accent" [isChecked]="true" [isDisabled]="true">Accent Disabled</ts-toggle>
-    </div>
-    <div>
-      <ts-toggle theme="warn" [isChecked]="true">Warn Toggle</ts-toggle>
-      <ts-toggle theme="warn" [isChecked]="true" [isDisabled]="true">Warn Disabled</ts-toggle>
-    </div>
-  `,
-});
-themes.parameters = {
-  knobs: { disabled: true },
-  actions: { disabled: true },
-  docs: { iframeHeight: 200 },
-};
-
 export const labelPosition = () => ({
   component: TsToggleComponent,
   template: `<ts-toggle [labelPosition]="labelPosition">My toggle!</ts-toggle>`,
