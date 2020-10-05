@@ -1,13 +1,4 @@
-@import '~@terminus/ui-styles/helpers';
-
-
-//
-// @component
-//  Toggle component
-// @description
-//  A toggle/switch component
-//
 .ts-toggle {
-  @include reset;
+  box-sizing: border-box;
   display: inline-block;
 }
