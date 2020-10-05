@@ -1,5 +1,14 @@
 @import '~@terminus/ui-styles/helpers';
 
+:root {
+  --ts-navigation-background: var(--ts-color-navigation-blue);
+  --ts-navigation-color: var(--ts-color-base-white);
+  --ts-navigation-typography: var(--ts-typography-compound-body2);
+  --ts-navigation-items-paddingRight: var(--ts-space-inset-500);
+  --ts-navigation-item-padding: 0 var(--ts-space-inset-500);
+  --ts-navigation-item-pseudoElement-transitionDuration: var(--ts-animation-time-duration-200);
+}
+
 .ts-navigation {
   @include reset;
   display: inline-block;
@@ -9,9 +18,9 @@
 
   // Top level styles should be nested here
   .c-navigation {
-    background-color: var(--ts-color-navigation-blue);
-    color: var(--ts-color-light);
-    font: var(--ts-typography-compound-body2);
+    background-color: var(--ts-navigation-background);
+    color: var(--ts-navigation-color);
+    font: var(--ts-navigation-typography);
   }
 }
 
@@ -19,7 +28,7 @@
   // <div> wrapper for list of navigation items
   .c-navigation__items {
     overflow: hidden;
-    padding-right: var(--ts-space-inset-500);
+    padding-right: var(--ts-navigation-items-paddingRight);
   }
 
   // <button> individual nav item
@@ -31,7 +40,7 @@
     font-family: inherit;
     font-size: 14px;
     letter-spacing: .04em;
-    padding: 0 var(--ts-space-inset-500);
+    padding: var(--ts-navigation-item-padding);
     // Set up for bottom pseudo element
     position: relative;
     text-decoration: none;
