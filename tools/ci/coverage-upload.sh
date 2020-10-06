@@ -35,8 +35,7 @@ upload_coverage () {
   done
 }
 
-
-LOCATIONS=('coverage/libs/ui' 'coverage/apps')
+LOCATIONS=('coverage/libs/ui')
 
 for L in "${LOCATIONS[@]}"; do
   upload_coverage "$L"
