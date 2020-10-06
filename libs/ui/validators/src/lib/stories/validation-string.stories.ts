@@ -43,7 +43,22 @@ type StringDemos
 @Component({
   selector: 'ts-string-wrapper',
   template: `
+    <style>
+      input {
+        display: block;
+        margin-top: .5rem;
+      }
+      pre {
+        font-size: 12px;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+    </style>
     <div *ngIf="demo === 'lowercase'">
+      <label>
+        I need at least 4 lowercase characters
+        <input type="text" [formControl]="lowercaseControl">
+      </label>
       <ts-validation-messages
         [control]="lowercaseControl"
         [validateOnChange]="true"
@@ -51,6 +66,10 @@ type StringDemos
     </div>
 
     <div *ngIf="demo === 'uppercase'">
+      <label>
+        I need at least 4 uppercase characters
+        <input type="text" [formControl]="uppercaseControl">
+      </label>
       <ts-validation-messages
         [control]="uppercaseControl"
         [validateOnChange]="true"
@@ -81,6 +100,10 @@ type StringDemos
     shouldfail.com
   </pre>
       </div>
+      <label>
+        I need a valid domain
+        <input type="text" [formControl]="domainControl">
+      </label>
       <ts-validation-messages
         [control]="domainControl"
         [validateOnChange]="true"
@@ -112,6 +135,10 @@ http://.www.foo.bar./
 http:// shouldfail.com
 </pre>
       </div>
+      <label>
+        I need a valid URL
+        <input type="text" [formControl]="urlControl">
+      </label>
       <ts-validation-messages
         [control]="urlControl"
         [validateOnChange]="true"

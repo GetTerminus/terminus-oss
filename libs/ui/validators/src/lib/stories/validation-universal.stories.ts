@@ -48,16 +48,33 @@ type UniversalDemos
   selector: 'ts-universal-wrapper',
   template: `
     <style>
+      input {
+        display: block;
+        margin-top: .5rem;
+      }
+      pre {
+        font-size: 12px;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
     </style>
     <div *ngIf="demo === 'equalToControl'">
       <div fxLayout="row" fxLayoutGap="2em">
         <div fxFlex>
+          <label>
+            I must match the next input
+            <input type="text" [formControl]="compare1Control">
+          </label>
           <ts-validation-messages
             [control]="compare1Control"
             [validateOnChange]="true"
           ></ts-validation-messages>
         </div>
         <div fxFlex>
+          <label>
+            I must match the previous input
+            <input type="text" [formControl]="compare2Control">
+          </label>
           <ts-validation-messages
             [control]="compare2Control"
             [validateOnChange]="true"
@@ -68,17 +85,35 @@ type UniversalDemos
 
     <div *ngIf="demo === 'inCollection'" fxLayout="row" fxLayoutGap="4rem">
       <div fxFlex>
+        <label>
+          I must contain something from the shallow collection
+          <input type="text" [formControl]="inCollectionShallowControl">
+        </label>
         <ts-validation-messages
           [control]="inCollectionShallowControl"
           [validateOnChange]="true"
         ></ts-validation-messages>
+
+<pre>
+Shallow Collection:
+{{ shallowCollection | json }}
+</pre>
       </div>
 
       <div fxFlex>
+        <label>
+          I must contain something from the deep collection
+          <input type="text" [formControl]="inCollectionDeepControl">
+        </label>
         <ts-validation-messages
           [control]="inCollectionDeepControl"
           [validateOnChange]="true"
         ></ts-validation-messages>
+
+<pre>
+Deep Collection:
+{{ deepCollection | json }}
+</pre>
       </div>
     </div>
 
@@ -92,7 +127,7 @@ V9Cpp7RGB9
 FQ49j6BQ2BqerBnFMkeL7hfMw83fVsseAMV9xDJrTWd9J8xNFQ49j6BQ2BqerBnFMkeL7hfMw83fVsseAMV9xDJrTWd9J8xsdN
 </pre>
 
-        <pre fxFlex>
+<pre fxFlex>
 // Invalid passwords:
 MA9Lv
 xnhoQzDwAv
@@ -102,6 +137,10 @@ FQ49j6BQ2BqerBnFMkeL7hfMw83fVsseAMV9xDJrTWd9J8xsdNFQ49j6BQ2BqerBnFMkeL7hfMw83fVs
 </pre>
       </div>
 
+      <label>
+        I must meet the password requirements
+        <input type="text" [formControl]="passwordControl">
+      </label>
       <ts-validation-messages
         [control]="passwordControl"
         [validateOnChange]="true"
