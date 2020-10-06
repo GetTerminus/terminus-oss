@@ -43,7 +43,17 @@ type NumberDemos
 @Component({
   selector: 'ts-number-wrapper',
   template: `
+    <style>
+      input {
+        display: block;
+        margin-top: .5rem;
+      }
+    </style>
     <div *ngIf="demo === 'numbers'">
+      <label>
+        I must contain at least 4 numbers
+        <input type="number" [formControl]="numbersControl">
+      </label>
       <ts-validation-messages
         [control]="numbersControl"
         [validateOnChange]="true"
@@ -51,6 +61,10 @@ type NumberDemos
     </div>
 
     <div *ngIf="demo === 'lessThan'">
+      <label>
+        My value must be less than 10
+        <input type="number" [formControl]="lessThanControl">
+      </label>
       <ts-validation-messages
         [control]="lessThanControl"
         [validateOnChange]="true"
@@ -58,6 +72,10 @@ type NumberDemos
     </div>
 
     <div *ngIf="demo === 'greaterThan'">
+      <label>
+        My value must be greater than 10
+        <input type="number" [formControl]="greaterThanControl">
+      </label>
       <ts-validation-messages
         [control]="greaterThanControl"
         [validateOnChange]="true"
@@ -65,6 +83,10 @@ type NumberDemos
     </div>
 
     <div *ngIf="demo === 'isInRange'">
+      <label>
+        My value must be at least 10 and no greater than 100
+        <input type="number" [formControl]="isInRangeControl">
+      </label>
       <ts-validation-messages
         [control]="isInRangeControl"
         [validateOnChange]="true"
