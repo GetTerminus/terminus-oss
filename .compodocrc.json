@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@compodoc/compodoc/src/config/schema.json",
-  "customFavicon": "./apps/showcase-ui/src/favicon.ico",
+  "customFavicon": "./apps/storybook-dummy/src/favicon.ico",
   "customLogo": "./tools/mark-small.svg",
   "disableCoverage": true,
   "disableDomTree": true,
