@@ -67,9 +67,6 @@ $ nx affected:test --base=release~1 --head=release
 # Generate code coverage:
 $ nx test my-project --codeCoverage
 
-# Serve an application:
-$ nx serve showcase-ui
-
 # Add yourself as a contributor
 # See contribution types here: http://bnj.bz/3C1S0A0d1c3U
 $ yarn run contributors:add [your-github-handle] [contribution-type]
@@ -88,7 +85,8 @@ See the [bot usage docs][all-contrib-bot] for more.
 
 ### Visual Regression (vr)
 
-Visual regression is now handled by Storybook and Chromatic during the PR process.
+Storybook and Chromatic handle the visual regression tests during the PR process. Any changes must be approved to
+unblock the PR.
 
 ### Setting up NX cloud
 
@@ -128,13 +126,12 @@ Note: Our base branch, `release`, is **always deployable**.
 #### Naming
 
 1. Branches should have a brief but comprehensive name.
-    - The name should clearly encompass the work that the branch will contain. A name like
-    `user-view` may make sense now, but some time later it will be difficult to know what work was
-    done on the branch. A better name could be `27-create-user-detail-view`. Be as specific as
-    possible, while keeping the length as short as possible.
+   - The name should clearly encompass the work that the branch will contain. A name like `user-view` may make sense
+      now, but some time later it will be difficult to know what work exists on the branch. A better name could be
+      `27-create-user-detail-view`. Be as specific as possible, while keeping the length as short as possible.
 1. Branches should have the associated GitHub issue number in the name.
     - This is a helpful reference to the issue details. More importantly, it forces everyone to
-    create the issue _before_ the work begins. If it is worth doing, than it deserves an issue. This
+    create the issue _before_ the work begins. If it is worth doing, then it deserves an issue. This
     creates better historical data and more importantly, gives everyone visibility into the work
     being done.
     - The number should be at the beginning of the branch name: `45-update-payment-gateways`. This
@@ -206,12 +203,11 @@ To see all valid types for a project, look for the file `cz-config.js`.
 
 #### Breaking Changes
 
-When a commit contains a breaking change, it _must_ be included in the commit message body (not the
-title). Both words should be uppercase and the comment body should include everything that other
-engineers may need to know: `BREAKING CHANGE: A description of the breaking change`. This could
-include comments, images, code examples, and more. Generally speaking, **more information is
-better**.  (Note: when using the cli prompt, it will ask you about any breaking changes and add the
-prefix `BREAKING CHANGES:` automatically)
+When a commit contains a breaking change, it _must_ be included in the commit message body (not the title). Both words
+should be uppercase, and the comment body should include everything that other engineers may need to know: `BREAKING
+CHANGE: A description of the breaking change`. This could include comments, images, code examples, and more. Generally
+speaking, **more information is better**. (Note: when using the cli prompt, it will ask you about any breaking changes
+and add the prefix `BREAKING CHANGES:` automatically)
 
 Learn more about the automatic versioning tools we use:
 
@@ -242,6 +238,8 @@ We use [Jest][jest] for unit tests.
 $ nx test ui-button
 
 # Test all affected packages
+$ nx affected:test
+# Optionally define the base and head to compare
 $ nx affected:test --base=release --head=HEAD
 ```
 
@@ -250,8 +248,8 @@ $ nx affected:test --base=release --head=HEAD
 When it is time merge a branch into `release`, create a pull request from the feature into `release`.
 
 1. At the top of the pull request, link to the original issue.
-    - If the [ZenHub][zenhub] extension is installed in your browser, you can attach an issue to the
-      PR via the built in controls
+   - If you have the [ZenHub][zenhub] extension installed in your browser, you can attach an issue to the PR
+      via the built in controls
 1. If the pull request includes more than one item, include a high level list of what was done.
 1. If the pull request covers UI changes, include a GIF or image to clearly show the change (bonus
    points for before and after images).
@@ -270,21 +268,21 @@ When it is time merge a branch into `release`, create a pull request from the fe
 
 ### Releasing
 
-Releases are handled automatically when code is merged to `release`. Never merge code to `release` that is not ready for
-consumers!
+Releases are handled automatically when code is merged to the `release` branch. Never merge code to `release` that is
+not ready for consumers!
 
 1. [Semantic Release][semantic-release] looks at all commits since the last tag on `release`.
 1. Based on those commits it will [bump the version number appropriately][semver].
 1. The package changelog is generated on [Github][oss-github].
 1. The new version is published to [NPM][ui-npm] under the `next` tag.
 1. When the new functionality is verified, it is tagged as `latest`:
-   - `npm dist-tag add @terminus/ui-<package>@<version to promote> latest`
+   - `npm dist-tag add @terminus/ui-<package>@<version> latest`
 
-> NOTE: currently `yarn tag` outputs an error even though the tagging seems to work. Because of
-> this, we will continue using NPM for tagging.
+> NOTE: At the time of this writing, `yarn tag` outputs an error even though the tagging seems to work. Because of this,
+> we will continue using NPM for tagging.
 
-You can view published files using the [unpkg CDN][unpkg]. An example link:
-`https://unpkg.com/browse/@terminus/ui-button@1.0.8/`
+You can view published files using the jsdelivr CDN. An example link:
+`https://www.jsdelivr.com/package/npm/@terminus/ui-button`
 
 ### Code Comments
 
@@ -317,13 +315,13 @@ machines.
 ```
 
 1. All engineers should do their best to never need most of these note types. However, if needed,
-  _always_ include the reason the note is needed. Remember, more information is better!
+  _always_ include the reason. Remember, more information is better!
 
 #### JSDoc Tags
 
 ##### Type
 
-We don't use the type tag since the types are documented ina the TypeScript code.
+We don't use the type tag since the type documentation lives in the TypeScript code.
 
 ##### Deprecated
 
@@ -391,7 +389,8 @@ the table of contents.
 
 ### Schematics
 
-Schematics is used to provide installation help. With that consumer can add each individual package via:
+Schematics are created to provide installation help. With these schematics, consumers can add a package and all of it's
+dependencies via:
 
 ```bash
 ng add @terminus/ui-input
@@ -406,19 +405,19 @@ If there is any change to an existing package's `package.json` dependency block,
 Any code merged to the `release` branch gets published under the `next` tag:
 
 ```bash
-yarn add @terminus/ui@next
+yarn add @terminus/ui-button@next
 ```
 
 Once the code is ready to be promoted to `latest` a member of our NPM organization can promote it:
 
 ```bash
 # Replace `0.0.0` with the version to promote
-npm dist-tag add @terminus/ui@0.0.0 latest
+npm dist-tag add @terminus/ui-button@0.0.0 latest
 ```
 
 ## Code Style
 
-Most code style is enforced through ESLint, TSLint and Stylelint, so make sure to run all of the linters.
+Code style is enforced by ESLint and Stylelint. All linters must be passing before a PR can be accepted.
 
 ### Lint configurations
 
@@ -575,29 +574,27 @@ Also, a project-specific .storybook folder is added in the root of the project:
 └── etc...
 ```
 
-Then you can build the storybook with:
+Then you can serve the storybook:
 
 ```bash
-nx run ui-button:build-storybook
+nx storybook ui-button
 ```
 
-Or build and serve the storybook with:
+Or compile a static version:
 
 ```bash
-nx run ui-button:storybook
+nx build-storybook ui-button
 ```
 
 This allows to quickly spin up one Storybook instance for development.
 
 ### Build storybook for all the projects
 
-There are cases when we'd want to see stories from multiple or even all of libraries, together in a single Storybook
+There are cases when we may want to see stories from multiple or even all libraries together in a single Storybook
 instance. For example, a demo page for our library needs to contain stories from all the components. Storybook doesn't
 support this out of the box.
 
-What we could do is to create a separate project, which references all the stories that we'd like to include.
-
-In our case, we create a stories folder at the root level:
+To solve this, we have created a separate project, which references all stories that should be included.
 
 ```bash
 <terminus-oss>/
@@ -609,7 +606,7 @@ In our case, we create a stories folder at the root level:
        |--- card
        |--- csv-entry
    |--- tokens
-|--- stories/
+|--- stories/        <---- Here is our project
     |--- ui/
         |--- storybook/
             |--- .storybook/
@@ -618,13 +615,13 @@ In our case, we create a stories folder at the root level:
                  |--- webpack.config.js
 ```
 
-And inside this `config.js`, we reference to the stories that we'd like it to include with:
+Inside this `config.js`, we reference to the stories that we'd like it to include with:
 
 ```typescript
 configure(require.context('../../../../libs/ui/', true, /\.stories\.tsx?$/), module);
 ```
 
-Then in `angular.json` config, we config how we'd like it to run:
+Then in `angular.json` config, we configure how it should run:
 
 ```json
     "ui-storybook": {
@@ -666,7 +663,7 @@ Then in `angular.json` config, we config how we'd like it to run:
       }
 ```
 
-Then we'll be able to run this command to build all the stories in one storybook:
+Running this command will build all stories in a single storybook:
 
 ```bash
 nx run ui-storybook:build-allstorybook
@@ -712,10 +709,9 @@ During the CI process, `STORIES` will be replaced with a list of affected storyb
 
 PLEASE **DO NOT** COMMIT CHANGES in `storybook/main.js`
 
----
-
-After that, we'd use `build-storybook -c .storybook -o dist/storybook` to build one storybook with the stories from
-`button`, `card` and `csv-entry`. Then chromatic could run through that storybook for visual comparison.
+With our above example, running `build-storybook -c .storybook -o dist/storybook` would then build one storybook with
+the stories from `button`, `card` and `csv-entry`. Then chromatic will run through that storybook for visual and DOM
+comparison.
 
 ### Storybook global styles
 
@@ -725,7 +721,10 @@ When running all storybooks together, global styles or fonts can be added to the
 
 ```html
 <!-- stories/ui/storybook/.storybook/preview-head.html -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@terminus/ui-styles/terminus-ui.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@terminus/design-tokens/css/design-tokens.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@terminus/design-tokens/css/library-design-tokens.min.css">
 <style type="text/css">
   html, body {
     outline: 4px solid gray;
@@ -741,7 +740,10 @@ that package:
 ```html
 <!-- Example: -->
 <!-- libs/ui/button/.storybook/preview-head.html -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@terminus/ui-styles/terminus-ui.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@terminus/design-tokens/css/design-tokens.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@terminus/design-tokens/css/library-design-tokens.min.css">
 <style type="text/css">
   html, body {
     outline: 4px solid gray;
@@ -759,7 +761,6 @@ that package:
 [ui-npm]: https://www.npmjs.com/package/@terminus/ui
 [oss-github]: https://github.com/GetTerminus/terminus-oss
 [semver]: http://semver.org/
-[unpkg]: https://unpkg.com/  
 [pkg-json]: https://github.com/GetTerminus/terminus-oss/blob/release/package.json
 [jest]: https://facebook.github.io/jest/
 [zenhub]: https://www.zenhub.com/
