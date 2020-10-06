@@ -10,7 +10,8 @@ coverage:
     project:
       default: off
       unit:
-        flags: unit
+        flags:
+          - unit
 
 comment:
   layout: "reach, diff, flags, files"
