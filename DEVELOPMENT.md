@@ -18,6 +18,7 @@
     - [Breaking Changes](#breaking-changes)
   - [Linting](#linting)
   - [Testing](#testing)
+    - [Validate Codecov Yaml](#validate-codecov-yaml)
   - [Pull Requests](#pull-requests)
   - [Releasing](#releasing)
   - [Code Comments](#code-comments)
@@ -241,6 +242,14 @@ $ nx test ui-button
 $ nx affected:test
 # Optionally define the base and head to compare
 $ nx affected:test --base=release --head=HEAD
+```
+
+#### Validate Codecov Yaml
+
+Verify the validity of the Codecov validation file:
+
+```bash
+curl --data-binary @.github/.codecov.yml https://codecov.io/validate
 ```
 
 ### Pull Requests
