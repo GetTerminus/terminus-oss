@@ -58,9 +58,8 @@ export function getCheckboxElement(fixture: ComponentFixture<any>, index = 0): H
  * @returns The Promise from fixture.whenStable
  */
 export function toggleCheckbox(fixture: ComponentFixture<any>, index = 0): Promise<any> {
-  const element = getCheckboxElement(fixture);
+  const element = getCheckboxElement(fixture, index);
   const innerCheckbox: HTMLElement | null = element.querySelector('input');
-  console.log('toggle: innerCheckbox: ', innerCheckbox);
   if (!innerCheckbox) {
     throw new Error(`'toggleCheckbox' found no inner checkbox`);
   }

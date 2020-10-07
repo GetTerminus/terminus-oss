@@ -1,13 +1,30 @@
-<mat-checkbox
-  class="c-checkbox qa-checkbox"
-  color="primary"
-  [indeterminate]="isIndeterminate"
-  [disabled]="isDisabled ? 'disabled' : null"
-  [required]="isRequired ? '' : null"
-  [(ngModel)]="value"
-  tabIndex="{{ tabIndex }}"
-  (change)="inputChange.emit($event.checked)"
-  (indeterminateChange)="indeterminateChange.emit($event)"
->
-  <ng-content></ng-content>
-</mat-checkbox>
+<div class="c-checkbox">
+  <input
+    class="c-checkbox__input cdk-visually-hidden"
+    type="checkbox"
+    [attr.aria-checked]="ariaCheckedState"
+    [attr.aria-describedby]="ariaDescribedby"
+    [attr.aria-labelledby]="ariaLabelledby"
+    [attr.aria-label]="ariaLabel || null"
+    [attr.name]="name"
+    [attr.value]="value"
+    [checked]="isChecked"
+    [disabled]="isDisabled"
+    [id]="inputId"
+    [required]="isRequired"
+    [tabIndex]="tabIndex"
+    (change)="onInteractionEvent($event)"
+    (click)="inputClick($event)"
+    #input
+  >
+  <label class="c-checkbox__label c-checkbox__label--svg" [attr.for]="inputId">
+    <svg viewBox="0 0 100 100" focusable="false">
+      <path class="path" fill="none" stroke="#000" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+            d="M12.1 52.1l24.4 24.4 53-53"/>
+    </svg>
+    <!-- Element for rendering the indeterminate state line -->
+    <span class="c-checkbox__label-mixed-mark"></span>
+    <span class="c-checkbox__label-content-wrap"><ng-content></ng-content></span>
+    <span class="c-checkbox__label-content-default">{{ label }}</span>
+  </label>
+</div>
