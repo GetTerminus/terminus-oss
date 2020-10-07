@@ -68,6 +68,7 @@ module.exports = {
       'rules': {
         '@angular-eslint/prefer-on-push-component-change-detection': DISABLED,
         'import/no-unassigned-import': DISABLED,
+        'no-return-assign': DISABLED,
       },
     },
 
