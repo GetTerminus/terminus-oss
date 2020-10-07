@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import {
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 
 import { TsCheckboxComponent } from './checkbox/checkbox.component';
 
@@ -11,7 +13,7 @@ export * from './checkbox/checkbox.component';
   imports: [
     CommonModule,
     FormsModule,
-    MatCheckboxModule,
+    ReactiveFormsModule,
   ],
   exports: [TsCheckboxComponent],
   declarations: [TsCheckboxComponent],

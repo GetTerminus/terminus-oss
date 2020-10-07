@@ -9,13 +9,23 @@
 
 - [Installation](#installation)
   - [Packages to be installed](#packages-to-be-installed)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
+  - [Modules that need to be included in your application](#modules-that-need-to-be-included-in-your-application)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
-  - [Reactive Forms](#reactive-forms)
-  - [`ngModel`](#ngmodel)
-  - [`isChecked`](#ischecked)
+  - [State](#state)
+    - [Reactive Forms](#reactive-forms)
+    - [`ngModel`](#ngmodel)
+    - [Checked](#checked)
+    - [Disabled](#disabled)
+    - [Indeterminate](#indeterminate)
+    - [Required](#required)
+  - [a11y](#a11y)
+  - [Tab Index](#tab-index)
+  - [Focus](#focus)
+  - [Events](#events)
+  - [Default settings](#default-settings)
+    - [Click action](#click-action)
 - [Test Helpers](#test-helpers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -24,8 +34,6 @@
 
 ### Packages to be installed
 
-- `@angular/cdk`
-- `@angular/material`
 - `@terminus/design-tokens`
 - `@terminus/fe-utilities`
 - `@terminus/ui-checkbox`
@@ -39,13 +47,13 @@ Use the `ng add` command to quickly install all the needed dependencies:
 ng add @terminus/ui-checkbox
 ```
 
-### Modules that need to be in NgModule
+### Modules that need to be included in your application
 
 - `TsCheckboxModule`
   
 ### CSS imports
 
-In your top level stylesheet, add these imports:
+In your top-level stylesheet, add these imports:
 
 ```css
 @import '~@terminus/design-tokens/css/library-design-tokens.css';
@@ -62,23 +70,35 @@ Load the needed font families by adding this link to the `<head>` of your applic
 
 ## Usage
 
-Place your label text inside the component:
+The checkbox label content can be set in two ways:
 
 ```html
+<!-- Pass text in through ng-content -->
 <ts-checkbox>My checkbox label</ts-checkbox>
+
+<!-- Pass text in through the label input -->
+<ts-checkbox label="My checkbox label"></ts-checkbox>
 ```
 
-### Reactive Forms
+### State
 
-To use the checkbox with a reactive form, pass the `formControl` to the checkbox:
+#### Reactive Forms
+
+To use the checkbox with a reactive form, pass the `FormControl` or the `formControlName` to the checkbox:
 
 ```html
 <ts-checkbox [formControl]="myForm.get('myControl')">
-  I will be checked if `myControl.value` is true.
+  I will be checked if `myForm.myControl.value` is true.
+</ts-checkbox>
+
+<ts-checkbox formControlName="myControl">
+  I will be checked if `myForm.myControl.value` is true.
 </ts-checkbox>
 ```
 
-### `ngModel`
+> NOTE: If no `FormControl` or `ngModel` is passed in, one will be assigned to manage state.
+
+#### `ngModel`
 
 To use the checkbox with Angular's `ngModel`, just attach the directive to the checkbox:
 
@@ -88,21 +108,131 @@ To use the checkbox with Angular's `ngModel`, just attach the directive to the c
 </ts-checkbox>
 ```
 
-### `isChecked`
+#### Checked
 
-To seed the initial checked state use the `isChecked` property:
+The checked state will likely be managed by setting the `FormControl` or `ngModel` value. It can also be set via
+`@Input` or programmatically:
 
 ```html
-<ts-checkbox [isChecked]="true">
-  I will be checked by default!
-</ts-checkbox>
+<!-- @Input -->
+<ts-checkbox [isChecked]="true">I will be checked</ts-checkbox>
+
+<!-- Programmatically -->
+<ts-checkbox #myCheckbox="tsCheckbox">I can be toggled via a button</ts-checkbox>
+<button (click)="myCheckbox.toggle()">Toggle the checked value</button>
 ```
 
-> NOTE: This should rarely be used (if ever). We should be relying on a Reactive Form or ngModel.
+> NOTE: Events will not be emitted when state changes programmatically.
+
+#### Disabled
+
+The checkbox can be disabled by disabling the associated `FormControl` or `ngModel`. It can also be set via `@Input` or
+programmatically:
+
+```html
+<!-- @Input -->
+<ts-checkbox [isDisabled]="true">I will be disabled</ts-checkbox>
+
+<!-- Programmatically -->
+<ts-checkbox #myCheckbox="tsCheckbox">I can be disabled via a button</ts-checkbox>
+<button (click)="myCheckbox.isDisabled != myCheckbox.isDisabled">Toggle the disabled state</button>
+```
+
+#### Indeterminate
+
+The indeterminate state can be set via `@Input`:
+
+```html
+<ts-checkbox [isIndeterminate]="true">I will be indeterminate</ts-checkbox>
+```
+
+#### Required
+
+The checkbox can be marked as required:
+
+```html
+<ts-checkbox [isRequired]="true">I will be required</ts-checkbox>
+```
+
+### a11y
+
+The checkbox supports aria properties:
+
+```html
+<!-- Pass the ID of an element that describes the checkbox -->
+<ts-checkbox [ariaDescribedby]="myId">Foo</ts-checkbox>
+
+<!-- Pass a space-separated list of element IDs that provide essential information about the checkbox -->
+<ts-checkbox [ariaLabelledby]="myId anotherId">Foo</ts-checkbox>
+
+<!-- Set the aria label -->
+<ts-checkbox [ariaLabel]="My descriptive label.">Foo</ts-checkbox>
+```
+
+### Tab Index
+
+Custom `tabindex` can be set to control the flow:
+
+```html
+<ts-checkbox>Foo</ts-checkbox>
+<ts-checkbox [tabIndex]="-1">I will be skipped when tabbing through the DOM</ts-checkbox>
+<ts-checkbox>Bar</ts-checkbox>
+```
+
+### Focus
+
+Programmatically focus the underlying `<input>`:
+
+```html
+<ts-checkbox #myCheckbox="tsCheckbox">My checkbox</ts-checkbox>
+<button (click)="myCheckbox.focus()">Focus the internal native `input`</button>
+```
+
+### Events
+
+```html
+<ts-checkbox (inputChange)="myChangeFunction($event)>Foo</ts-checkbox>
+<ts-checkbox (indeterminateChange)="myIndeterminateChangeFunction($event)>Bar</ts-checkbox>
+```
+
+| Event                 | Description                                         | Payload            |
+|:----------------------|:----------------------------------------------------|:-------------------|
+| `inputChange`         | Fired when the checkbox checked state changes       | `TsCheckboxChange` |
+| `indeterminateChange` | Fired when the checkbox indeterminate state changes | `boolean`          |
+
+> NOTE: Events will not be emitted when state changes programmatically.
+
+### Default settings
+
+The default settings can be overridden via a provider:
+
+```typescript
+@Component({
+  selector: 'my-component',
+  providers: [
+    {
+      provide: TS_CHECKBOX_DEFAULT_OPTIONS,
+      useValue: { clickAction: 'check' },
+    },
+  ],
+})
+export class MyComponent {}
+```
+
+Currently, only `clickAction` is a supported default.
+
+#### Click action
+
+- `noop`: Do not toggle checked or indeterminate
+- `check`: Only toggle checked status, ignore indeterminate
+- `check-indeterminate`: Toggle checked status, set indeterminate to false. Default behavior
+- `undefined`: Same as check-indeterminate.
+
+> See the previous section for usage example
 
 ## Test Helpers
 
-Some helpers are exposed to assist with testing. These are imported from `@terminus/ui-checkbox/testing`;
+Some helpers exist to assist with testing. These are imported from `@terminus/ui-checkbox/testing`;
 
 [[source]][test-helpers-src]
 
