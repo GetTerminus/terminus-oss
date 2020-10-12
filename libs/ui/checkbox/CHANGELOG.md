@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@2.1.4...@terminus/ui-checkbox@3.0.0) (2020-10-12)
+
+
+### Features
+
+* **Checkbox:** full redesign ([da7ff38](https://github.com/GetTerminus/terminus-oss/commit/da7ff381946f87941477a61827bb6084c7b0f9ea)), closes [#370](https://github.com/GetTerminus/terminus-oss/issues/370)
+
+
+### BREAKING CHANGES
+
+* **Checkbox:** Full redesign and rewrite. API is 95% unchanged.
+
+### Migration notes
+
+- Additions
+    - Now supports `formControlName`
+    - Now supports `focus()` method
+    - Now supports `toggle()` method
+    - Now supports `label` input and `ng-content`
+    - Now supports all needed aria properties
+- Removal
+    - No longer depends on Material or the CDK
+- Changes
+    - The DOM has changed quite a bit, so any custom styling or overrides should be verified.
+
+
+
+
+
 ## [2.1.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@2.1.3...@terminus/ui-checkbox@2.1.4) (2020-10-01)
 
 **Note:** Version bump only for package @terminus/ui-checkbox
