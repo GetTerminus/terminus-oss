@@ -1,35 +1,33 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { MatRippleModule } from '@angular/material/core';
-import { MatRadioModule } from '@angular/material/radio';
 
-
-import { TsIconModule } from '@terminus/ui-icon';
 import { TsValidationMessagesModule } from '@terminus/ui-validation-messages';
 
-import { TsRadioGroupComponent } from './group/radio-group.component';
+import {
+  TsRadioButtonComponent,
+  TsRadioGroupComponent,
+} from './radio/radio.component';
 
-
-export * from './group/radio-group.component';
-
+export * from './radio/radio.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    FlexLayoutModule,
     FormsModule,
-    MatRadioModule,
-    MatRippleModule,
     ReactiveFormsModule,
-    TsIconModule,
     TsValidationMessagesModule,
   ],
-  exports: [TsRadioGroupComponent],
-  declarations: [TsRadioGroupComponent],
+  declarations: [
+    TsRadioGroupComponent,
+    TsRadioButtonComponent,
+  ],
+  exports: [
+    TsRadioGroupComponent,
+    TsRadioButtonComponent,
+  ],
 })
 export class TsRadioGroupModule {}

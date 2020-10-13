@@ -1,0 +1,322 @@
+:root {
+  --ts-radio-button-typography: var(--ts-typography-compound-body);
+  --ts-radio-button-fontSize: 14px;
+  --ts-radio-button-color: var(--ts-color-utility-600);
+  --ts-radio-button-disabled-color: var(--ts-color-utility-500);
+  --ts-radio-control-size: 14px;
+  --ts-radio-control-marginRight: 12px;
+  --ts-radio-control-inner-scale: .001;
+  // Multiplier to get as close to 6px as possible:
+  --ts-radio-control-checked-inner-scale: .4286;
+  --ts-radio-control-selected-color: var(--ts-color-primary-500);
+  --ts-radio-control-borderColor: var(--ts-color-utility-400);
+  --ts-radio-control-hover-borderColor: var(--ts-color-utility-500);
+  --ts-radio-control-disabled-borderColor: var(--ts-color-utility-300);
+  --ts-radio-control-borderRadius: var(--ts-border-radius-circle);
+  --ts-radio-control-translateY: translateY(3px);
+  --ts-radio-control-focus-borderColor: var(--ts-color-primary-300);
+  --ts-radio-control-border-transition: border-color var(--ts-animation-easing-ease) var(--ts-animation-time-duration-200);
+  --ts-radio-control-inner-transition:
+    transform var(--ts-animation-easing-ease) var(--ts-animation-time-duration-200),
+    background-color var(--ts-animation-easing-ease) var(--ts-animation-time-duration-200);
+  --ts-radio-control-inner-backgroundColor: var(--ts-radio-control-selected-color);
+  --ts-radio-control-disabled-inner-backgroundColor: var(--ts-color-utility-600);
+
+  --ts-radio-visual-ratioX: 1;
+  --ts-radio-visual-ratioY: 1;
+  --ts-radio-visual-aspectRatio: calc(var(--ts-radio-visual-ratioX) / var(--ts-radio-visual-ratioY));
+  --ts-radio-visual-boxShadow: 0 0 0 1px rgba(0, 0, 0, .04), 0 2px 5px 0 rgba(0, 0, 0, .06);
+  --ts-radio-visual-hover-boxShadow: 0 0 0 1px rgba(0, 0, 0, .06), 0 2px 5px 0 rgba(0, 0, 0, .09);
+  --ts-radio-visual-gridGap: var(--ts-space-inline-400);
+  --ts-radio-visual-gridTemplateColumns: repeat(auto-fill, minmax(12em, 1fr));
+  --ts-radio-visual-borderRadius: var(--ts-border-radius-base);
+  --ts-radio-visual-control-padding: var(--ts-space-inset-500);
+  --ts-radio-visual-small-marginBottom: var(--ts-space-stack-400);
+  --ts-radio-visual-small-marginRight: var(--ts-space-inline-300);
+  --ts-radio-visual-small-control-height: calc(112px - 16px);
+  --ts-radio-visual-small-control-width: calc(220px - 16px);
+  --ts-radio-visual-check-scale: .9;
+  --ts-radio-visual-check-backgroundColor: var(--ts-color-primary-500);
+  --ts-radio-visual-disabled-check-backgroundColor: var(--ts-color-utility-300);
+  --ts-radio-visual-disabled-svg-color: var(--ts-color-utility-600);
+  --ts-radio-visual-input-svg-color: var(--ts-color-base-white);
+  --ts-radio-visual-transitionDuration: var(--ts-animation-time-duration-200);
+  --ts-radio-visual-transitionFunction: var(--ts-animation-easing-easeOut);
+  --ts-radio-visual-check-size: 14px;
+  --ts-radio-visual-check-offset: 4px;
+  --ts-radio-visual-label-borderColor: var(--ts-color-utility-300);
+  --ts-radio-visual-label-selected-borderColor: var(--ts-color-primary-500);
+  --ts-radio-visual-label-hover-borderColor: var(--ts-color-utility-500);
+  --ts-radio-visual-label-border: 1px solid var(--ts-radio-visual-label-borderColor);
+  --ts-radio-visual-label-disabled-borderColor: var(--ts-color-primary-500);
+  --ts-radio-visual-label-padding: var(--ts-space-inset-500);
+  --ts-radio-visual-label-transition: border-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeIn);
+  --ts-radio-visual-check-background-size: 18px;
+  --ts-radio-visual-check-background-zIndex: 1;
+  --ts-radio-visual-check-zIndex: 2;
+  --ts-radio-visual-check-color: var(--ts-color-base-white);
+  --ts-radio-visual-check-transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease);
+  --ts-radio-visual-border: 1px solid var(--ts-radio-visual-borderColor);
+  --ts-radio-visual-check-disabled-color: var(--ts-color-utility-700);
+}
+
+.ts-radio-button {
+  box-sizing: border-box;
+  color: var(--ts-radio-button-color);
+  display: inline-block;
+  font: var(--ts-radio-button-typography);
+  font-size: var(--ts-radio-button-fontSize);
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+
+  &__input {
+    &:checked {
+      + .ts-radio-button__label {
+        &::after {
+          --ts-radio-control-inner-scale: var(--ts-radio-control-checked-inner-scale);
+        }
+      }
+    }
+
+    &:focus {
+      + .ts-radio-button__label {
+        &::before {
+          box-shadow: 0 0 0 2px var(--ts-radio-control-focus-borderColor);
+        }
+      }
+    }
+
+    &:disabled {
+      + .ts-radio-button__label {
+        --ts-radio-control-borderColor: var(--ts-radio-control-disabled-borderColor);
+        cursor: not-allowed;
+
+        &::after {
+          background-color: var(--ts-radio-control-disabled-inner-backgroundColor);
+        }
+      }
+    }
+  }
+
+  &__label {
+    .ts-radio-group--default & {
+      align-items: center;
+      cursor: pointer;
+      display: inline-flex;
+      position: relative;
+      vertical-align: middle;
+      white-space: nowrap;
+
+      &::before {
+        border: 2px solid var(--ts-radio-control-borderColor);
+        border-radius: var(--ts-radio-control-borderRadius);
+        box-sizing: border-box;
+        content: '';
+        display: block;
+        height: var(--ts-radio-control-size);
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: var(--ts-radio-control-translateY);
+        transition: var(--ts-radio-control-border-transition);
+        width: var(--ts-radio-control-size);
+      }
+
+      // The inner circle for the radio, shown when checked.
+      &::after {
+        background-color: var(--ts-radio-control-inner-backgroundColor);
+        border-radius: var(--ts-radio-control-borderRadius);
+        box-sizing: border-box;
+        content: '';
+        display: block;
+        height: var(--ts-radio-control-size);
+        left: 0;
+        position: absolute;
+        top: 0;
+        // Note: This starts from 0.001 instead of 0, because transitioning from 0 to 0.5 causes
+        // IE to flash the entire circle for a couple of frames, throwing off the entire animation.
+        transform: var(--ts-radio-control-translateY) scale(var(--ts-radio-control-inner-scale));
+        transition: var(--ts-radio-control-inner-transition);
+        width: var(--ts-radio-control-size);
+      }
+
+      .ts-radio-button__label-content {
+        padding-left: calc(var(--ts-radio-control-marginRight) + var(--ts-radio-control-size));
+        padding-right: 0;
+      }
+    }
+
+    &-content {
+      display: none;
+      line-height: inherit;
+
+      // If anything is passed to <ng-content>, we hide the @Input value
+      &:not(:empty) {
+        display: inline-block;
+
+        + .ts-radio-button__label-content-default {
+          display: none;
+        }
+      }
+    }
+
+    &:hover {
+      --ts-radio-control-borderColor: var(--ts-radio-control-hover-borderColor);
+    }
+  }
+}
+
+.ts-radio-group--default {
+  .ts-radio-button__label-checkmark {
+    display: none;
+  }
+}
+
+// Visual formats
+.ts-radio-group--visual {
+  .ts-radio-button {
+    border-radius: var(--ts-radio-visual-borderRadius);
+    box-shadow: var(--ts-radio-visual-boxShadow);
+    overflow: hidden;
+    padding: var(--ts-radio-visual-control-padding);
+    position: relative;
+
+    &:not(.ts-radio-button--disabled) {
+      .ts-radio-button__label {
+        &:hover {
+          --ts-radio-visual-label-borderColor: var(--ts-radio-visual-label-hover-borderColor);
+        }
+      }
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      padding-top: calc(100% / (var(--ts-radio-visual-aspectRatio)));
+      position: relative;
+      width: 100%;
+    }
+
+    &__container {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    &__label {
+      border: 1px solid var(--ts-radio-visual-label-borderColor);
+      border-radius: var(--ts-radio-visual-borderRadius);
+      bottom: 0;
+      cursor: pointer;
+      left: 0;
+      overflow: hidden;
+      padding: var(--ts-radio-visual-label-padding);
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: var(--ts-radio-visual-label-transition);
+
+      // Create blue triangle at top right for the icon to display over
+      &::after {
+        border: var(--ts-radio-visual-check-background-size) solid transparent;
+        border-right-color: var(--ts-radio-visual-check-backgroundColor);
+        border-top-color: var(--ts-radio-visual-check-backgroundColor);
+        content: '';
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: var(--ts-radio-visual-check-transition);
+        // Local z-index:
+        z-index: var(--ts-radio-visual-check-background-zIndex);
+      }
+
+      // <div> container for checked icon
+      &-checkmark {
+        color: var(--ts-radio-visual-check-color);
+        height: var(--ts-radio-visual-check-size);
+        opacity: 0;
+        position: absolute;
+        right: var(--ts-radio-visual-check-offset);
+        top: var(--ts-radio-visual-check-offset);
+        transition: var(--ts-radio-visual-check-transition);
+        width: var(--ts-radio-visual-check-size);
+        // Local z-index:
+        z-index: var(--ts-radio-visual-check-zIndex);
+
+
+        // The check (✓)
+        svg {
+          height: var(--ts-radio-control-size);
+          left: 0;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          transform: scale(var(--ts-radio-visual-check-scale));
+          width: var(--ts-radio-control-size);
+        }
+
+        .path {
+          stroke: var(--ts-radio-visual-input-svg-color);
+          stroke-dasharray: 111.46px;
+          stroke-dashoffset: 111.46px;
+          transition: all var(--ts-radio-visual-transitionDuration) var(--ts-radio-visual-transitionFunction);
+        }
+      }
+    }
+  }
+
+  input {
+    &:checked {
+      + .ts-radio-button__label {
+        --ts-radio-visual-label-borderColor: var(--ts-radio-visual-label-selected-borderColor);
+
+        &::after,
+        .ts-radio-button__label-checkmark {
+          opacity: 1;
+        }
+
+        svg {
+          .path {
+            stroke-dashoffset: 0;
+          }
+        }
+      }
+    }
+
+    &:disabled {
+      + .ts-radio-button__label {
+        border-color: var(--ts-radio-visual-disabled-check-backgroundColor);
+        color: var(--ts-radio-button-disabled-color);
+
+        &::after {
+          background-color: transparent;
+          border-right-color: var(--ts-radio-visual-disabled-check-backgroundColor);
+          border-top-color: var(--ts-radio-visual-disabled-check-backgroundColor);
+        }
+        .path {
+          stroke: var(--ts-radio-visual-disabled-svg-color);
+        }
+      }
+    }
+  }
+
+  &-small {
+    .ts-radio-button {
+      &::before {
+        padding-top: var(--ts-radio-visual-small-control-height);
+      }
+    }
+  }
+
+  &-centered {
+    .ts-radio-button__label {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
