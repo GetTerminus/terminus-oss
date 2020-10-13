@@ -1,0 +1,16 @@
+<fieldset class="ts-radio-group__fieldset" [attr.form]="fieldsetId">
+  <legend
+    class="ts-radio-group__fieldset-legend"
+    *ngIf="fieldsetLegend"
+  >{{ fieldsetLegend }}</legend>
+
+  <div class="ts-radio-group__buttons">
+    <ng-content></ng-content>
+  </div>
+
+  <ts-validation-messages
+    *ngIf="validationFormControl && !noValidationOrHint"
+    [control]="validationFormControl"
+    [validateImmediately]="true"
+  ></ts-validation-messages>
+</fieldset>

@@ -5,7 +5,6 @@
     "entryFile": "src/index.ts",
     "umdModuleIds": {
       "@terminus/fe-utilities": "terminus.fe-utilities",
-      "@terminus/ui-icon": "terminus.ui-icon",
       "@terminus/ui-utilities": "terminus.ui-utilities",
       "@terminus/ui-validation-messages": "terminus.ui-validation-messages"
     }

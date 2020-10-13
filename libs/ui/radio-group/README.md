@@ -13,16 +13,17 @@
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
+  - [State control](#state-control)
   - [Sub-labels](#sub-labels)
-  - [No validation or hint](#no-validation-or-hint)
-  - [Event driven](#event-driven)
+  - [Validation](#validation)
+    - [Validation messages](#validation-messages)
+    - [No validation or hint](#no-validation-or-hint)
+  - [Fieldset](#fieldset)
+  - [Events](#events)
   - [Required](#required)
   - [Disabled](#disabled)
-    - [Disabled option](#disabled-option)
+  - [Manually set selection](#manually-set-selection)
   - [Visual mode](#visual-mode)
-    - [Small](#small)
-  - [Centered content](#centered-content)
-  - [Custom content](#custom-content)
 - [Test Helpers](#test-helpers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -34,14 +35,11 @@
 - `@angular/cdk`
 - `@angular/common`
 - `@angular/core`
-- `@angular/flex-layout`
 - `@angular/forms`
-- `@angular/material`
 - `@angular/platform-browser`
 - `@popperjs/core`
 - `@terminus/design-tokens`
 - `@terminus/fe-utilities`
-- `@terminus/ui-icon`
 - `@terminus/ui-pipes`
 - `@terminus/ui-styles`
 - `@terminus/ui-utilities`
@@ -78,106 +76,139 @@ Load the needed font families by adding this link to the `<head>` of your applic
 
 ## Usage
 
-Pass in:
-
-1. An array of items
-1. A form control
-1. A formatter function to determine the UI display value
-1. A formatter function to determine the model value
+Pass in one or more `<ts-radio-button>` components to a `<ts-radio-group>`:
 
 ```html
-<form [formGroup]="myForm">
-  <ts-radio-group
-    [options]="items$ | async"
-    [formControl]="myForm.get('myRadioGroup')"
-    [formatUILabelFn]="uiFormatter"
-    [formatModelValueFn]="modelFormatter"
-  ></ts-radio-group>
+<ts-radio-group>
+  <ts-radio-button value="1">One</ts-radio-button>
+  <ts-radio-button value="2">Two</ts-radio-button>
+  <ts-radio-button value="3">Three</ts-radio-button>
+</ts-radio-group>
 
-  <button (click)="submit(myForm.value)">Submit</button>
-</form>
+<!-- Or dynamically -->
+<ts-radio-group>
+  <ng-container *ngFor="let item of items">
+    <ts-radio-button [value]="item.id">{{ item.title }}</ts-radio-button>
+  </ng-container>
+</ts-radio-group>
 ```
 
-```typescript
-// Define items to be passed to the radio group
-items$: Observable<TsRadioOption[]> = of([
-  {
-    foo: 'foo_value',
-    bar: 'Foo Display',
-    bing: 'Some helper text for my item',
-  },
-  {
-    foo: 'bar_value',
-    bar: 'Bar Display',
-    bing: 'Some helper text for my item',
-    disabled: true,
-  },
-  {
-    foo: 'baz_value',
-    bar: 'Baz Display',
-    bing: 'Some helper text for my item',
-  },
-]);
+### State control
 
-// Create a form
-myForm = this.formBuilder.group({
-  myRadioGroup: [null],
-});
+State can be managed by `ngModel`, `FormControl` or `formControlName`:
 
-// Use the 'bar' value as the UI display
-uiFormatter = (v) => v.bar;
-// Use the 'foo' value to save to the model
-modelFormatter = (v) => v.foo;
+```html
+<!-- FormGroup -->
+<form [formGroup]="formGroupForm">
+  <ts-radio-group [formControl]="formGroupForm.get('myGroup')">
+    <ng-container *ngFor="let item of items;">
+      <ts-radio-button [value]="item.id">{{ item.title }}</ts-radio-button>
+    </ng-container>
+  </ts-radio-group>
+</form>
+
+<!-- formGroupName -->
+<form [formGroup]="formGroupNameForm">
+  <ts-radio-group formControlName="myGroup">
+    <ng-container *ngFor="let item of items;">
+      <ts-radio-button [value]="item.id">{{ item.title }}</ts-radio-button>
+    </ng-container>
+  </ts-radio-group>
+</form>
+
+<!-- ngModel -->
+<ts-radio-group [(ngModel)]="myModel">
+  <ng-container *ngFor="let item of items;">
+    <ts-radio-button [value]="item.id">{{ item.title }}</ts-radio-button>
+  </ng-container>
+</ts-radio-group>
 ```
 
 ### Sub-labels
 
-Passing a formatter function to `formatUISubLabelFn` will enable sub-label support:
+Consumers have full control over the content of each radio button. Extra content such as icons or sub-labels can be
+added directly in the template:
 
 ```html
-<ts-radio-group
-  [options]="items$ | async"
-  [formControl]="myForm.get('myRadioGroup')"
-  [formatUISubLabelFn]="uiSubFormatter"
-  [formatUILabelFn]="uiFormatter"
-  [formatModelValueFn]="modelFormatter"
-></ts-radio-group>
+<ts-radio-group>
+  <ts-radio-button value="1">
+    One
+    <small>My sublabel</small>
+  </ts-radio-button>
+  <ts-radio-button value="2">
+    Two
+    <small>My second sublabel</small>
+  </ts-radio-button>
+</ts-radio-group>
 ```
 
-```typescript
-// Use the 'bing' value as a sub-label
-uiSubFormatter = (v) => v.bing;
-// Use the 'bar' value as the UI display
-uiFormatter = (v) => v.bar;
-// use the 'foo' value to save to the model
-modelFormatter = (v) => v.foo;
-```
+### Validation
 
-### No validation or hint
+#### Validation messages
 
-A flag to define whether this radio group field needs validation or hint. If it needs validation or hint, a padding bottom is added for the message, otherwise, no padding at the bottom.
+To enable validation messages the `<ts-radio-group>` must be using a control to manage state - and that control must be
+passed in to the `validationFormControl` input:
 
 ```html
-<ts-radio-group
-  [formControl]="myFormCtrl"
-  [noValidationOrHint]="true"
-></ts-radio-group>
+<ts-radio-group formControlName="myGroup" [validationFormControl]="formGroupForm.get('myGroup')">
+  ...
+</ts-radio-group>
 ```
 
-### Event driven
+#### No validation or hint
 
-Listen for change events:
+Disable the validation and hint section for the control
 
 ```html
-<ts-radio-group
-  [options]="items$ | async"
-  (selectionChange)="selected($event)"
-></ts-radio-group>
+<ts-radio-group [noValidationOrHint]="true">
+  ...
+</ts-radio-group>
 ```
+
+### Fieldset
+
+The wrapping fieldset supports a `form` ID and a legend value:
+
+```html
+<ts-radio-group fieldsetId="myFormId" fieldsetLegend="My radio group!">
+  ...
+</ts-radio-group>
+```
+
+### Events
+
+The group and individual radio buttons both emit selection change events:
+
+```html
+<ts-radio-group (selectionChange)="groupChange($event)">
+  <ts-radio-button value="one" (selectionChange)="optionChange($event)">One</ts-radio-button>
+</ts-radio-group>
+```
+
+| Event                      | Description                                   | Payload         |
+|:---------------------------|:----------------------------------------------|:----------------|
+| `selectionChange` (group)  | Fired when the radio group selection changes  | `TsRadioChange` |
+| `selectionChange` (button) | Fired when the radio button selection changes | `TsRadioChange` |
 
 ### Required
 
-To define the radio group as 'required', set the required validator on the form group:
+The `required` DOM attribute must be added by setting the `@Input` at the group or button level:
+
+```html
+<!-- This will set the required attribute on all child radio buttons -->
+<ts-radio-group [isRequired]="true">
+  <ts-radio-button value="one">One</ts-radio-button>
+  <ts-radio-button value="two">Two</ts-radio-button>
+</ts-radio-group>
+
+<!-- Or, set at an individual level -->
+<ts-radio-group>
+  <ts-radio-button value="one" [isRequired]="true">One</ts-radio-button>
+  <ts-radio-button value="two" [isRequired]="true">Two</ts-radio-button>
+</ts-radio-group>
+```
+
+If using ReactiveForms, also set the `FormControl` as required:
 
 ```typescript
 myForm = this.formBuilder.group({
@@ -190,103 +221,49 @@ myForm = this.formBuilder.group({
 To disable the entire radio group, set `isDisabled` to true:
 
 ```html
-<ts-radio-group
-  [options]="items$ | async"
-  [formControl]="myForm.get('myRadioGroup')"
-  [formatUISubLabelFn]="uiSubFormatter"
-  [formatUILabelFn]="uiFormatter"
-  [formatModelValueFn]="modelFormatter"
-  [isDisabled]="true"
-></ts-radio-group>
+<!-- This will disable all child radio buttons -->
+<ts-radio-group [isDisabled]="true">
+  <ts-radio-button value="one">One</ts-radio-button>
+  <ts-radio-button value="two">Two</ts-radio-button>
+</ts-radio-group>
+
+<!-- Or, disable at an individual level -->
+<ts-radio-group>
+  <ts-radio-button value="one" [isDisabled]="true">One</ts-radio-button>
+  <ts-radio-button value="two" [isDisabled]="false">Two</ts-radio-button>
+</ts-radio-group>
 ```
 
-#### Disabled option
+### Manually set selection
 
-To disabled only a single option, define the `disabled` key on the item object:
+A single option can be programmatically marked as selected:
 
-```typescript
-// Define items to be passed to the radio group
-items$: Observable<TsRadioOption[]> = of([
-  {
-    foo: 'foo_value',
-    bar: 'Foo Display',
-  },
-  {
-    foo: 'bar_value',
-    bar: 'Bar Display',
-    disabled: true, // This radio option will be disabled
-  },
-  {
-    foo: 'baz_value',
-    bar: 'Baz Display',
-  },
-]);
+```html
+<ts-radio-group>
+  <ts-radio-button value="one">One</ts-radio-button>
+  <ts-radio-button value="two" [isChecked]="true">Two</ts-radio-button>
+</ts-radio-group>
 ```
 
 ### Visual mode
 
 Visual mode displays radio options as large clickable areas containing content.
 
-Enable by setting the `isVisual` flag:
-
-```html
-<ts-radio-group [isVisual]="true"></ts-radio-group>
-```
-
-#### Small
-
-For a smaller clickable area, use the `small` flag.
-
-NOTE: The maximum content should be a title with two lines and body with 3 lines
-
-```html
-<ts-radio-group [isVisual]="true" [small]="true"></ts-radio-group>
-```
-
-### Centered content
-
-By default the content is centered when in visual mode. Setting `centeredContent` to `false` will use standard top/left alignment.
-
-```html
-<ts-radio-group
-  [isVisual]="true"
-  [centeredContent]="false"
-  ...
-></ts-radio-group>
-```
-
-### Custom content
-
-`TsRadioOption` now accepts an optional `template` key with a string template:
+This input defaults to `none` which outputs a standard radio group.
 
 ```typescript
-items$: Observable<TsRadioOption[]> = of([
-  {
-    foo: 'foo_value',
-    bar: 'Foo Display',
-    template: `<a href="${this.myLink}">My link!</a>`
-  },
-  {
-    foo: 'bar_value',
-    bar: 'Bar Display',
-    // if no template is defined, it will fall back to `formatUILabelFn` for the display value
-  },
-  {
-    foo: 'baz_value',
-    bar: 'Baz Display',
-    template: `<h3>Hi!</h3> <p>Here is a thing!</p>`
-  },
-]);
+// All available visual format options:
+export type TS_VISUAL_FORMATS
+  = 'none'
+  | 'visual'
+  | 'visual-centered'
+  | 'visual-small'
+  | 'visual-small-centered'
+;
 ```
 
 ```html
-<ts-radio-group
-  [isVisual]="true"
-  [options]="items$ | async"
-  [formControl]="myForm.get('myRadioGroup')"
-  [formatUILabelFn]="uiFormatter"
-  [formatModelValueFn]="modelFormatter"
-></ts-radio-group>
+<ts-radio-group [visualFormat]="visual-centered"></ts-radio-group>
 ```
 
 ## Test Helpers

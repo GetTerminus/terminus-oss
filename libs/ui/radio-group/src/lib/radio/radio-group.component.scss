@@ -1,0 +1,50 @@
+@import '~@terminus/ui-styles/helpers';
+
+:root {
+  --ts-radio-group-legend-typography: var(--ts-typography-compound-body);
+  --ts-radio-group-legend-marginBottom: var(--ts-space-stack-400);
+  --ts-radio-group-button-marginBottom: var(--ts-space-stack-400);
+  --ts-radio-visual-gridGap: var(--ts-space-inline-400);
+  --ts-radio-visual-gridTemplateColumns: repeat(auto-fill, minmax(12em, 1fr));
+}
+
+.ts-radio-group {
+  display: block;
+
+  .ts-radio-group__fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+    &-legend {
+      display: block;
+      font: var(--ts-radio-group-legend-typography);
+      margin-bottom: var(--ts-radio-group-legend-marginBottom);
+      padding: 0;
+    }
+  }
+
+  &--default {
+    .ts-radio-button {
+      display: block;
+      margin-bottom: var(--ts-radio-group-button-marginBottom);
+    }
+  }
+
+  &--visual-small,
+  &--visual {
+    .ts-radio-group__buttons {
+      display: grid;
+      grid-gap: var(--ts-radio-visual-gridGap);
+      grid-template-columns: var(--ts-radio-visual-gridTemplateColumns);
+    }
+  }
+
+  &--visual-centered {
+    .ts-radio-button__label-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
