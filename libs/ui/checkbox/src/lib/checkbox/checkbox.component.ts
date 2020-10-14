@@ -27,8 +27,6 @@ import {
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 
-import { coerceBooleanProperty } from '@terminus/fe-utilities';
-
 /**
  * Checkbox click action when the user clicks on the input element
  *
@@ -249,7 +247,7 @@ export class TsCheckboxComponent implements ControlValueAccessor, AfterViewInit,
   @Input()
   public set isIndeterminate(value: boolean) {
     const changed = value !== this._isIndeterminate;
-    this._isIndeterminate = coerceBooleanProperty(value);
+    this._isIndeterminate = value;
 
     // istanbul ignore else
     if (changed) {
