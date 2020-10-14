@@ -9,7 +9,7 @@ MESSAGE=$(echo "$OG_MESSAGE" | tr -d '"')
 echo "Cleaned commit message: $MESSAGE"
 
 if [[ "$MESSAGE" =~ (skip\ ci|ci\ skip) ]]; then
-  echo "::set-env name=SHOULD_RUN::false"
+  echo "SHOULD_RUN=false" >> "$GITHUB_ENV"
 else
-  echo "::set-env name=SHOULD_RUN::true"
+  echo "SHOULD_RUN=true" >> "$GITHUB_ENV"
 fi
