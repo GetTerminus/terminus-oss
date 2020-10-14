@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@3.0.0...@terminus/ui-menu@3.0.1) (2020-10-14)
+
+
+### Bug Fixes
+
+* **Menu:** remove unused theme class ([d5b365b](https://github.com/GetTerminus/terminus-oss/commit/d5b365b6a45cbaffe33128f0ba799252103da00c)), closes [#386](https://github.com/GetTerminus/terminus-oss/issues/386)
+
+
+
+
+
 # [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@2.1.2...@terminus/ui-menu@3.0.0) (2020-10-02)
 
 
