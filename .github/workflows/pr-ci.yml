@@ -15,9 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      - run: git fetch --no-tags --prune --depth=5 origin release
+      - run: git fetch --no-tags --prune --depth=5 origin +refs/heads/release:refs/remotes/origin/release
       - uses: rokroskar/workflow-run-cleanup-action@master
     if: "!startsWith(github.ref, 'refs/tags/') && github.ref != 'refs/heads/release'"
 
