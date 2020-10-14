@@ -28,10 +28,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          fetch-depth: 0
-      - run: git fetch --no-tags --prune --depth=50 origin release
+          fetch-depth: 3
+      - run: git fetch --no-tags --prune --depth=50 origin +refs/heads/release:refs/remotes/origin/release
       - name: "Check last commit message"
         id: skip
         uses: atlwendy/retrieve-commit-messages-from-pr@v2
@@ -65,14 +63,14 @@ jobs:
       # List affected
       #
       - name: List affected LIBS
-        run: yarn affected:libs --base=remotes/origin/release --head=${{ github.event.pull_request.head.ref }}
+        run: yarn affected:libs --base=origin/release --head=HEAD
         if: env.SHOULD_RUN == 'true'
 
       #
       # Test affected
       #
       - name: "Test affected projects"
-        run: yarn nx affected:test --base=remotes/origin/release --head=${{ github.event.pull_request.head.ref }} --codeCoverage
+        run: yarn nx affected:test --base=origin/release --head=HEAD
         if: env.SHOULD_RUN == 'true'
       - name: "Regression test on affected projects"
         run: tools/ci/run-chromatic-with-changed-projects.sh ${GITHUB_REF#refs/*/}
@@ -85,7 +83,7 @@ jobs:
       # Lint affected
       #
       - name: "Lint files"
-        run: yarn nx affected:lint --base=remotes/origin/release --head=${{ github.event.pull_request.head.ref }}
+        run: yarn nx affected:lint --base=origin/release --head=HEAD
         if: env.SHOULD_RUN == 'true'
 
       #
@@ -95,10 +93,10 @@ jobs:
         run: yarn nx build ui-styles --prod --skip-nx-cache
         if: env.SHOULD_RUN == 'true'
       - name: Build affected projects
-        run: yarn nx affected:build --prod --withDeps --base=remotes/origin/release --head=${{ github.event.pull_request.head.ref }}
+        run: yarn nx affected:build --prod --withDeps --base=origin/release --head=HEAD
         if: env.SHOULD_RUN == 'true'
       - name: Build affected projects schematics
-        run: yarn affected:build-schematics --base=remotes/origin/release --head=${{ github.event.pull_request.head.ref }}
+        run: yarn affected:build-schematics --base=origin/release --head=HEAD
         if: env.SHOULD_RUN == 'true'
 
       #
