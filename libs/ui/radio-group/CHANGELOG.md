@@ -27,7 +27,7 @@ Originally this component simply wrapped Material's radio group. Then, the visua
 
 Since this redesign was always going to be a breaking change, so we've taken the opportunity to align the API with our current patterns for higher-order components such as Menu, SelectionList, etc.
 
-### Migration notes
+### Migration notes for 3.0.0
 
 > NOTE: There are stories demonstrating all new functionality.
 
