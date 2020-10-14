@@ -12,9 +12,9 @@ TAG='last-successful-release'
 
 if git rev-parse -q --verify "refs/tags/$TAG" >/dev/null; then
   echo "Last release on 'release' found!"
-  echo "::set-env name=NX_BASE::$(git rev-list -n 1 $TAG)"
+  echo "NX_BASE=$(git rev-list -n 1 $TAG)" >> "$GITHUB_ENV"
 else
   echo "Last release on 'release' NOT found!"
-  echo "::set-env name=NX_BASE::origin/release"
+  echo "NX_BASE=origin/release" >> "$GITHUB_ENV"
 fi
 
