@@ -13,7 +13,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### BREAKING CHANGES
 
-* **RadioGroup:** Full rewrite - consider this a brand new component.
+* **RadioGroup:** Full rewrite - three primary API changes.
 
 ### Migration notes
 
