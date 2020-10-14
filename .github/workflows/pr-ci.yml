@@ -36,7 +36,7 @@ jobs:
         id: skip
         uses: atlwendy/retrieve-commit-messages-from-pr@v2
       - name: "Set SHOULD_RUN flag"
-        run: echo ::set-env name=SHOULD_RUN::${{ steps.skip.outputs.shouldRun }}
+        run: echo "SHOULD_RUN=${{ steps.skip.outputs.shouldRun }}" >> $GITHUB_ENV
       - name: "Set up Node"
         uses: actions/setup-node@v1
         with:
