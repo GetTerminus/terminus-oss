@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@2.1.3...@terminus/ui-radio-group@3.0.0) (2020-10-14)
+
+
+### Features
+
+* **RadioGroup:** full redesign ([3a5e503](https://github.com/GetTerminus/terminus-oss/commit/3a5e503d4e889fe99f8073b38868a233d783693c)), closes [#373](https://github.com/GetTerminus/terminus-oss/issues/373)
+
+
+### BREAKING CHANGES
+
+* **RadioGroup:** Full rewrite - consider this a brand new component.
+
+### Migration notes
+
+TODO
+
+
+
+
+
 ## [2.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@2.1.2...@terminus/ui-radio-group@2.1.3) (2020-10-05)
 
 **Note:** Version bump only for package @terminus/ui-radio-group
