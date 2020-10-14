@@ -17,7 +17,112 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Migration notes
 
-TODO
+> NOTE: There are stories demonstrating all new functionality.
+
+#### Passing in options
+
+Options are now passed in as child components:
+
+```diff
+<ts-radio-group
+-  [options]="items$ | async"
+-  [formatUILabelFn]="uiFormatter"
+-  [formatUISubLabelFn]="uiSubFormatter"
+-  [formatModelValueFn]="modelFormatter"
+>
++  <ng-container *ngFor="let item of items$ | async">
++    <ts-radio-button [value]="item.value">{{ item.title }}</ts-radio-button>
++  </ng-container>
+</ts-radio-group>
+```
+
+This means that the various formatter functions are no longer needed. You can continue to use them to pass in values if you wish:
+
+```html
+<ng-container *ngFor="let item of items$ | async">
+  <ts-radio-button
+    [value]="myModelFormatter(item)"
+    [textContent]="myUiFormatter(item)"
+  ></ts-radio-button>
+</ng-container>
+```
+
+#### Visual mode
+
+Visual mode was always a bit confusing as there were multiple inputs to control the visual mode but it was very unclear that some were dependent on others. Visual mode has now been rolled into a single API:
+
+The possible options are defined by `TS_VISUAL_FORMATS` and currently include: 
+
+- `none`
+- `visual`
+- `visual-centered`
+- `visual-small`
+- `visual-small-centered`
+
+```diff
+<ts-radio-group
+-  [isVisual]="true"
++  visualFormat="visual"
+></ts-radio-group>
+
+<ts-radio-group
+-  [isVisual]="true"
+-  [isCentered]="true"
++  visualFormat="visual-centered"
+></ts-radio-group>
+
+<ts-radio-group
+-  [isVisual]="true"
+-  [isSmall]="true"
++  visualFormat="visual-small"
+></ts-radio-group>
+
+<ts-radio-group
+-  [isVisual]="true"
+-  [isSmall]="true"
+-  [isCentered]="true"
++  visualFormat="visual-small-centered"
+></ts-radio-group>
+```
+
+#### Validations
+
+Since the component no longer requires model control, a `FormControl` is not passed in via an `@Input`. To better support backward compatibility we still include the `<ts-validation-messages>` component internally. That component does need access to your `FormControl` in order to display the correct message(s) so it can be passed in via the `validationFormControl` input:
+
+```diff
+<ts-radio-group
+  [formControl]="myControl"
++  [validationFormControl]="myControl">
+  ...
+</ts-radio-group>
+```
+
+### Non-breaking changes
+
+#### a11y
+
+Now all modes fully pass accessibility standards.
+
+#### Fieldset support
+
+The radio group is now wrapped by a fieldset which supports a form ID and legend text:
+
+```html
+<ts-radio-group fieldsetId="myFormId" fieldsetLegend="My radio group!">
+  ...
+</ts-radio-group>
+```
+
+#### Aspect ratio control
+
+Previously, the aspect ratio of the visual format radio buttons were hard-coded. While the defaults stay the same, the aspect ratio can now easily be changed by updating the associated CSS property:
+
+```scss
+.my-class {
+  // For a 16/9 aspect ratio:
+  --ts-radio-visual-aspectRatio: calc(16 / 9);
+}
+```
 
 
 
