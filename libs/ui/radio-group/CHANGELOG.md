@@ -21,7 +21,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### BREAKING CHANGES
 
-* **RadioGroup:** Full rewrite - three primary API changes.
+* **RadioGroup:** Full DOM rewrite - three primary API changes.
+
+Originally this component simply wrapped Material's radio group. Then, the visual mode was tacked on top. The component API was never brought into alignment with the rest of our APIs, accessibility not addressed etc. since product hadn't requested any changes.
+
+Since this redesign was always going to be a breaking change, so we've taken the opportunity to align the API with our current patterns for higher-order components such as Menu, SelectionList, etc.
 
 ### Migration notes
 
