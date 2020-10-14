@@ -92,6 +92,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/fe-utilities"],
           "options": {
             "jestConfig": "libs/fe-utilities/jest.config.js",
             "tsConfig": "libs/fe-utilities/tsconfig.spec.json",
@@ -131,6 +132,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/fe-jwt"],
           "options": {
             "jestConfig": "libs/fe-jwt/jest.config.js",
             "tsConfig": "libs/fe-jwt/tsconfig.spec.json",
@@ -185,6 +187,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/fe-testing"],
           "options": {
             "jestConfig": "libs/fe-testing/jest.config.js",
             "tsConfig": "libs/fe-testing/tsconfig.spec.json",
@@ -278,6 +281,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/autocomplete"],
           "options": {
             "jestConfig": "libs/ui/autocomplete/jest.config.js",
             "tsConfig": "libs/ui/autocomplete/tsconfig.spec.json",
@@ -331,6 +335,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/autofocus"],
           "options": {
             "jestConfig": "libs/ui/autofocus/jest.config.js",
             "tsConfig": "libs/ui/autofocus/tsconfig.spec.json",
@@ -419,6 +424,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/button"],
           "options": {
             "jestConfig": "libs/ui/button/jest.config.js",
             "tsConfig": "libs/ui/button/tsconfig.spec.json",
@@ -507,6 +513,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/checkbox"],
           "options": {
             "jestConfig": "libs/ui/checkbox/jest.config.js",
             "tsConfig": "libs/ui/checkbox/tsconfig.spec.json",
@@ -595,6 +602,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/card"],
           "options": {
             "jestConfig": "libs/ui/card/jest.config.js",
             "tsConfig": "libs/ui/card/tsconfig.spec.json",
@@ -683,6 +691,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/chart"],
           "options": {
             "jestConfig": "libs/ui/chart/jest.config.js",
             "tsConfig": "libs/ui/chart/tsconfig.spec.json",
@@ -771,6 +780,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/chip"],
           "options": {
             "jestConfig": "libs/ui/chip/jest.config.js",
             "tsConfig": "libs/ui/chip/tsconfig.spec.json",
@@ -859,6 +869,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/cohort-date-range"],
           "options": {
             "jestConfig": "libs/ui/cohort-date-range/jest.config.js",
             "tsConfig": "libs/ui/cohort-date-range/tsconfig.spec.json",
@@ -947,6 +958,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/confirmation"],
           "options": {
             "jestConfig": "libs/ui/confirmation/jest.config.js",
             "tsConfig": "libs/ui/confirmation/tsconfig.spec.json",
@@ -1035,6 +1047,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/copy"],
           "options": {
             "jestConfig": "libs/ui/copy/jest.config.js",
             "tsConfig": "libs/ui/copy/tsconfig.spec.json",
@@ -1123,6 +1136,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/csv-entry"],
           "options": {
             "jestConfig": "libs/ui/csv-entry/jest.config.js",
             "tsConfig": "libs/ui/csv-entry/tsconfig.spec.json",
@@ -1211,6 +1225,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/date-range"],
           "options": {
             "jestConfig": "libs/ui/date-range/jest.config.js",
             "tsConfig": "libs/ui/date-range/tsconfig.spec.json",
@@ -1299,6 +1314,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/drawer"],
           "options": {
             "jestConfig": "libs/ui/drawer/jest.config.js",
             "tsConfig": "libs/ui/drawer/tsconfig.spec.json",
@@ -1387,6 +1403,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/expansion-panel"],
           "options": {
             "jestConfig": "libs/ui/expansion-panel/jest.config.js",
             "tsConfig": "libs/ui/expansion-panel/tsconfig.spec.json",
@@ -1475,6 +1492,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/file-upload"],
           "options": {
             "jestConfig": "libs/ui/file-upload/jest.config.js",
             "tsConfig": "libs/ui/file-upload/tsconfig.spec.json",
@@ -1554,6 +1572,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/form-field"],
           "options": {
             "jestConfig": "libs/ui/form-field/jest.config.js",
             "tsConfig": "libs/ui/form-field/tsconfig.spec.json",
@@ -1610,6 +1629,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/icon"],
           "options": {
             "jestConfig": "libs/ui/icon/jest.config.js",
             "tsConfig": "libs/ui/icon/tsconfig.spec.json",
@@ -1698,6 +1718,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/icon-button"],
           "options": {
             "jestConfig": "libs/ui/icon-button/jest.config.js",
             "tsConfig": "libs/ui/icon-button/tsconfig.spec.json",
@@ -1786,6 +1807,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/input"],
           "options": {
             "jestConfig": "libs/ui/input/jest.config.js",
             "tsConfig": "libs/ui/input/tsconfig.spec.json",
@@ -1874,6 +1896,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/link"],
           "options": {
             "jestConfig": "libs/ui/link/jest.config.js",
             "tsConfig": "libs/ui/link/tsconfig.spec.json",
@@ -1962,6 +1985,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/loading-overlay"],
           "options": {
             "jestConfig": "libs/ui/loading-overlay/jest.config.js",
             "tsConfig": "libs/ui/loading-overlay/tsconfig.spec.json",
@@ -2050,6 +2074,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/login-form"],
           "options": {
             "jestConfig": "libs/ui/login-form/jest.config.js",
             "tsConfig": "libs/ui/login-form/tsconfig.spec.json",
@@ -2106,6 +2131,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/logo"],
           "options": {
             "jestConfig": "libs/ui/logo/jest.config.js",
             "tsConfig": "libs/ui/logo/tsconfig.spec.json",
@@ -2194,6 +2220,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/menu"],
           "options": {
             "jestConfig": "libs/ui/menu/jest.config.js",
             "tsConfig": "libs/ui/menu/tsconfig.spec.json",
@@ -2282,6 +2309,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/navigation"],
           "options": {
             "jestConfig": "libs/ui/navigation/jest.config.js",
             "tsConfig": "libs/ui/navigation/tsconfig.spec.json",
@@ -2370,6 +2398,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/option"],
           "options": {
             "jestConfig": "libs/ui/option/jest.config.js",
             "tsConfig": "libs/ui/option/tsconfig.spec.json",
@@ -2426,6 +2455,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/paginator"],
           "options": {
             "jestConfig": "libs/ui/paginator/jest.config.js",
             "tsConfig": "libs/ui/paginator/tsconfig.spec.json",
@@ -2511,6 +2541,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/pipes"],
           "options": {
             "jestConfig": "libs/ui/pipes/jest.config.js",
             "tsConfig": "libs/ui/pipes/tsconfig.spec.json",
@@ -2599,6 +2630,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/popover"],
           "options": {
             "jestConfig": "libs/ui/popover/jest.config.js",
             "tsConfig": "libs/ui/popover/tsconfig.spec.json",
@@ -2687,6 +2719,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/radio-group"],
           "options": {
             "jestConfig": "libs/ui/radio-group/jest.config.js",
             "tsConfig": "libs/ui/radio-group/tsconfig.spec.json",
@@ -2775,6 +2808,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/scrollbars"],
           "options": {
             "jestConfig": "libs/ui/scrollbars/jest.config.js",
             "tsConfig": "libs/ui/scrollbars/tsconfig.spec.json",
@@ -2863,6 +2897,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/search"],
           "options": {
             "jestConfig": "libs/ui/search/jest.config.js",
             "tsConfig": "libs/ui/search/tsconfig.spec.json",
@@ -2951,6 +2986,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/select"],
           "options": {
             "jestConfig": "libs/ui/select/jest.config.js",
             "tsConfig": "libs/ui/select/tsconfig.spec.json",
@@ -3007,6 +3043,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/selection-list"],
           "options": {
             "jestConfig": "libs/ui/selection-list/jest.config.js",
             "tsConfig": "libs/ui/selection-list/tsconfig.spec.json",
@@ -3095,6 +3132,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/sort"],
           "options": {
             "jestConfig": "libs/ui/sort/jest.config.js",
             "tsConfig": "libs/ui/sort/tsconfig.spec.json",
@@ -3139,6 +3177,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/spacing"],
           "options": {
             "jestConfig": "libs/ui/spacing/jest.config.js",
             "tsConfig": "libs/ui/spacing/tsconfig.spec.json",
@@ -3277,6 +3316,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/table"],
           "options": {
             "jestConfig": "libs/ui/table/jest.config.js",
             "tsConfig": "libs/ui/table/tsconfig.spec.json",
@@ -3365,6 +3405,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/tabs"],
           "options": {
             "jestConfig": "libs/ui/tabs/jest.config.js",
             "tsConfig": "libs/ui/tabs/tsconfig.spec.json",
@@ -3453,6 +3494,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/toggle"],
           "options": {
             "jestConfig": "libs/ui/toggle/jest.config.js",
             "tsConfig": "libs/ui/toggle/tsconfig.spec.json",
@@ -3541,6 +3583,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/tooltip"],
           "options": {
             "jestConfig": "libs/ui/tooltip/jest.config.js",
             "tsConfig": "libs/ui/tooltip/tsconfig.spec.json",
@@ -3617,6 +3660,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/utilities"],
           "options": {
             "jestConfig": "libs/ui/utilities/jest.config.js",
             "tsConfig": "libs/ui/utilities/tsconfig.spec.json",
@@ -3673,6 +3717,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/validation-messages"],
           "options": {
             "jestConfig": "libs/ui/validation-messages/jest.config.js",
             "tsConfig": "libs/ui/validation-messages/tsconfig.spec.json",
@@ -3717,6 +3762,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/validators"],
           "options": {
             "jestConfig": "libs/ui/validators/jest.config.js",
             "tsConfig": "libs/ui/validators/tsconfig.spec.json",
