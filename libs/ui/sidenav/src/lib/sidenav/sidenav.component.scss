@@ -1,0 +1,407 @@
+:root {
+  --ts-sidenav-backgroundColor: var(--ts-color-navigation-blue);
+  --ts-sidenav-color: var(--ts-color-base-white);
+  --ts-sidenav-height: 100%;
+  --ts-sidenav-width: 64px;
+  --ts-sidenav-borderRadius-circle: var(--ts-border-radius-circle);
+  --ts-sidenav-borderRadius: var(--ts-border-radius-base);
+  --ts-sidenav-icon-color: #98a8ae;
+  --ts-sidenav-icon-active-backgroundColor: #294f5b;
+  --ts-sidenav-caret-height: 12px;
+  --ts-sidenav-caret-width: 8px;
+  --ts-sidenav-trigger-caret-transform: translateY(-50%) rotate(-90deg);
+
+  // Typography
+  --ts-sidenav-sectionTitle-typography: 700 14px var(--ts-typography-stack-base);
+  --ts-sidenav-userImage-typography: 700 14px var(--ts-typography-stack-base);
+  --ts-sidenav-userName-typography: 700 14px var(--ts-typography-stack-base);
+  --ts-sidenav-userEmail-typography: 400 13px var(--ts-typography-stack-base);
+  --ts-sidenav-panelTitle-typography: 500 13px / 26px var(--ts-typography-stack-base);
+  --ts-sidenav-panelTitleSection-title-typography: 700 14px var(--ts-typography-stack-base);
+  --ts-sidenav-panelTitleSection-subtitle-typography: 400 13px var(--ts-typography-stack-base);
+  --ts-sidenav-action-fontSize: 13px;
+  --ts-sidenav-userPanelLink-fontSize: 13px;
+  --ts-sidenav-trigger-linkButton-fontSize: 14px;
+  --ts-sidenav-ps-sectionTitle-typography: 500 14px / 20px var(--ts-typography-stack-base);
+  --ts-sidenav-ps-title-typography: 500 11px / 14px var(--ts-typography-stack-base);
+  --ts-sidenav-ps-link-typography: 500 14px var(--ts-typography-stack-base);
+  --ts-sidenav-ps-trigger-title-typography: 500 14px var(--ts-typography-stack-base);
+
+  // General Panel
+  --ts-sidenav-panel-boxShadow: 0 4px 8px rgba(0, 0, 0, .08), 0 0 0 rgba(0, 0, 0, .08);
+  --ts-sidenav-panel-backgroundColor: var(--ts-color-base-white);
+  --ts-sidenav-panel-option-hover: var(--ts-color-primary-100);
+  --ts-sidenav-panel-padding: 8px;
+  --ts-sidenav-panel-borderRadius: 4px;
+  --ts-sidenav-panel-margin: 10px;
+  --ts-sidenav-panel-popout-width: 16rem;
+  --ts-sidenav-panel-drawer-width: 15rem;
+  --ts-sidenav-panel-user-padding: var(--ts-space-inset-500) var(--ts-space-inset-300) var(--ts-space-inset-300);
+  --ts-sidenav-panel-closeButton-margin: var(--ts-space-inline-500);
+  --ts-sidenav-panel-firstTitle-paddingRight: 36px;
+  --ts-sidenav-panel-boldTitle-padding: var(--ts-space-inset-300);
+  --ts-sidenav-panel-boldTitle-fontWeight: 700;
+  --ts-sidenav-panel-hr-borderTop: 1px solid var(--ts-color-utility-200);
+  --ts-sidenav-panelTitle-color: var(--ts-color-utility-600);
+  --ts-sidenav-panelTitleSection-title-padding: 0 8px;
+  --ts-sidenav-panel-action-padding: 8px;
+
+  // Trigger
+  --ts-sidenav-trigger-xy: 36px;
+  --ts-sidenav-trigger-last-marginBottom: var(--ts-space-stack-400);
+  --ts-sidenav-trigger-color-red: var(--ts-color-warn-500);
+  --ts-sidenav-trigger-color-amber: #f5b000;
+  --ts-sidenav-trigger-notificationDot-xy: 12px;
+  --ts-sidenav-trigger-notificationDot-border: 3px solid var(--ts-color-navigation-blue);
+  --ts-sidenav-trigger-backgroundColor: transparent;
+  --ts-sidenav-trigger-active-backgroundColor: rgba(255, 255, 255, .06);
+  --ts-sidenav-trigger-hover-backgroundColor: rgba(255, 255, 255, .12);
+
+  // User trigger and panel
+  --ts-sidenav-user-name-fontSize: 14px;
+  --ts-sidenav-user-name-fontWeight: 700;
+  --ts-sidenav-user-active-boxShadow: 0 0 0 3px rgba(255, 255, 255, .06);
+  --ts-sidenav-user-trigger-margin: auto auto 14px;
+  --ts-sidenav-user-trigger-image-backgroundColor: rgba(255, 255, 255, .12);
+  --ts-sidenav-user-trigger-xy: 36px;
+  --ts-sidenav-user-header-marginBottom: 16px;
+  --ts-sidenav-user-header-padding: 0 8px;
+  --ts-sidenav-user-icon-width: 18px;
+  --ts-sidenav-user-link-padding: 8px;
+
+  // Platform Switcher
+  --ts-sidenav-ps-trigger-padding: var(--ts-space-inset-500) 0;
+  --ts-sidenav-ps-marginBottom: var(--ts-space-stack-700);
+  --ts-sidenav-ps-title-color: #98a8ae;
+  --ts-sidenav-ps-title-padding: 0 3px;
+  --ts-sidenav-ps-logo-xy: 24px;
+  --ts-sidenav-ps-margin: auto auto var(--ts-space-inline-300);
+  --ts-sidenav-ps-backgroundColor: transparent;
+  --ts-sidenav-ps-hover-backgroundColor: rgba(255, 255, 255, .12);
+  --ts-sidenav-ps-active-backgroundColor: rgba(255, 255, 255, .06);
+  --ts-sidenav-ps-link-padding: var(--ts-space-inline-300);
+  --ts-sidenav-ps-link-icon-marginRight: var(--ts-space-inline-300);
+  --ts-sidenav-ps-link-icon-opacity: .4;
+  --ts-sidenav-ps-link-color: var(--ts-color-primary-500);
+  --ts-sidenav-ps-lastLink-marginBottom: var(--ts-space-stack-500);
+  --ts-sidenav-ps-list-paddingLeft: var(--ts-space-inset-500);
+  --ts-sidenav-ps-listItem-margin: 0 0 var(--ts-space-stack-500);
+  --ts-sidenav-ps-caret-right: 3px;
+  --ts-sidenav-ps-caret-top: 24px;
+
+  // Section Break
+  --ts-sidenav-sectionBreak-backgroundColor: rgba(255, 255, 255, .08);
+  --ts-sidenav-sectionBreak-border: 2px solid var(--ts-sidenav-sectionBreak-backgroundColor);
+  --ts-sidenav-sectionBreak-height: 3px;
+
+  // Transitions
+  --ts-sidenav-backgroundColor-transition: background-color 200ms ease-out;
+  --ts-sidenav-opacity-transition: opacity 200ms ease-out;
+  --ts-sidenav-fill-transition: fill 200ms ease-out;
+}
+
+.ts-sidenav {
+  background-color: var(--ts-sidenav-backgroundColor);
+  box-sizing: border-box;
+  color: var(--ts-sidenav-color);
+  display: inline-block;
+  height: var(--ts-sidenav-height);
+  width: var(--ts-sidenav-width);
+
+  > * {
+    box-sizing: border-box;
+  }
+
+  &-wrapper {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    height: var(--ts-sidenav-height);
+    justify-content: flex-start;
+  }
+
+  .caret {
+    path {
+      fill: var(--ts-sidenav-trigger-hover-backgroundColor);
+    }
+  }
+
+  // Spacer to fill space between nav items and user menu
+  .spacer {
+    display: block;
+    flex-grow: 1;
+  }
+
+  // Container for entire user menu trigger
+  &__user {
+    margin: var(--ts-sidenav-user-trigger-margin);
+    position: relative;
+
+    // Container around user image
+    &-image {
+      align-items: center;
+      background-color: var(--ts-sidenav-user-trigger-image-backgroundColor);
+      border: 0;
+      border-radius: var(--ts-sidenav-borderRadius-circle);
+      color: var(--ts-sidenav-color);
+      cursor: pointer;
+      display: flex;
+      font: var(--ts-sidenav-userImage-typography);
+      height: var(--ts-sidenav-user-trigger-xy);
+      justify-content: center;
+      overflow: hidden;
+      padding: 0;
+      width: var(--ts-sidenav-user-trigger-xy);
+
+      &:focus {
+        outline: 0;
+      }
+
+      &--active {
+        box-shadow: var(--ts-sidenav-user-active-boxShadow);
+      }
+
+      // Make sure the image is large enough to fill the radius of the containing element
+      img {
+        max-height: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .caret {
+      height: var(--ts-sidenav-caret-height);
+      left: calc(100% + 3px);
+      position: absolute;
+      top: 50%;
+      transform: var(--ts-sidenav-trigger-caret-transform);
+      width: var(--ts-sidenav-caret-width);
+    }
+  }
+}
+
+// Panel styles used by multiple sidenav child components
+.ts-sidenav-panel {
+  background-color: var(--ts-sidenav-panel-backgroundColor);
+  box-shadow: var(--ts-sidenav-panel-boxShadow);
+  box-sizing: border-box;
+  padding: calc(var(--ts-sidenav-panel-padding) * 2) var(--ts-sidenav-panel-padding) var(--ts-sidenav-panel-padding);
+
+  &:focus {
+    outline: none;
+  }
+
+  // <button> close the drawer
+  &__close {
+    // Overwrite default styles:
+    --tsb-padding: 5px 9px;
+    --tsb-lineHeight: 1;
+    --tsb-margin: 0;
+    position: absolute;
+    right: var(--ts-sidenav-panel-closeButton-margin);
+    top: var(--ts-sidenav-panel-closeButton-margin);
+  }
+
+  // Wrapper class around the sidenav panel
+  &-wrap {
+    box-sizing: border-box;
+
+    &--drawer {
+      // Needed to support drawer slide-in animation
+      overflow: hidden;
+    }
+  }
+
+  // Target all `popout` panel types
+  &--popout {
+    border-radius: var(--ts-sidenav-panel-borderRadius);
+    // Need enough space so shadow can be visible
+    margin: var(--ts-sidenav-panel-margin);
+    width: var(--ts-sidenav-panel-popout-width);
+  }
+
+  // Target all `drawer` panel types
+  &--drawer {
+    // Need enough space so shadow can be visible
+    margin-right: var(--ts-sidenav-panel-margin);
+    transform: translateX(-100%);
+    width: var(--ts-sidenav-panel-drawer-width);
+  }
+
+  // Target the user panel popout
+  &--user {
+    padding: var(--ts-sidenav-panel-user-padding);
+
+    header {
+      margin-bottom: var(--ts-sidenav-user-header-marginBottom);
+      padding: var(--ts-sidenav-user-header-padding);
+    }
+
+    ul,
+    ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .ts-sidenav-user__name {
+      font: var(--ts-sidenav-userName-typography);
+    }
+
+    .ts-sidenav-user__email {
+      color: var(--ts-color-utility-600);
+      font: var(--ts-sidenav-userEmail-typography);
+    }
+
+    hr {
+      border: 0;
+      border-top: var(--ts-sidenav-panel-hr-borderTop);
+      height: 0;
+      margin: 8px calc(var(--ts-sidenav-panel-padding) * -1);
+      width: calc(100% + (var(--ts-sidenav-panel-padding) * 2));
+    }
+
+    // Create a container to center icons. This helps icons appear centered even though some are wider than others.
+    .ts-sidenav-user__icon {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      width: var(--ts-sidenav-user-icon-width);
+    }
+
+    a {
+      border-radius: var(--ts-border-radius-base);
+      color: var(--ts-color-utility-700);
+      display: flex;
+      font-size: var(--ts-sidenav-userPanelLink-fontSize);
+      justify-content: space-between;
+      padding: var(--ts-sidenav-user-link-padding);
+      text-decoration: none;
+      transition: background-color 200ms ease-out;
+
+      &:focus,
+      &:hover {
+        background-color: var(--ts-sidenav-panel-option-hover);
+      }
+    }
+  }
+}
+
+// Styles for passed in panel contents
+[tsTriggerComponentPanelContent] {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  // Target first title inside drawer panel
+  .ts-sidenav-panel--drawer & {
+    &:first-of-type {
+      .ts-sidenav-panel-title {
+        // Create space for close button
+        padding-right: var(--ts-sidenav-panel-firstTitle-paddingRight);
+      }
+    }
+  }
+
+  li {
+    &.ts-sidenav-bold-title {
+      font-weight: var(--ts-sidenav-panel-boldTitle-fontWeight);
+      padding: var(--ts-sidenav-panel-boldTitle-padding);
+    }
+  }
+
+  hr {
+    border: 0;
+    border-top: var(--ts-sidenav-panel-hr-borderTop);
+    height: 0;
+    margin: 12px 8px;
+  }
+}
+
+// START: Styles exposed for consumers to use:
+
+// Make class available for hiding elements from screen readers
+.sr-only {
+  $smallest-adjustment: 1px;
+
+  // Avoid some cases where the browser will still render the native controls
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: $smallest-adjustment;
+  margin: -$smallest-adjustment;
+
+  // Avoid browsers rendering the focus ring in some cases.
+  outline: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: $smallest-adjustment;
+}
+
+// The primary title of a panel
+.ts-sidenav-panel-title {
+  color: var(--ts-sidenav-panelTitle-color);
+  font: var(--ts-sidenav-panelTitle-typography);
+  letter-spacing: .05em;
+  margin-bottom: 16px;
+  margin-top: 2px;
+  padding: 0 8px;
+  text-transform: uppercase;
+}
+
+// Section titles for a panel
+.ts-sidenav-panel-section-title {
+  font: var(--ts-sidenav-panelTitleSection-title-typography);
+  padding: var(--ts-sidenav-panelTitleSection-title-padding);
+}
+
+// Section subtitle for a panel
+.ts-sidenav-panel-section-subtitle {
+  color: var(--ts-color-utility-600);
+  font: var(--ts-sidenav-panelTitleSection-subtitle-typography);
+  padding: var(--ts-sidenav-panelTitleSection-title-padding);
+}
+
+// Action styles
+.ts-sidenav-panel-action {
+  border-radius: var(--ts-border-radius-base);
+  color: var(--ts-color-utility-700);
+  display: block;
+  font-size: var(--ts-sidenav-action-fontSize);
+  padding: var(--ts-sidenav-panel-action-padding);
+  text-decoration: none;
+  transition: var(--ts-sidenav-backgroundColor-transition);
+
+  &:focus,
+  &:hover {
+    background-color: var(--ts-sidenav-panel-option-hover);
+  }
+
+  // Styles for toggle based menu
+  &.ts-toggle {
+    font-size: var(--ts-sidenav-action-fontSize);
+    padding: 0;
+    width: 100%;
+
+    .c-toggle {
+      padding: 0 8px;
+    }
+
+    .mat-slide-toggle {
+      height: calc(24px + 8px);
+    }
+
+    .c-toggle,
+    .mat-slide-toggle-label {
+      width: 100%;
+    }
+
+    .mat-slide-toggle-content {
+      flex: 1;
+    }
+  }
+}

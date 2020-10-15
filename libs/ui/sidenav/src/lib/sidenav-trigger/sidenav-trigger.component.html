@@ -1,0 +1,97 @@
+<div
+  class="ts-sidenav-trigger__wrapper"
+  cdk-overlay-origin
+  #triggerItem="cdkOverlayOrigin"
+  [attr.aria-owns]="isPanelOpen ? id + '-panel' : null"
+>
+  <ng-content></ng-content>
+
+  <ng-container *ngIf="panelType">
+    <ng-container *ngTemplateOutlet="dropdownCaret"></ng-container>
+  </ng-container>
+</div>
+
+<ng-template
+  cdk-connected-overlay
+  cdkConnectedOverlayLockPosition
+  cdkConnectedOverlayHasBackdrop
+  cdkConnectedOverlayBackdropClass="ts-sidenav-panel-backdrop"
+  [cdkConnectedOverlayOrigin]="hostSidenav.triggerNav"
+  [cdkConnectedOverlayOpen]="panelType === 'drawer' && isPanelOpen"
+  [cdkConnectedOverlayPositions]="panelPositions"
+  [cdkConnectedOverlayOffsetX]="panelOffsets.x"
+  [cdkConnectedOverlayOffsetY]="panelOffsets.y"
+  (backdropClick)="close()"
+  (detach)="close()"
+>
+  <div class="ts-sidenav-panel-wrap ts-sidenav-panel-wrap--{{ panelType }}">
+    <div
+      role="listbox"
+      tabindex="-1"
+      class="ts-sidenav-panel ts-sidenav-panel--drawer"
+      [attr.id]="id + '-panel'"
+      [@transformDrawer]="'showing'"
+      [style.transformOrigin]="transformOrigin"
+      [style.height.px]="hostSidenav.height"
+    ><ng-container *ngTemplateOutlet="panelContent"></ng-container></div>
+  </div>
+</ng-template>
+
+<ng-template
+  cdk-connected-overlay
+  cdkConnectedOverlayLockPosition
+  cdkConnectedOverlayHasBackdrop
+  cdkConnectedOverlayBackdropClass="ts-sidenav-panel-backdrop"
+  [cdkConnectedOverlayOrigin]="triggerItem"
+  [cdkConnectedOverlayOpen]="panelType !== 'drawer' && isPanelOpen"
+  [cdkConnectedOverlayPositions]="panelPositions"
+  [cdkConnectedOverlayOffsetX]="panelOffsets.x"
+  [cdkConnectedOverlayOffsetY]="panelOffsets.y"
+  (backdropClick)="close()"
+  (detach)="close()"
+>
+  <div class="ts-sidenav-panel-wrap ts-sidenav-panel-wrap--popout">
+    <div
+      role="listbox"
+      tabindex="-1"
+      class="ts-sidenav-panel ts-sidenav-panel--{{ panelType }}"
+      [attr.id]="id + '-panel'"
+      [@transformPanel]="'showing'"
+      [style.transformOrigin]="transformOrigin"
+    ><ng-container *ngTemplateOutlet="panelContent"></ng-container></div>
+  </div>
+</ng-template>
+
+
+
+
+
+
+
+<ng-template #panelContent>
+  <ts-button
+    *ngIf="panelType === 'drawer'"
+    class="ts-sidenav-panel__close"
+    theme="secondary"
+    (click)="close()"
+  ><span class="fas fa-times"></span></ts-button>
+  <ng-content select="[tsTriggerComponentPanelContent]"></ng-content>
+</ng-template>
+
+<ng-template #dropdownCaret>
+  <svg
+    aria-hidden="true"
+    focusable="false"
+    data-prefix="fas"
+    data-icon="caret-down"
+    role="img"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 320 512"
+    class="caret"
+  >
+    <path
+      fill="currentColor"
+      d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+    ></path>
+  </svg>
+</ng-template>

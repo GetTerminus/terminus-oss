@@ -81,6 +81,7 @@
       "@terminus/ui-selection-list/testing": [
         "libs/ui/selection-list/testing/src/index.ts"
       ],
+      "@terminus/ui-sidenav": ["libs/ui/sidenav/src/index.ts"],
       "@terminus/ui-sort": ["libs/ui/sort/src/index.ts"],
       "@terminus/ui-spacing": ["libs/ui/spacing/src/index.ts"],
       "@terminus/ui-styles": ["libs/ui/styles/src/index.ts"],

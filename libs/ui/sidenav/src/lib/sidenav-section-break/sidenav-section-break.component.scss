@@ -1,0 +1,10 @@
+ts-sidenav-section-break {
+  display: block;
+}
+
+.ts-sidenav-section-break {
+  border: var(--ts-sidenav-sectionBreak-border);
+  display: block;
+  height: var(--ts-sidenav-sectionBreak-height);
+  width: 100%;
+}

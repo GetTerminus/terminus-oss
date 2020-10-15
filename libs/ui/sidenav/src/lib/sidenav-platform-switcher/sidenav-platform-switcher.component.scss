@@ -1,0 +1,104 @@
+.ts-sidenav-platform-switcher {
+  cursor: pointer;
+  display: block;
+  margin-bottom: var(--ts-sidenav-ps-marginBottom);
+  position: relative;
+
+  &__trigger {
+    background-color: var(--ts-sidenav-ps-backgroundColor);
+    padding: var(--ts-sidenav-ps-trigger-padding);
+    transition: var(--ts-sidenav-backgroundColor-transition);
+  }
+
+  &--active {
+    .ts-sidenav-platform-switcher__trigger {
+      --ts-sidenav-ps-backgroundColor: var(--ts-sidenav-ps-active-backgroundColor);
+    }
+  }
+
+  &:focus,
+  &:hover {
+    .ts-sidenav-platform-switcher__trigger {
+      --ts-sidenav-ps-backgroundColor: var(--ts-sidenav-ps-hover-backgroundColor);
+    }
+  }
+
+  .ts-logo {
+    margin: var(--ts-sidenav-ps-margin);
+    max-height: var(--ts-sidenav-ps-logo-xy);
+    // Offset so lopsided logo appears centered
+    transform: translateX(3px);
+    width: var(--ts-sidenav-ps-logo-xy);
+  }
+
+  .ts-sidenav-ps__title {
+    color: var(--ts-sidenav-ps-title-color);
+    font: var(--ts-sidenav-ps-title-typography);
+    overflow: hidden;
+    padding: var(--ts-sidenav-ps-title-padding);
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+
+  .caret {
+    height: var(--ts-sidenav-caret-height);
+    position: absolute;
+    right: var(--ts-sidenav-ps-caret-right);
+    top: var(--ts-sidenav-ps-caret-top);
+    width: var(--ts-sidenav-caret-width);
+
+    path {
+      fill: var(--ts-sidenav-ps-title-color);
+    }
+  }
+}
+
+.ts-switcher {
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin: var(--ts-sidenav-ps-listItem-margin);
+  }
+
+  &__section-title {
+    color: var(--ts-color-utility-600);
+    font: var(--ts-sidenav-ps-sectionTitle-typography);
+  }
+
+  // <ul> of links
+  &__children {
+    padding-left: var(--ts-sidenav-ps-list-paddingLeft);
+
+    .ts-switcher-child {
+      &:last-of-type {
+        margin-bottom: var(--ts-sidenav-ps-lastLink-marginBottom);
+      }
+    }
+
+    .ts-switcher__link {
+      border-radius: var(--ts-border-radius-base);
+      color: var(--ts-sidenav-ps-link-color);
+      display: block;
+      font: var(--ts-sidenav-ps-link-typography);
+      padding: var(--ts-sidenav-ps-link-padding);
+      text-decoration: none;
+      transition: var(--ts-sidenav-backgroundColor-transition);
+
+      // icon
+      &-icon {
+        margin-right: var(--ts-sidenav-ps-link-icon-marginRight);
+        opacity: var(--ts-sidenav-ps-link-icon-opacity);
+      }
+
+      &:focus,
+      &:hover {
+        background-color: var(--ts-sidenav-panel-option-hover);
+      }
+    }
+  }
+}

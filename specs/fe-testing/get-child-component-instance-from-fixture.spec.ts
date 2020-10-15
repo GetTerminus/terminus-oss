@@ -7,14 +7,15 @@ import {
 import { getChildComponentInstanceFromFixture } from '@terminus/fe-testing';
 
 @Component({
-  selector: `ts-test`,
+  selector: `ts-foo-bar`,
   template: `<h1>foo</h1>`,
 })
 class TestComponent {
   public myString = 'foo';
 }
 
-@Component({ template: `<ts-test></ts-test>` })
+@Component({ template: `
+    <ts-foo-bar></ts-foo-bar>` })
 class TestHostComponent {}
 
 describe(`getChildComponentInstanceFromFixture`, function() {

@@ -1,0 +1,125 @@
+<div
+  class="ts-sidenav-wrapper"
+  cdkOverlayOrigin
+  #triggerNav="cdkOverlayOrigin"
+>
+  <div class="switcher">
+    <ts-sidenav-platform-switcher
+      [currentTitle]="switcherCurrentTitle"
+      [switcherContent]="switcherContent"
+      [isPanelOpen]="isPlatformSwitcherOpen"
+      [id]="id + '-switcher'"
+    ></ts-sidenav-platform-switcher>
+  </div>
+
+  <nav>
+    <ng-content></ng-content>
+  </nav>
+
+  <span class="spacer"></span>
+
+  <div class="ts-sidenav__user">
+    <button
+      class="ts-sidenav__user-image"
+      [class.ts-sidenav__user-image--active]="isUserPanelOpen"
+      [attr.aria-owns]="isUserPanelOpen ? id + 'user-panel' : null"
+      cdk-overlay-origin
+      #userOrigin="cdkOverlayOrigin"
+      (click)="isUserPanelOpen = true"
+    >
+      <ng-container *ngIf="user?.imageUrl; else noImage">
+        <img [src]="user.imageUrl" [attr.alt]="user.name">
+      </ng-container>
+
+      <ng-template #noImage>
+        <div class="fake-image">{{ userImageFallbackText }}</div>
+      </ng-template>
+
+      <span class="sr-only">{{ user?.name }}</span>
+    </button>
+
+    <ng-container *ngTemplateOutlet="dropdownCaret"></ng-container>
+  </div>
+</div>
+
+<ng-template
+  cdk-connected-overlay
+  cdkConnectedOverlayLockPosition
+  cdkConnectedOverlayHasBackdrop
+  cdkConnectedOverlayBackdropClass="ts-sidenav-panel-backdrop"
+  [cdkConnectedOverlayOrigin]="userOrigin"
+  [cdkConnectedOverlayPositions]="userPanelPositions"
+  [cdkConnectedOverlayOpen]="isUserPanelOpen"
+  cdkConnectedOverlayOffsetX="10"
+  cdkConnectedOverlayOffsetY="12"
+  (backdropClick)="isUserPanelOpen = false"
+  (detach)="isUserPanelOpen = false"
+>
+  <div class="ts-sidenav-panel-wrap ts-sidenav-panel-wrap--popout ts-sidenav-panel-wrap--user">
+    <nav
+      role="listbox"
+      tabindex="-1"
+      class="ts-sidenav-panel ts-sidenav-panel--popout ts-sidenav-panel--user"
+      [attr.id]="id + 'user-panel'"
+      [@transformPanel]="'showing'"
+      [style.transformOrigin]="'bottom'"
+    >
+      <header>
+        <h4 class="ts-sidenav-user__name">{{ user.name }}</h4>
+        <small class="ts-sidenav-user__email">{{ user.email }}</small>
+      </header>
+      <hr>
+      <ul>
+        <li>
+          <a [routerLink]="options.profileRoute">
+            <span class="ts-sidenav-user__link-text">Profile</span>
+            <span class="ts-sidenav-user__icon">
+              <span class="fas fa-user"></span>
+            </span>
+          </a>
+        </li>
+        <li><hr></li>
+        <li>
+          <a [href]="options.knowledgeBaseUrl">
+            <span class="ts-sidenav-user__link-text">Knowledge Base</span>
+            <span class="ts-sidenav-user__icon">
+              <span class="fas fa-book-open"></span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a [href]="options.academyUrl">
+            <span>Terminus Academy</span>
+            <span class="ts-sidenav-user__icon">
+              <span class="fas fa-graduation-cap"></span>
+            </span>
+          </a>
+        </li>
+        <li><hr></li>
+        <li>
+          <a [routerLink]="options.signOutRoute">
+            <span>Sign Out</span>
+            <span class="ts-sidenav-user__icon">
+              <span class="fas fa-sign-out"></span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</ng-template>
+
+<ng-template #dropdownCaret>
+  <svg
+    aria-hidden="true"
+    focusable="false"
+    data-prefix="fas"
+    data-icon="caret-down"
+    role="img"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 320 512"
+    class="caret svg-inline--fa fa-caret-down fa-w-10 fa-3x"
+  >
+    <path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z" class=""></path>
+  </svg>
+</ng-template>

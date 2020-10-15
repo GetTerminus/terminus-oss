@@ -1,0 +1,13 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/libs/ui/sidenav",
+  "lib": {
+    "entryFile": "src/index.ts",
+    "umdModuleIds": {
+      "@terminus/fe-utilities": "terminus.fe-utilities",
+      "@terminus/ui-button": "terminus.ui-button",
+      "@terminus/ui-link": "terminus.ui-link",
+      "@terminus/ui-logo": "terminus.ui-logo"
+    }
+  }
+}
