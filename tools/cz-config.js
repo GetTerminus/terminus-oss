@@ -73,6 +73,7 @@ module.exports = {
     { name: 'Select' },
     { name: 'SelectionList' },
     { name: 'Styles' },
+    { name: 'Sidenav' },
     { name: 'Sort' },
     { name: 'Spacing' },
     { name: 'Table' },

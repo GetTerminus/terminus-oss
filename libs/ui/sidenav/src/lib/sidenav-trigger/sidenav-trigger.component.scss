@@ -1,0 +1,128 @@
+.ts-sidenav-trigger {
+  display: block;
+  height: var(--ts-sidenav-trigger-xy);
+  margin: auto;
+  // Set up for absolutely positioned content
+  position: relative;
+  text-align: center;
+  width: var(--ts-sidenav-trigger-xy);
+
+  &:not(:last-of-type) {
+    margin-bottom: var(--ts-sidenav-trigger-last-marginBottom);
+  }
+
+  &--red {
+    .ts-sidenav-trigger__wrapper {
+      &::after {
+        background-color: var(--ts-sidenav-trigger-color-red);
+        opacity: 1;
+      }
+    }
+  }
+
+  &--amber {
+    .ts-sidenav-trigger__wrapper {
+      &::after {
+        background-color: var(--ts-sidenav-trigger-color-amber);
+        opacity: 1;
+      }
+    }
+  }
+
+  // Create notification dot
+  &__wrapper {
+    &::after {
+      background-color: transparent;
+      border: var(--ts-sidenav-trigger-notificationDot-border);
+      border-radius: var(--ts-sidenav-borderRadius-circle);
+      content: '';
+      display: block;
+      height: var(--ts-sidenav-trigger-notificationDot-xy);
+      opacity: 0;
+      position: absolute;
+      right: -2px;
+      top: -2px;
+      transition: var(--ts-sidenav-opacity-transition), var(--ts-sidenav-backgroundColor-transition);
+      width: var(--ts-sidenav-trigger-notificationDot-xy);
+    }
+  }
+
+  // Reset native button styles
+  button {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    text-align: center;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  .caret {
+    height: var(--ts-sidenav-caret-height);
+    left: calc(100% + 3px);
+    position: absolute;
+    top: 50%;
+    transform: var(--ts-sidenav-trigger-caret-transform);
+    width: var(--ts-sidenav-caret-width);
+
+    path {
+      fill: var(--ts-sidenav-trigger-hover-backgroundColor);
+    }
+  }
+
+  // Force to fill entire space of trigger
+  .ts-tooltip,
+  .c-tooltip {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  button,
+  a {
+    align-items: center;
+    background-color: var(--ts-sidenav-trigger-backgroundColor);
+    border-radius: var(--ts-sidenav-borderRadius);
+    bottom: 0;
+    color: var(--ts-sidenav-icon-color);
+    cursor: pointer;
+    display: flex;
+    font-size: var(--ts-sidenav-trigger-linkButton-fontSize);
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: var(--ts-sidenav-backgroundColor-transition), var(--ts-sidenav-fill-transition);
+    width: 100%;
+
+    path {
+      fill: var(--ts-sidenav-icon-active-backgroundColor);
+    }
+
+    &:focus,
+    &:hover {
+      --ts-sidenav-trigger-backgroundColor: var(--ts-sidenav-trigger-hover-backgroundColor);
+      color: var(--ts-sidenav-color);
+      outline: 0;
+
+      path {
+        fill: var(--ts-sidenav-color);
+      }
+    }
+  }
+
+  &.ts-sidenav-trigger--open {
+    button,
+    a {
+      --ts-sidenav-trigger-backgroundColor: var(--ts-sidenav-trigger-active-backgroundColor);
+      color: var(--ts-sidenav-color);
+    }
+  }
+}
+
+

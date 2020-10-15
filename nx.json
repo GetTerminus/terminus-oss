@@ -177,6 +177,9 @@
     },
     "storybook-dummy": {
       "tags": []
+    },
+    "ui-sidenav": {
+      "tags": []
     }
   }
 }

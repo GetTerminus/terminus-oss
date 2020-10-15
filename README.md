@@ -64,6 +64,7 @@ Monorepo that contains all Terminus open-source packages.
 | [ui-search][src-search]                           | Input with search capabilities                               | [Changelog][changelog-search]              | [Docs][docs-search]              | ![codecov][cov-badge-search]             | ![search latest][badge-latest-search]                         | ![Search next][badge-next-search]                          |
 | [ui-select][src-select]                           | Deprecated. See `selection-list`                             | [Changelog][changelog-select]              | [Docs][docs-select]              | ![codecov][cov-badge-select]             | ![select latest][badge-latest-select]                         | ![Select next][badge-next-select]                          |
 | [ui-selection-list][src-selection-list]           | Classic select dropdown / autocomplete                       | [Changelog][changelog-selection-list]      | [Docs][docs-selection-list]      | ![codecov][cov-badge-selectionList]      | ![selectionList latest][badge-latest-selectionList]           | ![Selection List next][badge-next-selectionList]           |
+| [ui-sidenav][src-sidenav]                         | Vertical navigation                                          | [Changelog][changelog-sidenav]             | [Docs][docs-sidenav]             | ![codecov][cov-badge-sidenav]            | ![sidenav latest][badge-latest-sidenav]                       | ![Sidenav next][badge-next-sidenav]                        |
 | [ui-spacing][src-spacing]                         | Helpers for consistent spacing                               | [Changelog][changelog-spacing]             | [Docs][docs-spacing]             | ![codecov][cov-badge-spacing]            | ![spacing latest][badge-latest-spacing]                       | ![Spacing next][badge-next-spacing]                        |
 | [ui-sort][src-sort]                               | Used by `table` for column sorting                           | [Changelog][changelog-sort]                | [Docs][docs-sort]                | ![codecov][cov-badge-sort]               | ![sort latest][badge-latest-sort]                             | ![Sort next][badge-next-sort]                              |
 | [ui-styles][src-styles]                           | A collection of base CSS, SCSS mixins and functions.         | [Changelog][changelog-styles]              | [Docs][docs-styles]              |                                          | ![styles latest][badge-latest-styles]                         | ![Styles next][badge-next-styles]                          |
@@ -153,6 +154,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [src-select]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/select/
 [src-selection-list]:      https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/selection-list/
 [src-sort]:                https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/sort/
+[src-sidenav]:             https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/sidenav/
 [src-spacing]:             https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/spacing/
 [src-styles]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/styles/
 [src-table]:               https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/table/
@@ -203,6 +205,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [changelog-select]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/select/CHANGELOG.md
 [changelog-selection-list]:      https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/selection-list/CHANGELOG.md
 [changelog-sort]:                https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/sort/CHANGELOG.md
+[changelog-sidenav]:             https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/sidenav/CHANGELOG.md
 [changelog-spacing]:             https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/spacing/CHANGELOG.md
 [changelog-styles]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/styles/CHANGELOG.md
 [changelog-table]:               https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/table/CHANGELOG.md
@@ -296,6 +299,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [demo-search]:              https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-actions-search
 [demo-select]:              https://getterminus.github.io/ui-demos-release/components/select
 [demo-selection-list]:      https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-selection-list
+[demo-sidenav]:             https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-navigation-sidenav
 [demo-spacing-constant]:    https://getterminus.github.io/ui-demos-release/components/spacing-constant
 [demo-spacing]:             https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-spacing
 [demo-table]:               https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-display-table
@@ -346,6 +350,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [docs-select]:              https://github.com/GetTerminus/terminus-oss/tree/release/libs/ui/select
 [docs-selection-list]:      https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/docs/components-data-entry-selection-list
 [docs-sort]:                https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/docs/components-data-display-table
+[docs-sidenav]:             https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/docs/components-navigation-sidenav
 [docs-spacing]:             https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/docs/components-structure-spacing
 [docs-styles]:              https://github.com/GetTerminus/terminus-oss/tree/release/libs/ui/styles
 [docs-table]:               https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/docs/components-data-display-table
@@ -393,6 +398,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [cov-badge-select]:             https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=select
 [cov-badge-selectionList]:      https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=selectionList
 [cov-badge-sort]:               https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=sort
+[cov-badge-sidenav]:            https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=sidenav
 [cov-badge-spacing]:            https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=spacing
 [cov-badge-table]:              https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=table
 [cov-badge-tabs]:               https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=tabs
@@ -442,6 +448,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [badge-latest-search]:             https://img.shields.io/npm/v/@terminus/ui-search/latest?color=%2345aaf2
 [badge-latest-select]:             https://img.shields.io/npm/v/@terminus/ui-select/latest?color=%2345aaf2
 [badge-latest-selectionList]:      https://img.shields.io/npm/v/@terminus/ui-selection-list/latest?color=%2345aaf2
+[badge-latest-sidenav]:            https://img.shields.io/npm/v/@terminus/ui-sidenav/latest?color=%2345aaf2
 [badge-latest-spacing]:            https://img.shields.io/npm/v/@terminus/ui-spacing/latest?color=%2345aaf2
 [badge-latest-sort]:               https://img.shields.io/npm/v/@terminus/ui-sort/latest?color=%2345aaf2
 [badge-latest-styles]:             https://img.shields.io/npm/v/@terminus/ui-styles/latest?color=%2345aaf2
@@ -491,6 +498,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [badge-next-search]:             https://img.shields.io/npm/v/@terminus/ui-search/next?color=%2345aaf2
 [badge-next-select]:             https://img.shields.io/npm/v/@terminus/ui-select/next?color=%2345aaf2
 [badge-next-selectionList]:      https://img.shields.io/npm/v/@terminus/ui-selection-list/next?color=%2345aaf2
+[badge-next-sidenav]:            https://img.shields.io/npm/v/@terminus/ui-sidenav/next?color=%2345aaf2
 [badge-next-spacing]:            https://img.shields.io/npm/v/@terminus/ui-spacing/next?color=%2345aaf2
 [badge-next-sort]:               https://img.shields.io/npm/v/@terminus/ui-sort/next?color=%2345aaf2
 [badge-next-styles]:             https://img.shields.io/npm/v/@terminus/ui-styles/next?color=%2345aaf2
