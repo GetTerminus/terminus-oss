@@ -2,6 +2,7 @@ import { Action } from '@ngrx/store';
 
 import { defineTypeEnum } from '@terminus/fe-utilities';
 
+// eslint-disable-next-line no-shadow
 export enum ActionTypes  {
   StoreToken             = '[ngx-tools-jwt-token-provider] Store Token',
   TokenNearingExpiration = '[ngx-tools-jwt-token-provider] Token Nearing Expiration',

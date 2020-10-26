@@ -1,16 +1,10 @@
 import * as am4charts from '@amcharts/amcharts4/charts';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4maps from '@amcharts/amcharts4/maps';
-// eslint-disable-next-line @typescript-eslint/naming-convention
+// eslint-disable-next-line import/no-duplicates, @typescript-eslint/naming-convention
 import am4themes_material from '@amcharts/amcharts4/themes/animated';
-// eslint-disable-next-line no-duplicate-imports, @typescript-eslint/naming-convention
+// eslint-disable-next-line import/no-duplicates, @typescript-eslint/naming-convention
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
-import { action } from '@storybook/addon-actions';
-import {
-  boolean,
-  select,
-  withKnobs,
-} from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
 import {
