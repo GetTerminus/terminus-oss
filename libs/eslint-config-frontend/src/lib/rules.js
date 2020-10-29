@@ -322,7 +322,7 @@ module.exports = {
 
     // Using a single import statement per module will make the code clearer because you can see everything being imported from that module
     // on one line.
-    'no-duplicate-imports': SEVERITY,
+    'import/no-duplicates': SEVERITY,
 
     // If an if block contains a return statement, the else block becomes unnecessary.
     'no-else-return': SEVERITY,
