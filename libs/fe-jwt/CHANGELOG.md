@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2020-10-29)
+
+
+### Bug Fixes
+
+* **Copy:** remove theme support ([ffeb926](https://github.com/GetTerminus/terminus-oss/commit/ffeb9268442781b7a123e8184e6c19d7f8ba3754))
+
+
+### BREAKING CHANGES
+
+* **Copy:** Theme input no longer supported.
+
+
+
+
+
 # 1.2.0 (2020-09-08)
 
 

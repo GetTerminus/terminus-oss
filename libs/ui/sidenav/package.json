@@ -1,14 +1,14 @@
 {
   "name": "@terminus/ui-sidenav",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "scripts": {
     "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "copy:collection": "cp schematics/collection.json ../../../dist/libs/ui/sidenav/schematics/collection.json",
     "postbuild": "npm run copy:collection"
   },
   "peerDependencies": {
-    "@angular/common": "^9.1.0",
     "@angular/cdk": "^9.2.4",
+    "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
     "@terminus/fe-utilities": "^1.2.0",
     "@terminus/ui-button": "^2.1.0",
