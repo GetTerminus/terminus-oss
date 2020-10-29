@@ -5228,10 +5228,10 @@
   resolved "https://registry.yarnpkg.com/@terminus/design-tokens/-/design-tokens-3.2.0.tgz#df8e636df5f0513f0a70b11d9a8e28b5520546cb"
   integrity sha512-o708JgZ4m69JPJMVmSX7PsN9udlJRUiWKvJgvBM0XjrAOGjC0P6Dtf/JFvJPPqzx2DO5sWOEDNGZ3uEyiOaBOQ==
 
-"@terminus/eslint-config-frontend@3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@terminus/eslint-config-frontend/-/eslint-config-frontend-3.2.0.tgz#f9e497b7dedd46c9e8580cc913706be2af2e158e"
-  integrity sha512-ybY6w+wWGFC8t2oU88WTEbOWR1oGLzxNqR6Cfa1C8W0ThufF1Hz/0nGLql+yNsJox6QdsiRUve9qf01K+I7RPA==
+"@terminus/eslint-config-frontend@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@terminus/eslint-config-frontend/-/eslint-config-frontend-4.0.0.tgz#f67edbe934d71c00f337596fd8d5e8989e1f3e45"
+  integrity sha512-H5HsAnX5e1VTT5JraM4L27tWqZGYxWaQI5JJfB3zl1hoNdT6hsbiKdWFj7EIPPOVqcbISCN29gKv32Iv9KVrKQ==
 
 "@terminus/fe-testing@1.2.0":
   version "1.2.0"

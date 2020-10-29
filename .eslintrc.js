@@ -45,9 +45,6 @@ module.exports = {
         ],
         // For performance, prefer OnPush
         '@angular-eslint/prefer-on-push-component-change-detection': SEVERITY,
-        // Remove this override once https://github.com/GetTerminus/terminus-oss/issues/408 is released
-        'import/no-duplicates': SEVERITY,
-        'no-duplicate-imports': DISABLED,
       },
     },
 
