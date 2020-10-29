@@ -47,6 +47,12 @@ import {
   TsTableDensity,
 } from '@terminus/ui-table';
 
+import {
+  GithubApi,
+  GithubIssue,
+  MOCK_TABLE_RESPONSE,
+} from './table.data';
+
 /**
  * Extend the TsColumn interface with properties our component needs
  */
@@ -61,23 +67,6 @@ export interface CustomColumn extends TsColumn {
   width: number;
 }
 
-interface GithubApi {
-  items: GithubIssue[];
-  // NOTE: Format controlled by GitHub
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  total_count: number;
-}
-
-interface GithubIssue {
-  // NOTE: Format controlled by GitHub
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  created_at: string;
-  number: string;
-  state: string;
-  title: string;
-  comments: string;
-}
-
 /**
  * An example database that the data source uses to retrieve data for the table.
  */
@@ -85,11 +74,13 @@ class ExampleHttpDao {
   constructor(private http: HttpClient) {}
 
   public getRepoIssues(sort: string, order: string, page: number, perPage: number): Observable<GithubApi> {
-    console.log('Hitting the GitHub API');
-    const href = `https://api.github.com/search/issues`;
-    const requestUrl = `${href}?q=repo:GetTerminus/terminus-oss`;
-    const requestParams = `&sort=${sort}&order=${order}&page=${page + 1}&per_page=${perPage}`;
-    return this.http.get<GithubApi>(`${requestUrl}${requestParams}`);
+    // NOTE: Leaving this functionality here so it can easily be toggled back on.
+    // console.log('Hitting the GitHub API');
+    // const href = `https://api.github.com/search/issues`;
+    // const requestUrl = `${href}?q=repo:GetTerminus/terminus-oss`;
+    // const requestParams = `&sort=${sort}&order=${order}&page=${page + 1}&per_page=${perPage}`;
+    // return this.http.get<GithubApi>(`${requestUrl}${requestParams}`);
+    return of(MOCK_TABLE_RESPONSE);
   }
 }
 
@@ -232,7 +223,7 @@ export class TableWrapper implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public trackBy(index: number, item: GithubIssue): string {
-    return item.number;
+    return item.number.toString();
   }
 
   public expand(row) {
