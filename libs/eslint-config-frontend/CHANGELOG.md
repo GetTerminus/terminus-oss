@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 4.0.0 (2020-10-29)
+
+
+### Bug Fixes
+
+* **ESLintConfig:** update duplicate import rule to allow type imports ([6ca8703](https://github.com/GetTerminus/terminus-oss/commit/6ca87035c9fb33b46a14a6b9bf1c2f61b8c35381))
+
+
+### BREAKING CHANGES
+
+* **ESLintConfig:** `no-duplicate-imports` is now named `import/no-duplicates`. Any ESLint disable comments or rule overrides must be updated.
+
+This change allows consumers to define `import { Foo } from ./foo` and `import type { FooType } from ./foo` without trigging the duplicate import error.
+
+
+
+
+
 # 3.2.0 (2020-09-08)
 
 
