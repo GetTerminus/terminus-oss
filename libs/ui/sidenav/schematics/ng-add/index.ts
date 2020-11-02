@@ -18,7 +18,6 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@terminus/design-tokens: ^3.1.0',
     '@terminus/fe-utilities: ^1.2.0',
     '@terminus/ui-button: ^2.1.0',
-    '@terminus/ui-link: ^2.1.0',
     '@terminus/ui-logo: ^1.1.0',
     '@terminus/ui-sidenav: ^1.0.0',
     '@terminus/ui-styles: ^1.1.0',
