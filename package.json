@@ -91,6 +91,7 @@
     "affected:chromatic": "npx chromatic --preserve-missing --build-script-name storybook:build --skip '@(renovate/**|dependabot/**)' --exit-zero-on-changes",
     "chromatic:all": "npx chromatic --build-script-name build:allstorybook:chromatic --skip '@(renovate/**|dependabot/**)'",
     "chromatic:all:prebuilt": "npx chromatic --storybook-build-dir dist/storybook",
+    "sb:all": "nx run ui-storybook:allstorybook",
     "///////// Section: Utilities": "================================",
     "link:eslint-config": "cd dist/libs/eslint-config-frontend && yarn link && cd - && yarn link @terminus/eslint-config-frontend",
     "unlink:eslint-config": "yarn unlink @terminus/eslint-config-frontend && cd dist/libs/eslint-config-frontend && yarn unlink && cd -",
