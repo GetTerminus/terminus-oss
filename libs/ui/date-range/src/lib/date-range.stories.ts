@@ -73,10 +73,10 @@ export const minMaxDate = () => ({
   props: {
     dateFormGroup: FORM_GROUP,
     isDisabled: boolean('Disabled', false),
-    startMinDate: date('Start min date', DATES.startMin),
-    startMaxDate: date('Start max date', DATES.startMax),
-    endMinDate: date('End min date', DATES.endMin),
-    endMaxDate: date('End max date', DATES.endMax),
+    startMinDate: date('Start min date', new Date(2014, 0, 1)),
+    startMaxDate: date('Start max date', new Date()),
+    endMinDate: date('End min date', new Date(2014, 0, 1)),
+    endMaxDate: date('End max date', new Date()),
   },
 });
 minMaxDate.parameters = {
