@@ -40,7 +40,7 @@
     "eslint-config-frontend": {
       "root": "libs/eslint-config-frontend",
       "sourceRoot": "libs/eslint-config-frontend/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -92,7 +92,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/fe-utilities"],
+          "outputs": [
+            "coverage/libs/fe-utilities"
+          ],
           "options": {
             "jestConfig": "libs/fe-utilities/jest.config.js",
             "tsConfig": "libs/fe-utilities/tsconfig.spec.json",
@@ -107,7 +109,9 @@
             "tsConfig": "libs/fe-utilities/tsconfig.lib.json",
             "packageJson": "libs/fe-utilities/package.json",
             "main": "libs/fe-utilities/src/index.ts",
-            "assets": ["libs/fe-utilities/*.md"]
+            "assets": [
+              "libs/fe-utilities/*.md"
+            ]
           }
         }
       }
@@ -130,7 +134,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/fe-jwt"],
+          "outputs": [
+            "coverage/libs/fe-jwt"
+          ],
           "options": {
             "jestConfig": "libs/fe-jwt/jest.config.js",
             "tsConfig": "libs/fe-jwt/tsconfig.spec.json",
@@ -145,7 +151,9 @@
             "tsConfig": "libs/fe-jwt/tsconfig.lib.json",
             "packageJson": "libs/fe-jwt/package.json",
             "main": "libs/fe-jwt/src/index.ts",
-            "assets": ["libs/fe-jwt/*.md"]
+            "assets": [
+              "libs/fe-jwt/*.md"
+            ]
           }
         }
       }
@@ -154,7 +162,7 @@
       "projectType": "library",
       "root": "libs/fe-testing",
       "sourceRoot": "libs/fe-testing/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -175,12 +183,17 @@
               "libs/fe-testing/tsconfig.lib.json",
               "libs/fe-testing/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/fe-testing/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/fe-testing/**/*"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/fe-testing"],
+          "outputs": [
+            "coverage/libs/fe-testing"
+          ],
           "options": {
             "jestConfig": "libs/fe-testing/jest.config.js",
             "tsConfig": "libs/fe-testing/tsconfig.spec.json",
@@ -198,7 +211,7 @@
     "stylelint-config-frontend": {
       "root": "libs/stylelint-config-frontend",
       "sourceRoot": "libs/stylelint-config-frontend/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -236,7 +249,7 @@
       "projectType": "library",
       "root": "libs/ui/autocomplete",
       "sourceRoot": "libs/ui/autocomplete/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -274,7 +287,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/autocomplete"],
+          "outputs": [
+            "coverage/libs/ui/autocomplete"
+          ],
           "options": {
             "jestConfig": "libs/ui/autocomplete/jest.config.js",
             "tsConfig": "libs/ui/autocomplete/tsconfig.spec.json",
@@ -293,7 +308,7 @@
       "projectType": "library",
       "root": "libs/ui/autofocus",
       "sourceRoot": "libs/ui/autofocus/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -310,7 +325,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/autofocus && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/autofocus && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -326,7 +343,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/autofocus"],
+          "outputs": [
+            "coverage/libs/ui/autofocus"
+          ],
           "options": {
             "jestConfig": "libs/ui/autofocus/jest.config.js",
             "tsConfig": "libs/ui/autofocus/tsconfig.spec.json",
@@ -377,7 +396,7 @@
       "projectType": "library",
       "root": "libs/ui/button",
       "sourceRoot": "libs/ui/button/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -394,7 +413,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/button && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/button && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -413,7 +434,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/button"],
+          "outputs": [
+            "coverage/libs/ui/button"
+          ],
           "options": {
             "jestConfig": "libs/ui/button/jest.config.js",
             "tsConfig": "libs/ui/button/tsconfig.spec.json",
@@ -464,7 +487,7 @@
       "projectType": "library",
       "root": "libs/ui/checkbox",
       "sourceRoot": "libs/ui/checkbox/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -481,7 +504,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/checkbox && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/checkbox && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -500,7 +525,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/checkbox"],
+          "outputs": [
+            "coverage/libs/ui/checkbox"
+          ],
           "options": {
             "jestConfig": "libs/ui/checkbox/jest.config.js",
             "tsConfig": "libs/ui/checkbox/tsconfig.spec.json",
@@ -551,7 +578,7 @@
       "projectType": "library",
       "root": "libs/ui/card",
       "sourceRoot": "libs/ui/card/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -568,7 +595,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/card && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/card && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -587,7 +616,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/card"],
+          "outputs": [
+            "coverage/libs/ui/card"
+          ],
           "options": {
             "jestConfig": "libs/ui/card/jest.config.js",
             "tsConfig": "libs/ui/card/tsconfig.spec.json",
@@ -638,7 +669,7 @@
       "projectType": "library",
       "root": "libs/ui/chart",
       "sourceRoot": "libs/ui/chart/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -655,7 +686,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/chart && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/chart && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -674,7 +707,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/chart"],
+          "outputs": [
+            "coverage/libs/ui/chart"
+          ],
           "options": {
             "jestConfig": "libs/ui/chart/jest.config.js",
             "tsConfig": "libs/ui/chart/tsconfig.spec.json",
@@ -725,7 +760,7 @@
       "projectType": "library",
       "root": "libs/ui/chip",
       "sourceRoot": "libs/ui/chip/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -742,7 +777,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/chip && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/chip && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -761,7 +798,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/chip"],
+          "outputs": [
+            "coverage/libs/ui/chip"
+          ],
           "options": {
             "jestConfig": "libs/ui/chip/jest.config.js",
             "tsConfig": "libs/ui/chip/tsconfig.spec.json",
@@ -812,7 +851,7 @@
       "projectType": "library",
       "root": "libs/ui/cohort-date-range",
       "sourceRoot": "libs/ui/cohort-date-range/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -850,7 +889,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/cohort-date-range"],
+          "outputs": [
+            "coverage/libs/ui/cohort-date-range"
+          ],
           "options": {
             "jestConfig": "libs/ui/cohort-date-range/jest.config.js",
             "tsConfig": "libs/ui/cohort-date-range/tsconfig.spec.json",
@@ -901,7 +942,7 @@
       "projectType": "library",
       "root": "libs/ui/confirmation",
       "sourceRoot": "libs/ui/confirmation/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -939,7 +980,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/confirmation"],
+          "outputs": [
+            "coverage/libs/ui/confirmation"
+          ],
           "options": {
             "jestConfig": "libs/ui/confirmation/jest.config.js",
             "tsConfig": "libs/ui/confirmation/tsconfig.spec.json",
@@ -990,7 +1033,7 @@
       "projectType": "library",
       "root": "libs/ui/copy",
       "sourceRoot": "libs/ui/copy/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -1007,7 +1050,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/copy && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/copy && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -1026,7 +1071,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/copy"],
+          "outputs": [
+            "coverage/libs/ui/copy"
+          ],
           "options": {
             "jestConfig": "libs/ui/copy/jest.config.js",
             "tsConfig": "libs/ui/copy/tsconfig.spec.json",
@@ -1077,7 +1124,7 @@
       "projectType": "library",
       "root": "libs/ui/csv-entry",
       "sourceRoot": "libs/ui/csv-entry/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -1094,7 +1141,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/csv-entry && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/csv-entry && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -1113,7 +1162,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/csv-entry"],
+          "outputs": [
+            "coverage/libs/ui/csv-entry"
+          ],
           "options": {
             "jestConfig": "libs/ui/csv-entry/jest.config.js",
             "tsConfig": "libs/ui/csv-entry/tsconfig.spec.json",
@@ -1164,7 +1215,7 @@
       "projectType": "library",
       "root": "libs/ui/date-range",
       "sourceRoot": "libs/ui/date-range/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -1181,7 +1232,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/date-range && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/date-range && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -1200,7 +1253,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/date-range"],
+          "outputs": [
+            "coverage/libs/ui/date-range"
+          ],
           "options": {
             "jestConfig": "libs/ui/date-range/jest.config.js",
             "tsConfig": "libs/ui/date-range/tsconfig.spec.json",
@@ -1251,7 +1306,7 @@
       "projectType": "library",
       "root": "libs/ui/drawer",
       "sourceRoot": "libs/ui/drawer/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -1268,7 +1323,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/drawer && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/drawer && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -1287,7 +1344,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/drawer"],
+          "outputs": [
+            "coverage/libs/ui/drawer"
+          ],
           "options": {
             "jestConfig": "libs/ui/drawer/jest.config.js",
             "tsConfig": "libs/ui/drawer/tsconfig.spec.json",
@@ -1338,7 +1397,7 @@
       "projectType": "library",
       "root": "libs/ui/expansion-panel",
       "sourceRoot": "libs/ui/expansion-panel/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -1376,7 +1435,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/expansion-panel"],
+          "outputs": [
+            "coverage/libs/ui/expansion-panel"
+          ],
           "options": {
             "jestConfig": "libs/ui/expansion-panel/jest.config.js",
             "tsConfig": "libs/ui/expansion-panel/tsconfig.spec.json",
@@ -1427,7 +1488,7 @@
       "projectType": "library",
       "root": "libs/ui/file-upload",
       "sourceRoot": "libs/ui/file-upload/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -1444,7 +1505,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/file-upload && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/file-upload && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -1463,7 +1526,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/file-upload"],
+          "outputs": [
+            "coverage/libs/ui/file-upload"
+          ],
           "options": {
             "jestConfig": "libs/ui/file-upload/jest.config.js",
             "tsConfig": "libs/ui/file-upload/tsconfig.spec.json",
@@ -1514,7 +1579,7 @@
       "projectType": "library",
       "root": "libs/ui/form-field",
       "sourceRoot": "libs/ui/form-field/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -1543,7 +1608,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/form-field"],
+          "outputs": [
+            "coverage/libs/ui/form-field"
+          ],
           "options": {
             "jestConfig": "libs/ui/form-field/jest.config.js",
             "tsConfig": "libs/ui/form-field/tsconfig.spec.json",
@@ -1562,7 +1629,7 @@
       "projectType": "library",
       "root": "libs/ui/icon",
       "sourceRoot": "libs/ui/icon/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -1579,7 +1646,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/icon && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/icon && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -1598,7 +1667,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/icon"],
+          "outputs": [
+            "coverage/libs/ui/icon"
+          ],
           "options": {
             "jestConfig": "libs/ui/icon/jest.config.js",
             "tsConfig": "libs/ui/icon/tsconfig.spec.json",
@@ -1649,7 +1720,7 @@
       "projectType": "library",
       "root": "libs/ui/icon-button",
       "sourceRoot": "libs/ui/icon-button/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -1666,7 +1737,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/icon-button && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/icon-button && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -1685,7 +1758,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/icon-button"],
+          "outputs": [
+            "coverage/libs/ui/icon-button"
+          ],
           "options": {
             "jestConfig": "libs/ui/icon-button/jest.config.js",
             "tsConfig": "libs/ui/icon-button/tsconfig.spec.json",
@@ -1736,7 +1811,7 @@
       "projectType": "library",
       "root": "libs/ui/input",
       "sourceRoot": "libs/ui/input/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -1753,7 +1828,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/input && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/input && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -1772,7 +1849,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/input"],
+          "outputs": [
+            "coverage/libs/ui/input"
+          ],
           "options": {
             "jestConfig": "libs/ui/input/jest.config.js",
             "tsConfig": "libs/ui/input/tsconfig.spec.json",
@@ -1823,7 +1902,7 @@
       "projectType": "library",
       "root": "libs/ui/link",
       "sourceRoot": "libs/ui/link/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -1840,7 +1919,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/link && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/link && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -1859,7 +1940,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/link"],
+          "outputs": [
+            "coverage/libs/ui/link"
+          ],
           "options": {
             "jestConfig": "libs/ui/link/jest.config.js",
             "tsConfig": "libs/ui/link/tsconfig.spec.json",
@@ -1910,7 +1993,7 @@
       "projectType": "library",
       "root": "libs/ui/loading-overlay",
       "sourceRoot": "libs/ui/loading-overlay/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -1948,7 +2031,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/loading-overlay"],
+          "outputs": [
+            "coverage/libs/ui/loading-overlay"
+          ],
           "options": {
             "jestConfig": "libs/ui/loading-overlay/jest.config.js",
             "tsConfig": "libs/ui/loading-overlay/tsconfig.spec.json",
@@ -1999,7 +2084,7 @@
       "projectType": "library",
       "root": "libs/ui/login-form",
       "sourceRoot": "libs/ui/login-form/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -2016,7 +2101,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/login-form && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/login-form && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -2035,7 +2122,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/login-form"],
+          "outputs": [
+            "coverage/libs/ui/login-form"
+          ],
           "options": {
             "jestConfig": "libs/ui/login-form/jest.config.js",
             "tsConfig": "libs/ui/login-form/tsconfig.spec.json",
@@ -2054,7 +2143,7 @@
       "projectType": "library",
       "root": "libs/ui/logo",
       "sourceRoot": "libs/ui/logo/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -2071,7 +2160,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/logo && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/logo && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -2090,7 +2181,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/logo"],
+          "outputs": [
+            "coverage/libs/ui/logo"
+          ],
           "options": {
             "jestConfig": "libs/ui/logo/jest.config.js",
             "tsConfig": "libs/ui/logo/tsconfig.spec.json",
@@ -2141,7 +2234,7 @@
       "projectType": "library",
       "root": "libs/ui/menu",
       "sourceRoot": "libs/ui/menu/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -2158,7 +2251,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/menu && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/menu && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -2177,7 +2272,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/menu"],
+          "outputs": [
+            "coverage/libs/ui/menu"
+          ],
           "options": {
             "jestConfig": "libs/ui/menu/jest.config.js",
             "tsConfig": "libs/ui/menu/tsconfig.spec.json",
@@ -2228,7 +2325,7 @@
       "projectType": "library",
       "root": "libs/ui/navigation",
       "sourceRoot": "libs/ui/navigation/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -2245,7 +2342,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/navigation && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/navigation && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -2264,7 +2363,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/navigation"],
+          "outputs": [
+            "coverage/libs/ui/navigation"
+          ],
           "options": {
             "jestConfig": "libs/ui/navigation/jest.config.js",
             "tsConfig": "libs/ui/navigation/tsconfig.spec.json",
@@ -2315,7 +2416,7 @@
       "projectType": "library",
       "root": "libs/ui/option",
       "sourceRoot": "libs/ui/option/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -2332,7 +2433,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/option && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/option && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -2351,7 +2454,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/option"],
+          "outputs": [
+            "coverage/libs/ui/option"
+          ],
           "options": {
             "jestConfig": "libs/ui/option/jest.config.js",
             "tsConfig": "libs/ui/option/tsconfig.spec.json",
@@ -2370,7 +2475,7 @@
       "projectType": "library",
       "root": "libs/ui/paginator",
       "sourceRoot": "libs/ui/paginator/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -2387,7 +2492,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/paginator && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/paginator && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -2406,7 +2513,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/paginator"],
+          "outputs": [
+            "coverage/libs/ui/paginator"
+          ],
           "options": {
             "jestConfig": "libs/ui/paginator/jest.config.js",
             "tsConfig": "libs/ui/paginator/tsconfig.spec.json",
@@ -2457,7 +2566,7 @@
       "projectType": "library",
       "root": "libs/ui/pipes",
       "sourceRoot": "libs/ui/pipes/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -2474,7 +2583,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/pipes && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/pipes && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -2490,7 +2601,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/pipes"],
+          "outputs": [
+            "coverage/libs/ui/pipes"
+          ],
           "options": {
             "jestConfig": "libs/ui/pipes/jest.config.js",
             "tsConfig": "libs/ui/pipes/tsconfig.spec.json",
@@ -2541,7 +2654,7 @@
       "projectType": "library",
       "root": "libs/ui/popover",
       "sourceRoot": "libs/ui/popover/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -2558,7 +2671,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/popover && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/popover && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -2577,7 +2692,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/popover"],
+          "outputs": [
+            "coverage/libs/ui/popover"
+          ],
           "options": {
             "jestConfig": "libs/ui/popover/jest.config.js",
             "tsConfig": "libs/ui/popover/tsconfig.spec.json",
@@ -2628,7 +2745,7 @@
       "projectType": "library",
       "root": "libs/ui/radio-group",
       "sourceRoot": "libs/ui/radio-group/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -2645,7 +2762,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/radio-group && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/radio-group && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -2664,7 +2783,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/radio-group"],
+          "outputs": [
+            "coverage/libs/ui/radio-group"
+          ],
           "options": {
             "jestConfig": "libs/ui/radio-group/jest.config.js",
             "tsConfig": "libs/ui/radio-group/tsconfig.spec.json",
@@ -2715,7 +2836,7 @@
       "projectType": "library",
       "root": "libs/ui/scrollbars",
       "sourceRoot": "libs/ui/scrollbars/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -2732,7 +2853,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/scrollbars && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/scrollbars && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -2751,7 +2874,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/scrollbars"],
+          "outputs": [
+            "coverage/libs/ui/scrollbars"
+          ],
           "options": {
             "jestConfig": "libs/ui/scrollbars/jest.config.js",
             "tsConfig": "libs/ui/scrollbars/tsconfig.spec.json",
@@ -2802,7 +2927,7 @@
       "projectType": "library",
       "root": "libs/ui/search",
       "sourceRoot": "libs/ui/search/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -2819,7 +2944,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/search && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/search && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -2838,7 +2965,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/search"],
+          "outputs": [
+            "coverage/libs/ui/search"
+          ],
           "options": {
             "jestConfig": "libs/ui/search/jest.config.js",
             "tsConfig": "libs/ui/search/tsconfig.spec.json",
@@ -2889,7 +3018,7 @@
       "projectType": "library",
       "root": "libs/ui/select",
       "sourceRoot": "libs/ui/select/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -2906,7 +3035,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/select && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/select && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -2925,7 +3056,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/select"],
+          "outputs": [
+            "coverage/libs/ui/select"
+          ],
           "options": {
             "jestConfig": "libs/ui/select/jest.config.js",
             "tsConfig": "libs/ui/select/tsconfig.spec.json",
@@ -2944,7 +3077,7 @@
       "projectType": "library",
       "root": "libs/ui/selection-list",
       "sourceRoot": "libs/ui/selection-list/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -2982,7 +3115,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/selection-list"],
+          "outputs": [
+            "coverage/libs/ui/selection-list"
+          ],
           "options": {
             "jestConfig": "libs/ui/selection-list/jest.config.js",
             "tsConfig": "libs/ui/selection-list/tsconfig.spec.json",
@@ -3062,7 +3197,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/sidenav"],
+          "outputs": [
+            "coverage/libs/ui/sidenav"
+          ],
           "options": {
             "jestConfig": "libs/ui/sidenav/jest.config.js",
             "tsConfig": "libs/ui/sidenav/tsconfig.spec.json",
@@ -3122,7 +3259,7 @@
       "projectType": "library",
       "root": "libs/ui/sort",
       "sourceRoot": "libs/ui/sort/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -3139,7 +3276,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/sort && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/sort && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -3158,7 +3297,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/sort"],
+          "outputs": [
+            "coverage/libs/ui/sort"
+          ],
           "options": {
             "jestConfig": "libs/ui/sort/jest.config.js",
             "tsConfig": "libs/ui/sort/tsconfig.spec.json",
@@ -3177,7 +3318,7 @@
       "projectType": "library",
       "root": "libs/ui/spacing",
       "sourceRoot": "libs/ui/spacing/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -3203,7 +3344,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/spacing"],
+          "outputs": [
+            "coverage/libs/ui/spacing"
+          ],
           "options": {
             "jestConfig": "libs/ui/spacing/jest.config.js",
             "tsConfig": "libs/ui/spacing/tsconfig.spec.json",
@@ -3254,7 +3397,7 @@
       "projectType": "library",
       "root": "libs/ui/styles",
       "sourceRoot": "libs/ui/styles/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3304,7 +3447,7 @@
       "projectType": "library",
       "root": "libs/ui/table",
       "sourceRoot": "libs/ui/table/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -3321,7 +3464,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/table && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/table && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -3340,7 +3485,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/table"],
+          "outputs": [
+            "coverage/libs/ui/table"
+          ],
           "options": {
             "jestConfig": "libs/ui/table/jest.config.js",
             "tsConfig": "libs/ui/table/tsconfig.spec.json",
@@ -3391,7 +3538,7 @@
       "projectType": "library",
       "root": "libs/ui/tabs",
       "sourceRoot": "libs/ui/tabs/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -3408,7 +3555,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/tabs && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/tabs && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -3427,7 +3576,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/tabs"],
+          "outputs": [
+            "coverage/libs/ui/tabs"
+          ],
           "options": {
             "jestConfig": "libs/ui/tabs/jest.config.js",
             "tsConfig": "libs/ui/tabs/tsconfig.spec.json",
@@ -3478,7 +3629,7 @@
       "projectType": "library",
       "root": "libs/ui/toggle",
       "sourceRoot": "libs/ui/toggle/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -3495,7 +3646,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/toggle && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/toggle && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -3514,7 +3667,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/toggle"],
+          "outputs": [
+            "coverage/libs/ui/toggle"
+          ],
           "options": {
             "jestConfig": "libs/ui/toggle/jest.config.js",
             "tsConfig": "libs/ui/toggle/tsconfig.spec.json",
@@ -3565,7 +3720,7 @@
       "projectType": "library",
       "root": "libs/ui/tooltip",
       "sourceRoot": "libs/ui/tooltip/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -3582,7 +3737,9 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/tooltip && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/tooltip && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -3601,7 +3758,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/tooltip"],
+          "outputs": [
+            "coverage/libs/ui/tooltip"
+          ],
           "options": {
             "jestConfig": "libs/ui/tooltip/jest.config.js",
             "tsConfig": "libs/ui/tooltip/tsconfig.spec.json",
@@ -3652,7 +3811,7 @@
       "projectType": "library",
       "root": "libs/ui/utilities",
       "sourceRoot": "libs/ui/utilities/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -3678,7 +3837,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/utilities"],
+          "outputs": [
+            "coverage/libs/ui/utilities"
+          ],
           "options": {
             "jestConfig": "libs/ui/utilities/jest.config.js",
             "tsConfig": "libs/ui/utilities/tsconfig.spec.json",
@@ -3697,7 +3858,7 @@
       "projectType": "library",
       "root": "libs/ui/validation-messages",
       "sourceRoot": "libs/ui/validation-messages/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -3735,7 +3896,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/validation-messages"],
+          "outputs": [
+            "coverage/libs/ui/validation-messages"
+          ],
           "options": {
             "jestConfig": "libs/ui/validation-messages/jest.config.js",
             "tsConfig": "libs/ui/validation-messages/tsconfig.spec.json",
@@ -3754,7 +3917,7 @@
       "projectType": "library",
       "root": "libs/ui/validators",
       "sourceRoot": "libs/ui/validators/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -3780,7 +3943,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/validators"],
+          "outputs": [
+            "coverage/libs/ui/validators"
+          ],
           "options": {
             "jestConfig": "libs/ui/validators/jest.config.js",
             "tsConfig": "libs/ui/validators/tsconfig.spec.json",
@@ -3877,7 +4042,7 @@
       "schematics": {},
       "root": "apps/storybook-dummy",
       "sourceRoot": "apps/storybook-dummy/src",
-      "prefix": "terminus",
+      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -3889,7 +4054,9 @@
             "tsConfig": "apps/storybook-dummy/tsconfig.app.json",
             "aot": true,
             "assets": [],
-            "styles": ["apps/storybook-dummy/src/styles.scss"],
+            "styles": [
+              "apps/storybook-dummy/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
