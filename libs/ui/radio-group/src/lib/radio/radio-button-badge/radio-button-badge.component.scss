@@ -1,0 +1,17 @@
+:root {
+  // NOTE: This is a magic number that just needs to be much larger than ever needed.
+  // The browser will auto-size the border radius based on the element height and width.
+  --ts-rbb-borderRadius: 500px;
+  --ts-rbb-backgroundColor: var(--ts-color-utility-300);
+  --ts-rbb-color: var(--ts-color-utility-700);
+  --ts-rbb-marginLeft: var(--ts-space-inline-300);
+  --ts-rbb-padding: 2px 8px;
+}
+
+.ts-radio-button-badge {
+  background-color: var(--ts-rbb-backgroundColor);
+  border-radius: var(--ts-rbb-borderRadius);
+  color: var(--ts-rbb-color);
+  margin-left: var(--ts-rbb-marginLeft);
+  padding: var(--ts-rbb-padding);
+}

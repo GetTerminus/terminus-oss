@@ -12,11 +12,10 @@ import {
 import {
   TsRadioButtonComponent,
   TsRadioChange,
-  TsRadioGroupComponent,
   TsRadioGroupModule,
 } from '@terminus/ui-radio-group';
 
-describe(`TsCheckboxComponent`, () => {
+describe(`TsRadioButtonComponent`, () => {
   describe(`without host`, () => {
     let spectator: Spectator<TsRadioButtonComponent>;
     let rootElement: HTMLElement;

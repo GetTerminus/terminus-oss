@@ -1,23 +1,14 @@
 import { CommonModule } from '@angular/common';
 import {
-  FormControl,
-  FormGroup,
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { action } from '@storybook/addon-actions';
-import {
-  boolean,
-  select,
-  text,
-  withKnobs,
-} from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
 import {
   TsRadioButtonComponent,
   TsRadioGroupComponent,
-  TsRadioGroupModule,
 } from '@terminus/ui-radio-group';
 import { TsValidationMessagesModule } from '@terminus/ui-validation-messages';
 
@@ -43,7 +34,7 @@ const DEMO_ITEMS: Record<string, any> = [
 export default {
   title: 'Components/Data Entry/Radio Group/Visual Mode',
   component: TsRadioGroupComponent,
-  subcomponents: [TsRadioButtonComponent],
+  subcomponents: { TsRadioButtonComponent },
   decorators: [
     withKnobs,
     moduleMetadata({
