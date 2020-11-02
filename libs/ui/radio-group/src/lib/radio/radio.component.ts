@@ -49,6 +49,8 @@ export type TS_VISUAL_FORMATS
   | 'visual-centered'
   | 'visual-small'
   | 'visual-small-centered'
+  | 'segmented'
+  | 'segmented-vertical'
 ;
 
 /**
@@ -111,6 +113,8 @@ let nextUniqueId = 0;
     '[class.ts-radio-group--visual]': 'visualFormat.includes("visual")',
     '[class.ts-radio-group--visual-small]': 'visualFormat.includes("small")',
     '[class.ts-radio-group--visual-centered]': 'visualFormat.includes("centered")',
+    '[class.ts-radio-group--segmented]': 'visualFormat.includes("segmented")',
+    '[class.ts-radio-group--segmented-vertical]': 'visualFormat.includes("segmented-vertical")',
     'role': 'radiogroup',
   },
   providers: [

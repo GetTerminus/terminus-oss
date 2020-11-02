@@ -24,6 +24,7 @@
   - [Disabled](#disabled)
   - [Manually set selection](#manually-set-selection)
   - [Visual mode](#visual-mode)
+  - [Segmented mode](#segmented-mode)
 - [Test Helpers](#test-helpers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -259,11 +260,23 @@ export type TS_VISUAL_FORMATS
   | 'visual-centered'
   | 'visual-small'
   | 'visual-small-centered'
+  | 'segmented'
+  | 'segmented-vertical'
 ;
 ```
 
 ```html
-<ts-radio-group [visualFormat]="visual-centered"></ts-radio-group>
+<ts-radio-group visualFormat="visual-centered"></ts-radio-group>
+```
+
+### Segmented mode
+
+Segmented mode displays radio options much like 'tabs' or 'button groups'. This mode can display in horizontal or
+vertical layout:
+
+```html
+<ts-radio-group visualFormat="segmented">...</ts-radio-group>
+<ts-radio-group visualFormat="segmented-vertical">...</ts-radio-group>
 ```
 
 ## Test Helpers
