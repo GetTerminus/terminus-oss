@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { TsButtonModule } from '@terminus/ui-button';
-import { TsLinkModule } from '@terminus/ui-link';
 import { TsLogoModule } from '@terminus/ui-logo';
 
 import { TsSidenavPlatformSwitcherComponent } from './sidenav-platform-switcher/sidenav-platform-switcher.component';
@@ -35,7 +34,6 @@ const DECLARE_EXPORT = [
     PortalModule,
     RouterModule,
     TsButtonModule,
-    TsLinkModule,
     TsLogoModule,
   ],
   declarations: [...DECLARE_EXPORT],
