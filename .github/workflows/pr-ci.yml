@@ -1,5 +1,5 @@
 name: "PR CI"
-on: pull_request_target
+on: pull_request
 env:
   GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
   FONTAWESOME_NPM_AUTH_TOKEN: "${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}"
