@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon@2.1.3...@terminus/ui-icon@2.1.4) (2020-11-02)
+
+
+### Bug Fixes
+
+* **Icon:** remove outdated param ([9ac4342](https://github.com/GetTerminus/terminus-oss/commit/9ac434282b123e18696f468bf0e6b513e7e1338e))
+
+
+
+
+
 ## [2.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon@2.1.2...@terminus/ui-icon@2.1.3) (2020-10-02)
 
 **Note:** Version bump only for package @terminus/ui-icon
