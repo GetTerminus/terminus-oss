@@ -47,7 +47,11 @@ A utility to abbreviate numbers.
 import { abbreviateNumber } from '@terminus/fe-utilities';
 
 const input1 = 1234;
-return abbreviateNumber(input1, 1); // expect to get 1.2K
+abbreviateNumber(input1, '1'); // expect to get `1.2K`
+
+const input2 = 1200;
+abbreviateNumber(input2, 3);        // expect to get `1.200K`
+abbreviateNumber(input2, 3, false); // expect to get `1.2K`
 ```
 
 ## `applyMixins`
