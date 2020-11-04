@@ -28,4 +28,9 @@ describe(`isArrayOfType`, function() {
     expect(isArrayOfType(mixedArray, isNumber)).toEqual(false);
     expect(isArrayOfType(mixedArray, isString)).toEqual(false);
   });
+
+  test(`should return false if no guard is passed in`, () => {
+    expect(isArrayOfType(numbersArray1, undefined)).toEqual(false);
+    expect(isArrayOfType(numbersArray1, 'test' as any)).toEqual(false);
+  });
 });
