@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-pipes@1.1.5...@terminus/ui-pipes@1.2.0) (2020-11-04)
+
+
+### Features
+
+* **Pipes:** abbreviate number pipe: allow trimming of trailing zeros ([8b74137](https://github.com/GetTerminus/terminus-oss/commit/8b74137505c3aa3dd96e3b04c1645892d69963da)), closes [#429](https://github.com/GetTerminus/terminus-oss/issues/429)
+
+
+
+
+
 ## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-pipes@1.1.4...@terminus/ui-pipes@1.1.5) (2020-10-05)
 
 **Note:** Version bump only for package @terminus/ui-pipes
