@@ -35,7 +35,6 @@ A collection of useful utilities.
 - [`toCamelCase`](#tocamelcase)
 - [`untilComponentDestroyed`](#untilcomponentdestroyed)
 - [`updateControlOnInputChanges`](#updatecontroloninputchanges)
-- [`VERSION`](#version)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -570,17 +569,4 @@ import { updateControlOnInputChanges } from '@terminus/fe-utilities';
     updateControlOnInputChanges(changes, 'myInput', this.myFormControl));
   }
 ...
-```
-
-## `VERSION`
-
-An object containing the current version of the library.
-
-```typescript
-import { VERSION } from '@terminus/fe-utilities';
-
-VERSION.full  // Returns: 1.2.3
-VERSION.major // Returns: 1
-VERSION.minor // Returns: 2
-VERSION.patch // Returns: 3
 ```
