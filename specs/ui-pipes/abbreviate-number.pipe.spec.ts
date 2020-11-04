@@ -29,4 +29,12 @@ describe(`TsAbbreviateNumberPipe`, function() {
   test(`should default to a precision of 1`, () => {
     expect(pipe(num)).toEqual('1.2K');
   });
+
+  test(`should default to allowing trailing zeros`, () => {
+    expect(pipe(1200, 3)).toEqual('1.200K');
+  });
+
+  test(`should allow trimming trailing zeros`, () => {
+    expect(pipe(1200, 3, false)).toEqual('1.2K');
+  });
 });

@@ -78,6 +78,12 @@ Then use the pipe in HTML:
 {{ 'HERE IS MY STRING' | tsSentenceCase }}
 ```
 
+If the pipe takes parameters, pass them in after the pipe name:
+
+```html
+{{ '1200' | tsAbbreviateNumber:2:false }}
+```
+
 ### Class
 
 Import the pipes module to your app:
@@ -87,9 +93,7 @@ import { TsPipesModule } from '@terminus/ui-pipes';
 
 @NgModule({
   ...
-  imports: [
-    TsPipesModule,
-  ],
+  imports: [TsPipesModule],
   ...
 })
 export class AppModule {}
@@ -100,10 +104,8 @@ Then inject the pipe into your class and use:
 ```typescript
 import { TsSentenceCasePipe } from '@terminus/ui-pipes';
 
-@Component({
-  ...
-})
-export class PipesComponent {
+@Component({ ... })
+export class MyComponent {
   myString = this.sentenceCasePipe.transform('ANOTHER STRING');
 
   constructor(private sentenceCasePipe: TsSentenceCasePipe) {}
