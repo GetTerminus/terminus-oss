@@ -1,31 +1,20 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { ElementRef } from '@angular/core';
-import {
-  async,
-  fakeAsync,
-  flush,
-  tick,
-} from '@angular/core/testing';
 import {
   FormControl,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
-import {
-  byText,
-  Spectator,
-} from '@ngneat/spectator';
+import { Spectator } from '@ngneat/spectator';
 import {
   createComponentFactory,
   createHostFactory,
   SpectatorHost,
 } from '@ngneat/spectator/jest';
-import { createMouseEvent } from '@terminus/fe-testing';
 
+import { createMouseEvent } from '@terminus/fe-testing';
 import {
   TS_SIDENAV_DEFAULT_OPTIONS,
   TsSidenavComponent,
