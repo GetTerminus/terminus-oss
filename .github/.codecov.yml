@@ -123,6 +123,10 @@ flags:
     paths:
       - libs/ui/option/
     carryforward: true
+  pageHeader:
+    paths:
+      - libs/ui/page-header/
+    carryforward: true
   paginator:
     paths:
       - libs/ui/paginator/

@@ -56,6 +56,7 @@ Monorepo that contains all Terminus open-source packages.
 | [ui-menu][src-menu]                               | A classic dropdown menu                                      | [Changelog][changelog-menu]                | [Docs][docs-menu]                | ![codecov][cov-badge-menu]               | ![menu latest][badge-latest-menu]                             | ![Menu next][badge-next-menu]                              |
 | [ui-option][src-option]                           | Option element for `TsSelectionList`                         | [Changelog][changelog-option]              | [Docs][docs-option]              | ![codecov][cov-badge-option]             | ![option latest][badge-latest-option]                         | ![Option next][badge-next-option]                          |
 | [ui-navigation][src-navigation]                   | Global navigation menu                                       | [Changelog][changelog-navigation]          | [Docs][docs-navigation]          | ![codecov][cov-badge-navigation]         | ![navigation latest][badge-latest-navigation]                 | ![Navigation next][badge-next-navigation]                  |
+| [ui-page-header][src-page-header]                 | HoC: Page header                                             | [Changelog][changelog-page-header]         | [Docs][docs-page-header]         | ![codecov][cov-badge-page-header]        | ![page header latest][badge-latest-page-header]               | ![Page header next][badge-next-page-header]                |
 | [ui-paginator][src-paginator]                     | Paging controls for collections                              | [Changelog][changelog-paginator]           | [Docs][docs-paginator]           | ![codecov][cov-badge-paginator]          | ![paginator latest][badge-latest-paginator]                   | ![Paginator next][badge-next-paginator]                    |
 | [ui-pipes][src-pipes]                             | A collection of pipes for Angular                            | [Changelog][changelog-pipes]               | [Docs][docs-pipes]               | ![codecov][cov-badge-pipes]              | ![pipes latest][badge-latest-pipes]                           | ![Pipes next][badge-next-pipes]                            |
 | [ui-popover][src-popover]                         | Popover with templates                                       | [Changelog][changelog-popover]             | [Docs][docs-popover]             | ![codecov][cov-badge-popover]            | ![popover latest][badge-latest-popover]                       | ![Popover next][badge-next-popover]                        |
@@ -143,8 +144,9 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [src-login-form]:          https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/login-form/
 [src-logo]:                https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/logo/
 [src-menu]:                https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/menu/
-[src-option]:                https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/option/
+[src-option]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/option/
 [src-navigation]:          https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/navigation/
+[src-page-header]:         https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/page-header/
 [src-paginator]:           https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/paginator/
 [src-pipes]:               https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/pipes/
 [src-popover]:             https://github.com/Getterminus/terminus-oss/blob/release/libs/ui/popover/
@@ -196,6 +198,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [changelog-menu]:                https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/menu/CHANGELOG.md
 [changelog-option]:              https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/option/CHANGELOG.md
 [changelog-navigation]:          https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/navigation/CHANGELOG.md
+[changelog-page-header]:         https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/page-header/CHANGELOG.md
 [changelog-paginator]:           https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/paginator/CHANGELOG.md
 [changelog-pipes]:               https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/pipes/CHANGELOG.md
 [changelog-popover]:             https://github.com/Getterminus/terminus-oss/blob/release/libs/ui/popover/CHANGELOG.md
@@ -291,6 +294,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [demo-menu]:                https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-actions-menu
 [demo-option]:              https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-selection-list
 [demo-navigation]:          https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-navigation-navigation-horizontal
+[demo-page-header]:         https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-page-header
 [demo-paginator]:           https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-navigation-paginator
 [demo-pipes]:               https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/utilities-pipes
 [demo-popover]:             https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-popover
@@ -341,6 +345,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [docs-menu]:                https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-actions-menu
 [docs-option]:              https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-selection-list
 [docs-navigation]:          https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-navigation-navigation-horizontal
+[docs-page-header]:         https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-page-header
 [docs-paginator]:           https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-navigation-paginator
 [docs-pipes]:               https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/utilities-pipes
 [docs-popover]:             https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-popover
@@ -389,6 +394,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [cov-badge-menu]:               https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=menu
 [cov-badge-option]:             https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=option
 [cov-badge-navigation]:         https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=navigation
+[cov-badge-page-header]:        https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=page-header
 [cov-badge-paginator]:          https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=paginator
 [cov-badge-pipes]:              https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=pipes
 [cov-badge-popover]:            https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=popover
@@ -440,6 +446,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [badge-latest-menu]:               https://img.shields.io/npm/v/@terminus/ui-menu/latest?color=%2345aaf2
 [badge-latest-navigation]:         https://img.shields.io/npm/v/@terminus/ui-navigation/latest?color=%2345aaf2
 [badge-latest-option]:             https://img.shields.io/npm/v/@terminus/ui-option/latest?color=%2345aaf2
+[badge-latest-page-header]:        https://img.shields.io/npm/v/@terminus/ui-page-header/latest?color=%2345aaf2
 [badge-latest-paginator]:          https://img.shields.io/npm/v/@terminus/ui-paginator/latest?color=%2345aaf2
 [badge-latest-pipes]:              https://img.shields.io/npm/v/@terminus/ui-pipes/latest?color=%2345aaf2
 [badge-latest-popover]:            https://img.shields.io/npm/v/@terminus/ui-popover/latest?color=%2345aaf2
@@ -490,6 +497,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [badge-next-menu]:               https://img.shields.io/npm/v/@terminus/ui-menu/next?color=%2345aaf2
 [badge-next-navigation]:         https://img.shields.io/npm/v/@terminus/ui-navigation/next?color=%2345aaf2
 [badge-next-option]:             https://img.shields.io/npm/v/@terminus/ui-option/next?color=%2345aaf2
+[badge-next-page-header]:        https://img.shields.io/npm/v/@terminus/ui-page-header/next?color=%2345aaf2
 [badge-next-paginator]:          https://img.shields.io/npm/v/@terminus/ui-paginator/next?color=%2345aaf2
 [badge-next-pipes]:              https://img.shields.io/npm/v/@terminus/ui-pipes/next?color=%2345aaf2
 [badge-next-popover]:            https://img.shields.io/npm/v/@terminus/ui-popover/next?color=%2345aaf2

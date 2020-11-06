@@ -118,6 +118,9 @@
     "ui-option": {
       "tags": []
     },
+    "ui-page-header": {
+      "tags": []
+    },
     "ui-paginator": {
       "tags": []
     },
@@ -140,6 +143,9 @@
       "tags": []
     },
     "ui-selection-list": {
+      "tags": []
+    },
+    "ui-sidenav": {
       "tags": []
     },
     "ui-sort": {
@@ -176,9 +182,6 @@
       "tags": []
     },
     "storybook-dummy": {
-      "tags": []
-    },
-    "ui-sidenav": {
       "tags": []
     }
   }

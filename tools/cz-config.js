@@ -64,6 +64,7 @@ module.exports = {
     { name: 'Menu' },
     { name: 'Navigation' },
     { name: 'Option' },
+    { name: 'PageHeader' },
     { name: 'Paginator' },
     { name: 'Pipes' },
     { name: 'Popover' },

@@ -92,9 +92,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/fe-utilities"
-          ],
+          "outputs": ["coverage/libs/fe-utilities"],
           "options": {
             "jestConfig": "libs/fe-utilities/jest.config.js",
             "tsConfig": "libs/fe-utilities/tsconfig.spec.json",
@@ -109,9 +107,7 @@
             "tsConfig": "libs/fe-utilities/tsconfig.lib.json",
             "packageJson": "libs/fe-utilities/package.json",
             "main": "libs/fe-utilities/src/index.ts",
-            "assets": [
-              "libs/fe-utilities/*.md"
-            ]
+            "assets": ["libs/fe-utilities/*.md"]
           }
         }
       }
@@ -134,9 +130,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/fe-jwt"
-          ],
+          "outputs": ["coverage/libs/fe-jwt"],
           "options": {
             "jestConfig": "libs/fe-jwt/jest.config.js",
             "tsConfig": "libs/fe-jwt/tsconfig.spec.json",
@@ -151,9 +145,7 @@
             "tsConfig": "libs/fe-jwt/tsconfig.lib.json",
             "packageJson": "libs/fe-jwt/package.json",
             "main": "libs/fe-jwt/src/index.ts",
-            "assets": [
-              "libs/fe-jwt/*.md"
-            ]
+            "assets": ["libs/fe-jwt/*.md"]
           }
         }
       }
@@ -183,17 +175,12 @@
               "libs/fe-testing/tsconfig.lib.json",
               "libs/fe-testing/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/fe-testing/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/fe-testing/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/fe-testing"
-          ],
+          "outputs": ["coverage/libs/fe-testing"],
           "options": {
             "jestConfig": "libs/fe-testing/jest.config.js",
             "tsConfig": "libs/fe-testing/tsconfig.spec.json",
@@ -287,9 +274,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/autocomplete"
-          ],
+          "outputs": ["coverage/libs/ui/autocomplete"],
           "options": {
             "jestConfig": "libs/ui/autocomplete/jest.config.js",
             "tsConfig": "libs/ui/autocomplete/tsconfig.spec.json",
@@ -325,9 +310,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/autofocus && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/autofocus && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -343,9 +326,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/autofocus"
-          ],
+          "outputs": ["coverage/libs/ui/autofocus"],
           "options": {
             "jestConfig": "libs/ui/autofocus/jest.config.js",
             "tsConfig": "libs/ui/autofocus/tsconfig.spec.json",
@@ -413,9 +394,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/button && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/button && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -434,9 +413,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/button"
-          ],
+          "outputs": ["coverage/libs/ui/button"],
           "options": {
             "jestConfig": "libs/ui/button/jest.config.js",
             "tsConfig": "libs/ui/button/tsconfig.spec.json",
@@ -504,9 +481,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/checkbox && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/checkbox && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -525,9 +500,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/checkbox"
-          ],
+          "outputs": ["coverage/libs/ui/checkbox"],
           "options": {
             "jestConfig": "libs/ui/checkbox/jest.config.js",
             "tsConfig": "libs/ui/checkbox/tsconfig.spec.json",
@@ -595,9 +568,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/card && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/card && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -616,9 +587,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/card"
-          ],
+          "outputs": ["coverage/libs/ui/card"],
           "options": {
             "jestConfig": "libs/ui/card/jest.config.js",
             "tsConfig": "libs/ui/card/tsconfig.spec.json",
@@ -686,9 +655,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/chart && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/chart && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -707,9 +674,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/chart"
-          ],
+          "outputs": ["coverage/libs/ui/chart"],
           "options": {
             "jestConfig": "libs/ui/chart/jest.config.js",
             "tsConfig": "libs/ui/chart/tsconfig.spec.json",
@@ -777,9 +742,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/chip && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/chip && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -798,9 +761,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/chip"
-          ],
+          "outputs": ["coverage/libs/ui/chip"],
           "options": {
             "jestConfig": "libs/ui/chip/jest.config.js",
             "tsConfig": "libs/ui/chip/tsconfig.spec.json",
@@ -889,9 +850,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/cohort-date-range"
-          ],
+          "outputs": ["coverage/libs/ui/cohort-date-range"],
           "options": {
             "jestConfig": "libs/ui/cohort-date-range/jest.config.js",
             "tsConfig": "libs/ui/cohort-date-range/tsconfig.spec.json",
@@ -980,9 +939,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/confirmation"
-          ],
+          "outputs": ["coverage/libs/ui/confirmation"],
           "options": {
             "jestConfig": "libs/ui/confirmation/jest.config.js",
             "tsConfig": "libs/ui/confirmation/tsconfig.spec.json",
@@ -1050,9 +1007,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/copy && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/copy && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1071,9 +1026,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/copy"
-          ],
+          "outputs": ["coverage/libs/ui/copy"],
           "options": {
             "jestConfig": "libs/ui/copy/jest.config.js",
             "tsConfig": "libs/ui/copy/tsconfig.spec.json",
@@ -1141,9 +1094,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/csv-entry && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/csv-entry && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1162,9 +1113,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/csv-entry"
-          ],
+          "outputs": ["coverage/libs/ui/csv-entry"],
           "options": {
             "jestConfig": "libs/ui/csv-entry/jest.config.js",
             "tsConfig": "libs/ui/csv-entry/tsconfig.spec.json",
@@ -1232,9 +1181,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/date-range && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/date-range && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1253,9 +1200,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/date-range"
-          ],
+          "outputs": ["coverage/libs/ui/date-range"],
           "options": {
             "jestConfig": "libs/ui/date-range/jest.config.js",
             "tsConfig": "libs/ui/date-range/tsconfig.spec.json",
@@ -1323,9 +1268,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/drawer && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/drawer && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1344,9 +1287,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/drawer"
-          ],
+          "outputs": ["coverage/libs/ui/drawer"],
           "options": {
             "jestConfig": "libs/ui/drawer/jest.config.js",
             "tsConfig": "libs/ui/drawer/tsconfig.spec.json",
@@ -1435,9 +1376,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/expansion-panel"
-          ],
+          "outputs": ["coverage/libs/ui/expansion-panel"],
           "options": {
             "jestConfig": "libs/ui/expansion-panel/jest.config.js",
             "tsConfig": "libs/ui/expansion-panel/tsconfig.spec.json",
@@ -1505,9 +1444,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/file-upload && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/file-upload && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1526,9 +1463,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/file-upload"
-          ],
+          "outputs": ["coverage/libs/ui/file-upload"],
           "options": {
             "jestConfig": "libs/ui/file-upload/jest.config.js",
             "tsConfig": "libs/ui/file-upload/tsconfig.spec.json",
@@ -1608,9 +1543,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/form-field"
-          ],
+          "outputs": ["coverage/libs/ui/form-field"],
           "options": {
             "jestConfig": "libs/ui/form-field/jest.config.js",
             "tsConfig": "libs/ui/form-field/tsconfig.spec.json",
@@ -1646,9 +1579,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/icon && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/icon && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1667,9 +1598,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/icon"
-          ],
+          "outputs": ["coverage/libs/ui/icon"],
           "options": {
             "jestConfig": "libs/ui/icon/jest.config.js",
             "tsConfig": "libs/ui/icon/tsconfig.spec.json",
@@ -1737,9 +1666,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/icon-button && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/icon-button && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1758,9 +1685,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/icon-button"
-          ],
+          "outputs": ["coverage/libs/ui/icon-button"],
           "options": {
             "jestConfig": "libs/ui/icon-button/jest.config.js",
             "tsConfig": "libs/ui/icon-button/tsconfig.spec.json",
@@ -1828,9 +1753,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/input && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/input && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1849,9 +1772,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/input"
-          ],
+          "outputs": ["coverage/libs/ui/input"],
           "options": {
             "jestConfig": "libs/ui/input/jest.config.js",
             "tsConfig": "libs/ui/input/tsconfig.spec.json",
@@ -1919,9 +1840,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/link && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/link && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1940,9 +1859,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/link"
-          ],
+          "outputs": ["coverage/libs/ui/link"],
           "options": {
             "jestConfig": "libs/ui/link/jest.config.js",
             "tsConfig": "libs/ui/link/tsconfig.spec.json",
@@ -2031,9 +1948,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/loading-overlay"
-          ],
+          "outputs": ["coverage/libs/ui/loading-overlay"],
           "options": {
             "jestConfig": "libs/ui/loading-overlay/jest.config.js",
             "tsConfig": "libs/ui/loading-overlay/tsconfig.spec.json",
@@ -2101,9 +2016,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/login-form && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/login-form && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2122,9 +2035,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/login-form"
-          ],
+          "outputs": ["coverage/libs/ui/login-form"],
           "options": {
             "jestConfig": "libs/ui/login-form/jest.config.js",
             "tsConfig": "libs/ui/login-form/tsconfig.spec.json",
@@ -2160,9 +2071,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/logo && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/logo && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2181,9 +2090,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/logo"
-          ],
+          "outputs": ["coverage/libs/ui/logo"],
           "options": {
             "jestConfig": "libs/ui/logo/jest.config.js",
             "tsConfig": "libs/ui/logo/tsconfig.spec.json",
@@ -2251,9 +2158,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/menu && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/menu && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2272,9 +2177,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/menu"
-          ],
+          "outputs": ["coverage/libs/ui/menu"],
           "options": {
             "jestConfig": "libs/ui/menu/jest.config.js",
             "tsConfig": "libs/ui/menu/tsconfig.spec.json",
@@ -2342,9 +2245,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/navigation && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/navigation && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2363,9 +2264,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/navigation"
-          ],
+          "outputs": ["coverage/libs/ui/navigation"],
           "options": {
             "jestConfig": "libs/ui/navigation/jest.config.js",
             "tsConfig": "libs/ui/navigation/tsconfig.spec.json",
@@ -2433,9 +2332,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/option && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/option && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2454,14 +2351,99 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/option"
-          ],
+          "outputs": ["coverage/libs/ui/option"],
           "options": {
             "jestConfig": "libs/ui/option/jest.config.js",
             "tsConfig": "libs/ui/option/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/ui/option/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "ui-page-header": {
+      "projectType": "library",
+      "root": "libs/ui/page-header",
+      "sourceRoot": "libs/ui/page-header/src",
+      "prefix": "ts",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run lint:ts 'libs/ui/page-header/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss 'libs/ui/page-header/**/!(*.spec).scss'"
+              }
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/page-header"],
+          "options": {
+            "jestConfig": "libs/ui/page-header/jest.config.js",
+            "tsConfig": "libs/ui/page-header/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/page-header/src/test-setup.ts"
+          }
+        },
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/ui/page-header/tsconfig.lib.json",
+            "project": "libs/ui/page-header/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui/page-header/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": ["cd libs/ui/page-header && yarn build && cd ../../.."],
+            "parallel": false
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui/page-header/.storybook"
+            },
+            "docsMode": false
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ui-page-header",
+            "config": {
+              "configFolder": "libs/ui/page-header/.storybook"
+            },
+            "docsMode": false
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
           }
         }
       },
@@ -2492,9 +2474,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/paginator && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/paginator && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2513,9 +2493,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/paginator"
-          ],
+          "outputs": ["coverage/libs/ui/paginator"],
           "options": {
             "jestConfig": "libs/ui/paginator/jest.config.js",
             "tsConfig": "libs/ui/paginator/tsconfig.spec.json",
@@ -2583,9 +2561,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/pipes && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/pipes && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2601,9 +2577,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/pipes"
-          ],
+          "outputs": ["coverage/libs/ui/pipes"],
           "options": {
             "jestConfig": "libs/ui/pipes/jest.config.js",
             "tsConfig": "libs/ui/pipes/tsconfig.spec.json",
@@ -2671,9 +2645,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/popover && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/popover && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2692,9 +2664,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/popover"
-          ],
+          "outputs": ["coverage/libs/ui/popover"],
           "options": {
             "jestConfig": "libs/ui/popover/jest.config.js",
             "tsConfig": "libs/ui/popover/tsconfig.spec.json",
@@ -2762,9 +2732,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/radio-group && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/radio-group && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2783,9 +2751,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/radio-group"
-          ],
+          "outputs": ["coverage/libs/ui/radio-group"],
           "options": {
             "jestConfig": "libs/ui/radio-group/jest.config.js",
             "tsConfig": "libs/ui/radio-group/tsconfig.spec.json",
@@ -2853,9 +2819,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/scrollbars && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/scrollbars && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2874,9 +2838,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/scrollbars"
-          ],
+          "outputs": ["coverage/libs/ui/scrollbars"],
           "options": {
             "jestConfig": "libs/ui/scrollbars/jest.config.js",
             "tsConfig": "libs/ui/scrollbars/tsconfig.spec.json",
@@ -2944,9 +2906,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/search && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/search && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2965,9 +2925,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/search"
-          ],
+          "outputs": ["coverage/libs/ui/search"],
           "options": {
             "jestConfig": "libs/ui/search/jest.config.js",
             "tsConfig": "libs/ui/search/tsconfig.spec.json",
@@ -3035,9 +2993,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/select && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/select && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -3056,9 +3012,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/select"
-          ],
+          "outputs": ["coverage/libs/ui/select"],
           "options": {
             "jestConfig": "libs/ui/select/jest.config.js",
             "tsConfig": "libs/ui/select/tsconfig.spec.json",
@@ -3115,9 +3069,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/selection-list"
-          ],
+          "outputs": ["coverage/libs/ui/selection-list"],
           "options": {
             "jestConfig": "libs/ui/selection-list/jest.config.js",
             "tsConfig": "libs/ui/selection-list/tsconfig.spec.json",
@@ -3197,9 +3149,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/sidenav"
-          ],
+          "outputs": ["coverage/libs/ui/sidenav"],
           "options": {
             "jestConfig": "libs/ui/sidenav/jest.config.js",
             "tsConfig": "libs/ui/sidenav/tsconfig.spec.json",
@@ -3242,9 +3192,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/sidenav && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/sidenav && yarn build && cd ../../.."],
             "parallel": false
           }
         }
@@ -3276,9 +3224,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/sort && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/sort && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -3297,9 +3243,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/sort"
-          ],
+          "outputs": ["coverage/libs/ui/sort"],
           "options": {
             "jestConfig": "libs/ui/sort/jest.config.js",
             "tsConfig": "libs/ui/sort/tsconfig.spec.json",
@@ -3344,9 +3288,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/spacing"
-          ],
+          "outputs": ["coverage/libs/ui/spacing"],
           "options": {
             "jestConfig": "libs/ui/spacing/jest.config.js",
             "tsConfig": "libs/ui/spacing/tsconfig.spec.json",
@@ -3464,9 +3406,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/table && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/table && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -3485,9 +3425,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/table"
-          ],
+          "outputs": ["coverage/libs/ui/table"],
           "options": {
             "jestConfig": "libs/ui/table/jest.config.js",
             "tsConfig": "libs/ui/table/tsconfig.spec.json",
@@ -3555,9 +3493,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/tabs && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/tabs && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -3576,9 +3512,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/tabs"
-          ],
+          "outputs": ["coverage/libs/ui/tabs"],
           "options": {
             "jestConfig": "libs/ui/tabs/jest.config.js",
             "tsConfig": "libs/ui/tabs/tsconfig.spec.json",
@@ -3646,9 +3580,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/toggle && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/toggle && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -3667,9 +3599,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/toggle"
-          ],
+          "outputs": ["coverage/libs/ui/toggle"],
           "options": {
             "jestConfig": "libs/ui/toggle/jest.config.js",
             "tsConfig": "libs/ui/toggle/tsconfig.spec.json",
@@ -3737,9 +3667,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/tooltip && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/tooltip && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -3758,9 +3686,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/tooltip"
-          ],
+          "outputs": ["coverage/libs/ui/tooltip"],
           "options": {
             "jestConfig": "libs/ui/tooltip/jest.config.js",
             "tsConfig": "libs/ui/tooltip/tsconfig.spec.json",
@@ -3837,9 +3763,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/utilities"
-          ],
+          "outputs": ["coverage/libs/ui/utilities"],
           "options": {
             "jestConfig": "libs/ui/utilities/jest.config.js",
             "tsConfig": "libs/ui/utilities/tsconfig.spec.json",
@@ -3896,9 +3820,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/validation-messages"
-          ],
+          "outputs": ["coverage/libs/ui/validation-messages"],
           "options": {
             "jestConfig": "libs/ui/validation-messages/jest.config.js",
             "tsConfig": "libs/ui/validation-messages/tsconfig.spec.json",
@@ -3943,9 +3865,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/validators"
-          ],
+          "outputs": ["coverage/libs/ui/validators"],
           "options": {
             "jestConfig": "libs/ui/validators/jest.config.js",
             "tsConfig": "libs/ui/validators/tsconfig.spec.json",
@@ -4054,9 +3974,7 @@
             "tsConfig": "apps/storybook-dummy/tsconfig.app.json",
             "aot": true,
             "assets": [],
-            "styles": [
-              "apps/storybook-dummy/src/styles.scss"
-            ],
+            "styles": ["apps/storybook-dummy/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
