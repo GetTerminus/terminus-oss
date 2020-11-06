@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.1 (2020-11-06)
+
+
+### Bug Fixes
+
+* **Autocomplete:** bump icon package ([2b75bde](https://github.com/GetTerminus/terminus-oss/commit/2b75bde786bad0d42053b9e8338f980ce90b3fdb))
+
+
+
+
+
 # [1.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-autocomplete@1.0.16...@terminus/ui-autocomplete@1.1.0) (2020-09-08)
 
 

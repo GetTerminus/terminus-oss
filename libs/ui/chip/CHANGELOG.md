@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chip@3.0.2...@terminus/ui-chip@3.0.3) (2020-11-06)
+
+
+### Bug Fixes
+
+* **Chip:** bump icon package ([90a926e](https://github.com/GetTerminus/terminus-oss/commit/90a926eb1a574b7e26505091be0c949ac55592f9))
+
+
+
+
+
 ## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chip@3.0.1...@terminus/ui-chip@3.0.2) (2020-10-02)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@3.1.0...@terminus/ui-radio-group@3.1.1) (2020-11-06)
+
+
+### Bug Fixes
+
+* **RadioGroup:** remove icon package from schematic ([f3f004f](https://github.com/GetTerminus/terminus-oss/commit/f3f004f46d19ca123611a809ee8f8c4648be5572))
+
+
+
+
+
 # [3.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@3.0.2...@terminus/ui-radio-group@3.1.0) (2020-11-02)
 
 

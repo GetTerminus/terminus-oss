@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-navigation@2.1.3...@terminus/ui-navigation@2.1.4) (2020-11-06)
+
+
+### Bug Fixes
+
+* **Navigation:** bump icon package ([90443de](https://github.com/GetTerminus/terminus-oss/commit/90443de898eef879e3d953a0de84e57770c95e7a))
+
+
+
+
+
 ## [2.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-navigation@2.1.2...@terminus/ui-navigation@2.1.3) (2020-10-05)
 
 **Note:** Version bump only for package @terminus/ui-navigation

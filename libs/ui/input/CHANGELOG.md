@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@2.1.4...@terminus/ui-input@2.1.5) (2020-11-06)
+
+
+### Bug Fixes
+
+* **Input:** bump icon package ([74aed9b](https://github.com/GetTerminus/terminus-oss/commit/74aed9b55750bb1327244a066f8c24ab9d57cff3))
+
+
+
+
+
 ## 2.1.4 (2020-11-06)
 
 

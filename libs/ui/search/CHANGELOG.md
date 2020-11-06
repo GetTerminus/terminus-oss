@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@3.0.0...@terminus/ui-search@3.0.1) (2020-11-06)
+
+
+### Bug Fixes
+
+* **Search:** bump icon package ([7c05afe](https://github.com/GetTerminus/terminus-oss/commit/7c05afef030198b75a6292ee52a34e9f2ddf93d8))
+
+
+
+
+
 # [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@2.1.2...@terminus/ui-search@3.0.0) (2020-10-05)
 
 

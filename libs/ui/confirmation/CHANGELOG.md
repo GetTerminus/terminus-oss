@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.5 (2020-11-06)
+
+
+### Bug Fixes
+
+* **Confirmation:** bump icon package ([962d60d](https://github.com/GetTerminus/terminus-oss/commit/962d60d24e8d1ba86539891159495e06e65cd829))
+
+
+
+
+
 ## [2.1.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-confirmation@2.1.3...@terminus/ui-confirmation@2.1.4) (2020-10-01)
 
 **Note:** Version bump only for package @terminus/ui-confirmation

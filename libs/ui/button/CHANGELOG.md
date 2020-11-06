@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.5 (2020-11-06)
+
+
+### Bug Fixes
+
+* **Button:** bump icon package ([723dabb](https://github.com/GetTerminus/terminus-oss/commit/723dabbbc01ed2653dfac8962bd331ef2f03099b))
+
+
+
+
+
 ## [2.1.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.1.3...@terminus/ui-button@2.1.4) (2020-10-01)
 
 **Note:** Version bump only for package @terminus/ui-button

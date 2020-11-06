@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-csv-entry@2.1.5...@terminus/ui-csv-entry@2.1.6) (2020-11-06)
+
+
+### Bug Fixes
+
+* **CSVEntry:** bump icon package ([0f87873](https://github.com/GetTerminus/terminus-oss/commit/0f87873c60040a759f0ccf430fb0da15c3a7f9fe))
+
+
+
+
+
 ## [2.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-csv-entry@2.1.4...@terminus/ui-csv-entry@2.1.5) (2020-10-02)
 
 **Note:** Version bump only for package @terminus/ui-csv-entry

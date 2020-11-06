@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.2 (2020-11-06)
+
+
+### Bug Fixes
+
+* **Card:** bump icon package ([85e2aed](https://github.com/GetTerminus/terminus-oss/commit/85e2aeddc10ef41b73ff98c3536f8ef4660af1ad))
+
+
+
+
+
 ## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@3.0.0...@terminus/ui-card@3.0.1) (2020-10-01)
 
 **Note:** Version bump only for package @terminus/ui-card

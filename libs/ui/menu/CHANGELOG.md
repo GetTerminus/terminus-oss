@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@3.0.1...@terminus/ui-menu@3.0.2) (2020-11-06)
+
+
+### Bug Fixes
+
+* **Menu:** bump icon package ([4fccd7e](https://github.com/GetTerminus/terminus-oss/commit/4fccd7e98e0363fbb41c5d37313700b63dc6ea3e))
+
+
+
+
+
 ## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@3.0.0...@terminus/ui-menu@3.0.1) (2020-10-14)
 
 

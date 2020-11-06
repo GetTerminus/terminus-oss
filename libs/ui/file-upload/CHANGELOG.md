@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@3.0.1...@terminus/ui-file-upload@3.0.2) (2020-11-06)
+
+
+### Bug Fixes
+
+* **FileUpload:** bump icon package ([b7e9e4e](https://github.com/GetTerminus/terminus-oss/commit/b7e9e4e3a75a882109056dd7ad4545255b014d0b))
+
+
+
+
+
 ## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@3.0.0...@terminus/ui-file-upload@3.0.1) (2020-10-02)
 
 **Note:** Version bump only for package @terminus/ui-file-upload
