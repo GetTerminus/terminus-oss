@@ -29,7 +29,7 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@terminus/ui-checkbox: ^2.0.6',
     '@terminus/ui-confirmation: ^2.0.2',
     '@terminus/ui-form-field: ^2.0.8',
-    '@terminus/ui-icon: ^2.0.5',
+    '@terminus/ui-icon: ^2.1.4',
     '@terminus/ui-utilities: ^1.0.9',
     '@terminus/ui-styles: ^1.0.13',
     '@terminus/ui-spacing: ^1.0.11',
