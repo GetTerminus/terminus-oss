@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.4 (2020-11-06)
+
+
+### Bug Fixes
+
+* **Input:** import pipes module ([1d28420](https://github.com/GetTerminus/terminus-oss/commit/1d2842069a17270e415eeee49d15cd93a1796268)), closes [#431](https://github.com/GetTerminus/terminus-oss/issues/431)
+
+
+### Reverts
+
+* **Dependencies:** remove fe-utilities as node dep ([0fe39e0](https://github.com/GetTerminus/terminus-oss/commit/0fe39e0ca0be1f0e4c7baef7b3301f33db92b524))
+
+
+
+
+
 ## [2.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@2.1.2...@terminus/ui-input@2.1.3) (2020-09-14)
 
 **Note:** Version bump only for package @terminus/ui-input
