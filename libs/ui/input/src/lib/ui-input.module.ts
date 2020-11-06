@@ -13,7 +13,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { TsFormFieldModule } from '@terminus/ui-form-field';
 import { TsIconModule } from '@terminus/ui-icon';
-import { TsDatePipe } from '@terminus/ui-pipes';
+import { TsPipesModule } from '@terminus/ui-pipes';
 import { TsValidationMessagesModule } from '@terminus/ui-validation-messages';
 import { TsValidatorsService } from '@terminus/ui-validators';
 
@@ -34,11 +34,11 @@ export * from './input/input.component';
     ReactiveFormsModule,
     TsFormFieldModule,
     TsIconModule,
+    TsPipesModule,
     TsValidationMessagesModule,
   ],
   providers: [
     TsValidatorsService,
-    TsDatePipe,
     {
       provide: MAT_DATE_FORMATS,
       useValue: TS_DATE_FORMATS,
