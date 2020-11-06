@@ -62,6 +62,7 @@
       "@terminus/ui-menu": ["libs/ui/menu/src/index.ts"],
       "@terminus/ui-navigation": ["libs/ui/navigation/src/index.ts"],
       "@terminus/ui-option": ["libs/ui/option/src/index.ts"],
+      "@terminus/ui-page-header": ["libs/ui/page-header/src/index.ts"],
       "@terminus/ui-paginator": ["libs/ui/paginator/src/index.ts"],
       "@terminus/ui-paginator/testing": [
         "libs/ui/paginator/testing/src/index.ts"
@@ -89,7 +90,7 @@
       "@terminus/ui-table/testing": ["libs/ui/table/testing/src/index.ts"],
       "@terminus/ui-tabs": ["libs/ui/tabs/src/index.ts"],
       "@terminus/ui-tabs/testing": ["libs/ui/tabs/testing/src/index.ts"],
-      "@terminus/ui/theme": ["libs/ui/theme/src/terminus-ui.scss"],
+      "@terminus/ui-theme": ["libs/ui/theme/src/terminus-ui.scss"],
       "@terminus/ui-toggle": ["libs/ui/toggle/src/index.ts"],
       "@terminus/ui-tooltip": ["libs/ui/tooltip/src/index.ts"],
       "@terminus/ui-tooltip/testing": ["libs/ui/tooltip/testing/src/index.ts"],
