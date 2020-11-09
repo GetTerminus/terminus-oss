@@ -1,4 +1,4 @@
-import { customStorySort } from '../../../../.storybook/preview';
+import { customStorySort } from '../../../.storybook/preview';
 
 export const parameters = {
   options: {

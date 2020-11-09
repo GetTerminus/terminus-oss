@@ -154,9 +154,6 @@
     "ui-spacing": {
       "tags": []
     },
-    "ui-storybook": {
-      "tags": []
-    },
     "ui-styles": {
       "tags": []
     },
@@ -182,6 +179,9 @@
       "tags": []
     },
     "storybook-dummy": {
+      "tags": []
+    },
+    "ui-storybook": {
       "tags": []
     }
   }
