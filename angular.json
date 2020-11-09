@@ -3912,51 +3912,6 @@
         }
       }
     },
-    "ui-storybook": {
-      "projectType": "application",
-      "root": "stories",
-      "sourceRoot": "stories/ui/storybook",
-      "prefix": "uistorybook",
-      "architect": {
-        "allstorybook": {
-          "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui/storybook/.storybook"
-            },
-            "docsMode": true
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        },
-        "build-allstorybook": {
-          "builder": "@nrwl/storybook:build",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook",
-            "config": {
-              "configFolder": "stories/ui/storybook/.storybook"
-            },
-            "docsMode": true
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
     "storybook-dummy": {
       "projectType": "application",
       "schematics": {},
@@ -4006,6 +3961,135 @@
             "production": {
               "browserTarget": "storybook-dummy:build:production"
             }
+          }
+        }
+      }
+    },
+    "ui-storybook": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/ui-storybook",
+      "sourceRoot": "apps/ui-storybook/src",
+      "prefix": "tsdt",
+      "architect": {
+        "allstorybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "apps/ui-storybook/.storybook"
+            },
+            "docsMode": true
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-allstorybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook",
+            "config": {
+              "configFolder": "apps/ui-storybook/.storybook"
+            },
+            "docsMode": true
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ui-storybook",
+            "index": "apps/ui-storybook/src/index.html",
+            "main": "apps/ui-storybook/src/main.ts",
+            "polyfills": "apps/ui-storybook/src/polyfills.ts",
+            "tsConfig": "apps/ui-storybook/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/ui-storybook/src/favicon.ico",
+              "apps/ui-storybook/src/assets"
+            ],
+            "styles": ["apps/ui-storybook/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ui-storybook/src/environments/environment.ts",
+                  "with": "apps/ui-storybook/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ui-storybook:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ui-storybook:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ui-storybook:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ui-storybook/tsconfig.app.json",
+              "apps/ui-storybook/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/ui-storybook/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/ui-storybook/jest.config.js",
+            "tsConfig": "apps/ui-storybook/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/ui-storybook/src/test-setup.ts"
           }
         }
       }
