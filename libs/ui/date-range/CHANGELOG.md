@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2020-11-09)
+
+
+### Bug Fixes
+
+* **DateRange:** update to allow version ranges ([426c624](https://github.com/GetTerminus/terminus-oss/commit/426c624566c774129546d69d02de2c2f381dd2e6))
+* **SelectionList:** remove theme support ([241d171](https://github.com/GetTerminus/terminus-oss/commit/241d171a99c97fb204ac76e56bc5bd3921b8c522))
+
+
+### BREAKING CHANGES
+
+* **SelectionList:** Theme input no longer supported
+
+
+
+
+
 ## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-date-range@1.1.4...@terminus/ui-date-range@1.1.5) (2020-10-01)
 
 **Note:** Version bump only for package @terminus/ui-date-range

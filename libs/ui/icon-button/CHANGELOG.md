@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon-button@3.0.1...@terminus/ui-icon-button@3.0.2) (2020-11-09)
+
+
+### Bug Fixes
+
+* **IconButton:** update to allow version ranges ([c8506ea](https://github.com/GetTerminus/terminus-oss/commit/c8506ea9c3499a598eb6251aa7c43eedeb9fde97))
+
+
+
+
+
 ## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon-button@3.0.0...@terminus/ui-icon-button@3.0.1) (2020-11-06)
 
 
