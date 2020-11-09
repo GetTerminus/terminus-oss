@@ -1,6 +1,6 @@
 {
   "name": "@terminus/ui-sidenav",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "peerDependencies": {
     "@angular/animations": "^9.1.0",
     "@angular/cdk": "^9.2.4",
