@@ -1,7 +1,4 @@
-import {
-  CdkOverlayOrigin,
-  ConnectionPositionPair,
-} from '@angular/cdk/overlay';
+import { ConnectionPositionPair, CdkOverlayOrigin } from '@angular/cdk/overlay';
 import {
   ChangeDetectionStrategy,
   Component,

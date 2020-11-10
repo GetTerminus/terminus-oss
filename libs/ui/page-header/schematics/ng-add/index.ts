@@ -14,12 +14,14 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@angular/cdk: ^9.2.4',
     '@angular/common: ^9.1.0',
     '@angular/core: ^9.1.0',
+    '@angular/forms: ^9.1.0',
     '@angular/router: ^9.1.0',
-    '@angular/platform-browser: ^9.1.0',
     '@terminus/design-tokens: ^3.1.0',
     '@terminus/fe-utilities: ^1.3.0',
     '@terminus/ui-page-header: ^1.0.0',
     '@terminus/ui-pipes: ^1.2.0',
+    'date-fns: ^2.16.1',
+    'rxjs: ^6.5.0',
   ].map(p => {
     const individualPackage = p.split(':');
     const nodeDependency: NodeDependency = {

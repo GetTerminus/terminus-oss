@@ -1,0 +1,8 @@
+{
+  "extends": "../../../libs/ui/page-header/tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true
+  },
+  "exclude": ["../../../libs/ui/page-header/src/test.ts", "../../../libs/ui/page-header/**/*.spec.ts"],
+  "include": ["../../../libs/ui/page-header/src/**/*"]
+}

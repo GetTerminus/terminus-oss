@@ -10,12 +10,12 @@ import { moduleMetadata } from '@storybook/angular';
 
 import { TsButtonModule } from '@terminus/ui-button';
 
-import { TsPageHeaderModule } from './lib/page-header.module';
+import { TsPageHeaderModule } from '../../libs/ui/page-header/src/lib/page-header.module';
 import {
   TS_PAGE_HEADER_ROUTE,
   TS_PAGE_HEADER_ROUTES,
   TsPageHeaderComponent,
-} from './lib/page-header/page-header.component';
+} from '../../libs/ui/page-header/src/lib/page-header/page-header.component';
 
 const myBreadcrumbs: TS_PAGE_HEADER_ROUTES = [
   {
