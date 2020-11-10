@@ -1040,7 +1040,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/copy/.storybook"
+              "configFolder": "stories/ui-copy/.storybook"
             },
             "docsMode": false
           },
@@ -1056,7 +1056,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-copy",
             "config": {
-              "configFolder": "libs/ui/copy/.storybook"
+              "configFolder": "stories/ui-copy/.storybook"
             },
             "docsMode": false
           },
