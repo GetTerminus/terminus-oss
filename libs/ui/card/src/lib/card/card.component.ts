@@ -7,9 +7,7 @@ import {
   TemplateRef,
   ViewEncapsulation,
 } from '@angular/core';
-import { faLockAlt } from '@fortawesome/pro-solid-svg-icons/faLockAlt';
-
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
+import { faLockAlt } from '@fortawesome/pro-solid-svg-icons';
 
 /**
  * Define the allowed aspect ratios. Used in {@link TsCardComponent}

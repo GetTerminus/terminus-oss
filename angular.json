@@ -601,7 +601,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/card/.storybook"
+              "configFolder": "stories/ui-card/.storybook"
             },
             "docsMode": false
           },
@@ -617,7 +617,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-card",
             "config": {
-              "configFolder": "libs/ui/card/.storybook"
+              "configFolder": "stories/ui-card/.storybook"
             },
             "docsMode": false
           },
