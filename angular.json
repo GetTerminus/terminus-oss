@@ -953,7 +953,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/confirmation/.storybook"
+              "configFolder": "stories/ui-confirmation/.storybook"
             },
             "docsMode": false
           },
@@ -969,7 +969,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-confirmation",
             "config": {
-              "configFolder": "libs/ui/confirmation/.storybook"
+              "configFolder": "stories/ui-confirmation/.storybook"
             },
             "docsMode": false
           },
