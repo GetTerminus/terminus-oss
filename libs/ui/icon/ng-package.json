@@ -4,6 +4,7 @@
   "lib": {
     "entryFile": "src/index.ts",
     "umdModuleIds": {
+      "@fortawesome/angular-fontawesome": "angular-fontawesome",
       "@terminus/fe-utilities": "terminus.fe-utilities"
     }
   }
