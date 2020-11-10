@@ -1,16 +1,18 @@
 import { FocusKeyManager } from '@angular/cdk/a11y';
 import { CdkAccordion } from '@angular/cdk/accordion';
 import {
-  AfterContentInit,
   ChangeDetectionStrategy,
   Component,
   ContentChildren,
   EventEmitter,
   Input,
-  OnDestroy,
   Output,
   QueryList,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  AfterContentInit,
+  OnDestroy,
 } from '@angular/core';
 
 import { KEYS } from '@terminus/fe-utilities';

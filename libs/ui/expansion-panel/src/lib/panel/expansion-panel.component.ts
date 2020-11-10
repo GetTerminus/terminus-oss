@@ -1,9 +1,8 @@
-import { AnimationEvent } from '@angular/animations';
+import type { AnimationEvent } from '@angular/animations';
 import { CdkAccordionItem } from '@angular/cdk/accordion';
 import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
 import { TemplatePortal } from '@angular/cdk/portal';
 import {
-  AfterContentInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -13,15 +12,18 @@ import {
   Inject,
   InjectionToken,
   Input,
-  OnChanges,
-  OnDestroy,
   Optional,
   Output,
-  SimpleChanges,
   SkipSelf,
   ViewChild,
   ViewContainerRef,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  AfterContentInit,
+  OnChanges,
+  OnDestroy,
+  SimpleChanges,
 } from '@angular/core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { Subject } from 'rxjs';
@@ -72,7 +74,7 @@ export interface TsExpansionPanelDefaultOptions {
 
 
 /**
- * Injection token that can be used to configure the defalt options for the expansion panel component.
+ * Injection token that can be used to configure the default options for the expansion panel component.
  */
 export const TS_EXPANSION_PANEL_DEFAULT_OPTIONS = new InjectionToken<TsExpansionPanelDefaultOptions>('TS_EXPANSION_PANEL_DEFAULT_OPTIONS');
 

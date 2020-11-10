@@ -64,7 +64,7 @@ export const basic = () => ({
   `,
   props: {
     triggerContent: text('Trigger content', 'Here is my trigger!'),
-    panelContent: text('Trigger content', 'And here is my standard panel content.'),
+    panelContent: text('Panel content', 'And here is my standard panel content.'),
     isDisabled: boolean('isDisabled', false),
     panelOpened: action('Panel opened'),
     panelClosed: action('Panel closed'),

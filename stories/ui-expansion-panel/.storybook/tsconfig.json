@@ -1,0 +1,8 @@
+{
+  "extends": "../../../libs/ui/expansion-panel/tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true
+  },
+  "exclude": ["../../../libs/ui/expansion-panel/src/test.ts", "../../../libs/ui/expansion-panel/**/*.spec.ts"],
+  "include": ["../../../libs/ui/expansion-panel/src/**/*"]
+}

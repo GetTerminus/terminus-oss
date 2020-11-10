@@ -1,7 +1,6 @@
 import {
   animate,
   animateChild,
-  AnimationTriggerMetadata,
   group,
   query,
   state,
@@ -9,6 +8,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import type { AnimationTriggerMetadata } from '@angular/animations';
 
 
 /**

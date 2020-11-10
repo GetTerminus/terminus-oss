@@ -1390,7 +1390,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/expansion-panel/.storybook"
+              "configFolder": "stories/ui-expansion-panel/.storybook"
             },
             "docsMode": false
           },
@@ -1406,7 +1406,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-expansion-panel",
             "config": {
-              "configFolder": "libs/ui/expansion-panel/.storybook"
+              "configFolder": "stories/ui-expansion-panel/.storybook"
             },
             "docsMode": false
           },
