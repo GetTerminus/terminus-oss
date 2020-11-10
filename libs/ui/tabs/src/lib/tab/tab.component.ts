@@ -4,14 +4,16 @@ import {
   Component,
   ContentChild,
   Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  SimpleChanges,
   TemplateRef,
   ViewChild,
   ViewContainerRef,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
 } from '@angular/core';
 import { Subject } from 'rxjs';
 

@@ -1,6 +1,4 @@
 import {
-  AfterContentChecked,
-  AfterContentInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -8,11 +6,15 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  OnDestroy,
   Output,
   QueryList,
   ViewChild,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  AfterContentChecked,
+  AfterContentInit,
+  OnDestroy,
 } from '@angular/core';
 import {
   merge,

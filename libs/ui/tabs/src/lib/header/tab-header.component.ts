@@ -6,9 +6,6 @@ import {
   Platform,
 } from '@angular/cdk/platform';
 import {
-  AfterContentChecked,
-  AfterContentInit,
-  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -17,11 +14,16 @@ import {
   EventEmitter,
   Input,
   NgZone,
-  OnDestroy,
   Output,
   QueryList,
   ViewChild,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewInit,
+  OnDestroy,
 } from '@angular/core';
 import {
   fromEvent,
