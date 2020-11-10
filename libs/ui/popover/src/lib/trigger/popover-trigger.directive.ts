@@ -1,6 +1,4 @@
 import {
-  AfterContentChecked,
-  AfterContentInit,
   ChangeDetectorRef,
   Directive,
   ElementRef,
@@ -8,17 +6,20 @@ import {
   HostListener,
   Input,
   NgZone,
+  Output,
+  ViewContainerRef,
+} from '@angular/core';
+import type {
+  AfterContentChecked,
+  AfterContentInit,
   OnChanges,
   OnDestroy,
   OnInit,
-  Output,
   SimpleChange,
-  ViewContainerRef,
 } from '@angular/core';
 import {
   fromEvent,
   merge,
-  Subscription,
 } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
