@@ -3163,7 +3163,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/sidenav/.storybook"
+              "configFolder": "stories/ui-sidenav/.storybook"
             },
             "docsMode": false
           },
@@ -3179,7 +3179,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-sidenav",
             "config": {
-              "configFolder": "libs/ui/sidenav/.storybook"
+              "configFolder": "stories/ui-sidenav/.storybook"
             },
             "docsMode": false
           },
