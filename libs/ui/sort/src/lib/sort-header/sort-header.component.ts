@@ -6,13 +6,15 @@ import {
   Component,
   Input,
   isDevMode,
-  OnDestroy,
-  OnInit,
   Optional,
   ViewEncapsulation,
 } from '@angular/core';
+import type {
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { CanDisable } from '@angular/material/core';
-import { faArrowsV } from '@fortawesome/pro-solid-svg-icons/faArrowsV';
+import { faArrowsV } from '@fortawesome/pro-solid-svg-icons';
 import { merge } from 'rxjs';
 
 import {
@@ -22,10 +24,8 @@ import {
 } from '@terminus/fe-utilities';
 
 import { getSortHeaderNotContainedWithinSortError } from '../sort-errors';
-import {
-  TsSortableItem,
-  TsSortDirective,
-} from '../sort/sort.directive';
+import { TsSortDirective } from '../sort/sort.directive';
+import type { TsSortableItem } from '../sort/sort.directive';
 import { tsSortAnimations } from './sort-animations';
 import { TsSortHeaderIntl } from './sort-header-intl';
 
