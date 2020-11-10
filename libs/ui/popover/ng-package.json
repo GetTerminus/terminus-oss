@@ -5,7 +5,7 @@
     "entryFile": "src/index.ts",
     "umdModuleIds": {
       "@terminus/fe-utilities": "terminus.fe-utilities",
-      "popper.js/dist/esm/popper.js": "Popper",
+      "@popperjs/core": "Popper",
       "@terminus/ui-utilities": "terminus.ui-utilities"
     }
   }

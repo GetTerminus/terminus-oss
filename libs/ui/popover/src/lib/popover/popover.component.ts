@@ -4,11 +4,13 @@ import {
   Component,
   ElementRef,
   EventEmitter,
-  OnDestroy,
-  OnInit,
   Output,
   ViewChild,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  OnDestroy,
+  OnInit,
 } from '@angular/core';
 import {
   createPopper,
