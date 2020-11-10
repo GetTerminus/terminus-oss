@@ -3879,7 +3879,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/validators/.storybook"
+              "configFolder": "stories/ui-validators/.storybook"
             },
             "docsMode": false
           },
@@ -3895,7 +3895,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-validators",
             "config": {
-              "configFolder": "libs/ui/validators/.storybook"
+              "configFolder": "stories/ui-validators/.storybook"
             },
             "docsMode": false
           },
