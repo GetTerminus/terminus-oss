@@ -1,0 +1,8 @@
+{
+  "extends": "../../../libs/ui/toggle/tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true
+  },
+  "exclude": ["../../../libs/ui/toggle/src/test.ts", "../../../libs/ui/toggle/**/*.spec.ts"],
+  "include": ["../../../libs/ui/toggle/src/**/*"]
+}
