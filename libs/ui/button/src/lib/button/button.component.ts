@@ -6,11 +6,13 @@ import {
   EventEmitter,
   Input,
   isDevMode,
-  OnDestroy,
-  OnInit,
   Output,
   ViewChild,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  OnDestroy,
+  OnInit,
 } from '@angular/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
