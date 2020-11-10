@@ -13,10 +13,12 @@ import {
   EventEmitter,
   isDevMode,
   NgZone,
-  OnDestroy,
-  OnInit,
   Output,
   Renderer2,
+} from '@angular/core';
+import type {
+  OnDestroy,
+  OnInit,
 } from '@angular/core';
 import {
   fromEvent,
