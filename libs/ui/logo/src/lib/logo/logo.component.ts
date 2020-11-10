@@ -3,13 +3,11 @@ import {
   Component,
   Input,
   isDevMode,
-  OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import {
-  DomSanitizer,
-  SafeHtml,
-} from '@angular/platform-browser';
+import type { OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import type { SafeHtml } from '@angular/platform-browser';
 
 import { FULL_ACCOUNT_HUB_LOGO } from '../logo-types/full-account-hub';
 import { FULL_GRADIENT_LOGO } from '../logo-types/full-gradient';
