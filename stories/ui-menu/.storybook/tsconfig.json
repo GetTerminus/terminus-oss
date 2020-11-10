@@ -1,0 +1,8 @@
+{
+  "extends": "../../../libs/ui/menu/tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true
+  },
+  "exclude": ["../../../libs/ui/menu/src/test.ts", "../../../libs/ui/menu/**/*.spec.ts"],
+  "include": ["../../../libs/ui/menu/src/**/*"]
+}
