@@ -3,26 +3,26 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
   ViewEncapsulation,
 } from '@angular/core';
+import type { OnInit } from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
-  FormGroup,
   Validators,
 } from '@angular/forms';
-import { faSearch } from '@fortawesome/pro-solid-svg-icons/faSearch';
+import type {
+  FormControl,
+  FormGroup,
+} from '@angular/forms';
+import { faSearch } from '@fortawesome/pro-solid-svg-icons';
 
 import { debounce } from '@terminus/fe-utilities';
-import {
+import type {
   TsButtonActionTypes,
   TsButtonFunctionTypes,
   TsButtonThemeTypes,
 } from '@terminus/ui-button';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
-
 
 /**
  * Define the user object interface
@@ -36,7 +36,6 @@ export interface TsSearchResponse {
 
 const INPUT_DEBOUNCE_DEFAULT_MS = 200;
 const INPUT_MINIMUM_LENGTH = 2;
-
 
 /**
  * A presentational component to render a search form
