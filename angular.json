@@ -1127,7 +1127,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/csv-entry/.storybook"
+              "configFolder": "stories/ui-csv-entry/.storybook"
             },
             "docsMode": false
           },
@@ -1143,7 +1143,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-csv-entry",
             "config": {
-              "configFolder": "libs/ui/csv-entry/.storybook"
+              "configFolder": "stories/ui-csv-entry/.storybook"
             },
             "docsMode": false
           },

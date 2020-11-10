@@ -6,19 +6,21 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnDestroy,
-  OnInit,
   Output,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  OnDestroy,
+  OnInit,
 } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
-  ValidatorFn,
 } from '@angular/forms';
-import { faTrash } from '@fortawesome/pro-solid-svg-icons/faTrash';
+import type { ValidatorFn } from '@angular/forms';
+import { faTrash } from '@fortawesome/pro-solid-svg-icons';
 import { debounceTime } from 'rxjs/operators';
 
 import {
