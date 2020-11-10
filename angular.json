@@ -2765,7 +2765,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/radio-group/.storybook"
+              "configFolder": "stories/ui-radio-group/.storybook"
             },
             "docsMode": false
           },
@@ -2781,7 +2781,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-radio-group",
             "config": {
-              "configFolder": "libs/ui/radio-group/.storybook"
+              "configFolder": "stories/ui-radio-group/.storybook"
             },
             "docsMode": false
           },
