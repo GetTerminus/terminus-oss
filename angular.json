@@ -2420,7 +2420,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/page-header/.storybook"
+              "configFolder": "stories/ui-page-header/.storybook"
             },
             "docsMode": false
           },
@@ -2436,7 +2436,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-page-header",
             "config": {
-              "configFolder": "libs/ui/page-header/.storybook"
+              "configFolder": "stories/ui-page-header/.storybook"
             },
             "docsMode": false
           },

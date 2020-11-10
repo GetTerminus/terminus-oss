@@ -1,9 +1,32 @@
 {
   "name": "@terminus/ui-page-header",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "@terminus",
+  "private": false,
+  "homepage": "https://github.com/GetTerminus/terminus-oss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GetTerminus/terminus-oss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GetTerminus/terminus-oss/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "next",
+    "directory": "../../../dist/libs/ui/page-header"
+  },
   "peerDependencies": {
-    "@angular/common": "^9.1.12",
-    "@angular/core": "^9.1.12"
+    "@angular/cdk": "^9.2.4",
+    "@angular/common": "^9.1.0",
+    "@angular/core": "^9.1.0",
+    "@angular/forms": "^9.1.0",
+    "@angular/router": "^9.1.0",
+    "@terminus/fe-utilities": "^1.2.0",
+    "@terminus/ui-pipes": "^1.2.0",
+    "date-fns": "^2.16.1",
+    "rxjs": "^6.5.0"
   },
   "dependencies": {
     "tslib": "^1.10.0"
