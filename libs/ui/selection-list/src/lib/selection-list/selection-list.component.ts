@@ -1,6 +1,5 @@
 import { ActiveDescendantKeyManager } from '@angular/cdk/a11y';
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -8,8 +7,6 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  OnDestroy,
-  OnInit,
   Optional,
   Output,
   QueryList,
@@ -17,12 +14,19 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
+import type {
+  AfterViewInit,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import {
   FormControl,
   NgControl,
 } from '@angular/forms';
-import { faSpinnerThird } from '@fortawesome/pro-solid-svg-icons';
-import { faCaretDown } from '@fortawesome/pro-solid-svg-icons/faCaretDown';
+import {
+  faCaretDown,
+  faSpinnerThird,
+} from '@fortawesome/pro-solid-svg-icons';
 import {
   BehaviorSubject,
   of,

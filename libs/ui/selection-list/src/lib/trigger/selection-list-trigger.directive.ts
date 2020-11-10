@@ -1,11 +1,13 @@
 import {
-  FlexibleConnectedPositionStrategy,
   Overlay,
   OverlayConfig,
+  ViewportRuler,
+} from '@angular/cdk/overlay';
+import type {
+  FlexibleConnectedPositionStrategy,
   OverlayRef,
   PositionStrategy,
   ScrollStrategy,
-  ViewportRuler,
 } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import {
@@ -19,11 +21,11 @@ import {
   Input,
   isDevMode,
   NgZone,
-  OnDestroy,
   Optional,
   Output,
   ViewContainerRef,
 } from '@angular/core';
+import type { OnDestroy } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import {
   defer,
