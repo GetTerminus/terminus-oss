@@ -1,7 +1,5 @@
-import { Highlightable } from '@angular/cdk/a11y';
+import type { Highlightable } from '@angular/cdk/a11y';
 import {
-  AfterContentInit,
-  AfterViewChecked,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -13,19 +11,23 @@ import {
   Input,
   isDevMode,
   NgZone,
-  OnDestroy,
   Optional,
   Output,
   QueryList,
   TemplateRef,
   ViewEncapsulation,
 } from '@angular/core';
+import type {
+  AfterContentInit,
+  AfterViewChecked,
+  OnDestroy,
+} from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 import { KEYS } from '@terminus/fe-utilities';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
+import type { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 import { TsOptionDisplayDirective } from './option-display.directive';
 
