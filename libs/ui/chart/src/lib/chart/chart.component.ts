@@ -7,23 +7,22 @@ import {
   EventEmitter,
   Input,
   NgZone,
+  Output,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
+import type {
   OnChanges,
   OnDestroy,
   OnInit,
-  Output,
   SimpleChanges,
-  ViewChild,
-  ViewEncapsulation,
 } from '@angular/core';
 
 import { inputHasChanged } from '@terminus/fe-utilities';
 import { TsUILibraryError } from '@terminus/ui-utilities';
 
-import {
-  TsAmChartsService,
-  TsAmChartsToken,
-} from '../service/amcharts.service';
-
+import { TsAmChartsService } from '../service/amcharts.service';
+import type { TsAmChartsToken } from '../service/amcharts.service';
 
 /**
  * Define the supported chart visualizations

@@ -11,7 +11,6 @@ export * from './chart/chart.component';
 export * from './service/amcharts.service';
 export * from './chart-type-check';
 
-
 @NgModule({
   imports: [CommonModule],
   providers: [

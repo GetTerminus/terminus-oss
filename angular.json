@@ -688,7 +688,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/chart/.storybook"
+              "configFolder": "stories/ui-chart/.storybook"
             },
             "docsMode": false
           },
@@ -704,7 +704,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-chart",
             "config": {
-              "configFolder": "libs/ui/chart/.storybook"
+              "configFolder": "stories/ui-chart/.storybook"
             },
             "docsMode": false
           },

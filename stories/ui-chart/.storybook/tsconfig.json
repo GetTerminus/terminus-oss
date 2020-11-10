@@ -1,8 +1,8 @@
 {
-  "extends": "../tsconfig.json",
+  "extends": "../../../libs/ui/chart/tsconfig.json",
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../src/test.ts", "../**/*.spec.ts"],
-  "include": ["../src/**/*"]
+  "exclude": ["../../../libs/ui/chart/src/test.ts", "../../../libs/ui/chart/**/*.spec.ts"],
+  "include": ["../../../libs/ui/chart/src/**/*"]
 }
