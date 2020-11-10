@@ -2852,7 +2852,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/scrollbars/.storybook"
+              "configFolder": "stories/ui-scrollbars/.storybook"
             },
             "docsMode": false
           },
@@ -2868,7 +2868,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-scrollbars",
             "config": {
-              "configFolder": "libs/ui/scrollbars/.storybook"
+              "configFolder": "stories/ui-scrollbars/.storybook"
             },
             "docsMode": false
           },
