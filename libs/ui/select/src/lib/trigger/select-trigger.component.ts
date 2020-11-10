@@ -5,10 +5,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-
 // Unique ID for each instance
 let nextUniqueId = 0;
-
 
 /**
  * Allows the user to customize the trigger that is displayed when the select has a value.

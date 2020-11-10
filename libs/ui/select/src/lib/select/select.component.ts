@@ -5,7 +5,6 @@ import {
   ViewportRuler,
 } from '@angular/cdk/overlay';
 import {
-  AfterContentInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -16,16 +15,19 @@ import {
   Input,
   isDevMode,
   NgZone,
-  OnChanges,
-  OnDestroy,
-  OnInit,
   Optional,
   Output,
   QueryList,
   Self,
-  SimpleChanges,
   ViewChild,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  AfterContentInit,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
 } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import { MAT_CHECKBOX_DEFAULT_OPTIONS } from '@angular/material/checkbox';
@@ -66,7 +68,7 @@ import {
   TsOptionSelectionChange,
 } from '@terminus/ui-option';
 import { TS_SPACING } from '@terminus/ui-spacing';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
+import type { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 import { tsSelectAnimations } from '../select-animations';
 import { TsSelectTriggerComponent } from '../trigger/select-trigger.component';
