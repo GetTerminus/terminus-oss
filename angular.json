@@ -340,7 +340,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/autofocus/.storybook"
+              "configFolder": "stories/ui-autofocus/.storybook"
             },
             "docsMode": false
           },
@@ -356,7 +356,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-autofocus",
             "config": {
-              "configFolder": "libs/ui/autofocus/.storybook"
+              "configFolder": "stories/ui-autofocus/.storybook"
             },
             "docsMode": false
           },

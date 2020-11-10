@@ -20,8 +20,11 @@
   "peerDependencies": {
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
+    "@angular/forms": "^9.1.0",
     "@terminus/fe-utilities": "^1.0.0",
     "@terminus/ui-utilities": "^1.0.9",
+    "date-fns": "^2.16.1",
+    "rxjs": "^6.5.0",
     "tslib": "^1.10.0"
   },
   "scripts": {

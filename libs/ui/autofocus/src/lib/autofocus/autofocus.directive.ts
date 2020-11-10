@@ -1,11 +1,11 @@
 import {
-  AfterViewInit,
   ChangeDetectorRef,
   Directive,
   ElementRef,
   Input,
   isDevMode,
 } from '@angular/core';
+import type { AfterViewInit } from '@angular/core';
 
 import { coerceBooleanProperty } from '@terminus/fe-utilities';
 import { TsUILibraryError } from '@terminus/ui-utilities';
