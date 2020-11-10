@@ -1,22 +1,24 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
   Input,
-  OnInit,
   TemplateRef,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
+import type {
+  AfterViewInit,
+  OnInit,
+} from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faCaretDown } from '@fortawesome/pro-solid-svg-icons/faCaretDown';
-import { faEllipsisH } from '@fortawesome/pro-solid-svg-icons/faEllipsisH';
-
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
-  TsButtonThemeTypes,
-} from '@terminus/ui-button';
+  faCaretDown,
+  faEllipsisH,
+} from '@fortawesome/pro-solid-svg-icons';
+
+import type { TsButtonThemeTypes } from '@terminus/ui-button';
 
 /**
  * Define the allowed X positions for a menu
