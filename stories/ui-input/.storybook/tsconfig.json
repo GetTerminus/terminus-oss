@@ -1,0 +1,8 @@
+{
+  "extends": "../../../libs/ui/input/tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true
+  },
+  "exclude": ["../../../libs/ui/input/src/test.ts", "../../../libs/ui/input/**/*.spec.ts"],
+  "include": ["../../../libs/ui/input/src/**/*"]
+}
