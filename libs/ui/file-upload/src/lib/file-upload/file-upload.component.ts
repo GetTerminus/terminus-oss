@@ -1,5 +1,4 @@
 import {
-  AfterContentInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -8,21 +7,24 @@ import {
   HostListener,
   Input,
   isDevMode,
-  OnChanges,
-  OnDestroy,
-  OnInit,
   Output,
-  SimpleChanges,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
+import type {
+  AfterContentInit,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
+import { FormControl } from '@angular/forms';
+import type { ValidationErrors } from '@angular/forms';
 import {
-  FormControl,
-  ValidationErrors,
-} from '@angular/forms';
-import { faFileCsv } from '@fortawesome/pro-solid-svg-icons/faFileCsv';
-import { faTimes } from '@fortawesome/pro-solid-svg-icons/faTimes';
-import { faUpload } from '@fortawesome/pro-solid-svg-icons/faUpload';
+  faFileCsv,
+  faTimes,
+  faUpload,
+} from '@fortawesome/pro-solid-svg-icons';
 import { filter } from 'rxjs/operators';
 
 import {

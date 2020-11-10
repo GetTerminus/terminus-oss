@@ -1477,7 +1477,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/file-upload/.storybook"
+              "configFolder": "stories/ui-file-upload/.storybook"
             },
             "docsMode": false
           },
@@ -1493,7 +1493,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-file-upload",
             "config": {
-              "configFolder": "libs/ui/file-upload/.storybook"
+              "configFolder": "stories/ui-file-upload/.storybook"
             },
             "docsMode": false
           },
