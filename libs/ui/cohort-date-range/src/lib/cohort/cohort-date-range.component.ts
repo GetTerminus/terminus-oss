@@ -10,10 +10,10 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import {
-  AbstractControl,
   FormBuilder,
   FormControl,
 } from '@angular/forms';
+import type { AbstractControl } from '@angular/forms';
 
 import {
   coerceDateProperty,
