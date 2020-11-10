@@ -2,13 +2,11 @@ import {
   ChangeDetectorRef,
   Component,
   Input,
-  OnDestroy,
   ViewEncapsulation,
 } from '@angular/core';
-import {
-  FormControl,
-  ValidationErrors,
-} from '@angular/forms';
+import type { OnDestroy } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import type { ValidationErrors } from '@angular/forms';
 
 import { untilComponentDestroyed } from '@terminus/fe-utilities';
 
