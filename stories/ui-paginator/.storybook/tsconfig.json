@@ -1,0 +1,8 @@
+{
+  "extends": "../../../libs/ui/paginator/tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true
+  },
+  "exclude": ["../../../libs/ui/paginator/src/test.ts", "../../../libs/ui/paginator/**/*.spec.ts"],
+  "include": ["../../../libs/ui/paginator/src/**/*"]
+}

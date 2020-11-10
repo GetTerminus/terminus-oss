@@ -1,28 +1,32 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef,
   EventEmitter,
   Input,
-  OnChanges,
   Output,
-  SimpleChanges,
   TemplateRef,
   ViewEncapsulation,
 } from '@angular/core';
+import type {
+  AfterViewInit,
+  ElementRef,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { faAngleDoubleLeft } from '@fortawesome/pro-solid-svg-icons/faAngleDoubleLeft';
-import { faAngleDoubleRight } from '@fortawesome/pro-solid-svg-icons/faAngleDoubleRight';
-import { faAngleLeft } from '@fortawesome/pro-solid-svg-icons/faAngleLeft';
-import { faAngleRight } from '@fortawesome/pro-solid-svg-icons/faAngleRight';
+import {
+  faAngleDoubleLeft,
+  faAngleDoubleRight,
+  faAngleLeft,
+  faAngleRight,
+} from '@fortawesome/pro-solid-svg-icons';
 
 import {
   coerceNumberProperty,
   inputHasChanged,
 } from '@terminus/fe-utilities';
-import { TsButtonThemeTypes } from '@terminus/ui-button';
+import type { TsButtonThemeTypes } from '@terminus/ui-button';
 import { TsSelectionListChange } from '@terminus/ui-selection-list';
 
 /**
