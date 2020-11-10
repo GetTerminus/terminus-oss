@@ -22,7 +22,6 @@
     "@angular/core": "^9.1.0",
     "@angular/platform-browser": "^9.1.0",
     "@terminus/design-tokens": "^3.1.0",
-    "@terminus/fe-utilities": "^1.1.0",
     "tslib": "^1.10.0"
   },
   "scripts": {
