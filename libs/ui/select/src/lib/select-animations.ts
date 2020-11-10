@@ -1,12 +1,11 @@
 import {
   animate,
-  AnimationTriggerMetadata,
   state,
   style,
   transition,
   trigger,
 } from '@angular/animations';
-
+import type { AnimationTriggerMetadata } from '@angular/animations';
 
 /**
  * The defined panel animations for the {@link TsSelectComponent}
