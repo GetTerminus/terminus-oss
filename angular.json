@@ -1786,7 +1786,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/input/.storybook"
+              "configFolder": "stories/ui-input/.storybook"
             },
             "docsMode": false
           },
@@ -1802,7 +1802,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-input",
             "config": {
-              "configFolder": "libs/ui/input/.storybook"
+              "configFolder": "stories/ui-input/.storybook"
             },
             "docsMode": false
           },

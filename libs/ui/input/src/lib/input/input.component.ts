@@ -2,33 +2,35 @@
 import { Platform } from '@angular/cdk/platform';
 import { AutofillMonitor } from '@angular/cdk/text-field';
 import {
-  AfterContentInit,
-  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  DoCheck,
   ElementRef,
   EventEmitter,
   Inject,
   Input,
   isDevMode,
   NgZone,
-  OnChanges,
-  OnDestroy,
   Optional,
   Output,
   Renderer2,
   Self,
-  SimpleChanges,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
+import type {
+  AfterContentInit,
+  AfterViewInit,
+  DoCheck,
+  OnChanges,
+  OnDestroy,
+  SimpleChanges,
+} from '@angular/core';
 import {
-  AbstractControl,
   FormControl,
   NgControl,
 } from '@angular/forms';
+import type { AbstractControl } from '@angular/forms';
 import {
   DateAdapter,
   MAT_DATE_FORMATS,
@@ -36,7 +38,7 @@ import {
 } from '@angular/material/core';
 import { MatDatepicker } from '@angular/material/datepicker';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { faTimesCircle } from '@fortawesome/pro-solid-svg-icons/faTimesCircle';
+import { faTimesCircle } from '@fortawesome/pro-solid-svg-icons';
 import { Subject } from 'rxjs';
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
