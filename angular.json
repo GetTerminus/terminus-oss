@@ -514,7 +514,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/checkbox/.storybook"
+              "configFolder": "stories/ui-checkbox/.storybook"
             },
             "docsMode": false
           },
@@ -530,7 +530,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-checkbox",
             "config": {
-              "configFolder": "libs/ui/checkbox/.storybook"
+              "configFolder": "stories/ui-checkbox/.storybook"
             },
             "docsMode": false
           },
