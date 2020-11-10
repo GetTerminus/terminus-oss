@@ -1,6 +1,5 @@
 import { ActiveDescendantKeyManager } from '@angular/cdk/a11y';
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -8,14 +7,17 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  OnDestroy,
-  OnInit,
   Optional,
   Output,
   QueryList,
   Self,
   ViewChild,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  AfterViewInit,
+  OnDestroy,
+  OnInit,
 } from '@angular/core';
 import {
   FormControl,
@@ -51,7 +53,7 @@ import {
   TsOptgroupComponent,
   TsOptionComponent,
 } from '@terminus/ui-option';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
+import type { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 import {
   TsAutocompletePanelComponent,
