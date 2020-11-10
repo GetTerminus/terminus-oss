@@ -4,7 +4,6 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-
 /**
  * The loading overlay component. Implemented by {@link TsLoadingOverlayDirective}
  *
