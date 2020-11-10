@@ -3700,7 +3700,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/tooltip/.storybook"
+              "configFolder": "stories/ui-tooltip/.storybook"
             },
             "docsMode": false
           },
@@ -3716,7 +3716,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-tooltip",
             "config": {
-              "configFolder": "libs/ui/tooltip/.storybook"
+              "configFolder": "stories/ui-tooltip/.storybook"
             },
             "docsMode": false
           },
