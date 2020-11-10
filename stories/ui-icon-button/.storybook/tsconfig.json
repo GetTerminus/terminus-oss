@@ -1,0 +1,8 @@
+{
+  "extends": "../../../libs/ui/icon-button/tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true
+  },
+  "exclude": ["../../../libs/ui/icon-button/src/test.ts", "../../../libs/ui/icon-button/**/*.spec.ts"],
+  "include": ["../../../libs/ui/icon-button/src/**/*"]
+}
