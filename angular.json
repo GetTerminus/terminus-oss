@@ -2278,7 +2278,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/navigation/.storybook"
+              "configFolder": "stories/ui-navigation/.storybook"
             },
             "docsMode": false
           },
@@ -2294,7 +2294,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-navigation",
             "config": {
-              "configFolder": "libs/ui/navigation/.storybook"
+              "configFolder": "stories/ui-navigation/.storybook"
             },
             "docsMode": false
           },
