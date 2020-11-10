@@ -8,7 +8,6 @@ import {
 } from '@angular/forms';
 import { MatRippleModule } from '@angular/material/core';
 
-import { TsCheckboxModule } from '@terminus/ui-checkbox';
 import { TsChipModule } from '@terminus/ui-chip';
 import { TsFormFieldModule } from '@terminus/ui-form-field';
 import { TsIconModule } from '@terminus/ui-icon';
@@ -35,7 +34,6 @@ export * from './trigger/selection-list-trigger.directive';
     MatRippleModule,
     OverlayModule,
     ReactiveFormsModule,
-    TsCheckboxModule,
     TsChipModule,
     TsFormFieldModule,
     TsIconModule,

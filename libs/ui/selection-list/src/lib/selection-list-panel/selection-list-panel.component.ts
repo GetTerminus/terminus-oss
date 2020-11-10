@@ -1,6 +1,5 @@
 import { ActiveDescendantKeyManager } from '@angular/cdk/a11y';
 import {
-  AfterContentInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -13,6 +12,7 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
+import type { AfterContentInit } from '@angular/core';
 
 import {
   TS_OPTION_PARENT_COMPONENT,
