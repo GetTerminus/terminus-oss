@@ -1,6 +1,6 @@
-import {
+import { FocusMonitor } from '@angular/cdk/a11y';
+import type {
   FocusableOption,
-  FocusMonitor,
   FocusOrigin,
 } from '@angular/cdk/a11y';
 import { hasModifierKey } from '@angular/cdk/keycodes';
@@ -12,10 +12,10 @@ import {
   Host,
   Inject,
   Input,
-  OnDestroy,
   Optional,
   ViewEncapsulation,
 } from '@angular/core';
+import type { OnDestroy } from '@angular/core';
 import {
   EMPTY,
   merge,

@@ -11,7 +11,6 @@ import { TsExpansionPanelTriggerDescriptionComponent } from './trigger/expansion
 import { TsExpansionPanelTriggerTitleComponent } from './trigger/expansion-panel-trigger-title.component';
 import { TsExpansionPanelTriggerComponent } from './trigger/expansion-panel-trigger.component';
 
-
 export * from './panel/expansion-panel.component';
 export * from './panel/expansion-panel-content.directive';
 export * from './panel/expansion-panel-action-row';
@@ -21,7 +20,6 @@ export * from './trigger/expansion-panel-trigger-description.component';
 export * from './accordion/accordion.component';
 export * from './accordion/accordion-base';
 export * from './panel/expansion-animations';
-
 
 @NgModule({
   imports: [
