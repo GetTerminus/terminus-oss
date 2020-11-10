@@ -2939,7 +2939,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/search/.storybook"
+              "configFolder": "stories/ui-search/.storybook"
             },
             "docsMode": false
           },
@@ -2955,7 +2955,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-search",
             "config": {
-              "configFolder": "libs/ui/search/.storybook"
+              "configFolder": "stories/ui-search/.storybook"
             },
             "docsMode": false
           },
