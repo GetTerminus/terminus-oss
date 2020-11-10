@@ -2591,7 +2591,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/pipes/.storybook"
+              "configFolder": "stories/ui-pipes/.storybook"
             },
             "docsMode": false
           },
@@ -2607,7 +2607,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-pipes",
             "config": {
-              "configFolder": "libs/ui/pipes/.storybook"
+              "configFolder": "stories/ui-pipes/.storybook"
             },
             "docsMode": false
           },
