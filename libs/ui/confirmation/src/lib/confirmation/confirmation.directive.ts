@@ -1,8 +1,10 @@
 import {
-  FlexibleConnectedPositionStrategy,
-  HorizontalConnectionPos,
   Overlay,
   OverlayConfig,
+} from '@angular/cdk/overlay';
+import type {
+  FlexibleConnectedPositionStrategy,
+  HorizontalConnectionPos,
   OverlayRef,
   VerticalConnectionPos,
 } from '@angular/cdk/overlay';
@@ -15,9 +17,11 @@ import {
   HostListener,
   Input,
   isDevMode,
+  Output,
+} from '@angular/core';
+import type {
   OnDestroy,
   OnInit,
-  Output,
 } from '@angular/core';
 import { merge } from 'rxjs';
 
