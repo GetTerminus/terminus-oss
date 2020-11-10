@@ -15,7 +15,6 @@ import { TsLoginFormComponent } from './form/login-form.component';
 
 export * from './form/login-form.component';
 
-
 /**
  * @deprecated This module is no longer maintained.
  */

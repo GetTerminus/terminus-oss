@@ -9,6 +9,7 @@
       "@terminus/ui-checkbox": "terminus.ui-checkbox",
       "@terminus/ui-input": "terminus.ui-input",
       "@terminus/ui-link": "terminus.ui-link",
+      "@terminus/ui-pipes": "terminus.ui-pipes",
       "@terminus/ui-spacing": "terminus.ui-spacing",
       "@terminus/ui-validators": "terminus.ui-validators"
     }

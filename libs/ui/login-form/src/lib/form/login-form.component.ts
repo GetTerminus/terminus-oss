@@ -3,20 +3,22 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnChanges,
   Output,
   QueryList,
-  SimpleChanges,
   ViewChild,
   ViewChildren,
   ViewEncapsulation,
 } from '@angular/core';
+import type {
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
-  FormGroup,
   Validators,
 } from '@angular/forms';
+import type { FormGroup } from '@angular/forms';
 
 import { TsCheckboxComponent } from '@terminus/ui-checkbox';
 import { TsInputComponent } from '@terminus/ui-input';
