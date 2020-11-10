@@ -3,8 +3,6 @@
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
 import {
-  AfterContentInit,
-  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -14,14 +12,18 @@ import {
   forwardRef,
   InjectionToken,
   Input,
-  OnDestroy,
-  OnInit,
   Optional,
   Output,
-  Provider,
   QueryList,
   ViewChild,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  AfterContentInit,
+  AfterViewInit,
+  OnDestroy,
+  OnInit,
+  Provider,
 } from '@angular/core';
 import {
   FormControl,

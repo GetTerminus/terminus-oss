@@ -1,0 +1,8 @@
+{
+  "extends": "../../../libs/ui/radio-group/tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true
+  },
+  "exclude": ["../../../libs/ui/radio-group/src/test.ts", "../../../libs/ui/radio-group/**/*.spec.ts"],
+  "include": ["../../../libs/ui/radio-group/src/**/*"]
+}
