@@ -1,4 +1,4 @@
-import { AnimationEvent } from '@angular/animations';
+import type { AnimationEvent } from '@angular/animations';
 import { TemplatePortal } from '@angular/cdk/portal';
 import {
   ChangeDetectionStrategy,
@@ -6,10 +6,12 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  OnDestroy,
-  OnInit,
   Output,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  OnDestroy,
+  OnInit,
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';

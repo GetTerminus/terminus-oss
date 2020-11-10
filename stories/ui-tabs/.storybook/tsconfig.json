@@ -1,0 +1,8 @@
+{
+  "extends": "../../../libs/ui/tabs/tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true
+  },
+  "exclude": ["../../../libs/ui/tabs/src/test.ts", "../../../libs/ui/tabs/**/*.spec.ts"],
+  "include": ["../../../libs/ui/tabs/src/**/*"]
+}

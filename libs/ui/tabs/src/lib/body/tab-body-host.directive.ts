@@ -4,9 +4,11 @@ import {
   Directive,
   forwardRef,
   Inject,
+  ViewContainerRef,
+} from '@angular/core';
+import type {
   OnDestroy,
   OnInit,
-  ViewContainerRef,
 } from '@angular/core';
 import { startWith } from 'rxjs/operators';
 
