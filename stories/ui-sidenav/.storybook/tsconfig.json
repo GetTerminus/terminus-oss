@@ -1,0 +1,8 @@
+{
+  "extends": "../../../libs/ui/sidenav/tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true
+  },
+  "exclude": ["../../../libs/ui/sidenav/src/test.ts", "../../../libs/ui/sidenav/**/*.spec.ts"],
+  "include": ["../../../libs/ui/sidenav/src/**/*"]
+}
