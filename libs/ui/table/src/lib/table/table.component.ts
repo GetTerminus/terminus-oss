@@ -7,9 +7,6 @@ import {
 } from '@angular/cdk/table';
 import { DOCUMENT } from '@angular/common';
 import {
-  AfterContentChecked,
-  AfterContentInit,
-  AfterViewChecked,
   Attribute,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -21,13 +18,18 @@ import {
   Input,
   IterableDiffers,
   NgZone,
-  OnDestroy,
-  OnInit,
   Optional,
   Output,
   QueryList,
   Renderer2,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  OnDestroy,
+  OnInit,
 } from '@angular/core';
 import {
   defer,

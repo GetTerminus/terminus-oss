@@ -3439,7 +3439,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/table/.storybook"
+              "configFolder": "stories/ui-table/.storybook"
             },
             "docsMode": false
           },
@@ -3455,7 +3455,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-table",
             "config": {
-              "configFolder": "libs/ui/table/.storybook"
+              "configFolder": "stories/ui-table/.storybook"
             },
             "docsMode": false
           },
