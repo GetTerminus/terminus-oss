@@ -1,22 +1,24 @@
 import {
-  AfterContentInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ContentChild,
   ContentChildren,
-  DoCheck,
   ElementRef,
   EventEmitter,
   Inject,
   Input,
   NgZone,
-  OnDestroy,
   Optional,
   Output,
   QueryList,
   Renderer2,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  AfterContentInit,
+  DoCheck,
+  OnDestroy,
 } from '@angular/core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { Subject } from 'rxjs';

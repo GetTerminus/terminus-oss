@@ -1301,7 +1301,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/drawer/.storybook"
+              "configFolder": "stories/ui-drawer/.storybook"
             },
             "docsMode": false
           },
@@ -1317,7 +1317,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-drawer",
             "config": {
-              "configFolder": "libs/ui/drawer/.storybook"
+              "configFolder": "stories/ui-drawer/.storybook"
             },
             "docsMode": false
           },
