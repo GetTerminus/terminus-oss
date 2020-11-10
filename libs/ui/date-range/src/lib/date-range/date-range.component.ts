@@ -4,10 +4,12 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnDestroy,
-  OnInit,
   Output,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  OnDestroy,
+  OnInit,
 } from '@angular/core';
 import {
   AbstractControl,
@@ -19,7 +21,6 @@ import { BehaviorSubject } from 'rxjs';
 import { untilComponentDestroyed } from '@terminus/fe-utilities';
 import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
-
 /**
  * Define the structure of the date range object used by {@link TsDateRangeComponent}
  */
@@ -28,13 +29,11 @@ export interface TsDateRange {
    * The start date of the range
    */
   start: Date | undefined;
-
   /**
    * The end date of the range
    */
   end: Date | undefined;
 }
-
 
 /**
  * This is the date-range UI Component

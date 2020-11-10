@@ -1,0 +1,8 @@
+{
+  "extends": "../../../libs/ui/date-range/tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true
+  },
+  "exclude": ["../../../libs/ui/date-range/src/test.ts", "../../../libs/ui/date-range/**/*.spec.ts"],
+  "include": ["../../../libs/ui/date-range/src/**/*"]
+}

@@ -1214,7 +1214,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/date-range/.storybook"
+              "configFolder": "stories/ui-date-range/.storybook"
             },
             "docsMode": false
           },
@@ -1230,7 +1230,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-date-range",
             "config": {
-              "configFolder": "libs/ui/date-range/.storybook"
+              "configFolder": "stories/ui-date-range/.storybook"
             },
             "docsMode": false
           },
