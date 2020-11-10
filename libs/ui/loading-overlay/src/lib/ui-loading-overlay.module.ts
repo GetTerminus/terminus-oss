@@ -7,7 +7,6 @@ import { TsLoadingOverlayComponent } from './overlay/loading-overlay.component';
 export * from './overlay/loading-overlay.component';
 export * from './loading-overlay.directive';
 
-
 @NgModule({
   imports: [CommonModule],
   declarations: [

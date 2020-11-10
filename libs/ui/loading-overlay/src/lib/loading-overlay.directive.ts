@@ -10,6 +10,8 @@ import {
   HostBinding,
   Injector,
   Input,
+} from '@angular/core';
+import type {
   OnDestroy,
   OnInit,
 } from '@angular/core';
@@ -17,7 +19,6 @@ import {
 import { TsWindowService } from '@terminus/fe-utilities';
 
 import { TsLoadingOverlayComponent } from './overlay/loading-overlay.component';
-
 
 /**
  * A spinner overlay to demonstrate loading for async data.
