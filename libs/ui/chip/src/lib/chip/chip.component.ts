@@ -7,12 +7,14 @@ import {
   EventEmitter,
   Input,
   NgZone,
-  OnDestroy,
   Output,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { faTimesCircle } from '@fortawesome/pro-solid-svg-icons/faTimesCircle';
+import type {
+  OnDestroy,
+} from '@angular/core';
+import { faTimesCircle } from '@fortawesome/pro-solid-svg-icons';
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 

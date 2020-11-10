@@ -2,8 +2,8 @@ import {
   Directive,
   ElementRef,
   Host,
-  OnInit,
 } from '@angular/core';
+import type { OnInit } from '@angular/core';
 
 import { TsChipComponent } from '../chip/chip.component';
 

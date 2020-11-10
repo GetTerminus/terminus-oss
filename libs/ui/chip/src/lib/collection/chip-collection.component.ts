@@ -1,8 +1,6 @@
 import { FocusKeyManager } from '@angular/cdk/a11y';
 import { SelectionModel } from '@angular/cdk/collections';
 import {
-  AfterContentInit,
-  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -11,11 +9,15 @@ import {
   EventEmitter,
   Input,
   NgZone,
-  OnDestroy,
-  OnInit,
   Output,
   QueryList,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  AfterContentInit,
+  AfterViewInit,
+  OnDestroy,
+  OnInit,
 } from '@angular/core';
 import {
   merge,

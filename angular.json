@@ -775,7 +775,7 @@
             "uiFramework": "@storybook/angular",
             "port": 4400,
             "config": {
-              "configFolder": "libs/ui/chip/.storybook"
+              "configFolder": "stories/ui-chip/.storybook"
             },
             "docsMode": false
           },
@@ -791,7 +791,7 @@
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-chip",
             "config": {
-              "configFolder": "libs/ui/chip/.storybook"
+              "configFolder": "stories/ui-chip/.storybook"
             },
             "docsMode": false
           },
