@@ -1,4 +1,3 @@
-
 import {
   SchematicContext,
   Tree,
@@ -12,18 +11,19 @@ import {
 
 export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
   [
+    '@angular/animations: ^9.1.0',
+    '@angular/cdk: ^9.2.4',
     '@angular/common: ^9.1.0',
     '@angular/core: ^9.1.0',
-    '@angular/flex-layout: ~9.0.0-beta.29',
     '@angular/forms: ^9.1.0',
-    '@angular/platform-browser: ^9.1.0',
-    '@angular/cdk: ^9.2.4',
     '@angular/material: ^9.1.11',
-    '@terminus/ui-drawer: ^1.0.10',
-    '@terminus/ui-utilities: ^1.0.9',
+    '@angular/platform-browser: ^9.1.0',
     '@terminus/design-tokens: ^3.1.0',
     '@terminus/fe-utilities: ^1.0.0',
+    '@terminus/ui-drawer: ^1.0.10',
+    '@terminus/ui-utilities: ^1.0.9',
     'date-fns: ^2.14.0',
+    'rxjs: ^6.5.0',
   ].map(p => {
     const individualPackage = p.split(':');
     const nodeDependency: NodeDependency = {

@@ -1,8 +1,7 @@
-import { AnimationEvent } from '@angular/animations';
+import type { AnimationEvent } from '@angular/animations';
 import { hasModifierKey } from '@angular/cdk/keycodes';
 import { Platform } from '@angular/cdk/platform';
 import {
-  AfterContentChecked,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -11,10 +10,13 @@ import {
   HostListener,
   Input,
   NgZone,
-  OnDestroy,
   Output,
   Renderer2,
   ViewEncapsulation,
+} from '@angular/core';
+import type {
+  AfterContentChecked,
+  OnDestroy,
 } from '@angular/core';
 import {
   fromEvent,
