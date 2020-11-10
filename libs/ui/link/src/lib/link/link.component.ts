@@ -4,10 +4,9 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
-import { faExternalLink } from '@fortawesome/pro-solid-svg-icons/faExternalLink';
+import { faExternalLink } from '@fortawesome/pro-solid-svg-icons';
 
 import { isString } from '@terminus/fe-utilities';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 /**
  * Standard link component

@@ -20,6 +20,7 @@
   "peerDependencies": {
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
+    "@angular/forms": "^9.1.0",
     "@angular/platform-browser": "^9.1.0",
     "@angular/router": "^9.1.0",
     "@fortawesome/angular-fontawesome": "^0.6.0",
@@ -29,6 +30,8 @@
     "@terminus/fe-utilities": "^1.1.0",
     "@terminus/ui-icon": "^2.1.5",
     "@terminus/ui-utilities": "^1.1.0",
+    "date-fns": "^2.16.1",
+    "rxjs": "^6.5.0",
     "tslib": "^1.10.0"
   },
   "scripts": {
