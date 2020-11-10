@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -7,14 +6,17 @@ import {
   EventEmitter,
   HostListener,
   Input,
-  OnInit,
   Output,
   QueryList,
   ViewChild,
   ViewChildren,
   ViewEncapsulation,
 } from '@angular/core';
-import { faCaretDown } from '@fortawesome/pro-solid-svg-icons/faCaretDown';
+import type {
+  AfterViewInit,
+  OnInit,
+} from '@angular/core';
+import { faCaretDown } from '@fortawesome/pro-solid-svg-icons';
 import { BehaviorSubject } from 'rxjs';
 
 import { groupBy } from '@terminus/fe-utilities';
