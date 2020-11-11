@@ -19,6 +19,7 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@fortawesome/fontawesome-svg-core: ^1.2.30',
     '@terminus/design-tokens: ^3.1.0',
     '@terminus/fe-utilities: ^1.0.0',
+    '@terminus/ui-styles: ^1.1.0',
   ].map(p => {
     const individualPackage = p.split(':');
     const nodeDependency: NodeDependency = {
