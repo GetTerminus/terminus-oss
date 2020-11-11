@@ -11,17 +11,18 @@ import {
 
 export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
   [
-    '@amcharts/amcharts4: ^4.9.20',
     '@amcharts/amcharts4-geodata: ^4.1.14',
+    '@amcharts/amcharts4: ^4.9.20',
     '@angular/common: ^9.1.0',
     '@angular/core: ^9.1.0',
     '@angular/forms: ^9.1.0',
     '@angular/platform-browser: ^9.1.0',
     '@terminus/design-tokens: ^3.1.0',
     '@terminus/fe-utilities: ^1.0.0',
-    '@terminus/ui-spacing: ^1.1.3',
-    '@terminus/ui-utilities: ^1.0.9',
     '@terminus/ui-chart: ^1.0.13',
+    '@terminus/ui-spacing: ^1.1.3',
+    '@terminus/ui-styles: ^1.1.0',
+    '@terminus/ui-utilities: ^1.0.9',
     'date-fns: ^2.14.0',
     'rxjs: ^6.5.0',
   ].map(p => {
