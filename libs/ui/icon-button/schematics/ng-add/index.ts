@@ -23,6 +23,7 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@terminus/ui-button: ^2.1.1',
     '@terminus/ui-icon-button: ^2.0.5',
     '@terminus/ui-icon: ^2.1.5',
+    '@terminus/ui-styles: ^1.1.0',
     'date-fns: ^2.14.0',
     'rxjs: ^6.5.0',
   ].map(p => {
