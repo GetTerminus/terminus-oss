@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-cohort-date-range@2.0.1...@terminus/ui-cohort-date-range@2.0.2) (2020-11-11)
+
+**Note:** Version bump only for package @terminus/ui-cohort-date-range
+
+
+
+
+
 ## [2.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-cohort-date-range@2.0.0...@terminus/ui-cohort-date-range@2.0.1) (2020-11-11)
 
 
