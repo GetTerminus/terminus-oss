@@ -27,6 +27,7 @@
     "@terminus/design-tokens": "^3.1.0",
     "@terminus/fe-utilities": "^1.0.0",
     "@terminus/ui-checkbox": "^2.0.6",
+    "@terminus/ui-styles": "^1.1.0",
     "@terminus/ui-utilities": "^1.1.0",
     "date-fns": "^2.16.1",
     "rxjs": "^6.5.0",
