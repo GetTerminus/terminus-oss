@@ -267,7 +267,7 @@
                 "command": "yarn run lint:ts 'libs/ui/autocomplete/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/autocomplete/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/autocomplete/**/!(*.spec).scss'"
               }
             ]
           }
@@ -406,7 +406,7 @@
                 "command": "yarn run lint:ts 'libs/ui/button/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/button/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/button/**/!(*.spec).scss'"
               }
             ]
           }
@@ -493,7 +493,7 @@
                 "command": "yarn run lint:ts 'libs/ui/checkbox/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/checkbox/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/checkbox/**/!(*.spec).scss'"
               }
             ]
           }
@@ -580,7 +580,7 @@
                 "command": "yarn run lint:ts 'libs/ui/card/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/card/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/card/**/!(*.spec).scss'"
               }
             ]
           }
@@ -667,7 +667,7 @@
                 "command": "yarn run lint:ts 'libs/ui/chart/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/chart/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/chart/**/!(*.spec).scss'"
               }
             ]
           }
@@ -754,7 +754,7 @@
                 "command": "yarn run lint:ts 'libs/ui/chip/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/chip/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/chip/**/!(*.spec).scss'"
               }
             ]
           }
@@ -843,7 +843,7 @@
                 "command": "yarn run lint:ts 'libs/ui/cohort-date-range/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/cohort-date-range/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/cohort-date-range/**/!(*.spec).scss'"
               }
             ]
           }
@@ -932,7 +932,7 @@
                 "command": "yarn run lint:ts 'libs/ui/confirmation/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/confirmation/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/confirmation/**/!(*.spec).scss'"
               }
             ]
           }
@@ -1019,7 +1019,7 @@
                 "command": "yarn run lint:ts 'libs/ui/copy/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/copy/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/copy/**/!(*.spec).scss'"
               }
             ]
           }
@@ -1106,7 +1106,7 @@
                 "command": "yarn run lint:ts 'libs/ui/csv-entry/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/csv-entry/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/csv-entry/**/!(*.spec).scss'"
               }
             ]
           }
@@ -1193,7 +1193,7 @@
                 "command": "yarn run lint:ts 'libs/ui/date-range/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/date-range/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/date-range/**/!(*.spec).scss'"
               }
             ]
           }
@@ -1280,7 +1280,7 @@
                 "command": "yarn run lint:ts 'libs/ui/drawer/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/drawer/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/drawer/**/!(*.spec).scss'"
               }
             ]
           }
@@ -1369,7 +1369,7 @@
                 "command": "yarn run lint:ts 'libs/ui/expansion-panel/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/expansion-panel/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/expansion-panel/**/!(*.spec).scss'"
               }
             ]
           }
@@ -1456,7 +1456,7 @@
                 "command": "yarn run lint:ts 'libs/ui/file-upload/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/file-upload/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/file-upload/**/!(*.spec).scss'"
               }
             ]
           }
@@ -1536,7 +1536,7 @@
                 "command": "yarn run lint:ts 'libs/ui/form-field/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/form-field/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/form-field/**/!(*.spec).scss'"
               }
             ]
           }
@@ -1591,7 +1591,7 @@
                 "command": "yarn run lint:ts 'libs/ui/icon/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/icon/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/icon/**/!(*.spec).scss'"
               }
             ]
           }
@@ -1678,7 +1678,7 @@
                 "command": "yarn run lint:ts 'libs/ui/icon-button/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/icon-button/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/icon-button/**/!(*.spec).scss'"
               }
             ]
           }
@@ -1765,7 +1765,7 @@
                 "command": "yarn run lint:ts 'libs/ui/input/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/input/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/input/**/!(*.spec).scss'"
               }
             ]
           }
@@ -1852,7 +1852,7 @@
                 "command": "yarn run lint:ts 'libs/ui/link/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/link/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/link/**/!(*.spec).scss'"
               }
             ]
           }
@@ -1941,7 +1941,7 @@
                 "command": "yarn run lint:ts 'libs/ui/loading-overlay/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/loading-overlay/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/loading-overlay/**/!(*.spec).scss'"
               }
             ]
           }
@@ -2028,7 +2028,7 @@
                 "command": "yarn run lint:ts 'libs/ui/login-form/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/login-form/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/login-form/**/!(*.spec).scss'"
               }
             ]
           }
@@ -2083,7 +2083,7 @@
                 "command": "yarn run lint:ts 'libs/ui/logo/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/logo/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/logo/**/!(*.spec).scss'"
               }
             ]
           }
@@ -2170,7 +2170,7 @@
                 "command": "yarn run lint:ts 'libs/ui/menu/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/menu/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/menu/**/!(*.spec).scss'"
               }
             ]
           }
@@ -2257,7 +2257,7 @@
                 "command": "yarn run lint:ts 'libs/ui/navigation/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/navigation/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/navigation/**/!(*.spec).scss'"
               }
             ]
           }
@@ -2344,7 +2344,7 @@
                 "command": "yarn run lint:ts 'libs/ui/option/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/option/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/option/**/!(*.spec).scss'"
               }
             ]
           }
@@ -2380,7 +2380,7 @@
                 "command": "yarn run lint:ts 'libs/ui/page-header/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/page-header/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/page-header/**/!(*.spec).scss'"
               }
             ]
           }
@@ -2486,7 +2486,7 @@
                 "command": "yarn run lint:ts 'libs/ui/paginator/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/paginator/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/paginator/**/!(*.spec).scss'"
               }
             ]
           }
@@ -2657,7 +2657,7 @@
                 "command": "yarn run lint:ts 'libs/ui/popover/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/popover/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/popover/**/!(*.spec).scss'"
               }
             ]
           }
@@ -2744,7 +2744,7 @@
                 "command": "yarn run lint:ts 'libs/ui/radio-group/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/radio-group/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/radio-group/**/!(*.spec).scss'"
               }
             ]
           }
@@ -2831,7 +2831,7 @@
                 "command": "yarn run lint:ts 'libs/ui/scrollbars/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/scrollbars/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/scrollbars/**/!(*.spec).scss'"
               }
             ]
           }
@@ -2918,7 +2918,7 @@
                 "command": "yarn run lint:ts 'libs/ui/search/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/search/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/search/**/!(*.spec).scss'"
               }
             ]
           }
@@ -3005,7 +3005,7 @@
                 "command": "yarn run lint:ts 'libs/ui/select/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/select/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/select/**/!(*.spec).scss'"
               }
             ]
           }
@@ -3062,7 +3062,7 @@
                 "command": "yarn run lint:ts 'libs/ui/selection-list/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/selection-list/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/selection-list/**/!(*.spec).scss'"
               }
             ]
           }
@@ -3142,7 +3142,7 @@
                 "command": "yarn run lint:ts 'libs/ui/sidenav/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/sidenav/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/sidenav/**/!(*.spec).scss'"
               }
             ]
           }
@@ -3236,7 +3236,7 @@
                 "command": "yarn run lint:ts 'libs/ui/sort/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/sort/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/sort/**/!(*.spec).scss'"
               }
             ]
           }
@@ -3364,7 +3364,7 @@
           "options": {
             "commands": [
               {
-                "command": "yarn run lint:scss 'libs/ui/styles/**/!(helper*).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/styles/src/lib/**/!(helpers*).scss'"
               }
             ]
           }
@@ -3418,7 +3418,7 @@
                 "command": "yarn run lint:ts 'libs/ui/table/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/table/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/table/**/!(*.spec).scss'"
               }
             ]
           }
@@ -3505,7 +3505,7 @@
                 "command": "yarn run lint:ts 'libs/ui/tabs/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/tabs/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/tabs/**/!(*.spec).scss'"
               }
             ]
           }
@@ -3592,7 +3592,7 @@
                 "command": "yarn run lint:ts 'libs/ui/toggle/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/toggle/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/toggle/**/!(*.spec).scss'"
               }
             ]
           }
@@ -3679,7 +3679,7 @@
                 "command": "yarn run lint:ts 'libs/ui/tooltip/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/tooltip/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/tooltip/**/!(*.spec).scss'"
               }
             ]
           }
@@ -3813,7 +3813,7 @@
                 "command": "yarn run lint:ts 'libs/ui/validation-messages/**/*.{js,ts}'"
               },
               {
-                "command": "yarn run lint:scss 'libs/ui/validation-messages/**/!(*.spec).scss'"
+                "command": "yarn run lint:scss:base 'libs/ui/validation-messages/**/!(*.spec).scss'"
               }
             ]
           }
