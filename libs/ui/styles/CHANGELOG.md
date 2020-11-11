@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.1 (2020-11-11)
+
+
+### Bug Fixes
+
+* **Styles:** bump schematic version ([1883f15](https://github.com/GetTerminus/terminus-oss/commit/1883f1535613f6a1a372f95070dcd0c4dd326ae6))
+
+
+
+
+
 # [1.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-styles@1.0.18...@terminus/ui-styles@1.1.0) (2020-09-08)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@3.0.2...@terminus/ui-search@3.0.3) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Search:** add ui-styles to schematic ([06fc97d](https://github.com/GetTerminus/terminus-oss/commit/06fc97dbf5ec9a424c77e481b743f95f88a439f5))
+
+
+
+
+
 ## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@3.0.1...@terminus/ui-search@3.0.2) (2020-11-11)
 
 

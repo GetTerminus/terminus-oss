@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tabs@3.0.1...@terminus/ui-tabs@3.0.2) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Tabs:** add ui-styles to schematic ([b542ae5](https://github.com/GetTerminus/terminus-oss/commit/b542ae5e7d9e387d36075f622831cc3c2f947aaf))
+
+
+
+
+
 ## 3.0.1 (2020-11-11)
 
 

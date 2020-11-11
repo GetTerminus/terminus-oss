@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tooltip@1.1.4...@terminus/ui-tooltip@1.1.5) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Tooltip:** add ui-styles to schematic ([ecc7fb4](https://github.com/GetTerminus/terminus-oss/commit/ecc7fb4a4fa1d6676b61665692178a51235e0902))
+
+
+
+
+
 ## 1.1.4 (2020-11-11)
 
 

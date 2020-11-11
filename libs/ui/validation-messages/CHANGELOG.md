@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-validation-messages@1.1.4...@terminus/ui-validation-messages@1.1.5) (2020-11-11)
+
+
+### Bug Fixes
+
+* **ValidationMessages:** add ui-styles to schematic ([c7451d3](https://github.com/GetTerminus/terminus-oss/commit/c7451d3018cf94b05a151f426872608b4a5f3289))
+
+
+
+
+
 ## 1.1.4 (2020-11-11)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-scrollbars@1.1.4...@terminus/ui-scrollbars@1.1.5) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Scrollbars:** add ui-styles to schematic ([8e6c74a](https://github.com/GetTerminus/terminus-oss/commit/8e6c74ae2a7c1afc1d021f6445dee4f6f10eb330))
+
+
+
+
+
 ## 1.1.4 (2020-11-11)
 
 

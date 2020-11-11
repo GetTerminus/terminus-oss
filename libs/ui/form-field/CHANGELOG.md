@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.1 (2020-11-11)
+
+
+### Bug Fixes
+
+* **FormField:** add ui-styles to schematic ([b330178](https://github.com/GetTerminus/terminus-oss/commit/b3301782082b74ad5c2186bd9b54e8703b5ea295))
+
+
+
+
+
 # [2.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-form-field@2.0.14...@terminus/ui-form-field@2.1.0) (2020-09-08)
 
 

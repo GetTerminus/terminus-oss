@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-drawer@1.1.4...@terminus/ui-drawer@1.1.5) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Drawer:** add ui-styles to schematic ([75764eb](https://github.com/GetTerminus/terminus-oss/commit/75764ebf61cae751714317b7ae600fec4e0985cc))
+
+
+
+
+
 ## 1.1.4 (2020-11-11)
 
 

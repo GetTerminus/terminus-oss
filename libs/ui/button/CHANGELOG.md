@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.1.6...@terminus/ui-button@2.1.7) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Button:** add ui-styles to schematic ([213452b](https://github.com/GetTerminus/terminus-oss/commit/213452b37220d080465f0cf79a55cb4efdfdf06e))
+
+
+
+
+
 ## [2.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.1.5...@terminus/ui-button@2.1.6) (2020-11-11)
 
 

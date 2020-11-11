@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@3.0.3...@terminus/ui-menu@3.0.4) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Menu:** add ui-styles to schematic ([380375c](https://github.com/GetTerminus/terminus-oss/commit/380375ceacf31e31659ac2bdd5b74349b2e7a352))
+
+
+
+
+
 ## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@3.0.2...@terminus/ui-menu@3.0.3) (2020-11-11)
 
 

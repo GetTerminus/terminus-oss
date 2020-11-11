@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@2.1.7...@terminus/ui-input@2.1.8) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Input:** add ui-styles to schematic ([3746a09](https://github.com/GetTerminus/terminus-oss/commit/3746a09f963f1ded60c2b51f2737b8a906b3c654))
+
+
+
+
+
 ## [2.1.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@2.1.6...@terminus/ui-input@2.1.7) (2020-11-11)
 
 

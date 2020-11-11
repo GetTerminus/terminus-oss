@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chart@1.1.5...@terminus/ui-chart@1.1.6) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Chart:** add ui-styles to schematic ([83e81d4](https://github.com/GetTerminus/terminus-oss/commit/83e81d4d326c8761f2ac8bd5b90be4be54fcbfe9))
+
+
+
+
+
 ## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chart@1.1.4...@terminus/ui-chart@1.1.5) (2020-11-11)
 
 

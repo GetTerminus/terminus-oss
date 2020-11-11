@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-link@3.0.2...@terminus/ui-link@3.0.3) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Link:** add ui-styles to schematic ([e9e3fe1](https://github.com/GetTerminus/terminus-oss/commit/e9e3fe1e76f816ea5a32889330a92ce803896c27))
+
+
+
+
+
 ## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-link@3.0.1...@terminus/ui-link@3.0.2) (2020-11-11)
 
 **Note:** Version bump only for package @terminus/ui-link

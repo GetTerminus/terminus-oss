@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon-button@3.0.3...@terminus/ui-icon-button@3.0.4) (2020-11-11)
+
+
+### Bug Fixes
+
+* **IconButton:** add ui-styles to schematic ([8d370ba](https://github.com/GetTerminus/terminus-oss/commit/8d370ba821dee65317d3f54f3f50b6dfa9c642d4))
+
+
+
+
+
 ## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon-button@3.0.2...@terminus/ui-icon-button@3.0.3) (2020-11-11)
 
 

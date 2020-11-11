@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@3.0.3...@terminus/ui-file-upload@3.0.4) (2020-11-11)
+
+
+### Bug Fixes
+
+* **FileUpload:** add ui-styles to schematic ([26ac54f](https://github.com/GetTerminus/terminus-oss/commit/26ac54f1a6541c74458aba70c967d0d4d9def54c))
+
+
+
+
+
 ## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@3.0.2...@terminus/ui-file-upload@3.0.3) (2020-11-11)
 
 

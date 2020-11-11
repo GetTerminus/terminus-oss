@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@3.1.2...@terminus/ui-radio-group@3.1.3) (2020-11-11)
+
+
+### Bug Fixes
+
+* **RadioGroup:** add ui-styles to schematic ([5962f32](https://github.com/GetTerminus/terminus-oss/commit/5962f328f573940b93e98c530ec935d35def67a8))
+
+
+
+
+
 ## [3.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@3.1.1...@terminus/ui-radio-group@3.1.2) (2020-11-11)
 
 

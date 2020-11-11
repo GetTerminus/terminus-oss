@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-login-form@1.1.1...@terminus/ui-login-form@1.1.2) (2020-11-11)
+
+
+### Bug Fixes
+
+* **LoginForm:** add ui-styles to schematic ([bfd623c](https://github.com/GetTerminus/terminus-oss/commit/bfd623cf7f7d4be1cafa02b2441c47bcca4fdcf4))
+
+
+
+
+
 ## 1.1.1 (2020-11-11)
 
 

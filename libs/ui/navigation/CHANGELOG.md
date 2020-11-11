@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-navigation@2.1.5...@terminus/ui-navigation@2.1.6) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Navigation:** add ui-styles to schematic ([2726b60](https://github.com/GetTerminus/terminus-oss/commit/2726b60a49a84af2ed9c3e4a540bfdd0ac36e66b))
+
+
+
+
+
 ## [2.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-navigation@2.1.4...@terminus/ui-navigation@2.1.5) (2020-11-11)
 
 

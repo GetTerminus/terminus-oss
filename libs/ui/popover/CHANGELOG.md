@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-popover@2.2.4...@terminus/ui-popover@2.2.5) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Popover:** add ui-styles to schematic ([1a97ff3](https://github.com/GetTerminus/terminus-oss/commit/1a97ff34d5b5b40d050cc333403ca8678efc1300))
+
+
+
+
+
 ## 2.2.4 (2020-11-11)
 
 

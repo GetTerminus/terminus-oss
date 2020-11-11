@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.1.4...@terminus/ui-expansion-panel@1.1.5) (2020-11-11)
+
+
+### Bug Fixes
+
+* **ExpansionPanel:** add ui-styles to schematic ([9f7ac27](https://github.com/GetTerminus/terminus-oss/commit/9f7ac271e018914528ec71b52a94d2573f7d294c))
+
+
+
+
+
 ## 1.1.4 (2020-11-11)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-loading-overlay@1.1.4...@terminus/ui-loading-overlay@1.1.5) (2020-11-11)
+
+
+### Bug Fixes
+
+* **LoadingOverlay:** add ui-styles to schematic ([8aade4f](https://github.com/GetTerminus/terminus-oss/commit/8aade4f3fcf6912b553b0e85e38282d29e822f74))
+
+
+
+
+
 ## 1.1.4 (2020-11-11)
 
 

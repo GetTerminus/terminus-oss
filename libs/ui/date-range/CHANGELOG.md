@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-date-range@2.0.2...@terminus/ui-date-range@2.0.3) (2020-11-11)
+
+
+### Bug Fixes
+
+* **DateRange:** add ui-styles to schematic ([36faafa](https://github.com/GetTerminus/terminus-oss/commit/36faafada0c5eda5d1aa467fe4bca20f2ddafcf5))
+
+
+
+
+
 ## [2.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-date-range@2.0.1...@terminus/ui-date-range@2.0.2) (2020-11-11)
 
 **Note:** Version bump only for package @terminus/ui-date-range

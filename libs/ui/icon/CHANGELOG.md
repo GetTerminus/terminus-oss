@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon@2.1.6...@terminus/ui-icon@2.1.7) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Icon:** add ui-styles to schematic ([1d1c704](https://github.com/GetTerminus/terminus-oss/commit/1d1c704ba62f4454c9472b894ed52e2bb239c3f1))
+
+
+
+
+
 ## [2.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon@2.1.5...@terminus/ui-icon@2.1.6) (2020-11-11)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@3.0.3...@terminus/ui-card@3.0.4) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Card:** add ui-styles to schematic ([5806d93](https://github.com/GetTerminus/terminus-oss/commit/5806d93c98ae9d7449752e5191bc5321abb4497e))
+
+
+
+
+
 ## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@3.0.2...@terminus/ui-card@3.0.3) (2020-11-11)
 
 

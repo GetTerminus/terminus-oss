@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-logo@1.1.4...@terminus/ui-logo@1.1.5) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Logo:** add ui-styles to schematic ([bcfcf1b](https://github.com/GetTerminus/terminus-oss/commit/bcfcf1b9bc1b44e0f391b8d04246e9053e2c54da))
+
+
+
+
+
 ## 1.1.4 (2020-11-11)
 
 

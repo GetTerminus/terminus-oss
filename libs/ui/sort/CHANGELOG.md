@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sort@1.1.4...@terminus/ui-sort@1.1.5) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Sort:** add ui-styles to schematic ([c045244](https://github.com/GetTerminus/terminus-oss/commit/c04524498a18b837c485e753d57f664f11084f52))
+
+
+
+
+
 ## [1.1.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sort@1.1.3...@terminus/ui-sort@1.1.4) (2020-11-11)
 
 

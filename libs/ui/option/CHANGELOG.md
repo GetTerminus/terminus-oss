@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-option@1.1.3...@terminus/ui-option@1.1.4) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Option:** add ui-styles to schematic ([5880460](https://github.com/GetTerminus/terminus-oss/commit/58804604027faa7544bcf9c583701bca40eb3721))
+
+
+
+
+
 ## 1.1.3 (2020-11-11)
 
 

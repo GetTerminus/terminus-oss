@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@1.1.3...@terminus/ui-sidenav@1.1.4) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Sidenav:** add ui-styles to schematic ([51225c2](https://github.com/GetTerminus/terminus-oss/commit/51225c27d61bdd5f0a49b18bd5e1cd1a56bedbc0))
+
+
+
+
+
 ## [1.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@1.1.2...@terminus/ui-sidenav@1.1.3) (2020-11-11)
 
 

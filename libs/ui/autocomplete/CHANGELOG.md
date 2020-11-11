@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-autocomplete@1.1.2...@terminus/ui-autocomplete@1.1.3) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Autocomplete:** add ui-styles to schematic ([c4c3057](https://github.com/GetTerminus/terminus-oss/commit/c4c3057bb68e2a1166d62c69305b79de2e4f9ba7))
+
+
+
+
+
 ## [1.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-autocomplete@1.1.1...@terminus/ui-autocomplete@1.1.2) (2020-11-11)
 
 

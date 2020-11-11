@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.1.6...@terminus/ui-table@3.1.7) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Table:** add ui-styles to schematic ([a96a6f5](https://github.com/GetTerminus/terminus-oss/commit/a96a6f5c9bedcfd47695a8dec9e9c69705b4722c))
+
+
+
+
+
 ## [3.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.1.5...@terminus/ui-table@3.1.6) (2020-11-11)
 
 

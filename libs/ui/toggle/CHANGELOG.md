@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-toggle@2.0.1...@terminus/ui-toggle@2.0.2) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Toggle:** add ui-styles to schematic ([76c16f1](https://github.com/GetTerminus/terminus-oss/commit/76c16f12c006ef171f1e0dab3d49368b04648505))
+
+
+
+
+
 ## 2.0.1 (2020-11-11)
 
 

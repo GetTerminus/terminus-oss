@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chip@3.0.4...@terminus/ui-chip@3.0.5) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Chip:** add ui-styles to schematic ([c9960ad](https://github.com/GetTerminus/terminus-oss/commit/c9960ad0b3402bbebe06686fbe3566844dfcf687))
+
+
+
+
+
 ## [3.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chip@3.0.3...@terminus/ui-chip@3.0.4) (2020-11-11)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-confirmation@2.1.6...@terminus/ui-confirmation@2.1.7) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Confirmation:** add ui-styles to schematic ([704133c](https://github.com/GetTerminus/terminus-oss/commit/704133c6d0edf054e96de2253f01a54886a19f8f))
+
+
+
+
+
 ## [2.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-confirmation@2.1.5...@terminus/ui-confirmation@2.1.6) (2020-11-11)
 
 

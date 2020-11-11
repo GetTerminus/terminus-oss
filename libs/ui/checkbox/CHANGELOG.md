@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@3.0.1...@terminus/ui-checkbox@3.0.2) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Checkbox:** add ui-styles to schematic ([b590625](https://github.com/GetTerminus/terminus-oss/commit/b590625160d6afb2f6fa53c699c05d45c483d108))
+
+
+
+
+
 ## 3.0.1 (2020-11-11)
 
 

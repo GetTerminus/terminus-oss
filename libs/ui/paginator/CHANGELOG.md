@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@2.2.5...@terminus/ui-paginator@2.2.6) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Paginator:** add ui-styles to schematic ([7a1759f](https://github.com/GetTerminus/terminus-oss/commit/7a1759f0fe31a589790fa2bf930c86c186a1f2df))
+
+
+
+
+
 ## 2.2.5 (2020-11-11)
 
 

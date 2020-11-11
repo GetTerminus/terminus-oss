@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-copy@3.0.3...@terminus/ui-copy@3.0.4) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Copy:** add ui-styles to schematic ([b3510d0](https://github.com/GetTerminus/terminus-oss/commit/b3510d0d1dfed7ff10a76954b41cc39f4a5a5f0a))
+
+
+
+
+
 ## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-copy@3.0.2...@terminus/ui-copy@3.0.3) (2020-11-11)
 
 
