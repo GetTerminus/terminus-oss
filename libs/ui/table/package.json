@@ -44,6 +44,7 @@
     "@terminus/ui-selection-list": "^3.0.0",
     "@terminus/ui-sort": "^1.1.3",
     "@terminus/ui-spacing": "^1.1.3",
+    "@terminus/ui-styles": "^1.1.0",
     "@terminus/ui-tooltip": "^1.1.3",
     "@terminus/ui-utilities": "^1.1.0",
     "@terminus/ui-validation-messages": "^1.1.3",

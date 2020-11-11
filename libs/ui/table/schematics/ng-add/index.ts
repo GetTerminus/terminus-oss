@@ -37,6 +37,7 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@terminus/ui-selection-list: ^3.0.0',
     '@terminus/ui-sort: ^1.1.3',
     '@terminus/ui-spacing: ^1.1.3',
+    '@terminus/ui-styles: ^1.1.0',
     '@terminus/ui-table: ^3.1.5',
     '@terminus/ui-tooltip: ^1.1.3',
     '@terminus/ui-utilities: ^1.1.0',
