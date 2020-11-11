@@ -45,6 +45,14 @@ module.exports = {
         ],
         // For performance, prefer OnPush
         '@angular-eslint/prefer-on-push-component-change-detection': SEVERITY,
+        'object-curly-newline': [
+          SEVERITY,
+          {
+            consistent: true,
+            multiline: true,
+          },
+        ],
+
       },
     },
 
