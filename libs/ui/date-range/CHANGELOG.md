@@ -20,12 +20,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 * **DateRange:** update to allow version ranges ([426c624](https://github.com/GetTerminus/terminus-oss/commit/426c624566c774129546d69d02de2c2f381dd2e6))
-* **SelectionList:** remove theme support ([241d171](https://github.com/GetTerminus/terminus-oss/commit/241d171a99c97fb204ac76e56bc5bd3921b8c522))
 
+:bangbang: NOTE: There were **NO** breaking changes in this release. This bump was due to CD failure with Lerna.
 
-### BREAKING CHANGES
-
-* **SelectionList:** Theme input no longer supported
 
 
 
