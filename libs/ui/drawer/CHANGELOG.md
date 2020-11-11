@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.4 (2020-11-11)
+
+
+### Bug Fixes
+
+* **Drawer:** correct dependencies, move stories ([377e70d](https://github.com/GetTerminus/terminus-oss/commit/377e70d40c11bbb89babae25bdab64f49da3a7c4))
+
+
+
+
+
 ## [1.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-drawer@1.1.2...@terminus/ui-drawer@1.1.3) (2020-10-01)
 
 

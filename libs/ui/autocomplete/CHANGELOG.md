@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-autocomplete@1.1.1...@terminus/ui-autocomplete@1.1.2) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Autocomplete:** correct dependencies ([bdd1a31](https://github.com/GetTerminus/terminus-oss/commit/bdd1a31b5b1d8a89da6df08cf2a2ffd095b7d89b))
+
+
+
+
+
 ## 1.1.1 (2020-11-06)
 
 

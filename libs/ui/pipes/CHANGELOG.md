@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-pipes@1.2.0...@terminus/ui-pipes@1.2.1) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Pipes:** correct dependencies, move stories ([613a6aa](https://github.com/GetTerminus/terminus-oss/commit/613a6aa7a3c88eae2acf53edc1b773221d175b14))
+
+
+
+
+
 # [1.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-pipes@1.1.5...@terminus/ui-pipes@1.2.0) (2020-11-04)
 
 

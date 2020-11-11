@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.1 (2020-11-11)
+
+
+### Bug Fixes
+
+* **Utilities:** correct dependencies ([dd1799e](https://github.com/GetTerminus/terminus-oss/commit/dd1799eaa4172482521c120d0f25f20160449001))
+
+
+
+
+
 # [1.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-utilities@1.0.13...@terminus/ui-utilities@1.1.0) (2020-09-08)
 
 

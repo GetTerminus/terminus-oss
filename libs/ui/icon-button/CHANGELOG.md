@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon-button@3.0.2...@terminus/ui-icon-button@3.0.3) (2020-11-11)
+
+
+### Bug Fixes
+
+* **IconButton:** correct dependencies, move stories ([7ed390f](https://github.com/GetTerminus/terminus-oss/commit/7ed390f2717ab05f5b78b7b872a8a41c43c8da6e))
+
+
+
+
+
 ## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon-button@3.0.1...@terminus/ui-icon-button@3.0.2) (2020-11-09)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-csv-entry@2.1.6...@terminus/ui-csv-entry@2.1.7) (2020-11-11)
+
+
+### Bug Fixes
+
+* **CSVEntry:** correct dependencies, move stories ([7d0c733](https://github.com/GetTerminus/terminus-oss/commit/7d0c73360008651952deac208df675185b7249d9))
+
+
+
+
+
 ## [2.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-csv-entry@2.1.5...@terminus/ui-csv-entry@2.1.6) (2020-11-06)
 
 

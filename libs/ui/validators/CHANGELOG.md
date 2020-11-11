@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.5 (2020-11-11)
+
+
+### Bug Fixes
+
+* **Validators:** correct dependencies, move stories ([d1be060](https://github.com/GetTerminus/terminus-oss/commit/d1be060471caacb587915110a98fc3868141b513))
+
+
+
+
+
 ## [2.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-validators@2.0.3...@terminus/ui-validators@2.0.4) (2020-10-06)
 
 **Note:** Version bump only for package @terminus/ui-validators

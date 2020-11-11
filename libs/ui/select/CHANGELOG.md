@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.1 (2020-11-11)
+
+
+### Bug Fixes
+
+* **Select:** correct dependencies ([da9ea85](https://github.com/GetTerminus/terminus-oss/commit/da9ea85c6afb17ab9ed5a5038f21038295216fe0))
+
+
+
+
+
 # [2.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-select@2.0.8...@terminus/ui-select@2.1.0) (2020-09-08)
 
 

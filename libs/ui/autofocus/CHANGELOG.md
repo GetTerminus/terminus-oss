@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.5 (2020-11-11)
+
+
+### Bug Fixes
+
+* **Autofocus:** correct dependencies, move stories ([0d29858](https://github.com/GetTerminus/terminus-oss/commit/0d29858075c06196a5140746e6cad96c0dcafe24))
+
+
+
+
+
 ## [1.1.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-autofocus@1.1.3...@terminus/ui-autofocus@1.1.4) (2020-10-01)
 
 **Note:** Version bump only for package @terminus/ui-autofocus

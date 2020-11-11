@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chip@3.0.3...@terminus/ui-chip@3.0.4) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Chip:** correct dependencies, move stories ([c33a75b](https://github.com/GetTerminus/terminus-oss/commit/c33a75b5d5a489ad835b966431465f360f148dc7))
+
+
+
+
+
 ## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chip@3.0.2...@terminus/ui-chip@3.0.3) (2020-11-06)
 
 

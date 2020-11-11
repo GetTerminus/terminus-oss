@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.1 (2020-11-11)
+
+
+### Bug Fixes
+
+* **LoginForm:** correct dependencies ([9a80f11](https://github.com/GetTerminus/terminus-oss/commit/9a80f117f85fcbd8e1258b298b5e3d8da1460c6b))
+
+
+
+
+
 # [1.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-login-form@1.0.15...@terminus/ui-login-form@1.1.0) (2020-09-08)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sort@1.1.3...@terminus/ui-sort@1.1.4) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Sort:** correct dependencies ([40aba59](https://github.com/GetTerminus/terminus-oss/commit/40aba590bcd843de819a263ffbc97af6d26717a1))
+
+
+
+
+
 ## [1.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sort@1.1.2...@terminus/ui-sort@1.1.3) (2020-11-06)
 
 

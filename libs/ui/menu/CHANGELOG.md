@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@3.0.2...@terminus/ui-menu@3.0.3) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Menu:** correct dependencies, move stories ([13f13c3](https://github.com/GetTerminus/terminus-oss/commit/13f13c383e5d90e0bc4d9d05e67e1fb962660ae6))
+
+
+
+
+
 ## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@3.0.1...@terminus/ui-menu@3.0.2) (2020-11-06)
 
 

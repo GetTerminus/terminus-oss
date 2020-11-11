@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@3.1.1...@terminus/ui-radio-group@3.1.2) (2020-11-11)
+
+
+### Bug Fixes
+
+* **RadioGroup:** correct dependencies, move stories ([fe4f039](https://github.com/GetTerminus/terminus-oss/commit/fe4f0395c640648ccc45aac9673a45d2f3f50ae1))
+
+
+
+
+
 ## [3.1.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@3.1.0...@terminus/ui-radio-group@3.1.1) (2020-11-06)
 
 

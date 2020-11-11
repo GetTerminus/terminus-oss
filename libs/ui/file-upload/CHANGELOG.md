@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@3.0.2...@terminus/ui-file-upload@3.0.3) (2020-11-11)
+
+
+### Bug Fixes
+
+* **FileUpload:** correct dependencies, move stories ([1109d6a](https://github.com/GetTerminus/terminus-oss/commit/1109d6a0668a33494770ade4e5e60cfe015a6e62))
+
+
+
+
+
 ## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@3.0.1...@terminus/ui-file-upload@3.0.2) (2020-11-06)
 
 

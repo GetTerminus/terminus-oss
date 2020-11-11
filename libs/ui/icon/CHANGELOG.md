@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon@2.1.5...@terminus/ui-icon@2.1.6) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Icon:** correct dependencies, move stories ([cf27031](https://github.com/GetTerminus/terminus-oss/commit/cf27031117464a37fc2a6c71adf65f00752b54e4))
+
+
+
+
+
 ## [2.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-icon@2.1.4...@terminus/ui-icon@2.1.5) (2020-11-06)
 
 

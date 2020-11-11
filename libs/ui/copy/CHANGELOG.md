@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-copy@3.0.2...@terminus/ui-copy@3.0.3) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Copy:** correct dependencies, move stories ([be76abf](https://github.com/GetTerminus/terminus-oss/commit/be76abff9de97e57d6fe6b913efd89845563f818))
+
+
+
+
+
 ## 3.0.2 (2020-11-06)
 
 

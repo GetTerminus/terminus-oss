@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chart@1.1.4...@terminus/ui-chart@1.1.5) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Chart:** correct dependencies, move stories ([76c0e58](https://github.com/GetTerminus/terminus-oss/commit/76c0e58874e7ab0211f97e154c8168cda2bed066))
+
+
+
+
+
 ## [1.1.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chart@1.1.3...@terminus/ui-chart@1.1.4) (2020-10-29)
 
 **Note:** Version bump only for package @terminus/ui-chart

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.4 (2020-11-11)
+
+
+### Bug Fixes
+
+* **Scrollbars:** correct dependencies, move stories ([d242949](https://github.com/GetTerminus/terminus-oss/commit/d242949d0db27bce503d3e80dd3bcfaa17054e75))
+
+
+
+
+
 ## [1.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-scrollbars@1.1.2...@terminus/ui-scrollbars@1.1.3) (2020-10-05)
 
 **Note:** Version bump only for package @terminus/ui-scrollbars

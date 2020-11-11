@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-navigation@2.1.4...@terminus/ui-navigation@2.1.5) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Navigation:** correct dependencies, move stories ([982e79b](https://github.com/GetTerminus/terminus-oss/commit/982e79beac05263417d65079881f248a20b8f3f4))
+
+
+
+
+
 ## [2.1.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-navigation@2.1.3...@terminus/ui-navigation@2.1.4) (2020-11-06)
 
 

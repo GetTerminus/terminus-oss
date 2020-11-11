@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-confirmation@2.1.5...@terminus/ui-confirmation@2.1.6) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Confirmation:** correct dependencies, move stories ([15cd4bc](https://github.com/GetTerminus/terminus-oss/commit/15cd4bca33d88ea7cb69825cf8a8229dfede6365))
+
+
+
+
+
 ## 2.1.5 (2020-11-06)
 
 

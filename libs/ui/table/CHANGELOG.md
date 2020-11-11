@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.1.5...@terminus/ui-table@3.1.6) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Table:** correct dependencies, move stories ([dee6382](https://github.com/GetTerminus/terminus-oss/commit/dee6382c00a75a3155a5abae0fe547bbd7a8ec31))
+
+
+
+
+
 ## [3.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.1.4...@terminus/ui-table@3.1.5) (2020-10-30)
 
 **Note:** Version bump only for package @terminus/ui-table

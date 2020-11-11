@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.4 (2020-11-11)
+
+
+### Bug Fixes
+
+* **Tooltip:** correct dependencies, move stories ([3f85666](https://github.com/GetTerminus/terminus-oss/commit/3f85666b5f54132f469394cd8ea9b5677007b712))
+
+
+
+
+
 ## [1.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tooltip@1.1.2...@terminus/ui-tooltip@1.1.3) (2020-10-05)
 
 **Note:** Version bump only for package @terminus/ui-tooltip

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.1 (2020-11-11)
+
+
+### Bug Fixes
+
+* **Toggle:** correct dependencies, move stories ([cdb5961](https://github.com/GetTerminus/terminus-oss/commit/cdb59615f9cb99c50047e5724409289d06e39d0a))
+
+
+
+
+
 # [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-toggle@1.1.2...@terminus/ui-toggle@2.0.0) (2020-10-05)
 
 

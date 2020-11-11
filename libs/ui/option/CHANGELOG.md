@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.3 (2020-11-11)
+
+
+### Bug Fixes
+
+* **Option:** correct dependencies ([c307553](https://github.com/GetTerminus/terminus-oss/commit/c30755354741b2291858ef6d41f7afe0bca2ab21))
+
+
+
+
+
 ## [1.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-option@1.1.1...@terminus/ui-option@1.1.2) (2020-09-24)
 
 **Note:** Version bump only for package @terminus/ui-option

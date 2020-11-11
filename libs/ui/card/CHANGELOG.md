@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@3.0.2...@terminus/ui-card@3.0.3) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Card:** correct dependencies, move stories ([48a2de0](https://github.com/GetTerminus/terminus-oss/commit/48a2de043300511d29231d34da52ebc11c25eada))
+
+
+
+
+
 ## 3.0.2 (2020-11-06)
 
 

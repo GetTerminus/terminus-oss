@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-date-range@2.0.0...@terminus/ui-date-range@2.0.1) (2020-11-11)
+
+
+### Bug Fixes
+
+* **DateRange:** correct dependencies, move stories ([368b1f4](https://github.com/GetTerminus/terminus-oss/commit/368b1f4a8f54072988a0e57c03e44e7b14dcc5f7))
+
+
+
+
+
 # 2.0.0 (2020-11-09)
 
 

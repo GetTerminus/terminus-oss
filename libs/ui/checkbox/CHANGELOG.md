@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.1 (2020-11-11)
+
+
+### Bug Fixes
+
+* **Checkbox:** correct dependencies, move stories ([8850dcd](https://github.com/GetTerminus/terminus-oss/commit/8850dcdb95d10008dcd282ca9495fe277b778e85))
+
+
+
+
+
 # [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@2.1.4...@terminus/ui-checkbox@3.0.0) (2020-10-12)
 
 

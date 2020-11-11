@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.4 (2020-11-11)
+
+
+### Bug Fixes
+
+* **Popover:** correct dependencies, move stories ([402f4a5](https://github.com/GetTerminus/terminus-oss/commit/402f4a58e8918e241db368aa732a09b4be8daeb2))
+
+
+
+
+
 ## [2.2.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-popover@2.2.2...@terminus/ui-popover@2.2.3) (2020-10-05)
 
 **Note:** Version bump only for package @terminus/ui-popover

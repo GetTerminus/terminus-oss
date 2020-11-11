@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.4 (2020-11-11)
+
+
+### Bug Fixes
+
+* **ExpansionPanel:** correct dependencies, move stories ([7f16244](https://github.com/GetTerminus/terminus-oss/commit/7f16244bfd1aeea23fa8ea3d100f92268e3b060c))
+
+
+
+
+
 ## [1.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.1.2...@terminus/ui-expansion-panel@1.1.3) (2020-10-01)
 
 

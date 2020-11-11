@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.4 (2020-11-11)
+
+
+### Bug Fixes
+
+* **Logo:** correct dependencies, move stories ([4bf78d1](https://github.com/GetTerminus/terminus-oss/commit/4bf78d11f73c1da176c09ba5891355d37bd40556))
+
+
+
+
+
 ## [1.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-logo@1.1.2...@terminus/ui-logo@1.1.3) (2020-10-02)
 
 **Note:** Version bump only for package @terminus/ui-logo

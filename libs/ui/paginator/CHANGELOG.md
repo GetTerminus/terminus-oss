@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.5 (2020-11-11)
+
+
+### Bug Fixes
+
+* **Paginator:** correct dependencies, move stories ([f281ae7](https://github.com/GetTerminus/terminus-oss/commit/f281ae7a04e67f3ab42cb61db2f3e10fc656200d))
+
+
+
+
+
 ## [2.2.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@2.2.3...@terminus/ui-paginator@2.2.4) (2020-10-05)
 
 

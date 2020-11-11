@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@3.0.1...@terminus/ui-search@3.0.2) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Search:** correct dependencies, move stories ([c5a8c32](https://github.com/GetTerminus/terminus-oss/commit/c5a8c3225a2439a0acf13cd6da9129ce84617ae1))
+
+
+
+
+
 ## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@3.0.0...@terminus/ui-search@3.0.1) (2020-11-06)
 
 

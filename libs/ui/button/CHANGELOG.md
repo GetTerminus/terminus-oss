@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.1.5...@terminus/ui-button@2.1.6) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Button:** correct dependencies, move stories ([e8e64e7](https://github.com/GetTerminus/terminus-oss/commit/e8e64e7f01a8b7f356212d9198d35e26b283dc45))
+
+
+
+
+
 ## 2.1.5 (2020-11-06)
 
 

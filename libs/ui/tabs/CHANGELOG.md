@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.1 (2020-11-11)
+
+
+### Bug Fixes
+
+* **Tabs:** correct dependencies, move stories ([820150c](https://github.com/GetTerminus/terminus-oss/commit/820150c0972a984d14fb42053ee792e6269e3783))
+
+
+
+
+
 # [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tabs@2.1.2...@terminus/ui-tabs@3.0.0) (2020-10-05)
 
 

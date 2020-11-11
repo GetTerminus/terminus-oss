@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@2.1.6...@terminus/ui-input@2.1.7) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Input:** correct dependencies, move stories ([c780e45](https://github.com/GetTerminus/terminus-oss/commit/c780e45d7d96f39c58cc6ab2a1cb2f0279bfb39d))
+
+
+
+
+
 ## [2.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@2.1.5...@terminus/ui-input@2.1.6) (2020-11-09)
 
 

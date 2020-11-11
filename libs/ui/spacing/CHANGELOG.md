@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.4 (2020-11-11)
+
+
+### Bug Fixes
+
+* **Spacing:** correct dependencies, move stories ([841deff](https://github.com/GetTerminus/terminus-oss/commit/841deff0c6456c2ef3c70f2cceb0ed325ee20256))
+
+
+
+
+
 ## [1.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-spacing@1.1.2...@terminus/ui-spacing@1.1.3) (2020-10-05)
 
 **Note:** Version bump only for package @terminus/ui-spacing

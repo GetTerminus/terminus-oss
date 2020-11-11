@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@1.1.2...@terminus/ui-sidenav@1.1.3) (2020-11-11)
+
+
+### Bug Fixes
+
+* **Sidenav:** correct dependencies, move stories ([272a406](https://github.com/GetTerminus/terminus-oss/commit/272a406d43440e501da05f7441e900b2761ba368))
+
+
+
+
+
 ## [1.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@1.1.1...@terminus/ui-sidenav@1.1.2) (2020-11-09)
 
 

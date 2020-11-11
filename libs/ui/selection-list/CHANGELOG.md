@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.1 (2020-11-11)
+
+
+### Bug Fixes
+
+* **SelectionList:** correct dependencies, move stories ([b741fcf](https://github.com/GetTerminus/terminus-oss/commit/b741fcf44391baab9855c07b9df55c4712110532))
+
+
+
+
+
 # [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@2.1.4...@terminus/ui-selection-list@3.0.0) (2020-10-05)
 
 
