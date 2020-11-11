@@ -50,6 +50,11 @@
   .ts-ph-actions {
     flex-shrink: 0;
     margin-left: var(--ts-ph-inline-space);
+
+    .ts-button {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
   }
 
   .ts-ph-trigger {
