@@ -24,6 +24,7 @@
     "@angular/forms": "^9.1.0",
     "@terminus/design-tokens": "^3.1.0",
     "@terminus/fe-utilities": "^1.1.0",
+    "@terminus/ui-styles": "^1.1.0",
     "date-fns": "^2.16.1",
     "rxjs": "^6.5.0",
     "tslib": "^1.10.0"
