@@ -16,6 +16,7 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@angular/platform-browser: ^9.1.0',
     '@terminus/design-tokens: ^3.1.0',
     '@terminus/ui-logo: ^1.0.10',
+    '@terminus/ui-styles: ^1.1.0',
   ].map(p => {
     const individualPackage = p.split(':');
     const nodeDependency: NodeDependency = {
