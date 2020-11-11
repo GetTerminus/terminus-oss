@@ -29,6 +29,7 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@terminus/ui-confirmation: ^2.0.2',
     '@terminus/ui-icon: ^2.1.5',
     '@terminus/ui-spacing: ^1.0.11',
+    '@terminus/ui-styles: ^1.1.0',
     'date-fns: ^2.16.1',
     'rxjs: ^6.5.0',
     'tslib: ^1.10.0',
