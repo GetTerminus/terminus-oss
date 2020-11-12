@@ -45,6 +45,25 @@
   --tsb-theme-warning-color-active: var(--ts-color-warn-500);
   --tsb-theme-warning-color-focus: var(--ts-color-warn-500);
   --tsb-theme-warning-boxShadow-color-focus: var(--ts-color-warn-300);
+  // ALTERNATE-PRIMARY
+  $green-500: #2d8734;
+  $green-300: lighten($green-500, 8);
+  $green-700: darken($green-500, 8);
+  $green-900: darken($green-500, 16);
+  --tsb-theme-alternate-primary-backgroundColor: #{$green-500};
+  --tsb-theme-alternate-primary-backgroundColor-hover: #{$green-700};
+  --tsb-theme-alternate-primary-backgroundColor-active: #{$green-900};
+  --tsb-theme-alternate-primary-backgroundColor-focus: #{$green-500};
+  --tsb-theme-alternate-primary-backgroundColor-disabled: var(--ts-color-utility-300);
+  --tsb-theme-alternate-primary-borderColor: #2d8734;
+  --tsb-theme-alternate-primary-borderColor-hover: #{$green-700};
+  --tsb-theme-alternate-primary-borderColor-active: #{$green-900};
+  --tsb-theme-alternate-primary-borderColor-focus: #{$green-500};
+  --tsb-theme-alternate-primary-borderColor-disabled: var(--ts-color-utility-300);
+  --tsb-theme-alternate-primary-color: var(--ts-color-light);
+  --tsb-theme-alternate-primary-color-active: var(--ts-color-light);
+  --tsb-theme-alternate-primary-color-focus: var(--ts-color-light);
+  --tsb-theme-alternate-primary-boxShadow-color-focus: #{$green-300};
 
   // Variables to overwrite with theme values
   --tsb-color: var(--ts-color-light);
@@ -80,6 +99,9 @@
   --tsb-icon-transitionDuration-expand: calc(var(--tsb-icon-transitionDuration-collapse) - 100ms);
   --tsb-label-transitionDuration: calc(var(--tsb-icon-transitionDuration-expand) - 100ms);
   --tsb-maxWidth-transition: max-width var(--tsb-content-transitionDuration) var(--tsb-animationEasing);
+  --tsb-maxWidth-hover-transition: max-width calc(var(--tsb-content-transitionDuration) + 100ms) ease-in-out;
+  --tsb-padding-expand-transition: padding calc(var(--tsb-content-transitionDuration) - 300ms) var(--ts-animation-easing-ease) var(--ts-animation-time-delay-200);
+  --tsb-icon-expand-transition: margin-right calc(var(--tsb-content-transitionDuration) - 400ms) var(--ts-animation-easing-easeOut) var(--ts-animation-time-delay-100);
   --tsb-icon-transition: transform var(--tsb-icon-transitionDuration-expand) var(--tsb-animationEasing);
   --tsb-spinner-transition: opacity var(--tsb-label-transitionDuration) var(--tsb-animationEasing);
   --tsb-icon-collapsed-transitionDelay: 150ms;
@@ -117,7 +139,7 @@
       outline: none;
     }
 
-    $themes: default secondary warning;
+    $themes: default secondary warning alternate-primary;
     @each $theme in $themes {
       &--#{$theme} {
         --tsb-boxShadow-color: var(--tsb-theme-#{$theme}-boxShadow-color-focus);
@@ -159,6 +181,17 @@
       margin-right: var(--tsb-icon-horizontal-adjustment);
     }
 
+    &__content {
+      // If nothing is passed to <ng-content>, we fall back to the @Input value
+      .c-button__content-ng-content {
+        &:not(:empty) {
+          + .c-button__content-input {
+            display: none;
+          }
+        }
+      }
+    }
+
     // Target any icon inside a button
     // Adjust icon vertical layout
     .c-icon {
@@ -190,6 +223,16 @@
       padding-right: var(--tsb-padding-right-progress);
     }
 
+    &--small {
+      font-size: 13px;
+      line-height: 14px;
+      padding: 4px 8px;
+
+      .ts-icon {
+        transform: scale(.84);
+      }
+    }
+
     // COLLAPSIBLE
     &--collapsible {
       border-radius: var(--tsb-borderRadius-collapsible);
@@ -201,12 +244,12 @@
           &:not(:focus) {
             padding: var(--tsb-padding-collapsed);
             // Custom transition with delay needed to remove 'jump' during collapse
-            transition: padding 200ms ease 200ms;
+            transition: var(--tsb-padding-expand-transition);
 
             .ts-icon {
               margin-right: 0;
               // Custom transition with delay needed to remove 'jump' during collapse
-              transition: margin-right 100ms ease-out 100ms;
+              transition: var(--tsb-icon-expand-transition);
             }
 
             .c-icon {
@@ -227,6 +270,10 @@
       &.c-button--collapsed {
         &:hover,
         &:focus {
+          .c-button__content {
+            transition: var(--tsb-maxWidth-hover-transition);
+          }
+
           .c-icon {
             margin-left: var(--tsb-collapsible-first-icon-adjustment);
             transition-delay: var(--tsb-icon-collapsed-hover-transitionDelay);
