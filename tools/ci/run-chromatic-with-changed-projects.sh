@@ -27,9 +27,11 @@ if [[ -n "$LERNA_OUTPUT" ]]; then
 
   for project in "${PROJECT_ARRAY[@]}"
   do
-    files=$(find $project -name "*.stories.[tj]s" 2> /dev/null | wc -l)
+    shortName="$(basename "${project}")"
+    shortProjectName="stories/ui-${shortName}"
+    files=$(find "$shortProjectName" -name "*.stories.[tj]s" 2> /dev/null | wc -l)
     if [[ $files != "0" ]]; then
-      links+="'$project/**/*.stories.[tj]s',"
+      links+="'$GITHUB_WORKSPACE/$shortProjectName/**/*.stories.[tj]s',"
     fi
   done
 
