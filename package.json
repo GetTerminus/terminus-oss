@@ -88,7 +88,7 @@
     "storybook:build": "yarn run docs:json && build-storybook -c .storybook -o dist/storybook",
     "affected:storybook:build": "nx affected --target build-storybook",
     "build:allstorybook": "yarn run docs:json && nx run ui-storybook:build-allstorybook",
-    "build:allstorybook:chromatic": "yarn run docs:json && build-storybook -c ./stories/ui/storybook/.storybook -o dist/storybook",
+    "build:allstorybook:chromatic": "yarn run docs:json && build-storybook -c ./apps/ui-storybook/.storybook -o dist/storybook",
     "chromatic": "npx chromatic --preserve-missing --build-script-name build:allstorybook:chromatic",
     "affected:chromatic": "npx chromatic --preserve-missing --build-script-name storybook:build --skip '@(renovate/**|dependabot/**)' --exit-zero-on-changes",
     "chromatic:all": "npx chromatic --build-script-name build:allstorybook:chromatic --skip '@(renovate/**|dependabot/**)'",
