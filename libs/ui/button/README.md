@@ -13,6 +13,13 @@
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
+  - [Text content](#text-content)
+  - [Theme](#theme)
+  - [Format](#format)
+  - [Size](#size)
+  - [Button type](#button-type)
+  - [Action name](#action-name)
+  - [Show progress](#show-progress)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -61,6 +68,71 @@ Load the needed font families by adding this link to the `<head>` of your applic
 
 ```html
 <ts-button (clicked)="myFunc($event)">Click me!</ts-button>
+```
+
+### Text content
+
+Text content can be passed in through the element, or through an @Input:
+
+```html
+<ts-button>Click me!</ts-button>
+<ts-button textContent="Click Me!"></ts-button>
+```
+
+### Theme
+
+Set any available theme type:
+
+```html
+<ts-button theme="secondary">Click Me!</ts-button>
+```
+
+See `TsButtonThemeTypes` for all available themes.
+
+### Format
+
+Set any available format:
+
+```html
+<ts-button format="collapsible">Click Me!</ts-button>
+```
+
+See `TsButtonFormatTypes` for all available button formats.
+
+### Size
+
+For a smaller button, set the `isSmall` flag:
+
+```html
+<ts-button [isSmall]="true">Click Me!</ts-button>
+```
+
+### Button type
+
+Set any available type:
+
+```html
+<ts-button buttonType="submit">Click Me!</ts-button>
+```
+
+See `TsButtonFunctionTypes` for all available button types.
+
+### Action name
+
+Any valid action name can be set:
+
+```html
+<ts-button actionName="Reset">Click Me!</ts-button>
+```
+
+See `TsButtonActionTypes` for all available action names.
+
+### Show progress
+
+When 'showing progress', the button will be disabled and a spinner will be shown:
+
+```html
+<ts-button [showProgress]="true">Click Me!</ts-button>
 ```
 
 <!-- Links -->
