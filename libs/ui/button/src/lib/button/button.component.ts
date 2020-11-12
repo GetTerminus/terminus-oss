@@ -87,6 +87,11 @@ export const tsButtonThemes: ReadonlyArray<TsButtonThemeTypes> = [
   'alternate-primary',
 ];
 
+/**
+ * The default collapse delay in milliseconds
+ *
+ * @internal
+ */
 const DEFAULT_COLLAPSE_DELAY_MS = 4000;
 
 
