@@ -2,7 +2,8 @@
   class="c-button c-button--{{ theme }} c-button--{{ format }}"
   [ngClass]="{
     'c-button--collapsed': isCollapsed,
-    'c-button--progress': showProgress && !isDisabled
+    'c-button--progress': showProgress && !isDisabled,
+    'c-button--small': isSmall
   }"
   [attr.aria-label]="actionName"
   [attr.id]="id"
@@ -19,7 +20,8 @@
   ></ts-icon>
 
   <span class="c-button__content">
-    <ng-content></ng-content>
+    <span class="c-button__content-ng-content"><ng-content></ng-content></span>
+    <span class="c-button__content-input">{{ textContent }}</span>
   </span>
 
   <mat-progress-spinner

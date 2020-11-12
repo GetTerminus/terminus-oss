@@ -47,14 +47,15 @@ export default {
   ],
 };
 
-export const themes = () => ({
+export const themesAndSize = () => ({
   template: `
     <style>
     ts-button {
       margin-right: 1em
     }
     </style>
-    <div>
+    <div style="margin-bottom: 2rem;">
+      <h3>Standard</h3>
       <ts-button
         [icon]="withIcon ? icon : undefined"
         theme="default"
@@ -70,8 +71,14 @@ export const themes = () => ({
         theme="warning"
         (clicked)="onClick($event)"
       >My Button</ts-button>
+      <ts-button
+        [icon]="withIcon ? icon : undefined"
+        theme="alternate-primary"
+        (clicked)="onClick($event)"
+      >My Button</ts-button>
     </div>
-    <div>
+    <div style="margin-bottom: 2rem;">
+      <h3>Standard Disabled</h3>
       <ts-button
         [icon]="withIcon ? icon : undefined"
         theme="default"
@@ -90,7 +97,59 @@ export const themes = () => ({
         [isDisabled]="true"
         (clicked)="onClick($event)"
       >My Button</ts-button>
+      <ts-button
+        [icon]="withIcon ? icon : undefined"
+        theme="alternate-primary"
+        [isDisabled]="true"
+        (clicked)="onClick($event)"
+      >My Button</ts-button>
     </div>
+    <div style="margin-bottom: 2rem;">
+      <h3>Small</h3>
+      <ts-button
+        [icon]="withIcon ? icon : undefined"
+        theme="default"
+        [isSmall]="true"
+        (clicked)="onClick($event)"
+      >My Button</ts-button>
+      <ts-button
+        [icon]="withIcon ? icon : undefined"
+        theme="secondary"
+        [isSmall]="true"
+        (clicked)="onClick($event)"
+      >My Button</ts-button>
+      <ts-button
+        [icon]="withIcon ? icon : undefined"
+        theme="warning"
+        [isSmall]="true"
+        (clicked)="onClick($event)"
+      >My Button</ts-button>
+      <ts-button
+        [icon]="withIcon ? icon : undefined"
+        theme="alternate-primary"
+        [isSmall]="true"
+        (clicked)="onClick($event)"
+      >My Button</ts-button>
+    </div>
+  `,
+  props: {
+    withIcon: boolean('With Icon', true),
+    icon: faHome,
+    icon2: faPlus,
+    onClick: action('log'),
+  },
+});
+themesAndSize.parameters = {
+  docs: { iframeHeight: 340 },
+};
+
+export const collapsible = () => ({
+  template: `
+    <style>
+    ts-button {
+      margin-right: 1em
+    }
+    </style>
     <div style="text-align: end">
       <ts-button
         [icon]="icon2"
@@ -111,6 +170,7 @@ export const themes = () => ({
         [icon]="icon2"
         theme="secondary"
         format="collapsible"
+        [collapseDelay]="4100"
         (clicked)="onClick($event)"
       >My Button</ts-button>
       <ts-button
@@ -126,6 +186,7 @@ export const themes = () => ({
         [icon]="icon2"
         theme="warning"
         format="collapsible"
+        [collapseDelay]="4200"
         (clicked)="onClick($event)"
       >My Button</ts-button>
       <ts-button
@@ -138,12 +199,13 @@ export const themes = () => ({
     </div>
   `,
   props: {
-    withIcon: boolean('With Icon', true),
     icon: faHome,
     icon2: faPlus,
     onClick: action('log'),
   },
 });
-themes.parameters = {
-  docs: { iframeHeight: 260 },
+collapsible.parameters = {
+  actions: { disabled: true },
+  knobs: { disabled: true },
+  docs: { iframeHeight: 180 },
 };

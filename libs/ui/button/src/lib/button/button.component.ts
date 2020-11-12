@@ -5,19 +5,18 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  isDevMode,
   Output,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import type {
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import type { OnDestroy } from '@angular/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import {
+  Subscription,
+  timer,
+} from 'rxjs';
 
-import { TsWindowService } from '@terminus/fe-utilities';
-
+import { untilComponentDestroyed } from '@terminus/fe-utilities';
 
 // Unique ID for each instance
 let nextUniqueId = 0;
@@ -75,6 +74,7 @@ export type TsButtonThemeTypes
   = 'default'
   | 'secondary'
   | 'warning'
+  | 'alternate-primary'
 ;
 
 /**
@@ -84,6 +84,7 @@ export const tsButtonThemes: ReadonlyArray<TsButtonThemeTypes> = [
   'default',
   'secondary',
   'warning',
+  'alternate-primary',
 ];
 
 const DEFAULT_COLLAPSE_DELAY_MS = 4000;
@@ -101,8 +102,10 @@ const DEFAULT_COLLAPSE_DELAY_MS = 4000;
  *              format="filled"
  *              [icon]="myIconReference"
  *              [isDisabled]="false"
+ *              [isSmall]="true"
  *              [showProgress]="true"
  *              tabIndex="2"
+ *              textContent="Click Me!"
  *              theme="warning"
  *              (clicked)="myMethod($event)"
  * >Click Me!</ts-button>
@@ -118,16 +121,11 @@ const DEFAULT_COLLAPSE_DELAY_MS = 4000;
   encapsulation: ViewEncapsulation.None,
   exportAs: 'tsButton',
 })
-export class TsButtonComponent implements OnInit, OnDestroy {
+export class TsButtonComponent implements OnDestroy {
   /**
-   * Store a reference to the timeout needed for collapsible buttons
+   * Store a reference to the collapsible subscription
    */
-  private collapseTimeoutId!: number;
-
-  /**
-   * Define the delay before the rounded button automatically collapses
-   */
-  public collapseDelay: number | undefined;
+  public collapseSubscription$: Subscription | undefined;
 
   /**
    * The flag that defines if the button is collapsed or expanded
@@ -181,6 +179,12 @@ export class TsButtonComponent implements OnInit, OnDestroy {
   public buttonType: TsButtonFunctionTypes = 'button';
 
   /**
+   * Define the delay before the rounded button automatically collapses
+   */
+  @Input()
+  public collapseDelay: number | undefined;
+
+  /**
    * Define the collapsed value and trigger the delay if needed
    *
    * @param value
@@ -188,12 +192,7 @@ export class TsButtonComponent implements OnInit, OnDestroy {
   @Input()
   public set collapsed(value: boolean) {
     this.isCollapsed = value;
-
-    // If the value is `false` and a collapse delay is set
-    if (!value && this.collapseDelay) {
-      // Trigger the delayed close
-      this.collapseWithDelay(this.collapseDelay);
-    }
+    this.cleanUpCollapseSubscription();
   }
 
   /**
@@ -205,13 +204,14 @@ export class TsButtonComponent implements OnInit, OnDestroy {
   public set format(value: TsButtonFormatTypes) {
     this._format = value ? value : 'filled';
 
+    // istanbul ignore else
     if (this._format === 'collapsible') {
-      if (!this.collapseDelay) {
-        this.collapseDelay = DEFAULT_COLLAPSE_DELAY_MS;
-      }
+      this.setUpCollapse();
     } else if (this.collapseDelay) {
-      // If the format is NOT collapsible, remove the delay
+      // If the format is NOT collapsible clean up any unneeded settings
       this.collapseDelay = undefined;
+      // istanbul ignore else
+      this.cleanUpCollapseSubscription();
     }
   }
   public get format(): TsButtonFormatTypes {
@@ -232,6 +232,12 @@ export class TsButtonComponent implements OnInit, OnDestroy {
   public isDisabled = false;
 
   /**
+   * Define if the button is the smaller format
+   */
+  @Input()
+  public isSmall = false;
+
+  /**
    * Define an ID for the component
    *
    * @param value
@@ -244,6 +250,14 @@ export class TsButtonComponent implements OnInit, OnDestroy {
     return this._id;
   }
   protected _id: string = this.uid;
+
+  /**
+   * Define the checkbox text content.
+   *
+   * NOTE: This will not display if any content is passed in through <ng-content>
+   */
+  @Input()
+  public textContent = '';
 
   /**
    * Define if the progress indicator should show
@@ -278,32 +292,15 @@ export class TsButtonComponent implements OnInit, OnDestroy {
   public readonly clicked = new EventEmitter<MouseEvent>();
 
   constructor(
+    public elementRef: ElementRef,
     private changeDetectorRef: ChangeDetectorRef,
-    private windowService: TsWindowService,
   ) {}
-
-  /**
-   * Collapse after delay (if set)
-   */
-  public ngOnInit(): void {
-    if (this.collapseDelay) {
-      this.collapseTimeoutId = this.collapseWithDelay(this.collapseDelay);
-    }
-
-    // If the format is `collapsible`, verify an `icon` is set
-    if (this.format === 'collapsible' && !this.icon && isDevMode()) {
-      throw new Error('`icon` must be defined for collapsible buttons.');
-    }
-  }
 
   /**
    * Clear any existing timeout
    */
   public ngOnDestroy(): void {
-    // istanbul ignore else
-    if (this.collapseTimeoutId) {
-      this.windowService.nativeWindow.clearTimeout(this.collapseTimeoutId);
-    }
+    this.cleanUpCollapseSubscription();
   }
 
   /**
@@ -324,17 +321,31 @@ export class TsButtonComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Collapse the button after a delay
-   *
-   * NOTE: I'm not entirely sure why this `detectChanges` is needed. Supposedly zone.js should be patching setTimeout automatically.
-   *
-   * @param delay - The time to delay before collapsing the button
-   * @returns The ID of the timeout
+   * Set up the timer to collapse the button after a delay
    */
-  private collapseWithDelay(delay: number): number {
-    return this.windowService.nativeWindow.setTimeout(() => {
-      this.isCollapsed = true;
-      this.changeDetectorRef.detectChanges();
-    }, delay);
+  private setUpCollapse(): void {
+    // istanbul ignore else
+    if (!this.collapseDelay) {
+      this.collapseDelay = DEFAULT_COLLAPSE_DELAY_MS;
+    }
+    this.cleanUpCollapseSubscription();
+
+    this.collapseSubscription$ = timer(this.collapseDelay)
+      .pipe(untilComponentDestroyed(this))
+      .subscribe(() => {
+        this.isCollapsed = true;
+        this.changeDetectorRef.detectChanges();
+      });
+  }
+
+  /**
+   * Clean up the collapse subscription
+   */
+  private cleanUpCollapseSubscription(): void {
+    // istanbul ignore else
+    if (this.collapseSubscription$) {
+      this.collapseSubscription$.unsubscribe();
+      this.collapseSubscription$ = undefined;
+    }
   }
 }
