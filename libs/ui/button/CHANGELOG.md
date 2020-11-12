@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.2.0...@terminus/ui-button@2.2.1) (2020-11-12)
+
+
+### Bug Fixes
+
+* **Button:** add missing docs ([b9d7098](https://github.com/GetTerminus/terminus-oss/commit/b9d709853340a2eed3e4c145a8b1f4845696a4ed))
+
+
+
+
+
 # [2.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.1.7...@terminus/ui-button@2.2.0) (2020-11-12)
 
 
