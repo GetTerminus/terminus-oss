@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.1.7...@terminus/ui-button@2.2.0) (2020-11-12)
+
+
+### Features
+
+* **Button:** add small variant, add alt-primary theme ([d2c662b](https://github.com/GetTerminus/terminus-oss/commit/d2c662b1539e17ff3423510ab5b87217d3b486e5))
+
+
+
+
+
 ## [2.1.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.1.6...@terminus/ui-button@2.1.7) (2020-11-11)
 
 
