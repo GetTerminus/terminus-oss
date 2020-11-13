@@ -12,8 +12,10 @@
   --ts-chip-height: 24px;
   --ts-chip-margin: 0 var(--ts-space-inset-300) var(--ts-space-inset-200) 0;
   --ts-chip-padding: 2px 4px 2px 6px;
-  --ts-chip-remove-size: 24px;
   --ts-chip-remove-transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+  --ts-chip-remove-height: 20px;
+  --ts-chip-remove-width: 16px;
+  --ts-chip-remove-marginLeft: 6px;
   --ts-chip-badge-padding: 2px 4px 2px 4px;
 }
 
@@ -92,11 +94,11 @@
     .c-chip__remove {
       cursor: pointer;
       display: none;
-      height: 20px;
-      margin-left: 6px;
+      height: var(--ts-chip-remove-height);
+      margin-left: var(--ts-chip-remove-marginLeft);
       opacity: .4;
       transition: var(--ts-chip-remove-transition);
-      width: 16px;
+      width: var(--ts-chip-remove-width);
 
       &:hover {
         opacity: .7;
