@@ -1,4 +1,13 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import {
+  Component,
+  Input,
+} from '@angular/core';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import {
+  boolean,
+  color,
+  withKnobs,
+} from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
 import {
@@ -26,6 +35,33 @@ export const basic = () => ({
 });
 basic.parameters = {
   knobs: { disabled: true },
+  actions: { disabled: true },
+  docs: { iframeHeight: 60 },
+};
+
+@Component({
+  selector: 'ts-chip-badge-wrapper',
+  template: `<ts-chip tsChipBadge>My Badge</ts-chip>`,
+})
+class TsChipBadgeWrapper {
+  @Input()
+  public set color(value: string) {
+    this._color = value ? value : 'rebeccapurple';
+    document.documentElement.style.setProperty('--ts-chip-badge-backgroundColor', this._color);
+  }
+  public get color(): string {
+    return this._color;
+  }
+  private _color = 'rebeccapurple';
+}
+
+export const customColor = () => ({
+  component: TsChipBadgeWrapper,
+  props: {
+    color: color('--ts-chip-badge-backgroundColor', 'rebeccapurple'),
+  },
+});
+customColor.parameters = {
   actions: { disabled: true },
   docs: { iframeHeight: 60 },
 };

@@ -2,7 +2,6 @@ import { DebugElement } from '@angular/core';
 import { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-// import { getAutocompleteInstance } from '@terminus/ui-autocomplete/testing';
 import {
   TsChipCollectionComponent,
   TsChipComponent,
@@ -86,20 +85,6 @@ export function getAllChipCollectionInstances(fixture: ComponentFixture<any>): T
   }
   return debugElements.map(debugElement => debugElement.componentInstance);
 }
-
-/**
- * Get chip collection instance when lives inside an autocomplete component
- *
- * @param fixture - The component fixture
- * @returns a chip collection instance
- */
-// export function getChipCollectionInstanceInAutocomplete(fixture: ComponentFixture<any>): TsChipCollectionComponent {
-//   const instance = getAutocompleteInstance(fixture);
-//   if (!instance.chipCollection) {
-//     throw new TsUILibraryError(`'getChipCollectionInstanceInAutocomplete' found no chip collection.`);
-//   }
-//   return instance.chipCollection;
-// }
 
 /**
  * Get an array of all DebugElements for {@link TsChipComponent}s

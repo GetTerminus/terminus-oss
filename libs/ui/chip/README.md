@@ -12,8 +12,6 @@ NOTE: This component does not support a `FormControl`; it is a simple collection
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be included](#packages-that-need-to-be-included)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
@@ -32,27 +30,11 @@ NOTE: This component does not support a `FormControl`; it is a simple collection
 
 ## Installation
 
-### Packages that need to be included
-
-- `@angular/cdk`
-- `@angular/material`
-- `@terminus/design-tokens`
-- `@terminus/fe-utilities`
-- `@terminus/ui-chip`
-- `@terminus/ui-icon`
-- `@terminus/ui-utilities`
-- `@terminus/ui-styles`
-- `date-fns`
-
 Using `ng add` command can help getting all the dependencies installed:
 
 ```bash
 ng add @terminus/ui-chip
 ```
-
-### Modules that need to be in NgModule
-
-- `TsChipModule`
   
 ### CSS imports
 
