@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chip@3.0.5...@terminus/ui-chip@3.0.6) (2020-11-13)
+
+
+### Bug Fixes
+
+* **Chip:** remove dependency on TsIconModule ([4ffec06](https://github.com/GetTerminus/terminus-oss/commit/4ffec06f5958b9b86203eff0f8f157af6e897951))
+
+
+
+
+
 ## [3.0.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-chip@3.0.4...@terminus/ui-chip@3.0.5) (2020-11-11)
 
 
