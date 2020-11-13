@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@3.0.4...@terminus/ui-card@3.0.5) (2020-11-13)
+
+
+### Bug Fixes
+
+* **Card:** remove dependency on TsIconModule ([6e42240](https://github.com/GetTerminus/terminus-oss/commit/6e42240f929a31894a96c291de1f2b9e97847281)), closes [#451](https://github.com/GetTerminus/terminus-oss/issues/451)
+
+
+
+
+
 ## [3.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-card@3.0.3...@terminus/ui-card@3.0.4) (2020-11-11)
 
 
