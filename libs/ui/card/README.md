@@ -8,7 +8,6 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
@@ -23,22 +22,11 @@
 
 ## Installation
 
-- `@angular/material`
-- `@terminus/design-tokens`
-- `@terminus/fe-utilities`
-- `@terminus/ui-card`
-- `@terminus/ui-icon`
-- `@terminus/ui-utilities`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-card
 ```
-
-### Modules that need to be in NgModule
-
-- `TsCardModule`
   
 ### CSS imports
 

@@ -16,6 +16,8 @@
   --ts-card-flat-borderColor: var(--ts-color-utility-300);
   --ts-card-title-typography: var(--ts-typography-compound-title);
   --ts-card-title-padding: var(--ts-space-inset-300);
+  --ts-card-lock-top-alignment: 2px;
+  --ts-card-lock-width: 14px;
 }
 
 .ts-card {
@@ -109,14 +111,12 @@
 
   // Lock icon
   .c-card__lock {
-    --ts-card-lock-top-alignment: 2px;
-    --ts-card-lock-scale: .7;
     color: var(--ts-card-lock-color);
     position: absolute;
     right: var(--ts-card-margin);
     // Magic number adjustment to align with title
     top: calc(var(--ts-card-margin) - var(--ts-card-lock-top-alignment));
-    transform: scale(var(--ts-card-lock-scale));
+    width: var(--ts-card-lock-width);
   }
 }
 
