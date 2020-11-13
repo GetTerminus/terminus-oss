@@ -60,10 +60,7 @@ describe(`TsChipCollection`, function() {
   let chips;
   let manager;
   let nativeChips;
-  let nativeInput;
   let testComponent;
-  let BACKSPACE_EVENT: KeyboardEvent;
-  let BACKSPACE_EVENT_CHIP: KeyboardEvent;
 
   /**
    * Set up for test.
@@ -302,49 +299,6 @@ describe(`TsChipCollection`, function() {
       expect(chipCollectionInstance.id).toEqual(1);
     });
   });
-
-  // // TODO: Move autocomplete tests to the autocomplete spec file(s)
-  // describe(`used in autocomplete component`, function() {
-  //   beforeEach(() => {
-  //     setupStandardCollection(testComponents.Autocomplete);
-  //     nativeInput = fixture.nativeElement.querySelector('input');
-  //     BACKSPACE_EVENT = createKeyboardEvent('keydown', KEYS.BACKSPACE, nativeInput);
-  //     BACKSPACE_EVENT_CHIP = createKeyboardEvent('keydown', KEYS.BACKSPACE, chipCollectionNativeElement);
-  //   });
-  //
-  //   test(`should focus on last item if input is empty and BACKSPACE is used`, () => {
-  //     // Focus the input
-  //     nativeInput.focus();
-  //     expect(manager.activeItemIndex).toBe(-1);
-  //
-  //     // Press the BACKSPACE key
-  //     chipCollectionInstance.keydown(BACKSPACE_EVENT);
-  //     fixture.detectChanges();
-  //
-  //     // It focuses the last chip
-  //     expect(manager.activeItemIndex).toEqual(chips.length - 1);
-  //     chipCollectionInstance.keydown(BACKSPACE_EVENT_CHIP);
-  //     fixture.detectChanges();
-  //     const nodeName = document.activeElement ? document.activeElement.nodeName : '';
-  //     // Focus still on the chip
-  //     expect(nodeName).toEqual('TS-CHIP');
-  //   });
-  //
-  //   test(`should focus on input if input field is not empty and BACKSPACE is used`, () => {
-  //     // Focus the input
-  //     nativeInput.focus();
-  //     // Type letter into the input field
-  //     typeInElement('a', nativeInput);
-  //
-  //     // Press the BACKSPACE key
-  //     chipCollectionInstance.keydown(BACKSPACE_EVENT);
-  //
-  //     // It focuses on the input field
-  //     fixture.detectChanges();
-  //     const nodeName = document.activeElement ? document.activeElement.nodeName : '';
-  //     expect(nodeName).toBe('INPUT');
-  //   });
-  // });
 
   describe(`keydown`, function() {
     beforeEach(() => {

@@ -1,8 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatRippleModule } from '@angular/material/core';
-
-import { TsIconModule } from '@terminus/ui-icon';
 
 import { TsChipBadgeDirective } from './badge/chip-badge.directive';
 import { TsChipComponent } from './chip/chip.component';
@@ -19,11 +16,7 @@ const EXPORTED_DECLARATIONS = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MatRippleModule,
-    TsIconModule,
-  ],
+  imports: [CommonModule],
   declarations: EXPORTED_DECLARATIONS,
   exports: EXPORTED_DECLARATIONS,
 })

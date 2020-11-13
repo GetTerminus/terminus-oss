@@ -18,6 +18,8 @@
 }
 
 .ts-chip {
+  display: inline-block;
+
   &:focus,
   &:hover {
     outline: none;
@@ -86,21 +88,23 @@
       }
     }
 
+    // <span> around <svg>
     .c-chip__remove {
-      $margin-offset-for-new-icon: 6px;
-      // Needed to remove 1px jump caused on opacity change
-      backface-visibility: hidden;
       cursor: pointer;
       display: none;
-      height: var(--ts-chip-remove-size);
-      margin-left: $margin-offset-for-new-icon;
+      height: 20px;
+      margin-left: 6px;
       opacity: .4;
-      position: relative;
-      top: -1px;
       transition: var(--ts-chip-remove-transition);
+      width: 16px;
 
       &:hover {
         opacity: .7;
+      }
+
+      svg {
+        height: 100%;
+        width: 100%;
       }
     }
   }
