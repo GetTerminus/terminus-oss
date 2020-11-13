@@ -92,7 +92,7 @@ describe(`TsLinkComponent`, function() {
       link = fixture.debugElement.query(By.css('.c-link')).nativeElement;
 
       expect(link.classList).toContain('c-link--external');
-      const externalLink = fixture.debugElement.query(By.css('.ts-icon'));
+      const externalLink = fixture.debugElement.query(By.css('svg'));
       expect(externalLink).toBeTruthy();
       expect(link.getAttribute('rel')).toEqual('noopener');
     });

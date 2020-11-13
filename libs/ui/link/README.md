@@ -8,8 +8,6 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be installed](#packages-that-need-to-be-installed)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
@@ -22,25 +20,11 @@
 
 ## Installation
 
-### Packages that need to be installed
-
-- `@angular/material`
-- `@terminus/design-tokens`
-- `@terminus/fe-utilities`
-- `@terminus/ui-link`
-- `@terminus/ui-styles`
-- `@terminus/ui-utilities`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-link
 ```
-
-### Modules that need to be in NgModule
-
-- `TsLinkModule`
-- `RouterModule.forRoot(MY_ROUTES)`
 
 ### CSS imports
 

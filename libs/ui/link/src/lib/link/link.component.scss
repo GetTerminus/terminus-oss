@@ -27,10 +27,17 @@
       outline: 0;
       text-decoration: underline;
     }
-  }
 
-  .ts-icon {
-    margin-left: var(--ts-link-icon-marginLeft);
+    &__icon {
+      display: inline-block;
+      margin-left: var(--ts-link-icon-marginLeft);
+      width: 12px;
+
+      svg {
+        height: 100%;
+        width: 100%;
+      }
+    }
   }
 }
 

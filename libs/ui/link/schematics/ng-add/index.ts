@@ -21,7 +21,6 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@fortawesome/pro-solid-svg-icons: ^5.14.0',
     '@terminus/design-tokens: ^3.1.0',
     '@terminus/fe-utilities: ^1.0.0',
-    '@terminus/ui-icon: ^2.1.5',
     '@terminus/ui-link: ^3.0.0',
     '@terminus/ui-styles: ^1.1.0',
     '@terminus/ui-utilities: ^1.0.9',

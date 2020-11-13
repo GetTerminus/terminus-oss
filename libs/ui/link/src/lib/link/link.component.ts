@@ -4,7 +4,6 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
-import { faExternalLink } from '@fortawesome/pro-solid-svg-icons';
 
 import { isString } from '@terminus/fe-utilities';
 
@@ -35,8 +34,6 @@ import { isString } from '@terminus/fe-utilities';
   exportAs: 'tsLink',
 })
 export class TsLinkComponent {
-  public iconExternal = faExternalLink;
-
   /**
    * Define the route needed when only using a fragment
    */
