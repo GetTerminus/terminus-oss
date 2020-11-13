@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-link@3.0.3...@terminus/ui-link@3.0.4) (2020-11-13)
+
+
+### Bug Fixes
+
+* **Link:** remove dependency on TsIconModule ([a13d3b5](https://github.com/GetTerminus/terminus-oss/commit/a13d3b588679f28ca220fe30bda231a4154d54b6)), closes [#455](https://github.com/GetTerminus/terminus-oss/issues/455)
+
+
+
+
+
 ## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-link@3.0.2...@terminus/ui-link@3.0.3) (2020-11-11)
 
 
