@@ -7,7 +7,6 @@ import {
   TemplateRef,
   ViewEncapsulation,
 } from '@angular/core';
-import { faLockAlt } from '@fortawesome/pro-solid-svg-icons';
 
 /**
  * Define the allowed aspect ratios. Used in {@link TsCardComponent}
@@ -75,11 +74,6 @@ let nextUniqueId = 0;
   exportAs: 'tsCard',
 })
 export class TsCardComponent {
-  /**
-   * Icon for disabled cards
-   */
-  public lockIcon = faLockAlt;
-
   /**
    * Define the default component ID
    */
