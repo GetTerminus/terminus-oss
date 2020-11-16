@@ -10,8 +10,6 @@ This component is used to contain very long strings that users may need to copy.
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be installed](#packages-that-need-to-be-installed)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
@@ -22,39 +20,11 @@ This component is used to contain very long strings that users may need to copy.
 
 ## Installation
 
-### Packages that need to be installed
-
-- `@angular/cdk`
-- `@angular/common`
-- `@angular/core`
-- `@angular/flex-layout`
-- `@angular/forms`
-- `@angular/material`
-- `@angular/platform-browser`
-- `@terminus/design-tokens`
-- `@terminus/fe-utilities`
-- `@terminus/ui-copy`
-- `@terminus/ui-checkbox`
-- `@terminus/ui-confirmation`
-- `@terminus/ui-form-field`
-- `@terminus/ui-icon`
-- `@terminus/ui-input`
-- `@terminus/ui-option`
-- `@terminus/ui-selection-list`
-- `@terminus/ui-styles`
-- `@terminus/ui-tooltip`
-- `@terminus/ui-utilities`
-- `date-fns`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-copy
 ```
-
-### Modules that need to be in NgModule
-
-- `TsCopyModule`
 
 ### CSS imports
 
