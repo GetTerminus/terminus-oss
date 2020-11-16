@@ -154,9 +154,15 @@
     bottom: 0;
     color: var(--ts-copy-icon-color);
     cursor: pointer;
+    display: flex;
     height: calc(100% - 2px);
     padding: var(--ts-copy-icon-padding);
     transition: var(--ts-copy-icon-transition);
+    width: 36px;
+
+    svg {
+      width: 100%;
+    }
   }
 
   // Adjust icon alignment

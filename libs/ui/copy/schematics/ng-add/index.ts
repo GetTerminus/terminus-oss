@@ -1,4 +1,3 @@
-
 import {
   SchematicContext,
   Tree,
@@ -18,13 +17,9 @@ export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
     '@angular/forms: ^9.1.0',
     '@angular/material: ^9.2.4',
     '@angular/platform-browser: ^9.1.0',
-    '@fortawesome/angular-fontawesome: ^0.6.0',
-    '@fortawesome/fontawesome-svg-core: ^1.2.30',
-    '@fortawesome/pro-solid-svg-icons: ^5.14.0',
     '@terminus/design-tokens: ^3.1.0',
     '@terminus/fe-utilities: ^1.0.0',
-    '@terminus/ui-copy: ^2.0.6',
-    '@terminus/ui-icon: ^2.1.4',
+    '@terminus/ui-copy: ^3.0.6',
     '@terminus/ui-styles: ^1.1.0',
     '@terminus/ui-tooltip: ^1.0.13',
     '@terminus/ui-utilities: ^1.0.9',

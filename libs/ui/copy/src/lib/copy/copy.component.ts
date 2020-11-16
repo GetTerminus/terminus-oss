@@ -9,7 +9,6 @@ import {
   ViewChildren,
   ViewEncapsulation,
 } from '@angular/core';
-import { faCopy } from '@fortawesome/pro-solid-svg-icons';
 
 import {
   TsDocumentService,
@@ -63,11 +62,6 @@ export class TsCopyComponent {
    * Internal flag to track if the contents have been selected
    */
   public hasSelected = false;
-
-  /**
-   * Define the copy icon
-   */
-  public copyIcon = faCopy;
 
   /**
    * Define the color of the material ripple
