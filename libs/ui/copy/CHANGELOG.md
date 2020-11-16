@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-copy@3.0.4...@terminus/ui-copy@3.0.5) (2020-11-16)
+
+
+### Bug Fixes
+
+* **Copy:** remove dependency on FontAwesome ([6e1ee2c](https://github.com/GetTerminus/terminus-oss/commit/6e1ee2cce824a1229ca41d20db0424893d888a41)), closes [#453](https://github.com/GetTerminus/terminus-oss/issues/453)
+
+
+
+
+
 ## [3.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-copy@3.0.3...@terminus/ui-copy@3.0.4) (2020-11-11)
 
 
