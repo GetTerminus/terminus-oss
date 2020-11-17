@@ -1,3 +1,5 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
 import { action } from '@storybook/addon-actions';
 import {
   boolean,
@@ -14,6 +16,8 @@ import {
   TsCardModule,
   TsCardTitleDirective,
 } from '@terminus/ui-card';
+import { TsLinkModule } from '@terminus/ui-link';
+import { TsMenuModule } from '@terminus/ui-menu';
 
 export default {
   title: 'Components/Structure/Card',
@@ -24,7 +28,13 @@ export default {
   decorators: [
     withKnobs,
     moduleMetadata({
-      imports: [TsCardModule],
+      imports: [
+        BrowserAnimationsModule,
+        RouterTestingModule,
+        TsCardModule,
+        TsLinkModule,
+        TsMenuModule,
+      ],
     }),
   ],
 };
@@ -106,3 +116,30 @@ export const supportsInteraction = () => ({
     action: action('Card clicked!'),
   },
 });
+
+export const utilityMenu = () => ({
+  template: `
+    <ts-card [utilityMenuTemplate]="myTemplate">
+      Here is a card with a utility menu!
+    </ts-card>
+
+    <ng-template #myTemplate>
+      <!-- Include the trigger to open/close the menu -->
+      <!-- Reference the ng-template for the menu content in \`menuItemsTemplate\` -->
+      <ts-menu
+        triggerType="utility"
+        menuPositionX="before"
+        [menuItemsTemplate]="utilityButtons"
+      ></ts-menu>
+
+      <!-- This template includes all items that should appear in the menu -->
+      <ng-template #utilityButtons>
+        <ts-link [destination]="['foo/', 'bar/']">My link</ts-link>
+      </ng-template>
+    </ng-template>
+  `,
+});
+utilityMenu.parameters = {
+  actions: { disabled: true },
+  knobs: { disabled: true },
+};
