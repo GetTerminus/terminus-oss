@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.2.1...@terminus/ui-button@3.0.0) (2020-11-17)
+
+
+### Features
+
+* **Button:** remove dependency on FontAwesome, remove collapsible format ([130f628](https://github.com/GetTerminus/terminus-oss/commit/130f628f61330e9fec51e1927a5cd830c48abe81)), closes [#450](https://github.com/GetTerminus/terminus-oss/issues/450)
+
+
+### BREAKING CHANGES
+
+* **Button:** • Format input no longer supported| • collapsed and collapseDelay inputs no longer supported| • icon
+input no longer supported
+
+
+
+
+
 ## [2.2.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.2.0...@terminus/ui-button@2.2.1) (2020-11-12)
 
 
