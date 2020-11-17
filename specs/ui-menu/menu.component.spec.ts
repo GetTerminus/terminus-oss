@@ -21,20 +21,6 @@ describe(`TsMenuComponent`, function() {
     });
   });
 
-  describe(`ngOnInit()`, () => {
-    test(`should set the correct trigger icon`, () => {
-      component.triggerType = 'default';
-      component.ngOnInit();
-
-      expect(component.triggerIcon).toEqual(component['TRIGGER_ICON_DEFAULT']);
-
-      component.triggerType = 'utility';
-      component.ngOnInit();
-
-      expect(component.triggerIcon).toEqual(component['TRIGGER_ICON_UTILITY']);
-    });
-  });
-
   describe(`ngAfterViewInit()`, () => {
     test(`should not open the menu when 'defaultOpened' is FALSE`, () => {
       component.trigger = { openMenu: jest.fn() } as any;

@@ -8,8 +8,6 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be installed](#packages-that-need-to-be-installed)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
@@ -19,29 +17,11 @@
 
 ## Installation
 
-### Packages that need to be installed
-
-- `@angular/cdk`
-- `@angular/flex-layout`
-- `@angular/material`
-- `@terminus/design-tokens`
-- `@terminus/fe-utilities`
-- `@terminus/ui-button`
-- `@terminus/ui-icon`
-- `@terminus/ui-menu`
-- `@terminus/ui-styles`
-- `@terminus/ui-utilities`
-- `date-fns`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-menu
 ```
-
-### Modules that need to be in NgModule
-
-- `TsMenuModule`
 
 ### CSS imports
 

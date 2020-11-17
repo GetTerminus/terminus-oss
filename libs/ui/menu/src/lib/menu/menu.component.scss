@@ -3,9 +3,11 @@
   --ts-menu-trigger-color: var(--ts-color-primary-500);
   --ts-menu-trigger-hover-color: var(--ts-color-primary-700);
   --ts-menu-trigger-backgroundColor: var(--ts-color-base-white);
+  --ts-menu-trigger-icon-width: 12px;
+  --ts-menu-trigger-icon-margin: 0 8px;
   --ts-menu-secondary-borderColor: var(--ts-color-utility-400);
   --ts-menu-boxShadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 5px 0 rgba(0, 0, 0, .12);
-  --ts-menu-caret-icon-adjustment: -.4em;
+  --ts-menu-caret-icon-adjustment: 0;
   --ts-menu-maxHeight: 12rem;
   --ts-menu-drag-placeholder-minHeight: 50px;
   --ts-menu-checkbox-drag-padding: 0 var(--ts-space-inset-500);
@@ -37,18 +39,25 @@
     font: var(--ts-menu-typography);
     max-height: var(--ts-menu-maxHeight);
   }
-}
 
+  .c-menu__trigger-icon {
+    display: inline-block;
+    height: 100%;
+    margin: var(--ts-menu-trigger-icon-margin);
+    position: relative;
+    top: 3px;
+    vertical-align: middle;
+    width: var(--ts-menu-trigger-icon-width);
 
-.c-menu {
+    svg {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+
   .c-menu__trigger {
     .mat-button-wrapper {
       display: inline-block;
-    }
-
-    // vertically align icon for utility menu trigger
-    .c-icon {
-      vertical-align: middle;
     }
 
     // For the dropdown caret, lessen the right side whitespace
@@ -87,6 +96,10 @@
 
 .ts-menu__panel {
   box-shadow: var(--ts-menu-boxShadow);
+
+  &.mat-menu-panel {
+    min-height: auto;
+  }
 
   .mat-menu-content {
     background-color: var(--ts-menu-trigger-backgroundColor);
