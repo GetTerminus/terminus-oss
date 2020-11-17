@@ -7,16 +7,8 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import type {
-  AfterViewInit,
-  OnInit,
-} from '@angular/core';
+import type { AfterViewInit } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import {
-  faCaretDown,
-  faEllipsisH,
-} from '@fortawesome/pro-solid-svg-icons';
 
 import type { TsButtonThemeTypes } from '@terminus/ui-button';
 
@@ -77,17 +69,7 @@ export type TsMenuTriggerTypes
   encapsulation: ViewEncapsulation.None,
   exportAs: 'tsMenu',
 })
-export class TsMenuComponent implements AfterViewInit, OnInit {
-  /**
-   * Define the default icon for the trigger button
-   */
-  private TRIGGER_ICON_DEFAULT = faCaretDown;
-
-  /**
-   * Define the utility icon for the trigger button
-   */
-  private TRIGGER_ICON_UTILITY = faEllipsisH;
-
+export class TsMenuComponent implements AfterViewInit {
   /**
    * Return if the current menu is a utility menu
    */
@@ -99,11 +81,6 @@ export class TsMenuComponent implements AfterViewInit, OnInit {
    * Define if the menu should overlap the trigger
    */
   public shouldOverlapTrigger = false;
-
-  /**
-   * The icon to be used in the trigger button
-   */
-  public triggerIcon!: IconDefinition;
 
   /**
    * Provide access to the trigger
@@ -155,14 +132,6 @@ export class TsMenuComponent implements AfterViewInit, OnInit {
    */
   @Input()
   public triggerType: TsMenuTriggerTypes = 'default';
-
-  /**
-   * Set the triggerIcon based on the triggerType
-   */
-  public ngOnInit(): void {
-    this.triggerIcon = (this.triggerType === 'default')
-      ? this.TRIGGER_ICON_DEFAULT : this.TRIGGER_ICON_UTILITY;
-  }
 
   /**
    * After the view has initialized, open the menu if it is defaulted to 'open'

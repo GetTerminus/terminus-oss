@@ -4,10 +4,8 @@
   "lib": {
     "entryFile": "src/index.ts",
     "umdModuleIds": {
-      "@fortawesome/pro-solid-svg-icons": "pro-solid-svg-icons",
       "@terminus/fe-utilities": "terminus.fe-utilities",
-      "@terminus/ui-button": "terminus.ui-button",
-      "@terminus/ui-icon": "terminus.ui-icon"
+      "@terminus/ui-button": "terminus.ui-button"
     }
   }
 }
