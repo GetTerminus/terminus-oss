@@ -10,8 +10,6 @@ A drag'n'drop file upload component.
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be installed](#packages-that-need-to-be-installed)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
@@ -29,37 +27,11 @@ A drag'n'drop file upload component.
 
 ## Installation
 
-### Packages that need to be installed
-
-- `@angular/cdk`
-- `@angular/common`
-- `@angular/core`
-- `@angular/flex-layout`
-- `@angular/forms`
-- `@angular/material`
-- `@angular/platform-browser`
-- `@terminus/design-tokens`
-- `@terminus/fe-utilities`
-- `@terminus/ui-button`
-- `@terminus/ui-file-upload`
-- `@terminus/ui-icon`
-- `@terminus/ui-icon-button`
-- `@terminus/ui-pipes`
-- `@terminus/ui-spacing`
-- `@terminus/ui-tooltip`
-- `@terminus/ui-utilities`
-- `@terminus/ui-validation-messages`
-- `date-fns`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-file-upload
 ```
-
-### Modules that need to be in NgModule
-
-- `TsFileUploadModule`
 
 ### CSS imports
 

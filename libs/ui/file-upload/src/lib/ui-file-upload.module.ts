@@ -6,9 +6,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { TsDocumentService } from '@terminus/fe-utilities';
 import { TsButtonModule } from '@terminus/ui-button';
-import { TsIconModule } from '@terminus/ui-icon';
-import { TsIconButtonModule } from '@terminus/ui-icon-button';
-import { TsDatePipe } from '@terminus/ui-pipes';
+import { TsPipesModule } from '@terminus/ui-pipes';
 import { TsTooltipModule } from '@terminus/ui-tooltip';
 import { TsValidationMessagesModule } from '@terminus/ui-validation-messages';
 
@@ -29,14 +27,12 @@ export * from './selected-file/selected-file';
     FormsModule,
     MatProgressBarModule,
     TsButtonModule,
-    TsIconButtonModule,
-    TsIconModule,
+    TsPipesModule,
     TsTooltipModule,
     TsValidationMessagesModule,
   ],
   declarations: [TsFileUploadComponent],
   providers: [
-    TsDatePipe,
     TsDocumentService,
     TsDropProtectionService,
   ],
