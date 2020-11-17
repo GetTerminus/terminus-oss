@@ -13,11 +13,49 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### BREAKING CHANGES
 
-* **Button:** • Format input no longer supported| • collapsed and collapseDelay inputs no longer supported| • icon
-input no longer supported
+- `format` @Input no longer supported
+- `collapsed` and `collapseDelay` @Inputs no longer supported
+- `icon` @Input no longer supported
 
+This change accomplishes:
 
+- Unblock all upstream packages that wish to remove the dependency on FontAwesome.
+- Remove unneeded functionality to simplify ongoing maintenance.
 
+### Migration Notes 3.0.0
+
+1. Update any collapsible buttons by removing any of the 3 removed inputs:
+
+```diff
+<ts-button
+- format="collapsible"
+- collapseDelay="100"
+- [collapsed]="true"
+  (clicked)="myFunc($event)"
+>Click me!</ts-button>
+```
+
+2. Update any buttons to use CDN icons instead of passing an icon reference in:
+
+Import the needed styles:
+
+```html
+<!-- Don't forget to update the integrity SHA -->
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.1/css/solid.css" integrity="SHA-HERE" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.1/css/fontawesome.css" integrity="SHA-HERE" crossorigin="anonymous">
+```
+
+Pass your icon in as content:
+
+```diff
+<ts-button
+- [icon]="faHomeIcon"
+  (clicked)="myFunc($event)"
+>
++ <span class="fas fa-home"></span>
+  Click me!
+</ts-button>
+```
 
 
 ## [2.2.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@2.2.0...@terminus/ui-button@2.2.1) (2020-11-12)
