@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { TsIconModule } from '@terminus/ui-icon';
-
 import { TS_SORT_HEADER_INTL_PROVIDER } from './sort-header/sort-header-intl';
 import { TsSortHeaderComponent } from './sort-header/sort-header.component';
 import { TsSortDirective } from './sort/sort.directive';
@@ -18,10 +16,7 @@ export * from './sort-errors';
  * source code: https://github.com/angular/material2/tree/release/src/lib/sort
  */
 @NgModule({
-  imports: [
-    CommonModule,
-    TsIconModule,
-  ],
+  imports: [CommonModule],
   providers: [TS_SORT_HEADER_INTL_PROVIDER],
   declarations: [
     TsSortDirective,

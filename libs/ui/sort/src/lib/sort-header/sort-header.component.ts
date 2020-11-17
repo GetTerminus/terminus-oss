@@ -14,7 +14,6 @@ import type {
   OnInit,
 } from '@angular/core';
 import { CanDisable } from '@angular/material/core';
-import { faArrowsV } from '@fortawesome/pro-solid-svg-icons';
 import { merge } from 'rxjs';
 
 import {
@@ -72,7 +71,6 @@ import { TsSortHeaderIntl } from './sort-header-intl';
   exportAs: 'tsSortHeader',
 })
 export class TsSortHeaderComponent implements TsSortableItem, CanDisable, OnInit, OnDestroy  {
-  public arrowsIcon = faArrowsV;
   public disabled = false;
 
   /**

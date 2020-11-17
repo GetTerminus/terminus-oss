@@ -7,6 +7,8 @@
   --ts-sort-header-arrow-thickness: 2px;
   --ts-sort-header-arrow-transition: 225ms cubic-bezier(.4, 0, .2, 1);
   --ts-sort-header-color: currentColor;
+  --ts-sort-header-icon-width: 9px;
+  --ts-sort-header-icon-height: 14px;
   --ts-sort-header-icon-transition:
     opacity
     var(--ts-animation-time-duration-200)
@@ -48,12 +50,20 @@
 
   // Double arrow icon to signify sortability
   &__icon {
+    display: inline-block;
+    height: var(--ts-sort-header-icon-height);
     opacity: 0;
     position: absolute;
     right: 3px;
     top: 50%;
-    transform: translate(22%, -42%);
+    transform: translate(22%, -50%);
     transition: var(--ts-sort-header-arrow-transition);
+    width: var(--ts-sort-header-icon-width);
+
+    svg {
+      max-height: 100%;
+      max-width: 100%;
+    }
 
     // Sort direction shown via Angular animation so we hide this icon
     &--hidden {
