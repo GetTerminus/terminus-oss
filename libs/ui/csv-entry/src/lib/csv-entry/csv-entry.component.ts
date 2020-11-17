@@ -222,17 +222,17 @@ export class TsCSVEntryComponent implements OnInit, OnDestroy {
    * @param value
    */
   @Input()
-  public set columnValidators(value: ValidatorFn | null[]) {
+  public set columnValidators(value: ValidatorFn[]) {
     if (!value) {
       return;
     }
 
     this._columnValidators = value;
   }
-  public get columnValidators(): ValidatorFn | null[] {
+  public get columnValidators(): ValidatorFn[] {
     return this._columnValidators;
   }
-  private _columnValidators: ValidatorFn | null[] = [];
+  private _columnValidators: ValidatorFn[] = [];
 
   /**
    * Define the layout direction for the footer
