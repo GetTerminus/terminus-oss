@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@3.0.4...@terminus/ui-file-upload@4.0.0) (2020-11-17)
+
+
+### Bug Fixes
+
+* **FileUpload:** fix incorrect spelling of TsFileImageDimensionConstraint ([81fe151](https://github.com/GetTerminus/terminus-oss/commit/81fe151dd3978ce5f73037dffcdd37475225be56)), closes [#83](https://github.com/GetTerminus/terminus-oss/issues/83)
+* **FileUpload:** remove dependency on FontAwesome ([9e9cc85](https://github.com/GetTerminus/terminus-oss/commit/9e9cc856e2361302fb4df76f82e9ff8ef452f8c3)), closes [#456](https://github.com/GetTerminus/terminus-oss/issues/456)
+
+
+### BREAKING CHANGES
+
+* **FileUpload:** TsFileImageDimensionContraint has been renamed to TsFileImageDimensionConstraint
+* **FileUpload:** Now depends on @terminus/ui-button@3.0.0
+
+
+
+
+
 ## [3.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@3.0.3...@terminus/ui-file-upload@3.0.4) (2020-11-11)
 
 
