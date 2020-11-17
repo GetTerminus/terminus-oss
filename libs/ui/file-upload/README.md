@@ -122,7 +122,7 @@ Image dimension validation is controlled by an array of constraints passed to th
 A single constraint has this structure:
 
 ```typescript
-interface TsFileImageDimensionContraint {
+interface TsFileImageDimensionConstraint {
   height: {
     min: number;
     max: number;
