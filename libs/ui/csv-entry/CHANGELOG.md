@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-csv-entry@2.1.8...@terminus/ui-csv-entry@2.1.9) (2020-11-17)
+
+
+### Bug Fixes
+
+* **CSVEntry:** correct type for array of ValidatorFns ([3bc3d5b](https://github.com/GetTerminus/terminus-oss/commit/3bc3d5bb08615297225d824bbeb29b4925deb60b))
+* **CSVEntry:** remove dependency on FontAwesome ([c9ea58c](https://github.com/GetTerminus/terminus-oss/commit/c9ea58cfe02050b4ffe1d68356c83a34510c3f02))
+
+
+
+
+
 ## [2.1.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-csv-entry@2.1.7...@terminus/ui-csv-entry@2.1.8) (2020-11-11)
 
 
