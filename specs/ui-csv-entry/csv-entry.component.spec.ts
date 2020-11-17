@@ -60,9 +60,9 @@ class TestHostComponent {
   public maxRows: number | undefined;
   public columnCount: number | undefined;
   public rowCount: number | undefined;
-  public columnValidators: undefined | (ValidatorFn | null)[];
+  public columnValidators: ValidatorFn[];
   public columnHeaders: undefined | string[];
-  public outputFormat = 'csv';
+  public outputFormat: 'csv' | 'tsv' = 'csv';
   public gotFile = jest.fn();
 
   @ViewChild(TsCSVEntryComponent, { static: true })
@@ -81,15 +81,9 @@ describe(`TsCSVEntryComponent`, function() {
   let rowCount: number;
   let columnCount: number;
   const moduleDefinition: TestModuleMetadata = {
-    imports: [
-      TsCSVEntryModule,
-    ],
-    declarations: [
-      TestHostComponent,
-    ],
-    providers: [
-      TsValidatorsService,
-    ],
+    imports: [TsCSVEntryModule],
+    declarations: [TestHostComponent],
+    providers: [TsValidatorsService],
   };
   let formContentTwoCol: TsCSVFormContents;
   let formContentThreeCol: TsCSVFormContents;
