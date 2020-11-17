@@ -1,4 +1,3 @@
-import { fakeAsync } from '@angular/core/testing';
 import { Spectator } from '@ngneat/spectator';
 import {
   createComponentFactory,
@@ -60,21 +59,6 @@ describe(`TsButtonComponent`, () => {
       expect(spectator.query('button')).toBeDisabled();
     });
 
-    describe(`format`, () => {
-      test(`should reflect the format as a class`, () => {
-        expect(spectator.query('button')).toHaveClass('c-button--filled');
-        spectator.setInput('format', 'collapsible');
-        expect(spectator.query('button')).toHaveClass('c-button--collapsible');
-      });
-
-      test(`should default to 'filled' format if nothing is passed in`, () => {
-        spectator.setInput('format', 'collapsible');
-        expect(spectator.component.format).toEqual('collapsible');
-        spectator.setInput('format', undefined);
-        expect(spectator.component.format).toEqual('filled');
-      });
-    });
-
     describe(`progress`, () => {
       test(`should be disabled when progress is shown`, () => {
         expect(spectator.query('button')).not.toBeDisabled();
@@ -117,48 +101,6 @@ describe(`TsButtonComponent`, () => {
         spectator.setInput('id', undefined);
         expect(spectator.query('button').getAttribute('id')).toEqual(expect.stringContaining('ts-button-'));
       });
-    });
-
-    describe(`collapsible`, () => {
-      test(`should set a collapse delay if none exists`, () => {
-        expect(spectator.component.collapseDelay).toBeUndefined();
-        spectator.setInput('format', 'collapsible');
-        expect(spectator.component.collapseDelay).toEqual(4000);
-      });
-
-      test(`should not set a collapse delay if one is set by consumer`, () => {
-        spectator.setInput('collapseDelay', 250);
-        expect(spectator.component.collapseDelay).toEqual(250);
-        spectator.setInput('format', 'collapsible');
-        expect(spectator.component.collapseDelay).toEqual(250);
-      });
-
-      test(`should remove collapse delay if format is changed from collapsible`, () => {
-        spectator.setInput('collapseDelay', 250);
-        expect(spectator.component.collapseDelay).toEqual(250);
-        spectator.setInput('format', 'filled');
-        expect(spectator.component.collapseDelay).toBeUndefined();
-      });
-
-      test(`should collapse button after delay`, fakeAsync(() => {
-        expect.assertions(4);
-        expect(spectator.query('button')).not.toHaveClass('c-button--collapsed');
-        expect(spectator.query('button')).not.toHaveClass('c-button--collapsible');
-        spectator.setInput('format', 'collapsible');
-        spectator.tick(2000);
-        expect(spectator.query('button')).not.toHaveClass('c-button--collapsed');
-        spectator.tick(10000);
-        expect(spectator.query('button')).toHaveClass('c-button--collapsed');
-      }));
-
-      test(`should clear the timeout if the consumer sets the collapsed state`, fakeAsync(() => {
-        spectator.setInput('format', 'collapsible');
-        spectator.tick(1000);
-        expect(spectator.query('button')).not.toHaveClass('c-button--collapsed');
-        spectator.setInput('collapsed', true);
-        expect(spectator.component.collapseSubscription$).toBeUndefined();
-        expect(spectator.component.isCollapsed).toBeTruthy();
-      }));
     });
   });
 
