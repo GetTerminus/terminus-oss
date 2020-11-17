@@ -32,6 +32,7 @@
   --ts-fu-hint-padding: .3em .4em .2em;
   --ts-fu-hint-color: var(--ts-color-utility-600);
   --ts-fu-hint-typography: var(--ts-typography-compound-hint);
+  --ts-fu-preview-icon-width: 12px;
 }
 
 .ts-file-upload {
@@ -120,8 +121,16 @@
   .c-file-upload__empty {
     color: var(--ts-fu-empty-color);
 
-    .ts-icon {
+    .c-file-upload__icon {
+      display: inline-block;
+      height: 21px;
       margin-right: var(--ts-fu-empty-icon-marginRight);
+      width: 21px;
+
+      svg {
+        max-height: 100%;
+        max-width: 100%;
+      }
     }
   }
 
@@ -144,6 +153,18 @@
       max-height: 100%;
       max-width: 100%;
     }
+
+    .c-file-upload__preview-csv {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      width: var(--ts-fu-preview-icon-width);
+
+      svg {
+        width: var(--ts-fu-preview-icon-width);
+      }
+    }
   }
 
   // <div> wrapper for the filename
@@ -160,15 +181,32 @@
 
   // <ts-icon-button> remove the file
   .c-file-upload__remove {
+    --ts-fu-removeIcon-size: 40px;
+    background-color: transparent;
+    border: 0;
+    color: var(--ts-fu-removeIcon-color);
+    cursor: cursor(pointer);
+    height: var(--ts-fu-removeIcon-size);
+    outline: 0;
+    text-align: center;
     transition: var(--ts-fu-remove-transitions);
+    width: var(--ts-fu-removeIcon-size);
 
-    .c-icon-button {
-      --ts-ib-color: var(--ts-fu-removeIcon-color);
+    &:focus,
+    &:hover {
+      color: var(--ts-fu-error-color);
+      outline: 0;
+    }
 
-      &:focus,
-      &:hover {
-        --ts-ib-color: var(--ts-fu-error-color);
-      }
+    svg {
+      height: 18px;
+      position: relative;
+      top: 3px;
+      width: 18px;
+    }
+
+    &--disabled {
+      cursor: not-allowed;
     }
   }
 

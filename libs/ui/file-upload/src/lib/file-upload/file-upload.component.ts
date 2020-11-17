@@ -20,11 +20,6 @@ import type {
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import type { ValidationErrors } from '@angular/forms';
-import {
-  faFileCsv,
-  faTimes,
-  faUpload,
-} from '@fortawesome/pro-solid-svg-icons';
 import { filter } from 'rxjs/operators';
 
 import {
@@ -130,13 +125,6 @@ export class TsFileUploadComponent extends TsReactiveFormBaseComponent implement
    * Store the selected file
    */
   public file: TsSelectedFile | undefined;
-
-  /**
-   * Define icon references
-   */
-  public iconCsv = faFileCsv;
-  public iconRemove = faTimes;
-  public iconUpload = faUpload;
 
   /**
    * Define the flexbox layout gap
