@@ -80,32 +80,47 @@
   --tsb-collapsible-first-icon-adjustment: -.15em;
   // NOTE: This is to better align with inputs that have extra space above and below
   --tsb-margin: 4px 0;
-  --tsb-padding: 0 var(--ts-space-inset-400);
+  --tsb-padding-base: var(--ts-space-inset-400);
+  --tsb-padding: 0 var(--tsb-padding-base);
   --tsb-padding-collapsed: 0 6px;
   --tsb-borderRadius: var(--ts-border-radius-base);
   --tsb-borderRadius-collapsible: 2em;
-  --tsb-padding-right-progress: 42px;
+  --tsb-padding-right-progress: 44px;
   --tsb-icon-vertical-adjustment: -.15em;
   --tsb-icon-horizontal-adjustment: .2em;
   --tsb-icon-padding: 0 .2em;
   --tsb-shadow-focus: 0 0 2px 2px var(--tsb-boxShadow-color);
   --tsb-content-maxWidth: 400px;
   --tsb-spinner-color: var(--ts-color-utility-500);
-
-  // NOTE: All transition durations are based off of the content transition.
   --tsb-animationEasing: var(--ts-animation-easing-ease);
-  --tsb-content-transitionDuration: var(--ts-animation-time-duration-500);
-  --tsb-icon-transitionDuration-collapse: calc(var(--tsb-content-transitionDuration) - 100ms);
-  --tsb-icon-transitionDuration-expand: calc(var(--tsb-icon-transitionDuration-collapse) - 100ms);
-  --tsb-label-transitionDuration: calc(var(--tsb-icon-transitionDuration-expand) - 100ms);
-  --tsb-maxWidth-transition: max-width var(--tsb-content-transitionDuration) var(--tsb-animationEasing);
-  --tsb-maxWidth-hover-transition: max-width calc(var(--tsb-content-transitionDuration) + 100ms) ease-in-out;
-  --tsb-padding-expand-transition: padding calc(var(--tsb-content-transitionDuration) - 300ms) var(--ts-animation-easing-ease) var(--ts-animation-time-delay-200);
-  --tsb-icon-expand-transition: margin-right calc(var(--tsb-content-transitionDuration) - 400ms) var(--ts-animation-easing-easeOut) var(--ts-animation-time-delay-100);
-  --tsb-icon-transition: transform var(--tsb-icon-transitionDuration-expand) var(--tsb-animationEasing);
-  --tsb-spinner-transition: opacity var(--tsb-label-transitionDuration) var(--tsb-animationEasing);
-  --tsb-icon-collapsed-transitionDelay: 150ms;
-  --tsb-icon-collapsed-hover-transitionDelay: 0ms;
+  --tsb-content-transitionDuration: var(--ts-animation-time-duration-400);
+  --tsb-spinner-transition: opacity calc(var(--tsb-content-transitionDuration) - 200ms) var(--tsb-animationEasing);
+  --tsb-spinner-xy: 21px;
+}
+
+// Spinner animations and values
+$offset: 187;
+$duration: 1.4s;
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: $offset;
+  }
+  50% {
+    stroke-dashoffset: $offset / 4;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: $offset;
+    transform: rotate(450deg);
+  }
 }
 
 .ts-button {
@@ -178,6 +193,7 @@
 
     // Target the prefix icon
     &__icon {
+      display: inline-block;
       margin-right: var(--tsb-icon-horizontal-adjustment);
     }
 
@@ -192,30 +208,32 @@
       }
     }
 
-    // Target any icon inside a button
-    // Adjust icon vertical layout
-    .c-icon {
-      // Fix small vertical alignment issue between icon & text
-      margin-top: var(--tsb-icon-vertical-adjustment);
-      transition: var(--tsb-icon-transition);
-      vertical-align: middle;
-    }
-
-    // Overwrite the Material spinner to fit our layout
     .c-button__spinner {
-      display: inline-block;
+      display: block;
+      height: var(--tsb-spinner-xy);
       opacity: 0;
       position: absolute;
-      right: 12px;
-      top: 6px;
+      right: var(--tsb-padding-base);
+      top: 50%;
+      transform: translateY(calc(-50% - 2px));
       transition: var(--tsb-spinner-transition);
+      width: var(--tsb-spinner-xy);
 
       &--active {
         opacity: 1;
       }
 
+      svg {
+        animation: rotation $duration linear infinite;
+        transform-origin: center;
+      }
+
       circle {
+        animation: dash $duration ease-in-out infinite;
         stroke: var(--tsb-spinner-color);
+        stroke-dasharray: $offset;
+        stroke-dashoffset: 0;
+        transform-origin: center;
       }
     }
 
@@ -228,84 +246,9 @@
       line-height: 14px;
       padding: 4px 8px;
 
-      .ts-icon {
+      .fa,
+      .fas {
         transform: scale(.84);
-      }
-    }
-
-    // COLLAPSIBLE
-    &--collapsible {
-      border-radius: var(--tsb-borderRadius-collapsible);
-
-      // When collapsible AND disabled
-      &.c-button--collapsed,
-      &[disabled] {
-        &:not(:hover) {
-          &:not(:focus) {
-            padding: var(--tsb-padding-collapsed);
-            // Custom transition with delay needed to remove 'jump' during collapse
-            transition: var(--tsb-padding-expand-transition);
-
-            .ts-icon {
-              margin-right: 0;
-              // Custom transition with delay needed to remove 'jump' during collapse
-              transition: var(--tsb-icon-expand-transition);
-            }
-
-            .c-icon {
-              position: relative;
-              transform: rotate(var(--tsb-rotation));
-              transition-duration: var(--tsb-icon-transitionDuration-collapse);
-            }
-
-            // collapse the text content
-            .c-button__content {
-              --tsb-content-maxWidth: 0;
-            }
-          }
-        }
-      }
-
-      // Fix left alignment when button is expanded and an icon is the first item
-      &.c-button--collapsed {
-        &:hover,
-        &:focus {
-          .c-button__content {
-            transition: var(--tsb-maxWidth-hover-transition);
-          }
-
-          .c-icon {
-            margin-left: var(--tsb-collapsible-first-icon-adjustment);
-            transition-delay: var(--tsb-icon-collapsed-hover-transitionDelay);
-          }
-        }
-
-        .c-icon {
-          transition-delay: var(--tsb-icon-collapsed-transitionDelay);
-        }
-      }
-
-      // Padding addition for FontAwesome switch
-      .c-icon {
-        padding: var(--tsb-icon-padding);
-      }
-
-      .c-button__content {
-        display: inline-block;
-        max-width: var(--tsb-content-maxWidth);
-        overflow: hidden;
-        transition: var(--tsb-maxWidth-transition);
-        vertical-align: bottom;
-        white-space: nowrap;
-
-        .ts-icon {
-          margin-left: var(--tsb-icon-negative-padding-adjustment);
-          margin-right: var(--tsb-icon-negative-padding-adjustment);
-        }
-      }
-
-      .mat-ripple {
-        border-radius: var(--tsb-borderRadius-collapsible);
       }
     }
   }

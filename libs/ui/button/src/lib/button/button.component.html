@@ -1,7 +1,6 @@
 <button
-  class="c-button c-button--{{ theme }} c-button--{{ format }}"
+  class="c-button c-button--{{ theme }}"
   [ngClass]="{
-    'c-button--collapsed': isCollapsed,
     'c-button--progress': showProgress && !isDisabled,
     'c-button--small': isSmall
   }"
@@ -13,22 +12,18 @@
   (click)="clickedButton($event)"
   #button
 >
-  <ts-icon
-    *ngIf="icon"
-    class="c-button__icon"
-    [icon]="icon"
-  ></ts-icon>
-
   <span class="c-button__content">
     <span class="c-button__content-ng-content"><ng-content></ng-content></span>
     <span class="c-button__content-input">{{ textContent }}</span>
   </span>
 
-  <mat-progress-spinner
-    *ngIf="showProgress && !isDisabled"
+  <span
     class="c-button__spinner"
+    *ngIf="showProgress && !isDisabled"
     [ngClass]="{'c-button__spinner--active': showProgress && !isDisabled}"
-    diameter="21"
-    mode="indeterminate"
-  ></mat-progress-spinner>
+  >
+    <svg width="100%" height="100%" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+      <circle fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+  </span>
 </button>

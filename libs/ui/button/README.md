@@ -8,14 +8,11 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be included](#packages-that-need-to-be-included)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Text content](#text-content)
   - [Theme](#theme)
-  - [Format](#format)
   - [Size](#size)
   - [Button type](#button-type)
   - [Action name](#action-name)
@@ -25,27 +22,11 @@
 
 ## Installation
 
-### Packages that need to be included
-
-- `@angular/cdk`
-- `@angular/material`
-- `@terminus/fe-utilities`
-- `@terminus/design-tokens`
-- `@terminus/ui-button`
-- `@terminus/ui-icon`
-- `@terminus/ui-utilities`
-- `@terminus/ui-styles`
-- `date-fns`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-button
 ```
-
-### Modules that need to be in NgModule
-
-- `TsButtonModule`
 
 ### CSS imports
 
@@ -62,6 +43,9 @@ Load the needed font families by adding this link to the `<head>` of your applic
 
 ```css
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<!-- Don't forget to update the integrity SHA -->
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.1/css/solid.css" integrity="SHA-HERE" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.1/css/fontawesome.css" integrity="SHA-HERE" crossorigin="anonymous">
 ```
 
 ## Usage
@@ -88,16 +72,6 @@ Set any available theme type:
 ```
 
 See `TsButtonThemeTypes` for all available themes.
-
-### Format
-
-Set any available format:
-
-```html
-<ts-button format="collapsible">Click Me!</ts-button>
-```
-
-See `TsButtonFormatTypes` for all available button formats.
 
 ### Size
 
@@ -129,7 +103,7 @@ See `TsButtonActionTypes` for all available action names.
 
 ### Show progress
 
-When 'showing progress', the button will be disabled and a spinner will be shown:
+When 'showing progress', the button will be disabled, and a spinner will be shown:
 
 ```html
 <ts-button [showProgress]="true">Click Me!</ts-button>
