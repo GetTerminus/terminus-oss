@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@3.0.4...@terminus/ui-menu@4.0.0) (2020-11-17)
+
+
+### Bug Fixes
+
+* **Menu:** remove dependency on FontAwesome ([698da45](https://github.com/GetTerminus/terminus-oss/commit/698da457e85072199f56adc25cd57ebfb5136c04)), closes [#458](https://github.com/GetTerminus/terminus-oss/issues/458)
+
+
+### BREAKING CHANGES
+
+* **Menu:** Now depends on @terminus/ui-button@3.0.0
+
+
+
+
+
 ## [3.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@3.0.3...@terminus/ui-menu@3.0.4) (2020-11-11)
 
 
