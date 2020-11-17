@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sort@1.1.5...@terminus/ui-sort@1.1.6) (2020-11-17)
+
+
+### Bug Fixes
+
+* **Sort:** remove dependency on FontAwesome ([6e0fc66](https://github.com/GetTerminus/terminus-oss/commit/6e0fc6682c267615c2ff874c95dc6dc560f3e36f)), closes [#460](https://github.com/GetTerminus/terminus-oss/issues/460)
+
+
+
+
+
 ## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sort@1.1.4...@terminus/ui-sort@1.1.5) (2020-11-11)
 
 
