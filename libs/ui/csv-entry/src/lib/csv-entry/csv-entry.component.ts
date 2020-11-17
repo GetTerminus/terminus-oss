@@ -20,16 +20,15 @@ import {
   FormGroup,
 } from '@angular/forms';
 import type { ValidatorFn } from '@angular/forms';
-import { faTrash } from '@fortawesome/pro-solid-svg-icons';
 import { debounceTime } from 'rxjs/operators';
 
+import { TS_SPACE_BASE_SMALL_0 } from '@terminus/design-tokens/js/library-design-tokens';
 import {
   coerceBooleanProperty,
   coerceNumberProperty,
   TsDocumentService,
   untilComponentDestroyed,
 } from '@terminus/fe-utilities';
-import { TS_SPACING } from '@terminus/ui-spacing';
 import { stripControlCharacters } from '@terminus/ui-utilities';
 
 
@@ -140,14 +139,9 @@ export class TsCSVEntryComponent implements OnInit, OnDestroy {
   public fakeRowHeight = '35px';
 
   /**
-   * Define the delete icon
-   */
-  public iconDelete = faTrash;
-
-  /**
    * Expose the flexbox layout gap
    */
-  public layoutGap: string = TS_SPACING.small[0];
+  public layoutGap: string = TS_SPACE_BASE_SMALL_0;
 
   /**
    * Expose a validation message if too many rows are added

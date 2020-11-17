@@ -22,6 +22,8 @@
   --ts-csv-message-button-marginRight: var(--ts-space-inline-200);
   --ts-csv-delete-icon-color: var(--ts-color-utility-500);
   --ts-csv-delete-icon-hover-color: var(--ts-color-warn-500);
+  --ts-scv-delete-icon-width: 40px;
+  --ts-csv-delete-icon-transition: color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeIn);
   --ts-csv-id-number: var(--ts-color-utility-600);
   --ts-csv-id-typography: var(--ts-typography-compound-caption);
 }
@@ -127,15 +129,27 @@
 
   // <ts-icon-button> button to delete row
   .c-csv-entry__delete {
-    max-height: var(--ts-csv-external-row-height);
+    background-color: transparent;
+    border: 0;
+    color: var(--ts-csv-delete-icon-color);
+    cursor: cursor(pointer);
+    display: inline-block;
+    height: var(--ts-csv-external-row-height);
+    outline: 0;
+    padding: 0 12px;
+    text-align: center;
+    transition: var(--ts-csv-delete-icon-transition);
+    width: var(--ts-scv-delete-icon-width);
 
-    .c-icon-button {
-      --ts-ib-color: var(--ts-csv-delete-icon-color);
+    &:focus,
+    &:hover {
+      color: var(--ts-csv-delete-icon-hover-color);
+      outline: 0;
+    }
 
-      &:focus,
-      &:hover {
-        --ts-ib-color: var(--ts-csv-delete-icon-hover-color);
-      }
+    svg {
+      max-height: 100%;
+      max-width: 100%;
     }
   }
 
