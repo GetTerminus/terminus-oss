@@ -4,94 +4,52 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnChanges,
+  OnInit,
   Output,
-  TemplateRef,
+  SimpleChanges,
   ViewEncapsulation,
 } from '@angular/core';
-import type {
-  AfterViewInit,
-  ElementRef,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
-import { FormControl } from '@angular/forms';
+import type { OnDestroy } from '@angular/core';
 import {
-  faAngleDoubleLeft,
-  faAngleDoubleRight,
-  faAngleLeft,
-  faAngleRight,
-} from '@fortawesome/pro-solid-svg-icons';
+  BehaviorSubject,
+  combineLatest,
+  Subscription,
+} from 'rxjs';
+import type { ObservableInput } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 import {
-  coerceNumberProperty,
   inputHasChanged,
+  untilComponentDestroyed,
 } from '@terminus/fe-utilities';
-import type { TsButtonThemeTypes } from '@terminus/ui-button';
-import { TsSelectionListChange } from '@terminus/ui-selection-list';
 
 /**
- * Define the allowed keys and types for an item passed to the {@link TsMenuComponent} within a
- * {@link TsPaginatorComponent}
+ * The structure of a {@link TsPaginatorComponent} page
  */
-export interface TsPaginatorMenuItem {
-  /**
-   * The menu item name
-   */
-  name: string;
-
-  /**
-   * A value for the item
-   */
-  value?: number;
+export interface TS_PAGINATOR_PAGE {
+  pageNumber: number | string;
+  pageDisplay: number | string;
+  [key: string]: unknown;
 }
-
-/**
- * Define the default count of records per page
- */
-const DEFAULT_RECORDS_PER_PAGE = 10;
-
-/**
- * Default max records before message is shown
- */
-const DEFAULT_MAX_PREFERRED_RECORDS = 100;
-
-/**
- * Define the default options for the records per page select menu
- */
-// eslint-disable-next-line @typescript-eslint/no-magic-numbers
-const DEFAULT_RECORDS_PER_PAGE_OPTIONS = [10, 20, 50];
 
 /**
  * A paginator component for tabular data.
  *
  * @example
  * <ts-paginator
- *              currentPageIndex="1"
- *              firstPageTooltip="View first results"
+ *              [activePage]="2"
  *              [isSimpleMode]="true"
- *              [isZeroBased]="true"
- *              lastPageTooltip="View last results"
- *              maxPreferredRecords="100"
- *              menuLocation="below"
+ *              [isPreviousDisabled]="true"
+ *              [isNextDisabled]="true"
  *              nextPageTooltip="View next results"
- *              [paginatorMessageTemplate]="myTemplate"
+ *              [pages]="myPagesArray"
+ *              paginatorSummary="1 - 25 of 212 Accounts"
  *              previousPageTooltip="View previous results"
- *              recordCountTooHighMessage="Please refine your filters."
- *              recordsPerPageChoices="[10, 20, 50]"
- *              [showRecordsPerPageSelector]="true"
- *              totalRecords="1450"
- *              (pageSelect)="myMethod($event)"
- *              (recordsPerPageChange)="myMethod($event)"
  *              (previousPageClicked)="myMethod()"
  *              (nextPageClicked)="myMethod()"
- *              (lastPageClicked)="myMethod()"
- *              (firstPageClicked)="myMethod()"
+ *              (pageClicked)="myMethod($event)"
  * ></ts-paginator>
- *
- * <ng-template #myTemplate let-message>
- *   <strong>{{ message }}</strong>
- *   <a href="/faq">Learn more</a>
- * </ng-template>
  *
  * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-navigation-paginator</example-url>
  */
@@ -99,570 +57,183 @@ const DEFAULT_RECORDS_PER_PAGE_OPTIONS = [10, 20, 50];
   selector: 'ts-paginator',
   templateUrl: './paginator.component.html',
   styleUrls: ['./paginator.component.scss'],
-  host: { class: 'ts-paginator' },
+  host: {
+    'class': 'ts-paginator',
+    '[class.ts-paginator--simple]': 'isSimpleMode',
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   exportAs: 'tsPaginator',
 })
-export class TsPaginatorComponent implements OnChanges, AfterViewInit {
-  /**
-   * Define the default message to show when too many records are returned
-   */
-  private DEFAULT_HIGH_RECORD_MESSAGE = `That's a lot of results! Try refining your filters for better results.`;
+export class TsPaginatorComponent implements OnInit, OnChanges, OnDestroy {
+  public pages$ = new BehaviorSubject<TS_PAGINATOR_PAGE[]>([]);
+  public activePageIndex$ = new BehaviorSubject<number>(0);
+  public templateDisablePrevious$ = new BehaviorSubject<boolean>(false);
+  public templateDisableNext$ = new BehaviorSubject<boolean>(false);
+  private subscription: Subscription;
+  private isPreviousDisabled$ = new BehaviorSubject<boolean>(false);
+  private isNextDisabled$ = new BehaviorSubject<boolean>(false);
 
   /**
-   * This does not allow user input in selection list
-   */
-  public allowUserInput = false;
-
-  /**
-   * Define the icon for the 'first page' button
-   */
-  public firstPageIcon = faAngleDoubleLeft;
-
-  /**
-   * Set up a form control to pass to {@link TsSelectionListComponent}
-   */
-  public pageControl = new FormControl();
-
-  /**
-   * Define the icon for the 'previous page' button
-   */
-  public previousPageIcon = faAngleLeft;
-
-  /**
-   * Define the icon for the 'next page' button
-   */
-  public nextPageIcon = faAngleRight;
-
-  /**
-   * Define the icon for the 'last page' button
-   */
-  public lastPageIcon = faAngleDoubleRight;
-
-  /**
-   * Store the array of objects that represent pages of collections
-   */
-  public pagesArray!: TsPaginatorMenuItem[];
-
-  /**
-   * Store the label for the current page
-   */
-  public currentPageLabel!: string;
-
-  /**
-   * Define the amount of records show per page
-   *
-   * @param value
-   */
-  // public recordsPerPage: number = DEFAULT_RECORDS_PER_PAGE;
-  public set recordsPerPage(value: number) {
-    this._recordsPerPage = value;
-    this.pageControl.setValue([value]);
-  }
-  public get recordsPerPage(): number {
-    return this._recordsPerPage;
-  }
-  private _recordsPerPage = DEFAULT_RECORDS_PER_PAGE;
-
-  /**
-   * Define the template context for the record count message
-   */
-  public templateContext = { $implicit: this.DEFAULT_HIGH_RECORD_MESSAGE };
-
-  /**
-   * Getter to return the index of the first page
-   */
-  public get firstPageIndex(): number {
-    return this.isZeroBased ? 0 : 1;
-  }
-
-  /**
-   * Getter to return the index of the next page
-   */
-  public get nextPageIndex(): number {
-    return this.currentPageIndex - this.firstPageIndex;
-  }
-
-  /**
-   * Getter to return the index of the last page
-   */
-  public get lastPageIndex(): number {
-    return this.isZeroBased ? (this.pagesArray.length - 1) : this.pagesArray.length;
-  }
-
-  /**
-   * Define if the paging is 0-based or 1-based
+   * Define the active page
    */
   @Input()
-  public isZeroBased = true;
+  public set activePage(value: TS_PAGINATOR_PAGE) {
+    this._activePage = value ? value : (this.pages && this.pages[0]);
+    this.activePageIndex$.next(this.findIndexByProperty(this.pages, 'pageNumber', this._activePage.pageNumber));
+    this.changeDetectorRef.detectChanges();
+  }
+  public get activePage(): TS_PAGINATOR_PAGE {
+    return this._activePage;
+  }
+  private _activePage: TS_PAGINATOR_PAGE;
 
   /**
-   * Define the tooltip message for the first page tooltip
+   * Allow manual override of disabled state
    */
   @Input()
-  public firstPageTooltip = 'View the first results';
+  public set isPreviousDisabled(value: boolean) {
+    this.isPreviousDisabled$.next(value);
+  }
+  public get isPreviousDisabled(): boolean {
+    return this.isPreviousDisabled$.getValue();
+  }
+
+  /**
+   * Allow manual override of disabled state
+   */
+  @Input()
+  public set isNextDisabled(value: boolean) {
+    this.isNextDisabled$.next(value);
+  }
+  public get isNextDisabled(): boolean {
+    return this.isNextDisabled$.getValue();
+  }
+
+  /**
+   * Define the array of pages
+   */
+  @Input()
+  public set pages(value: TS_PAGINATOR_PAGE[]) {
+    this._pages = value ? value : [];
+    this.pages$.next(this._pages);
+  }
+  public get pages(): TS_PAGINATOR_PAGE[] {
+    return this._pages;
+  }
+  private _pages: TS_PAGINATOR_PAGE[] = [];
+
+  /**
+   * Define the message to display before the paginator buttons
+   */
+  @Input()
+  public paginatorSummary: string;
 
   /**
    * Define the tooltip message for the previous page tooltip
    */
   @Input()
-  public previousPageTooltip = 'View the previous results';
+  public previousPageTooltip = 'Previous';
 
   /**
    * Define the tooltip message for the next page tooltip
    */
   @Input()
-  public nextPageTooltip = 'View the next results';
-
-  /**
-   * Define the tooltip message for the last page tooltip
-   */
-  @Input()
-  public lastPageTooltip = 'View the last results';
-
-  /**
-   * Define the current page
-   *
-   * @param page
-   */
-  @Input()
-  public set currentPageIndex(page: number) {
-    this._currentPageIndex = coerceNumberProperty(page);
-  }
-  public get currentPageIndex(): number {
-    return this._currentPageIndex;
-  }
-  private _currentPageIndex = 0;
-
-  /**
-   * Define how many pages exist to show a prompt about better filtering
-   */
-  @Input()
-  public maxPreferredRecords: number = DEFAULT_MAX_PREFERRED_RECORDS;
-
-  /**
-   * Define the menu location (open up or open down)
-   */
-  @Input()
-  public menuLocation: 'above' | 'below' = 'above';
-
-  /**
-   * Allow a custom template to be used for the paginator message
-   */
-  @Input()
-  public paginatorMessageTemplate!: TemplateRef<ElementRef>;
-
-  /**
-   * Define the button themes
-   */
-  @Input()
-  public theme: TsButtonThemeTypes = 'secondary';
-
-  /**
-   * Define the total number of records
-   *
-   * @param records
-   */
-  @Input()
-  public set totalRecords(records: number) {
-    this._totalRecords = coerceNumberProperty(records);
-  }
-  public get totalRecords(): number {
-    return this._totalRecords;
-  }
-  private _totalRecords = 0;
-
-  /**
-   * Define the message to show when too many pages exist
-   */
-  @Input()
-  public recordCountTooHighMessage: string = this.DEFAULT_HIGH_RECORD_MESSAGE;
-
-  /**
-   * Define how many records are shown per page
-   */
-  @Input()
-  public recordsPerPageChoices: number[] = DEFAULT_RECORDS_PER_PAGE_OPTIONS;
-
-  /**
-   * Define the label for the records per page select
-   */
-  @Input()
-  public recordsSelectLabel = 'Per page';
-
-  /**
-   * Define if the records per page select menu should be visible
-   */
-  @Input()
-  public showRecordsPerPageSelector = true;
+  public nextPageTooltip = 'Next';
 
   /**
    * Determine if the paginator should be in 'simple' mode
    *
-   * Simple mode: Page jump dropdown is converted to plain text, jump to last page button removed.
+   * Simple mode hides all page buttons.
    */
   @Input()
   public isSimpleMode = false;
 
   /**
-   * Override the disabling of the next button
-   */
-  @Input()
-  public isNextDisabled: boolean | undefined;
-
-  /**
-   * Emit a page selected event
-   */
-  @Output()
-  public readonly pageSelect = new EventEmitter<TsPaginatorMenuItem>();
-
-  /**
-   * Emit a change event when the records per page changes
-   */
-  @Output()
-  public readonly recordsPerPageChange = new EventEmitter<number[]>();
-
-  /**
    * Emit an event when previous page button clicked
    */
   @Output()
-  public readonly previousPageClicked = new EventEmitter();
+  public readonly previousPageClicked = new EventEmitter<void>();
 
   /**
    * Emit an event when next page button clicked
    */
   @Output()
-  public readonly nextPageClicked = new EventEmitter();
+  public readonly nextPageClicked = new EventEmitter<void>();
 
   /**
-   * Emit an event when first page button clicked
+   * Emit an event when a page button is clicked
    */
   @Output()
-  public readonly firstPageClicked = new EventEmitter();
+  public readonly pageClicked = new EventEmitter<number>();
+
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
 
   /**
-   * Emit an event when last page button clicked
+   * Set up subscriptions
    */
-  @Output()
-  public readonly lastPageClicked = new EventEmitter();
-
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
-    this.pageControl.setValue([this.recordsPerPage]);
+  public ngOnInit(): void {
+    this.setUpSubscriptions();
   }
 
   /**
-   * Initialize after the view is initialized
-   */
-  public ngAfterViewInit(): void {
-    this.initialize();
-  }
-
-  /**
-   * Initialize on any changes
+   * Set the active page index if the 'activePage' changes
    *
-   * @param changes - The object containing all changes since last cycle
+   * @param changes - The SimpleChanges object
    */
   public ngOnChanges(changes: SimpleChanges): void {
-    // If the record count changed, assign the new value to the template context
     // istanbul ignore else
-    if (inputHasChanged(changes, 'recordCountTooHighMessage')) {
-      this.templateContext.$implicit = this.recordCountTooHighMessage;
-    }
-
-    // If the zeroBased input changes, update the current page index
-    if (inputHasChanged(changes, 'isZeroBased')) {
-      this.currentPageIndex = changes.isZeroBased.currentValue ? 0 : 1;
-    }
-
-    this.initialize();
-  }
-
-  /**
-   * Set up initial resources
-   */
-  private initialize(): void {
-    this.pagesArray = this.createPagesArray(this.totalRecords, this.recordsPerPage, this.isZeroBased);
-    this.currentPageLabel = this.createCurrentPageLabel(this.currentPageIndex, this.pagesArray, this.totalRecords);
-
-    // Change to the current page
-    // istanbul ignore else
-    if (this.totalRecords > 0) {
-      this.changePage(this.currentPageIndex, -1, this.pagesArray);
+    if (inputHasChanged(changes, 'activePage') && this.pages?.length) {
+      this.activePageIndex$.next(this.findIndexByProperty(this.pages, 'pageNumber', this.activePage.pageNumber));
     }
   }
 
   /**
-   * Perform tasks when the current page is changed
-   *
-   * @param page - The selected page
+   * Needed for 'untilComponentDestroyed'
    */
-  public currentPageChanged(page: TsPaginatorMenuItem): void {
-    // Set the current page
-    this.currentPageIndex = coerceNumberProperty(page.value);
-
-    // Create a new label for the menu
-    this.currentPageLabel =
-      this.createCurrentPageLabel(this.currentPageIndex, this.pagesArray, this.totalRecords);
-
-    // Emit an event
-    this.pageSelect.emit(page);
-    this.changeDetectorRef.detectChanges();
-  }
+  public ngOnDestroy(): void {}
 
   /**
-   * Manually trigger a page change event from a number
-   *
-   * @param destinationPage - The selected page number
-   * @param currentPage - The current page number
-   * @param pages - The collection of pages
+   * Set up subscriptions to watch the activePageIndex and button disable streams
    */
-  public changePage(
-    destinationPage: number,
-    currentPage: number,
-    pages: TsPaginatorMenuItem[],
-  ): void {
-    const destinationIsValid: boolean = destinationPage >= this.firstPageIndex && destinationPage <= pages.length;
-    const notAlreadyOnPage: boolean = destinationPage !== currentPage;
-
-    // istanbul ignore else
-    if (destinationIsValid && notAlreadyOnPage) {
-      const foundPage: TsPaginatorMenuItem | undefined = pages.find((page: TsPaginatorMenuItem): boolean => page.value === destinationPage);
-
-      // istanbul ignore else
-      if (foundPage) {
-        this.currentPageChanged(foundPage);
-      }
+  private setUpSubscriptions(): void {
+    // istanbul ignore if
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
-  }
-
-  /**
-   * Check if a page is the first page
-   *
-   * @param page - The number of the current page
-   * @returns A boolean representing if this is the first page
-   */
-  public isFirstPage(page: number): boolean {
-    return coerceNumberProperty(page) === this.firstPageIndex;
-  }
-
-  /**
-   * Check if a page is the last page
-   *
-   * @param page - The number of the current page
-   * @returns A boolean representing if this is the last page
-   */
-  public isLastPage(page: number): boolean {
-    if (this.pagesArray) {
-      return page === (this.pagesArray.length - (this.isZeroBased ? 1 : 0));
-    }
-    return false;
-  }
-
-  /**
-   * Check if the next button is disabled
-   *
-   * @param page - The number of the current page
-   * @returns A boolena representing if the button is disabled.
-   */
-  public isNextButtonDisabled(page: number): boolean {
-    if (this.isNextDisabled === undefined) {
-      return this.isLastPage(page) || !this.pagesArray || !this.pagesArray.length;
-    }
-    return this.isNextDisabled;
-  }
-
-  /**
-   * Determine if the string exists
-   *
-   * @param message - The help message when too many results are returned
-   * @param max - The max number of records before the message should be shown
-   * @param totalRecords - The number of records
-   * @returns A boolean representing if the message should be shown
-   */
-  public shouldShowRecordsMessage(message: string, max: number, totalRecords: number): boolean {
-    if (totalRecords > max) {
-      return !!((message && message.length > 0));
-    }
-    return false;
-  }
-
-  /**
-   * Re-initialize the paginator when records per page changes
-   *
-   * @param selection - The selected records-per-page count
-   */
-  public recordsPerPageUpdated(selection: TsSelectionListChange<number[]>): void {
-    this.recordsPerPage = selection.value[0];
-    this.currentPageIndex = this.firstPageIndex;
-    this.recordsPerPageChange.emit(selection.value);
-    this.initialize();
-  }
-
-  /**
-   * Determine if the page select menu should be disabled
-   *
-   * @param pagesCount - The number of pages
-   * @returns A boolean representing if the menu should be disabled
-   */
-  public menuIsDisabled(pagesCount: number): boolean {
-    const moreThanOne = 2;
-    return coerceNumberProperty(pagesCount) < moreThanOne;
-  }
-
-  /**
-   * Determine if the records-per-page menu should be disabled
-   *
-   * @param totalRecords - The total number of records
-   * @param recordsPerPageChoices - The array of counts representing how many records may be show
-   * per page
-   * @returns A boolean representing if the records select should be disabled
-   */
-  public disableRecordsPerPage(totalRecords: number, recordsPerPageChoices: number[]): boolean {
-    const lowestPerPage: number = Math.min.apply(Math, recordsPerPageChoices);
-    return totalRecords < lowestPerPage;
-  }
-
-  /**
-   * Create a new label based on the current page
-   *
-   * @param currentPage - The current page
-   * @param pages - The array of all pages
-   * @param totalRecords - The number of total records
-   * @returns The string to use as the current page label
-   */
-  private createCurrentPageLabel(
-    currentPage: number,
-    pages: TsPaginatorMenuItem[],
-    totalRecords: number,
-  ): string {
-    const findPage =
-      (allPages: TsPaginatorMenuItem[], index: number) => pages.find((page: TsPaginatorMenuItem): boolean => page.value === index);
-
-    let foundPage: TsPaginatorMenuItem | undefined = findPage(pages, currentPage);
-
-    // If no found page, try the previous page
-    if (!foundPage) {
-      foundPage = findPage(pages, currentPage - 1);
-
-      // istanbul ignore else
-      if (foundPage) {
-        // If we found the previous page,
-        // save the current page change back to the primary variable
-        this.currentPageIndex -= 1;
-      }
-    }
-
-    // This may be the case if there are no records
-    if (!foundPage || !foundPage.name) {
-      return this.createDefaultPageLabel(currentPage, totalRecords);
-    }
-
-    // '1 - 10 of 243'
-    return `${foundPage.name} of ${totalRecords}`;
-  }
-
-  /**
-   * Create a default label based on the records per page and total records
-   *
-   * @param currentPage - The current page
-   * @param totalRecords - The number of total records
-   * @returns The string to use as the current page label
-   */
-  private createDefaultPageLabel(
-    currentPage: number,
-    totalRecords: number,
-  ): string {
-    const start = this.isZeroBased
-      ? (currentPage * this.recordsPerPage)
-      : (currentPage - 1) * this.recordsPerPage;
-    const end = start + this.recordsPerPage;
-    // '1 - 10'
-    if (this.isSimpleMode && !totalRecords) {
-      return `${start + 1} - ${end}`;
-    }
-    // '1 - 10 of 243'
-    return `${start + 1} - ${end} of ${totalRecords}`;
-  }
-
-  /**
-   * Create an array containing objects that represent each available page of records
-   *
-   * @param total - The total records remaining
-   * @param perPage - How many records are shown per page
-   * @param zeroBased - If the pages are based on a `0` index rather than `1`
-   * @returns The array representing all possible pages of records
-   */
-  private createPagesArray(total: number, perPage: number, zeroBased: boolean): TsPaginatorMenuItem[] {
-    const paginatorArray: TsPaginatorMenuItem[] = [];
-    let recordsRemaining = total;
-    let page = zeroBased ? 0 : 1;
-
-    // If there are no records just return an empty array
-    if (!recordsRemaining || recordsRemaining < 1) {
-      return paginatorArray;
-    }
-
-    while (recordsRemaining >= perPage) {
-      // We are creating the text for the range here so we are dealing with records based on 1
-      // (while the pages themselves may be based on 0 or 1)
-      const pageNumber = (page < 1) ? 1 : page;
-      const rangeStart = (pageNumber * perPage) - (perPage - 1);
-      const rangeEnd = pageNumber * perPage;
-      const pageValue: number = paginatorArray.length + 1;
-
-      // Create a page object
-      paginatorArray.push({
-        name: `${rangeStart} - ${rangeEnd}`,
-        // The value is zero based
-        value: (pageValue - (zeroBased ? 1 : 0)),
-      });
-
-      // Update the remaining count
-      recordsRemaining -= perPage;
-
-      // Set up for next loop if enough records exist
-      if (recordsRemaining >= perPage) {
-        page = pageValue + 1;
-      }
-    }
-
-    // If any records remain, add the partial group as the last page in the array
-    if (recordsRemaining > 0) {
-      let name;
-      let value;
-      const pageNumber = (page < 1) ? 1 : page;
-      const pageValue: number = paginatorArray.length + 1;
-
-      if (paginatorArray.length > 0) {
-        name = `${(pageNumber * perPage) + 1} - ${(pageNumber * perPage) + recordsRemaining}`;
-        value = (pageValue - (zeroBased ? 1 : 0));
-      } else {
-        name = `${pageNumber} - ${recordsRemaining}`;
-        value = (pageValue - (zeroBased ? 1 : 0));
-      }
-
-      paginatorArray.push({
-        name,
-        value,
-      });
-    }
-
-    return paginatorArray.sort((a: TsPaginatorMenuItem, b: TsPaginatorMenuItem): number => {
-      const first: number = coerceNumberProperty(a.value);
-      const second: number = coerceNumberProperty(b.value);
-      return (first < second) ? -1 : 1;
+    this.subscription = combineLatest<
+      ObservableInput<number>,
+      ObservableInput<boolean>,
+      ObservableInput<boolean>,
+      ObservableInput<TS_PAGINATOR_PAGE[]>
+    >([
+      this.activePageIndex$,
+      this.isPreviousDisabled$,
+      this.isNextDisabled$,
+      this.pages$,
+    ]).pipe(
+      distinctUntilChanged(),
+      untilComponentDestroyed(this),
+    ).subscribe(([pageIndex, isPreviousDisabled, isNextDisabled]) => {
+      this.templateDisablePrevious$.next((pageIndex === 0 || isPreviousDisabled));
+      this.templateDisableNext$.next(pageIndex === (this.pages.length - 1) || isNextDisabled);
     });
   }
 
   /**
-   * Tracking method for the pagesArray ngFor
+   * Find the index of an object within an array based on an object property
    *
-   * @param index - The current index
-   * @param page - The page object
-   * @returns The value to be used
+   * @param array - The array to search
+   * @param property - The property within the object to use in the comparison
+   * @param value - The value to match
+   * @returns The found index number
    */
-  public trackPagesArray(index: number, page: TsPaginatorMenuItem): string | undefined {
-    return page ? page.name : undefined;
+  public findIndexByProperty(array: unknown[], property: string, value: number | string): number {
+    for (let i = 0; i < array.length; i += 1) {
+      if (array[i][property] === +value) {
+        return i;
+      }
+    }
+    return -1;
   }
 }

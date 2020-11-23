@@ -1,55 +1,143 @@
-@import '~@terminus/ui-styles/helpers';
-
 :root {
   --ts-paginator-typography: var(--ts-typography-compound-body);
-  --ts-paginator-message-spacing: .4em 0;
-  --ts-paginator-current-page-margin: var(--ts-space-inline-200);
-  --ts-paginator-message-color: var(--ts-color-utility-700);
-  --ts-paginator-message-typography: var(--ts-typography-compound-caption);
-  --ts-paginator-currentPage-width: 8em;
-  --ts-paginator-selectionList-width: var(--ts-space-base-large5);
-  --ts-paginator-item-marginRight: var(--ts-space-inline-200);
+  --ts-paginator-item-marginRight: var(--ts-space-inline-300);
+  --ts-paginator-summary-marginRight: var(--ts-space-inline-400);
+  --ts-paginator-summary-typography: 400 13px / 25px var(--ts-typography-stack-base-roboto);
+  --ts-paginator-summary-color: var(--ts-color-utility-600);
+  --ts-paginator-pageButton-color: var(--ts-color-utility-700);
+  --ts-paginator-pageButton-color-active: var(--ts-color-primary-700);
+  --ts-paginator-pageButton-color-disabled: var(--ts-color-utility-600);
+  --ts-paginator-pageButton-typography: 400 13px / 14px var(--ts-typography-stack-base-roboto);
+  --ts-paginator-pageButton-backgroundColor: transparent;
+  --ts-paginator-pageButton-backgroundColor-active: var(--ts-color-primary-100);
+  --ts-paginator-pageButton-borderColor: transparent;
+  --ts-paginator-pageButton-borderColor-active: var(--ts-color-primary-300);
+  --ts-paginator-pageButton-nextPrev-color-active: var(--ts-color-primary-700);
+  --ts-paginator-pageButton-padding: 5px 8px;
+  --ts-paginator-pageButton-borderRadius: var(--ts-border-radius-base);
+  --ts-paginator-button-height: 24px;
+  --ts-paginator-page-ellipsis-color: var(--ts-color-utility-600);
+  --ts-paginator-page-ellipsis-fontSize: 13px;
+  --ts-paginator-page-ellipsis-padding: auto 8px;
+  // Button height - vertical padding
+  --ts-paginator-button-lineHeight: calc(var(--ts-paginator-button-height) - 10px);
+  --ts-paginator-caret-width: 7px;
+  --ts-paginator-nextPrev-button-color: var(--ts-color-primary-500);
+  --ts-paginator-nextPrev-button-borderColor: var(--ts-color-utility-200);
 }
 
 .ts-paginator {
   display: inline-block;
+  font: var(--ts-paginator-typography);
 
-  // Top level styles should be nested here
-  .c-paginator {
-    display: inline-block;
-    font: var(--ts-paginator-typography);
-  }
-}
-
-// <div> primary wrapper
-.c-paginator {
-  // <div> container for the message about too many records
-  .c-paginator__message {
-    color: var(--ts-paginator-message-color);
-    font: var(--ts-paginator-message-typography);
-    margin: var(--ts-paginator-message-spacing);
-    text-align: right;
+  &__nav {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
   }
 
-  // <div> container for current page in simple mode
-  .c-paginator__current-page {
+  &__summary {
+    color: var(--ts-paginator-summary-color);
     display: inline-block;
-    // Center vertically
-    line-height: 2.6em;
-    // Match margin added to buttons
-    margin-right: var(--ts-paginator-current-page-margin);
-    margin-top: var(--ts-paginator-current-page-margin);
+    font: var(--ts-paginator-summary-typography);
+    margin-right: var(--ts-paginator-summary-marginRight);
+  }
+
+  &__pages {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  // <li>
+  .ts-paginator__page {
+    display: inline-block;
+
+    &:not(.ts-paginator__page--button) {
+      margin-right: var(--ts-paginator-item-marginRight);
+    }
+
+    &--ellipsis {
+      color: var(--ts-paginator-page-ellipsis-color);
+      font-size: var(--ts-paginator-page-ellipsis-fontSize);
+      padding: var(--ts-paginator-page-ellipsis-padding);
+    }
+  }
+
+  // <button>
+  .ts-paginator__button {
+    background-color: var(--ts-paginator-pageButton-backgroundColor);
+    border: 1px solid var(--ts-paginator-pageButton-borderColor);
+    border-radius: var(--ts-paginator-pageButton-borderRadius);
+    color: var(--ts-paginator-pageButton-color);
+    font: var(--ts-paginator-pageButton-typography);
+    height: var(--ts-paginator-button-height);
+    line-height: var(--ts-paginator-button-lineHeight);
+    outline: 0;
+    padding: var(--ts-paginator-pageButton-padding);
     text-align: center;
-    // Add a width so the layout is close to the original
-    width: var(--ts-paginator-currentPage-width);
+    transition:
+      background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut)
+      border-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+
+    &:active,
+    &--active {
+      --ts-paginator-pageButton-backgroundColor: var(--ts-paginator-pageButton-backgroundColor-active);
+      --ts-paginator-pageButton-borderColor: var(--ts-paginator-pageButton-borderColor-active);
+      --ts-paginator-pageButton-color: var(--ts-paginator-pageButton-color-active);
+      outline: 0;
+    }
+
+    &:focus,
+    &:hover {
+      outline: 0;
+
+      &:enabled {
+        --ts-paginator-pageButton-backgroundColor: var(--ts-paginator-pageButton-backgroundColor-active);
+        cursor: pointer;
+      }
+    }
+
+    &[disabled] {
+      --ts-paginator-pageButton-color: var(--ts-paginator-pageButton-color-disabled);
+      cursor: not-allowed;
+    }
+
+    &--previous {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    &--previous,
+    &--next {
+      border-color: var(--ts-paginator-nextPrev-button-borderColor);
+
+      &:enabled {
+        color: var(--ts-paginator-nextPrev-button-color);
+      }
+
+      &:active {
+        color: var(--ts-paginator-pageButton-nextPrev-color-active);
+      }
+
+      svg {
+        height: 100%;
+        width: var(--ts-paginator-caret-width);
+      }
+    }
   }
 
-  .ts-selection-list {
-    width: var(--ts-paginator-selectionList-width);
+  .c-button__content {
+    display: flex;
+    height: 14px;
   }
 
-  .ts-button,
-  .ts-selection-list {
-    margin-right: var(--ts-paginator-item-marginRight);
+  .ts-tooltip {
+    &:not(:last-of-type) {
+      margin-right: var(--ts-paginator-item-marginRight);
+    }
   }
 }

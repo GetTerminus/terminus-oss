@@ -1,111 +1,66 @@
-<div
-  class="c-paginator qa-paginator"
-  [class.c-paginator--simple-mode]="isSimpleMode"
->
-
-<div fxLayout="row" fxLayoutAlign="start start">
-    <ts-selection-list
-      class="qa-paginator-per-page-select"
-      *ngIf="recordsPerPageChoices && showRecordsPerPageSelector"
-      [label]="recordsSelectLabel"
-      [isDisabled]="disableRecordsPerPage(totalRecords, recordsPerPageChoices)"
-      [noValidationOrHint]="true"
-      [formControl]="pageControl"
-      [allowUserInput]="allowUserInput"
-      (selectionChange)="recordsPerPageUpdated($event)"
-    >
-      <ts-option
-        [value]="count"
-        *ngFor="let count of recordsPerPageChoices"
-      >{{ count }}</ts-option>
-    </ts-selection-list>
-
-    <ts-tooltip [tooltipValue]="isFirstPage(currentPageIndex) ? '' : firstPageTooltip">
-      <ts-button
-        class="qa-paginator-first-page-button"
-        [theme]="theme"
-        [isDisabled]="isFirstPage(currentPageIndex)"
-        (clicked)="changePage(firstPageIndex, currentPageIndex, pagesArray)"
-        (clicked)="firstPageClicked.emit()"
-      >
-        <ts-icon [icon]="firstPageIcon" size="1x"></ts-icon>
-      </ts-button>
-    </ts-tooltip>
-
-    <ts-tooltip [tooltipValue]="isFirstPage(currentPageIndex) ? '' : previousPageTooltip">
-      <ts-button
-        class="qa-paginator-previous-page-button"
-        [theme]="theme"
-        [isDisabled]="isFirstPage(currentPageIndex)"
-        (clicked)="changePage(currentPageIndex - 1, currentPageIndex, pagesArray)"
-        (clicked)="previousPageClicked.emit()"
-      >
-        <ts-icon [icon]="previousPageIcon" size="1x"></ts-icon>
-      </ts-button>
-    </ts-tooltip>
-
-    <ts-menu
-      *ngIf="!isSimpleMode"
-      class="qa-paginator-current-page-menu"
-      [isDisabled]="menuIsDisabled(pagesArray?.length)"
-      [menuItemsTemplate]="menuItems"
-      [menuPositionY]="menuLocation"
-      triggerTheme="secondary"
-      [ngClass]="{'disabled': menuIsDisabled(pagesArray?.length)}"
-    >{{ currentPageLabel }}</ts-menu>
-
-    <div
-      class="c-paginator__current-page"
-      *ngIf="isSimpleMode"
-    >{{ currentPageLabel }}</div>
-
-    <ts-tooltip [tooltipValue]="isNextButtonDisabled(currentPageIndex) ? '' : nextPageTooltip">
-      <ts-button
-        class="qa-paginator-next-page-button"
-        [theme]="theme"
-        [isDisabled]="isNextButtonDisabled(currentPageIndex)"
-        (clicked)="changePage(currentPageIndex + 1, currentPageIndex, pagesArray)"
-        (clicked)="nextPageClicked.emit()"
-      >
-        <ts-icon [icon]="nextPageIcon" size="1x"></ts-icon>
-      </ts-button>
-    </ts-tooltip>
-
-    <ts-tooltip
-      [tooltipValue]="isNextButtonDisabled(currentPageIndex) ? '' : lastPageTooltip"
-      *ngIf="!isSimpleMode"
-    >
-      <ts-button
-        class="qa-paginator-last-page-button"
-        [theme]="theme"
-        [isDisabled]="isNextButtonDisabled(currentPageIndex)"
-        (clicked)="changePage(lastPageIndex, currentPageIndex, pagesArray)"
-        (clicked)="lastPageClicked.emit()"
-      >
-        <ts-icon [icon]="lastPageIcon" size="1x"></ts-icon>
-      </ts-button>
-    </ts-tooltip>
+<nav class="ts-paginator__nav">
+  <div class="ts-paginator__summary" *ngIf="paginatorSummary">
+    {{ paginatorSummary }}
   </div>
 
-  <div
-    class="c-paginator__message qa-paginator-message"
-    *ngIf="shouldShowRecordsMessage(recordCountTooHighMessage, maxPreferredRecords, totalRecords)"
+  <ts-tooltip
+    [tooltipValue]="(templateDisablePrevious$ | async) ? '' : previousPageTooltip"
+    #previousTooltip="tsTooltipComponent"
   >
-    <ng-container
-      [ngTemplateOutlet]="paginatorMessageTemplate || defaultPaginatorMessageTemplate"
-      [ngTemplateOutletContext]="templateContext"
-    ></ng-container>
-  </div>
-</div>
+    <button
+      class="ts-paginator__button ts-paginator__button--previous"
+      [disabled]="templateDisablePrevious$ | async"
+      (click)="previousPageClicked.emit()"
+    ><ng-container *ngTemplateOutlet="caret"></ng-container></button>
+  </ts-tooltip>
 
+  <ol class="ts-paginator__pages" *ngIf="!isSimpleMode">
+    <ng-container *ngIf="pages$ | async as domPages">
+      <ng-container *ngFor="let page of domPages; let i=index;">
+        <ng-container *ngIf="activePageIndex$.getValue() | tsPaginatorDom:i:domPages.length:'button'">
+          <ng-container *ngIf="activePageIndex$.getValue() | tsPaginatorDom:i:domPages.length:'ellipsis-start'">
+            <li class="ts-paginator__page ts-paginator__page--ellipsis">...</li>
+          </ng-container>
+          <li class="ts-paginator__page ts-paginator__page--button">
+            <button
+              class="ts-paginator__button"
+              [class.ts-paginator__button--active]="(activePageIndex$ | async) === page.pageNumber"
+              (click)="pageClicked.emit(page.pageNumber)"
+            >{{ page.pageDisplay }}</button>
+          </li>
+          <ng-container *ngIf="activePageIndex$.getValue() | tsPaginatorDom:i:domPages.length:'ellipsis-end'">
+            <li class="ts-paginator__page ts-paginator__page--ellipsis">... </li>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </ol>
 
-<ng-template #menuItems>
-  <ts-button
-    *ngFor="let page of pagesArray; trackBy: trackPagesArray"
-    (clicked)="currentPageChanged(page)"
-  >{{ page.name }}</ts-button>
-</ng-template>
+  <ts-tooltip
+    [tooltipValue]="(templateDisableNext$ | async) ? '' : nextPageTooltip"
+    class="tooltip-next"
+  >
+    <button
+      class="ts-paginator__button ts-paginator__button--next"
+      [disabled]="templateDisableNext$ | async"
+      (click)="nextPageClicked.emit()"
+    ><ng-container *ngTemplateOutlet="caret"></ng-container></button>
+  </ts-tooltip>
+</nav>
 
-<ng-template #defaultPaginatorMessageTemplate let-message>
-  {{ message }}
+<ng-template #caret>
+  <svg
+    aria-hidden="true"
+    focusable="false"
+    data-prefix="fas"
+    data-icon="angle-right"
+    role="img"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 512"
+  >
+    <path
+      fill="currentColor"
+      d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+    ></path>
+  </svg>
 </ng-template>
