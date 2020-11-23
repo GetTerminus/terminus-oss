@@ -8,47 +8,23 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be installed](#packages-that-need-to-be-installed)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
+  - [Summary](#summary)
   - [Events](#events)
-  - [Current page](#current-page)
-  - [Zero or one based pagination](#zero-or-one-based-pagination)
-  - [Record count too high](#record-count-too-high)
-    - [Max records](#max-records)
-    - [Record count message](#record-count-message)
-  - [Records per page](#records-per-page)
+  - [Simple mode](#simple-mode)
+  - [Tooltips](#tooltips)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Installation
-
-### Packages that need to be installed
-
-- `@terminus/ui-icon`
-- `@terminus/ui-form-field`
-- `@terminus/ui-checkbox`
-- `@terminus/ui-chip`
-- `@terminus/ui-input`
-- `@terminus/ui-validation-messages`
-- `@terminus/ui-validators`
-- `@terminus/ui-pipes`
-- `@terminus/ui-spacing`
-- `@terminus/ui-styles`
-- `text-mask-addons`
-- `text-mask-core`
 
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-paginator
 ```
-
-### Modules that need to be in NgModule
-
-- `TsPaginatorModule`
 
 ### CSS imports
 
@@ -69,159 +45,74 @@ Load the needed font families by adding this link to the `<head>` of your applic
 
 ## Usage
 
-For the most minimal implementation, just pass in the total number of records:
+Pass in an array of pages, and the currently active page:
 
 ```html
-<ts-paginator totalRecords="100"></ts-paginator>
+<ts-paginator
+  [pages]="myPages"
+  [activePage]="myActivePage"
+></ts-paginator>
+```
+
+```typescript
+export class Example {
+  myPages: TS_PAGINATOR_PAGE[] = [
+    { pageNumber: 0, pageDisplay: 1 },
+    { pageNumber: 1, pageDisplay: 2 },
+    { pageNumber: 2, pageDisplay: 3 },
+  ];
+  myActivePage: TS_PAGINATOR_PAGE = this.myPages[0];
+}
+```
+
+### Summary
+
+Pass in the summary text:
+
+```html
+<ts-paginator
+  [pages]="myPages"
+  [activePage]="myActivePage"
+  paginatorSummary="1 - 25 of 243 Accounts"
+></ts-paginator>
 ```
 
 ### Events
 
-The paginator will emit the current page each time the page is changed or the records-per-page count is changed:
+In order to know where the user has requested to navigate, listen for 3 events:
 
 ```html
 <ts-paginator
-  [totalRecords]="100"
-  (recordsPerPageChange)="myChangeFunc($event)"
-  (pageSelect)="mySelectFunc($event)"
+  [pages]="myPages"
+  [activePage]="myActivePage"
+  (previousPageClicked)="goBack()"
+  (nextPageClicked)="goForward()"
+  (pageClicked)="jumpToPage($event)"
 ></ts-paginator>
 ```
 
-```typescript
-mySelectFunc(v: TsPaginatorMenuItem) {
-  // v:
-  // {
-  //   name: "1 - 10",
-  //   value: 1,
-  // }
-}
+### Simple mode
 
-myChangeFunc(v: number) {
-  // v: 50
-}
-```
-
-The paginator will emit previous page clicked, next page clicked, first page clicked or last page clicked event when corresponding button is clicked.
+Simple mode hides all page buttons and only shows the previous and next buttons:
 
 ```html
 <ts-paginator
-  [totalRecords]="100"
-  (previousPageClicked)="prevPage()"
-  (nextPageClicked)="nextPage()"
-  (firstPageClicked)="firstPage()"
-  (lastPageClicked)="lastPage()"
+  [pages]="myPages"
+  [activePage]="myActivePage"
+  [isSimpleMode]="true"
 ></ts-paginator>
 ```
 
-```typescript
-prevPage() {
-  console.log('previous page button clicked');
-}
-nextPage() {
-  console.log('next page button clicked');
-}
-firstPage() {
-  console.log('first page button clicked');
-}
-lastPage() {
-  console.log('last page button clicked');
-}
-```
+### Tooltips
 
-### Current page
-
-Define the current active page by index:
+The next and previous button tooltips can be customized:
 
 ```html
 <ts-paginator
-  [totalRecords]="100"
-  [currentPageIndex]="2"
-></ts-paginator>
-```
-
-### Zero or one based pagination
-
-By default the paginator starts the pages array with a value of '0'. If your API starts it's
-pagination at 1 (such as Rails) you can set `isZeroBased` to `false`:
-
-```html
-<!-- The first page will have the value: 1 -->
-<ts-paginator
-  [totalRecords]="100"
-  [isZeroBased]="false"
-></ts-paginator>
-
-<!-- The first page will have the value: 0 -->
-<ts-paginator
-  [totalRecords]="100"
-  [isZeroBased]="true"
-></ts-paginator>
-```
-
-### Record count too high
-
-The paginator will display a message if too many records are found. This is to encourage better filtering rather than
-spending time paging through results.
-
-#### Max records
-
-By default, anything over `100` is considered too many records. To change this value, pass in a number to
-`maxPreferredRecords`:
-
-```html
-<ts-paginator
-  [totalRecords]="100"
-  [maxPreferredRecords]="50"
-></ts-paginator>
-```
-
-#### Record count message
-
-A custom message may be defined:
-
-```html
-<ts-paginator
-  [totalRecords]="100"
-  recordCountTooHighMessage="What the heck are you looking for?"
-></ts-paginator>
-```
-
-A custom message template can also be defined. This allows dynamic links to documentation, help, or a better set of
-filters.
-
-```html
-<ts-paginator
-  [totalRecords]="100"
-  recordCountTooHighMessage="What the heck are you looking for?"
-  [paginatorMessageTemplate]="myTemplate"
-></ts-paginator>
-
-<!--
-  The message set on `recordCountTooHighMessage` will be exposed via the variable `message` in this
-  example.
--->
-<ng-template #myTemplate let-message>
-  <a routerLink="/my/route">{{ message }}</a>
-</ng-template>
-```
-
-### Records per page
-
-Define the choices for how many records will be displayed on a single 'page':
-
-```html
-<ts-paginator
-  [totalRecords]="100"
-  [recordsPerPageChoices]="[100, 200, 500]"
-></ts-paginator>
-```
-
-This menu can be removed if desired:
-
-```html
-<ts-paginator
-  [totalRecords]="100"
-  [showRecordsPerPageSelector]="false"
+  [pages]="myPages"
+  [activePage]="myActivePage"
+  previousPageTooltip="Go back one page"
+  nextPageTooltip="Go forward one page"
 ></ts-paginator>
 ```
 

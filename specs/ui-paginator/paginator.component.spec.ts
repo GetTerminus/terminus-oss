@@ -1,436 +1,207 @@
-import { Type } from '@angular/core';
-import {
-  ComponentFixture,
-  fakeAsync,
-  tick,
-} from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { Spectator } from '@ngneat/spectator';
+import { createComponentFactory } from '@ngneat/spectator/jest';
 
-import { createComponent as createComponentInner } from '@terminus/fe-testing';
 import {
+  TsPaginatorComponent,
   TsPaginatorModule,
-  TsPaginatorMenuItem,
+  TS_PAGINATOR_PAGE,
 } from '@terminus/ui-paginator';
-import {
-  clickToChangePage,
-  getPaginatorInstance,
-  updateRecordsPerPage,
-} from '@terminus/ui-paginator/testing';
 
-import {
-  RecordsPerPage,
-  SimpleMode,
-  testComponents,
-} from './test-components';
+describe('TsPaginatorComponent', () => {
+  let spectator: Spectator<TsPaginatorComponent>;
+  const createComponent = createComponentFactory({
+    component: TsPaginatorComponent,
+    imports: [TsPaginatorModule],
+    declareComponent: false,
+  });
+  const myPagesArray: TS_PAGINATOR_PAGE[] = Array.from(Array(12)).map((v, i) => ({
+    pageNumber: i,
+    pageDisplay: i + 1,
+  }));
 
-/**
- * Call expect on each button to verify it is disabled
- *
- * @param fixture
- */
-function expectAllButtonsDisabled(fixture: ComponentFixture<any>) {
-  const firstPageButton =
-    fixture.debugElement.query(By.css(`.qa-paginator-first-page-button .c-button`)).nativeElement as HTMLButtonElement;
-  const previousPageButton =
-    fixture.debugElement.query(By.css(`.qa-paginator-previous-page-button .c-button`)).nativeElement as HTMLButtonElement;
-  const lastPageButton =
-    fixture.debugElement.query(By.css(`.qa-paginator-last-page-button .c-button`)).nativeElement as HTMLButtonElement;
-  const nextPageButton =
-    fixture.debugElement.query(By.css(`.qa-paginator-next-page-button .c-button`)).nativeElement as HTMLButtonElement;
+  beforeEach(() => {
+    spectator = createComponent({
+      props: {
+        pages: myPagesArray,
+      },
+    });
+  });
 
-  expect(firstPageButton.disabled).toEqual(true);
-  expect(previousPageButton.disabled).toEqual(true);
-  expect(lastPageButton.disabled).toEqual(true);
-  expect(nextPageButton.disabled).toEqual(true);
-}
-
-// FIXME: Tests should not rely on QA* classes
-describe(`TsPaginatorComponent`, function() {
   test(`should exist`, () => {
-    const fixture = createComponent(testComponents.Basic);
-    fixture.detectChanges();
-
-    expect(fixture.debugElement.query(By.css('.ts-paginator'))).toBeTruthy();
+    expect(spectator.query('nav')).toExist();
   });
 
-  describe(`showRecordsPerPageSelector`, () => {
-    let fixture: ComponentFixture<RecordsPerPage>;
-    let hostComponent: RecordsPerPage;
+  describe(`disabled state`, () => {
+    describe(`default functionality`, () => {
+      beforeEach(() => {
+        spectator.setInput('activePage', myPagesArray[0]);
+      });
 
-    beforeEach(() => {
-      fixture = createComponent(testComponents.RecordsPerPage);
-      hostComponent = fixture.componentInstance;
-    });
+      test(`should disable the previous button if at the beginning`, () => {
+        expect(spectator.query('.ts-paginator__button--previous')).toBeDisabled();
+      });
 
-    test(`should set and retrieve dropdown to choose page`, () => {
-      fixture.detectChanges();
-
-      expect(hostComponent.showRecordsPerPageSelector).toEqual(true);
-      expect(fixture.debugElement.query(By.css('.qa-paginator-per-page-select'))).toBeTruthy();
-    });
-
-    test(`should change page on select`, () => {
-      const index: string = hostComponent.recordsPerPageChoices[1].toString();
-      fixture.detectChanges();
-      updateRecordsPerPage(fixture, index);
-      fixture.whenStable().then(() => {
-        // eslint-disable-next-line max-len
-        const titleEl = fixture.debugElement.query(By.css('.qa-paginator-current-page-menu .c-button__content')).nativeElement as HTMLElement;
-        expect(titleEl.textContent).toContain('1 - 20 of 100');
+      test(`should disable the next button if at the end`, () => {
+        spectator.setInput('activePage', myPagesArray[myPagesArray.length - 1]);
+        expect(spectator.query('.ts-paginator__button--next')).toBeDisabled();
       });
     });
 
-    test(`should be hidden when set`, () => {
-      hostComponent.showRecordsPerPageSelector = false;
-      fixture.detectChanges();
+    describe(`override next and previous disabled state`, () => {
+      beforeEach(() => {
+        spectator.setInput('activePage', myPagesArray[Math.floor(myPagesArray.length / 2)]);
+      });
 
-      expect(hostComponent.showRecordsPerPageSelector).toEqual(false);
-      expect(fixture.debugElement.query(By.css('.qa-paginator-per-page-select'))).toBeFalsy();
+      test(`should disable the previous button no matter the current index`, () => {
+        expect(spectator.query('.ts-paginator__button--previous')).not.toBeDisabled();
+        spectator.setInput('isPreviousDisabled', true);
+        expect(spectator.query('.ts-paginator__button--previous')).toBeDisabled();
+        expect(spectator.component.isPreviousDisabled).toEqual(true);
+      });
+
+      test(`should disable the next button no matter the current index`, () => {
+        expect(spectator.query('.ts-paginator__button--next')).not.toBeDisabled();
+        spectator.setInput('isNextDisabled', true);
+        expect(spectator.query('.ts-paginator__button--next')).toBeDisabled();
+        expect(spectator.component.isNextDisabled).toEqual(true);
+      });
     });
   });
 
-  describe(`clicking page buttons`, () => {
-    let fixture: ComponentFixture<RecordsPerPage>;
-
-    beforeEach(() => {
-      fixture = createComponent(testComponents.RecordsPerPage);
+  describe(`pages`, () => {
+    test(`should default to the first page`, () => {
+      expect(spectator.query('.ts-paginator__button--active')).toHaveText('1');
     });
 
-    test(`should go to the next page`, fakeAsync(() => {
-      fixture.detectChanges();
-      const dir = 'next';
-      tick(2000);
-      clickToChangePage(fixture, dir);
-
-      const titleEl = fixture.debugElement.query(By.css('.qa-paginator-current-page-menu .c-button__content')).nativeElement as HTMLElement;
-      const instance = getPaginatorInstance(fixture);
-      const nextPageIndex = instance.nextPageIndex;
-
-      expect(titleEl.textContent).toContain('11 - 20 of 100');
-      expect(nextPageIndex).toEqual(1);
-      expect(fixture.componentInstance.nextPage).toHaveBeenCalled();
-    }));
-
-    test(`should go to the previous page`, fakeAsync(() => {
-      fixture.detectChanges();
-      const dir = 'previous';
-      tick(2000);
-      clickToChangePage(fixture, 'next');
-
-      const titleEl = fixture.debugElement.query(By.css('.qa-paginator-current-page-menu .c-button__content')).nativeElement as HTMLElement;
-
-      expect(titleEl.textContent).toContain('11 - 20 of 100');
-
-      clickToChangePage(fixture, dir);
-
-      expect(titleEl.textContent).toContain('1 - 10 of 100');
-      expect(fixture.componentInstance.prevPage).toHaveBeenCalled();
-    }));
-
-    test(`should go to the first page and disable first & prev buttons`, fakeAsync(() => {
-      fixture.detectChanges();
-      const dir = 'first';
-      tick(2000);
-      const titleEl = fixture.debugElement.query(By.css('.qa-paginator-current-page-menu .c-button__content')).nativeElement as HTMLElement;
-      clickToChangePage(fixture, 'next');
-      clickToChangePage(fixture, 'next');
-
-      expect(titleEl.textContent).toContain('21 - 30 of 100');
-
-      clickToChangePage(fixture, dir);
-
-      const firstPageBut =
-        fixture.debugElement.query(By.css(`.qa-paginator-${dir}-page-button .c-button`)).nativeElement as HTMLButtonElement;
-      const previousPageBut =
-        fixture.debugElement.query(By.css(`.qa-paginator-previous-page-button .c-button`)).nativeElement as HTMLButtonElement;
-
-      expect(titleEl.textContent).toContain('1 - 10 of 100');
-      expect(firstPageBut.disabled).toEqual(true);
-      expect(previousPageBut.disabled).toEqual(true);
-      expect(fixture.componentInstance.firstPage).toHaveBeenCalled();
-    }));
-
-    test(`should go to the last page and disable last and next buttons`, fakeAsync(() => {
-      fixture.detectChanges();
-      const dir = 'last';
-      tick(2000);
-      clickToChangePage(fixture, dir);
-
-      const titleEl = fixture.debugElement.query(By.css('.qa-paginator-current-page-menu .c-button__content')).nativeElement as HTMLElement;
-      const lastPageBut =
-        fixture.debugElement.query(By.css(`.qa-paginator-${dir}-page-button .c-button`)).nativeElement as HTMLButtonElement;
-      const nextPageBut =
-        fixture.debugElement.query(By.css(`.qa-paginator-next-page-button .c-button`)).nativeElement as HTMLButtonElement;
-
-      expect(titleEl.textContent).toContain('91 - 100 of 100');
-      expect(lastPageBut.disabled).toEqual(true);
-      expect(nextPageBut.disabled).toEqual(true);
-      expect(fixture.componentInstance.lastPage).toHaveBeenCalled();
-    }));
-  });
-
-  describe(`current page menu`, () => {
-    let fixture: ComponentFixture<RecordsPerPage>;
-    let hostComponent: RecordsPerPage;
-
-    beforeEach(() => {
-      fixture = createComponent(testComponents.RecordsPerPage);
-      hostComponent = fixture.componentInstance;
+    test(`should be able to change page by passing in the active page`, () => {
+      spectator.setInput('activePage', myPagesArray[2]);
+      expect(spectator.query('.ts-paginator__button--active')).toHaveText('3');
+      expect(spectator.component.activePageIndex$.getValue()).toEqual(2);
     });
 
-    test(`should default to first set of results`, () => {
-      fixture.detectChanges();
-
-      const titleEl = fixture.debugElement.query(By.css('.qa-paginator-current-page-menu .c-button__content')).nativeElement as HTMLElement;
-      const instance = getPaginatorInstance(fixture);
-      const firstPageIndex = instance.firstPageIndex;
-
-      expect(titleEl.textContent).toContain('1 - 10 of 100');
-      expect(instance.isFirstPage(firstPageIndex)).toEqual(true);
+    test(`should default to the first page if no active page is passed in`, () => {
+      spectator.setInput('activePage', undefined);
+      expect(spectator.query('.ts-paginator__button--active')).toHaveText('1');
+      expect(spectator.component.activePageIndex$.getValue()).toEqual(0);
+      expect(spectator.component.activePage).toEqual(myPagesArray[0]);
     });
 
-    /**
-     * TODO: revisit this after menu component has been converted to integration tests
-     * menu:  https://github.com/GetTerminus/terminus-ui/issues/1288
-     * paginator: https://github.com/GetTerminus/terminus-ui/issues/1512
-     */
-    test.todo(`should change page when another page is selected from the menu`);
-
-    test(`should show all results if they fit on a page, zeroBased`, () => {
-      hostComponent.totalRecords = 8;
-      fixture.detectChanges();
-
-      const titleEl = fixture.debugElement.query(By.css('.qa-paginator-current-page-menu .c-button__content')).nativeElement as HTMLElement;
-      const instance = getPaginatorInstance(fixture);
-      const firstPageIndex = instance.firstPageIndex;
-
-      expect(titleEl.textContent).toContain('1 - 8 of 8');
-      expect(instance.isFirstPage(firstPageIndex)).toEqual(true);
-
-      expectAllButtonsDisabled(fixture);
-    });
-
-    test(`should show all results if they fit on a page, not zeroBased`, () => {
-      hostComponent.totalRecords = 8;
-      hostComponent.zeroBased = false;
-      fixture.detectChanges();
-
-      const titleEl = fixture.debugElement.query(By.css('.qa-paginator-current-page-menu .c-button__content')).nativeElement as HTMLElement;
-      const instance = getPaginatorInstance(fixture);
-      const firstPageIndex = instance.firstPageIndex;
-
-      expect(titleEl.textContent).toContain('1 - 8 of 8');
-      expect(instance.isFirstPage(firstPageIndex)).toEqual(true);
-
-      expectAllButtonsDisabled(fixture);
-    });
-
-    test(`should specify partial results on the last page, zeroBased`, fakeAsync(() => {
-      // testing number coercion
-      hostComponent.totalRecords = '95' as any;
-      fixture.detectChanges();
-      tick(2000);
-      clickToChangePage(fixture, 'last');
-
-      const titleEl = fixture.debugElement.query(By.css('.qa-paginator-current-page-menu .c-button__content')).nativeElement as HTMLElement;
-      const instance = getPaginatorInstance(fixture);
-      const lastPageIndex = instance.lastPageIndex;
-
-      expect(titleEl.textContent).toContain('91 - 95 of 95');
-      expect(instance.isLastPage(lastPageIndex)).toEqual(true);
-    }));
-
-    test(`should specify partial results on the last page, not zeroBased`, fakeAsync(() => {
-      hostComponent.totalRecords = 15;
-      hostComponent.zeroBased = false;
-      fixture.detectChanges();
-      tick(2000);
-      clickToChangePage(fixture, 'last');
-
-      const titleEl = fixture.debugElement.query(By.css('.qa-paginator-current-page-menu .c-button__content')).nativeElement as HTMLElement;
-      const instance = getPaginatorInstance(fixture);
-      const lastPageIndex = instance.lastPageIndex;
-
-      expect(titleEl.textContent).toContain('11 - 15 of 15');
-      expect(instance.isLastPage(lastPageIndex)).toEqual(true);
-    }));
-
-    test(`should return to current page if invalid page is requested`, () => {
-      const requestedPage: TsPaginatorMenuItem = {
-        name: '10',
-        value: 10,
-      };
-      fixture.detectChanges();
-      const instance = getPaginatorInstance(fixture);
-      instance.currentPageChanged(requestedPage);
-
-      const titleEl = fixture.debugElement.query(By.css('.qa-paginator-current-page-menu .c-button__content')).nativeElement as HTMLElement;
-
-      expect(titleEl.textContent).toContain('91 - 100 of 100');
-      expect(instance.currentPageIndex).toEqual(instance.lastPageIndex);
+    test(`should default to an empty array if no pages are passed in`, () => {
+      spectator.setInput('pages', undefined);
+      expect(spectator.component.pages.length).toEqual(0);
     });
   });
 
-  describe(`isZeroBased`, () => {
-    test(`should be zero-based by default`, () => {
-      const fixture = createComponent(testComponents.Basic);
-      fixture.detectChanges();
-      const instance = getPaginatorInstance(fixture);
-
-      expect(instance.isZeroBased).toEqual(true);
-      expect(instance.firstPageIndex).toEqual(0);
-      expect(instance.currentPageIndex).toEqual(0);
-    });
-
-    test(`should not be zero-based when set`, () => {
-      const fixture = createComponent(testComponents.ZeroBased);
-      const instance = getPaginatorInstance(fixture);
-      const hostComponent = fixture.componentInstance;
-      hostComponent.isZeroBased = false;
-      fixture.detectChanges();
-
-      expect(instance.isZeroBased).toEqual(false);
-      expect(instance.firstPageIndex).toEqual(1);
-      expect(instance.currentPageIndex).toEqual(1);
-    });
-
-    test(`should adjust lastPageIndex`, () => {
-      const fixture = createComponent(testComponents.ZeroBased);
-      const instance = getPaginatorInstance(fixture);
-      const hostComponent = fixture.componentInstance;
-      hostComponent.isZeroBased = true;
-      fixture.detectChanges();
-
-      expect(instance.lastPageIndex).toEqual(9);
-
-      hostComponent.isZeroBased = false;
-      fixture.detectChanges();
-
-      expect(instance.lastPageIndex).toEqual(10);
-    });
-  });
-
-  describe(`recordCountTooHighMessage`, () => {
-    test(`should not display message when totalRecords is less than maxPreferredRecords`, () => {
-      const fixture = createComponent(testComponents.RecordsPerPage);
-      const instance = getPaginatorInstance(fixture);
-      fixture.detectChanges();
-
-      expect(fixture.debugElement.query(By.css('.c-paginator__message'))).toBeFalsy();
-      expect(instance.totalRecords).toEqual(100);
-      expect(instance.maxPreferredRecords).toEqual(100);
-    });
-
-    test(`should display message when totalRecords is greater than maxPreferredRecords`, () => {
-      const fixture = createComponent(testComponents.RecordsPerPage);
-      const hostComponent = fixture.componentInstance;
-      hostComponent.totalRecords = 125;
-      fixture.detectChanges();
-
-      const messageEl = fixture.debugElement.query(By.css('.c-paginator__message')).nativeElement as HTMLElement;
-      expect(messageEl.textContent.trim()).toEqual('That\'s a lot of results! Try refining your filters for better results.');
-    });
-
-    test(`should update message text`, () => {
-      const fixture = createComponent(testComponents.RecordsCount);
-      const hostComponent = fixture.componentInstance;
-      hostComponent.recordCountTooHighMessage = 'There are too many results!';
-      fixture.detectChanges();
-
-      const messageEl = fixture.debugElement.query(By.css('.c-paginator__message')).nativeElement as HTMLElement;
-
-      expect(messageEl.textContent.trim()).toEqual('There are too many results!');
-    });
-
-    test(`should set maxPreferredRecords`, () => {
-      const fixture = createComponent(testComponents.RecordsCount);
-      const hostComponent = fixture.componentInstance;
-      const instance = getPaginatorInstance(fixture);
-      hostComponent.maxPreferredRecords = 200;
-      fixture.detectChanges();
-
-      expect(instance.maxPreferredRecords).toEqual(200);
-      expect(fixture.debugElement.query(By.css('.c-paginator__message'))).toBeFalsy();
-    });
-  });
-
-  /*
-   * TODO: revisit this after tooltip tests have been converted to integration tests
-   * tooltip:   https://github.com/GetTerminus/terminus-ui/issues/1296
-   * paginator: https://github.com/GetTerminus/terminus-ui/issues/1512
-   */
   describe(`tooltips`, () => {
-    test.todo(`should display default tooltips by default`);
+    test(`should have default tooltips`, () => {
+      expect(spectator.component.previousPageTooltip).toEqual('Previous');
+      expect(spectator.component.nextPageTooltip).toEqual('Next');
+    });
 
-    test.todo(`should update tooltips if set`);
+    test(`should allow custom tooltips`, () => {
+      spectator.setInput('previousPageTooltip', 'Foo');
+      spectator.setInput('nextPageTooltip', 'Bar');
+      expect(spectator.component.previousPageTooltip).toEqual('Foo');
+      expect(spectator.component.nextPageTooltip).toEqual('Bar');
+    });
   });
 
-  describe(`simple mode`, () => {
-    let fixture: ComponentFixture<SimpleMode>;
-
+  describe(`simpleMode`, () => {
     beforeEach(() => {
-      fixture = createComponent(testComponents.SimpleMode);
-      fixture.detectChanges();
+      spectator.setInput('isSimpleMode', true);
     });
 
-    test(`should output the correct, current page message`, fakeAsync(() => {
-      tick(1000);
-      fixture.detectChanges();
-      const titleEl = fixture.debugElement.query(By.css('.c-paginator__current-page')).nativeElement as HTMLElement;
-      expect(titleEl.textContent).toContain('1 - 10 of 100');
-    }));
-
-    test(`should output the correct, shortened, current page message`, fakeAsync(() => {
-      fixture.componentInstance.totalRecords = 0;
-      tick(1000);
-      fixture.detectChanges();
-      const titleEl = fixture.debugElement.query(By.css('.c-paginator__current-page')).nativeElement as HTMLElement;
-      expect(titleEl.textContent).toContain('1 - 10');
-    }));
+    test(`should not show any page numbers`, () => {
+      expect(spectator.query('.ts-paginator__pages')).not.toExist();
+    });
   });
 
-  describe('disable next button', () => {
-    let fixture: ComponentFixture<SimpleMode>;
-
+  describe(`event emitters`, () => {
     beforeEach(() => {
-      fixture = createComponent(testComponents.SimpleMode);
-      fixture.detectChanges();
+      spectator.setInput('activePage', myPagesArray[5]);
     });
 
-    test(`shouldn't disable next button if not set`, () => {
-      const btn = fixture.debugElement.query(By.css('.qa-paginator-next-page-button'));
-      expect(btn.attributes['isNextDisabled']).toBeUndefined();
-      expect(btn.nativeElement.querySelector('button').disabled).toBeFalsy();
+    test(`should emit for previous page click`, () => {
+      let output;
+      spectator.output('previousPageClicked').subscribe(() => (output = 1));
+
+      spectator.click(spectator.query('.ts-paginator__button--previous'));
+      expect(output).toEqual(1);
     });
 
-    test(`should not disable next button if set to false`, fakeAsync(() => {
-      const instance = getPaginatorInstance(fixture);
-      instance.isNextDisabled = false;
-      tick(1000);
-      fixture.detectChanges();
-      const btn = fixture.debugElement.query(By.css('.qa-paginator-next-page-button'));
-      expect(btn.nativeElement.querySelector('button').disabled).toEqual(false);
-    }));
+    test(`should emit for next page click`, () => {
+      let output;
+      spectator.output('nextPageClicked').subscribe(() => (output = 1));
 
-    test(`should disable next button if set`, () => {
-      const instance = getPaginatorInstance(fixture);
-      instance.isNextDisabled = true;
-      fixture.detectChanges();
-      fixture.whenStable().then(() => {
-        const btn = fixture.debugElement.query(By.css('.qa-paginator-next-page-button'));
-        expect(btn.nativeElement.querySelector('button').disabled).toBeTruthy();
+      spectator.click(spectator.query('.ts-paginator__button--next'));
+      expect(output).toEqual(1);
+    });
+
+    test(`should emit for page click`, () => {
+      let output;
+      spectator.output('pageClicked').subscribe(() => (output = 1));
+
+      spectator.click(spectator.query('.ts-paginator__page .ts-paginator__button'));
+      expect(output).toEqual(1);
+    });
+  });
+
+  describe(`paginatorSummary`, () => {
+    test(`should default to no summary and the element should not exist`, () => {
+      expect(spectator.query('.ts-paginator__summary')).not.toExist();
+    });
+
+    test(`should allow a custom summary`, () => {
+      spectator.setInput('paginatorSummary', 'Foo bar');
+      expect(spectator.query('.ts-paginator__summary')).toHaveText('Foo bar');
+    });
+  });
+
+  describe(`page truncation and ellipsis`, () => {
+    describe(`first two pages (start)`, () => {
+      test(`should only have trailing ellipsis and truncation`, () => {
+        expect.assertions(4);
+        spectator.setInput('activePage', myPagesArray[0]);
+        expect(spectator.queryAll('.ts-paginator__page--ellipsis').length).toEqual(1);
+        expect(spectator.queryAll('.ts-paginator__page').length).toEqual(5);
+
+        spectator.setInput('activePage', myPagesArray[1]);
+        expect(spectator.queryAll('.ts-paginator__page--ellipsis').length).toEqual(1);
+        expect(spectator.queryAll('.ts-paginator__page').length).toEqual(5);
       });
+    });
+
+    describe(`last two pages (end)`, () => {
+      test(`should only have starting ellipsis and truncation`, () => {
+        spectator.setInput('activePage', myPagesArray[myPagesArray.length - 1]);
+        expect(spectator.queryAll('.ts-paginator__page--ellipsis').length).toEqual(1);
+        expect(spectator.queryAll('.ts-paginator__page').length).toEqual(5);
+
+        spectator.setInput('activePage', myPagesArray[myPagesArray.length - 2]);
+        expect(spectator.queryAll('.ts-paginator__page--ellipsis').length).toEqual(1);
+        expect(spectator.queryAll('.ts-paginator__page').length).toEqual(5);
+      });
+    });
+
+    describe(`middle pages`, () => {
+      test(`should have starting and ending ellipsis and truncation`, () => {
+        const pageIndexes = [3, 4, 5, 6, 7, 8, 9];
+        for (const index of pageIndexes) {
+          spectator.setInput('activePage', myPagesArray[index]);
+          expect(spectator.queryAll('.ts-paginator__page--ellipsis').length).toEqual(2);
+          expect(spectator.queryAll('.ts-paginator__page').length).toEqual(7);
+        }
+      });
+    });
+  });
+
+  describe(`findIndexByProperty`, () => {
+    test(`should return the index if found`, () => {
+      expect(spectator.component.findIndexByProperty(myPagesArray, 'pageNumber', 2)).toEqual(2);
+    });
+
+    test(`should return -1 if the property is not found`, () => {
+      expect(spectator.component.findIndexByProperty(myPagesArray, 'foo', 2)).toEqual(-1);
     });
   });
 });
-
-/**
- * Create a test host component
- *
- * @param component
- */
-const createComponent = <T>(component: Type<T>): ComponentFixture<T> => createComponentInner<T>(
-  component,
-  undefined,
-  [TsPaginatorModule],
-);

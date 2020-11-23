@@ -1,16 +1,22 @@
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { action } from '@storybook/addon-actions';
 import {
   boolean,
   number,
-  select,
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
-import { tsButtonThemes } from '@terminus/ui-button';
 import {
+  TS_PAGINATOR_PAGE,
   TsPaginatorComponent,
   TsPaginatorModule,
 } from '@terminus/ui-paginator';
@@ -29,135 +35,105 @@ export default {
   ],
 };
 
+const myPagesArray: TS_PAGINATOR_PAGE[] = Array.from(Array(12)).map((v, i) => ({
+  pageNumber: i,
+  pageDisplay: i + 1,
+}));
+
+@Component({
+  selector: 'ts-paginator-wrapper',
+  template: `
+    <ts-paginator
+      [isPreviousDisabled]="disablePrev"
+      [isNextDisabled]="disableNext"
+      [activePage]="activePage"
+      [pages]="pages"
+      [paginatorSummary]="paginatorSummary"
+      [isSimpleMode]="simpleMode"
+      (previousPageClicked)="previous()"
+      (nextPageClicked)="next()"
+      (pageClicked)="pageClicked($event)"
+    ></ts-paginator>
+  `,
+})
+class TsPaginatorWrapper {
+  @Input()
+  public set activePageIndex(value: number) {
+    this._activePageIndex = value;
+    this.activePage = this.pages[value];
+    this.changeDetectorRef.detectChanges();
+  }
+  public get activePageIndex(): number {
+    return this._activePageIndex;
+  }
+  private _activePageIndex = 0;
+
+  @Input() disablePrev = false;
+  @Input() disableNext = false;
+  @Input() pages: TS_PAGINATOR_PAGE[];
+  @Input() activePage: TS_PAGINATOR_PAGE;
+  @Input() paginatorSummary: string;
+  @Input() simpleMode = false;
+  @Output() readonly previousPage = new EventEmitter<boolean>();
+  @Output() readonly nextPage = new EventEmitter<boolean>();
+
+  previous() {
+    this.activePageIndex = this.findIndexByProperty(this.pages, 'pageNumber', this.activePageIndex - 1);
+    this.activePage = this.pages[this.activePageIndex];
+    this.previousPage.emit();
+  }
+
+  next() {
+    this.activePageIndex = this.findIndexByProperty(this.pages, 'pageNumber', this.activePageIndex + 1);
+    this.activePage = this.pages[this.activePageIndex];
+    this.nextPage.emit();
+  }
+
+  pageClicked(n: number) {
+    this.activePageIndex = n;
+    this.activePage = this.pages[n];
+  }
+
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
+
+  public findIndexByProperty(array: unknown[], property: string, value: number | string): number {
+    for (let i = 0; i < array.length; i += 1) {
+      if (array[i][property] === +value) {
+        return i;
+      }
+    }
+    return -1;
+  }
+}
+
 export const basic = () => ({
-  template: `
-    <ts-paginator
-      [theme]="theme"
-      [totalRecords]="recordCount"
-      (previousPageClicked)="previousPage($event)"
-      (nextPageClicked)="nextPage($event)"
-      (firstPageClicked)="firstPage($event)"
-      (lastPageClicked)="lastPage($event)"
-      (recordsPerPageChange)="recordsPerPageChange($event)"
-    ></ts-paginator>
-  `,
+  component: TsPaginatorWrapper,
   props: {
-    recordCount: number('Record count', 47),
-    theme: select('Theme', tsButtonThemes, 'secondary'),
-    firstPage: action('First page'),
-    previousPage: action('Previous page'),
-    nextPage: action('Next page'),
-    lastPage: action('Last page'),
-    recordsPerPageChange: action('Records per-page changed'),
+    pages: myPagesArray,
+    paginatorSummary: text('Summary', '1 – 25 of 461 Opportunities'),
+    activePageIndex: number('Active page index', 0),
+    disablePrev: boolean('Disable previous', false),
+    disableNext: boolean('Disable next', false),
+    simpleMode: boolean('Simple mode', false),
+    previousPage: action('Previous page clicked'),
+    nextPage: action('Next page clicked'),
   },
 });
-basic.parameters = {
-  docs: { iframeHeight: 300 },
-};
-
-export const recordCountMaximum = () => ({
-  template: `
-    <ts-paginator
-      [totalRecords]="recordCount"
-      [maxPreferredRecords]="maxPreferredRecords"
-      [recordCountTooHighMessage]="recordCountTooHighMessage"
-    ></ts-paginator>
-  `,
-  props: {
-    recordCount: number('Record count', 130),
-    recordCountTooHighMessage: text(
-      'Message when record count is too high',
-      `That is a lot of results! Try refining your filters for better results.`,
-    ),
-    maxPreferredRecords: number('Maximum preferred records', 100),
-  },
-});
-recordCountMaximum.parameters = {
-  actions: { disabled: true },
-};
-
-export const zeroOrOneBased = () => ({
-  template: `
-    <ts-paginator
-      [totalRecords]="recordCount"
-      [isZeroBased]="isZeroBased"
-    ></ts-paginator>
-  `,
-  props: {
-    recordCount: number('Record count', 82),
-    isZeroBased: boolean('Zero based', true),
-  },
-});
-zeroOrOneBased.parameters = {
-  actions: { disabled: true },
-};
 
 export const simpleMode = () => ({
-  template: `
-    <ts-paginator
-      [totalRecords]="recordCount"
-      [isSimpleMode]="isSimpleMode"
-    ></ts-paginator>
-  `,
+  component: TsPaginatorWrapper,
   props: {
-    recordCount: number('Record count', 82),
-    isSimpleMode: boolean('Simple mode', true),
+    pages: myPagesArray,
+    paginatorSummary: text('Summary', '1 – 25 of 461 Opportunities'),
+    activePageIndex: number('Active page index', 0),
+    disablePrev: boolean('Disable previous', false),
+    disableNext: boolean('Disable next', false),
+    simpleMode: boolean('Simple mode', false),
+    previousPage: action('Previous page clicked'),
+    nextPage: action('Next page clicked'),
   },
 });
 simpleMode.parameters = {
   actions: { disabled: true },
-};
-
-export const noRecordsPerPageSelector = () => ({
-  template: `
-    <ts-paginator
-      [totalRecords]="recordCount"
-      [showRecordsPerPageSelector]="showRecordsPerPageSelector"
-    ></ts-paginator>
-  `,
-  props: {
-    recordCount: number('Record count', 82),
-    showRecordsPerPageSelector: boolean('Show the Records Per Page menu', false),
-  },
-});
-noRecordsPerPageSelector.parameters = {
-  actions: { disabled: true },
-};
-
-export const setInitialPage = () => ({
-  template: `
-    <ts-paginator
-      [totalRecords]="recordCount"
-      [currentPageIndex]="currentPageIndex"
-    ></ts-paginator>
-  `,
-  props: {
-    recordCount: number('Record count', 82),
-    currentPageIndex: number('Current page index', 3),
-  },
-});
-setInitialPage.parameters = {
-  actions: { disabled: true },
-};
-
-export const customTooltips = () => ({
-  template: `
-    <ts-paginator
-      [totalRecords]="recordCount"
-      [firstPageTooltip]="firstPageTooltip"
-      [previousPageTooltip]="previousPageTooltip"
-      [nextPageTooltip]="nextPageTooltip"
-      [lastPageTooltip]="lastPageTooltip"
-    ></ts-paginator>
-  `,
-  props: {
-    recordCount: number('Record count', 82),
-    firstPageTooltip: text('First page tooltip', 'My FIRST page tooltip!'),
-    nextPageTooltip: text('Next page tooltip', 'My NEXT page tooltip!'),
-    previousPageTooltip: text('Previous page tooltip', 'My PREVIOUS page tooltip!'),
-    lastPageTooltip: text('Last page tooltip', 'My LAST page tooltip!'),
-  },
-});
-customTooltips.properties = {
-  actions: { disabled: true },
+  knobs: { disabled: true },
 };
