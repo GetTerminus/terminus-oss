@@ -673,7 +673,7 @@ describe(`TsInputComponent`, function() {
 
     describe(`fixIOSCaretBug`, () => {
       test(`should set the selectionRange on keyup`, () => {
-        const fixture = createComponent(TestComponents.OnChanges);
+        const fixture = createComponent(TestComponents.OnChangesWrapper);
         fixture.detectChanges();
         const inputElement = getInputElement(fixture);
         const keyboardEvent: KeyboardEvent = createKeyboardEvent('keyup', KEYS.A, inputElement);
@@ -688,7 +688,7 @@ describe(`TsInputComponent`, function() {
 
     describe(`ngOnChanges`, () => {
       test(`should re-initialize the mask for valid changes`, () => {
-        const fixture = createComponent(TestComponents.OnChanges);
+        const fixture = createComponent(TestComponents.OnChangesWrapper);
         fixture.detectChanges();
         const inputComponent = fixture.componentInstance.inputComponent;
         inputComponent['setUpMask'] = jest.fn();
@@ -717,7 +717,7 @@ describe(`TsInputComponent`, function() {
       });
 
       test(`should update the label outline gap when the label changes`, () => {
-        const fixture = createComponent(TestComponents.OnChanges);
+        const fixture = createComponent(TestComponents.OnChangesWrapper);
         fixture.detectChanges();
         const formFieldInstance: TsFormFieldComponent = fixture.debugElement.query(By.css('.ts-form-field')).componentInstance;
         formFieldInstance['updateOutlineGap'] = jest.fn();
@@ -747,7 +747,7 @@ describe(`TsInputComponent`, function() {
 
   describe(`onBlur`, () => {
     test(`should trigger the onTouched callback and emit an event`, () => {
-      const fixture = createComponent(TestComponents.OnChanges);
+      const fixture = createComponent(TestComponents.OnChangesWrapper);
       fixture.detectChanges();
       const component = fixture.componentInstance.inputComponent;
       component['onTouchedCallback'] = jest.fn();
