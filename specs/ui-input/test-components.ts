@@ -403,7 +403,7 @@ export class Autofill {
     ></ts-input>
   `,
 })
-export class OnChanges {
+export class OnChangesWrapper {
   public formControl = new FormControl('foo');
   public mask: TsMaskShortcutOptions = 'number';
   public maskSanitizeValue = true;
@@ -488,7 +488,7 @@ export class NoValidationOrHint {
     MissingFormControl,
     NoExternalFormField,
     NoValidationOrHint,
-    OnChanges,
+    OnChangesWrapper,
     OpenTo,
     PostalMask,
     SimpleFormControl,
