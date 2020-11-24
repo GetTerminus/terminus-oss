@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@2.2.6...@terminus/ui-paginator@3.0.0) (2020-11-24)
+
+
+### Features
+
+* **Paginator:** complete rewrite ([ebcc190](https://github.com/GetTerminus/terminus-oss/commit/ebcc1905bc5cd2f2f8b6d78d537f2fa36807565c)), closes [#412](https://github.com/GetTerminus/terminus-oss/issues/412)
+
+
+### BREAKING CHANGES
+
+* **Paginator:** Total API change. Consider this a new component.
+
+
+
+
+
 ## [2.2.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@2.2.5...@terminus/ui-paginator@2.2.6) (2020-11-11)
 
 
