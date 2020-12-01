@@ -71,15 +71,26 @@ jobs:
       #
       # Test affected
       #
-      - name: "Test affected projects"
-        run: yarn nx affected:test --base=origin/release --head=HEAD
-        if: env.SHOULD_RUN == 'true'
+#      - name: "Test affected projects"
+#        run: yarn nx affected:test --base=origin/release --head=HEAD
+#        if: env.SHOULD_RUN == 'true'
       - name: "Regression test on affected projects"
         run: tools/ci/run-chromatic-with-changed-projects.sh ${GITHUB_REF#refs/*/}
         env:
           CHROMATIC_BRANCH: ${{ github.event.pull_request.head.ref }}
           CHROMATIC_SHA: ${{ github.event.pull_request.head.sha }}
         if: env.SHOULD_RUN == 'true'
+      - name: Determine if Storybook log was generated
+        id: check_files
+        uses: andstor/file-existence-action@v1.0.1
+        with:
+          files: "/home/runner/work/terminus-oss/terminus-oss/build-storybook.log"
+      - name: Upload Storybook Log (if exists)
+        uses: actions/upload-artifact@v2
+        with:
+          name: storybook-log
+          path: /home/runner/work/terminus-oss/terminus-oss/build-storybook.log
+        if: steps.check_files.outputs.files_exists == 'true'
 
       #
       # Lint affected
