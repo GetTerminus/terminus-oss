@@ -31,7 +31,6 @@ import {
   KEYS,
   TsDocumentService,
 } from '@terminus/fe-utilities';
-import { TsFormFieldComponent } from '@terminus/ui-form-field';
 import { TsInputModule } from '@terminus/ui-input';
 import {
   getInputElement,
@@ -41,7 +40,7 @@ import {
 
 import * as TestComponents from './test-components';
 
-describe(`TsInputComponent`, function() {
+describe(`TsInputComponent Original`, function() {
   test(`should exist`, () => {
     const fixture = createComponent(TestComponents.SimpleFormControl);
     fixture.detectChanges();
@@ -82,19 +81,7 @@ describe(`TsInputComponent`, function() {
         expect(el.getAttribute('required')).toEqual('');
       });
 
-      test(`should display validation message if the form control is required and validation fails`, () => {
-        const fixture = createComponent(TestComponents.FormControlAttrRequired);
-        fixture.detectChanges();
-        const component = getInputInstance(fixture);
-        const el = component.inputElement.nativeElement;
-        el.focus();
-
-        component.onBlur();
-        fixture.detectChanges();
-
-        const validation = fixture.debugElement.query(By.css('.c-validation-message'));
-        expect(validation.nativeElement.textContent.trim()).toEqual('Required');
-      });
+      test.todo(`should display a validation message if one is passed in`);
 
       test(`should set required if the required flag is set`, () => {
         const fixture = createComponent(TestComponents.AttrInputRequired);
@@ -221,52 +208,6 @@ describe(`TsInputComponent`, function() {
         const el = getInputElement(fixture);
 
         expect(el.getAttribute('tabindex')).toEqual('4');
-      });
-    });
-
-    describe(`theme`, () => {
-      test(`should default to primary`, () => {
-        const fixture = createComponent(TestComponents.SimpleFormControl);
-        const input = fixture.componentInstance;
-        fixture.detectChanges();
-
-        const inputContainer = fixture.debugElement.query(By.css('.c-input__text')).nativeElement as HTMLElement;
-        inputContainer.click();
-        fixture.detectChanges();
-
-        expect(input.inputComponent.theme).toEqual('primary');
-      });
-
-      test(`should set input theme to accent`, () => {
-        const fixture = createComponent(TestComponents.Theme);
-        const input = fixture.componentInstance;
-        input.theme = 'accent';
-        fixture.detectChanges();
-
-        const inputContainer = fixture.debugElement.query(By.css('.c-input__text')).nativeElement as HTMLElement;
-        inputContainer.click();
-        fixture.detectChanges();
-
-        const formFieldEl = fixture.debugElement.query(By.css(' ts-form-field')).nativeElement as HTMLElement;
-
-        expect(input.inputComponent.theme).toEqual('accent');
-        expect(formFieldEl.classList).toContain('ts-form-field--accent');
-      });
-
-      test(`should set input theme to warn`, () => {
-        const fixture = createComponent(TestComponents.Theme);
-        const input = fixture.componentInstance;
-        input.theme = 'warn';
-        fixture.detectChanges();
-
-        const inputContainer = fixture.debugElement.query(By.css('.c-input__text')).nativeElement as HTMLElement;
-        inputContainer.click();
-        fixture.detectChanges();
-
-        const formFieldEl = fixture.debugElement.query(By.css(' ts-form-field')).nativeElement as HTMLElement;
-
-        expect(input.inputComponent.theme).toEqual('warn');
-        expect(formFieldEl.classList).toContain('ts-form-field--warn');
       });
     });
   });
@@ -521,21 +462,6 @@ describe(`TsInputComponent`, function() {
     });
   });
 
-  describe(`hideRequiredMarker`, () => {
-    test(`should hide the required attr`, () => {
-      const fixture = createComponent(TestComponents.AttrRequiredHidden);
-      fixture.detectChanges();
-      let marker = fixture.debugElement.query(By.css('.ts-form-field-required-marker'));
-      expect(marker).toBeTruthy();
-
-      fixture.componentInstance.hideRequiredMarker = true;
-      fixture.detectChanges();
-
-      marker = fixture.debugElement.query(By.css('.ts-form-field-required-marker'));
-      expect(marker).toBeFalsy();
-    });
-  });
-
   describe(`set type()`, () => {
     test(`should log a warning if an unaccepted input type is passed in while using a mask and default to 'text'`, () => {
       window.console.warn = jest.fn();
@@ -573,13 +499,13 @@ describe(`TsInputComponent`, function() {
       fixture.componentInstance.cleared = jest.fn;
 
       fixture.detectChanges();
-      let container = fixture.debugElement.query(By.css('.ts-form-field__suffix'));
+      let container = fixture.debugElement.query(By.css('.c-input__clear'));
       expect(container).toBeFalsy();
 
       fixture.componentInstance.clearable = true;
       fixture.detectChanges();
 
-      container = fixture.debugElement.query(By.css('.ts-form-field__suffix'));
+      container = fixture.debugElement.query(By.css('.c-input__clear'));
       expect(container).toBeTruthy();
 
       sendInput(fixture, 'foo');
@@ -587,20 +513,17 @@ describe(`TsInputComponent`, function() {
       const clearButton = fixture.debugElement.query(By.css('.c-input__clear')).nativeElement;
       expect(clearButton).toBeTruthy();
     });
-  });
 
-  describe(`hasExternalFormField`, () => {
-    test(`should not include form field HTML if set to true`, () => {
-      const fixture = createComponent(TestComponents.NoExternalFormField);
+    test(`should return true if the input is not found`, () => {
+      const fixture = createComponent(TestComponents.Clearable);
       fixture.detectChanges();
-      let container = fixture.debugElement.query(By.css('.ts-form-field__wrapper'));
-      expect(container).toBeFalsy();
-
-      fixture.componentInstance.hasFormField = false;
+      sendInput(fixture, 'foo');
       fixture.detectChanges();
+      expect(fixture.componentInstance.inputComponent.empty).toEqual(false);
 
-      container = fixture.debugElement.query(By.css('.ts-form-field__wrapper'));
-      expect(container).toBeTruthy();
+      fixture.componentInstance.inputComponent.inputElement = null;
+      fixture.detectChanges();
+      expect(fixture.componentInstance.inputComponent.empty).toEqual(true);
     });
   });
 
@@ -608,45 +531,46 @@ describe(`TsInputComponent`, function() {
     test(`should show/hide the container and output the text`, () => {
       const fixture = createComponent(TestComponents.Hint);
       fixture.detectChanges();
-      let hintElement = fixture.debugElement.query(By.css('.ts-form-field__hint-wrapper'));
+      let hintElement = fixture.debugElement.query(By.css('.ts-input__hint'));
       expect(hintElement).toBeFalsy();
 
       fixture.componentInstance.hint = 'foo';
       fixture.detectChanges();
 
-      hintElement = fixture.debugElement.query(By.css('.ts-form-field__hint-wrapper'));
+      hintElement = fixture.debugElement.query(By.css('.ts-input__hint'));
       expect(hintElement).toBeTruthy();
 
-      const contents = fixture.debugElement.query(By.css('.c-input__hint'));
+      const contents = fixture.debugElement.query(By.css('.ts-input__hint'));
       expect(contents.nativeElement.textContent.trim()).toEqual('foo');
     });
   });
 
   describe(`label`, () => {
-    test(`should set the label and update the outline gap`, () => {
-      jest.useFakeTimers();
-      const fixture = createComponent(TestComponents.Label);
-      fixture.detectChanges();
-      jest.advanceTimersByTime(200);
-      const outlineStartEl: HTMLDivElement = fixture.debugElement.query(By.css('.js-outline-start')).nativeElement;
-      const outlineGapEl: HTMLDivElement = fixture.debugElement.query(By.css('.js-outline-gap')).nativeElement;
-      const labelContent: HTMLSpanElement = fixture.debugElement.query(By.css('.c-input__label-text')).nativeElement;
-      const bounding1 = { left: 50 };
-      const bounding2 = { left: 100 };
-      const formFieldInstance: TsFormFieldComponent = fixture.debugElement.query(By.css('.ts-form-field')).componentInstance;
-      formFieldInstance.containerElement.nativeElement.getBoundingClientRect = jest.fn(() => bounding1);
-      formFieldInstance.labelElement.nativeElement.children[0].getBoundingClientRect = jest.fn(() => bounding2);
-      Object.defineProperty(formFieldInstance.labelElement.nativeElement.children[0], 'offsetWidth', { get: () => 40 });
-
-      formFieldInstance['updateOutlineGap']();
-      fixture.detectChanges();
-
-      expect(outlineStartEl.getAttribute('style')).toEqual('width: 45px;');
-      expect(outlineGapEl.getAttribute('style')).toEqual('width: 40px;');
-
-      expect(labelContent.innerHTML.trim()).toEqual('test label');
-      jest.runAllTimers();
-    });
+    test.todo(`should display the label`);
+    // test(`should set the label and update the outline gap`, () => {
+    //   jest.useFakeTimers();
+    //   const fixture = createComponent(TestComponents.Label);
+    //   fixture.detectChanges();
+    //   jest.advanceTimersByTime(200);
+    //   const outlineStartEl: HTMLDivElement = fixture.debugElement.query(By.css('.js-outline-start')).nativeElement;
+    //   const outlineGapEl: HTMLDivElement = fixture.debugElement.query(By.css('.js-outline-gap')).nativeElement;
+    //   const labelContent: HTMLSpanElement = fixture.debugElement.query(By.css('.c-input__label-text')).nativeElement;
+    //   const bounding1 = { left: 50 };
+    //   const bounding2 = { left: 100 };
+    //   const formFieldInstance: TsFormFieldComponent = fixture.debugElement.query(By.css('.ts-form-field')).componentInstance;
+    //   formFieldInstance.containerElement.nativeElement.getBoundingClientRect = jest.fn(() => bounding1);
+    //   formFieldInstance.labelElement.nativeElement.children[0].getBoundingClientRect = jest.fn(() => bounding2);
+    //   Object.defineProperty(formFieldInstance.labelElement.nativeElement.children[0], 'offsetWidth', { get: () => 40 });
+    //
+    //   formFieldInstance['updateOutlineGap']();
+    //   fixture.detectChanges();
+    //
+    //   expect(outlineStartEl.getAttribute('style')).toEqual('width: 45px;');
+    //   expect(outlineGapEl.getAttribute('style')).toEqual('width: 40px;');
+    //
+    //   expect(labelContent.innerHTML.trim()).toEqual('test label');
+    //   jest.runAllTimers();
+    // });
   });
 
   describe(`initialization`, () => {
@@ -715,37 +639,23 @@ describe(`TsInputComponent`, function() {
         expect(inputComponent['textMaskInputElement'].update).toHaveBeenCalledWith('');
         expect.assertions(8);
       });
-
-      test(`should update the label outline gap when the label changes`, () => {
-        const fixture = createComponent(TestComponents.OnChangesWrapper);
-        fixture.detectChanges();
-        const formFieldInstance: TsFormFieldComponent = fixture.debugElement.query(By.css('.ts-form-field')).componentInstance;
-        formFieldInstance['updateOutlineGap'] = jest.fn();
-        fixture.componentInstance.label = 'my new label';
-        fixture.detectChanges();
-
-        expect(formFieldInstance['updateOutlineGap']).toHaveBeenCalled();
-      });
-    });
-  });
-
-  describe(`container click`, () => {
-    test(`should focus the input`, () => {
-      const fixture = createComponent(TestComponents.SimpleFormControl);
-      fixture.detectChanges();
-      const input = getInputElement(fixture);
-
-      expect(document.activeElement).not.toBe(input);
-
-      const container = fixture.debugElement.query(By.css('.ts-form-field__container'));
-      container.nativeElement.click();
-      fixture.detectChanges();
-
-      expect(document.activeElement).toBe(input);
     });
   });
 
   describe(`onBlur`, () => {
+    test(`should trigger the onTouched callback and emit an event`, () => {
+      const fixture = createComponent(TestComponents.OnChangesWrapper);
+      fixture.detectChanges();
+      const component = fixture.componentInstance.inputComponent;
+      component['onTouchedCallback'] = jest.fn();
+      component.inputBlur.emit = jest.fn();
+
+      component.focusChanged(false);
+
+      expect(component['onTouchedCallback']).toHaveBeenCalled();
+      expect(component.inputBlur.emit).toHaveBeenCalledWith('foo');
+    });
+
     test(`should trigger the onTouched callback and emit an event`, () => {
       const fixture = createComponent(TestComponents.OnChangesWrapper);
       fixture.detectChanges();
@@ -950,7 +860,7 @@ describe(`noValidationOrHint`, () => {
   test(`should not have validation or hint added if set to true`, () => {
     const fixture = createComponent(TestComponents.NoValidationOrHint);
     fixture.detectChanges();
-    const validationBlock = fixture.debugElement.query(By.css('.ts-form-field__subscript-wrapper'));
+    const validationBlock = fixture.debugElement.query(By.css('.ts-input__messages'));
 
     expect(validationBlock).toBeFalsy();
   });
