@@ -4,6 +4,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { action } from '@storybook/addon-actions';
 import {
   boolean,
@@ -31,6 +32,7 @@ export default {
     withKnobs,
     moduleMetadata({
       imports: [
+        NoopAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
         TsInputModule,
