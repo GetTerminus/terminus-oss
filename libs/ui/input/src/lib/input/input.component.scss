@@ -1,51 +1,105 @@
 @import '~@terminus/ui-styles/helpers';
 
+:root {
+  --ts-input-typography: var(--ts-typography-compound-body);
+  --ts-input-color: var(--ts-color-utility-900);
+  --ts-input-color-disabled: var(--ts-color-utility-600);
+  --ts-input-backgroundColor: var(--ts-color-base-white);
+  --ts-input-backgroundColor-disabled: var(--ts-color-utility-100);
+  --ts-input-borderColor: var(--ts-color-utility-300);
+  --ts-input-borderColor-error: var(--ts-color-warn-500);
+  --ts-input-borderColor-disabled: var(--ts-color-utility-200);
+  --ts-input-borderRadius: var(--ts-border-radius-base);
+  --ts-input-fontSize: 14px;
+  --ts-input-borderColor-hover: var(--ts-color-utility-400);
+  --ts-input-borderColor-focus: var(--ts-color-primary-700);
+  --ts-input-borderColor-error-focus: var(--ts-color-warn-700);
+  --ts-input-shadow-focus: 0 0 2px 2px #d6efff;
+  --ts-input-shadow-error-focus: 0 0 2px 2px #f8e2e4;
+  --ts-input-padding: 10px 12px;
+  --ts-input-label-color: var(--ts-color-utility-700);
+  --ts-input-label-marginBottom: 6px;
+  --ts-input-label-typography: 400 13px / 15px var(--ts-typography-stack-base-roboto);
+  --ts-input-clear-size: 16px;
+  --ts-input-clear-color: var(--ts-color-utility-600);
+  --ts-input-clear-color-hover: var(--ts-color-warn-500);
+  --ts-input-hint-typography: var(--ts-typography-compound-hint);
+  --ts-input-error-color: var(--ts-color-warn-500);
+}
+
 .ts-input {
   display: block;
+  font: var(--ts-input-typography);
+
+  * {
+    box-sizing: border-box;
+  }
 
   &:focus {
     outline: none;
   }
 
-  /**
-   * The Input element proper.
-   *
-   * Requirements:
-   * - The input should match whatever background it is above.
-   * - By default, <input> has a padding, border, outline and a default width.
-   * - If background matches current background then so should the color for proper contrast.
-   * - Font needs to be inherited, because by default <input> has a system font.
-   * - Remove the default <input> padding, border, outline and width.
-   * - Prevent textareas from being resized outside the form field.
-   */
-  .c-input__text {
-    // The amount of space between the top of the line and the top of the actual text
-    // (as a fraction of the font-size).
-    $custom-line-spacing: (1.125 - 1) / 2;
-    @include input-placeholder {
-      // Delay the transition until the label has animated about a third of the way through, in
-      // order to prevent the placeholder from overlapping for a split second.
-      transition: color var(--swift-ease-out-duration) var(--swift-ease-out-duration) / 3 var(--swift-ease-out-timing-function);
-    }
-    background: transparent;
-    border: none;
-    color: var(--ts-color-utility-900);
-    font: inherit;
-    margin: 0;
-    // <input> elements seem to have their height set slightly too large on Safari causing the text to
-    // be misaligned w.r.t. the placeholder. Adding this margin corrects it.
-    margin-top: -$custom-line-spacing * 1em;
+  label {
+    color: var(--ts-input-label-color);
+    font: var(--ts-input-label-typography);
+    margin-bottom: var(--ts-input-label-marginBottom);
+  }
+
+  // <div> wrapper for the <input>
+  .ts-input__input-container {
+    position: relative;
+  }
+
+  input,
+  textarea {
+    background-color: var(--ts-input-backgroundColor);
+    border: 1px solid var(--ts-input-borderColor);
+    border-radius: var(--ts-input-borderRadius);
+    color: var(--ts-input-color);
+    font: var(--ts-input-typography);
+    font-size: var(--ts-input-fontSize);
+    line-height: 1em;
     max-width: 100%;
     outline: none;
-    padding: 0;
-    // User agent stylesheets set the text-align of inputs explicitly to "start". Those can be
-    // easily overwritten by targeting the input element using a simple CSS selector, but since
-    // the text-align will be applied most of the time on the `ts-form-field` to also align the
-    // placeholder, the alignment should be inherited here.
-    text-align: inherit;
-    // Needed to make last line of the textarea line up with the baseline.
-    vertical-align: bottom;
+    padding: var(--ts-input-padding);
+    transition: border-color 200ms ease-out;
     width: 100%;
+
+    &:enabled {
+      &:not(.c-input__text--error) {
+        &:hover {
+          --ts-input-borderColor: var(--ts-input-borderColor-hover);
+        }
+
+        &:focus {
+          --ts-input-borderColor: var(--ts-input-borderColor-focus);
+          box-shadow: var(--ts-input-shadow-focus);
+        }
+      }
+    }
+
+    &[disabled] {
+      --ts-input-backgroundColor: var(--ts-input-backgroundColor-disabled);
+      --ts-input-borderColor: var(--ts-input-borderColor-disabled);
+      --ts-input-color: var(--ts-input-color-disabled);
+      cursor: not-allowed;
+
+      + .mat-datepicker-toggle {
+        button {
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    &.c-input__text--error {
+      --ts-input-borderColor: var(--ts-input-borderColor-error);
+
+      &:focus {
+        --ts-input-borderColor: var(--ts-input-borderColor-error-focus);
+        box-shadow: var(--ts-input-shadow-error-focus);
+      }
+    }
+
 
     // Undo the red box-shadow glow added by Firefox on invalid inputs.
     // See https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-ui-invalid
@@ -111,30 +165,58 @@
     }
   }
 
-  // Button to clear the value of the input
+  // Icon to clear the value of the input
   .c-input__clear {
+    color: var(--ts-input-clear-color);
     cursor: pointer;
+    display: block;
+    height: var(--ts-input-clear-size);
     opacity: 0;
-    position: relative;
-    // Offset positioning set by suffix directive
-    top: -4px;
+    pointer-events: none;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
     transition:
       opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease),
       color var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease);
+    width: var(--ts-input-clear-size);
 
     &--visible {
       opacity: 1;
+      pointer-events: auto;
     }
 
     &:focus,
     &:hover {
-      color: var(--ts-color-warn-500);
+      --ts-input-clear-color: var(--ts-input-clear-color-hover);
+    }
+
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .ts-input__messages {
+    font: var(--ts-input-hint-typography);
+
+    .ts-input__hint {
+      text-align: right;
+    }
+
+    .ts-input__error {
+      color: var(--ts-input-error-color);
     }
   }
 
   // Update the datepicker toggle positioning when inside the input
   .mat-datepicker-toggle {
     display: inline-block;
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
 
     .mat-datepicker-toggle-default-icon {
       vertical-align: baseline;

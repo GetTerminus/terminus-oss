@@ -4,14 +4,8 @@
   "lib": {
     "entryFile": "src/index.ts",
     "umdModuleIds": {
-      "@fortawesome/pro-solid-svg-icons": "pro-solid-svg-icons",
       "@terminus/fe-utilities": "terminus.fe-utilities",
-      "@terminus/ui-form-field": "terminus.ui-form-field",
-      "@terminus/ui-icon": "terminus.ui-icon",
       "@terminus/ui-pipes": "terminus.ui-pipes",
-      "@terminus/ui-spacing": "terminus.ui-spacing",
-      "@terminus/ui-validation-messages": "terminus.ui-validation-messages",
-      "@terminus/ui-validators": "terminus.ui-validators",
       "date-fns": "dateFns",
       "text-mask-addons/dist/createAutoCorrectedDatePipe": "createAutoCorrectedDatePipe",
       "text-mask-addons/dist/createNumberMask": "createNumberMask",

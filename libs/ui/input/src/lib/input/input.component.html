@@ -1,106 +1,23 @@
-<!--
-   -NOTE: The query lists built within TsFormFieldComponent cannot find directives nested within ng-template. So, for now, we are simply
-   -defining all internal components twice. :(
-   -->
+<label class="c-input__label-text" [for]="id">{{ label }}</label>
 
-
-<!--
-   -With included TsFormFieldComponent wrapper
-   -->
-<ts-form-field
-  [validateOnChange]="validateOnChange"
-  [control]="selfReference"
-  [hideRequiredMarker]="hideRequiredMarker"
-  [hint]="hint"
-  [noValidationOrHint]="noValidationOrHint"
-  [theme]="theme"
-  *ngIf="!hasExternalFormField"
->
-  <ts-label>
-    <span class="c-input__label-text qa-input-label-text">
-      {{ label }}
-    </span>
-  </ts-label>
-
-  <ts-icon
-    tsPrefix
-    *ngIf="prefixIcon"
-    class="qa-input-prefix-icon"
-    transform="shrink-4 up-1"
-    [icon]="prefixIcon"
-  ></ts-icon>
-
+<div class="ts-input__input-container">
   <ng-template *ngTemplateOutlet="contentTemplate"></ng-template>
+  <ng-template *ngTemplateOutlet="clearIconTemplate"></ng-template>
+</div>
 
-  <ts-icon
-    tsSuffix
-    *ngIf="isClearable && !shouldBeDisabled && !datepicker"
-    class="c-input__clear qa-input-suffix-icon"
-    [class.c-input__clear--visible]="value?.length > 0"
-    [icon]="suffixIcon"
-    transform="shrink-4 up-1"
-    (click)="reset()"
-  ></ts-icon>
-
-  <mat-datepicker-toggle
-    tsSuffix
-    *ngIf="datepicker"
-    class="qa-datepicker-toggle qa-input-suffix-icon"
-    [for]="picker"
-  ></mat-datepicker-toggle>
-
-  <ng-container ngProjectAs=".customMessageSelector">
-    <div class="input-div">
-      <ng-content select="[tsCustomValidationMessage]"></ng-content>
-    </div>
-  </ng-container>
-</ts-form-field>
+<div class="ts-input__messages" *ngIf="!noValidationOrHint">
+  <div class="ts-input__error" *ngIf="errorMessage">{{ errorMessage }}</div>
+  <div class="ts-input__hint" *ngIf="hint && !errorMessage">{{ hint }}</div>
+</div>
 
 
-<!--
-   -Without included TsFormFieldComponent wrapper
-   -->
-<ng-container *ngIf="hasExternalFormField">
-  <ts-label>
-    <span class="c-input__label-text qa-input-label-text">
-      {{ label }}
-    </span>
-  </ts-label>
-
-  <ts-icon
-    tsPrefix
-    *ngIf="prefixIcon"
-    class="qa-input-prefix-icon"
-    [icon]="prefixIcon"
-  ></ts-icon>
-
-  <ng-template *ngTemplateOutlet="contentTemplate"></ng-template>
-
-  <ts-icon
-    tsSuffix
-    *ngIf="isClearable && !shouldBeDisabled && !datepicker"
-    class="c-input__clear qa-input-suffix-icon"
-    [class.c-input__clear--visible]="value?.length > 0"
-    (click)="reset()"
-  >clear</ts-icon>
-
-  <mat-datepicker-toggle
-    tsSuffix
-    *ngIf="datepicker"
-    class="qa-datepicker-toggle qa-input-suffix-icon"
-    [for]="picker"
-  ></mat-datepicker-toggle>
-</ng-container>
-
-
-<!--
-   -Inner Input
-   -->
+<!-- -Inner element proper -->
 <ng-template #contentTemplate>
   <ng-container *ngIf="!isTextarea && !datepicker">
     <input
-      class="c-input__text qa-input-text ts-form-field-autofill-control"
-      type="{{ type }}"
+      class="c-input__text ts-form-field-autofill-control"
+      [class.c-input__text--error]="!!errorMessage"
+      [attr.type]="type"
       [attr.aria-required]="isRequired"
       [attr.aria-describedby]="ariaDescribedby || null"
       [attr.autocapitalize]="autocapitalize ? 'on' : 'off'"
@@ -112,11 +29,12 @@
       [readonly]="readOnly"
       [required]="isRequired ? 'required' : null"
       [attr.spellcheck]="spellcheck"
+      [attr.placeholder]="placeholder"
       tabIndex="{{ tabIndex }}"
       [(ngModel)]="value"
       (blur)="focusChanged(false)"
       (focus)="focusChanged(true)"
-      (input)="onInput($event.target)"
+      (input)="onInput($event)"
       (paste)="inputPaste.emit($event)"
       #inputElement
     >
@@ -124,8 +42,9 @@
 
   <ng-container *ngIf="!isTextarea && datepicker">
     <input
-      class="c-input__text c-input__text--datepicker qa-input-text ts-form-field-autofill-control"
-      type="{{ type }}"
+      class="c-input__text c-input__text--datepicker ts-form-field-autofill-control"
+      [class.c-input__text--error]="!!errorMessage"
+      [attr.type]="type"
       [attr.aria-required]="isRequired"
       [attr.aria-describedby]="ariaDescribedby || null"
       [attr.autocapitalize]="autocapitalize ? 'on' : 'off'"
@@ -141,7 +60,7 @@
       [(ngModel)]="value"
       (blur)="focusChanged(false)"
       (focus)="focusChanged(true)"
-      (input)="onInput($event.target)"
+      (input)="onInput($event)"
       [matDatepickerFilter]="dateFilter"
       [matDatepicker]="picker"
       [min]="minDate"
@@ -150,11 +69,14 @@
       (paste)="inputPaste.emit($event)"
       #inputElement
     >
+    <mat-datepicker-toggle [for]="picker"></mat-datepicker-toggle>
   </ng-container>
 
   <ng-container *ngIf="isTextarea">
     <textarea
-      class="c-input__text c-input__text--textarea qa-input-text ts-form-field-autofill-control"
+      class="c-input__text c-input__text--textarea ts-form-field-autofill-control"
+      [class.c-input__text--error]="!!errorMessage"
+      [attr.type]="type"
       [attr.aria-required]="isRequired"
       [attr.aria-describedby]="ariaDescribedby || null"
       [attr.autocapitalize]="autocapitalize ? 'on' : 'off'"
@@ -171,16 +93,40 @@
       [(ngModel)]="value"
       (blur)="focusChanged(false)"
       (focus)="focusChanged(true)"
-      (input)="onInput($event.target)"
+      (input)="onInput($event)"
       (paste)="inputPaste.emit($event)"
       #inputElement
     ></textarea>
   </ng-container>
 </ng-template>
 
+<ng-template #clearIconTemplate>
+  <span
+    class="c-input__clear"
+    *ngIf="isClearable && !shouldBeDisabled && !datepicker"
+    [class.c-input__clear--visible]="!empty"
+    (click)="reset()"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      data-prefix="fas"
+      data-icon="times-circle"
+      class="svg-inline--fa fa-times-circle fa-w-16"
+      role="img"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 512 512"
+    >
+      <path
+        fill="currentColor"
+        d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
+      ></path>
+    </svg>
+  </span>
+</ng-template>
 
 <mat-datepicker
-  class="c-datepicker__calendar qa-datepicker-calendar"
+  class="c-datepicker__calendar"
   [disabled]="shouldBeDisabled"
   [startView]="startingView"
   [startAt]="openTo"

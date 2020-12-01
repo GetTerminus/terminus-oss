@@ -1,6 +1,14 @@
 /* eslint-disable @angular-eslint/no-conflicting-lifecycle */
 import { Platform } from '@angular/cdk/platform';
 import { AutofillMonitor } from '@angular/cdk/text-field';
+import type {
+  AfterContentInit,
+  AfterViewInit,
+  DoCheck,
+  OnChanges,
+  OnDestroy,
+  SimpleChanges,
+} from '@angular/core';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -18,28 +26,16 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import type {
-  AfterContentInit,
-  AfterViewInit,
-  DoCheck,
-  OnChanges,
-  OnDestroy,
-  SimpleChanges,
-} from '@angular/core';
 import {
   FormControl,
   NgControl,
 } from '@angular/forms';
-import type { AbstractControl } from '@angular/forms';
 import {
   DateAdapter,
   MAT_DATE_FORMATS,
   MAT_DATE_LOCALE,
 } from '@angular/material/core';
 import { MatDatepicker } from '@angular/material/datepicker';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { faTimesCircle } from '@fortawesome/pro-solid-svg-icons';
-import { Subject } from 'rxjs';
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 import { createTextMaskInputElement } from 'text-mask-core/dist/textMaskCore';
@@ -54,10 +50,7 @@ import {
   noop,
   TsDocumentService,
 } from '@terminus/fe-utilities';
-import { TsFormFieldControl } from '@terminus/ui-form-field';
 import { TsDatePipe } from '@terminus/ui-pipes';
-import { TS_SPACING } from '@terminus/ui-spacing';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 import {
   TS_DATE_FORMATS,
@@ -178,8 +171,6 @@ const DEFAULT_DATE_LOCALE = 'en-US';
  *              dateLocale="en-US"
  *              [datepicker]="true"
  *              [formControl]="myForm.get('myControl')"
- *              [hasExternalFormField]="true"
- *              [hideRequiredMarker]="false"
  *              hint="My hint!"
  *              id="my-id"
  *              [isClearable]="true"
@@ -195,15 +186,11 @@ const DEFAULT_DATE_LOCALE = 'en-US';
  *              name="password"
  *              [(ngModel]="myModel"
  *              openTo="{{ new Date(1990, 1, 1) }}"
- *              prefixIcon="myIconReference"
- *              suffixIcon="myIconReference"
  *              [readOnly]="false"
  *              [spellcheck]="false"
  *              startingView="year"
  *              tabIndex="2"
- *              theme="primary"
  *              type="text"
- *              [validateOnChange]="false"
  *              (cleared)="userClearedInput($event)"
  *              (inputBlur)="userLeftInput($event)"
  *              (inputFocus)="userFocusedInput($event)"
@@ -219,12 +206,9 @@ const DEFAULT_DATE_LOCALE = 'en-US';
   host: {
     'class': 'ts-input',
     '[class.ts-input--datepicker]': 'datepicker',
+    '[class.ts-input--error]': '!!errorMessage',
   },
   providers: [
-    {
-      provide: TsFormFieldControl,
-      useExisting: TsInputComponent,
-    },
     {
       provide: DateAdapter,
       useClass: TsDateAdapter,
@@ -242,8 +226,7 @@ const DEFAULT_DATE_LOCALE = 'en-US';
   encapsulation: ViewEncapsulation.None,
   exportAs: 'tsInput',
 })
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit, AfterContentInit, DoCheck, OnChanges, OnDestroy {
+export class TsInputComponent implements AfterViewInit, AfterContentInit, DoCheck, OnChanges, OnDestroy {
   /**
    * Emits when the value changes (either due to user input or programmatic change). Need for Material Datepicker.
    *
@@ -283,21 +266,9 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
   private document: Document;
 
   /**
-   * Define the flex layout gap
-   */
-  public flexGap = TS_SPACING.small[0];
-
-  /**
    * Define whether the input has focus
-   *
-   * Implemented as part of {@link TsFormFieldControl}
    */
   public focused = false;
-
-  /**
-   * Implemented as part of TsFormFieldControl.
-   */
-  public readonly labelChanges: Subject<void> = new Subject<void>();
 
   /**
    * Store the last value for comparison
@@ -320,16 +291,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private previousNativeValue: any;
-
-  /**
-   * Reference to itself. Passed to {@link TsFormFieldComponent}.
-   */
-  public selfReference: TsInputComponent = this;
-
-  /**
-   * Implemented as part of TsFormFieldControl.
-   */
-  public readonly stateChanges: Subject<void> = new Subject<void>();
 
   /**
    * Base settings for the mask
@@ -375,8 +336,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
    *   2. Input has no value
    *   3. Native input validation is valid
    *   4. Input is not filled by browser
-   *
-   * Implemented as part of {@link TsFormFieldControl}.
    */
   public get empty(): boolean {
     // Since we are using ViewChild, we need to verify the existence of the element
@@ -385,7 +344,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     if (!input) {
       return true;
     }
-
     return !!input && !input.value && !this.isBadInput() && !this.autofilled;
   }
 
@@ -394,13 +352,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
    */
   public get shouldBeDisabled(): boolean {
     return this.formControl.disabled || this.isDisabled;
-  }
-
-  /**
-   * Determine if the label should float
-   */
-  public get shouldLabelFloat(): boolean {
-    return this.focused || !this.empty;
   }
 
   /**
@@ -417,7 +368,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
       const sanitizedValue = this.maskSanitizeValue && this.currentMask ? this.cleanValue(v, this.currentMask.unmaskRegex) : v;
       this.inputValueAccessor.value = v;
       this.onChangeCallback(sanitizedValue);
-      this.stateChanges.next();
     }
 
     // istanbul ignore else
@@ -495,17 +445,17 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
   @Input()
   public set datepicker(value: boolean) {
     this._datepicker = value;
-
-    // When using a datepicker, we need to validate on change so that selecting a date from the calendar
-    // istanbul ignore else
-    if (this.datepicker) {
-      this.validateOnChange = true;
-    }
   }
   public get datepicker(): boolean {
     return this._datepicker;
   }
   private _datepicker = false;
+
+  /**
+   * Define an error message
+   */
+  @Input()
+  public errorMessage: string;
 
   /**
    * Define the form control to get access to validators
@@ -526,6 +476,7 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
         this.inputValueAccessor.value = this._formControl.value;
       });
       // HACK: This is to get disabled field set properly on both datepicker and input level
+      // istanbul ignore else
       // eslint-disable-next-line dot-notation
       if (!this.changeDetectorRef['destroyed']) {
         this.changeDetectorRef.detectChanges();
@@ -536,20 +487,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     return this._formControl;
   }
   private _formControl: FormControl = new FormControl();
-  // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility, @typescript-eslint/naming-convention
-  static ngAcceptInputType_formControl: FormControl | AbstractControl;
-
-  /**
-   * Define if the use-case provides it's own {@link TsFormFieldComponent} or if this component should provide it's own.
-   */
-  @Input()
-  public hasExternalFormField = false;
-
-  /**
-   * Define if a required marker should be included
-   */
-  @Input()
-  public hideRequiredMarker = false;
 
   /**
    * Define a hint for the input
@@ -587,8 +524,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
 
   /**
    * Define if the input should be disabled
-   *
-   * Implemented as part of {@link TsFormFieldControl}
    */
   @Input()
   public isDisabled = false;
@@ -613,8 +548,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
 
   /**
    * Define if the input is required
-   *
-   * Implemented as part of {@link TsFormFieldControl}
    *
    * @param value
    */
@@ -764,18 +697,10 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
   private _openTo: Date | undefined;
 
   /**
-   * Define an icon to include before the input
+   * Define placeholder text
    */
   @Input()
-  public prefixIcon: IconProp | undefined;
-
-  /**
-   * Define the clear icon
-   *
-   * @deprecated This input should not be used. This icon is only used as the 'clearable' trigger.
-   */
-  @Input()
-  public suffixIcon = faTimesCircle;
+  public placeholder: string;
 
   /**
    * Define if the input is readOnly
@@ -839,24 +764,17 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
   private _textareaRows = DEFAULT_TEXTAREA_ROWS;
 
   /**
-   * Define the component theme
-   */
-  @Input()
-  public theme: TsStyleThemeTypes = 'primary';
-
-  /**
    * Define the input type (text, password etc.) See {@link TsInputTypes}
    *
    * @param value
    */
   @Input()
   public set type(value: TsInputTypes) {
-    if (!value) {
-      value = 'text';
-    }
+    value = value ? value : 'text';
 
     // istanbul ignore else
     if (this.mask && (value === 'email' || value === 'number')) {
+      // TODO: make error
       // eslint-disable-next-line no-console
       console.warn(`TsInputComponent: "${value}" is not an allowed type when used with a mask. `
       + 'When using a mask, the input type must be "text", "tel", "url", "password" or "search".');
@@ -877,12 +795,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     return this._type;
   }
   private _type: TsInputTypes = 'text';
-
-  /**
-   * Define if validation messages should be shown immediately or on blur
-   */
-  @Input()
-  public validateOnChange = false;
 
   /**
    * The event to emit when the input value is cleared
@@ -915,14 +827,14 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
   public readonly selected: EventEmitter<Date> = new EventEmitter();
 
   constructor(
-    private elementRef: ElementRef,
+    protected platform: Platform,
     private renderer: Renderer2,
     private changeDetectorRef: ChangeDetectorRef,
     private autofillMonitor: AutofillMonitor,
-    protected platform: Platform,
     private ngZone: NgZone,
     private documentService: TsDocumentService,
     private datePipe: TsDatePipe,
+    public elementRef: ElementRef,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     @Optional() @Self() @Inject(TS_INPUT_VALUE_ACCESSOR) inputValueAccessor: any,
     @Optional() public dateAdapter: DateAdapter<Date>,
@@ -947,7 +859,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     this.previousNativeValue = this.value;
   }
 
-
   /**
    * After the view is initialized, trigger any needed animations
    */
@@ -957,7 +868,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     // Begin monitoring for the input autofill
     this.autofillMonitor.monitor(this.inputElement.nativeElement).subscribe(event => {
       this.autofilled = event.isAutofilled;
-      this.stateChanges.next();
     });
 
     // istanbul ignore else
@@ -976,7 +886,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     }
     /* eslint-enable no-underscore-dangle */
   }
-
 
   /**
    * HACK: Without this hack, seeded values are not initially seen so the label overlaps the content.
@@ -1007,13 +916,11 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     }
   }
 
-
   public ngDoCheck(): void {
     // We need to dirty-check the native element's value, because there are some cases where we won't be notified when it changes (e.g. the
     // consumer isn't using forms or they're updating the value using `emitEvent: false`).
     this.dirtyCheckNativeValue();
   }
-
 
   /**
    * Trigger needed changes when specific inputs change
@@ -1024,7 +931,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     const validMaskChange = !!(inputHasChanged(changes, 'mask') && this.mask);
     const validSanitizeChange = !!(inputHasChanged(changes, 'maskSanitizeValue'));
     const validDecimalChange = !!(inputHasChanged(changes, 'maskAllowDecimal'));
-    const validLabelChange = !!(inputHasChanged(changes, 'label'));
 
     // istanbul ignore else
     if (validMaskChange || validSanitizeChange || validDecimalChange) {
@@ -1052,21 +958,11 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
       this.changeDetectorRef.detectChanges();
     }
 
-    // Let the parent FormField know that it should update the ouline gap for the new label
-    if ((validLabelChange && !changes.label.firstChange)) {
-      // Trigger change detection first so that the FormField will be working with the latest version
-      this.changeDetectorRef.detectChanges();
-      this.labelChanges.next();
-    }
-
     // istanbul ignore else
     if (this.textMaskInputElement !== undefined) {
       this.textMaskInputElement.update(this.inputElement.nativeElement.value);
     }
-
-    this.stateChanges.next();
   }
-
 
   /**
    * Stop monitoring autofill
@@ -1079,11 +975,7 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     if (this._valueChange) {
       this._valueChange.complete();
     }
-
-    this.stateChanges.complete();
-    this.labelChanges.complete();
   }
-
 
   /**
    * Fix for the iOS caret bug
@@ -1111,7 +1003,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     });
   }
 
-
   /**
    * Set touched on blur
    */
@@ -1119,7 +1010,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     this.onTouchedCallback();
     this.inputBlur.emit(this.value);
   }
-
 
   /**
    * Update the inner value when the formControl value is updated
@@ -1134,7 +1024,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     }
   };
 
-
   /**
    * Register onChange callback (from ControlValueAccessor interface)
    *
@@ -1144,7 +1033,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
   public registerOnChange(fn: any): void {
     this.onChangeCallback = fn;
   }
-
 
   /**
    * Register onTouched callback (from ControlValueAccessor interface)
@@ -1156,7 +1044,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     this.onTouchedCallback = fn;
   }
 
-
   /**
    * Clear the input's value
    */
@@ -1167,7 +1054,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     this.changeDetectorRef.markForCheck();
   }
 
-
   /**
    * Callback for when the focused state of the input changes
    *
@@ -1177,7 +1063,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     // istanbul ignore else
     if (nowFocused !== this.focused && !this.readOnly) {
       this.focused = nowFocused;
-      this.stateChanges.next();
     }
 
     if (nowFocused) {
@@ -1189,7 +1074,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
       this.inputBlur.emit(this.value);
     }
   }
-
 
   /**
    * Write the value
@@ -1221,25 +1105,22 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     }
   }
 
-
   /**
    * Update values on input
    *
    * NOTE: KNOWN BUG that allows model and UI to get out of sync when extra characters are added after a fully satisfied mask.
    *
-   * @param target - The event target for the input event.
+   * @param event - The event target for the input event.
    */
-  public onInput(target: HTMLInputElement | HTMLTextAreaElement): void {
-    if (!target) {
+  public onInput(event: Event): void {
+    if (!event || !event.target) {
       return;
     }
-
+    const target = event.target as (HTMLInputElement | HTMLTextAreaElement);
     let value = target.value;
-
     // We need to trim the last character due to a bug in the text-mask library
     const trimmedValue = this.trimLastCharacter(value);
     this.inputElement.nativeElement.value = trimmedValue;
-    this.stateChanges.next();
     // istanbul ignore else
     if (this.textMaskInputElement !== undefined) {
       // Update the mask.
@@ -1266,7 +1147,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     }
   }
 
-
   /**
    * Notify consumer of date changed from the picker being used.
    *
@@ -1283,7 +1163,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
 
     this.selected.emit(date);
   }
-
 
   /**
    * Remove the mask if needed
@@ -1303,7 +1182,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     const finalRegex: RegExp = isFunction(regex) ? regex() : regex;
     return finalRegex && value ? value.toString().replace(new RegExp(finalRegex), '') : value;
   }
-
 
   /**
    * Create the collection of possible masks
@@ -1348,7 +1226,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     };
   }
 
-
   /**
    * Helper to determine the correct postal code match (5 characters vs 9)
    *
@@ -1363,7 +1240,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     return [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   }
 
-
   /**
    * Checks whether the input is invalid based on the native validation
    *
@@ -1373,7 +1249,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     const validity: ValidityState = (this.inputElement.nativeElement).validity;
     return validity && validity.badInput;
   }
-
 
   /**
    * Set the model value
@@ -1389,7 +1264,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     }
   }
 
-
   /**
    * Register our custom onChange function
    *
@@ -1401,7 +1275,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
       this.formControl.registerOnChange(fn);
     }
   }
-
 
   /**
    * Set the current mask definition
@@ -1423,7 +1296,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     };
   }
 
-
   /**
    * Create the mask
    */
@@ -1441,12 +1313,11 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     }
   }
 
-
   /**
    * Update mask model
    *
    * HACK: Firing an event inside a timeout is the only way I can get the model to update after the mask dynamically changes. The UI
-   * updates perfectly, but the unsanitized model value retains the previous masked value.
+   * updates perfectly, but the un-sanitized model value retains the previous masked value.
    */
   private updateMaskModelHack(): void {
     const event = this.document.createEvent('Event');
@@ -1455,7 +1326,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
       this.inputElement.nativeElement.dispatchEvent(event);
     });
   }
-
 
   /**
    * HACK: Trim the last character of the model when the string is longer than the model
@@ -1487,8 +1357,7 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
 
         if (split.length === twoItems && split[1].length > decimals) {
           // Trim the final character off
-          const trimmedValue = cleanValue.slice(0, -1);
-          value = trimmedValue;
+          value = cleanValue.slice(0, -1);
         }
       } else {
         let stringifiedDate: string | undefined;
@@ -1503,17 +1372,14 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
           // Determine the max length to trim the extra character
           // Get the cleaned value if needed
           const finalValue = this.maskSanitizeValue ? this.cleanValue(stringifiedDate || value, this.currentMask.unmaskRegex) : value;
-          const trimmedValue = finalValue.slice(0, -1);
-
           // Trim the final character off
-          value = trimmedValue;
+          value = finalValue.slice(0, -1);
         }
       }
     }
 
     return value;
   }
-
 
   /**
    * Convert an valid date string to a Date if needed
@@ -1527,7 +1393,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
   private verifyIsDateObject(date: string | Date): Date {
     return (date instanceof Date) ? date : new Date(date);
   }
-
 
   /**
    * Determine if a date string is valid.
@@ -1546,21 +1411,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
     const isValid: boolean = isValidDate(value);
     return hasCorrectLength && isValid;
   }
-
-
-  /**
-   * Implemented as part of {@link TsFormFieldControl}.
-   */
-  public onContainerClick(): void {
-    // Do not re-focus the input element if the element is already focused. Otherwise it can happen
-    // that someone clicks on a time input and the cursor resets to the "hours" field while the
-    // "minutes" field was actually clicked. See: https://github.com/angular/material2/issues/12849
-    // istanbul ignore else
-    if (!this.focused) {
-      this.focus();
-    }
-  }
-
 
   /**
    * Focus the input element
@@ -1594,7 +1444,6 @@ export class TsInputComponent implements TsFormFieldControl<any>, AfterViewInit,
 
     if (this.previousNativeValue !== newValue) {
       this.previousNativeValue = newValue;
-      this.stateChanges.next();
     }
   }
 }

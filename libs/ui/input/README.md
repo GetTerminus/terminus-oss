@@ -8,22 +8,17 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be installed](#packages-that-need-to-be-installed)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Hint](#hint)
   - [No validation or hint](#no-validation-or-hint)
-  - [Prefix icon](#prefix-icon)
   - [Disabled](#disabled)
   - [Required](#required)
-    - [Required asterisk `*`](#required-asterisk-)
   - [Clearable](#clearable)
   - [Focused](#focused)
   - [Input Type](#input-type)
   - [Input Attributes](#input-attributes)
-  - [Validation timing](#validation-timing)
   - [Component reference](#component-reference)
   - [Usage with Reactive Forms](#usage-with-reactive-forms)
   - [Event Emitters](#event-emitters)
@@ -33,9 +28,9 @@
     - [Allow decimals in number-based masks](#allow-decimals-in-number-based-masks)
   - [Datepicker](#datepicker)
     - [Filter out available dates](#filter-out-available-dates)
-    - [Set a max/min date range](#set-a-maxmin-date-range)
-    - [Open calendar to a specific date](#open-calendar-to-a-specific-date)
-    - [Open calendar to a specific view](#open-calendar-to-a-specific-view)
+    - [Set a min/max date range](#set-a-minmax-date-range)
+    - [Open the calendar to a specific date](#open-the-calendar-to-a-specific-date)
+    - [Open the calendar to a specific view](#open-the-calendar-to-a-specific-view)
     - [Example with dynamic validation](#example-with-dynamic-validation)
   - [Textarea](#textarea)
     - [Rows](#rows)
@@ -45,42 +40,15 @@
 
 ## Installation
 
-### Packages that need to be installed
-
-- `@angular/cdk`
-- `@angular/flex-layout`
-- `@angular/material`
-- `@terminus/design-tokens`
-- `@terminus/fe-utilities`
-- `@terminus/ui-form-field`
-- `@terminus/ui-icon`
-- `@terminus/ui-input`
-- `@terminus/ui-pipes`
-- `@terminus/ui-spacing`
-- `@terminus/ui-styles`
-- `@terminus/ui-utilities`
-- `@terminus/ui-validation-messages`
-- `@terminus/ui-validators`
-- `date-fns`
-- `text-mask-addons`
-- `text-mask-core`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-input
 ```
 
-### Modules that need to be in NgModule
-
-- `BrowserAnimationsModule`
-- `TsInputModule`
-- `FormsModule`
-- `ReactiveFormsModule`
-
 ### CSS imports
 
-In your top level stylesheet, add these imports:
+In your top-level stylesheet, add these imports:
 
 ```css
 @import '~@terminus/design-tokens/css/library-design-tokens.css';
@@ -102,12 +70,12 @@ Attach an `NgModel` or `FormControl` to the input:
 ```html
 <ts-input [formControl]="myForm.get('myControl')"></ts-input>
 <!-- OR -->
+<ts-input formControlName="myControl"></ts-input>
+<!-- OR -->
 <ts-input [(ngModel)]="myModel"></ts-input>
 ```
 
 We should _almost always_ being using a `FormControl`.
-
-> Note: If you don't need a full form group you can provide a stand-alone control: `myControl = new FormControl();`
 
 ### Hint
 
@@ -116,40 +84,22 @@ requirements.
 
 ```html
 <ts-input
-  [formControl]="myForm.get('myControl')"
+  formControlName="myControl"
   hint="Must contain only numbers and letters."
 ></ts-input>
 ```
 
 ### No validation or hint
 
-A flag to define whether this input field needs validation or hint. If it needs validation or hint, a padding bottom is added for the message, otherwise, no padding at the bottom.
+A flag to define whether this input field needs validation or hint. If it needs validation or hint, space below the
+input is added for the message.
 
 ```html
 <ts-input
-  [formControl]="myFormCtrl"
+  formControlName="myControl"
   [noValidationOrHint]="true"
 ></ts-input>
 ```
-
-### Prefix icon
-
-To include an icon as a prefix to the input, pass a valid icon instance to `prefixIcon`:
-
-```typescript
-import { faHome } from '@fortawesome/pro-solid-svg-icons/faHome';
-...
-public home = faHome;
-```
-
-```html
-<ts-input
-  [formControl]="myForm.get('myControl')"
-  [prefixIcon]="home"
-></ts-input>
-```
-
-> See all valid icon possibilities: <https://fontawesome.com/icons>
 
 ### Disabled
 
@@ -164,7 +114,7 @@ The `isDisabled` flag works with both `ngModel` and `FormControl` inputs:
 When using Reactive Forms, controls should be disabled via the control:
 
 ```typescript
-myControl: FormControl = new FormControl({value: null, disabled: true});
+myControl: FormControl = new FormControl({value: '', disabled: true});
 ```
 
 ### Required
@@ -179,34 +129,19 @@ When using `ngModel`, validations are placed on the input as data-attributes (ju
 
 ```html
 <ts-input
-  [formControl]="myForm.get('myControl')"
+  formControlName="myControl"
   required
 ></ts-input>
 ```
 
-If only the required asterisk is needed rather than validation errors, the `isRequired` flag can be used:
+The `isRequired` flag can also be used:
 
 ```html
 <ts-input
-  [formControl]="myForm.get('myControl')"
+  formControlName="myControl"
   [isRequired]="true"
 ></ts-input>
 ```
-
-#### Required asterisk `*`
-
-If the input should be required, but the required asterisk `*` is not needed, disable it with the
-`hideRequiredMarker` input:
-
-```html
-<ts-input
-  [formControl]="myForm.get('myControl')"
-  [isRequired]="true"
-  [hideRequiredMarker]="true"
-></ts-input>
-```
-
-> NOTE: We should not hide this visual indicator without a very good reason!
 
 ### Clearable
 
@@ -215,7 +150,7 @@ button: (button will appear as small `x` icon at the far right of the input)
 
 ```html
 <ts-input
-  [formControl]="myForm.get('myControl')"
+  formControlName="myControl"
   [isClearable]="true"
 ></ts-input>
 ```
@@ -228,7 +163,7 @@ Auto-focus the input when the view loads:
 
 ```html
 <ts-input
-  [formControl]="myForm.get('myControl')"
+  formControlName="myControl"
   [isFocused]="true"
 ></ts-input>
 ```
@@ -240,7 +175,7 @@ This can also be used to dynamically focus an existing input:
 
 ```html
 <ts-input
-  [formControl]="myForm.get('myControl')"
+  formControlName="myControl"
   [isFocused]="myFocusedFlag"
 ></ts-input>
 ```
@@ -278,33 +213,22 @@ The input type can be defined with the type input:
 
 > For all allowed `autocomplete` types, see `TsInputAutocompleteTypes`.
 
-### Validation timing
-
-Validate on change rather than blur:
-
-```html
-<ts-input
-  [formControl]="myForm.get('myControl')"
-  [validateOnChange]="true"
-></ts-input>
-```
-
 ### Component reference
 
 To get a reference to the component class, assign the exported name to a local variable:
 
 ```html
 <ts-input
-  [formControl]="myForm.get('myControl')"
-  #myVar="tsInput"
+  formControlName="myControl"
+  #myInput="tsInput"
 ></ts-input>
 ```
 
 ```typescript
 @ViewChild(TsInputComponent, {static: false})
-myVar: TsInputComponent;
+myInput: TsInputComponent;
 
-console.log('Component Class: ', this.myVar);
+console.log('Component Class: ', this.myInput);
 ```
 
 ### Usage with Reactive Forms
@@ -453,7 +377,7 @@ myFilter = (d: Date): boolean => {
 }
 ```
 
-#### Set a max/min date range
+#### Set a min/max date range
 
 To define bounds for date selection, pass in a valid `Date` to `minDate` and/or `maxDate`:
 
@@ -470,7 +394,7 @@ date1 = new Date(2017, 2, 1);
 date2 = new Date(2017, 8, 1);
 ```
 
-#### Open calendar to a specific date
+#### Open the calendar to a specific date
 
 Pass in a `Date` to `openTo`:
 
@@ -482,7 +406,7 @@ Pass in a `Date` to `openTo`:
 myDate = new Date(2017, 5, 12);
 ```
 
-#### Open calendar to a specific view
+#### Open the calendar to a specific view
 
 By default, the calendar opens up to show the month view. This can be changed to show the year view initially:
 
@@ -500,13 +424,13 @@ We can recreate a version of the {@link TsDateRangeComponent} using dynamic vali
 <form [formGroup]="myForm" novalidate>
   <ts-input
     [datepicker]="true"
-    [formControl]="myForm.get('startDate')"
+    formControlName="startDate"
     (selected)="rangeStartChange($event)"
   ></ts-input>
 
   <ts-input
     [datepicker]="true"
-    [formControl]="myForm.get('endDate')"
+    formControlName="endDate"
     (selected)="rangeEndChange($event)"
   ></ts-input>
 
@@ -573,7 +497,7 @@ Switch from a standard input to a textarea:
 
 ```html
 <ts-input
-  [formControl]="myForm.get('myControl')"
+  formControlName="myControl"
   [isTextarea]="true"
 ></ts-input>
 ```
@@ -584,7 +508,7 @@ The row count can be dynamically adjusted:
 
 ```html
 <ts-input
-  [formControl]="myForm.get('myControl')"
+  formControlName="myControl"
   [isTextarea]="true"
   textareaRows="12"
 ></ts-input>

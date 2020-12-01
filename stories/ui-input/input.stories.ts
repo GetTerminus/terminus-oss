@@ -1,11 +1,10 @@
-import { APP_INITIALIZER } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  FaIconLibrary,
-  FontAwesomeModule,
-} from '@fortawesome/angular-fontawesome';
-import { faAirFreshener } from '@fortawesome/pro-solid-svg-icons';
-import { faHome } from '@fortawesome/pro-solid-svg-icons/faHome';
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { action } from '@storybook/addon-actions';
 import {
   boolean,
@@ -21,14 +20,11 @@ import {
   sub,
 } from 'date-fns';
 
-import { TsIconModule } from '@terminus/ui-icon';
 import {
   TsInputComponent,
   TsInputModule,
 } from '@terminus/ui-input';
 
-// NOTE: Using the storybook states causes a circular issue with the plugin
-// "Converting circular structure to JSON"
 export default {
   title: 'Components/Data Entry/Input',
   component: TsInputComponent,
@@ -37,21 +33,9 @@ export default {
     moduleMetadata({
       imports: [
         BrowserAnimationsModule,
-        FontAwesomeModule,
-        TsIconModule,
+        FormsModule,
+        ReactiveFormsModule,
         TsInputModule,
-      ],
-      providers: [
-        {
-          provide: APP_INITIALIZER,
-          useFactory: (iconLibrary: FaIconLibrary) => async() => {
-            // Add the necessary icons inside the initializer body.
-            iconLibrary.addIcons(faHome);
-          },
-          // When using a factory provider you need to explicitly specify its dependencies.
-          deps: [FaIconLibrary],
-          multi: true,
-        },
       ],
     }),
   ],
@@ -60,19 +44,26 @@ export default {
 export const basic = () => ({
   template: `
     <div [style.width.px]="width">
-      <ts-input
-        [(ngModel)]="myValue"
-        [label]="label"
-        [theme]="theme"
-        (inputBlur)="onBlur($event)"
-        (inputFocus)="onFocus($event)"
-      ></ts-input>
+      <div style="margin-bottom: 2rem;">
+        <ts-input
+          [(ngModel)]="myValue"
+          [label]="label"
+          (inputBlur)="onBlur($event)"
+          (inputFocus)="onFocus($event)"
+        ></ts-input>
+      </div>
+      <div>
+        <ts-input
+          [(ngModel)]="myValue"
+          [label]="label"
+          [isDisabled]="true"
+        ></ts-input>
+      </div>
     </div>
   `,
   props: {
-    myValue: 'hello there',
-    label: text('Label', 'My Input'),
-    theme: select('Theme', ['primary', 'accent', 'warn'], 'primary'),
+    myValue: 'Lane Price',
+    label: text('Label', 'Email Address'),
     width: number('Container width', 300),
     onBlur: action('Blur: '),
     onFocus: action('Focus: '),
@@ -102,15 +93,17 @@ const MIN_DATE = sub(DEFAULT_DATE, { days: 7 });
 const MAX_DATE = add(DEFAULT_DATE, { days: 7 });
 export const datepicker = () => ({
   template: `
-    <ts-input
-      label="My datepicker input"
-      [datepicker]="true"
-      [maxDate]="maxDate"
-      [minDate]="minDate"
-      [startingView]="startingView"
-      [(ngModel)]="myValue"
-      (selected)="selected($event)"
-    ></ts-input>
+    <div [style.width.px]="width">
+      <ts-input
+        label="My datepicker input"
+        [datepicker]="true"
+        [maxDate]="maxDate"
+        [minDate]="minDate"
+        [startingView]="startingView"
+        [(ngModel)]="myValue"
+        (selected)="selected($event)"
+      ></ts-input>
+    </div>
   `,
   props: {
     maxDate: date('Maximum Date', MAX_DATE),
@@ -118,35 +111,12 @@ export const datepicker = () => ({
     myValue: DEFAULT_DATE,
     openTo: date('Open calendar to', DEFAULT_DATE),
     startingView: select('Starting View', ['month', 'year'], 'month'),
+    width: number('Container width', 300),
     selected: action('Selected: '),
   },
 });
 datepicker.parameters = {
   docs: { iframeHeight: 440 },
-};
-
-export const hideRequiredMarker = () => ({
-  template: `
-    <div [style.width.px]="width">
-      <ts-input
-        [(ngModel)]="myValue"
-        [isRequired]="true"
-        [hideRequiredMarker]="hideRequiredMarker"
-        [label]="label"
-        [theme]="theme"
-      ></ts-input>
-    </div>
-  `,
-  props: {
-    myValue: 'hello there',
-    hideRequiredMarker: boolean('Hide required marker', true),
-    label: text('Label', 'My input'),
-    theme: select('Theme', ['primary', 'accent', 'warn'], 'primary'),
-    width: number('Container width', 300),
-  },
-});
-hideRequiredMarker.parameters = {
-  actions: { disabled: true },
 };
 
 export const hint = () => ({
@@ -167,6 +137,58 @@ export const hint = () => ({
   },
 });
 hint.parameters = {
+  actions: { disabled: true },
+};
+
+export const errorMessage = () => ({
+  template: `
+    <div [style.width.px]="width">
+      <div style="margin-bottom: 2rem;">
+        <ts-input
+          [(ngModel)]="myValue"
+          label="My error message"
+          [errorMessage]="errorMessage"
+        ></ts-input>
+      </div>
+      <div>
+        <ts-input
+          [(ngModel)]="myValue"
+          label="My error message"
+          [isDisabled]="true"
+          [errorMessage]="errorMessage"
+        ></ts-input>
+      </div>
+    </div>
+  `,
+  props: {
+    myValue: 'hello there',
+    errorMessage: text('Error message', 'Must be a valid email address.'),
+    label: text('Label', 'My input'),
+    width: number('Container width', 300),
+  },
+});
+errorMessage.parameters = {
+  actions: { disabled: true },
+};
+
+export const placeholder = () => ({
+  template: `
+    <div [style.width.px]="width">
+      <ts-input
+        [(ngModel)]="myValue"
+        [label]="label"
+        [placeholder]="placeholder"
+      ></ts-input>
+    </div>
+  `,
+  props: {
+    myValue: '',
+    placeholder: text('Placeholder', 'My custom placeholder'),
+    label: text('Label', 'My input'),
+    width: number('Container width', 300),
+  },
+});
+placeholder.parameters = {
   actions: { disabled: true },
 };
 
@@ -210,26 +232,6 @@ mask.parameters = {
   docs: { iframeHeight: 200 },
 };
 
-export const prefixIcon = () => ({
-  template: `
-    <div [style.width.px]="width">
-      <ts-input
-        [(ngModel)]="myValue"
-        label="My input with a prefix"
-        [prefixIcon]="prefixIcon"
-      ></ts-input>
-    </div>
-  `,
-  props: {
-    prefixIcon: faAirFreshener,
-    myValue: 'hello there',
-    width: number('Container width', 300),
-  },
-});
-prefixIcon.parameters = {
-  actions: { disabled: true },
-};
-
 export const textarea = () => ({
   template: `
     <div [style.width.px]="width">
@@ -250,4 +252,24 @@ export const textarea = () => ({
 textarea.parameters = {
   actions: { disabled: true },
   docs: { iframeHeight: 140 },
+};
+
+export const formControlName = () => ({
+  template: `
+    <form [formGroup]="myForm" [style.width.px]="width">
+      <ts-input
+        formControlName="inputValue"
+        [label]="label"
+      ></ts-input>
+    </form>
+  `,
+  props: {
+    myForm: new FormGroup({
+      inputValue: new FormControl('My seeded value!'),
+    }),
+    width: number('Container width', 300),
+  },
+});
+formControlName.parameters = {
+  actions: { disabled: true },
 };
