@@ -54,9 +54,9 @@ jobs:
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-001-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-002-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-001-
+            ${{ runner.os }}-yarn-002-
         if: env.SHOULD_RUN == 'true'
       - name: "Install Dependencies"
         run: yarn install --frozen-lockfile --non-interactive
