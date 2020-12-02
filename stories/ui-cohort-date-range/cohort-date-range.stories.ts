@@ -95,6 +95,20 @@ const COHORTS_ACTIVE: TsDateCohort[] = [
 
 export const basic = () => ({
   component: TsCohortDateRangeComponent,
+  template: `
+    <div style="margin-bottom: 2rem;">
+      <ts-cohort-date-range
+        [cohorts]="cohorts"
+        (cohortDateRangeChanged)="cohortDateRangeChanged($event)"
+      ></ts-cohort-date-range>
+    </div>
+    <div>
+      <ts-cohort-date-range
+        [cohorts]="cohorts"
+        [isDisabled]="true"
+      ></ts-cohort-date-range>
+    </div>
+  `,
   props: {
     dateFormGroup: FORM_GROUP_SEEDED,
     cohorts: COHORTS_ACTIVE,

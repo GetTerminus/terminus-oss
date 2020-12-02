@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { TsDateRangeModule } from '@terminus/ui-date-range';
@@ -14,7 +13,6 @@ export * from './cohort/cohort-date-range.component';
 @NgModule({
   imports: [
     CommonModule,
-    FlexLayoutModule,
     ReactiveFormsModule,
     TsDateRangeModule,
     TsOptionModule,
