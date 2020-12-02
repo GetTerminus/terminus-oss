@@ -3,6 +3,8 @@
 <div class="ts-input__input-container">
   <ng-template *ngTemplateOutlet="contentTemplate"></ng-template>
   <ng-template *ngTemplateOutlet="clearIconTemplate"></ng-template>
+  <!-- Catch all output in case a consumer needs to add element(s) inside the container -->
+  <ng-content></ng-content>
 </div>
 
 <div class="ts-input__messages" *ngIf="!noValidationOrHint">
