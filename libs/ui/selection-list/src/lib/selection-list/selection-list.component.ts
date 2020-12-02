@@ -24,13 +24,8 @@ import {
   NgControl,
 } from '@angular/forms';
 import {
-  faCaretDown,
-  faSpinnerThird,
-} from '@fortawesome/pro-solid-svg-icons';
-import {
   BehaviorSubject,
   of,
-  Subject,
 } from 'rxjs';
 import {
   debounceTime,
@@ -49,7 +44,6 @@ import {
   TsChipCollectionComponent,
   TsChipEvent,
 } from '@terminus/ui-chip';
-import { TsFormFieldControl } from '@terminus/ui-form-field';
 import {
   getOptionScrollPosition,
   TS_OPTION_PARENT_COMPONENT,
@@ -94,6 +88,7 @@ export type TsSelectionListComparator = (a: unknown, b: unknown) => boolean;
  *              [displayFormatter]="formatterFunc"
  *              [valueComparator]="comparatorFunc"
  *              debounceDelay="300"
+ *              errorMessage="Select at least 1 item"
  *              [formControl]="myFormControl"
  *              hint="Begin typing to search.."
  *              [isDisabled]="isDisabled"
@@ -128,10 +123,6 @@ export type TsSelectionListComparator = (a: unknown, b: unknown) => boolean;
   },
   providers: [
     {
-      provide: TsFormFieldControl,
-      useExisting: TsSelectionListComponent,
-    },
-    {
       provide: TS_OPTION_PARENT_COMPONENT,
       useExisting: TsSelectionListComponent,
     },
@@ -143,8 +134,7 @@ export type TsSelectionListComparator = (a: unknown, b: unknown) => boolean;
 export class TsSelectionListComponent implements
   OnInit,
   AfterViewInit,
-  OnDestroy,
-  TsFormFieldControl<unknown> {
+  OnDestroy {
 
   /**
    * Determine if the dropdown arrow icon should be visible
@@ -158,11 +148,6 @@ export class TsSelectionListComponent implements
   public readonly componentName = 'TsSelectionListComponent';
 
   /**
-   * Define the dropdown arrow
-   */
-  public iconArrow = faCaretDown;
-
-  /**
    * Define the internal FormControl
    */
   public selectionListFormControl = new FormControl([]);
@@ -171,13 +156,6 @@ export class TsSelectionListComponent implements
    * Store a reference to the document object
    */
   private document: Document;
-
-  /**
-   * Subject used to alert the parent {@link TsFormFieldComponent} when the label gap should be recalculated
-   *
-   * Implemented as part of TsFormFieldControl.
-   */
-  public readonly labelChanges: Subject<void> = new Subject<void>();
 
   /**
    * Manages keyboard events for options in the panel.
@@ -195,22 +173,6 @@ export class TsSelectionListComponent implements
   public panelOpen = false;
 
   /**
-   * Define the icon for progress indication
-   */
-  public progressIcon = faSpinnerThird;
-
-  /**
-   * Since the FormFieldComponent is inside this template, we cannot use a provider to pass this component instance to the form field.
-   * Instead, we pass it manually through the template with this reference.
-   */
-  public selfReference = this;
-
-  /*
-   * Implemented as part of TsFormFieldControl.
-   */
-  public readonly stateChanges: Subject<void> = new Subject<void>();
-
-  /**
    * Define the default component ID
    */
   public readonly uid = `ts-selection-list-${nextUniqueId++}`;
@@ -224,6 +186,14 @@ export class TsSelectionListComponent implements
    * Store the search query
    */
   public searchQuery = '';
+
+  /**
+   * Define access to the panel container
+   *
+   * NOTE: The renamed variable is required. If we pass `panelContainer` it will be an HTMLDivElement instead of an ElementRef.
+   */
+  @ViewChild('panelContainer', { static: true })
+  public panelContainerElementRef!: ElementRef;
 
   /**
    * Access the panel
@@ -260,36 +230,6 @@ export class TsSelectionListComponent implements
    */
   @ContentChildren(TsOptgroupComponent)
   public optionGroups!: QueryList<TsOptgroupComponent>;
-
-  /**
-   * Determines whether the select or the input has a value
-   */
-  public get empty(): boolean {
-    // Since we are using ViewChild, we need to verify the existence of the element
-    const input = this.inputElement && this.inputElement.nativeElement;
-
-    return input
-      ? !this.selectionListFormControl.value.length && !this.inputElement.nativeElement.value.length
-      : !this.selectionListFormControl.value.length;
-  }
-
-  /**
-   * Determines whether the input has focus
-   */
-  public get focused(): boolean {
-    if (this.isDisabled) {
-      return false;
-    }
-    const el = this.inputElement && this.inputElement.nativeElement;
-    return (this.document.activeElement === el) || this.panelOpen;
-  }
-
-  /**
-   * Determine if the label should float
-   */
-  public get shouldLabelFloat(): boolean {
-    return this.focused || !this.empty;
-  }
 
   /**
    * Determine the trigger display when no user input is allowed
@@ -336,10 +276,10 @@ export class TsSelectionListComponent implements
   private _debounceDelay = DEFAULT_DEBOUNCE_DELAY;
 
   /**
-   * Define if the required marker should be hidden
+   * Define an error (validation) message
    */
   @Input()
-  public hideRequiredMarker = false;
+  public errorMessage: string;
 
   /**
    * Define a hint for the input
@@ -347,13 +287,7 @@ export class TsSelectionListComponent implements
    * @param value
    */
   @Input()
-  public set hint(value: string | undefined) {
-    this._hint = value;
-  }
-  public get hint(): string | undefined {
-    return this._hint;
-  }
-  private _hint: string | undefined;
+  public hint: string;
 
   /**
    * Define an ID for the component
@@ -628,7 +562,10 @@ export class TsSelectionListComponent implements
    */
   public ngAfterViewInit(): void {
     // Initialize arrow icon based on options length
-    this.showArrow = !!this.options.length;
+    Promise.resolve().then(() => {
+      this.showArrow = !!this.options.length;
+      this.changeDetectorRef.markForCheck();
+    });
     // Subscribe to options change to determine arrow icon visibility
     this.options.changes.pipe(untilComponentDestroyed(this)).subscribe(v => {
       this.showArrow = !!v.length;
@@ -705,6 +642,7 @@ export class TsSelectionListComponent implements
    * Close the overlay panel
    */
   public close(): void {
+    // istanbul ignore else
     if (this.trigger.panelOpen) {
       this.panelOpen = false;
       this.changeDetectorRef.markForCheck();
@@ -779,16 +717,6 @@ export class TsSelectionListComponent implements
   public setDisabledState(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
     this.changeDetectorRef.markForCheck();
-    this.stateChanges.next();
-  }
-
-  /**
-   * Ensure the correct element gets focus when the primary container is clicked.
-   *
-   * Implemented as part of TsFormFieldControl.
-   */
-  public onContainerClick(): void {
-    this.focusInput();
   }
 
   /**

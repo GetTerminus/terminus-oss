@@ -31,6 +31,7 @@ import {
 } from 'rxjs/operators';
 
 import { untilComponentDestroyed } from '@terminus/fe-utilities';
+import { TsInputModule } from '@terminus/ui-input';
 import {
   TsOptionComponent,
   TsOptionModule,
@@ -59,7 +60,7 @@ import {
       [hint]="hint"
       [isDisabled]="isDisabled"
       [formControl]="formControl"
-      [allowMultiple]="true"
+      [allowMultiple]="allowMultiple"
       [allowUserInput]="true"
       [reopenAfterSelection]="true"
       [displayFormatter]="formatter"
@@ -77,6 +78,7 @@ import {
   `,
 })
 class SelectionListWrapper implements OnInit, OnDestroy {
+  @Input() public allowMultiple = true;
   @Input() public hint: string;
   @Input() public isDisabled: boolean;
   @Input() public label: string;
@@ -152,6 +154,7 @@ export default {
         ReactiveFormsModule,
         TsOptionModule,
         TsSelectionListModule,
+        TsInputModule,
       ],
     }),
   ],
@@ -159,25 +162,36 @@ export default {
 
 export const basic = () => ({
   template: `
-    <ts-selection-list
-      [allowMultiple]="allowMultiple"
-      [label]="label"
-      [hint]="hint"
-      [formControl]="formControl"
-      [allowUserInput]="false"
-      [isDisabled]="isDisabled"
-    >
-      <ts-option [value]="f" [option]="f" *ngFor="let f of fruit">{{ f }}</ts-option>
-    </ts-selection-list>
+    <div style="margin-bottom: 2rem;">
+      <ts-selection-list
+        [allowMultiple]="allowMultiple"
+        [label]="label"
+        [hint]="hint"
+        [formControl]="formControl"
+        [allowUserInput]="false"
+      >
+        <ts-option [value]="f" [option]="f" *ngFor="let f of fruit">{{ f }}</ts-option>
+      </ts-selection-list>
+    </div>
+    <div>
+      <ts-selection-list
+        [allowMultiple]="allowMultiple"
+        [label]="label"
+        [hint]="hint"
+        [formControl]="formControl"
+        [allowUserInput]="false"
+        [isDisabled]="true"
+      >
+        <ts-option [value]="f" [option]="f" *ngFor="let f of fruit">{{ f }}</ts-option>
+      </ts-selection-list>
+    </div>
   `,
   props: {
-    hint: text('Hint', 'Begin typing to search..'),
-    isDisabled: boolean('Disabled', false),
-    label: text('Label', 'Select states'),
-    results: STATES.slice(0, 10),
-    formControl: new FormControl([]),
+    hint: text('Hint', 'Select an option..'),
+    label: text('Label', 'Select fruit'),
+    formControl: new FormControl(['Grape']),
     allowMultiple: boolean('Allow multiple selections', false),
-    fruit: ['apple', 'grape', 'peach', 'pear', 'banana'],
+    fruit: ['Apple', 'Grape', 'Peach', 'Pear', 'Banana'],
   },
 });
 basic.parameters = {
@@ -185,29 +199,25 @@ basic.parameters = {
   docs: { iframeHeight: 340 },
 };
 
-export const disabled = () => ({
-  template: `
-    <ts-selection-list
-      [allowMultiple]="allowMultiple"
-      [label]="label"
-      [formControl]="formControl"
-      [allowUserInput]="false"
-      [isDisabled]="isDisabled"
-    >
-      <ts-option [value]="f" [option]="f" *ngFor="let f of fruit">{{ f }}</ts-option>
-    </ts-selection-list>
-  `,
+export const userInputSingle = () => ({
+  component: SelectionListWrapper,
   props: {
-    isDisabled: boolean('Disabled', true),
+    allowMultiple: false,
+    emulateLongQuery: boolean('Emulate long-running query', false),
+    hint: 'Begin typing to search..',
+    isDisabled: boolean('Disabled', false),
     label: 'Select states',
-    results: STATES.slice(0, 10),
-    formControl: new FormControl([]),
-    allowMultiple: boolean('Allow multiple selections', false),
-    fruit: ['apple', 'grape', 'peach', 'pear', 'banana'],
+    closed: action('Closed'),
+    duplicate: action('Duplicate selection'),
+    opened: action('Opened'),
+    queryChange: action('Query changed'),
+    selectionChange: action('Selection changed'),
+    optionSelected: action('Option selected'),
+    optionDeselected: action('Option deselected'),
+    formControl: new FormControl(STATES.slice(0, 4)),
   },
 });
-basic.parameters = {
-  actions: { disabled: true },
+userInputSingle.parameters = {
   docs: { iframeHeight: 340 },
 };
 
@@ -243,6 +253,45 @@ export const disabledMultiple = () => ({
 });
 disabledMultiple.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 340 },
+};
+
+export const error = () => ({
+  template: `
+    <div style="margin-bottom: 2rem;">
+      <ts-selection-list
+        [label]="label"
+        [hint]="hint"
+        [formControl]="formControl"
+        [allowUserInput]="false"
+        errorMessage="At least one option must be selected"
+      >
+        <ts-option [value]="f" [option]="f" *ngFor="let f of fruit">{{ f }}</ts-option>
+      </ts-selection-list>
+    </div>
+    <div>
+      <ts-selection-list
+        [label]="label"
+        [hint]="hint"
+        [formControl]="formControl"
+        [allowUserInput]="false"
+        [isDisabled]="true"
+        errorMessage="At least one option must be selected"
+      >
+        <ts-option [value]="f" [option]="f" *ngFor="let f of fruit">{{ f }}</ts-option>
+      </ts-selection-list>
+    </div>
+  `,
+  props: {
+    hint: 'Select an option..',
+    label: 'Select fruit',
+    formControl: new FormControl([]),
+    fruit: ['Apple', 'Grape', 'Peach', 'Pear', 'Banana'],
+  },
+});
+error.parameters = {
+  actions: { disabled: true },
+  knobs: { disabled: true },
   docs: { iframeHeight: 340 },
 };
 
@@ -301,3 +350,34 @@ disabledMultiple.parameters = {
   actions: { disabled: true },
   docs: { iframeHeight: 340 },
 };
+
+export const alignmentWithInput = () => ({
+  template: `
+  <div style="display: flex;">
+    <ts-input
+      placeholder="Foo"
+      label="My input"
+      hint="My hint!"
+    ></ts-input>
+    <ts-selection-list
+      [label]="label"
+      [hint]="hint"
+      [formControl]="formControl"
+    >
+      <ts-option [value]="state" [option]="state" *ngFor="let state of results | async">{{ state.name }}</ts-option>
+    </ts-selection-list>
+  </div>
+  `,
+  props: {
+    hint: 'Select an option..',
+    label: 'Select states',
+    formControl: new FormControl(['Grape']),
+    fruit: ['Apple', 'Grape', 'Peach', 'Pear', 'Banana'],
+  },
+});
+alignmentWithInput.parameters = {
+  actions: { disabled: true },
+  knobs: { disabled: true },
+  docs: { iframeHeight: 340 },
+};
+
