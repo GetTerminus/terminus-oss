@@ -4,15 +4,11 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import {
-  MAT_DATE_FORMATS,
-  NativeDateModule,
-} from '@angular/material/core';
+import { NativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { TsPipesModule } from '@terminus/ui-pipes';
 
-import { TS_DATE_FORMATS } from './date-adapter/date-adapter';
 import { TsInputComponent } from './input/input.component';
 
 export * from './date-adapter/date-adapter';
@@ -27,12 +23,6 @@ export * from './input/input.component';
     NativeDateModule,
     ReactiveFormsModule,
     TsPipesModule,
-  ],
-  providers: [
-    {
-      provide: MAT_DATE_FORMATS,
-      useValue: TS_DATE_FORMATS,
-    },
   ],
   exports: [TsInputComponent],
   declarations: [TsInputComponent],
