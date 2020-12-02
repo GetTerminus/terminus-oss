@@ -11,6 +11,8 @@ import {
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { Spectator } from '@ngneat/spectator';
+import { createComponentFactory } from '@ngneat/spectator/jest';
 
 import {
   createComponent as createComponentInner,
@@ -21,6 +23,10 @@ import {
   typeInElement,
 } from '@terminus/fe-testing';
 import { KEYS } from '@terminus/fe-utilities';
+import {
+  TsCheckboxComponent,
+  TsCheckboxModule,
+} from '@terminus/ui-checkbox';
 import {
   getAllChipInstances,
   getChipElement,
@@ -45,7 +51,6 @@ import {
   getSelectionListInstance,
   getSelectionListTriggerElement,
 } from '@terminus/ui-selection-list/testing';
-import { getValidationMessageElement } from '@terminus/ui-validation-messages/testing';
 
 import {
   Seeded,
@@ -58,7 +63,7 @@ import {
  *
  * @param component
  */
-function createComponent<T>(component: Type<T>): ComponentFixture<T> {
+function createComponentLegacy<T>(component: Type<T>): ComponentFixture<T> {
   const moduleImports = [
     FormsModule,
     ReactiveFormsModule,
@@ -69,9 +74,33 @@ function createComponent<T>(component: Type<T>): ComponentFixture<T> {
   return createComponentInner(component, undefined, moduleImports);
 }
 
-describe(`TsSelectionListComponent`, function() {
+// describe.only(`TsSelectionList`, () => {
+//   let spectator: Spectator<TsSelectionListComponent>;
+//   let rootElement: HTMLElement;
+//   const createComponent = createComponentFactory({
+//     component: TsSelectionListComponent,
+//     imports: [TsSelectionListModule],
+//     declareComponent: false,
+//   });
+//
+//   beforeEach(() => {
+//     spectator = createComponent({
+//       props: {
+//         // label: 'FooBar',
+//       },
+//     });
+//     rootElement = spectator.component.elementRef.nativeElement;
+//   });
+//
+//   test(`should exist`, () => {
+//     expect(rootElement).toExist();
+//   });
+//
+// });
+
+describe(`TsSelectionListComponent Legacy`, function() {
   test(`should exist`, function() {
-    const fixture = createComponent(testComponents.Basic);
+    const fixture = createComponentLegacy(testComponents.Basic);
     fixture.detectChanges();
 
     expect(fixture.debugElement.query(By.css('.ts-selection-list'))).toBeTruthy();
@@ -79,7 +108,7 @@ describe(`TsSelectionListComponent`, function() {
 
   test(`should show a progress indicator`, () => {
     jest.useFakeTimers();
-    const fixture = createComponent(testComponents.Basic);
+    const fixture = createComponentLegacy(testComponents.Basic);
     fixture.detectChanges();
 
     let spinner = fixture.debugElement.query(By.css('.c-selection-list__spinner'));
@@ -95,37 +124,35 @@ describe(`TsSelectionListComponent`, function() {
   });
 
   test(`should show icon when options are not empty`, () => {
-    const fixture = createComponent(testComponents.ShowIcon);
+    const fixture = createComponentLegacy(testComponents.ShowIcon);
     fixture.detectChanges();
 
-    let icon = fixture.debugElement.query(By.css('.ts-icon'));
+    let icon = fixture.debugElement.query(By.css('.ts-selection-list__caret'));
     expect(icon).toBeFalsy();
 
     fixture.componentInstance.changeOptionsLength();
     fixture.detectChanges();
-    icon = fixture.debugElement.query(By.css('.ts-icon'));
+    icon = fixture.debugElement.query(By.css('.ts-selection-list__caret'));
     expect(icon).toBeTruthy();
   });
 
   test(`should set the disabled state when called`, () => {
-    const fixture = createComponent(testComponents.Basic);
+    const fixture = createComponentLegacy(testComponents.Basic);
     fixture.detectChanges();
     const instance = getSelectionListInstance(fixture);
     const selectionList = fixture.debugElement.query(By.css('.ts-selection-list')).nativeElement;
     instance['changeDetectorRef'].markForCheck = jest.fn();
-    instance.stateChanges.next = jest.fn();
 
     instance.setDisabledState(true);
     fixture.detectChanges();
 
     expect(instance['changeDetectorRef'].markForCheck).toHaveBeenCalled();
-    expect(instance.stateChanges.next).toHaveBeenCalled();
     expect(instance.isDisabled).toEqual(true);
     expect(selectionList.classList).toContain('ts-selection-list--disabled');
   });
 
   test(`should not open when disabled`, () => {
-    const fixture = createComponent(testComponents.Disabled);
+    const fixture = createComponentLegacy(testComponents.Disabled);
     fixture.detectChanges();
     const trigger = getSelectionListTriggerElement(fixture);
     dispatchMouseEvent(trigger, 'click');
@@ -138,7 +165,7 @@ describe(`TsSelectionListComponent`, function() {
   describe(`chips`, function() {
     describe(`seed value`, () => {
       test(`should show selections as chips when seeded manually`, () => {
-        const fixture = createComponent(testComponents.ManualSeeded);
+        const fixture = createComponentLegacy(testComponents.ManualSeeded);
         fixture.detectChanges();
         let chipElement;
         chipElement = fixture.debugElement.nativeElement.querySelectorAll('ts-chip');
@@ -150,7 +177,7 @@ describe(`TsSelectionListComponent`, function() {
       });
 
       test(`should show selections as chips when seeded while component starts up`, () => {
-        const fixture = createComponent(testComponents.Seeded);
+        const fixture = createComponentLegacy(testComponents.Seeded);
         fixture.detectChanges();
         const chipElement = fixture.debugElement.nativeElement.querySelectorAll('ts-chip');
         expect(chipElement.length).toBe(1);
@@ -158,13 +185,12 @@ describe(`TsSelectionListComponent`, function() {
     });
 
     test(`should allow chips to be removed`, fakeAsync(() => {
-      const fixture = createComponent(testComponents.Seeded);
+      const fixture = createComponentLegacy(testComponents.Seeded);
       fixture.detectChanges();
 
       let chips = getAllChipInstances(fixture);
       expect(chips.length).toEqual(1);
 
-      // const chip = getChipElement(fixture);
       const chipRemovalButton = getChipRemoveButton(chips[0]);
       const instance = getSelectionListInstance(fixture);
       // Open the panel so that overlayRef is created
@@ -193,7 +219,7 @@ describe(`TsSelectionListComponent`, function() {
         key: { get: () => KEYS.BACKSPACE.code },
         code: { get: () => KEYS.BACKSPACE.code },
       });
-      const fixture = createComponent(testComponents.Seeded);
+      const fixture = createComponentLegacy(testComponents.Seeded);
       fixture.detectChanges();
 
       let chips = getAllChipInstances(fixture);
@@ -215,7 +241,7 @@ describe(`TsSelectionListComponent`, function() {
   describe(`debounce`, function() {
     test(`should debounce the stream`, () => {
       jest.useFakeTimers();
-      const fixture = createComponent(testComponents.Debounce);
+      const fixture = createComponentLegacy(testComponents.Debounce);
       fixture.componentInstance.change = jest.fn();
       fixture.detectChanges();
       const instance = getSelectionListInstance(fixture);
@@ -232,7 +258,7 @@ describe(`TsSelectionListComponent`, function() {
 
     test(`should allow a custom debounce delay`, () => {
       jest.useFakeTimers();
-      const fixture = createComponent(testComponents.CustomDebounce);
+      const fixture = createComponentLegacy(testComponents.CustomDebounce);
       fixture.componentInstance.change = jest.fn();
       fixture.detectChanges();
       const instance = getSelectionListInstance(fixture);
@@ -251,7 +277,7 @@ describe(`TsSelectionListComponent`, function() {
   describe(`minimumCharacters`, function() {
     test(`should only emit query once past the minimum character count`, () => {
       jest.useFakeTimers();
-      const fixture = createComponent(testComponents.CustomCharacterCount);
+      const fixture = createComponentLegacy(testComponents.CustomCharacterCount);
       fixture.componentInstance.change = jest.fn();
       fixture.detectChanges();
       const instance = getSelectionListInstance(fixture);
@@ -270,7 +296,7 @@ describe(`TsSelectionListComponent`, function() {
 
     test(`should allow a custom minimum character count`, () => {
       jest.useFakeTimers();
-      const fixture = createComponent(testComponents.CustomCharacterCount);
+      const fixture = createComponentLegacy(testComponents.CustomCharacterCount);
       fixture.componentInstance.customCount = 1;
       fixture.componentInstance.change = jest.fn();
       fixture.detectChanges();
@@ -291,7 +317,7 @@ describe(`TsSelectionListComponent`, function() {
 
   test(`should only allow unique queries`, function() {
     jest.useFakeTimers();
-    const fixture = createComponent(testComponents.Debounce);
+    const fixture = createComponentLegacy(testComponents.Debounce);
     fixture.componentInstance.change = jest.fn();
     fixture.detectChanges();
     const instance = getSelectionListInstance(fixture);
@@ -309,7 +335,7 @@ describe(`TsSelectionListComponent`, function() {
   describe(`duplicate selections`, function() {
     // NOTE: Even though we are simulating a typed query, the list of states is not actually changing.
     test(`should not be allowed by default but should emit an event`, fakeAsync(function() {
-      const fixture = createComponent(testComponents.Seeded);
+      const fixture = createComponentLegacy(testComponents.Seeded);
       fixture.componentInstance.duplicate = jest.fn();
       fixture.detectChanges();
       const component = fixture.componentInstance;
@@ -342,7 +368,7 @@ describe(`TsSelectionListComponent`, function() {
 
     describe(`when allowed`, function() {
       test(`should allow a duplicate selection`, fakeAsync(() => {
-        const fixture = createComponent(testComponents.Seeded);
+        const fixture = createComponentLegacy(testComponents.Seeded);
         fixture.componentInstance.allowDuplicates = true;
         fixture.detectChanges();
 
@@ -374,7 +400,7 @@ describe(`TsSelectionListComponent`, function() {
   describe(`trigger`, function() {
     describe(`in single selection mode`, function() {
       test(`should set single value`, fakeAsync(() => {
-        const fixture = createComponent(testComponents.Seeded);
+        const fixture = createComponentLegacy(testComponents.Seeded);
         fixture.componentInstance.allowMultiple = false;
         fixture.componentInstance.keepOpen = false;
         tick(1000);
@@ -399,7 +425,7 @@ describe(`TsSelectionListComponent`, function() {
     });
 
     test(`should reset the query when a selection is made`, fakeAsync(function() {
-      const fixture = createComponent(testComponents.AllowMultipleNoReopen);
+      const fixture = createComponentLegacy(testComponents.AllowMultipleNoReopen);
       fixture.detectChanges();
 
       const input = getSelectionListInput(fixture);
@@ -420,13 +446,13 @@ describe(`TsSelectionListComponent`, function() {
     }));
 
     test(`should throw an error if a form control is set who's value isn't an array`, () => {
-      const fixture = createComponent(testComponents.SeededNonArray);
+      const fixture = createComponentLegacy(testComponents.SeededNonArray);
       expect(() => fixture.detectChanges()).toThrowError(`TsSelectionListComponent: Form control values must be an array of values`);
     });
 
     describe(`ngModel`, () => {
       test(`should seed the model after timeout when using ngModel`, fakeAsync(function() {
-        const fixture = createComponent(testComponents.SeededNgModel);
+        const fixture = createComponentLegacy(testComponents.SeededNgModel);
         fixture.detectChanges();
 
         const states = fixture.componentInstance.states;
@@ -440,7 +466,7 @@ describe(`TsSelectionListComponent`, function() {
     });
 
     test(`should allow a value seeded by a FormControl`, fakeAsync(function() {
-      const fixture = createComponent(testComponents.AllowMultipleNoReopen);
+      const fixture = createComponentLegacy(testComponents.AllowMultipleNoReopen);
       fixture.detectChanges();
 
       const states = fixture.componentInstance.states;
@@ -457,7 +483,7 @@ describe(`TsSelectionListComponent`, function() {
     }));
 
     test(`should close the panel if open when getting a blur event that isn't from a selection`, function() {
-      const fixture = createComponent(testComponents.Basic);
+      const fixture = createComponentLegacy(testComponents.Basic);
       fixture.componentInstance.disabled = true;
       fixture.detectChanges();
       const input = getSelectionListInput(fixture);
@@ -485,7 +511,7 @@ describe(`TsSelectionListComponent`, function() {
     });
 
     test(`should close the panel when focusing on another instance`, () => {
-      const fixture = createComponent(testComponents.Multiple);
+      const fixture = createComponentLegacy(testComponents.Multiple);
       fixture.detectChanges();
       const input2 = getSelectionListInput(fixture, 1);
       const instance = getSelectionListInstance(fixture);
@@ -502,7 +528,7 @@ describe(`TsSelectionListComponent`, function() {
     });
 
     test(`should update the overlay position when a chip is removed`, fakeAsync(() => {
-      const fixture = createComponent(testComponents.Seeded);
+      const fixture = createComponentLegacy(testComponents.Seeded);
       fixture.detectChanges();
       const instance = getSelectionListInstance(fixture);
       const triggerInstance = instance.trigger;
@@ -521,36 +547,36 @@ describe(`TsSelectionListComponent`, function() {
     }));
 
     describe(`required`, () => {
-      test(`should set required if the form control is required`, () => {
-        const fixture = createComponent(testComponents.ValidateOnChange);
-        fixture.detectChanges();
-        const component = getSelectionListElement(fixture);
-        const selectTrigger = getSelectionListTriggerElement(fixture);
-        dispatchMouseEvent(selectTrigger, 'click');
-        dispatchMouseEvent(component, 'click');
-        const validationMessage = getValidationMessageElement(fixture);
-
-        expect(validationMessage).toBeTruthy();
-      });
-
-      test(`should set required if the form control is required`, () => {
-        const fixture = createComponent(testComponents.Required);
-        fixture.detectChanges();
-        const component = getSelectionListInput(fixture);
-
-        const selectTrigger = getSelectionListTriggerElement(fixture);
-        dispatchMouseEvent(selectTrigger, 'click');
-        dispatchMouseEvent(component, 'click');
-        const validationMessage = getValidationMessageElement(fixture);
-
-        expect(validationMessage).toBeTruthy();
-      });
+      // test(`should set required if the form control is required`, () => {
+      //   const fixture = createComponentLegacy(testComponents.ValidateOnChange);
+      //   fixture.detectChanges();
+      //   const component = getSelectionListElement(fixture);
+      //   const selectTrigger = getSelectionListTriggerElement(fixture);
+      //   dispatchMouseEvent(selectTrigger, 'click');
+      //   dispatchMouseEvent(component, 'click');
+      //   const validationMessage = getValidationMessageElement(fixture);
+      //
+      //   expect(validationMessage).toBeTruthy();
+      // });
+      //
+      // test(`should set required if the form control is required`, () => {
+      //   const fixture = createComponentLegacy(testComponents.Required);
+      //   fixture.detectChanges();
+      //   const component = getSelectionListInput(fixture);
+      //
+      //   const selectTrigger = getSelectionListTriggerElement(fixture);
+      //   dispatchMouseEvent(selectTrigger, 'click');
+      //   dispatchMouseEvent(component, 'click');
+      //   const validationMessage = getValidationMessageElement(fixture);
+      //
+      //   expect(validationMessage).toBeTruthy();
+      // });
     });
   });
 
   describe(`panel`, function() {
     test(`should support a custom ID`, () => {
-      const fixture = createComponent(testComponents.Basic);
+      const fixture = createComponentLegacy(testComponents.Basic);
       fixture.componentInstance.disabled = true;
       fixture.detectChanges();
       const instance = getSelectionListInstance(fixture);
@@ -563,32 +589,17 @@ describe(`TsSelectionListComponent`, function() {
     });
   });
 
-  test(`should be able to hide the required marker`, function() {
-    const fixture = createComponent(testComponents.HideRequired);
-    fixture.detectChanges();
-    let marker = fixture.debugElement.query(By.css('.ts-form-field-required-marker'));
-    expect(marker).toBeTruthy();
-
-    fixture.componentInstance.hideRequired = true;
-    fixture.detectChanges();
-
-    marker = fixture.debugElement.query(By.css('.ts-form-field-required-marker'));
-    expect(marker).toBeFalsy();
-  });
-
   test(`should support a custom hint`, function() {
-    const fixture = createComponent(testComponents.Hint);
+    const fixture = createComponentLegacy(testComponents.Hint);
     fixture.detectChanges();
-    const hintElement = fixture.debugElement.query(By.css('.ts-form-field__hint-wrapper'));
-    const contents = fixture.debugElement.query(By.css('.c-input__hint'));
+    const hintElement = fixture.debugElement.query(By.css('.ts-selection-list__hint'));
 
-    expect(hintElement).toBeTruthy();
-    expect(contents.nativeElement.textContent.trim()).toEqual('foo');
+    expect(hintElement.nativeElement.textContent.trim()).toEqual('foo');
   });
 
   describe(`ID`, function() {
     test(`should support a custom ID`, () => {
-      const fixture = createComponent(testComponents.Id);
+      const fixture = createComponentLegacy(testComponents.Id);
       fixture.detectChanges();
       const trigger = getSelectionListTriggerElement(fixture);
 
@@ -596,7 +607,7 @@ describe(`TsSelectionListComponent`, function() {
     });
 
     test(`should fall back to the UID if no ID is passed in`, () => {
-      const fixture = createComponent(testComponents.Id);
+      const fixture = createComponentLegacy(testComponents.Id);
       fixture.componentInstance.myId = undefined as any;
       fixture.detectChanges();
       const trigger = getSelectionListTriggerElement(fixture);
@@ -605,18 +616,18 @@ describe(`TsSelectionListComponent`, function() {
     });
   });
 
-  test(`should show error immediately if validating on change`, function() {
-    const fixture = createComponent(testComponents.ValidateOnChange);
+  test(`should show error if passed in`, function() {
+    const fixture = createComponentLegacy(testComponents.ErrorMessage);
     fixture.detectChanges();
-    const messageContainer = fixture.debugElement.query(By.css('.c-validation-message'));
+    const messageContainer = fixture.debugElement.query(By.css('.ts-selection-list__error'));
 
-    expect(messageContainer.nativeElement.textContent.trim()).toEqual('Required');
+    expect(messageContainer.nativeElement.textContent.trim()).toEqual('My error');
   });
 
   describe(`option`, function() {
     test(`should throw error if template is used but no option is passed in`, () => {
       const create = () => {
-        const fixture = createComponent(testComponents.OptionError);
+        const fixture = createComponentLegacy(testComponents.OptionError);
         fixture.detectChanges();
       };
 
@@ -625,7 +636,7 @@ describe(`TsSelectionListComponent`, function() {
 
     describe(`id`, function() {
       test(`should support custom IDs`, () => {
-        const fixture = createComponent(testComponents.OptionId);
+        const fixture = createComponentLegacy(testComponents.OptionId);
         fixture.detectChanges();
         const option = getOptionInstance(fixture, 0, 1);
 
@@ -633,7 +644,7 @@ describe(`TsSelectionListComponent`, function() {
       });
 
       test(`should fall back to UID`, () => {
-        const fixture = createComponent(testComponents.OptionId);
+        const fixture = createComponentLegacy(testComponents.OptionId);
         fixture.detectChanges();
         const option = getOptionInstance(fixture, 0, 1);
 
@@ -646,7 +657,7 @@ describe(`TsSelectionListComponent`, function() {
 
     describe(`getLabel`, function() {
       test(`should return the viewValue`, () => {
-        const fixture = createComponent(testComponents.OptionId);
+        const fixture = createComponentLegacy(testComponents.OptionId);
         fixture.detectChanges();
         const option = getOptionInstance(fixture, 0, 1);
 
@@ -656,7 +667,7 @@ describe(`TsSelectionListComponent`, function() {
 
     describe(`option`, function() {
       test(`should retrieve the option object`, () => {
-        const fixture = createComponent(testComponents.OptionId);
+        const fixture = createComponentLegacy(testComponents.OptionId);
         fixture.detectChanges();
         const option = getOptionInstance(fixture, 0, 1);
 
@@ -666,7 +677,7 @@ describe(`TsSelectionListComponent`, function() {
 
     describe(`deselect`, function() {
       test(`should emit event not from user interaction`, () => {
-        const fixture = createComponent(testComponents.OptionId);
+        const fixture = createComponentLegacy(testComponents.OptionId);
         fixture.detectChanges();
         const option = getOptionInstance(fixture, 0, 2);
         option.select();
@@ -684,7 +695,7 @@ describe(`TsSelectionListComponent`, function() {
 
     describe(`checkbox`, function() {
       test(`should not have checkbox in front of an item list`, fakeAsync(() => {
-        const fixture = createComponent(testComponents.AllowMultipleNoReopen);
+        const fixture = createComponentLegacy(testComponents.AllowMultipleNoReopen);
         fixture.detectChanges();
 
         const input = getSelectionListInput(fixture);
@@ -698,19 +709,9 @@ describe(`TsSelectionListComponent`, function() {
     });
   });
 
-  describe(`when clicking the container`, () => {
-    test('should focus the input', () => {
-      const fixture = createComponent(testComponents.Seeded);
-      const instance = getSelectionListInstance(fixture);
-      instance.focusInput = jest.fn();
-      instance.onContainerClick();
-      expect(instance.focusInput).toHaveBeenCalled();
-    });
-  });
-
   describe(`value getter/setter`, () => {
     test('should set and retrieve the value', () => {
-      const fixture = createComponent(testComponents.Seeded);
+      const fixture = createComponentLegacy(testComponents.Seeded);
       const instance = getSelectionListInstance(fixture);
       instance.value = 'testing';
       expect(instance.value).toEqual('testing');
@@ -719,7 +720,7 @@ describe(`TsSelectionListComponent`, function() {
 
   describe(`displayFormatter`, () => {
     test(`should default to returning the value as a string`, () => {
-      const fixture = createComponent(testComponents.Basic);
+      const fixture = createComponentLegacy(testComponents.Basic);
       const instance = getSelectionListInstance(fixture);
       instance.displayFormatter = void 0 as any;
       const myString = 'foo' as any;
@@ -728,7 +729,7 @@ describe(`TsSelectionListComponent`, function() {
     });
 
     test(`should format the display value`, () => {
-      const fixture = createComponent(testComponents.Formatter);
+      const fixture = createComponentLegacy(testComponents.Formatter);
       const instance = getSelectionListInstance(fixture);
       fixture.detectChanges();
       const chipElement = getChipElement(fixture);
@@ -764,7 +765,7 @@ describe(`TsSelectionListComponent`, function() {
 
   describe(`setDisabledState`, () => {
     test(`should disable the DOM element`, () => {
-      const fixture = createComponent(testComponents.Basic);
+      const fixture = createComponentLegacy(testComponents.Basic);
       fixture.detectChanges();
       const instance = getSelectionListInstance(fixture);
       const trigger = instance.trigger;
@@ -778,7 +779,7 @@ describe(`TsSelectionListComponent`, function() {
 
   describe(`attachOverlay`, () => {
     test(`should throw an error if no panel exists`, () => {
-      const fixture = createComponent(testComponents.Basic);
+      const fixture = createComponentLegacy(testComponents.Basic);
       const instance = getSelectionListInstance(fixture);
       fixture.detectChanges();
       instance.trigger.selectionListPanel = undefined as any;
@@ -790,7 +791,7 @@ describe(`TsSelectionListComponent`, function() {
     });
 
     test(`should reset and close if ESCAPE or ALT+UP is pressed`, () => {
-      const fixture = createComponent(testComponents.Basic);
+      const fixture = createComponentLegacy(testComponents.Basic);
       fixture.detectChanges();
       const instance = getSelectionListInstance(fixture);
       const triggerInstance = instance.trigger;
@@ -815,7 +816,7 @@ describe(`TsSelectionListComponent`, function() {
     });
 
     test(`should trigger an overlayRef resize when the viewport size changes`, fakeAsync(() => {
-      const fixture = createComponent(testComponents.Basic);
+      const fixture = createComponentLegacy(testComponents.Basic);
       fixture.detectChanges();
       const instance = getSelectionListInstance(fixture);
       instance.focusInput();
@@ -831,7 +832,7 @@ describe(`TsSelectionListComponent`, function() {
   });
 
   test(`should be able to clear all options programmatically`, fakeAsync(() => {
-    const fixture = createComponent(testComponents.Seeded);
+    const fixture = createComponentLegacy(testComponents.Seeded);
     fixture.componentInstance.allowDuplicates = true;
     fixture.detectChanges();
     let chips = getAllChipInstances(fixture);
@@ -866,7 +867,7 @@ describe(`TsSelectionListComponent`, function() {
     let options: TsOptionComponent[];
 
     beforeEach(() => {
-      fixture = createComponent(testComponents.Seeded);
+      fixture = createComponentLegacy(testComponents.Seeded);
       fixture.componentInstance.setNewStates();
       fixture.detectChanges();
       const instance = getSelectionListInstance(fixture);
@@ -903,19 +904,19 @@ describe(`TsSelectionListComponent`, function() {
 
   describe(`getConnectedElement`, () => {
     test(`should fall back to the elementRef if getConnectedOverlayOrigin returns nothing`, () => {
-      const fixture = createComponent(testComponents.Basic);
+      const fixture = createComponentLegacy(testComponents.Basic);
       fixture.detectChanges();
       const instance = getSelectionListInstance(fixture);
       const trigger = instance.trigger;
       trigger['formField'] = undefined as any;
 
-      expect(trigger['getConnectedElement']().nativeElement.classList).toContain('ts-selection-list-trigger');
+      expect(trigger['getConnectedElement']().nativeElement.classList).toContain('ts-selection-list__input-wrap');
     });
   });
 
   describe(`select and deselect should fall back to empty arrays if the control value isn't set`, () => {
     test(`should fallback to an array when selecting`, () => {
-      const fixture = createComponent(testComponents.Basic);
+      const fixture = createComponentLegacy(testComponents.Basic);
       fixture.detectChanges();
       const instance = getSelectionListInstance(fixture);
       const item = {
@@ -930,7 +931,7 @@ describe(`TsSelectionListComponent`, function() {
     });
 
     test(`should fallback to an array when deselecting`, () => {
-      const fixture = createComponent(testComponents.Basic);
+      const fixture = createComponentLegacy(testComponents.Basic);
       fixture.detectChanges();
       const instance = getSelectionListInstance(fixture);
       const item = {
@@ -946,7 +947,7 @@ describe(`TsSelectionListComponent`, function() {
   });
 
   test(`should emit on backdrop clicks`, fakeAsync(() => {
-    const fixture = createComponent(testComponents.BackdropClick);
+    const fixture = createComponentLegacy(testComponents.BackdropClick);
     fixture.detectChanges();
     fixture.componentInstance.clicked = jest.fn();
     const trigger = getSelectionListTriggerElement(fixture);
@@ -965,7 +966,7 @@ describe(`TsSelectionListComponent`, function() {
   test.todo(`should update panel scroll position when focusing an out-of-view option`);
 
   test(`should focus first option when the options collection changes`, fakeAsync(() => {
-    const fixture = createComponent(testComponents.Basic);
+    const fixture = createComponentLegacy(testComponents.Basic);
     fixture.detectChanges();
     const instance = getSelectionListInstance(fixture);
 
@@ -987,7 +988,7 @@ describe(`TsSelectionListComponent`, function() {
 
   describe(`should scroll populated item into view`, () => {
     test(`should have panel open with the preset value`, fakeAsync(() => {
-      const fixture = createComponent(testComponents.SeededSingleSelect);
+      const fixture = createComponentLegacy(testComponents.SeededSingleSelect);
       fixture.detectChanges();
       const instance = getSelectionListInstance(fixture);
       instance.trigger.handleFocus();
@@ -998,9 +999,9 @@ describe(`TsSelectionListComponent`, function() {
 
   describe(`noValidationOrHint`, () => {
     test(`should not have validation or hint added if set to true`, () => {
-      const fixture = createComponent(testComponents.NoValidationOrHint);
+      const fixture = createComponentLegacy(testComponents.NoValidationOrHint);
       fixture.detectChanges();
-      const validationBlock = fixture.debugElement.query(By.css('.ts-form-field__subscript-wrapper'));
+      const validationBlock = fixture.debugElement.query(By.css('.ts-selection-list__messages'));
 
       expect(validationBlock).toBeFalsy();
     });

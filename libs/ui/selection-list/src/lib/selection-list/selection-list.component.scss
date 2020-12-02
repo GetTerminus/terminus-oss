@@ -4,13 +4,61 @@
   --ts-sl-chip-zIndex: 2;
   --ts-sl-icon-width: 24px;
   --ts-sl-input-width: calc(100% - var(--ts-sl-icon-width));
-  --ts-sl-multiple-margin-adustment: -3px;
-  --ts-sl-spinner-right: var(--ts-space-inline-600);
-  --ts-sl-icon-color: var(--ts-color-utility-600);
-  --ts-sl-input-marginBottom: 3px;
-  --ts-sl-input-color: var(--ts-color-utility-900);
-  --ts-sl-input-minHeight: 25px;
   --ts-sl-backdrop-backgroundColor: transparent;
+  --ts-sl-multiple-input-height: 28px;
+  --ts-sl-multiple-padding: 6px 4px 2px;
+  --ts-sl-caret-color: var(--ts-color-utility-600);
+  --ts-sl-caret-height: 16px;
+  --ts-sl-caret-width: 12px;
+  --ts-sl-caret-right: 13px;
+  --ts-sl-spinner-xy: 21px;
+  --ts-sl-spinner-right: var(--ts-space-inline-600);
+  --ts-sl-spinner-color: var(--ts-color-utility-500);
+  --ts-sl-typography: var(--ts-typography-compound-body);
+  --ts-sl-color: var(--ts-color-utility-900);
+  --ts-sl-color-disabled: var(--ts-color-utility-600);
+  --ts-sl-backgroundColor: var(--ts-color-base-white);
+  --ts-sl-backgroundColor-disabled: var(--ts-color-utility-100);
+  --ts-sl-borderColor: var(--ts-color-utility-300);
+  --ts-sl-borderColor-error: var(--ts-color-warn-500);
+  --ts-sl-borderColor-disabled: var(--ts-color-utility-200);
+  --ts-sl-borderRadius: var(--ts-border-radius-base);
+  --ts-sl-fontSize: 14px;
+  --ts-sl-borderColor-hover: var(--ts-color-utility-400);
+  --ts-sl-borderColor-focus: var(--ts-color-primary-700);
+  --ts-sl-borderColor-error-focus: var(--ts-color-warn-700);
+  --ts-sl-shadow-focus: 0 0 2px 2px #d6efff;
+  --ts-sl-shadow-error-focus: 0 0 2px 2px #f8e2e4;
+  --ts-sl-padding: 10px 12px;
+  --ts-sl-label-color: var(--ts-color-utility-700);
+  --ts-sl-label-marginBottom: 6px;
+  --ts-sl-label-typography: 400 13px / 15px var(--ts-typography-stack-base-roboto);
+  --ts-sl-hint-typography: var(--ts-typography-compound-hint);
+  --ts-sl-error-color: var(--ts-color-warn-500);
+}
+
+$offset: 187;
+$duration: 1.4s;
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: $offset;
+  }
+  50% {
+    stroke-dashoffset: $offset / 4;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: $offset;
+    transform: rotate(450deg);
+  }
 }
 
 .ts-selection-list {
@@ -26,15 +74,42 @@
   // NOTE: When chips are added, they increase the vertical height so we need to counteract that here.
   // We cannot change the outer padding as that will negatively impact the layout when no vales exist.
   &.ts-selection-list--multiple {
-    .ts-chip-collection {
-      margin-bottom: calc(var(--ts-sl-multiple-margin-adustment) * 2);
-      margin-top: var(--ts-sl-multiple-margin-adustment);
+    .ts-selection-list__input-wrap {
+      padding: var(--ts-sl-multiple-padding);
+
+      // Don't let the selection list collapse when chips are removed
+      input {
+        height: var(--ts-sl-multiple-input-height);
+        padding: 0;
+        position: relative;
+        top: -2px;
+      }
     }
   }
 
   &.ts-selection-list--disabled {
-    .ts-selection-list__input {
+    --ts-sl-backgroundColor: var(--ts-sl-backgroundColor-disabled);
+    --ts-sl-borderColor: var(--ts-sl-borderColor-disabled);
+    --ts-sl-color: var(--ts-sl-color-disabled);
+    cursor: default;
+
+    .ts-selection-list__input-wrap,
+    .ts-selection-list__input,
+    .c-chip--disabled {
       cursor: not-allowed;
+    }
+  }
+
+  &:not(.ts-selection-list--disabled) {
+    .ts-selection-list__input-wrap {
+      &:hover {
+        --ts-sl-borderColor: var(--ts-sl-borderColor-hover);
+      }
+
+      &:focus {
+        --ts-sl-borderColor: var(--ts-sl-borderColor-focus);
+        box-shadow: var(--ts-input-shadow-focus);
+      }
     }
   }
 
@@ -57,54 +132,125 @@
       right: var(--ts-sl-spinner-right);
     }
   }
+
+  label {
+    color: var(--ts-sl-label-color);
+    font: var(--ts-sl-label-typography);
+    margin-bottom: var(--ts-sl-label-marginBottom);
+  }
+
+  input {
+    background: none;
+    border: 0;
+    border-radius: var(--ts-sl-borderRadius);
+    color: var(--ts-sl-color);
+    flex: 1;
+    font: var(--ts-sl-typography);
+    font-size: var(--ts-sl-fontSize);
+    line-height: 1em;
+    padding: var(--ts-sl-padding);
+
+    &:focus {
+      outline: none;
+    }
+
+    // Undo the red box-shadow glow added by Firefox on invalid inputs.
+    // See https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-ui-invalid
+    &:-moz-ui-invalid {
+      box-shadow: none;
+    }
+
+    &.ts-selection-list__custom-trigger {
+      cursor: pointer;
+    }
+  }
+
+  .ts-selection-list__messages {
+    font: var(--ts-sl-hint-typography);
+
+    .ts-selection-list__hint {
+      text-align: right;
+    }
+
+    .ts-selection-list__error {
+      color: var(--ts-sl-error-color);
+    }
+  }
+
+  .c-selection-list__spinner {
+    color: var(--ts-sl-spinner-color);
+    height: var(--ts-sl-spinner-xy);
+    position: absolute;
+    right: var(--ts-sl-spinner-right);
+    top: 50%;
+    transform: translateY(-60%);
+    width: var(--ts-sl-spinner-xy);
+
+    svg {
+      animation: rotation $duration linear infinite;
+      max-height: 100%;
+      max-width: 100%;
+      transform-origin: center;
+    }
+
+    circle {
+      animation: dash $duration ease-in-out infinite;
+      stroke: var(--ts-sl-spinner-color);
+      stroke-dasharray: $offset;
+      stroke-dashoffset: 0;
+      transform-origin: center;
+    }
+  }
 }
 
 .ts-selection-list__input-wrap {
-  position: relative;
-
-  > .ts-icon {
-    color: var(--ts-sl-icon-color);
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-60%);
-  }
-}
-
-// NOTE: Bottom margin and min-height needed to keep vertical alignment consistent when no chips are present.
-.ts-selection-list__input {
-  background: transparent;
-  border: none;
-  color: var(--ts-sl-input-color);
-  display: inline-block;
-  font: inherit;
-  margin-bottom: var(--ts-sl-input-marginBottom);
+  background-color: var(--ts-sl-backgroundColor);
+  border: 1px solid var(--ts-sl-borderColor);
+  border-radius: var(--ts-sl-borderRadius);
   max-width: 100%;
-  min-height: var(--ts-sl-input-minHeight);
   outline: none;
-  padding: 0;
-  // User agent stylesheets set the text-align of inputs explicitly to "start". Those can be
-  // easily overwritten by targeting the input element using a simple CSS selector, but since
-  // the text-align will be applied most of the time on the `ts-form-field` to also align the
-  // placeholder, the alignment should be inherited here.
-  text-align: inherit;
-  // Needed to make last line of the textarea line up with the baseline.
-  vertical-align: bottom;
+  position: relative;
+  transition: border-color 200ms ease-out;
+  width: 100%;
 
-  // Undo the red box-shadow glow added by Firefox on invalid inputs.
-  // See https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-ui-invalid
-  &:-moz-ui-invalid {
-    box-shadow: none;
+  &:enabled {
+    &:not(.c-input__text--error) {
+      &:hover {
+        --ts-sl-borderColor: var(--ts-sl-borderColor-hover);
+      }
+
+      &:focus {
+        --ts-sl-borderColor: var(--ts-sl-borderColor-focus);
+        box-shadow: var(--ts-sl-shadow-focus);
+      }
+    }
   }
 
-  // Style overrides for the input trigger when in single selection mode
-  .ts-selection-list--single & {
-    --ts-sl-input-marginBottom: 0;
-    --ts-sl-input-minHeight: auto;
-    padding-top: 0;
+  .ts-selection-list__caret {
+    color: var(--ts-sl-caret-color);
+    display: block;
+    height: var(--ts-sl-caret-height);
+    position: absolute;
+    right: var(--ts-sl-caret-right);
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--ts-sl-caret-width);
+
+    svg {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &.c-input__text--error {
+    --ts-sl-borderColor: var(--ts-sl-borderColor-error);
+
+    &:focus {
+      --ts-sl-borderColor: var(--ts-sl-borderColor-error-focus);
+      box-shadow: var(--ts-sl-shadow-error-focus);
+    }
   }
 }
-
 
 .cdk-overlay-container {
   .ts-selection-list__backdrop {

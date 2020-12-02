@@ -15,13 +15,11 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
-  Host,
   Inject,
   InjectionToken,
   Input,
   isDevMode,
   NgZone,
-  Optional,
   Output,
   ViewContainerRef,
 } from '@angular/core';
@@ -50,7 +48,6 @@ import {
   TsDocumentService,
   untilComponentDestroyed,
 } from '@terminus/fe-utilities';
-import { TsFormFieldComponent } from '@terminus/ui-form-field';
 import {
   countGroupLabelsBeforeOption,
   getOptionScrollPosition,
@@ -63,7 +60,6 @@ import {
 } from '@terminus/ui-utilities';
 
 import { TsSelectionListPanelComponent } from '../selection-list-panel/selection-list-panel.component';
-
 
 // Injection token that determines the scroll handling while the panel is open
 export const TS_SELECTION_LIST_SCROLL_STRATEGY = new InjectionToken<() => ScrollStrategy>('ts-selection-list-scroll-strategy');
@@ -85,7 +81,6 @@ export const SELECTION_LIST_PANEL_MAX_HEIGHT = 256;
 
 // Unique ID for each instance
 let nextUniqueId = 0;
-
 
 /**
  * A directive that adds selection-list trigger functionality to an input
@@ -288,6 +283,12 @@ export class TsSelectionListTriggerDirective<ValueType = string> implements Cont
   private _selectionListDisabled = false;
 
   /**
+   * Define the element that the panel should attach to
+   */
+  @Input()
+  public containingElement: ElementRef;
+
+  /**
    * The panel to be attached to this trigger
    */
   // Note: Renaming as prefixed name does not add clarity
@@ -325,7 +326,6 @@ export class TsSelectionListTriggerDirective<ValueType = string> implements Cont
     private viewportRuler: ViewportRuler,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     @Inject(TS_SELECTION_LIST_SCROLL_STRATEGY) scrollStrategy: any,
-    @Optional() @Host() private formField: TsFormFieldComponent,
   ) {
     // istanbul ignore else
     if (typeof window !== 'undefined') {
@@ -359,8 +359,6 @@ export class TsSelectionListTriggerDirective<ValueType = string> implements Cont
    * @param overrideReopenFlag - Whether the panel should reopen
    */
   public closePanel(overrideReopenFlag = false): void {
-    this.resetLabel();
-
     if (!this.overlayAttached) {
       return;
     }
@@ -397,12 +395,12 @@ export class TsSelectionListTriggerDirective<ValueType = string> implements Cont
    * Handle the focus event
    */
   public handleFocus(): void {
+    // istanbul ignore else
     if (!this.canOpenOnNextFocus) {
       this.canOpenOnNextFocus = true;
     } else if (this.canOpen()) {
       this.previousValue = this.elementRef.nativeElement.value;
       this.attachOverlay();
-      this.floatLabel(true);
     }
   }
 
@@ -450,6 +448,7 @@ export class TsSelectionListTriggerDirective<ValueType = string> implements Cont
       event.preventDefault();
     }
 
+    // istanbul ignore else
     if (this.activeOption && keyCode === KEYS.ENTER.code && this.panelOpen) {
       this.activeOption.selectViaInteraction();
       this.resetActiveItem();
@@ -458,12 +457,14 @@ export class TsSelectionListTriggerDirective<ValueType = string> implements Cont
       const prevActiveItem = this.selectionListPanel.keyManager.activeItem;
       const isArrowKey = keyCode === KEYS.UP_ARROW.code || keyCode === KEYS.DOWN_ARROW.code;
 
+      // istanbul ignore else
       if (this.panelOpen || keyCode === KEYS.TAB.code) {
         this.selectionListPanel.keyManager.onKeydown(event);
       } else if (isArrowKey && this.canOpen()) {
         this.openPanel();
       }
 
+      // istanbul ignore else
       if (isArrowKey || this.selectionListPanel.keyManager.activeItem !== prevActiveItem) {
         this.scrollToOption();
       }
@@ -486,7 +487,6 @@ export class TsSelectionListTriggerDirective<ValueType = string> implements Cont
    */
   public openPanel(): void {
     this.attachOverlay();
-    this.floatLabel();
   }
 
   /**
@@ -550,6 +550,7 @@ export class TsSelectionListTriggerDirective<ValueType = string> implements Cont
       this.overlayRef.keydownEvents().pipe(untilComponentDestroyed(this)).subscribe(event => {
         // Close when pressing ESCAPE or ALT + UP_ARROW, based on the a11y guidelines.
         // See: https://www.w3.org/TR/wai-aria-practices-1.1/#textbox-keyboard-interaction
+        // istanbul ignore else
         if (event.code === KEYS.ESCAPE.code || (event.code === KEYS.UP_ARROW.code && event.altKey)) {
           this.resetActiveItem();
           this.closeKeyEventStream.next();
@@ -557,6 +558,7 @@ export class TsSelectionListTriggerDirective<ValueType = string> implements Cont
       });
 
       this.viewportSubscription = this.viewportRuler.change().pipe(untilComponentDestroyed(this)).subscribe(() => {
+        // istanbul ignore else
         if (this.panelOpen && this.overlayRef) {
           this.overlayRef.updateSize({ width: this.getPanelWidth() });
         }
@@ -628,30 +630,12 @@ export class TsSelectionListTriggerDirective<ValueType = string> implements Cont
   }
 
   /**
-   * In 'auto' mode, the label will animate down as soon as focus is lost.  This causes the value to jump when selecting an option with the
-   * mouse. This method manually floats the label until the panel can be closed.
-   *
-   * @param shouldAnimate - Whether the label should be animated when it is floated
-   */
-  private floatLabel(shouldAnimate = false): void {
-    // istanbul ignore else
-    if (this.formField && this.formField.floatLabel === 'auto') {
-      if (shouldAnimate) {
-        this.formField.animateAndLockLabel();
-      } else {
-        this.formField.floatLabel = 'always';
-      }
-      this.manuallyFloatingLabel = true;
-    }
-  }
-
-  /**
    * Return the connected element
    *
    * @returns The ElementRef
    */
   private getConnectedElement(): ElementRef {
-    return this.formField ? this.formField.getConnectedOverlayOrigin() : this.elementRef;
+    return this.containingElement ? this.containingElement : this.elementRef;
   }
 
   /**
@@ -719,17 +703,6 @@ export class TsSelectionListTriggerDirective<ValueType = string> implements Cont
    */
   private resetActiveItem(): void {
     this.selectionListPanel.keyManager.setActiveItem(-1);
-  }
-
-  /**
-   * If the label has been manually elevated, return it to its normal state
-   */
-  private resetLabel(): void  {
-    // istanbul ignore else
-    if (this.manuallyFloatingLabel) {
-      this.formField.floatLabel = 'auto';
-      this.manuallyFloatingLabel = false;
-    }
   }
 
   /**

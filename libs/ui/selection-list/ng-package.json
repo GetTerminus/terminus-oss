@@ -4,16 +4,11 @@
   "lib": {
     "entryFile": "src/index.ts",
     "umdModuleIds": {
-      "@fortawesome/pro-solid-svg-icons": "pro-solid-svg-icons",
       "@terminus/fe-utilities": "terminus.fe-utilities",
-      "@terminus/ui-checkbox": "terminus.ui-checkbox",
       "@terminus/ui-chip": "terminus.ui-chip",
-      "@terminus/ui-form-field": "terminus.ui-form-field",
-      "@terminus/ui-icon": "terminus.ui-icon",
       "@terminus/ui-input": "terminus.ui-input",
       "@terminus/ui-option": "terminus.ui-option",
-      "@terminus/ui-utilities": "terminus.ui-utilities",
-      "@terminus/ui-validation-messages": "terminus.ui-validation-messages"
+      "@terminus/ui-utilities": "terminus.ui-utilities"
     }
   }
 }

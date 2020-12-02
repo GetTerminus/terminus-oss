@@ -173,9 +173,7 @@ const STATES_GROUPED: GroupedStates[] = [
         [value]="option"
         [option]="option"
         [isDisabled]="option?.disabled"
-      >
-        {{ option.name }}
-      </ts-option>
+      >{{ option.name }}</ts-option>
     </ts-selection-list>
   `,
 })
@@ -202,9 +200,7 @@ export class Basic {
         *ngFor="let option of states"
         [value]="option"
         [option]="option"
-      >
-        {{ option.name }}
-      </ts-option>
+      >{{ option.name }}</ts-option>
     </ts-selection-list>
   `,
 })
@@ -231,9 +227,7 @@ export class ShowIcon {
         [value]="option"
         [option]="option"
         [isDisabled]="option?.disabled"
-      >
-        {{ option.name }}
-      </ts-option>
+      >{{ option.name }}</ts-option>
     </ts-selection-list>
 
     <ts-selection-list
@@ -248,9 +242,7 @@ export class ShowIcon {
         [value]="option"
         [option]="option"
         [isDisabled]="option?.disabled"
-      >
-        {{ option.name }}
-      </ts-option>
+      >{{ option.name }}</ts-option>
     </ts-selection-list>
   `,
 })
@@ -279,9 +271,7 @@ export class Multiple {
         *ngFor="let option of states"
         [value]="option"
         [option]="option"
-      >
-        {{ option.name }}
-      </ts-option>
+      >{{ option.name }}</ts-option>
     </ts-selection-list>
   `,
 })
@@ -811,7 +801,7 @@ export class Label {
   template: `
     <ts-selection-list
       [formControl]="myCtrl"
-      [validateOnChange]="validateOnChange"
+      errorMessage="My error"
     >
       <ts-option
         [value]="option"
@@ -822,7 +812,7 @@ export class Label {
     </ts-selection-list>
   `,
 })
-export class ValidateOnChange {
+export class ErrorMessage {
   public myCtrl = new FormControl(null, Validators.required);
   public validateOnChange = true;
   public options = STATES.slice();
@@ -1095,20 +1085,5 @@ export const testComponents = {
   SelectionEvent,
   SelectOptionChange,
   SimpleArray,
-  ValidateOnChange,
+  ErrorMessage,
 };
-
-/**
- * NOTE: Currently all exported Components must belong to a module. So this is our useless module to avoid the build error.
- */
-// @NgModule({
-//   imports: [
-//     CommonModule,
-//     FormsModule,
-//     ReactiveFormsModule,
-//     TsSelectionListModule,
-//     TsOptionModule,
-//   ],
-//   declarations: [...testComponents],
-// })
-// export class TsSelectionListTestComponentsModule {}
