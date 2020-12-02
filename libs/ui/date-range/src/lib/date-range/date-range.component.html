@@ -1,11 +1,6 @@
-<div
-  class="c-date-range qa-date-range"
-  fxLayout="row"
-  fxLayoutAlign="start center"
-  fxLayoutGap=".6em"
->
+<div class="c-date-range">
   <ts-input
-    class="c-date-range--start qa-date-range-start-datepicker"
+    class="c-date-range__input--start c-date-range__input--start"
     [dateLocale]="dateLocale"
     [formControl]="internalStartControl"
     [label]="startLabel"
@@ -13,9 +8,9 @@
     [minDate]="startMinDate"
     [startingView]="startingView"
     [isDisabled]="isDisabled || startDateControl.disabled"
-    [theme]="theme"
     mask="date"
     [datepicker]="true"
+    [datepickerDefaultOpen]="defaultStartDatepickerOpen"
     (selected)="startDateSelected($event)"
     (inputBlur)="startBlur($event)"
     #start
@@ -26,7 +21,7 @@
   </span>
 
   <ts-input
-    class="c-date-range--end qa-date-range-end-datepicker"
+    class="c-date-range__input c-date-range__input--end"
     [dateLocale]="dateLocale"
     [formControl]="internalEndControl"
     [label]="endLabel"
@@ -34,9 +29,9 @@
     [minDate]="endMinDate$ | async"
     [startingView]="startingView"
     [isDisabled]="isDisabled || endDateControl.disabled"
-    [theme]="theme"
     mask="date"
     [datepicker]="true"
+    [datepickerDefaultOpen]="defaultEndDatepickerOpen"
     (selected)="endDateSelected($event)"
     (inputBlur)="endBlur($event)"
     #end

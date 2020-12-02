@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { TsInputModule } from '@terminus/ui-input';
 
@@ -11,7 +10,6 @@ export * from './date-range/date-range.component';
 @NgModule({
   imports: [
     CommonModule,
-    FlexLayoutModule,
     TsInputModule,
   ],
   exports: [TsDateRangeComponent],

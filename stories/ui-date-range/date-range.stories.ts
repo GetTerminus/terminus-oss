@@ -56,9 +56,27 @@ const FORM_GROUP_SEEDED = new FormGroup({
 
 export const basic = () => ({
   component: TsDateRangeComponent,
+  template: `
+    <div style="margin-bottom: 2rem;">
+      <ts-date-range
+        [dateFormGroup]="dateFormGroup"
+        (startSelected)="startSelected($event)"
+        (endSelected)="endSelected($event)"
+        (dateRangeChange)="dateRangeChange($event)"
+      ></ts-date-range>
+    </div>
+    <div>
+      <ts-date-range
+        [isDisabled]="true"
+        [dateFormGroup]="dateFormGroup"
+        (startSelected)="startSelected($event)"
+        (endSelected)="endSelected($event)"
+        (dateRangeChange)="dateRangeChange($event)"
+      ></ts-date-range>
+    </div>
+  `,
   props: {
     dateFormGroup: FORM_GROUP_SEEDED,
-    isDisabled: boolean('Disabled', false),
     dateRangeChange: action('Date range changed'),
     startSelected: action('Start date selected'),
     endSelected: action('End date selected'),
@@ -87,12 +105,14 @@ minMaxDate.parameters = {
 export const startingView = () => ({
   component: TsDateRangeComponent,
   props: {
+    defaultStartDatepickerOpen: true,
     dateFormGroup: FORM_GROUP,
-    startingView: select('Starting view', ['month', 'year'], 'year'),
+    startingView: 'year',
   },
 });
 startingView.parameters = {
   actions: { disabled: true },
+  knobs: { disabled: true },
   docs: { iframeHeight: 400 },
 };
 
@@ -100,6 +120,7 @@ export const locale = () => ({
   component: TsDateRangeComponent,
   props: {
     dateFormGroup: FORM_GROUP,
+    defaultStartDatepickerOpen: true,
     dateLocale: text('Date locale', 'zh-cn'),
   },
 });

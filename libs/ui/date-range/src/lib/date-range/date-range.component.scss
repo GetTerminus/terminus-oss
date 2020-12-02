@@ -1,19 +1,32 @@
-@import '~@terminus/ui-styles/helpers';
-
 :root {
-  --ts-daterange-separator-color: var(--ts-color-base-palette7-500);
+  --ts-daterange-separator-color: var(--ts-color-utility-500);
+  --ts-daterange-separator-marginTop: 1.3em;
 }
 
 .ts-date-range {
-  @include reset;
+  box-sizing: border-box;
   display: block;
+
+  * {
+    box-sizing: inherit;
+  }
 }
 
 .c-date-range {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+
+  .ts-input {
+    &:not(:last-of-type) {
+      margin-right: .6em;
+    }
+  }
+
   .c-date-range__separator {
-    // NOTE: Needed to offset the space created for validation messages
-    $negative-adjustment: -1.2em;
     color: var(--ts-daterange-separator-color);
-    margin-top: $negative-adjustment;
+    margin-right: .6em;
+    margin-top: var(--ts-daterange-separator-marginTop);
   }
 }

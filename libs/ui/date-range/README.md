@@ -8,8 +8,6 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be installed](#packages-that-need-to-be-installed)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
@@ -18,35 +16,12 @@
   - [Disabling](#disabling)
     - [Disable a control](#disable-a-control)
     - [Disable the component](#disable-the-component)
+  - [Default open](#default-open)
 - [Test Helpers](#test-helpers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Installation
-
-### Packages that need to be installed
-
-- `@angular/cdk`
-- `@angular/common`
-- `@angular/core`
-- `@angular/flex-layout`
-- `@angular/forms`
-- `@angular/material`
-- `@angular/platform-browser`
-- `@terminus/design-tokens`
-- `@terminus/fe-utilities`
-- `@terminus/ui-form-field`
-- `@terminus/ui-icon`
-- `@terminus/ui-input`
-- `@terminus/ui-pipes`
-- `@terminus/ui-validation-messages`
-- `@terminus/ui-validators`
-- `@terminus/ui-spacing`
-- `@terminus/ui-utilities`
-- `@terminus/ui-date-range`
-- `text-mask-core`
-- `text-mask-addons`
-- `date-fns`
 
 Use the `ng add` command to quickly install all the needed dependencies:
 
@@ -54,13 +29,9 @@ Use the `ng add` command to quickly install all the needed dependencies:
 ng add @terminus/ui-date-range
 ```
 
-### Modules that need to be in NgModule
-
-- `TsDateRangeModule`
-
 ### CSS imports
 
-In your top level stylesheet, add these imports:
+In your top-level stylesheet, add these imports:
 
 ```css
 @import '~@terminus/design-tokens/css/library-design-tokens.css';
@@ -222,6 +193,16 @@ The entire component can be disabled:
 
 ```html
 <ts-date-range [isDisabled]="true"></ts-date-range>
+```
+
+### Default open
+
+The start or end date datepicker can be opened on load:
+
+```html
+<ts-date-range [defaultStartDatepickerOpen]="true"></ts-date-range>
+<!-- or -->
+<ts-date-range [defaultEndDatepickerOpen]="true"></ts-date-range>
 ```
 
 ## Test Helpers
