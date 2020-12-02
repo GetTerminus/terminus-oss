@@ -68,8 +68,10 @@ describe(`TsInputComponent`, () => {
     expect(spectator.query('input')).toBeTruthy();
   });
 
-  // TODO: move
-  test.todo(`should display a validation message if one is passed in`);
+  test(`should display a validation message if one is passed in`, () => {
+    spectator.setInput('errorMessage', 'My error');
+    expect(spectator.query('.ts-input__error')).toHaveText('My error');
+  });
 
   describe(`input attributes`, () => {
     describe(`required`, () => {
@@ -421,6 +423,18 @@ describe(`TsInputComponent Original`, function() {
         expect(fixture.componentInstance.inputComponent.openTo).toBeUndefined();
         expect.assertions(2);
       });
+    });
+
+    describe(`defaultOpened`, () => {
+      test(`should allow the datepicker to be open on load`, fakeAsync(() => {
+        const fixture = createComponentLegacy(TestComponents.OpenTo);
+        fixture.componentInstance.defaultOpen = true;
+        // fixture.componentInstance.inputComponent.datepickerDefaultOpen = true;
+        fixture.detectChanges();
+        tick(10);
+        fixture.detectChanges();
+        expect(document.querySelector('.mat-datepicker-popup')).toBeTruthy();
+      }));
     });
 
     describe(`minDate`, () => {

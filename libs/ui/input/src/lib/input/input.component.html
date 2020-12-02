@@ -72,6 +72,14 @@
       #inputElement
     >
     <mat-datepicker-toggle [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker
+      class="c-datepicker__calendar"
+      [disabled]="shouldBeDisabled"
+      [startView]="startingView"
+      [startAt]="openTo"
+      [opened]="datepickerDefaultOpenSubscription$ | async"
+      #picker
+    ></mat-datepicker>
   </ng-container>
 
   <ng-container *ngIf="isTextarea">
@@ -126,11 +134,3 @@
     </svg>
   </span>
 </ng-template>
-
-<mat-datepicker
-  class="c-datepicker__calendar"
-  [disabled]="shouldBeDisabled"
-  [startView]="startingView"
-  [startAt]="openTo"
-  #picker
-></mat-datepicker>

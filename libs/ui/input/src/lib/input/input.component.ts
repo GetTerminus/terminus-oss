@@ -36,6 +36,8 @@ import {
   MAT_DATE_LOCALE,
 } from '@angular/material/core';
 import { MatDatepicker } from '@angular/material/datepicker';
+import { BehaviorSubject } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 import { createTextMaskInputElement } from 'text-mask-core/dist/textMaskCore';
@@ -170,6 +172,7 @@ const DEFAULT_DATE_LOCALE = 'en-US';
  *              [dateFilter]="myFilterFunction"
  *              dateLocale="en-US"
  *              [datepicker]="true"
+ *              [datepickerDefaultOpen]="true"
  *              [formControl]="myForm.get('myControl')"
  *              hint="My hint!"
  *              id="my-id"
@@ -452,6 +455,17 @@ export class TsInputComponent implements AfterViewInit, AfterContentInit, DoChec
   private _datepicker = false;
 
   /**
+   * Define if the datepicker should be opened by default
+   */
+  @Input()
+  public set datepickerDefaultOpen(value: boolean) {
+    this.datepickerDefaultOpenState$.next(value);
+  }
+  public datepickerDefaultOpenState$ = new BehaviorSubject<boolean>(false);
+  // NOTE: We need to delay this boolean or Material won't update the starting view first.
+  public datepickerDefaultOpenSubscription$ = this.datepickerDefaultOpenState$.pipe(delay(1));
+
+  /**
    * Define an error message
    */
   @Input()
@@ -537,6 +551,7 @@ export class TsInputComponent implements AfterViewInit, AfterContentInit, DoChec
   public set isFocused(value: boolean) {
     this._isFocused = value;
 
+    // istanbul ignore else
     if (this._isFocused) {
       this.focus();
     }

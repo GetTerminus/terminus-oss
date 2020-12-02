@@ -31,6 +31,7 @@
     - [Set a min/max date range](#set-a-minmax-date-range)
     - [Open the calendar to a specific date](#open-the-calendar-to-a-specific-date)
     - [Open the calendar to a specific view](#open-the-calendar-to-a-specific-view)
+    - [Default open](#default-open)
     - [Example with dynamic validation](#example-with-dynamic-validation)
   - [Textarea](#textarea)
     - [Rows](#rows)
@@ -415,6 +416,14 @@ By default, the calendar opens up to show the month view. This can be changed to
 ```
 
 `year` and `month` are the only two valid values.
+
+#### Default open
+
+The datepicker can be opened on load:
+
+```html
+<ts-input [datepickerDefaultOpen]="true"></ts-input>
+```
 
 #### Example with dynamic validation
 
