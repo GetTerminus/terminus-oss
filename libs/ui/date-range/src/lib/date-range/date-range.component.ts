@@ -19,7 +19,6 @@ import {
 import { BehaviorSubject } from 'rxjs';
 
 import { untilComponentDestroyed } from '@terminus/fe-utilities';
-import { TsStyleThemeTypes } from '@terminus/ui-utilities';
 
 /**
  * Define the structure of the date range object used by {@link TsDateRangeComponent}
@@ -41,13 +40,14 @@ export interface TsDateRange {
  * @example
  * <ts-date-range
  *              [dateFormGroup]="myForm.get('dateRange')"
+ *              [defaultStartDatepickerOpen]="true"
+ *              [defaultEndDatepickerOpen]="true"
  *              endMinDate="{{ new Date(2017, 4, 1) }}"
  *              endMaxDate="{{ new Date(2017, 4, 30) }}"
  *              [isDisabled]="true"
  *              startingView="year"
  *              startMinDate="{{ new Date(2017, 4, 1) }}"
  *              startMaxDate="{{ new Date(2017, 4, 30) }}"
- *              theme="primary"
  *              (startSelected)="myMethod($event)"
  *              (endSelected)="myMethod($event)"
  *              (dateRangeChange)="myMethod($event)"
@@ -135,6 +135,18 @@ export class TsDateRangeComponent implements OnInit, OnDestroy {
   public startLabel = 'Start date';
 
   /**
+   * Define if the starting datepicker should default to it's opened state
+   */
+  @Input()
+  public defaultStartDatepickerOpen = false;
+
+  /**
+   * Define if the ending datepicker should default to it's opened state
+   */
+  @Input()
+  public defaultEndDatepickerOpen = false;
+
+  /**
    * Define the form group to attach the date range to
    *
    * @param value
@@ -189,12 +201,6 @@ export class TsDateRangeComponent implements OnInit, OnDestroy {
    */
   @Input()
   public startMinDate: Date | undefined;
-
-  /**
-   * Define the component theme
-   */
-  @Input()
-  public theme: TsStyleThemeTypes = 'primary';
 
   /**
    * Event emitted anytime the range is changed
@@ -306,7 +312,7 @@ export class TsDateRangeComponent implements OnInit, OnDestroy {
   /**
    * Emit the selected start date and date range
    *
-   * @param date
+   * @param date - The selected start date
    */
   public startDateSelected(date: Date): void {
     if (date) {
@@ -329,7 +335,7 @@ export class TsDateRangeComponent implements OnInit, OnDestroy {
   /**
    * Emit the selected end date and date range
    *
-   * @param date
+   * @param date - The selected end date
    */
   public endDateSelected(date: Date): void {
     if (date) {

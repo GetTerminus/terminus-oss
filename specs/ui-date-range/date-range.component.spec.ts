@@ -215,10 +215,7 @@ describe(`TsDateRangeComponent`, function() {
       expect(startInputInstance.maxDate).toEqual(hostInstance.startMax);
       expect(startInputInstance.minDate).toEqual(hostInstance.startMin);
 
-      expect(startInputInstance.theme).toEqual(hostInstance.theme);
-      expect(endInputInstance.theme).toEqual(hostInstance.theme);
-
-      expect.assertions(10);
+      expect.assertions(8);
     });
   });
 
@@ -321,7 +318,6 @@ class Emitters {
         [startingView]="startingView"
         [startMaxDate]="startMax"
         [startMinDate]="startMin"
-        [theme]="theme"
       ></ts-date-range>
     </form>
   `,
@@ -334,7 +330,6 @@ class Params {
   startingView = 'year';
   startMax = new Date(2017, 5, 25);
   startMin = new Date(2017, 5, 1);
-  theme = 'accent';
 
   @ViewChild(TsDateRangeComponent, { static: true })
   dateRangeComponent!: TsDateRangeComponent;
