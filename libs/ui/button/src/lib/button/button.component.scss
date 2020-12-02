@@ -96,6 +96,7 @@
   --tsb-content-transitionDuration: var(--ts-animation-time-duration-400);
   --tsb-spinner-transition: opacity calc(var(--tsb-content-transitionDuration) - 200ms) var(--tsb-animationEasing);
   --tsb-spinner-xy: 21px;
+  --tsb-button-transitionDuration: var(--ts-animation-time-duration-200);
 }
 
 // Spinner animations and values
@@ -139,7 +140,7 @@ $duration: 1.4s;
     line-height: var(--tsb-lineHeight);
     padding: var(--tsb-padding);
     position: relative;
-    transition-duration: var(--tsb-icon-transitionDuration-collapse);
+    transition-duration: var(--tsb-button-transitionDuration);
     transition-property: color, box-shadow, border-color, background-color;
     transition-timing-function: var(--tsb-animationEasing);
 
