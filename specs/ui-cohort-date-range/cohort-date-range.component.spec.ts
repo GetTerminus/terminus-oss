@@ -4,16 +4,14 @@ import {
 } from '@angular/core';
 import { ComponentFixture } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
 
 import { createComponent as createComponentInner } from '@terminus/fe-testing';
 import {
   TsCohortDateRangeComponent,
   TsCohortDateRangeModule,
 } from '@terminus/ui-cohort-date-range';
-import {
-  getCohortDebugElement,
-  getFormFieldElement,
-} from '@terminus/ui-cohort-date-range/testing';
+import { getCohortDebugElement } from '@terminus/ui-cohort-date-range/testing';
 import { TsDateRangeModule } from '@terminus/ui-date-range';
 import { getRangeInputInstances } from '@terminus/ui-date-range/testing';
 import { TsInputComponent } from '@terminus/ui-input';
@@ -50,27 +48,25 @@ describe(`TsCohortDateRangeComponent`, () => {
     let fixture: ComponentFixture<Basic>;
     let hostInstance: Basic;
     let startInputInstance: TsInputComponent;
-    let formFieldElement: HTMLElement;
 
     beforeEach(() => {
       fixture = createComponent<Basic>(Basic);
       fixture.detectChanges();
       hostInstance = fixture.componentInstance;
       startInputInstance = getRangeInputInstances(fixture)[0];
-      formFieldElement = getFormFieldElement(fixture);
     });
 
-    test(`should have date range readonly if false`, () => {
+    test(`should disable date range if false`, () => {
       hostInstance.allowCustomDates = false;
       fixture.detectChanges();
-      expect(formFieldElement.classList).toContain('ts-form-field--disabled');
+      expect(fixture.debugElement.queryAll(By.css('input'))[0].nativeElement.getAttribute('disabled')).toEqual('');
       expect(startInputInstance.isDisabled).toBeTruthy();
     });
 
     test(`should not disabled date range if allowCustomsDate is true`, () => {
       hostInstance.allowCustomDates = true;
       fixture.detectChanges();
-      expect(formFieldElement.classList).not.toContain('ts-form-field--disabled');
+      expect(fixture.debugElement.queryAll(By.css('input'))[0].nativeElement.getAttribute('disabled')).toEqual(null);
       expect(startInputInstance.isDisabled).toBeFalsy();
     });
   });

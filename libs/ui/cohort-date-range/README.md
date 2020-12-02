@@ -8,7 +8,6 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
@@ -23,44 +22,15 @@
 
 ## Installation
 
-- `@angular/cdk`
-- `@angular/flex-layout`
-- `@angular/material`
-- `@terminus/design-tokens`
-- `@terminus/fe-utilities`
-- `@terminus/ui-checkbox`
-- `@terminus/ui-chip`
-- `@terminus/ui-cohort-date-range`
-- `@terminus/ui-date-range`
-- `@terminus/ui-form-field`
-- `@terminus/ui-icon`
-- `@terminus/ui-input`
-- `@terminus/ui-option`
-- `@terminus/ui-pipes`
-- `@terminus/ui-selection-list`
-- `@terminus/ui-spacing`
-- `@terminus/ui-styles`
-- `@terminus/ui-utilities`
-- `@terminus/ui-validation-messages`
-- `@terminus/ui-validators`
-- `date-fns`
-- `text-mask-addons`
-- `text-mask-core`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-cohort-date-range
 ```
 
-### Modules that need to be in NgModule
-
-- `BrowserAnimationsModule`
-- `TsCohortDateRangeModule`
-
 ### CSS imports
 
-In your top level stylesheet, add these imports:
+In your top-level stylesheet, add these imports:
 
 ```css
 @import '~@terminus/design-tokens/css/library-design-tokens.css';

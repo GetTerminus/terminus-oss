@@ -4,7 +4,8 @@
 }
 
 .ts-cohort-date-range {
-  display: block;
+  display: flex;
+  justify-content: flex-start;
 
   .ts-selection-list {
     &.ts-cohort-date-range__select {
