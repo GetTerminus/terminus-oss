@@ -74,13 +74,24 @@ submitting.parameters = {
   actions: { disabled: true },
 };
 
-export const submitAuto = () => ({
+export const autoSubmit = () => ({
   component: TsSearchComponent,
   props: {
     autoSubmit: true,
     submitted: action('Submitted'),
   },
 });
-submitAuto.parameters = {
+autoSubmit.parameters = {
+  knobs: { disabled: true },
+};
+
+export const noValidationOrHint = () => ({
+  component: TsSearchComponent,
+  props: {
+    noValidationOrHint: true,
+  },
+});
+noValidationOrHint.parameters = {
+  actions: { disabled: true },
   knobs: { disabled: true },
 };

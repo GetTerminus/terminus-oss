@@ -110,7 +110,7 @@ describe('TsSearchComponent', function() {
     test(`should not have validation or hint added if set to true`, () => {
       component.noValidationOrHint = true;
       fixture.detectChanges();
-      const validationBlock = fixture.debugElement.query(By.css('.ts-form-field__subscript-wrapper'));
+      const validationBlock = fixture.debugElement.query(By.css('.ts-input__messages'));
       expect(validationBlock).toBeFalsy();
     });
   });

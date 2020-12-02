@@ -1,22 +1,46 @@
 :root {
   --ts-search-button-marginLeft: 6px;
-  --ts-search-button-offset-top: -1px;
-  --ts-search-withValidation-button-offset-top: calc(var(--ts-space-stack-400) * -1);
+  --ts-search-button-offset-top: 16px;
+  --ts-search-withValidation-button-offset-top: 16px;
+  --ts-search-icon-size: 14px;
+  --ts-search-icon-color: var(--ts-color-utility-600);
+  --ts-search-icon-left: 13px;
 }
 
 .ts-search {
   display: block;
+
+  &__form {
+    align-items: flex-start;
+    display: flex;
+  }
+
+  .ts-input {
+    // Make room for the search icon
+    --ts-input-padding: 10px 12px 10px 32px;
+    flex: 1 1 100%;
+  }
+
+  .ts-search__icon {
+    color: var(--ts-search-icon-color);
+    display: block;
+    height: var(--ts-search-icon-size);
+    left: var(--ts-search-icon-left);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--ts-search-icon-size);
+
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+  }
 
   // Match button vertical alignment with search input
   .ts-button {
     margin-left: var(--ts-search-button-marginLeft);
     position: relative;
     top: var(--ts-search-button-offset-top);
-
-    // Add more space if the search IS displaying validations or hints
-    &:not(.no-validation-or-hint) {
-      // Offset to account for space under input for error messages
-      top: var(--ts-search-withValidation-button-offset-top);
-    }
   }
 }

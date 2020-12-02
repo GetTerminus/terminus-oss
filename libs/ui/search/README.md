@@ -8,43 +8,17 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be installed](#packages-that-need-to-be-installed)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Auto-submit](#auto-submit)
+  - [Button theme](#button-theme)
+  - [No validation or hint](#no-validation-or-hint)
   - [Events](#events)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Installation
-
-### Packages that need to be installed
-
-- `@angular/cdk`
-- `@angular/common`
-- `@angular/core`
-- `@angular/flex-layout`
-- `@angular/forms`
-- `@angular/material`
-- `@angular/platform-browser`
-- `@terminus/design-tokens`
-- `@terminus/fe-utilities`
-- `@terminus/ui-button`
-- `@terminus/ui-icon`
-- `@terminus/ui-input`
-- `@terminus/ui-form-field`
-- `@terminus/ui-pipes`
-- `@terminus/ui-search`
-- `@terminus/ui-spacing`
-- `@terminus/ui-styles`
-- `@terminus/ui-utilities`
-- `@terminus/ui-validation-messages`
-- `@terminus/ui-validators`
-- `text-mask-addons`
-- `text-mask-core`
-- `date-fns`
 
 Use the `ng add` command to quickly install all the needed dependencies:
 
@@ -52,13 +26,9 @@ Use the `ng add` command to quickly install all the needed dependencies:
 ng add @terminus/ui-search
 ```
 
-### Modules that need to be in NgModule
-
-- `TsSearchModule`
-
 ### CSS imports
 
-In your top level stylesheet, add these imports:
+In your top-level stylesheet, add these imports:
 
 ```css
 @import '~@terminus/design-tokens/css/library-design-tokens.css';
@@ -90,17 +60,33 @@ When enabled, the submit button will not be shown and debounced queries will be 
 <ts-search [autoSubmit]="true"></ts-search>
 ```
 
+### Button theme
+
+Any valid `TsButtonThemeTypes` can be passed in:
+
+```html
+<ts-search buttonTheme="secondary"></ts-search>
+```
+
+### No validation or hint
+
+The space reserved for the validation message or hint can be removed if it is not needed:
+
+```html
+<ts-search [noValidationOrHint]="true"></ts-search>
+```
+
 ### Events
 
 ```html
 <ts-search (submitted)="myFunction($event)"></ts-search>
 ```
 
-| Event       | Description                                                        | Payload            |
-|:------------|:-------------------------------------------------------------------|:-------------------|
-| `changed`   | Fired when the drawer expansion starts                             | `string`           |
-| `cleared`   | Fired when the drawer collapse starts                              | `boolean`          |
-| `submitted` | Fired when the search query is submitted manually or automatically | `TsSearchResponse` |
+| Event       | Description                                                          | Payload            |
+|:------------|:---------------------------------------------------------------------|:-------------------|
+| `changed`   | Fired when the drawer expansion starts                               | `string`           |
+| `cleared`   | Fired when the drawer collapse starts                                | `boolean`          |
+| `submitted` | Fired when the search query is submitted (manually or automatically) | `TsSearchResponse` |
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE
