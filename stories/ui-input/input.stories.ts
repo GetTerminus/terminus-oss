@@ -259,7 +259,7 @@ export const formControlName = () => ({
     <form [formGroup]="myForm" [style.width.px]="width">
       <ts-input
         formControlName="inputValue"
-        [label]="label"
+        label="My input"
       ></ts-input>
     </form>
   `,
