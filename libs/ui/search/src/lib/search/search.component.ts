@@ -15,7 +15,6 @@ import type {
   FormControl,
   FormGroup,
 } from '@angular/forms';
-import { faSearch } from '@fortawesome/pro-solid-svg-icons';
 
 import { debounce } from '@terminus/fe-utilities';
 import type {
@@ -43,13 +42,14 @@ const INPUT_MINIMUM_LENGTH = 2;
  * @example
  * <ts-search
  *              [autoSubmit]="true"
+ *              buttonTheme="default"
  *              initialValue="My starting value"
  *              inputHint="Enter at least 17 characters"
  *              inputLabel="Search for a tactic"
  *              [isDisabled]="false"
  *              [isFocused]="false"
  *              [isSubmitting]="false"
- *              buttonTheme="default"
+ *              [noValidationOrHint]="true"
  *              [userCanClear]="true"
  *              (changed)="doSomething($event)"
  *              (cleared)="doSomething()"
@@ -97,11 +97,6 @@ export class TsSearchComponent implements OnInit {
    * Define a debounced method to emit the submission event
    */
   public debouncedEmit = debounce<TsSearchComponent>(this.emitSubmit, INPUT_DEBOUNCE_DEFAULT_MS);
-
-  /**
-   * Define the icon name
-   */
-  public icon = faSearch;
 
   /**
    * Define the regular expression to validate the query
