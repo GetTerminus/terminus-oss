@@ -221,12 +221,14 @@ export class StartingView {
   template: `
     <ts-input
       [datepicker]="true"
+      [datepickerDefaultOpen]="defaultOpen"
       [openTo]="openTo"
     ></ts-input>
   `,
 })
 export class OpenTo {
   public openTo: undefined | Date = new Date(2018, 1, 1);
+  public defaultOpen = false;
 
   @ViewChild(TsInputComponent, { static: true })
   inputComponent!: TsInputComponent;

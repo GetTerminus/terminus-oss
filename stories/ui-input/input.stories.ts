@@ -118,6 +118,36 @@ export const datepicker = () => ({
 datepicker.parameters = {
   docs: { iframeHeight: 440 },
 };
+export const datepickerDefaultOpen = () => ({
+  template: `
+    <div [style.width.px]="width">
+      <ts-input
+        label="My datepicker input"
+        [datepicker]="true"
+        [datepickerDefaultOpen]="true"
+        [maxDate]="maxDate"
+        [minDate]="minDate"
+        [startingView]="startingView"
+        [(ngModel)]="myValue"
+        (selected)="selected($event)"
+      ></ts-input>
+    </div>
+  `,
+  props: {
+    maxDate: date('Maximum Date', MAX_DATE),
+    minDate: date('Minimum Date', MIN_DATE),
+    myValue: DEFAULT_DATE,
+    openTo: date('Open calendar to', DEFAULT_DATE),
+    startingView: select('Starting View', ['month', 'year'], 'month'),
+    width: number('Container width', 300),
+    selected: action('Selected: '),
+  },
+});
+datepickerDefaultOpen.parameters = {
+  actions: { disabled: true },
+  knobs: { disabled: true },
+  docs: { iframeHeight: 440 },
+};
 
 export const hint = () => ({
   template: `
