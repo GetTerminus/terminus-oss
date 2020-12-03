@@ -92,6 +92,7 @@ export type TsSelectionListComparator = (a: unknown, b: unknown) => boolean;
  *              [formControl]="myFormControl"
  *              hint="Begin typing to search.."
  *              [isDisabled]="isDisabled"
+ *              [isMinimal]="true"
  *              label="Select options:"
  *              name="product selections"
  *              options="[{}, {}, ...]"
@@ -117,6 +118,7 @@ export type TsSelectionListComparator = (a: unknown, b: unknown) => boolean;
     '[class.ts-selection-list--disabled]': 'isDisabled',
     '[class.ts-selection-list--single]': '!allowMultiple',
     '[class.ts-selection-list--multiple]': 'allowMultiple',
+    '[class.ts-selection-list--minimal]': 'isMinimal',
     '[attr.aria-owns]': 'panelOpen ? optionIds : null',
     '[attr.aria-required]': 'isRequired.toString()',
     '[attr.aria-multiselectable]': 'allowMultiple',
@@ -308,6 +310,12 @@ export class TsSelectionListComponent implements
    */
   @Input()
   public isDisabled = false;
+
+  /**
+   * Define if the format should be minimal
+   */
+  @Input()
+  public isMinimal = false;
 
   /**
    * Define if the control is required

@@ -35,6 +35,10 @@
   --ts-sl-label-typography: 400 13px / 15px var(--ts-typography-stack-base-roboto);
   --ts-sl-hint-typography: var(--ts-typography-compound-hint);
   --ts-sl-error-color: var(--ts-color-warn-500);
+  --ts-sl-color-minimal: var(--ts-color-primary-700);
+  --ts-sl-typography-minimal: 500 13px / 20px var(--ts-typography-stack-base-roboto);
+  --ts-sl-caret-color-minimal: var(--ts-color-primary-700);
+  --ts-sl-color-minimal-hover: var(--ts-color-primary-900);
 }
 
 $offset: 187;
@@ -97,6 +101,17 @@ $duration: 1.4s;
     .ts-selection-list__input,
     .c-chip--disabled {
       cursor: not-allowed;
+    }
+
+
+    .ts-selection-list__input-wrap--minimal {
+      --ts-sl-backgroundColor: transparent;
+      --ts-sl-color: var(--ts-sl-color-disabled);
+
+      &:focus,
+      &:hover {
+        --ts-sl-color: var(--ts-sl-color-disabled);
+      }
     }
   }
 
@@ -213,8 +228,8 @@ $duration: 1.4s;
   transition: border-color 200ms ease-out;
   width: 100%;
 
-  &:enabled {
-    &:not(.c-input__text--error) {
+  &:not(.ts-selection-list__input-wrap--disabled) {
+    &:not(.ts-selection-list__input-wrap--error) {
       &:hover {
         --ts-sl-borderColor: var(--ts-sl-borderColor-hover);
       }
@@ -223,6 +238,25 @@ $duration: 1.4s;
         --ts-sl-borderColor: var(--ts-sl-borderColor-focus);
         box-shadow: var(--ts-sl-shadow-focus);
       }
+    }
+  }
+
+  &.ts-selection-list__input-wrap--minimal {
+    --ts-sl-borderColor: transparent;
+    --ts-sl-color: var(--ts-sl-color-minimal);
+    --ts-sl-typography: var(--ts-sl-typography-minimal);
+    --ts-sl-caret-color: var(--ts-sl-caret-color-minimal);
+
+    &:not(.ts-selection-list__input-wrap--disabled) {
+      &:focus,
+      &:hover {
+        --ts-sl-borderColor: transparent;
+        --ts-sl-color: var(--ts-sl-color-minimal-hover);
+      }
+    }
+
+    .ts-selection-list__input {
+      padding: 0;
     }
   }
 
@@ -242,7 +276,7 @@ $duration: 1.4s;
     }
   }
 
-  &.c-input__text--error {
+  &.ts-selection-list__input-wrap--error {
     --ts-sl-borderColor: var(--ts-sl-borderColor-error);
 
     &:focus {

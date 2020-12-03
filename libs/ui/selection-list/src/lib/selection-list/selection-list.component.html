@@ -1,6 +1,12 @@
 <label class="c-input__label-text" [for]="id">{{ label }}</label>
 
-<div class="ts-selection-list__input-wrap" #panelContainer>
+<div
+  class="ts-selection-list__input-wrap"
+  [class.ts-selection-list__input-wrap--minimal]="isMinimal"
+  [class.ts-selection-list__input-wrap--error]="!!errorMessage"
+  [class.ts-selection-list__input-wrap--disabled]="isDisabled"
+  #panelContainer
+>
   <ng-container *ngIf="allowMultiple">
     <ts-chip-collection
       (tabUpdateFocus)="focusInput()"

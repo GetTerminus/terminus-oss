@@ -173,7 +173,7 @@ export const basic = () => ({
         <ts-option [value]="f" [option]="f" *ngFor="let f of fruit">{{ f }}</ts-option>
       </ts-selection-list>
     </div>
-    <div>
+    <div style="margin-bottom: 2rem;">
       <ts-selection-list
         [allowMultiple]="allowMultiple"
         [label]="label"
@@ -195,6 +195,44 @@ export const basic = () => ({
   },
 });
 basic.parameters = {
+  actions: { disabled: true },
+  docs: { iframeHeight: 340 },
+};
+
+export const minimal = () => ({
+  template: `
+    <div style="margin-bottom: 2rem;">
+      <ts-selection-list
+        [label]="label"
+        [hint]="hint"
+        [formControl]="formControl"
+        [allowUserInput]="false"
+        [isMinimal]="true"
+      >
+        <ts-option [value]="f" [option]="f" *ngFor="let f of fruit">{{ f }}</ts-option>
+      </ts-selection-list>
+    </div>
+    <div>
+      <ts-selection-list
+        [label]="label"
+        [hint]="hint"
+        [formControl]="formControl"
+        [allowUserInput]="false"
+        [isDisabled]="true"
+        [isMinimal]="true"
+      >
+        <ts-option [value]="f" [option]="f" *ngFor="let f of fruit">{{ f }}</ts-option>
+      </ts-selection-list>
+    </div>
+  `,
+  props: {
+    hint: text('Hint', 'Select an option..'),
+    label: text('Label', 'Select fruit'),
+    formControl: new FormControl(['Grape']),
+    fruit: ['Apple', 'Grape', 'Peach', 'Pear', 'Banana'],
+  },
+});
+minimal.parameters = {
   actions: { disabled: true },
   docs: { iframeHeight: 340 },
 };
