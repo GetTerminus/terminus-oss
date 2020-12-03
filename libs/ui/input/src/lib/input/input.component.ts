@@ -180,6 +180,7 @@ const DEFAULT_DATE_LOCALE = 'en-US';
  *              [isDisabled]="false"
  *              [isFocused]="false"
  *              [isRequired]="false"
+ *              [isSmall]="true"
  *              label="My Label Text"
  *              mask="phone"
  *              [maskAllowDecimal]="true"
@@ -575,6 +576,12 @@ export class TsInputComponent implements AfterViewInit, AfterContentInit, DoChec
     return this._isRequired || requiredFormControl;
   }
   private _isRequired = false;
+
+  /**
+   * Define if the smaller input format should be used
+   */
+  @Input()
+  public isSmall = false;
 
   /**
    * Define if the input should be a textarea

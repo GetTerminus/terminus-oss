@@ -52,11 +52,18 @@ export const basic = () => ({
           (inputFocus)="onFocus($event)"
         ></ts-input>
       </div>
-      <div>
+      <div style="margin-bottom: 2rem;">
         <ts-input
           [(ngModel)]="myValue"
           [label]="label"
           [isDisabled]="true"
+        ></ts-input>
+      </div>
+      <div>
+        <ts-input
+          [(ngModel)]="myValue"
+          [isSmall]="true"
+          label="Email address (small)"
         ></ts-input>
       </div>
     </div>
@@ -73,12 +80,23 @@ export const basic = () => ({
 export const clearable = () => ({
   template: `
     <div [style.width.px]="width">
-      <ts-input
-        [(ngModel)]="myValue"
-        label="My clearable input"
-        [isClearable]="true"
-        (cleared)="cleared($event)"
-      ></ts-input>
+      <div style="margin-bottom: 2rem;">
+        <ts-input
+          [(ngModel)]="myValue"
+          label="My clearable input"
+          [isClearable]="true"
+          (cleared)="cleared($event)"
+        ></ts-input>
+      </div>
+      <div>
+        <ts-input
+          [(ngModel)]="myValue"
+          label="My clearable input (small)"
+          [isClearable]="true"
+          [isSmall]="true"
+          (cleared)="cleared($event)"
+        ></ts-input>
+      </div>
     </div>
   `,
   props: {
@@ -265,12 +283,23 @@ mask.parameters = {
 export const textarea = () => ({
   template: `
     <div [style.width.px]="width">
-      <ts-input
-        [isTextarea]="true"
-        [textareaRows]="textareaRows"
-        [(ngModel)]="myValue"
-        label="My textarea"
-      ></ts-input>
+      <div style="margin-bottom: 2rem;">
+        <ts-input
+          [isTextarea]="true"
+          [textareaRows]="textareaRows"
+          [(ngModel)]="myValue"
+          label="My textarea"
+        ></ts-input>
+      </div>
+      <div>
+        <ts-input
+          [isTextarea]="true"
+          [textareaRows]="textareaRows"
+          [isSmall]="true"
+          [(ngModel)]="myValue"
+          label="My small textarea"
+        ></ts-input>
+      </div>
     </div>
   `,
   props: {

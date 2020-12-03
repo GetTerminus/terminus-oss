@@ -11,16 +11,20 @@
   --ts-input-borderColor-disabled: var(--ts-color-utility-200);
   --ts-input-borderRadius: var(--ts-border-radius-base);
   --ts-input-fontSize: 14px;
+  --ts-input-fontSize-small: 13px;
   --ts-input-borderColor-hover: var(--ts-color-utility-400);
   --ts-input-borderColor-focus: var(--ts-color-primary-700);
   --ts-input-borderColor-error-focus: var(--ts-color-warn-700);
   --ts-input-shadow-focus: 0 0 2px 2px #d6efff;
   --ts-input-shadow-error-focus: 0 0 2px 2px #f8e2e4;
   --ts-input-padding: 10px 12px;
+  --ts-input-padding-small: 4px 8px;
   --ts-input-label-color: var(--ts-color-utility-700);
   --ts-input-label-marginBottom: 6px;
   --ts-input-label-typography: 400 13px / 15px var(--ts-typography-stack-base-roboto);
   --ts-input-clear-size: 16px;
+  --ts-input-clear-right: 12px;
+  --ts-input-clear-small-right: 8px;
   --ts-input-clear-color: var(--ts-color-utility-600);
   --ts-input-clear-color-hover: var(--ts-color-warn-500);
   --ts-input-hint-typography: var(--ts-typography-compound-hint);
@@ -100,6 +104,10 @@
       }
     }
 
+    &.c-input__text--small {
+      --ts-input-padding: var(--ts-input-padding-small);
+      --ts-input-fontSize: var(--ts-input-fontSize-small);
+    }
 
     // Undo the red box-shadow glow added by Firefox on invalid inputs.
     // See https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-ui-invalid
@@ -174,9 +182,10 @@
     opacity: 0;
     pointer-events: none;
     position: absolute;
-    right: 12px;
+    right: var(--ts-input-clear-right);
     top: 50%;
     transform: translateY(-50%);
+    transform-origin: top;
     transition:
       opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease),
       color var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease);
@@ -195,6 +204,11 @@
     svg {
       height: 100%;
       width: 100%;
+    }
+
+    &.c-input__clear--small {
+      --ts-input-clear-right: var(--ts-input-clear-small-right);
+      transform: scale(.8) translateY(-50%);
     }
   }
 
