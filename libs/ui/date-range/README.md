@@ -17,6 +17,7 @@
     - [Disable a control](#disable-a-control)
     - [Disable the component](#disable-the-component)
   - [Default open](#default-open)
+  - [Error message](#error-message)
 - [Test Helpers](#test-helpers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -203,6 +204,14 @@ The start or end date datepicker can be opened on load:
 <ts-date-range [defaultStartDatepickerOpen]="true"></ts-date-range>
 <!-- or -->
 <ts-date-range [defaultEndDatepickerOpen]="true"></ts-date-range>
+```
+
+### Error message
+
+A custom error message can be displayed:
+
+```html
+<ts-date-range errorMessage="My error message!"></ts-date-range>
 ```
 
 ## Test Helpers

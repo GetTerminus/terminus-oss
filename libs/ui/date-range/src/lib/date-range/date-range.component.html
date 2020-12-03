@@ -1,6 +1,6 @@
 <div class="c-date-range">
   <ts-input
-    class="c-date-range__input--start c-date-range__input--start"
+    class="c-date-range__input c-date-range__input--start"
     [dateLocale]="dateLocale"
     [formControl]="internalStartControl"
     [label]="startLabel"
@@ -36,4 +36,9 @@
     (inputBlur)="endBlur($event)"
     #end
   ></ts-input>
+</div>
+
+<div class="ts-date-range__messages" *ngIf="!noValidationOrHint">
+  <div class="ts-date-range__error" *ngIf="errorMessage">{{ errorMessage }}</div>
+  <div class="ts-date-range__hint" *ngIf="hint && !errorMessage">{{ hint }}</div>
 </div>

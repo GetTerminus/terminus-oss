@@ -1,11 +1,13 @@
 :root {
   --ts-daterange-separator-color: var(--ts-color-utility-500);
   --ts-daterange-separator-marginTop: 1.3em;
+  --ts-daterange-hint-typography: var(--ts-typography-compound-hint);
+  --ts-daterange-error-color: var(--ts-color-warn-500);
 }
 
 .ts-date-range {
   box-sizing: border-box;
-  display: block;
+  display: inline-block;
 
   * {
     box-sizing: inherit;
@@ -28,5 +30,17 @@
     color: var(--ts-daterange-separator-color);
     margin-right: .6em;
     margin-top: var(--ts-daterange-separator-marginTop);
+  }
+}
+
+.ts-date-range__messages {
+  font: var(--ts-daterange-hint-typography);
+
+  .ts-date-range__hint {
+    text-align: right;
+  }
+
+  .ts-date-range__error {
+    color: var(--ts-daterange-error-color);
   }
 }
