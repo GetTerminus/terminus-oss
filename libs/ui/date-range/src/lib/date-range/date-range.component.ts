@@ -44,7 +44,10 @@ export interface TsDateRange {
  *              [defaultEndDatepickerOpen]="true"
  *              endMinDate="{{ new Date(2017, 4, 1) }}"
  *              endMaxDate="{{ new Date(2017, 4, 30) }}"
+ *              errorMessage="The date must be in the future"
+ *              hint="Select a date"
  *              [isDisabled]="true"
+ *              [noValidationOrHint]="true"
  *              startingView="year"
  *              startMinDate="{{ new Date(2017, 4, 1) }}"
  *              startMaxDate="{{ new Date(2017, 4, 30) }}"
@@ -179,10 +182,28 @@ export class TsDateRangeComponent implements OnInit, OnDestroy {
   public endMinDate: Date | undefined;
 
   /**
+   * Define an error message
+   */
+  @Input()
+  public errorMessage: string;
+
+  /**
+   * Define a hint
+   */
+  @Input()
+  public hint: string;
+
+  /**
    * Define if the range should be disabled
    */
   @Input()
   public isDisabled = false;
+
+  /**
+   * Define if the hint and error message should be hidden
+   */
+  @Input()
+  public noValidationOrHint = false;
 
   /**
    * Define the starting view for both datepickers

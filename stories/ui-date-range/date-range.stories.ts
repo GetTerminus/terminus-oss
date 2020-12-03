@@ -128,3 +128,28 @@ locale.parameters = {
   actions: { disabled: true },
   docs: { iframeHeight: 400 },
 };
+
+export const hint = () => ({
+  component: TsDateRangeComponent,
+  props: {
+    hint: text('Hint', 'Select a date'),
+  },
+});
+hint.parameters = {
+  actions: { disabled: true },
+  knobs: { disabled: true },
+  docs: { iframeHeight: 400 },
+};
+
+export const errorMessage = () => ({
+  component: TsDateRangeComponent,
+  props: {
+    errorMessage: text('Error message', 'Please select a valid end-date'),
+    dateFormGroup: FORM_GROUP_SEEDED,
+  },
+});
+errorMessage.parameters = {
+  actions: { disabled: true },
+  knobs: { disabled: true },
+  docs: { iframeHeight: 400 },
+};
