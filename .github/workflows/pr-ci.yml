@@ -65,7 +65,7 @@ jobs:
       #
       # List affected
       #
-      - name: List affected LIBS
+      - name: "List affected LIBS"
         run: yarn affected:libs --base=origin/release --head=HEAD
         if: env.SHOULD_RUN == 'true'
 
