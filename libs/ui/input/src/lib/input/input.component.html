@@ -3,7 +3,7 @@
 <div class="ts-input__input-container">
   <ng-template *ngTemplateOutlet="contentTemplate"></ng-template>
   <ng-template *ngTemplateOutlet="clearIconTemplate"></ng-template>
-  <!-- Catch all output in case a consumer needs to add element(s) inside the container -->
+  <!-- Catch all outlet in case a consumer needs to add element(s) inside the container -->
   <ng-content></ng-content>
 </div>
 
@@ -12,13 +12,13 @@
   <div class="ts-input__hint" *ngIf="hint && !errorMessage">{{ hint }}</div>
 </div>
 
-
-<!-- -Inner element proper -->
+<!-- Inner element proper -->
 <ng-template #contentTemplate>
   <ng-container *ngIf="!isTextarea && !datepicker">
     <input
       class="c-input__text ts-form-field-autofill-control"
       [class.c-input__text--error]="!!errorMessage"
+      [class.c-input__text--small]="isSmall"
       [attr.type]="type"
       [attr.aria-required]="isRequired"
       [attr.aria-describedby]="ariaDescribedby || null"
@@ -46,6 +46,7 @@
     <input
       class="c-input__text c-input__text--datepicker ts-form-field-autofill-control"
       [class.c-input__text--error]="!!errorMessage"
+      [class.c-input__text--small]="isSmall"
       [attr.type]="type"
       [attr.aria-required]="isRequired"
       [attr.aria-describedby]="ariaDescribedby || null"
@@ -86,6 +87,7 @@
     <textarea
       class="c-input__text c-input__text--textarea ts-form-field-autofill-control"
       [class.c-input__text--error]="!!errorMessage"
+      [class.c-input__text--small]="isSmall"
       [attr.type]="type"
       [attr.aria-required]="isRequired"
       [attr.aria-describedby]="ariaDescribedby || null"
@@ -113,6 +115,7 @@
 <ng-template #clearIconTemplate>
   <span
     class="c-input__clear"
+    [class.c-input__clear--small]="isSmall"
     *ngIf="isClearable && !shouldBeDisabled && !datepicker"
     [class.c-input__clear--visible]="!empty"
     (click)="reset()"

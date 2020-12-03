@@ -237,6 +237,15 @@ describe(`TsInputComponent`, () => {
       expect(spectator.query('.ts-input__messages')).not.toExist();
     });
   });
+
+  describe(`small`, () => {
+    test(`should add classes needed for small format`, () => {
+      spectator.setInput('isSmall', true);
+      spectator.setInput('isClearable', true);
+      expect(spectator.query('.c-input__text--small')).toExist();
+      expect(spectator.query('.c-input__clear--small')).toExist();
+    });
+  });
 });
 
 // FIXME: Slowly transitioning to Spectator based tests above
