@@ -175,6 +175,7 @@
     "@compodoc/compodoc": "1.1.11",
     "@ngneat/spectator": "5.13.4",
     "@nrwl/angular": "9.6.0",
+    "@nrwl/cli": "9.5.1",
     "@nrwl/cypress": "9.6.0",
     "@nrwl/jest": "9.6.0",
     "@nrwl/node": "9.6.0",
