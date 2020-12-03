@@ -16,6 +16,7 @@
   - [allowCustomDates](#allowcustomdates)
   - [Date range boundaries](#date-range-boundaries)
   - [Disable](#disable)
+  - [Error message](#error-message)
 - [Test Helpers](#test-helpers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -164,6 +165,14 @@ The entire component can be disabled:
 
 ```html
 <ts-cohort-date-range [isDisabled]="true"></ts-cohort-date-range>
+```
+
+### Error message
+
+A custom error message can be displayed:
+
+```html
+<ts-cohort-date-range errorMessage="My error message!"></ts-cohort-date-range>
 ```
 
 ## Test Helpers

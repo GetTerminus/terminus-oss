@@ -9,6 +9,7 @@ import { action } from '@storybook/addon-actions';
 import {
   boolean,
   date,
+  text,
   withKnobs,
 } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
@@ -25,6 +26,7 @@ import {
   TsCohortDateRangeModule,
   TsDateCohort,
 } from '@terminus/ui-cohort-date-range';
+import { TsDateRangeComponent } from '@terminus/ui-date-range';
 
 export default {
   title: 'Components/Data Entry/Cohort Date Range',
@@ -146,5 +148,32 @@ export const noCustomDates = () => ({
 });
 noCustomDates.parameters = {
   actions: { disabled: true },
+  docs: { iframeHeight: 400 },
+};
+
+export const hint = () => ({
+  component: TsCohortDateRangeComponent,
+  props: {
+    hint: text('Hint', 'Select a date'),
+    cohorts: COHORTS,
+  },
+});
+hint.parameters = {
+  actions: { disabled: true },
+  knobs: { disabled: true },
+  docs: { iframeHeight: 400 },
+};
+
+export const errorMessage = () => ({
+  component: TsCohortDateRangeComponent,
+  props: {
+    errorMessage: text('Error message', 'Please select a valid end-date'),
+    dateFormGroup: FORM_GROUP_SEEDED,
+    cohorts: COHORTS,
+  },
+});
+errorMessage.parameters = {
+  actions: { disabled: true },
+  knobs: { disabled: true },
   docs: { iframeHeight: 400 },
 };

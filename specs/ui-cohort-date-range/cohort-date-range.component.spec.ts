@@ -5,6 +5,8 @@ import {
 import { ComponentFixture } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
+import { Spectator } from '@ngneat/spectator';
+import { createComponentFactory } from '@ngneat/spectator/jest';
 
 import { createComponent as createComponentInner } from '@terminus/fe-testing';
 import {
@@ -25,10 +27,53 @@ import {
   NoCustomDates,
 } from './test-components';
 
+describe(`TsCohortDateRange Spectator`, () => {
+  let spectator: Spectator<TsCohortDateRangeComponent>;
+  const createComponent = createComponentFactory({
+    component: TsCohortDateRangeComponent,
+    imports: [TsCohortDateRangeModule],
+    declareComponent: false,
+  });
+
+  test(`should exist`, () => {
+    spectator = createComponent();
+    expect(spectator.queryAll('input')).toBeTruthy();
+  });
+
+  describe(`hint`, () => {
+    test(`should show/hide the container and output the text`, () => {
+      spectator = createComponent();
+      expect(spectator.query('.ts-cohort-date-range__hint')).not.toExist();
+      spectator.setInput('hint', 'foo');
+      expect(spectator.query('.ts-cohort-date-range__hint')).toHaveText('foo');
+    });
+  });
+
+  test(`should display an error message if one is passed in`, () => {
+    spectator = createComponent({
+      props: {
+        errorMessage: 'My error',
+      },
+    });
+    expect(spectator.query('.ts-cohort-date-range__error')).toHaveText('My error');
+  });
+
+  describe(`noValidationOrHint`, () => {
+    test(`should not have validation or hint added if set to true`, () => {
+      spectator = createComponent({
+        props: {
+          noValidationOrHint: true,
+        },
+      });
+      expect(spectator.query('.ts-cohort-date-range__messages')).not.toExist();
+    });
+  });
+});
+
 describe(`TsCohortDateRangeComponent`, () => {
   describe(`id`, () => {
     test(`should allow custom ID and fall back to UID`, () => {
-      const fixture = createComponent<Basic>(Basic);
+      const fixture = createComponentLegacy<Basic>(Basic);
       fixture.detectChanges();
       const debug = getCohortDebugElement(fixture);
       const instance: TsCohortDateRangeComponent = debug.componentInstance;
@@ -50,7 +95,7 @@ describe(`TsCohortDateRangeComponent`, () => {
     let startInputInstance: TsInputComponent;
 
     beforeEach(() => {
-      fixture = createComponent<Basic>(Basic);
+      fixture = createComponentLegacy<Basic>(Basic);
       fixture.detectChanges();
       hostInstance = fixture.componentInstance;
       startInputInstance = getRangeInputInstances(fixture)[0];
@@ -73,7 +118,7 @@ describe(`TsCohortDateRangeComponent`, () => {
 
   describe(`updateSelectOnRangeChange`, () => {
     test(`should do nothing if no cohorts exist`, () => {
-      const fixture = createComponent<NoCohorts>(NoCohorts);
+      const fixture = createComponentLegacy<NoCohorts>(NoCohorts);
       fixture.detectChanges();
       fixture.detectChanges();
       const debug = getCohortDebugElement(fixture);
@@ -90,7 +135,7 @@ describe(`TsCohortDateRangeComponent`, () => {
     });
 
     test(`should update the select to the custom cohort when the range is manually changed`, () => {
-      const fixture = createComponent<Basic>(Basic);
+      const fixture = createComponentLegacy<Basic>(Basic);
       fixture.detectChanges();
       const debug = getCohortDebugElement(fixture);
       const instance: TsCohortDateRangeComponent = debug.componentInstance;
@@ -105,7 +150,7 @@ describe(`TsCohortDateRangeComponent`, () => {
     });
 
     test(`should not update the select when the range is manually changed to a cohort range`, () => {
-      const fixture = createComponent<Basic>(Basic);
+      const fixture = createComponentLegacy<Basic>(Basic);
       fixture.detectChanges();
       const date1 = new Date(2018, 1, 1);
       const date2 = new Date(2018, 2, 1);
@@ -124,7 +169,7 @@ describe(`TsCohortDateRangeComponent`, () => {
 
   describe(`cohorts`, () => {
     test(`should set the active cohort by default`, () => {
-      const fixture = createComponent<DefaultCohort>(DefaultCohort);
+      const fixture = createComponentLegacy<DefaultCohort>(DefaultCohort);
       fixture.detectChanges();
       const debug = getCohortDebugElement(fixture);
       const instance: TsCohortDateRangeComponent = debug.componentInstance;
@@ -135,7 +180,7 @@ describe(`TsCohortDateRangeComponent`, () => {
     });
 
     test(`should not add the custom cohort if custom dates are not allowed`, () => {
-      const fixture = createComponent<NoCustomDates>(NoCustomDates);
+      const fixture = createComponentLegacy<NoCustomDates>(NoCustomDates);
       fixture.detectChanges();
       const debug = getCohortDebugElement(fixture);
       const instance: TsCohortDateRangeComponent = debug.componentInstance;
@@ -143,7 +188,7 @@ describe(`TsCohortDateRangeComponent`, () => {
     });
 
     test(`should add the custom cohort to the end if allowUserInput is true`, () => {
-      const fixture = createComponent<Basic>(Basic);
+      const fixture = createComponentLegacy<Basic>(Basic);
       fixture.detectChanges();
       const debug = getCohortDebugElement(fixture);
       const instance: TsCohortDateRangeComponent = debug.componentInstance;
@@ -155,7 +200,7 @@ describe(`TsCohortDateRangeComponent`, () => {
 
   describe(`select emitters`, function() {
     test(`should emit change event if date range has any changes`, () => {
-      const fixture = createComponent<Basic>(Basic);
+      const fixture = createComponentLegacy<Basic>(Basic);
       const cohortDebugElement = getCohortDebugElement(fixture);
       const cohortInstance: TsCohortDateRangeComponent = cohortDebugElement.componentInstance;
       fixture.detectChanges();
@@ -173,7 +218,7 @@ describe(`TsCohortDateRangeComponent`, () => {
 
   describe(`selectionChange`, () => {
     test(`should set the date range if the cohort selection changes`, () => {
-      const fixture = createComponent<DefaultCohort>(DefaultCohort);
+      const fixture = createComponentLegacy<DefaultCohort>(DefaultCohort);
       fixture.detectChanges();
       const debug = getCohortDebugElement(fixture);
       const instance: TsCohortDateRangeComponent = debug.componentInstance;
@@ -194,28 +239,28 @@ describe(`TsCohortDateRangeComponent`, () => {
 
   describe(`date constraints`, function() {
     test(`should set end min date to provided value`, function() {
-      const fixture = createComponent<DateConstraints>(DateConstraints);
+      const fixture = createComponentLegacy<DateConstraints>(DateConstraints);
       fixture.detectChanges();
       const endInputInstance = getRangeInputInstances(fixture)[1];
       expect(endInputInstance.minDate).toEqual(new Date(2020, 2, 1));
     });
 
     test(`should set end max date to provided value`, function() {
-      const fixture = createComponent<DateConstraints>(DateConstraints);
+      const fixture = createComponentLegacy<DateConstraints>(DateConstraints);
       fixture.detectChanges();
       const endInputInstance = getRangeInputInstances(fixture)[1];
       expect(endInputInstance.maxDate).toEqual(new Date(2020, 2, 25));
     });
 
     test(`should set start min date to provided value`, function() {
-      const fixture = createComponent<DateConstraints>(DateConstraints);
+      const fixture = createComponentLegacy<DateConstraints>(DateConstraints);
       fixture.detectChanges();
       const startInputInstance = getRangeInputInstances(fixture)[0];
       expect(startInputInstance.minDate).toEqual(new Date(2020, 0, 1));
     });
 
     test(`should set start max date to provided value`, function() {
-      const fixture = createComponent<DateConstraints>(DateConstraints);
+      const fixture = createComponentLegacy<DateConstraints>(DateConstraints);
       fixture.detectChanges();
       const startInputInstance = getRangeInputInstances(fixture)[0];
       expect(startInputInstance.maxDate).toEqual(new Date(2020, 0, 25));
@@ -230,7 +275,7 @@ describe(`TsCohortDateRangeComponent`, () => {
  * @param providers
  * @param imports
  */
-const createComponent = <T>(
+const createComponentLegacy = <T>(
   component: Type<T>,
   providers: Provider[] = [],
   imports: any[] = [],

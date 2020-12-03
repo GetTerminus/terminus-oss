@@ -65,7 +65,7 @@ export class TsCohortDateRangeChanged {
 let nextUniqueId = 0;
 
 /**
- * This is the cohort-date-range UI Component
+ * A date-range with cohort support.
  *
  * @example
  * <ts-cohort-date-range
@@ -73,7 +73,10 @@ let nextUniqueId = 0;
  *              [cohorts]="myCohorts"
  *              endMaxDate="{{ new Date(2017, 4, 30) }}"
  *              endMinDate="{{ new Date(2017, 4, 1) }}"
+ *              errorMessage="Select a valid end-date"
+ *              hint="Select a date"
  *              id="myID"
+ *              [noValidationOrHint]="true"
  *              startMaxDate="{{ new Date(2017, 4, 30) }}"
  *              startMinDate="{{ new Date(2017, 4, 1) }}"
  *              (cohortDateRangeChange)="myFunc($event)"
@@ -217,6 +220,18 @@ export class TsCohortDateRangeComponent implements OnInit, OnDestroy {
   public endMinDate: Date | undefined;
 
   /**
+   * Define an error message
+   */
+  @Input()
+  public errorMessage: string;
+
+  /**
+   * Define a hint
+   */
+  @Input()
+  public hint: string;
+
+  /**
    * Define an ID for the component
    *
    * @param value
@@ -235,6 +250,12 @@ export class TsCohortDateRangeComponent implements OnInit, OnDestroy {
    */
   @Input()
   public isDisabled = false;
+
+  /**
+   * Define if the hint and error message should be hidden
+   */
+  @Input()
+  public noValidationOrHint = false;
 
   /**
    * Define the max date for the starting date

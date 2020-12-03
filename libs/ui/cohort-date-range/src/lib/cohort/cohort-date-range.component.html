@@ -1,27 +1,34 @@
-<ts-date-range
-  class="ts-cohort-date-range__date-range"
-  [dateFormGroup]="dateRangeFormGroup"
-  [dateLocale]="dateLocale"
-  [isDisabled]="!allowCustomDates || isDisabled"
-  (dateRangeChange)="cohortDateRangeChange($event)"
-  [startMinDate]="startMinDate"
-  [startMaxDate]="startMaxDate"
-  [endMinDate]="endMinDate"
-  [endMaxDate]="endMaxDate"
-></ts-date-range>
+<div class="ts-cohort-date-range__wrap">
+  <ts-date-range
+    class="ts-cohort-date-range__date-range"
+    [dateFormGroup]="dateRangeFormGroup"
+    [dateLocale]="dateLocale"
+    [isDisabled]="!allowCustomDates || isDisabled"
+    (dateRangeChange)="cohortDateRangeChange($event)"
+    [startMinDate]="startMinDate"
+    [startMaxDate]="startMaxDate"
+    [endMinDate]="endMinDate"
+    [endMaxDate]="endMaxDate"
+  ></ts-date-range>
 
-<ts-selection-list
-  label="Select a date range"
-  class="ts-cohort-date-range__select"
-  [isDisabled]="isDisabled"
-  [allowUserInput]="false"
-  [formControl]="cohortControl"
-  [displayFormatter]="formatter"
-  (selectionChange)="selectionChange($event)"
->
-  <ts-option
-    [value]="option"
-    [option]="option"
-    *ngFor="let option of cohorts; trackBy: trackByFn"
-  >{{ option.display }}</ts-option>
-</ts-selection-list>
+  <ts-selection-list
+    label="Select a date range"
+    class="ts-cohort-date-range__select"
+    [isDisabled]="isDisabled"
+    [allowUserInput]="false"
+    [formControl]="cohortControl"
+    [displayFormatter]="formatter"
+    (selectionChange)="selectionChange($event)"
+  >
+    <ts-option
+      [value]="option"
+      [option]="option"
+      *ngFor="let option of cohorts; trackBy: trackByFn"
+    >{{ option.display }}</ts-option>
+  </ts-selection-list>
+</div>
+
+<div class="ts-cohort-date-range__messages" *ngIf="!noValidationOrHint">
+  <div class="ts-cohort-date-range__error" *ngIf="errorMessage">{{ errorMessage }}</div>
+  <div class="ts-cohort-date-range__hint" *ngIf="hint && !errorMessage">{{ hint }}</div>
+</div>
