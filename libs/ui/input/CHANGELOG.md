@@ -5,24 +5,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@2.2.0...@terminus/ui-input@3.0.0) (2020-12-04)
 
-
-### Bug Fixes
-
-* **Input:** force major release ([a0f887a](https://github.com/GetTerminus/terminus-oss/commit/a0f887aa168ec2f61baa6117f7d17d6a96073695))
-* **Input:** trigger major release ([0b346a8](https://github.com/GetTerminus/terminus-oss/commit/0b346a8ae9d8fc725b2daf7100651cd237eac40d))
-
-
-### BREAKING CHANGES
-
-* **Input:** Previous release was incorrectly a minor release.
-
-
-
-
-
-# [2.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@2.1.8...@terminus/ui-input@2.2.0) (2020-12-04)
-
-
 ### Bug Fixes
 
 * **Input:** no longer re-exporting date formats twice ([b688a11](https://github.com/GetTerminus/terminus-oss/commit/b688a110fd07ba34475cc6b8e5b292cd67f19e46))
@@ -35,7 +17,44 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **Input:** redesign ([dbd9527](https://github.com/GetTerminus/terminus-oss/commit/dbd9527f581fc98943d5f5504e7fafe11a12806b))
 * **Input:** support small format ([587935c](https://github.com/GetTerminus/terminus-oss/commit/587935c44f02b19649997b9cb138119c60c9a2d6))
 
+### Migration notes for 3.0.0
 
+No longer supporting:
+
+1. prefix icon
+1. suffix icon
+1. theme
+1. built in validation messages
+
+
+#### Prefix and Suffix icons
+
+```diff
+<ts-input
+-  prefixIcon="faHome"
+-  suffixIcon="faCancel"
+></ts-input>
+```
+
+Designs won't have prefix or suffix icons going forward. The input component still supports the clear icon and the datepicker icon. Any other components (such as Search) will need to add their own prefix/suffix support as needed.
+
+#### Theme
+
+```diff
+<ts-input
+-  theme="warn"
+></ts-input>
+```
+
+#### Validation messages
+
+Pulling validation messages from the form control was a pain point for some teams; especially as they approach localization. Now the input accepts a string error message:
+
+```diff
+<ts-input
++  errorMessage="A valid email address is required."
+></ts-input>
+```
 
 
 
