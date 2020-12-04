@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@2.2.0...@terminus/ui-input@3.0.0) (2020-12-04)
+
+
+### Bug Fixes
+
+* **Input:** force major release ([a0f887a](https://github.com/GetTerminus/terminus-oss/commit/a0f887aa168ec2f61baa6117f7d17d6a96073695))
+* **Input:** trigger major release ([0b346a8](https://github.com/GetTerminus/terminus-oss/commit/0b346a8ae9d8fc725b2daf7100651cd237eac40d))
+
+
+### BREAKING CHANGES
+
+* **Input:** Previous release was incorrectly a minor release.
+
+
+
+
+
 # [2.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@2.1.8...@terminus/ui-input@2.2.0) (2020-12-04)
 
 
