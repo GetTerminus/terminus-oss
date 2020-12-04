@@ -58,9 +58,9 @@ jobs:
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-001-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-002-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-001-
+            ${{ runner.os }}-yarn-002-
         if: env.SHOULD_RUN == 'true'
       - name: "Install Dependencies"
         run: yarn install --frozen-lockfile --non-interactive
@@ -108,22 +108,22 @@ jobs:
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
-#      - name: "Get yarn cache directory path"
-#        id: yarn-cache-dir-path
-#        run: echo "::set-output name=dir::$(yarn cache dir)"
-#        if: env.SHOULD_RUN == 'true'
-#      - name: "Restore cache"
-#        uses: actions/cache@v2
-#        id: yarn-cache
-#        with:
-#          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-#          key: ${{ runner.os }}-yarn-001-${{ hashFiles('**/yarn.lock') }}
-#          restore-keys: |
-#            ${{ runner.os }}-yarn-001-
-#        if: env.SHOULD_RUN == 'true'
-#      - name: "Install Dependencies"
-#        run: yarn install --frozen-lockfile --non-interactive
-#        if: env.SHOULD_RUN == 'true' && steps.yarn-cache.outputs.cache-hit != 'true'
+      - name: "Get yarn cache directory path"
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+        if: env.SHOULD_RUN == 'true'
+      - name: "Restore cache"
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-002-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-002-
+        if: env.SHOULD_RUN == 'true'
+      - name: "Install Dependencies"
+        run: yarn install --frozen-lockfile --non-interactive
+        if: env.SHOULD_RUN == 'true' && steps.yarn-cache.outputs.cache-hit != 'true'
       - name: "TEMP: install deps without cache"
         run: yarn install --frozen-lockfile --non-interactive
       - name: "Set NX affected base"
@@ -167,25 +167,23 @@ jobs:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
         if: env.SHOULD_RUN == 'true'
-# NOTE: Commented out due to issue with NX. I can verify NX is installed, but we get an 'NX not found' message.
-# This only happens in the release action - not the PR action. And only happens in this last step.
-#      - name: "Get yarn cache directory path"
-#        id: yarn-cache-dir-path
-#        run: echo "::set-output name=dir::$(yarn cache dir)"
-#        if: env.SHOULD_RUN == 'true'
-#      - name: "Restore cache"
-#        uses: actions/cache@v2
-#        id: yarn-cache
-#        with:
-#          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-#          key: ${{ runner.os }}-yarn-001-${{ hashFiles('**/yarn.lock') }}
-#          restore-keys: |
-#            ${{ runner.os }}-yarn-001-
-#        if: env.SHOULD_RUN == 'true'
-#      - name: "Install Dependencies"
-#        run: yarn install --frozen-lockfile --non-interactive
-#        working-directory: ${{ env.working-directory }}
-#        if: env.SHOULD_RUN == 'true' && steps.yarn-cache.outputs.cache-hit != 'true'
+      - name: "Get yarn cache directory path"
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+        if: env.SHOULD_RUN == 'true'
+      - name: "Restore cache"
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-002-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-002-
+        if: env.SHOULD_RUN == 'true'
+      - name: "Install Dependencies"
+        run: yarn install --frozen-lockfile --non-interactive
+        working-directory: ${{ env.working-directory }}
+        if: env.SHOULD_RUN == 'true' && steps.yarn-cache.outputs.cache-hit != 'true'
       - if: env.SHOULD_RUN == 'true' && steps.cache_deps.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --non-interactive
         working-directory: ${{ env.working-directory }}
@@ -281,9 +279,9 @@ jobs:
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-001-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-002-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-001-
+            ${{ runner.os }}-yarn-002-
         if: env.SHOULD_RUN == 'true'
       - name: "Install Dependencies"
         run: yarn install --frozen-lockfile --non-interactive
