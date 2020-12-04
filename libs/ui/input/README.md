@@ -12,6 +12,7 @@
   - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Hint](#hint)
+  - [Error message](#error-message)
   - [No validation or hint](#no-validation-or-hint)
   - [Disabled](#disabled)
   - [Required](#required)
@@ -87,6 +88,17 @@ requirements.
 <ts-input
   formControlName="myControl"
   hint="Must contain only numbers and letters."
+></ts-input>
+```
+
+### Error message
+
+Pass in an error message:
+
+```html
+<ts-input
+  formControlName="myControl"
+  errorMessage="Must be a valid email address"
 ></ts-input>
 ```
 
