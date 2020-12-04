@@ -8,8 +8,6 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages to be installed](#packages-to-be-installed)
-  - [Modules that need to be included in your application](#modules-that-need-to-be-included-in-your-application)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
@@ -28,27 +26,11 @@
 
 ## Installation
 
-### Packages to be installed
-
-- `@terminus/design-tokens`
-- `@terminus/fe-utilities`
-- `@terminus/ui-button`
-- `@terminus/ui-link`
-- `@terminus/ui-logo`
-- `@terminus/ui-sidenav`
-- `@terminus/ui-styles`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-sidenav
 ```
-
-### Modules that need to be included in your application
-
-- `BrowserAnimationsModule`
-- `RouterModule.forRoot(MY_ROUTES)`
-- `TsSidenavModule`
   
 ### CSS imports
 
