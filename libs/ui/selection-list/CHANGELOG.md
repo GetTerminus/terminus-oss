@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@3.0.2...@terminus/ui-selection-list@4.0.0) (2020-12-04)
+
+
+### Features
+
+* **SelectionList:** redesign ([77e5484](https://github.com/GetTerminus/terminus-oss/commit/77e5484093dc0ce7138ba973020b155f86be6d27))
+* **SelectionList:** support for minimal style mode ([8333144](https://github.com/GetTerminus/terminus-oss/commit/8333144b6cc8e89a8cf58d9e00e0a5ce8d7eb1a7))
+
+
+### BREAKING CHANGES
+
+* **SelectionList:** - Now depends on @terminus/ui-input@3.0.0
+- Remove FontAwesome dependency
+- Validation error messages now passed in directly
+
+
+
+
+
 ## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@3.0.1...@terminus/ui-selection-list@3.0.2) (2020-11-11)
 
 

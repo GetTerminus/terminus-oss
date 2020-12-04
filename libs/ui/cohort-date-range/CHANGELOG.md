@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-cohort-date-range@2.0.3...@terminus/ui-cohort-date-range@3.0.0) (2020-12-04)
+
+
+### Features
+
+* **CohortDateRange:** redesign ([cd48e4f](https://github.com/GetTerminus/terminus-oss/commit/cd48e4fda6e743194f91427efda4490f97640ef2))
+* **CohortDateRange:** support hint and custom error message ([e5ca2b3](https://github.com/GetTerminus/terminus-oss/commit/e5ca2b3d0d36a12b0e1543f60273d7f20f7312f9))
+
+
+### BREAKING CHANGES
+
+* **CohortDateRange:** - Now requires @terminus/ui-input@3.0.0, @terminus/ui-date-range@3.0.0, @terminus/ui-selection-list@4.0.0
+- No direct API changes
+
+
+
+
+
 ## [2.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-cohort-date-range@2.0.2...@terminus/ui-cohort-date-range@2.0.3) (2020-11-11)
 
 

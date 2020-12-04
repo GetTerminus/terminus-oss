@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-date-range@2.0.3...@terminus/ui-date-range@3.0.0) (2020-12-04)
+
+
+### Features
+
+* **DateRange:** allow default open, update input dependency ([b11a64a](https://github.com/GetTerminus/terminus-oss/commit/b11a64ac9f000f5b7ec27786348d54f602e6f187))
+* **DateRange:** support hint and custom error message ([ae10068](https://github.com/GetTerminus/terminus-oss/commit/ae10068b8e736afd9660d55ae0d0bed55001f825))
+
+
+### BREAKING CHANGES
+
+* **DateRange:** - Now depends on @terminus/ui-input@3.0.0
+
+
+
+
+
 ## [2.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-date-range@2.0.2...@terminus/ui-date-range@2.0.3) (2020-11-11)
 
 

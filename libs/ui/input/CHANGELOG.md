@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@2.1.8...@terminus/ui-input@2.2.0) (2020-12-04)
+
+
+### Bug Fixes
+
+* **Input:** no longer re-exporting date formats twice ([b688a11](https://github.com/GetTerminus/terminus-oss/commit/b688a110fd07ba34475cc6b8e5b292cd67f19e46))
+
+
+### Features
+
+* **Input:** allow custom dom to be passed in ([570c41e](https://github.com/GetTerminus/terminus-oss/commit/570c41eb715ab174415796f537abe864966fdea8))
+* **Input:** allow datepicker to be opened on load ([611edeb](https://github.com/GetTerminus/terminus-oss/commit/611edebc2e7dbbf06920cca3638ce2fa29ecbb87))
+* **Input:** redesign ([dbd9527](https://github.com/GetTerminus/terminus-oss/commit/dbd9527f581fc98943d5f5504e7fafe11a12806b))
+* **Input:** support small format ([587935c](https://github.com/GetTerminus/terminus-oss/commit/587935c44f02b19649997b9cb138119c60c9a2d6))
+
+
+
+
+
 ## [2.1.8](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@2.1.7...@terminus/ui-input@2.1.8) (2020-11-11)
 
 

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@3.0.3...@terminus/ui-search@4.0.0) (2020-12-04)
+
+
+### Features
+
+* **Search:** update to the latest input and button components ([a5ff8e0](https://github.com/GetTerminus/terminus-oss/commit/a5ff8e0fab48190838aa0d631f477d063e4eab01))
+
+
+### BREAKING CHANGES
+
+* **Search:** - Now depends on @terminus/ui-input@3.0.0 and @terminus/ui-button@3.0.0
+- NO API CHANGES to this component - only dependencies
+
+
+
+
+
 ## [3.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@3.0.2...@terminus/ui-search@3.0.3) (2020-11-11)
 
 
