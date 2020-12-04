@@ -23,6 +23,7 @@
   - [Component reference](#component-reference)
   - [Usage with Reactive Forms](#usage-with-reactive-forms)
   - [Event Emitters](#event-emitters)
+  - [Small mode](#small-mode)
   - [Masks](#masks)
     - [Available Masks](#available-masks)
     - [Sanitize the model value](#sanitize-the-model-value)
@@ -325,6 +326,14 @@ Supported event emitters:
 ```
 
 > NOTE: The `selected` input is only available when `datepicker` is true.
+
+### Small mode
+
+A smaller version of the input can be used:
+
+```html
+<ts-input [isSmall]="true"></ts-input>
+```
 
 ### Masks
 
