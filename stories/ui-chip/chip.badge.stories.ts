@@ -2,9 +2,7 @@ import {
   Component,
   Input,
 } from '@angular/core';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import {
-  boolean,
   color,
   withKnobs,
 } from '@storybook/addon-knobs';
