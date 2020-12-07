@@ -47,7 +47,7 @@ describe(`TsDatePipe`, function() {
   describe(`medium format`, () => {
     test(`should format a date`, () => {
       const actual = pipe(date, 'medium');
-      const expected = 'Feb 8th, 2018';
+      const expected = 'Feb 8, 2018';
 
       expect(actual).toEqual(expected);
     });
@@ -56,7 +56,7 @@ describe(`TsDatePipe`, function() {
   describe(`extended format`, () => {
     test(`should format a date`, () => {
       const actual = pipe(date, 'extended');
-      const expected = 'Thursday, February 8th, 2018, 12:00:00AM';
+      const expected = 'Thursday, February 8, 2018, 12:00:00AM';
 
       expect(actual).toEqual(expected);
     });
