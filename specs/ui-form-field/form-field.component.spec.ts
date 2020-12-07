@@ -1,9 +1,9 @@
+/* eslint-disable deprecation/deprecation */
 import {
   Component,
   OnInit,
   Provider,
   Type,
-  ViewChild,
 } from '@angular/core';
 import { ComponentFixture } from '@angular/core/testing';
 import {
@@ -21,24 +21,14 @@ import {
   TsDocumentServiceMock,
 } from '@terminus/fe-testing';
 import { TsDocumentService } from '@terminus/fe-utilities';
+import { TsAutocompleteModule } from '@terminus/ui-autocomplete';
 import {
   TsFormFieldComponent,
   TsFormFieldModule,
 } from '@terminus/ui-form-field';
 import { getLabelElement } from '@terminus/ui-form-field/testing';
-import {
-  TsInputComponent,
-  TsInputModule,
-} from '@terminus/ui-input';
 
-/**
- * NOTE: The {@link TsInputComponent} tests cover much of the {@link TsFormFieldComponent} functionality
- */
 describe(`TsFormFieldComponent`, function() {
-  test(`should do something`, () => {
-    expect(true).toEqual(true);
-  });
-
   describe(`id`, () => {
     test(`should allow custom IDs for accessibility`, () => {
       const fixture = createComponent(Id);
@@ -54,7 +44,7 @@ describe(`TsFormFieldComponent`, function() {
       fixture.detectChanges();
       const labelElement = getLabelElement(fixture);
 
-      expect(labelElement.getAttribute('aria-owns')).toEqual(expect.stringContaining('ts-form-field-'));
+      expect(labelElement.getAttribute('aria-owns')).toEqual(expect.stringContaining('ts-autocomplete-'));
     });
   });
 
@@ -77,7 +67,8 @@ describe(`TsFormFieldComponent`, function() {
       const fixture = createComponent(Float);
       fixture.detectChanges();
 
-      expect(fixture.componentInstance.formField.floatLabel).toEqual('auto');
+      expect(fixture.debugElement.query(By.directive(TsFormFieldComponent))).toBeTruthy();
+      expect(fixture.debugElement.query(By.directive(TsFormFieldComponent)).componentInstance.floatLabel).toEqual('auto');
     });
   });
 
@@ -94,7 +85,7 @@ describe(`TsFormFieldComponent`, function() {
     test(`should re-trigger outline update if the flag is set`, () => {
       const fixture = createComponent(UpdateOutline);
       fixture.detectChanges();
-      const formField = fixture.componentInstance.formField;
+      const formField = fixture.debugElement.query(By.directive(TsFormFieldComponent)).componentInstance;
 
       formField['updateOutlineGap'] = jest.fn();
       formField.outlineGapCalculationNeeded = true;
@@ -108,7 +99,7 @@ describe(`TsFormFieldComponent`, function() {
     test(`should do nothing if no label element exists`, () => {
       const fixture = createComponent(UpdateOutline);
       fixture.detectChanges();
-      const formField = fixture.componentInstance.formField;
+      const formField = fixture.debugElement.query(By.directive(TsFormFieldComponent)).componentInstance;
 
       formField.labelElement = undefined as any;
 
@@ -124,7 +115,7 @@ describe(`TsFormFieldComponent`, function() {
       ];
       const fixture = createComponent(UpdateOutline, [documentProvider]);
       fixture.detectChanges();
-      const formField = fixture.componentInstance.formField;
+      const formField = fixture.debugElement.query(By.directive(TsFormFieldComponent)).componentInstance;
 
       expect(formField['updateOutlineGap']()).toEqual(undefined);
       expect(formField.outlineGapCalculationNeeded).toEqual(true);
@@ -135,8 +126,9 @@ describe(`TsFormFieldComponent`, function() {
     test(`should return error if dirty and validating on change`, () => {
       const fixture = createComponent(ErrorState);
       fixture.detectChanges();
+      const formField = fixture.debugElement.query(By.directive(TsFormFieldComponent)).componentInstance;
 
-      expect(fixture.componentInstance.formField.controlIsInErrorState).toEqual(true);
+      expect(formField.controlIsInErrorState).toEqual(true);
     });
   });
 
@@ -144,31 +136,17 @@ describe(`TsFormFieldComponent`, function() {
     test(`should fall back to elementRef if container is not found`, () => {
       const fixture = createComponent(Float);
       fixture.detectChanges();
-      const formField = fixture.componentInstance.formField;
+      const formField = fixture.debugElement.query(By.directive(TsFormFieldComponent)).componentInstance;
       formField.containerElement = undefined as any;
 
       expect(formField.getConnectedOverlayOrigin()).toEqual(formField.elementRef);
     });
   });
 
-  describe(`noValidationOrHint`, () => {
-    test(`should not have validation or hint added if set to true`, () => {
-      const fixture = createComponent(NoValidationOrHint);
-      fixture.detectChanges();
-      let validationBlock = fixture.debugElement.query(By.css('.ts-form-field__subscript-wrapper'));
-      const formField = fixture.componentInstance;
-      expect(validationBlock).toBeTruthy();
-      formField.validationFlag = true;
-      fixture.detectChanges();
-      validationBlock = fixture.debugElement.query(By.css('.ts-form-field__subscript-wrapper'));
-      expect(validationBlock).toBeFalsy();
-    });
-  });
-
   test('should be able to animate the label up and lock it in position', () => {
     const fixture = createComponent(Id);
     fixture.detectChanges();
-    const formField = fixture.componentInstance.formField;
+    const formField = fixture.debugElement.query(By.directive(TsFormFieldComponent)).componentInstance;
     const label = getLabelElement(fixture);
     expect(formField.floatLabel).toBe('auto');
 
@@ -202,7 +180,7 @@ const createComponent =
       NoopAnimationsModule,
       ReactiveFormsModule,
       TsFormFieldModule,
-      TsInputModule,
+      TsAutocompleteModule,
       ...imports,
     ],
   );
@@ -214,149 +192,39 @@ class MyDocumentService extends TsDocumentServiceMock {
   };
 }
 
-@Component({
-  template: `
-    <ts-form-field
-       [control]="inputComponent"
-       [id]="myId">
-      <ts-input
-        [hasExternalFormField]="true"
-        [formControl]="formControl"
-      ></ts-input>
-    </ts-form-field>
-  `,
-})
+@Component({ template: `<ts-autocomplete [formControl]="formControl" [id]="myId"></ts-autocomplete>` })
 export class Id {
   public formControl = new FormControl();
   public myId: string | undefined = 'foo';
-
-  @ViewChild(TsInputComponent, { static: true })
-  public inputComponent!: TsInputComponent;
-
-  @ViewChild(TsFormFieldComponent, { static: true })
-  public formField!: TsFormFieldComponent;
 }
 
-@Component({
-  template: `
-    <ts-form-field
-      [control]="inputComponent"
-      [hideRequiredMarker]="hideRequiredMarker"
-    >
-      <ts-input
-        [hasExternalFormField]="true"
-        [formControl]="formControl"
-      ></ts-input>
-    </ts-form-field>
-  `,
-})
+@Component({ template: `<ts-autocomplete [formControl]="formControl" [hideRequiredMarker]="hideRequiredMarker"></ts-autocomplete>` })
 export class RequiredMarker {
   public formControl = new FormControl(null, Validators.required);
   public hideRequiredMarker = false;
-
-  @ViewChild(TsInputComponent, { static: true })
-  public inputComponent!: TsInputComponent;
 }
 
-@Component({
-  template: `
-    <ts-form-field
-      [control]="inputComponent"
-      [floatLabel]="float"
-    >
-      <ts-input
-        [hasExternalFormField]="true"
-        [formControl]="formControl"
-      ></ts-input>
-    </ts-form-field>
-  `,
-})
+@Component({ template: `<ts-autocomplete [formControl]="formControl"></ts-autocomplete>` })
 export class Float {
   public formControl = new FormControl();
-  public float;
-
-  @ViewChild(TsInputComponent, { static: true })
-  public inputComponent!: TsInputComponent;
-
-  @ViewChild(TsFormFieldComponent, { static: true })
-  public formField!: TsFormFieldComponent;
 }
 
 @Component({
-  template: `
-    <ts-form-field></ts-form-field>
-  `,
+  template: `<ts-form-field></ts-form-field>`,
 })
-export class NoControl {
-}
+export class NoControl {}
 
-@Component({
-  template: `
-    <ts-form-field
-      [control]="inputComponent"
-      [validateOnChange]="true"
-    >
-      <ts-input
-        [hasExternalFormField]="true"
-        [formControl]="formControl"
-      ></ts-input>
-    </ts-form-field>
-  `,
-})
+@Component({ template: `<ts-autocomplete [formControl]="formControl"></ts-autocomplete>` })
 export class ErrorState implements OnInit {
   public formControl = new FormControl(null, Validators.required);
 
-  @ViewChild(TsInputComponent, { static: true })
-  public inputComponent!: TsInputComponent;
-
-  @ViewChild(TsFormFieldComponent, { static: true })
-  public formField!: TsFormFieldComponent;
-
   public ngOnInit() {
     this.formControl.markAsDirty();
+    this.formControl.markAsTouched();
   }
 }
 
-@Component({
-  template: `
-    <ts-form-field [control]="inputComponent">
-      <ts-input
-        [hasExternalFormField]="true"
-        [formControl]="formControl"
-      ></ts-input>
-    </ts-form-field>
-  `,
-})
+@Component({ template: `<ts-autocomplete [formControl]="formControl"></ts-autocomplete>` })
 export class UpdateOutline {
   public formControl = new FormControl();
-
-  @ViewChild(TsInputComponent, { static: true })
-  public inputComponent!: TsInputComponent;
-
-  @ViewChild(TsFormFieldComponent, { static: true })
-  public formField!: TsFormFieldComponent;
-}
-
-@Component({
-  template: `
-    <ts-form-field
-      [control]="inputComponent"
-      [noValidationOrHint]="validationFlag"
-    >
-      <ts-input
-        [hasExternalFormField]="true"
-        [formControl]="formControl"
-      ></ts-input>
-    </ts-form-field>
-  `,
-})
-export class NoValidationOrHint {
-  public formControl = new FormControl();
-  public validationFlag = false;
-
-  @ViewChild(TsInputComponent, { static: true })
-  public inputComponent!: TsInputComponent;
-
-  @ViewChild(TsFormFieldComponent, { static: true })
-  public formField!: TsFormFieldComponent;
 }
