@@ -13,6 +13,7 @@
 - [Usage](#usage)
   - [Auto-submit](#auto-submit)
   - [Button theme](#button-theme)
+  - [Error message](#error-message)
   - [No validation or hint](#no-validation-or-hint)
   - [Events](#events)
 
@@ -66,6 +67,14 @@ Any valid `TsButtonThemeTypes` can be passed in:
 
 ```html
 <ts-search buttonTheme="secondary"></ts-search>
+```
+
+### Error message
+
+A custom error message can be displayed:
+
+```html
+<ts-search errorMessage="Special characters not allowed."></ts-search>
 ```
 
 ### No validation or hint

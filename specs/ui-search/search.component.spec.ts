@@ -1,241 +1,145 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import { ComponentFixture } from '@angular/core/testing';
-import { FormGroup } from '@angular/forms';
-import { By } from '@angular/platform-browser';
+import { fakeAsync } from '@angular/core/testing';
+import { Spectator } from '@ngneat/spectator';
+import { createComponentFactory } from '@ngneat/spectator/jest';
 
-import { createComponent } from '@terminus/fe-testing';
-import { TsButtonComponent } from '@terminus/ui-button';
-import { TsInputComponent } from '@terminus/ui-input';
-import {
-  getInputElement,
-  sendInput,
-} from '@terminus/ui-input/testing';
 import {
   TsSearchModule,
   TsSearchComponent,
 } from '@terminus/ui-search';
 
-@Component({
-  template: `
-      <ts-search
-        [isDisabled]="isDisabled"
-        [isSubmitting]="inProgress"
-        [isFocused]="isFocused"
-        [initialValue]="startingValue"
-        [autoSubmit]="shouldAutoSubmit"
-        [userCanClear]="userCanClear"
-        [noValidationOrHint]="noValidationOrHint"
-        (submitted)="onSubmit($event)"
-        (cleared)="onClear()"
-        (changed)="onChange($event)"
-      ></ts-search>
-  `,
-})
-class TestHostComponent implements OnInit {
-  isDisabled = false;
-  isFocused = true;
-  inProgress = false;
-  startingValue = '';
-  shouldAutoSubmit = true;
-  noValidationOrHint = false;
-  userCanClear = true;
-
-  @ViewChild(TsButtonComponent, { static: true })
-  public buttonComponent!: TsButtonComponent;
-
-  @ViewChild(TsInputComponent)
-  public inputComponent!: TsInputComponent;
-
-  @ViewChild(TsSearchComponent)
-  public searchComponent!: TsSearchComponent;
-
-  onSubmit(query: string): void { }
-
-  onClear(): void { }
-
-  onChange(value: string): void {
-    console.log('DEMO: search input changed: ', value);
-  }
-  ngOnInit(): void { }
-}
-
-describe('TsSearchComponent', function() {
-  let component: TestHostComponent;
-  let fixture: ComponentFixture<TestHostComponent>;
-  let search: HTMLElement;
-  let searchComponent;
+describe(`TsSearchComponent`, () => {
+  let spectator: Spectator<TsSearchComponent>;
+  const createComponent = createComponentFactory({
+    component: TsSearchComponent,
+    imports: [TsSearchModule],
+    declareComponent: false,
+  });
 
   beforeEach(() => {
-    fixture = createComponent(TestHostComponent, [], [TsSearchModule]);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-    search = fixture.debugElement.query(By.css('.ts-search')).nativeElement;
-    searchComponent = component.searchComponent;
-  });
-
-  test(`should exist`, () => {
-    expect(component).toBeTruthy();
-  });
-
-  describe(`isDisabled`, () => {
-    test(`should set and retrieve`, () => {
-      component.isDisabled = true;
-      const inputElement = getInputElement(fixture);
-      expect(inputElement.disabled).toEqual(false);
+    spectator = createComponent({
+      props: {
+        inputLabel: 'Foo Bar',
+      },
     });
   });
 
+  test(`should exist`, () => {
+    expect(spectator.component).toExist();
+  });
+
+  describe(`isDisabled`, () => {
+    beforeEach(() => {
+      spectator = createComponent();
+    });
+
+    test(`should default to input enabled and button disabled`, () => {
+      expect(spectator.query('input')).toHaveProperty('disabled', false);
+      expect(spectator.query('button')).toHaveProperty('disabled', true);
+    });
+
+    test(`should set the disabled flag when appropriate`, fakeAsync(() => {
+      expect(spectator.query('input')).toHaveProperty('disabled', false);
+      spectator.setInput('isDisabled', true);
+      spectator.tick();
+      expect(spectator.query('input')).toHaveProperty('disabled', true);
+    }));
+  });
+
   describe(`isFocused`, () => {
-    test(`should set and retrieve`, () => {
-      component.isFocused = true;
-      expect(component.isFocused).toEqual(true);
+    test(`should set autofocus`, () => {
+      spectator = createComponent();
+      expect(spectator.query('input').getAttribute('autofocus')).toEqual(null);
+      spectator.setInput('isFocused', true);
+      expect(spectator.query('input').getAttribute('autofocus')).toEqual('');
     });
   });
 
   describe(`isSubmitting`, () => {
-    test(`should set and retrieve`, () => {
-      component.shouldAutoSubmit = false;
-      component.inProgress = true;
-      fixture.detectChanges();
-      const button = fixture.debugElement.queryAll(By.css('.c-button'))[0].nativeElement as HTMLButtonElement;
-      expect(button.getAttribute('disabled')).toEqual('');
-    });
-  });
-
-  describe(`noValidationOrHint`, () => {
-    test(`should not have validation or hint added if set to true`, () => {
-      component.noValidationOrHint = true;
-      fixture.detectChanges();
-      const validationBlock = fixture.debugElement.query(By.css('.ts-input__messages'));
-      expect(validationBlock).toBeFalsy();
+    test(`should show progress within the button`, () => {
+      spectator = createComponent({
+        props: { initialValue: 'FooBar' },
+      });
+      spectator.setInput('isSubmitting', true);
+      expect(spectator.query('button')).toBeDisabled();
+      expect(spectator.query('button')).toHaveClass('c-button--progress');
     });
   });
 
   describe(`userCanClear`, () => {
-    test(`should set and retrieve`, () => {
-      component.userCanClear = true;
-      fixture.detectChanges();
-      sendInput(fixture, 'foo');
-      fixture.detectChanges();
-      const clearButton = fixture.debugElement.query(By.css('.c-input__clear')).nativeElement;
-      expect(clearButton).toBeTruthy();
-    });
-  });
-
-  describe(`currentQuery`, () => {
-    test(`should return the current query with no trailing or leading whitespace`, () => {
-      searchComponent.initialValue = 'foo';
-      searchComponent.ngOnInit();
-      expect(searchComponent.currentQuery).toEqual('foo');
-
-      searchComponent.searchForm.patchValue({ query: ' foo 23 ' });
-      expect(searchComponent.currentQuery).toEqual('foo 23');
-
-      searchComponent.searchForm.patchValue({ query: null });
-      expect(searchComponent.currentQuery).toEqual('');
-    });
-
-    test(`should return empty string if current query length below required minimum`, () => {
-      searchComponent.initialValue = 'a';
-      searchComponent.ngOnInit();
-      expect(searchComponent.currentQuery).toEqual('');
-    });
-  });
-
-  describe(`ngOnInit()`, () => {
-    test(`should seed the query with an initial value if one exists`, () => {
-      const STRING = 'foo';
-      searchComponent.initialValue = STRING;
-      expect(searchComponent.query).toEqual('');
-
-      searchComponent.ngOnInit();
-
-      expect(searchComponent.searchForm.get('query')!.value).toEqual(STRING);
-    });
-  });
-
-  describe(`keyup()`, () => {
     beforeEach(() => {
-      searchComponent.changed.emit = jest.fn();
-      searchComponent.debouncedEmit = jest.fn();
-    });
-
-    test(`should emit each change`, () => {
-      searchComponent.initialValue = 'foo';
-      searchComponent.autoSubmit = false;
-      fixture.detectChanges();
-      searchComponent.ngOnInit();
-      searchComponent.keyup();
-
-      expect(searchComponent.changed.emit).toHaveBeenCalledWith('foo');
-      expect(searchComponent.debouncedEmit).not.toHaveBeenCalled();
-    });
-
-    describe(`with auto submit enabled`, () => {
-      test(`should call the debounced emit if the form is valid`, () => {
-        searchComponent.autoSubmit = true;
-        searchComponent.initialValue = 'foo';
-        searchComponent.ngOnInit();
-        searchComponent.keyup();
-
-        expect(searchComponent.debouncedEmit).toHaveBeenCalled();
-      });
-
-      test(`should NOT call the debounced emit if the form is NOT valid`, () => {
-        searchComponent.autoSubmit = true;
-        searchComponent.initialValue = 'foo&';
-        searchComponent.ngOnInit();
-        searchComponent.keyup();
-
-        expect(searchComponent.debouncedEmit).not.toHaveBeenCalled();
+      spectator = createComponent({
+        props: { initialValue: 'FooBar' },
       });
     });
 
-    describe(`without auto submit enabled`, () => {
-      test(`should NOT call the debounced emit even if the form is valid`, () => {
-        searchComponent.autoSubmit = false;
-        searchComponent.initialValue = 'foo';
-        searchComponent.ngOnInit();
-        searchComponent.keyup();
-
-        expect(searchComponent.debouncedEmit).not.toHaveBeenCalled();
-      });
+    test(`should allow the user to clear the input value`, () => {
+      expect(spectator.query('.c-input__clear')).toExist();
     });
   });
 
-  describe(`emitSubmit()`, () => {
+  describe(`errorMessage`, () => {
     beforeEach(() => {
-      searchComponent.submitted.emit = jest.fn();
-      searchComponent.initialValue = 'foo';
-      searchComponent.ngOnInit();
+      spectator = createComponent({
+        props: { inputError: 'Whoops' },
+      });
     });
 
-    test(`should emit an event if the form is valid`, () => {
-      searchComponent['emitSubmit']();
-      expect(searchComponent.submitted.emit).toHaveBeenCalledWith({ query: 'foo' });
-    });
-
-    test(`should call emitSubmit via debouncedEmit`, () => {
-      jest.useFakeTimers();
-      searchComponent.debouncedEmit();
-      jest.runAllTimers();
-
-      expect(searchComponent.submitted.emit).toHaveBeenCalledWith({ query: 'foo' });
+    test(`should pass the error message through`, () => {
+      expect(spectator.query('.ts-input__error')).toHaveText('Whoops');
     });
   });
 
-  describe(`get searchFormControl`, function() {
-    test(`should return the control`, function() {
-      expect(searchComponent.searchFormControl!.statusChanges).toBeTruthy();
+  describe(`noValidationOrHint`, () => {
+    beforeEach(() => {
+      spectator = createComponent({
+        props: {
+          inputError: 'Whoops',
+          inputHint: 'My hint',
+          noValidationOrHint: true,
+        },
+      });
     });
 
-    test(`should return null if the control doesn't exist`, function() {
-      searchComponent.searchForm = new FormGroup({});
-      expect(searchComponent.searchFormControl).toEqual(null);
+    test(`should not expose validation or hint when set`, () => {
+      expect(spectator.query('.ts-input__messages')).not.toExist();
     });
+  });
+
+  describe(`initialValue`, () => {
+    beforeEach(() => {
+      spectator = createComponent({
+        props: { initialValue: 'Test' },
+      });
+    });
+
+    test(`should seed the initial value if it exists`, () => {
+      expect(spectator.query('input')).toHaveValue('Test');
+    });
+  });
+
+  describe(`emitters`, () => {
+    let changedOutput;
+    let clearedOutput;
+    let submittedOutput;
+    beforeEach(() => {
+      spectator = createComponent({
+        props: { autoSubmit: true },
+      });
+      spectator.output('changed').subscribe(result => (changedOutput = result));
+      spectator.output('cleared').subscribe(result => (clearedOutput = result));
+      spectator.output('submitted').subscribe(result => (submittedOutput = result));
+    });
+
+    test(`should emit events`, fakeAsync(() => {
+      spectator.typeInElement('Testing', spectator.query('input'));
+      spectator.component.keyup();
+      spectator.detectChanges();
+      expect(changedOutput).toEqual('Testing');
+      spectator.tick(250);
+      expect(submittedOutput).toEqual({ query: 'Testing' });
+
+      spectator.click(spectator.query('.c-input__clear'));
+      expect(clearedOutput).toEqual(true);
+    }));
   });
 });
