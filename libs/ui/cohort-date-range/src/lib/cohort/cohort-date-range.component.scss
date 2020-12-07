@@ -1,6 +1,6 @@
 :root {
   --ts-cohort-selection-list-minWidth: 200px;
-  --ts-cohort-dateRange-marginRight: var(--ts-space-inline-600);
+  --ts-cohort-selectionList-marginRight: var(--ts-space-inline-600);
   --ts-cohort-hint-typography: var(--ts-typography-compound-hint);
   --ts-cohort-error-color: var(--ts-color-warn-500);
 }
@@ -14,6 +14,8 @@
   }
 
   .ts-selection-list {
+    margin-right: var(--ts-cohort-selectionList-marginRight);
+
     &.ts-cohort-date-range__select {
       display: inline-block;
       min-width: var(--ts-cohort-selection-list-minWidth);
@@ -24,7 +26,6 @@
 .ts-date-range {
   &.ts-cohort-date-range__date-range {
     display: inline-block;
-    margin-right: var(--ts-cohort-dateRange-marginRight);
   }
 }
 
