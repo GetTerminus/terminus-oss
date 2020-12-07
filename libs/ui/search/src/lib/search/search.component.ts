@@ -44,6 +44,7 @@ const INPUT_MINIMUM_LENGTH = 2;
  *              [autoSubmit]="true"
  *              buttonTheme="default"
  *              initialValue="My starting value"
+ *              inputError="Special characters not supported"
  *              inputHint="Enter at least 17 characters"
  *              inputLabel="Search for a tactic"
  *              [isDisabled]="false"
@@ -136,6 +137,12 @@ export class TsSearchComponent implements OnInit {
   public initialValue: string | undefined;
 
   /**
+   * Define an error message for the input
+   */
+  @Input()
+  public inputError: string;
+
+  /**
    * Define the hint text below the input
    */
   @Input()
@@ -220,6 +227,7 @@ export class TsSearchComponent implements OnInit {
     this.changed.emit(this.currentQuery);
 
     // NOTE: We need to check for a valid query here.
+    // istanbul ignore else
     if (this.autoSubmit && this.searchForm.valid) {
       this.debouncedEmit(this);
     }

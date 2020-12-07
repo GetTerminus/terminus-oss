@@ -95,3 +95,16 @@ noValidationOrHint.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
 };
+
+export const errorMessage = () => ({
+  component: TsSearchComponent,
+  props: {
+    inputHint: text('Hint', 'Enter at least two characters.'),
+    inputError: text('Error message', 'Special characters not supported'),
+    inputLabel: text('Label', 'Search'),
+  },
+});
+errorMessage.parameters = {
+  actions: { disabled: true },
+};
+
