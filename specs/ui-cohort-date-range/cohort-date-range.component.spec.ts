@@ -68,6 +68,25 @@ describe(`TsCohortDateRange Spectator`, () => {
       expect(spectator.query('.ts-cohort-date-range__messages')).not.toExist();
     });
   });
+
+  describe(`allowCustomDates`, () => {
+    beforeEach(() => {
+      spectator = createComponent({
+        props: {
+          allowCustomDates: false,
+        },
+      });
+    });
+
+    test(`should disable date range if false`, () => {
+      expect(spectator.query('.ts-cohort-date-range__date-range input')).toHaveProperty('disabled', true);
+    });
+
+    test(`should enable date range if true`, () => {
+      spectator.setInput('allowCustomDates', true);
+      expect(spectator.query('.ts-cohort-date-range__date-range input')).toHaveProperty('disabled', false);
+    });
+  });
 });
 
 describe(`TsCohortDateRangeComponent`, () => {
@@ -86,33 +105,6 @@ describe(`TsCohortDateRangeComponent`, () => {
       fixture.detectChanges();
       expect(document.getElementById('foo')).toBeFalsy();
       expect(instance.id).toEqual(expect.stringContaining('ts-cohort-date-range-'));
-    });
-  });
-
-  describe(`allowCustomDates`, () => {
-    let fixture: ComponentFixture<Basic>;
-    let hostInstance: Basic;
-    let startInputInstance: TsInputComponent;
-
-    beforeEach(() => {
-      fixture = createComponentLegacy<Basic>(Basic);
-      fixture.detectChanges();
-      hostInstance = fixture.componentInstance;
-      startInputInstance = getRangeInputInstances(fixture)[0];
-    });
-
-    test(`should disable date range if false`, () => {
-      hostInstance.allowCustomDates = false;
-      fixture.detectChanges();
-      expect(fixture.debugElement.queryAll(By.css('input'))[0].nativeElement.getAttribute('disabled')).toEqual('');
-      expect(startInputInstance.isDisabled).toBeTruthy();
-    });
-
-    test(`should not disabled date range if allowCustomsDate is true`, () => {
-      hostInstance.allowCustomDates = true;
-      fixture.detectChanges();
-      expect(fixture.debugElement.queryAll(By.css('input'))[0].nativeElement.getAttribute('disabled')).toEqual(null);
-      expect(startInputInstance.isDisabled).toBeFalsy();
     });
   });
 
