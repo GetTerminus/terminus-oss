@@ -7,7 +7,6 @@ import { format as formatDate } from 'date-fns';
 
 import { isValidDate } from '@terminus/fe-utilities';
 
-
 /**
  * Define the allowed date formats for the {@link TsDatePipe}.
  */
@@ -21,7 +20,6 @@ export type TsDateTypes =
   // Timestamp: 2018-02-08T05:00:00.000Z
   | 'timestamp'
 ;
-
 
 /**
  * The date pipe
@@ -62,8 +60,8 @@ export class TsDatePipe implements PipeTransform {
 
     // Set the formatted date or an empty string if no format is matched
     return (format === 'short') ? formatDate(date, 'MM-dd-yyyy')
-      : (format === 'medium') ? formatDate(date, 'MMM do, yyyy')
-      : (format === 'extended') ? formatDate(date, 'EEEE, MMMM do, yyyy, h:mm:ssa')
+      : (format === 'medium') ? formatDate(date, 'MMM d, yyyy')
+      : (format === 'extended') ? formatDate(date, 'EEEE, MMMM d, yyyy, h:mm:ssa')
       : (format === 'timestamp') ? new Date(date).toISOString()
       // NOTE: Final case is untestable since it would be caught by the `if` above
       // istanbul ignore next
