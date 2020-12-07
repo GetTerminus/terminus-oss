@@ -401,8 +401,9 @@ export const alignmentWithInput = () => ({
       [label]="label"
       [hint]="hint"
       [formControl]="formControl"
+      [allowUserInput]="false"
     >
-      <ts-option [value]="state" [option]="state" *ngFor="let state of results | async">{{ state.name }}</ts-option>
+      <ts-option [value]="f" [option]="f" *ngFor="let f of fruit">{{ f }}</ts-option>
     </ts-selection-list>
   </div>
   `,

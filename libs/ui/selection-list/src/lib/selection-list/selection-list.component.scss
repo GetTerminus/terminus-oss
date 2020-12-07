@@ -3,7 +3,6 @@
   // This brings chips above the static trigger
   --ts-sl-chip-zIndex: 2;
   --ts-sl-icon-width: 24px;
-  --ts-sl-input-width: calc(100% - var(--ts-sl-icon-width));
   --ts-sl-backdrop-backgroundColor: transparent;
   --ts-sl-multiple-input-height: 28px;
   --ts-sl-multiple-padding: 6px 4px 2px;
@@ -71,7 +70,8 @@ $duration: 1.4s;
 
   &.ts-selection-list--single {
     .ts-selection-list__input {
-      width: var(--ts-sl-input-width);
+      padding-right: 32px;
+      width: 100%;
     }
   }
 
@@ -264,6 +264,7 @@ $duration: 1.4s;
     color: var(--ts-sl-caret-color);
     display: block;
     height: var(--ts-sl-caret-height);
+    pointer-events: none;
     position: absolute;
     right: var(--ts-sl-caret-right);
     top: 50%;
