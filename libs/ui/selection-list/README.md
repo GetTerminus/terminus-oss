@@ -18,6 +18,7 @@
   - [Formatting](#formatting)
   - [Complex comparator](#complex-comparator)
   - [Standard dropdown mode (no typing)](#standard-dropdown-mode-no-typing)
+  - [Hint](#hint)
   - [Error message](#error-message)
   - [noValidationOrHint](#novalidationorhint)
   - [Minimal](#minimal)
@@ -174,6 +175,14 @@ If the component should act as a standard dropdown with no ability to type a que
 >
   ...
 </ts-selection-list>
+```
+
+### Hint
+
+A custom hint message can be displayed:
+
+```html
+<ts-selection-list hint="Select at least one item"></ts-selection-list>
 ```
 
 ### Error message
