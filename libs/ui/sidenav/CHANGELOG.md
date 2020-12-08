@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@1.1.5...@terminus/ui-sidenav@1.1.6) (2020-12-08)
+
+
+### Bug Fixes
+
+* **Sidenav:** remove outdated dependencies ([fac65c1](https://github.com/GetTerminus/terminus-oss/commit/fac65c188012929467c9a71434aeaa2160219897))
+
+
+
+
+
 ## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@1.1.4...@terminus/ui-sidenav@1.1.5) (2020-12-04)
 
 **Note:** Version bump only for package @terminus/ui-sidenav

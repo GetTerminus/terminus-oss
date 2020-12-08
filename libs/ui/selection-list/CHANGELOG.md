@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@4.0.1...@terminus/ui-selection-list@4.0.2) (2020-12-08)
+
+
+### Bug Fixes
+
+* **SelectionList:** force release ([2915334](https://github.com/GetTerminus/terminus-oss/commit/29153349d996a8ff496180bd2caccb0ad3cf5d7a))
+* **SelectionList:** force release ([6503d1b](https://github.com/GetTerminus/terminus-oss/commit/6503d1ba5012e23eee9255332fb1f48e58e4ffe1))
+* **SelectionList:** remove unneeded dependency ([153500d](https://github.com/GetTerminus/terminus-oss/commit/153500ddc3b3eaaa5b518221ccfef5c12201dbd9))
+
+
+
+
+
 ## [4.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@4.0.0...@terminus/ui-selection-list@4.0.1) (2020-12-08)
 
 
