@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@4.0.0...@terminus/ui-selection-list@4.0.1) (2020-12-08)
+
+
+### Bug Fixes
+
+* **SelectionList:** correct issue where clicking caret wouldn't open dropdown ([30c393a](https://github.com/GetTerminus/terminus-oss/commit/30c393a95dd4adf1a025800b0c011e1c98770a6c))
+
+
+
+
+
 # [4.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@3.0.2...@terminus/ui-selection-list@4.0.0) (2020-12-04)
 
 

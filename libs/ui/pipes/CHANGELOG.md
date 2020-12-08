@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.2 (2020-12-08)
+
+
+### Bug Fixes
+
+* **Input:** add ui-styles to schematic ([3746a09](https://github.com/GetTerminus/terminus-oss/commit/3746a09f963f1ded60c2b51f2737b8a906b3c654))
+* **Pipes:** Remove day suffix from date pipe output ([7f34fdb](https://github.com/GetTerminus/terminus-oss/commit/7f34fdbd35aade3b43f05211bfd59330809dc86c)), closes [#484](https://github.com/GetTerminus/terminus-oss/issues/484)
+
+
+
+
+
 ## [1.2.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-pipes@1.2.0...@terminus/ui-pipes@1.2.1) (2020-11-11)
 
 

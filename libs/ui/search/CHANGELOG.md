@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@4.0.0...@terminus/ui-search@4.1.0) (2020-12-08)
+
+
+### Features
+
+* **Search:** Support custom error message ([4173488](https://github.com/GetTerminus/terminus-oss/commit/41734884a0b391c47ecd671269734e266e24d5a5)), closes [#92](https://github.com/GetTerminus/terminus-oss/issues/92)
+
+
+
+
+
 # [4.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@3.0.3...@terminus/ui-search@4.0.0) (2020-12-04)
 
 
