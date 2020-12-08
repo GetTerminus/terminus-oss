@@ -57,8 +57,11 @@ jobs:
 #          key: ${{ runner.os }}-${{ matrix.node-version }}-workspace-001-${{ hashFiles('**/yarn.lock') }}
 #          restore-keys: |
 #            ${{ runner.os }}-${{ matrix.node-version }}-workspace-001-
-      - name: "Install Dependencies"
+      - name: "Install dependencies"
         run: yarn install --frozen-lockfile --non-interactive
+        if: env.SHOULD_RUN == 'true'
+      - name: "Install NX globally"
+        run: yarn global add @nrwl/cli@9.6.0
         if: env.SHOULD_RUN == 'true'
       - name: "Set NX affected base"
         run: tools/ci/set-nx-base.sh
@@ -114,6 +117,9 @@ jobs:
       - name: "Install Dependencies"
         run: yarn install --frozen-lockfile --non-interactive
         if: env.SHOULD_RUN == 'true'
+      - name: "Install NX globally"
+        run: yarn global add @nrwl/cli@9.6.0
+        if: env.SHOULD_RUN == 'true'
       - name: "Set NX affected base"
         run: tools/ci/set-nx-base.sh
         if: env.SHOULD_RUN == 'true'
@@ -165,6 +171,9 @@ jobs:
 #            ${{ runner.os }}-${{ matrix.node-version }}-workspace-001-
       - name: "Install Dependencies"
         run: yarn install --frozen-lockfile --non-interactive
+        if: env.SHOULD_RUN == 'true'
+      - name: "Install NX globally"
+        run: yarn global add @nrwl/cli@9.6.0
         if: env.SHOULD_RUN == 'true'
       - name: "Set NX affected base"
         run: tools/ci/set-nx-base.sh
@@ -259,6 +268,9 @@ jobs:
 #            ${{ runner.os }}-${{ matrix.node-version }}-workspace-001-
       - name: "Install Dependencies"
         run: yarn install --frozen-lockfile --non-interactive
+        if: env.SHOULD_RUN == 'true'
+      - name: "Install NX globally"
+        run: yarn global add @nrwl/cli@9.6.0
         if: env.SHOULD_RUN == 'true'
       - name: "Download code coverage results"
         continue-on-error: true
