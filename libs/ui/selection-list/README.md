@@ -22,6 +22,7 @@
   - [Error message](#error-message)
   - [noValidationOrHint](#novalidationorhint)
   - [Minimal](#minimal)
+  - [Show progress](#show-progress)
   - [Events](#events)
 - [Test Helpers](#test-helpers)
 
@@ -210,6 +211,14 @@ A minimal style is available:
 
 ```html
 <ts-selection-list [isMinimal]="true"></ts-selection-list>
+```
+
+### Show progress
+
+A progress indicator can be shown programmatically:
+
+```html
+<ts-selection-list [showProgress]="true"></ts-selection-list>
 ```
 
 ### Events
