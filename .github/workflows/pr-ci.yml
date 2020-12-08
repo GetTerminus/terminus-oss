@@ -45,22 +45,26 @@ jobs:
         with:
           node-version: 12.x
         if: env.SHOULD_RUN == 'true'
-      - name: "Get yarn cache directory path"
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-        if: env.SHOULD_RUN == 'true'
-      - name: "Restore cache"
-        uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-002-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-002-
-        if: env.SHOULD_RUN == 'true'
+        # TODO: Temporarily disabled as it is causing "nx: not found" error and blocking a release.
+#      - name: "Get yarn cache directory path"
+#        id: yarn-cache-dir-path
+#        run: echo "::set-output name=dir::$(yarn cache dir)"
+#        if: env.SHOULD_RUN == 'true'
+#      - name: "Restore cache"
+#        uses: actions/cache@v2
+#        id: yarn-cache
+#        with:
+#          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+#          key: ${{ runner.os }}-yarn-002-${{ hashFiles('**/yarn.lock') }}
+#          restore-keys: |
+#            ${{ runner.os }}-yarn-002-
+#        if: env.SHOULD_RUN == 'true'
+#      - name: "Install Dependencies"
+#        run: yarn install --frozen-lockfile --non-interactive
+#        if: env.SHOULD_RUN == 'true' && steps.yarn-cache.outputs.cache-hit != 'true'
       - name: "Install Dependencies"
         run: yarn install --frozen-lockfile --non-interactive
-        if: env.SHOULD_RUN == 'true' && steps.yarn-cache.outputs.cache-hit != 'true'
+        if: env.SHOULD_RUN == 'true'
 
       #
       # List affected
