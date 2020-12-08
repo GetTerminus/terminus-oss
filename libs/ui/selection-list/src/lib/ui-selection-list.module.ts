@@ -5,7 +5,6 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TsChipModule } from '@terminus/ui-chip';
 import { TsInputModule } from '@terminus/ui-input';
@@ -24,7 +23,6 @@ export * from './trigger/selection-list-trigger.directive';
 
 @NgModule({
   imports: [
-    BrowserAnimationsModule,
     CommonModule,
     FormsModule,
     OverlayModule,
