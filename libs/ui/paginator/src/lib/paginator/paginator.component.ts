@@ -183,8 +183,8 @@ export class TsPaginatorComponent implements OnInit, OnChanges, OnDestroy {
    */
   public ngOnChanges(changes: SimpleChanges): void {
     // istanbul ignore else
-    if (inputHasChanged(changes, 'activePage') && this.pages?.length) {
-      this.activePageIndex$.next(this.findIndexByProperty(this.pages, 'pageNumber', this.activePage.pageNumber));
+    if (inputHasChanged(changes, 'activePage') && changes.activePage.firstChange && this.pages.length) {
+      this.activePageIndex$.next(this.findIndexByProperty(this.pages, 'pageNumber', changes.activePage.currentValue.pageNumber));
     }
   }
 

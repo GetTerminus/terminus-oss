@@ -10,7 +10,7 @@ describe('TsPaginatorDomPipe', () => {
   const createPipe = createPipeFactory(TsPaginatorDomPipe);
 
   test('should return false if the type is missing', () => {
-    spectator = createPipe(`{{ 4 | tsPaginatorDom:5:12:undefined }}`);
+    spectator = createPipe(`{{ 4 | tsPaginatorDom:5:12:'' }}`);
     expect(spectator.element).toHaveText('false');
   });
 

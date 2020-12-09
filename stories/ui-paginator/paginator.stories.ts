@@ -137,3 +137,15 @@ simpleMode.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
 };
+
+export const onlyThreePages = () => ({
+  component: TsPaginatorWrapper,
+  props: {
+    pages: myPagesArray.slice(0, 3),
+    paginatorSummary: text('Summary', '1 – 25 of 461 Opportunities'),
+    activePageIndex: number('Active page index', 0),
+  },
+});
+onlyThreePages.parameters = {
+  actions: { disabled: true },
+};
