@@ -47,7 +47,7 @@
   &__pages {
     display: inline-block;
     list-style: none;
-    margin: 0;
+    margin: 0 var(--ts-paginator-item-marginRight) 0 0;
     padding: 0;
   }
 
