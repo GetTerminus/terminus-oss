@@ -1,3 +1,4 @@
+import { SimpleChange } from '@angular/core';
 import { Spectator } from '@ngneat/spectator';
 import { createComponentFactory } from '@ngneat/spectator/jest';
 
@@ -90,6 +91,16 @@ describe('TsPaginatorComponent', () => {
       spectator.setInput('pages', undefined);
       expect(spectator.component.pages.length).toEqual(0);
     });
+
+    test(`should set active page if set before loading`, () => {
+      spectator.component.ngOnChanges({ activePage: new SimpleChange(myPagesArray[0], myPagesArray[4], true) });
+      expect(spectator.component.activePageIndex$.getValue()).toEqual(4);
+    });
+
+    test(`should set active page if set before loading`, () => {
+      spectator.component.ngOnChanges({ activePage: new SimpleChange(myPagesArray[0], myPagesArray[4], true) });
+      expect(spectator.component.activePageIndex$.getValue()).toEqual(4);
+    });
   });
 
   describe(`tooltips`, () => {
@@ -168,6 +179,23 @@ describe('TsPaginatorComponent', () => {
         spectator.setInput('activePage', myPagesArray[1]);
         expect(spectator.queryAll('.ts-paginator__page--ellipsis').length).toEqual(1);
         expect(spectator.queryAll('.ts-paginator__page').length).toEqual(5);
+      });
+    });
+
+    describe(`if only 3 pages`, () => {
+      beforeEach(() => {
+        spectator.setInput('pages', myPagesArray.slice(0, 3));
+        spectator.setInput('activePage', myPagesArray[0]);
+      });
+
+      test(`should not have trailing or preceding ellipsis`, () => {
+        expect.assertions(4);
+        expect(spectator.queryAll('.ts-paginator__page--ellipsis').length).toEqual(0);
+        expect(spectator.queryAll('.ts-paginator__page').length).toEqual(3);
+
+        spectator.setInput('activePage', myPagesArray[3]);
+        expect(spectator.queryAll('.ts-paginator__page--ellipsis').length).toEqual(0);
+        expect(spectator.queryAll('.ts-paginator__page').length).toEqual(3);
       });
     });
 

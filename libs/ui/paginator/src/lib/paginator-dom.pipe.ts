@@ -33,7 +33,7 @@ export class TsPaginatorDomPipe implements PipeTransform {
    */
   // eslint-disable-next-line complexity
   public transform(activePageIndex: number, index: number, pagesLength: number, type: TsPaginatorDomTypes): boolean {
-    if (!isNumber(activePageIndex) || !isNumber(index) || !isNumber(pagesLength || !type)) {
+    if (!type || !isNumber(activePageIndex) || !isNumber(index) || !isNumber(pagesLength)) {
       return false;
     }
 
@@ -47,7 +47,7 @@ export class TsPaginatorDomPipe implements PipeTransform {
           )
           || ((activePageIndex > (pagesLength - 3)) && (index === (activePageIndex - 3)))
         )
-        || (activePageIndex === (pagesLength - 1) && (index === pagesLength - 3))
+        || (activePageIndex === (pagesLength - 1) && (index === pagesLength - 3) && (pagesLength > 3))
       ) {
         return true;
       }
@@ -78,6 +78,6 @@ export class TsPaginatorDomPipe implements PipeTransform {
           (activePageIndex >= 2 && (activePageIndex + 1) === index)
           && activePageIndex < (pagesLength - 2)
         )
-      );
+      ) && (index + 1 < pagesLength);
   }
 }
