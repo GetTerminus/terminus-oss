@@ -17,7 +17,8 @@
       "options": {
         "cacheableOperations": ["build", "test", "lint", "e2e"],
         "canTrackAnalytics": false,
-        "showUsageWarnings": true
+        "showUsageWarnings": true,
+        "scan": true
       }
     }
   },
@@ -182,6 +183,9 @@
       "tags": []
     },
     "ui-storybook": {
+      "tags": []
+    },
+    "ui-info-carousel": {
       "tags": []
     }
   }

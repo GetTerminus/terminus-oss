@@ -48,6 +48,7 @@ Monorepo that contains all Terminus open-source packages.
 | [ui-file-upload][src-file-upload]                 | File upload with drag and drop                               | [Changelog][changelog-file-upload]         | [Docs][docs-file-upload]         | ![codecov][cov-badge-fileUpload]         | ![fileUpload latest][badge-latest-fileUpload]                 | ![File Upload next][badge-next-fileUpload]                 |
 | [ui-icon][src-icon]                               | Supported: <https://fontawesome.com/icons?d=gallery&s=solid> | [Changelog][changelog-icon]                | [Docs][docs-icon]                | ![codecov][cov-badge-icon]               | ![icon latest][badge-latest-icon]                             | ![Icon next][badge-next-icon]                              |
 | [ui-icon-button][src-icon-button]                 | Icon only button                                             | [Changelog][changelog-icon-button]         | [Docs][docs-icon-button]         | ![codecov][cov-badge-iconButton]         | ![iconButton latest][badge-latest-iconButton]                 | ![Icon Button next][badge-next-iconButton]                 |
+| [ui-info-carousel][src-info-carousel]             | A simple text-based carousel                                 | [Changelog][changelog-info-carousel]       | [Docs][docs-info-carousel]       | ![codecov][cov-badge-info-carousel]      | ![info carousel latest][badge-latest-info-carousel]           | ![Info Carousel next][badge-next-info-carousel]            |
 | [ui-input][src-input]                             | Input with masking, datepicker, etc                          | [Changelog][changelog-input]               | [Docs][docs-input]               | ![codecov][cov-badge-input]              | ![input latest][badge-latest-input]                           | ![Input next][badge-next-input]                            |
 | [ui-link][src-link]                               | A standard link                                              | [Changelog][changelog-link]                | [Docs][docs-link]                | ![codecov][cov-badge-link]               | ![link latest][badge-latest-link]                             | ![Link next][badge-next-link]                              |
 | [ui-loading overlay][src-loading-overlay]         | Overlay with loading spinner                                 | [Changelog][changelog-loading-overlay]     | [Docs][docs-loading-overlay]     | ![codecov][cov-badge-loadingOverlay]     | ![loadingOverlay latest][badge-latest-loadingOverlay]         | ![Loading Overlay next][badge-next-loadingOverlay]         |
@@ -138,6 +139,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [src-file-upload]:         https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/file-upload/
 [src-icon-button]:         https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/icon-button/
 [src-icon]:                https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/icon/
+[src-info-carousel]:       https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/info-carousel/
 [src-input]:               https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/input/
 [src-link]:                https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/link/
 [src-loading-overlay]:     https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/loading-overlay/
@@ -190,6 +192,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [changelog-file-upload]:         https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/file-upload/CHANGELOG.md
 [changelog-icon-button]:         https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/icon-button/CHANGELOG.md
 [changelog-icon]:                https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/icon/CHANGELOG.md
+[changelog-info-carousel]:       https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/info-carousel/CHANGELOG.md
 [changelog-input]:               https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/input/CHANGELOG.md
 [changelog-link]:                https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/link/CHANGELOG.md
 [changelog-loading-overlay]:     https://github.com/GetTerminus/terminus-oss/blob/release/libs/ui/loading-overlay/CHANGELOG.md
@@ -286,6 +289,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [demo-file-upload]:         https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-file-upload
 [demo-icon-button]:         https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-actions-icon-button
 [demo-icon]:                https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-media-icon
+[demo-info-carousel]:       https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-info-carousel
 [demo-input]:               https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-data-entry-input
 [demo-link]:                https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-navigation-link
 [demo-loading-overlay]:     https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-feedback-loading-overlay
@@ -337,6 +341,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [docs-file-upload]:         https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/docs/components-data-entry-file-upload
 [docs-icon-button]:         https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/docs/components-actions-icon-button
 [docs-icon]:                https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/docs/components-media-icon
+[docs-info-carousel]:       https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/docs/components-structure-info-carousel
 [docs-input]:               https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/docs/components-data-entry-input
 [docs-link]:                https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/docs/components-navigation-link
 [docs-loading-overlay]:     https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/docs/components-feedback-loading-overlay
@@ -386,6 +391,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [cov-badge-fileUpload]:         https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=fileUpload
 [cov-badge-iconButton]:         https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=iconButton
 [cov-badge-icon]:               https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=icon
+[cov-badge-info-carousel]:      https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=infoCarousel
 [cov-badge-input]:              https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=input
 [cov-badge-link]:               https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=link
 [cov-badge-loadingOverlay]:     https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg?flag=loadingOverlay
@@ -438,6 +444,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [badge-latest-fileUpload]:         https://img.shields.io/npm/v/@terminus/ui-file-upload/latest?color=%2345aaf2
 [badge-latest-icon]:               https://img.shields.io/npm/v/@terminus/ui-icon/latest?color=%2345aaf2
 [badge-latest-iconButton]:         https://img.shields.io/npm/v/@terminus/ui-icon-button/latest?color=%2345aaf2
+[badge-latest-info-carousel]:      https://img.shields.io/npm/v/@terminus/ui-info-carousel/latest?color=%2345aaf2
 [badge-latest-input]:              https://img.shields.io/npm/v/@terminus/ui-input/latest?color=%2345aaf2
 [badge-latest-link]:               https://img.shields.io/npm/v/@terminus/ui-link/latest?color=%2345aaf2
 [badge-latest-loadingOverlay]:     https://img.shields.io/npm/v/@terminus/ui-loading-overlay/latest?color=%2345aaf2
@@ -489,6 +496,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [badge-next-fileUpload]:         https://img.shields.io/npm/v/@terminus/ui-file-upload/next?color=%2345aaf2
 [badge-next-icon]:               https://img.shields.io/npm/v/@terminus/ui-icon/next?color=%2345aaf2
 [badge-next-iconButton]:         https://img.shields.io/npm/v/@terminus/ui-icon-button/next?color=%2345aaf2
+[badge-next-info-carousel]:      https://img.shields.io/npm/v/@terminus/ui-info-carousel/next?color=%2345aaf2
 [badge-next-input]:              https://img.shields.io/npm/v/@terminus/ui-input/next?color=%2345aaf2
 [badge-next-link]:               https://img.shields.io/npm/v/@terminus/ui-link/next?color=%2345aaf2
 [badge-next-loadingOverlay]:     https://img.shields.io/npm/v/@terminus/ui-loading-overlay/next?color=%2345aaf2

@@ -1,0 +1,26 @@
+<div class="ts-info-carousel__label">
+  <ng-content select="[tsInfoCarouselTitle]"></ng-content>
+</div>
+
+<section class="ts-info-carousel__wrapper" [style.width.px]="itemWidth">
+  <ul class="ts-info-carousel__inner" #carousel>
+    <li
+      *ngFor="let item of items;"
+      class="ts-info-carousel__item"
+      tsInfoCarouselPanelContent
+      [style.width.px]="itemWidth"
+    ><ng-container [ngTemplateOutlet]="item.templateRef"></ng-container></li>
+  </ul>
+</section>
+
+<div class="ts-info-carousel__paginator-wrapper" *ngIf="this.paginatorPages?.length">
+  <ts-paginator
+    [activePage]="activePage"
+    [isSimpleMode]="true"
+    [paginatorSummary]="paginatorSummary"
+    [pages]="paginatorPages"
+    (previousPageClicked)="previous()"
+    (nextPageClicked)="next()"
+    (pageClicked)="pageClicked($event)"
+  ></ts-paginator>
+</div>
