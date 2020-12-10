@@ -56,6 +56,7 @@ module.exports = {
     { name: 'FormField' },
     { name: 'Icon' },
     { name: 'IconButton' },
+    { name: 'InfoCarousel' },
     { name: 'Input' },
     { name: 'Link' },
     { name: 'LoadingOverlay' },

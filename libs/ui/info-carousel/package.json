@@ -1,0 +1,46 @@
+{
+  "name": "@terminus/ui-info-carousel",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "@terminus",
+  "private": false,
+  "homepage": "https://github.com/GetTerminus/terminus-oss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GetTerminus/terminus-oss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GetTerminus/terminus-oss/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "next",
+    "directory": "../../../dist/libs/ui/info-carousel"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "peerDependencies": {
+    "@angular/animations": "^9.1.0",
+    "@angular/cdk": "^9.2.4",
+    "@angular/common": "^9.1.0",
+    "@angular/core": "^9.1.0",
+    "@angular/forms": "^9.1.0",
+    "@angular/material": "^9.2.4",
+    "@angular/platform-browser": "^9.1.0",
+    "@terminus/design-tokens": "^3.1.0",
+    "@terminus/fe-utilities": "^1.2.0",
+    "@terminus/ui-paginator": "^2.2.0",
+    "@terminus/ui-styles": "^1.1.0",
+    "@terminus/ui-tooltip": "^1.1.0",
+    "@terminus/ui-utilities": "^1.1.0",
+    "date-fns": "^2.16.1",
+    "rxjs": "^6.5.0"
+  },
+  "scripts": {
+    "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:collection": "cp schematics/collection.json ../../../dist/libs/ui/info-carousel/schematics/collection.json",
+    "postbuild": "npm run copy:collection"
+  },
+  "schematics": "./schematics/collection.json"
+}

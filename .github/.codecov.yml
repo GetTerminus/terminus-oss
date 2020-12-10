@@ -91,6 +91,10 @@ flags:
     paths:
       - libs/ui/icon-button/
     carryforward: true
+  infoCarousel:
+    paths:
+      - libs/ui/info-carousel/
+    carryforward: true
   input:
     paths:
       - libs/ui/input/

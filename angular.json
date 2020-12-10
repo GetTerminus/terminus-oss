@@ -1,12 +1,21 @@
 {
-  "version": 1,
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "storybook-dummy",
   "projects": {
     "design-tokens": {
-      "root": "libs/design-tokens",
-      "sourceRoot": "libs/design-tokens/src",
-      "projectType": "library",
-      "schematics": {},
       "architect": {
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run tokens:build"
+              }
+            ]
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -21,29 +30,28 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/design-tokens/jest.config.js",
-            "tsConfig": "libs/design-tokens/tsconfig.spec.json",
-            "passWithNoTests": true
+            "passWithNoTests": true,
+            "tsConfig": "libs/design-tokens/tsconfig.spec.json"
           }
-        },
+        }
+      },
+      "projectType": "library",
+      "root": "libs/design-tokens",
+      "schematics": {},
+      "sourceRoot": "libs/design-tokens/src"
+    },
+    "eslint-config-frontend": {
+      "architect": {
         "build": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
               {
-                "command": "yarn run tokens:build"
+                "command": "yarn run eslint:build"
               }
             ]
           }
-        }
-      }
-    },
-    "eslint-config-frontend": {
-      "root": "libs/eslint-config-frontend",
-      "sourceRoot": "libs/eslint-config-frontend/src",
-      "prefix": "ts",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -58,66 +66,31 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/eslint-config-frontend/jest.config.js",
-            "tsConfig": "libs/eslint-config-frontend/tsconfig.spec.json",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "yarn run eslint:build"
-              }
-            ]
+            "passWithNoTests": true,
+            "tsConfig": "libs/eslint-config-frontend/tsconfig.spec.json"
           }
         }
-      }
-    },
-    "fe-utilities": {
-      "root": "libs/fe-utilities",
-      "sourceRoot": "libs/fe-utilities/src",
+      },
+      "prefix": "ts",
       "projectType": "library",
+      "root": "libs/eslint-config-frontend",
       "schematics": {},
+      "sourceRoot": "libs/eslint-config-frontend/src"
+    },
+    "fe-jwt": {
       "architect": {
-        "lint": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "yarn run lint:ts 'libs/fe-utilities/**/*.{js,ts}'"
-              }
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/fe-utilities"],
-          "options": {
-            "jestConfig": "libs/fe-utilities/jest.config.js",
-            "tsConfig": "libs/fe-utilities/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/fe-utilities/src/test-setup.ts"
-          }
-        },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/libs/fe-utilities",
-            "tsConfig": "libs/fe-utilities/tsconfig.lib.json",
-            "packageJson": "libs/fe-utilities/package.json",
-            "main": "libs/fe-utilities/src/index.ts",
-            "assets": ["libs/fe-utilities/*.md"]
+            "assets": [
+              "libs/fe-jwt/*.md"
+            ],
+            "main": "libs/fe-jwt/src/index.ts",
+            "outputPath": "dist/libs/fe-jwt",
+            "packageJson": "libs/fe-jwt/package.json",
+            "tsConfig": "libs/fe-jwt/tsconfig.lib.json"
           }
-        }
-      }
-    },
-    "fe-jwt": {
-      "root": "libs/fe-jwt",
-      "sourceRoot": "libs/fe-jwt/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -130,78 +103,181 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/fe-jwt"],
           "options": {
             "jestConfig": "libs/fe-jwt/jest.config.js",
-            "tsConfig": "libs/fe-jwt/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "libs/fe-jwt/src/test-setup.ts"
-          }
-        },
-        "build": {
-          "builder": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/libs/fe-jwt",
-            "tsConfig": "libs/fe-jwt/tsconfig.lib.json",
-            "packageJson": "libs/fe-jwt/package.json",
-            "main": "libs/fe-jwt/src/index.ts",
-            "assets": ["libs/fe-jwt/*.md"]
-          }
+            "setupFile": "libs/fe-jwt/src/test-setup.ts",
+            "tsConfig": "libs/fe-jwt/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/fe-jwt"
+          ]
         }
-      }
+      },
+      "projectType": "library",
+      "root": "libs/fe-jwt",
+      "schematics": {},
+      "sourceRoot": "libs/fe-jwt/src"
     },
     "fe-testing": {
-      "projectType": "library",
-      "root": "libs/fe-testing",
-      "sourceRoot": "libs/fe-testing/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/fe-testing/tsconfig.lib.json",
-            "project": "libs/fe-testing/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/fe-testing/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/fe-testing/ng-package.json",
+            "tsConfig": "libs/fe-testing/tsconfig.lib.json"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/fe-testing/**/*"
+            ],
             "tsConfig": [
               "libs/fe-testing/tsconfig.lib.json",
               "libs/fe-testing/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/fe-testing/**/*"]
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/fe-testing"],
           "options": {
             "jestConfig": "libs/fe-testing/jest.config.js",
-            "tsConfig": "libs/fe-testing/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "libs/fe-testing/src/test-setup.ts"
-          }
+            "setupFile": "libs/fe-testing/src/test-setup.ts",
+            "tsConfig": "libs/fe-testing/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/fe-testing"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/fe-testing",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/fe-testing/src"
+    },
+    "fe-utilities": {
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "assets": [
+              "libs/fe-utilities/*.md"
+            ],
+            "main": "libs/fe-utilities/src/index.ts",
+            "outputPath": "dist/libs/fe-utilities",
+            "packageJson": "libs/fe-utilities/package.json",
+            "tsConfig": "libs/fe-utilities/tsconfig.lib.json"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run lint:ts 'libs/fe-utilities/**/*.{js,ts}'"
+              }
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/fe-utilities/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/fe-utilities/src/test-setup.ts",
+            "tsConfig": "libs/fe-utilities/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/fe-utilities"
+          ]
+        }
+      },
+      "projectType": "library",
+      "root": "libs/fe-utilities",
+      "schematics": {},
+      "sourceRoot": "libs/fe-utilities/src"
+    },
+    "storybook-dummy": {
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "configurations": {
+            "production": {
+              "budgets": [],
+              "buildOptimizer": true,
+              "extractCss": true,
+              "extractLicenses": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/storybook-dummy/src/environments/environment.ts",
+                  "with": "apps/storybook-dummy/src/environments/environment.prod.ts"
+                }
+              ],
+              "namedChunks": false,
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "vendorChunk": false
+            }
+          },
+          "options": {
+            "aot": true,
+            "assets": [],
+            "index": "apps/storybook-dummy/src/index.html",
+            "main": "apps/storybook-dummy/src/main.ts",
+            "outputPath": "dist/apps/storybook-dummy",
+            "polyfills": "apps/storybook-dummy/src/polyfills.ts",
+            "scripts": [],
+            "styles": [
+              "apps/storybook-dummy/src/styles.scss"
+            ],
+            "tsConfig": "apps/storybook-dummy/tsconfig.app.json"
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "storybook-dummy:build:production"
+            }
+          },
+          "options": {
+            "browserTarget": "storybook-dummy:build"
+          }
+        }
+      },
+      "prefix": "ts",
+      "projectType": "application",
+      "root": "apps/storybook-dummy",
+      "schematics": {},
+      "sourceRoot": "apps/storybook-dummy/src"
     },
     "stylelint-config-frontend": {
-      "root": "libs/stylelint-config-frontend",
-      "sourceRoot": "libs/stylelint-config-frontend/src",
-      "prefix": "ts",
-      "projectType": "library",
-      "schematics": {},
       "architect": {
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run stylelint:build"
+              }
+            ]
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -216,38 +292,29 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/stylelint-config-frontend/jest.config.js",
-            "tsConfig": "libs/stylelint-config-frontend/tsconfig.spec.json",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "yarn run stylelint:build"
-              }
-            ]
+            "passWithNoTests": true,
+            "tsConfig": "libs/stylelint-config-frontend/tsconfig.spec.json"
           }
         }
-      }
+      },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/stylelint-config-frontend",
+      "schematics": {},
+      "sourceRoot": "libs/stylelint-config-frontend/src"
     },
     "ui-autocomplete": {
-      "projectType": "library",
-      "root": "libs/ui/autocomplete",
-      "sourceRoot": "libs/ui/autocomplete/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/autocomplete/tsconfig.lib.json",
-            "project": "libs/ui/autocomplete/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/autocomplete/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/autocomplete/ng-package.json",
+            "tsConfig": "libs/ui/autocomplete/tsconfig.lib.json"
           }
         },
         "build-schematics": {
@@ -274,44 +341,64 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/autocomplete"],
           "options": {
             "jestConfig": "libs/ui/autocomplete/jest.config.js",
-            "tsConfig": "libs/ui/autocomplete/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "libs/ui/autocomplete/src/test-setup.ts"
-          }
+            "setupFile": "libs/ui/autocomplete/src/test-setup.ts",
+            "tsConfig": "libs/ui/autocomplete/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/ui/autocomplete"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/autocomplete",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/autocomplete/src"
     },
     "ui-autofocus": {
-      "projectType": "library",
-      "root": "libs/ui/autofocus",
-      "sourceRoot": "libs/ui/autofocus/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/autofocus/tsconfig.lib.json",
-            "project": "libs/ui/autofocus/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/autofocus/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/autofocus/ng-package.json",
+            "tsConfig": "libs/ui/autofocus/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/autofocus && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/autofocus && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-autofocus/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-autofocus",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -324,78 +411,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/autofocus"],
-          "options": {
-            "jestConfig": "libs/ui/autofocus/jest.config.js",
-            "tsConfig": "libs/ui/autofocus/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/autofocus/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-autofocus/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-autofocus/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-autofocus",
-            "config": {
-              "configFolder": "stories/ui-autofocus/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/autofocus/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/autofocus/src/test-setup.ts",
+            "tsConfig": "libs/ui/autofocus/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/autofocus"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/autofocus",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/autofocus/src"
     },
     "ui-button": {
-      "projectType": "library",
-      "root": "libs/ui/button",
-      "sourceRoot": "libs/ui/button/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/button/tsconfig.lib.json",
-            "project": "libs/ui/button/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/button/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/button/ng-package.json",
+            "tsConfig": "libs/ui/button/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/button && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/button && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-button/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-button",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -411,165 +502,82 @@
             ]
           }
         },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-button/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
+          }
+        },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/button"],
           "options": {
             "jestConfig": "libs/ui/button/jest.config.js",
-            "tsConfig": "libs/ui/button/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "libs/ui/button/src/test-setup.ts"
-          }
-        },
-        "storybook": {
-          "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-button/.storybook"
-            },
-            "docsMode": false
+            "setupFile": "libs/ui/button/src/test-setup.ts",
+            "tsConfig": "libs/ui/button/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-button",
-            "config": {
-              "configFolder": "stories/ui-button/.storybook"
-            },
-            "docsMode": false
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/button"
+          ]
         }
       },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
-    "ui-checkbox": {
-      "projectType": "library",
-      "root": "libs/ui/checkbox",
-      "sourceRoot": "libs/ui/checkbox/src",
       "prefix": "ts",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/checkbox/tsconfig.lib.json",
-            "project": "libs/ui/checkbox/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/ui/checkbox/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "build-schematics": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": ["cd libs/ui/checkbox && yarn build && cd ../../.."],
-            "parallel": false
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "yarn run lint:ts 'libs/ui/checkbox/**/*.{js,ts}'"
-              },
-              {
-                "command": "yarn run lint:scss:base 'libs/ui/checkbox/**/!(*.spec).scss'"
-              }
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/checkbox"],
-          "options": {
-            "jestConfig": "libs/ui/checkbox/jest.config.js",
-            "tsConfig": "libs/ui/checkbox/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/checkbox/src/test-setup.ts"
-          }
-        },
-        "storybook": {
-          "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-checkbox/.storybook"
-            },
-            "docsMode": false
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-checkbox",
-            "config": {
-              "configFolder": "stories/ui-checkbox/.storybook"
-            },
-            "docsMode": false
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        }
-      },
+      "projectType": "library",
+      "root": "libs/ui/button",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/button/src"
     },
     "ui-card": {
-      "projectType": "library",
-      "root": "libs/ui/card",
-      "sourceRoot": "libs/ui/card/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/card/tsconfig.lib.json",
-            "project": "libs/ui/card/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/card/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/card/ng-package.json",
+            "tsConfig": "libs/ui/card/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/card && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/card && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-card/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-card",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -585,78 +593,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/card"],
-          "options": {
-            "jestConfig": "libs/ui/card/jest.config.js",
-            "tsConfig": "libs/ui/card/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/card/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-card/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-card/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-card",
-            "config": {
-              "configFolder": "stories/ui-card/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/card/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/card/src/test-setup.ts",
+            "tsConfig": "libs/ui/card/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/card"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/card",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/card/src"
     },
     "ui-chart": {
-      "projectType": "library",
-      "root": "libs/ui/chart",
-      "sourceRoot": "libs/ui/chart/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/chart/tsconfig.lib.json",
-            "project": "libs/ui/chart/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/chart/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/chart/ng-package.json",
+            "tsConfig": "libs/ui/chart/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/chart && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/chart && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-chart/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-chart",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -672,78 +684,173 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/chart"],
-          "options": {
-            "jestConfig": "libs/ui/chart/jest.config.js",
-            "tsConfig": "libs/ui/chart/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/chart/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-chart/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-chart/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-chart",
-            "config": {
-              "configFolder": "stories/ui-chart/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/chart/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/chart/src/test-setup.ts",
+            "tsConfig": "libs/ui/chart/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/chart"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/chart",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/chart/src"
     },
-    "ui-chip": {
-      "projectType": "library",
-      "root": "libs/ui/chip",
-      "sourceRoot": "libs/ui/chip/src",
-      "prefix": "ts",
+    "ui-checkbox": {
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/chip/tsconfig.lib.json",
-            "project": "libs/ui/chip/ng-package.json"
-          },
           "configurations": {
             "production": {
-              "tsConfig": "libs/ui/chip/tsconfig.lib.prod.json"
+              "tsConfig": "libs/ui/checkbox/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/checkbox/ng-package.json",
+            "tsConfig": "libs/ui/checkbox/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/chip && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/checkbox && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-checkbox/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-checkbox",
+            "uiFramework": "@storybook/angular"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run lint:ts 'libs/ui/checkbox/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss:base 'libs/ui/checkbox/**/!(*.spec).scss'"
+              }
+            ]
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-checkbox/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/checkbox/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/checkbox/src/test-setup.ts",
+            "tsConfig": "libs/ui/checkbox/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/ui/checkbox"
+          ]
+        }
+      },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/checkbox",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "sourceRoot": "libs/ui/checkbox/src"
+    },
+    "ui-chip": {
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui/chip/tsconfig.lib.prod.json"
+            }
+          },
+          "options": {
+            "project": "libs/ui/chip/ng-package.json",
+            "tsConfig": "libs/ui/chip/tsconfig.lib.json"
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/chip && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-chip/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-chip",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -759,71 +866,57 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/chip"],
-          "options": {
-            "jestConfig": "libs/ui/chip/jest.config.js",
-            "tsConfig": "libs/ui/chip/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/chip/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-chip/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-chip/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-chip",
-            "config": {
-              "configFolder": "stories/ui-chip/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/chip/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/chip/src/test-setup.ts",
+            "tsConfig": "libs/ui/chip/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/chip"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/chip",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/chip/src"
     },
     "ui-cohort-date-range": {
-      "projectType": "library",
-      "root": "libs/ui/cohort-date-range",
-      "sourceRoot": "libs/ui/cohort-date-range/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/cohort-date-range/tsconfig.lib.json",
-            "project": "libs/ui/cohort-date-range/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/cohort-date-range/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/cohort-date-range/ng-package.json",
+            "tsConfig": "libs/ui/cohort-date-range/tsconfig.lib.json"
           }
         },
         "build-schematics": {
@@ -833,6 +926,22 @@
               "cd libs/ui/cohort-date-range && yarn build && cd ../../.."
             ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-cohort-date-range/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-cohort-date-range",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -848,71 +957,57 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/cohort-date-range"],
-          "options": {
-            "jestConfig": "libs/ui/cohort-date-range/jest.config.js",
-            "tsConfig": "libs/ui/cohort-date-range/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/cohort-date-range/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-cohort-date-range/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-cohort-date-range/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-cohort-date-range",
-            "config": {
-              "configFolder": "stories/ui-cohort-date-range/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/cohort-date-range/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/cohort-date-range/src/test-setup.ts",
+            "tsConfig": "libs/ui/cohort-date-range/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/cohort-date-range"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/cohort-date-range",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/cohort-date-range/src"
     },
     "ui-confirmation": {
-      "projectType": "library",
-      "root": "libs/ui/confirmation",
-      "sourceRoot": "libs/ui/confirmation/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/confirmation/tsconfig.lib.json",
-            "project": "libs/ui/confirmation/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/confirmation/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/confirmation/ng-package.json",
+            "tsConfig": "libs/ui/confirmation/tsconfig.lib.json"
           }
         },
         "build-schematics": {
@@ -922,6 +1017,22 @@
               "cd libs/ui/confirmation && yarn build && cd ../../.."
             ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-confirmation/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-confirmation",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -937,78 +1048,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/confirmation"],
-          "options": {
-            "jestConfig": "libs/ui/confirmation/jest.config.js",
-            "tsConfig": "libs/ui/confirmation/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/confirmation/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-confirmation/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-confirmation/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-confirmation",
-            "config": {
-              "configFolder": "stories/ui-confirmation/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/confirmation/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/confirmation/src/test-setup.ts",
+            "tsConfig": "libs/ui/confirmation/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/confirmation"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/confirmation",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/confirmation/src"
     },
     "ui-copy": {
-      "projectType": "library",
-      "root": "libs/ui/copy",
-      "sourceRoot": "libs/ui/copy/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/copy/tsconfig.lib.json",
-            "project": "libs/ui/copy/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/copy/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/copy/ng-package.json",
+            "tsConfig": "libs/ui/copy/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/copy && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/copy && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-copy/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-copy",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -1024,78 +1139,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/copy"],
-          "options": {
-            "jestConfig": "libs/ui/copy/jest.config.js",
-            "tsConfig": "libs/ui/copy/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/copy/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-copy/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-copy/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-copy",
-            "config": {
-              "configFolder": "stories/ui-copy/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/copy/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/copy/src/test-setup.ts",
+            "tsConfig": "libs/ui/copy/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/copy"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/copy",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/copy/src"
     },
     "ui-csv-entry": {
-      "projectType": "library",
-      "root": "libs/ui/csv-entry",
-      "sourceRoot": "libs/ui/csv-entry/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/csv-entry/tsconfig.lib.json",
-            "project": "libs/ui/csv-entry/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/csv-entry/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/csv-entry/ng-package.json",
+            "tsConfig": "libs/ui/csv-entry/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/csv-entry && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/csv-entry && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-csv-entry/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-csv-entry",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -1111,78 +1230,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/csv-entry"],
-          "options": {
-            "jestConfig": "libs/ui/csv-entry/jest.config.js",
-            "tsConfig": "libs/ui/csv-entry/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/csv-entry/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-csv-entry/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-csv-entry/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-csv-entry",
-            "config": {
-              "configFolder": "stories/ui-csv-entry/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/csv-entry/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/csv-entry/src/test-setup.ts",
+            "tsConfig": "libs/ui/csv-entry/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/csv-entry"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/csv-entry",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/csv-entry/src"
     },
     "ui-date-range": {
-      "projectType": "library",
-      "root": "libs/ui/date-range",
-      "sourceRoot": "libs/ui/date-range/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/date-range/tsconfig.lib.json",
-            "project": "libs/ui/date-range/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/date-range/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/date-range/ng-package.json",
+            "tsConfig": "libs/ui/date-range/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/date-range && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/date-range && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-date-range/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-date-range",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -1198,78 +1321,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/date-range"],
-          "options": {
-            "jestConfig": "libs/ui/date-range/jest.config.js",
-            "tsConfig": "libs/ui/date-range/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/date-range/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-date-range/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-date-range/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-date-range",
-            "config": {
-              "configFolder": "stories/ui-date-range/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/date-range/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/date-range/src/test-setup.ts",
+            "tsConfig": "libs/ui/date-range/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/date-range"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/date-range",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/date-range/src"
     },
     "ui-drawer": {
-      "projectType": "library",
-      "root": "libs/ui/drawer",
-      "sourceRoot": "libs/ui/drawer/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/drawer/tsconfig.lib.json",
-            "project": "libs/ui/drawer/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/drawer/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/drawer/ng-package.json",
+            "tsConfig": "libs/ui/drawer/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/drawer && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/drawer && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-drawer/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-drawer",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -1285,71 +1412,57 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/drawer"],
-          "options": {
-            "jestConfig": "libs/ui/drawer/jest.config.js",
-            "tsConfig": "libs/ui/drawer/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/drawer/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-drawer/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-drawer/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-drawer",
-            "config": {
-              "configFolder": "stories/ui-drawer/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/drawer/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/drawer/src/test-setup.ts",
+            "tsConfig": "libs/ui/drawer/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/drawer"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/drawer",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/drawer/src"
     },
     "ui-expansion-panel": {
-      "projectType": "library",
-      "root": "libs/ui/expansion-panel",
-      "sourceRoot": "libs/ui/expansion-panel/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/expansion-panel/tsconfig.lib.json",
-            "project": "libs/ui/expansion-panel/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/expansion-panel/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/expansion-panel/ng-package.json",
+            "tsConfig": "libs/ui/expansion-panel/tsconfig.lib.json"
           }
         },
         "build-schematics": {
@@ -1359,6 +1472,22 @@
               "cd libs/ui/expansion-panel && yarn build && cd ../../.."
             ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-expansion-panel/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-expansion-panel",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -1374,78 +1503,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/expansion-panel"],
-          "options": {
-            "jestConfig": "libs/ui/expansion-panel/jest.config.js",
-            "tsConfig": "libs/ui/expansion-panel/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/expansion-panel/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-expansion-panel/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-expansion-panel/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-expansion-panel",
-            "config": {
-              "configFolder": "stories/ui-expansion-panel/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/expansion-panel/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/expansion-panel/src/test-setup.ts",
+            "tsConfig": "libs/ui/expansion-panel/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/expansion-panel"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/expansion-panel",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/expansion-panel/src"
     },
     "ui-file-upload": {
-      "projectType": "library",
-      "root": "libs/ui/file-upload",
-      "sourceRoot": "libs/ui/file-upload/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/file-upload/tsconfig.lib.json",
-            "project": "libs/ui/file-upload/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/file-upload/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/file-upload/ng-package.json",
+            "tsConfig": "libs/ui/file-upload/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/file-upload && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/file-upload && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-file-upload/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-file-upload",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -1461,71 +1594,57 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/file-upload"],
-          "options": {
-            "jestConfig": "libs/ui/file-upload/jest.config.js",
-            "tsConfig": "libs/ui/file-upload/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/file-upload/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-file-upload/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-file-upload/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-file-upload",
-            "config": {
-              "configFolder": "stories/ui-file-upload/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/file-upload/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/file-upload/src/test-setup.ts",
+            "tsConfig": "libs/ui/file-upload/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/file-upload"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/file-upload",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/file-upload/src"
     },
     "ui-form-field": {
-      "projectType": "library",
-      "root": "libs/ui/form-field",
-      "sourceRoot": "libs/ui/form-field/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/form-field/tsconfig.lib.json",
-            "project": "libs/ui/form-field/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/form-field/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/form-field/ng-package.json",
+            "tsConfig": "libs/ui/form-field/tsconfig.lib.json"
           }
         },
         "lint": {
@@ -1543,44 +1662,64 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/form-field"],
           "options": {
             "jestConfig": "libs/ui/form-field/jest.config.js",
-            "tsConfig": "libs/ui/form-field/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "libs/ui/form-field/src/test-setup.ts"
-          }
+            "setupFile": "libs/ui/form-field/src/test-setup.ts",
+            "tsConfig": "libs/ui/form-field/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/ui/form-field"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/form-field",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/form-field/src"
     },
     "ui-icon": {
-      "projectType": "library",
-      "root": "libs/ui/icon",
-      "sourceRoot": "libs/ui/icon/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/icon/tsconfig.lib.json",
-            "project": "libs/ui/icon/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/icon/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/icon/ng-package.json",
+            "tsConfig": "libs/ui/icon/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/icon && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/icon && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-icon/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-icon",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -1596,78 +1735,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/icon"],
-          "options": {
-            "jestConfig": "libs/ui/icon/jest.config.js",
-            "tsConfig": "libs/ui/icon/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/icon/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-icon/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-icon/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-icon",
-            "config": {
-              "configFolder": "stories/ui-icon/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/icon/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/icon/src/test-setup.ts",
+            "tsConfig": "libs/ui/icon/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/icon"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/icon",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/icon/src"
     },
     "ui-icon-button": {
-      "projectType": "library",
-      "root": "libs/ui/icon-button",
-      "sourceRoot": "libs/ui/icon-button/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/icon-button/tsconfig.lib.json",
-            "project": "libs/ui/icon-button/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/icon-button/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/icon-button/ng-package.json",
+            "tsConfig": "libs/ui/icon-button/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/icon-button && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/icon-button && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-icon-button/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-icon-button",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -1683,78 +1826,170 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/icon-button"],
-          "options": {
-            "jestConfig": "libs/ui/icon-button/jest.config.js",
-            "tsConfig": "libs/ui/icon-button/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/icon-button/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-icon-button/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-icon-button/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-icon-button",
-            "config": {
-              "configFolder": "stories/ui-icon-button/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/icon-button/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/icon-button/src/test-setup.ts",
+            "tsConfig": "libs/ui/icon-button/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/icon-button"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/icon-button",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/icon-button/src"
     },
-    "ui-input": {
-      "projectType": "library",
-      "root": "libs/ui/input",
-      "sourceRoot": "libs/ui/input/src",
-      "prefix": "ts",
+    "ui-info-carousel": {
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/input/tsconfig.lib.json",
-            "project": "libs/ui/input/ng-package.json"
-          },
           "configurations": {
             "production": {
-              "tsConfig": "libs/ui/input/tsconfig.lib.prod.json"
+              "tsConfig": "libs/ui/info-carousel/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/info-carousel/ng-package.json",
+            "tsConfig": "libs/ui/info-carousel/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/input && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/info-carousel && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-info-carousel/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-info-carousel",
+            "uiFramework": "@storybook/angular"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run lint:ts 'libs/ui/info-carousel/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss:base 'libs/ui/info-carousel/**/!(*.spec).scss'"
+              }
+            ]
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-info-carousel/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/info-carousel/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/info-carousel/src/test-setup.ts",
+            "tsConfig": "libs/ui/info-carousel/tsconfig.spec.json"
+          }
+        }
+      },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/info-carousel",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "sourceRoot": "libs/ui/info-carousel/src"
+    },
+    "ui-input": {
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui/input/tsconfig.lib.prod.json"
+            }
+          },
+          "options": {
+            "project": "libs/ui/input/ng-package.json",
+            "tsConfig": "libs/ui/input/tsconfig.lib.json"
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/input && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-input/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-input",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -1770,78 +2005,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/input"],
-          "options": {
-            "jestConfig": "libs/ui/input/jest.config.js",
-            "tsConfig": "libs/ui/input/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/input/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-input/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-input/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-input",
-            "config": {
-              "configFolder": "stories/ui-input/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/input/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/input/src/test-setup.ts",
+            "tsConfig": "libs/ui/input/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/input"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/input",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/input/src"
     },
     "ui-link": {
-      "projectType": "library",
-      "root": "libs/ui/link",
-      "sourceRoot": "libs/ui/link/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/link/tsconfig.lib.json",
-            "project": "libs/ui/link/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/link/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/link/ng-package.json",
+            "tsConfig": "libs/ui/link/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/link && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/link && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-link/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-link",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -1857,71 +2096,57 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/link"],
-          "options": {
-            "jestConfig": "libs/ui/link/jest.config.js",
-            "tsConfig": "libs/ui/link/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/link/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-link/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-link/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-link",
-            "config": {
-              "configFolder": "stories/ui-link/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/link/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/link/src/test-setup.ts",
+            "tsConfig": "libs/ui/link/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/link"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/link",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/link/src"
     },
     "ui-loading-overlay": {
-      "projectType": "library",
-      "root": "libs/ui/loading-overlay",
-      "sourceRoot": "libs/ui/loading-overlay/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/loading-overlay/tsconfig.lib.json",
-            "project": "libs/ui/loading-overlay/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/loading-overlay/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/loading-overlay/ng-package.json",
+            "tsConfig": "libs/ui/loading-overlay/tsconfig.lib.json"
           }
         },
         "build-schematics": {
@@ -1931,6 +2156,22 @@
               "cd libs/ui/loading-overlay && yarn build && cd ../../.."
             ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-loading-overlay/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-loading-overlay",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -1946,77 +2187,65 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/loading-overlay"],
-          "options": {
-            "jestConfig": "libs/ui/loading-overlay/jest.config.js",
-            "tsConfig": "libs/ui/loading-overlay/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/loading-overlay/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-loading-overlay/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-loading-overlay/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-loading-overlay",
-            "config": {
-              "configFolder": "stories/ui-loading-overlay/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/loading-overlay/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/loading-overlay/src/test-setup.ts",
+            "tsConfig": "libs/ui/loading-overlay/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/loading-overlay"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/loading-overlay",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/loading-overlay/src"
     },
     "ui-login-form": {
-      "projectType": "library",
-      "root": "libs/ui/login-form",
-      "sourceRoot": "libs/ui/login-form/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/login-form/tsconfig.lib.json",
-            "project": "libs/ui/login-form/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/login-form/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/login-form/ng-package.json",
+            "tsConfig": "libs/ui/login-form/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/login-form && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/login-form && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -2035,44 +2264,64 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/login-form"],
           "options": {
             "jestConfig": "libs/ui/login-form/jest.config.js",
-            "tsConfig": "libs/ui/login-form/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "libs/ui/login-form/src/test-setup.ts"
-          }
+            "setupFile": "libs/ui/login-form/src/test-setup.ts",
+            "tsConfig": "libs/ui/login-form/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/ui/login-form"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/login-form",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/login-form/src"
     },
     "ui-logo": {
-      "projectType": "library",
-      "root": "libs/ui/logo",
-      "sourceRoot": "libs/ui/logo/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/logo/tsconfig.lib.json",
-            "project": "libs/ui/logo/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/logo/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/logo/ng-package.json",
+            "tsConfig": "libs/ui/logo/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/logo && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/logo && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-logo/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-logo",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -2088,78 +2337,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/logo"],
-          "options": {
-            "jestConfig": "libs/ui/logo/jest.config.js",
-            "tsConfig": "libs/ui/logo/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/logo/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-logo/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-logo/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-logo",
-            "config": {
-              "configFolder": "stories/ui-logo/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/logo/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/logo/src/test-setup.ts",
+            "tsConfig": "libs/ui/logo/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/logo"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/logo",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/logo/src"
     },
     "ui-menu": {
-      "projectType": "library",
-      "root": "libs/ui/menu",
-      "sourceRoot": "libs/ui/menu/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/menu/tsconfig.lib.json",
-            "project": "libs/ui/menu/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/menu/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/menu/ng-package.json",
+            "tsConfig": "libs/ui/menu/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/menu && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/menu && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-menu/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-menu",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -2175,78 +2428,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/menu"],
-          "options": {
-            "jestConfig": "libs/ui/menu/jest.config.js",
-            "tsConfig": "libs/ui/menu/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/menu/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-menu/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-menu/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-menu",
-            "config": {
-              "configFolder": "stories/ui-menu/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/menu/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/menu/src/test-setup.ts",
+            "tsConfig": "libs/ui/menu/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/menu"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/menu",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/menu/src"
     },
     "ui-navigation": {
-      "projectType": "library",
-      "root": "libs/ui/navigation",
-      "sourceRoot": "libs/ui/navigation/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/navigation/tsconfig.lib.json",
-            "project": "libs/ui/navigation/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/navigation/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/navigation/ng-package.json",
+            "tsConfig": "libs/ui/navigation/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/navigation && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/navigation && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-navigation/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-navigation",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -2262,77 +2519,65 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/navigation"],
-          "options": {
-            "jestConfig": "libs/ui/navigation/jest.config.js",
-            "tsConfig": "libs/ui/navigation/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/navigation/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-navigation/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-navigation/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-navigation",
-            "config": {
-              "configFolder": "stories/ui-navigation/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/navigation/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/navigation/src/test-setup.ts",
+            "tsConfig": "libs/ui/navigation/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/navigation"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/navigation",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/navigation/src"
     },
     "ui-option": {
-      "projectType": "library",
-      "root": "libs/ui/option",
-      "sourceRoot": "libs/ui/option/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/option/tsconfig.lib.json",
-            "project": "libs/ui/option/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/option/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/option/ng-package.json",
+            "tsConfig": "libs/ui/option/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/option && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/option && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -2351,27 +2596,66 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/option"],
           "options": {
             "jestConfig": "libs/ui/option/jest.config.js",
-            "tsConfig": "libs/ui/option/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "libs/ui/option/src/test-setup.ts"
-          }
+            "setupFile": "libs/ui/option/src/test-setup.ts",
+            "tsConfig": "libs/ui/option/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/ui/option"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/option",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/option/src"
     },
     "ui-page-header": {
-      "projectType": "library",
-      "root": "libs/ui/page-header",
-      "sourceRoot": "libs/ui/page-header/src",
-      "prefix": "ts",
       "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui/page-header/tsconfig.lib.prod.json"
+            }
+          },
+          "options": {
+            "project": "libs/ui/page-header/ng-package.json",
+            "tsConfig": "libs/ui/page-header/tsconfig.lib.json"
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/page-header && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-page-header/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-page-header",
+            "uiFramework": "@storybook/angular"
+          }
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -2385,97 +2669,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/page-header"],
-          "options": {
-            "jestConfig": "libs/ui/page-header/jest.config.js",
-            "tsConfig": "libs/ui/page-header/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/page-header/src/test-setup.ts"
-          }
-        },
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/page-header/tsconfig.lib.json",
-            "project": "libs/ui/page-header/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/ui/page-header/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "build-schematics": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": ["cd libs/ui/page-header && yarn build && cd ../../.."],
-            "parallel": false
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-page-header/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-page-header/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-page-header",
-            "config": {
-              "configFolder": "stories/ui-page-header/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/page-header/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/page-header/src/test-setup.ts",
+            "tsConfig": "libs/ui/page-header/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/page-header"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/page-header",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/page-header/src"
     },
     "ui-paginator": {
-      "projectType": "library",
-      "root": "libs/ui/paginator",
-      "sourceRoot": "libs/ui/paginator/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/paginator/tsconfig.lib.json",
-            "project": "libs/ui/paginator/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/paginator/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/paginator/ng-package.json",
+            "tsConfig": "libs/ui/paginator/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/paginator && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/paginator && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-paginator/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-paginator",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -2491,78 +2760,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/paginator"],
-          "options": {
-            "jestConfig": "libs/ui/paginator/jest.config.js",
-            "tsConfig": "libs/ui/paginator/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/paginator/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-paginator/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-paginator/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-paginator",
-            "config": {
-              "configFolder": "stories/ui-paginator/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/paginator/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/paginator/src/test-setup.ts",
+            "tsConfig": "libs/ui/paginator/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/paginator"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/paginator",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/paginator/src"
     },
     "ui-pipes": {
-      "projectType": "library",
-      "root": "libs/ui/pipes",
-      "sourceRoot": "libs/ui/pipes/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/pipes/tsconfig.lib.json",
-            "project": "libs/ui/pipes/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/pipes/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/pipes/ng-package.json",
+            "tsConfig": "libs/ui/pipes/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/pipes && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/pipes && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-pipes/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-pipes",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -2575,78 +2848,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/pipes"],
-          "options": {
-            "jestConfig": "libs/ui/pipes/jest.config.js",
-            "tsConfig": "libs/ui/pipes/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/pipes/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-pipes/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-pipes/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-pipes",
-            "config": {
-              "configFolder": "stories/ui-pipes/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/pipes/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/pipes/src/test-setup.ts",
+            "tsConfig": "libs/ui/pipes/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/pipes"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/pipes",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/pipes/src"
     },
     "ui-popover": {
-      "projectType": "library",
-      "root": "libs/ui/popover",
-      "sourceRoot": "libs/ui/popover/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/popover/tsconfig.lib.json",
-            "project": "libs/ui/popover/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/popover/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/popover/ng-package.json",
+            "tsConfig": "libs/ui/popover/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/popover && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/popover && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-popover/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-popover",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -2662,78 +2939,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/popover"],
-          "options": {
-            "jestConfig": "libs/ui/popover/jest.config.js",
-            "tsConfig": "libs/ui/popover/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/popover/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-popover/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-popover/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-popover",
-            "config": {
-              "configFolder": "stories/ui-popover/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/popover/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/popover/src/test-setup.ts",
+            "tsConfig": "libs/ui/popover/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/popover"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/popover",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/popover/src"
     },
     "ui-radio-group": {
-      "projectType": "library",
-      "root": "libs/ui/radio-group",
-      "sourceRoot": "libs/ui/radio-group/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/radio-group/tsconfig.lib.json",
-            "project": "libs/ui/radio-group/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/radio-group/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/radio-group/ng-package.json",
+            "tsConfig": "libs/ui/radio-group/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/radio-group && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/radio-group && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-radio-group/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-radio-group",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -2749,78 +3030,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/radio-group"],
-          "options": {
-            "jestConfig": "libs/ui/radio-group/jest.config.js",
-            "tsConfig": "libs/ui/radio-group/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/radio-group/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-radio-group/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-radio-group/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-radio-group",
-            "config": {
-              "configFolder": "stories/ui-radio-group/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/radio-group/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/radio-group/src/test-setup.ts",
+            "tsConfig": "libs/ui/radio-group/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/radio-group"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/radio-group",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/radio-group/src"
     },
     "ui-scrollbars": {
-      "projectType": "library",
-      "root": "libs/ui/scrollbars",
-      "sourceRoot": "libs/ui/scrollbars/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/scrollbars/tsconfig.lib.json",
-            "project": "libs/ui/scrollbars/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/scrollbars/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/scrollbars/ng-package.json",
+            "tsConfig": "libs/ui/scrollbars/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/scrollbars && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/scrollbars && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-scrollbars/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-scrollbars",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -2836,78 +3121,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/scrollbars"],
-          "options": {
-            "jestConfig": "libs/ui/scrollbars/jest.config.js",
-            "tsConfig": "libs/ui/scrollbars/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/scrollbars/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-scrollbars/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-scrollbars/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-scrollbars",
-            "config": {
-              "configFolder": "stories/ui-scrollbars/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/scrollbars/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/scrollbars/src/test-setup.ts",
+            "tsConfig": "libs/ui/scrollbars/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/scrollbars"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/scrollbars",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/scrollbars/src"
     },
     "ui-search": {
-      "projectType": "library",
-      "root": "libs/ui/search",
-      "sourceRoot": "libs/ui/search/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/search/tsconfig.lib.json",
-            "project": "libs/ui/search/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/search/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/search/ng-package.json",
+            "tsConfig": "libs/ui/search/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/search && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/search && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-search/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-search",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -2923,77 +3212,65 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/search"],
-          "options": {
-            "jestConfig": "libs/ui/search/jest.config.js",
-            "tsConfig": "libs/ui/search/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/search/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-search/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-search/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-search",
-            "config": {
-              "configFolder": "stories/ui-search/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/search/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/search/src/test-setup.ts",
+            "tsConfig": "libs/ui/search/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/search"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/search",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/search/src"
     },
     "ui-select": {
-      "projectType": "library",
-      "root": "libs/ui/select",
-      "sourceRoot": "libs/ui/select/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/select/tsconfig.lib.json",
-            "project": "libs/ui/select/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/select/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/select/ng-package.json",
+            "tsConfig": "libs/ui/select/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/select && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/select && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -3012,37 +3289,39 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/select"],
           "options": {
             "jestConfig": "libs/ui/select/jest.config.js",
-            "tsConfig": "libs/ui/select/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "libs/ui/select/src/test-setup.ts"
-          }
+            "setupFile": "libs/ui/select/src/test-setup.ts",
+            "tsConfig": "libs/ui/select/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/ui/select"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/select",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/select/src"
     },
     "ui-selection-list": {
-      "projectType": "library",
-      "root": "libs/ui/selection-list",
-      "sourceRoot": "libs/ui/selection-list/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/selection-list/tsconfig.lib.json",
-            "project": "libs/ui/selection-list/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/selection-list/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/selection-list/ng-package.json",
+            "tsConfig": "libs/ui/selection-list/tsconfig.lib.json"
           }
         },
         "build-schematics": {
@@ -3052,6 +3331,22 @@
               "cd libs/ui/selection-list && yarn build && cd ../../.."
             ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-selection-list/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-selection-list",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -3067,71 +3362,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/selection-list"],
-          "options": {
-            "jestConfig": "libs/ui/selection-list/jest.config.js",
-            "tsConfig": "libs/ui/selection-list/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/selection-list/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-selection-list/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-selection-list/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-selection-list",
-            "config": {
-              "configFolder": "stories/ui-selection-list/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/selection-list/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/selection-list/src/test-setup.ts",
+            "tsConfig": "libs/ui/selection-list/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/selection-list"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/selection-list",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/selection-list/src"
     },
     "ui-sidenav": {
-      "projectType": "library",
-      "root": "libs/ui/sidenav",
-      "sourceRoot": "libs/ui/sidenav/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/sidenav/tsconfig.lib.json",
-            "project": "libs/ui/sidenav/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/sidenav/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/sidenav/ng-package.json",
+            "tsConfig": "libs/ui/sidenav/tsconfig.lib.json"
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/sidenav && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-sidenav/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-sidenav",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -3147,84 +3453,65 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/sidenav"],
-          "options": {
-            "jestConfig": "libs/ui/sidenav/jest.config.js",
-            "tsConfig": "libs/ui/sidenav/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/sidenav/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
           "options": {
-            "uiFramework": "@storybook/angular",
+            "config": {
+              "configFolder": "stories/ui-sidenav/.storybook"
+            },
+            "docsMode": false,
             "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-sidenav/.storybook"
-            },
-            "docsMode": false
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-sidenav",
-            "config": {
-              "configFolder": "stories/ui-sidenav/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/sidenav/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/sidenav/src/test-setup.ts",
+            "tsConfig": "libs/ui/sidenav/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        },
-        "build-schematics": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": ["cd libs/ui/sidenav && yarn build && cd ../../.."],
-            "parallel": false
-          }
+          "outputs": [
+            "coverage/libs/ui/sidenav"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/sidenav",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/sidenav/src"
     },
     "ui-sort": {
-      "projectType": "library",
-      "root": "libs/ui/sort",
-      "sourceRoot": "libs/ui/sort/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/sort/tsconfig.lib.json",
-            "project": "libs/ui/sort/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/sort/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/sort/ng-package.json",
+            "tsConfig": "libs/ui/sort/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/sort && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/sort && yarn build && cd ../../.."
+            ],
             "parallel": false
           }
         },
@@ -3243,37 +3530,55 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/sort"],
           "options": {
             "jestConfig": "libs/ui/sort/jest.config.js",
-            "tsConfig": "libs/ui/sort/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "libs/ui/sort/src/test-setup.ts"
-          }
+            "setupFile": "libs/ui/sort/src/test-setup.ts",
+            "tsConfig": "libs/ui/sort/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/ui/sort"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/sort",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/sort/src"
     },
     "ui-spacing": {
-      "projectType": "library",
-      "root": "libs/ui/spacing",
-      "sourceRoot": "libs/ui/spacing/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/spacing/tsconfig.lib.json",
-            "project": "libs/ui/spacing/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/spacing/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/spacing/ng-package.json",
+            "tsConfig": "libs/ui/spacing/tsconfig.lib.json"
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-spacing/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-spacing",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -3286,77 +3591,196 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/spacing"],
-          "options": {
-            "jestConfig": "libs/ui/spacing/jest.config.js",
-            "tsConfig": "libs/ui/spacing/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/spacing/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-spacing/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-spacing/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-spacing",
-            "config": {
-              "configFolder": "stories/ui-spacing/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/spacing/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/spacing/src/test-setup.ts",
+            "tsConfig": "libs/ui/spacing/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/spacing"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/spacing",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/spacing/src"
+    },
+    "ui-storybook": {
+      "architect": {
+        "allstorybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "apps/ui-storybook/.storybook"
+            },
+            "docsMode": true,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
+          }
+        },
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "maximumError": "5mb",
+                  "maximumWarning": "2mb",
+                  "type": "initial"
+                },
+                {
+                  "maximumError": "10kb",
+                  "maximumWarning": "6kb",
+                  "type": "anyComponentStyle"
+                }
+              ],
+              "buildOptimizer": true,
+              "extractCss": true,
+              "extractLicenses": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/ui-storybook/src/environments/environment.ts",
+                  "with": "apps/ui-storybook/src/environments/environment.prod.ts"
+                }
+              ],
+              "namedChunks": false,
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "vendorChunk": false
+            }
+          },
+          "options": {
+            "aot": true,
+            "assets": [
+              "apps/ui-storybook/src/favicon.ico",
+              "apps/ui-storybook/src/assets"
+            ],
+            "index": "apps/ui-storybook/src/index.html",
+            "main": "apps/ui-storybook/src/main.ts",
+            "outputPath": "dist/apps/ui-storybook",
+            "polyfills": "apps/ui-storybook/src/polyfills.ts",
+            "scripts": [],
+            "styles": [
+              "apps/ui-storybook/src/styles.scss"
+            ],
+            "tsConfig": "apps/ui-storybook/tsconfig.app.json"
+          }
+        },
+        "build-allstorybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "apps/ui-storybook/.storybook"
+            },
+            "docsMode": true,
+            "outputPath": "dist/storybook",
+            "uiFramework": "@storybook/angular"
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ui-storybook:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ui-storybook/**/*"
+            ],
+            "tsConfig": [
+              "apps/ui-storybook/tsconfig.app.json",
+              "apps/ui-storybook/tsconfig.spec.json"
+            ]
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "ui-storybook:build:production"
+            }
+          },
+          "options": {
+            "browserTarget": "ui-storybook:build"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/ui-storybook/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "apps/ui-storybook/src/test-setup.ts",
+            "tsConfig": "apps/ui-storybook/tsconfig.spec.json"
+          }
+        }
+      },
+      "prefix": "tsdt",
+      "projectType": "application",
+      "root": "apps/ui-storybook",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "sourceRoot": "apps/ui-storybook/src"
     },
     "ui-styles": {
-      "projectType": "library",
-      "root": "libs/ui/styles",
-      "sourceRoot": "libs/ui/styles/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/workspace:run-commands",
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui/styles/tsconfig.lib.prod.json"
+            }
+          },
           "options": {
-            "tsConfig": "libs/ui/styles/tsconfig.lib.json",
-            "project": "libs/ui/styles/ng-package.json",
             "commands": [
               {
                 "command": "tools/ci/build-styles.sh"
               }
             ],
-            "parallel": false
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/ui/styles/tsconfig.lib.prod.json"
-            }
+            "parallel": false,
+            "project": "libs/ui/styles/ng-package.json",
+            "tsConfig": "libs/ui/styles/tsconfig.lib.json"
           }
         },
         "lint": {
@@ -3373,41 +3797,59 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/styles/jest.config.js",
-            "tsConfig": "libs/ui/styles/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "libs/ui/styles/src/test-setup.ts"
+            "setupFile": "libs/ui/styles/src/test-setup.ts",
+            "tsConfig": "libs/ui/styles/tsconfig.spec.json"
           }
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/styles",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/styles/src"
     },
     "ui-table": {
-      "projectType": "library",
-      "root": "libs/ui/table",
-      "sourceRoot": "libs/ui/table/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/table/tsconfig.lib.json",
-            "project": "libs/ui/table/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/table/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/table/ng-package.json",
+            "tsConfig": "libs/ui/table/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/table && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/table && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-table/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-table",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -3423,78 +3865,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/table"],
-          "options": {
-            "jestConfig": "libs/ui/table/jest.config.js",
-            "tsConfig": "libs/ui/table/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/table/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-table/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-table/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-table",
-            "config": {
-              "configFolder": "stories/ui-table/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/table/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/table/src/test-setup.ts",
+            "tsConfig": "libs/ui/table/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/table"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/table",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/table/src"
     },
     "ui-tabs": {
-      "projectType": "library",
-      "root": "libs/ui/tabs",
-      "sourceRoot": "libs/ui/tabs/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/tabs/tsconfig.lib.json",
-            "project": "libs/ui/tabs/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/tabs/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/tabs/ng-package.json",
+            "tsConfig": "libs/ui/tabs/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/tabs && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/tabs && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-tabs/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-tabs",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -3510,78 +3956,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/tabs"],
-          "options": {
-            "jestConfig": "libs/ui/tabs/jest.config.js",
-            "tsConfig": "libs/ui/tabs/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/tabs/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-tabs/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-tabs/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-tabs",
-            "config": {
-              "configFolder": "stories/ui-tabs/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/tabs/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/tabs/src/test-setup.ts",
+            "tsConfig": "libs/ui/tabs/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/tabs"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/tabs",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/tabs/src"
     },
     "ui-toggle": {
-      "projectType": "library",
-      "root": "libs/ui/toggle",
-      "sourceRoot": "libs/ui/toggle/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/toggle/tsconfig.lib.json",
-            "project": "libs/ui/toggle/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/toggle/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/toggle/ng-package.json",
+            "tsConfig": "libs/ui/toggle/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/toggle && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/toggle && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-toggle/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-toggle",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -3597,78 +4047,82 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/toggle"],
-          "options": {
-            "jestConfig": "libs/ui/toggle/jest.config.js",
-            "tsConfig": "libs/ui/toggle/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/toggle/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-toggle/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-toggle/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-toggle",
-            "config": {
-              "configFolder": "stories/ui-toggle/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/toggle/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/toggle/src/test-setup.ts",
+            "tsConfig": "libs/ui/toggle/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/toggle"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/toggle",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/toggle/src"
     },
     "ui-tooltip": {
-      "projectType": "library",
-      "root": "libs/ui/tooltip",
-      "sourceRoot": "libs/ui/tooltip/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/tooltip/tsconfig.lib.json",
-            "project": "libs/ui/tooltip/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/tooltip/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/tooltip/ng-package.json",
+            "tsConfig": "libs/ui/tooltip/tsconfig.lib.json"
           }
         },
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["cd libs/ui/tooltip && yarn build && cd ../../.."],
+            "commands": [
+              "cd libs/ui/tooltip && yarn build && cd ../../.."
+            ],
             "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-tooltip/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-tooltip",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -3684,71 +4138,57 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/tooltip"],
-          "options": {
-            "jestConfig": "libs/ui/tooltip/jest.config.js",
-            "tsConfig": "libs/ui/tooltip/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/tooltip/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "stories/ui-tooltip/.storybook"
-            },
-            "docsMode": false
-          },
           "configurations": {
             "ci": {
               "quiet": true
             }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-tooltip/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-tooltip",
-            "config": {
-              "configFolder": "stories/ui-tooltip/.storybook"
-            },
-            "docsMode": false
+            "jestConfig": "libs/ui/tooltip/jest.config.js",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/tooltip/src/test-setup.ts",
+            "tsConfig": "libs/ui/tooltip/tsconfig.spec.json"
           },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
+          "outputs": [
+            "coverage/libs/ui/tooltip"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/tooltip",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/tooltip/src"
     },
     "ui-utilities": {
-      "projectType": "library",
-      "root": "libs/ui/utilities",
-      "sourceRoot": "libs/ui/utilities/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/utilities/tsconfig.lib.json",
-            "project": "libs/ui/utilities/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/utilities/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/utilities/ng-package.json",
+            "tsConfig": "libs/ui/utilities/tsconfig.lib.json"
           }
         },
         "lint": {
@@ -3763,37 +4203,39 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/utilities"],
           "options": {
             "jestConfig": "libs/ui/utilities/jest.config.js",
-            "tsConfig": "libs/ui/utilities/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "libs/ui/utilities/src/test-setup.ts"
-          }
+            "setupFile": "libs/ui/utilities/src/test-setup.ts",
+            "tsConfig": "libs/ui/utilities/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/ui/utilities"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/utilities",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/utilities/src"
     },
     "ui-validation-messages": {
-      "projectType": "library",
-      "root": "libs/ui/validation-messages",
-      "sourceRoot": "libs/ui/validation-messages/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/validation-messages/tsconfig.lib.json",
-            "project": "libs/ui/validation-messages/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/validation-messages/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/validation-messages/ng-package.json",
+            "tsConfig": "libs/ui/validation-messages/tsconfig.lib.json"
           }
         },
         "build-schematics": {
@@ -3820,37 +4262,55 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/validation-messages"],
           "options": {
             "jestConfig": "libs/ui/validation-messages/jest.config.js",
-            "tsConfig": "libs/ui/validation-messages/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "libs/ui/validation-messages/src/test-setup.ts"
-          }
+            "setupFile": "libs/ui/validation-messages/src/test-setup.ts",
+            "tsConfig": "libs/ui/validation-messages/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/ui/validation-messages"
+          ]
         }
       },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/validation-messages",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
-      }
+      },
+      "sourceRoot": "libs/ui/validation-messages/src"
     },
     "ui-validators": {
-      "projectType": "library",
-      "root": "libs/ui/validators",
-      "sourceRoot": "libs/ui/validators/src",
-      "prefix": "ts",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "options": {
-            "tsConfig": "libs/ui/validators/tsconfig.lib.json",
-            "project": "libs/ui/validators/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "libs/ui/validators/tsconfig.lib.prod.json"
             }
+          },
+          "options": {
+            "project": "libs/ui/validators/ng-package.json",
+            "tsConfig": "libs/ui/validators/tsconfig.lib.json"
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-validators/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-validators",
+            "uiFramework": "@storybook/angular"
           }
         },
         "lint": {
@@ -3863,258 +4323,63 @@
             ]
           }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/validators"],
-          "options": {
-            "jestConfig": "libs/ui/validators/jest.config.js",
-            "tsConfig": "libs/ui/validators/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/validators/src/test-setup.ts"
-          }
-        },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
           "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
             "config": {
               "configFolder": "stories/ui-validators/.storybook"
             },
-            "docsMode": false
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/ui-validators",
-            "config": {
-              "configFolder": "stories/ui-validators/.storybook"
-            },
-            "docsMode": false
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
-    "storybook-dummy": {
-      "projectType": "application",
-      "schematics": {},
-      "root": "apps/storybook-dummy",
-      "sourceRoot": "apps/storybook-dummy/src",
-      "prefix": "ts",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/apps/storybook-dummy",
-            "index": "apps/storybook-dummy/src/index.html",
-            "main": "apps/storybook-dummy/src/main.ts",
-            "polyfills": "apps/storybook-dummy/src/polyfills.ts",
-            "tsConfig": "apps/storybook-dummy/tsconfig.app.json",
-            "aot": true,
-            "assets": [],
-            "styles": ["apps/storybook-dummy/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/storybook-dummy/src/environments/environment.ts",
-                  "with": "apps/storybook-dummy/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": []
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "storybook-dummy:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "storybook-dummy:build:production"
-            }
-          }
-        }
-      }
-    },
-    "ui-storybook": {
-      "projectType": "application",
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      },
-      "root": "apps/ui-storybook",
-      "sourceRoot": "apps/ui-storybook/src",
-      "prefix": "tsdt",
-      "architect": {
-        "allstorybook": {
-          "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
+            "docsMode": false,
             "port": 4400,
-            "config": {
-              "configFolder": "apps/ui-storybook/.storybook"
-            },
-            "docsMode": true
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        },
-        "build-allstorybook": {
-          "builder": "@nrwl/storybook:build",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook",
-            "config": {
-              "configFolder": "apps/ui-storybook/.storybook"
-            },
-            "docsMode": true
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        },
-
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/apps/ui-storybook",
-            "index": "apps/ui-storybook/src/index.html",
-            "main": "apps/ui-storybook/src/main.ts",
-            "polyfills": "apps/ui-storybook/src/polyfills.ts",
-            "tsConfig": "apps/ui-storybook/tsconfig.app.json",
-            "aot": true,
-            "assets": [
-              "apps/ui-storybook/src/favicon.ico",
-              "apps/ui-storybook/src/assets"
-            ],
-            "styles": ["apps/ui-storybook/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/ui-storybook/src/environments/environment.ts",
-                  "with": "apps/ui-storybook/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "ui-storybook:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "ui-storybook:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "ui-storybook:build"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/ui-storybook/tsconfig.app.json",
-              "apps/ui-storybook/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/ui-storybook/**/*"]
+            "uiFramework": "@storybook/angular"
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/ui-storybook/jest.config.js",
-            "tsConfig": "apps/ui-storybook/tsconfig.spec.json",
+            "jestConfig": "libs/ui/validators/jest.config.js",
             "passWithNoTests": true,
-            "setupFile": "apps/ui-storybook/src/test-setup.ts"
-          }
+            "setupFile": "libs/ui/validators/src/test-setup.ts",
+            "tsConfig": "libs/ui/validators/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/ui/validators"
+          ]
         }
-      }
+      },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/validators",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "sourceRoot": "libs/ui/validators/src"
     }
   },
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
   "schematics": {
-    "@nrwl/angular:application": {
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
+    "@ngneat/spectator:spectator-component": {
+      "jest": true
     },
-    "@nrwl/angular:library": {
+    "@nrwl/angular:application": {
+      "e2eTestRunner": "cypress",
       "unitTestRunner": "jest"
     },
     "@nrwl/angular:component": {
       "styleext": "scss"
     },
-    "@ngneat/spectator:spectator-component": {
-      "jest": true
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
     },
     "@schematics/angular:component": {
       "styleext": "scss"
     }
   },
-  "defaultProject": "storybook-dummy"
+  "version": 1
 }

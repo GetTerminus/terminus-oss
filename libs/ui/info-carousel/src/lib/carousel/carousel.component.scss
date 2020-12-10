@@ -1,0 +1,102 @@
+:root {
+  --ts-info-carousel-label-color: #23806f;
+  --ts-info-carousel-backgroundColor: var(--ts-color-base-white);
+  --ts-info-carousel-label-typography: 500 13px / 20px var(--ts-typography-family-base-roboto);
+  --ts-info-carousel-borderColor: var(--ts-color-utility-200);
+  --ts-info-carousel-border: 1px solid var(--ts-color-utility-200);
+  --ts-info-carousel-borderRadius: var(--ts-border-radius-base);
+  --ts-info-carousel-link-color: var(--ts-color-primary-500);
+  --ts-info-carousel-space: 16px;
+  --ts-info-carousel-panelTitle-marginRight: 8px;
+  --ts-info-carousel-panelTitle-fontWeight: 500;
+  --ts-info-carousel-panelsContainer-width: 6000px;
+  --ts-info-carousel-addOn-padding: 0 8px;
+}
+
+.ts-info-carousel {
+  background-color: var(--ts-info-carousel-backgroundColor);
+  box-sizing: border-box;
+  display: block;
+  padding: var(--ts-info-carousel-space) 0;
+  position: relative;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  // <div> wrapper for the user defined label
+  .ts-info-carousel__label {
+    background-color: var(--ts-info-carousel-backgroundColor);
+    color: var(--ts-info-carousel-label-color);
+    display: inline-block;
+    font: var(--ts-info-carousel-label-typography);
+    left: var(--ts-info-carousel-space);
+    padding: var(--ts-info-carousel-addOn-padding);
+    position: absolute;
+    top: var(--ts-info-carousel-space);
+    transform: translateY(-50%);
+  }
+
+  // <section> primary carousel container
+  .ts-info-carousel__wrapper {
+    border: var(--ts-info-carousel-border);
+    border-radius: var(--ts-info-carousel-borderRadius);
+    overflow: hidden;
+  }
+
+  // <ul> The list of panels
+  .ts-info-carousel__inner {
+    align-items: flex-start;
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    margin: 0;
+    padding: var(--ts-info-carousel-space) 0;
+    width: var(--ts-info-carousel-panelsContainer-width);
+  }
+
+  // <li> an individual panel
+  .ts-info-carousel__item {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0 var(--ts-info-carousel-space);
+  }
+
+  // <div> wrapper for the TsPaginatorComponent
+  .ts-info-carousel__paginator-wrapper {
+    background-color: var(--ts-info-carousel-backgroundColor);
+    bottom: 4px;
+    display: inline-block;
+    padding: var(--ts-info-carousel-addOn-padding);
+    position: absolute;
+    right: var(--ts-info-carousel-space);
+  }
+
+  // <any> Class provided for users to style their panel title
+  .ts-info-carousel__item-title {
+    display: inline-block;
+    flex-shrink: 0;
+    font-weight: var(--ts-info-carousel-panelTitle-fontWeight);
+    margin-right: var(--ts-info-carousel-panelTitle-marginRight);
+  }
+
+  // <any> Class provided for users to style their panel content
+  .ts-info-carousel__item-content {
+    display: inline-block;
+
+    // Only style links that are NOT in a <ts-link> component
+    a {
+      &:not(.c-link) {
+        color: var(--ts-info-carousel-link-color);
+        text-decoration: none;
+
+        &:focus,
+        &:hover {
+          outline: 0;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
