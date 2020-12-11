@@ -20,6 +20,7 @@ import { action } from '@storybook/addon-actions';
 import {
   boolean,
   select,
+  text,
 } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
@@ -35,6 +36,7 @@ import {
 import { TsSpacingModule } from '@terminus/ui-spacing';
 import {
   TsCellDirective,
+  TsChangeIndicatorComponent,
   TsColumnDefDirective,
   TsFooterCellDirective,
   TsFooterRowComponent,
@@ -234,4 +236,20 @@ expandableRows.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
   docs: { iframeHeight: 800 },
+};
+
+export const changeIndicator = () => ({
+  component: TsChangeIndicatorComponent,
+  template: `
+    <div style="margin-bottom: 1rem;">
+      <ts-change-indicator>42%</ts-change-indicator>
+    </div>
+    <div>
+      <ts-change-indicator sentiment="negative">88%</ts-change-indicator>
+    </div>
+  `,
+});
+changeIndicator.parameters = {
+  actions: { disabled: true },
+  knobs: { disabled: true },
 };

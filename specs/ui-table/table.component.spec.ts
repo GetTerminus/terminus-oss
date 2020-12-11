@@ -1,6 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 import { Injectable } from '@angular/core';
 import { ComponentFixture } from '@angular/core/testing';
+import { Spectator } from '@ngneat/spectator';
+import { createComponentFactory } from '@ngneat/spectator/jest';
 
 import {
   createComponent,
@@ -13,7 +15,12 @@ import {
   TsWindowService,
 } from '@terminus/fe-utilities';
 import {
+  TsCheckboxComponent,
+  TsCheckboxModule,
+} from '@terminus/ui-checkbox';
+import {
   setColumnAlignment,
+  TsChangeIndicatorComponent,
   TsHeaderCellDirective,
   TsTableDataSource,
   TsTableModule,
@@ -464,3 +471,44 @@ describe(`TsTableComponent`, function() {
   });
 });
 
+describe(`TsChangeIndicatorComponent`, () => {
+  let spectator: Spectator<TsChangeIndicatorComponent>;
+  const createSpectatorComponent = createComponentFactory({ component: TsChangeIndicatorComponent });
+
+  beforeEach(() => {
+    spectator = createSpectatorComponent();
+  });
+
+  test(`should exist`, () => {
+    expect(spectator.query('svg')).toExist();
+  });
+
+  test(`should default to positive sentiment`, () => {
+    expect(spectator.query('.ts-change-indicator__wrapper--positive')).toExist();
+    expect(spectator.query('.ts-change-indicator__wrapper--negative')).not.toExist();
+  });
+
+  test(`should allow the change to negative sentiment`, () => {
+    spectator.setInput('sentiment', 'negative');
+    expect(spectator.query('.ts-change-indicator__wrapper--positive')).not.toExist();
+    expect(spectator.query('.ts-change-indicator__wrapper--negative')).toExist();
+  });
+
+  describe(`id`, () => {
+    test(`should default the ID to the UID`, () => {
+      expect(spectator.component.id).toEqual(expect.stringContaining('ts-change-indicator-'));
+    });
+
+    test(`should allow custom ID`, () => {
+      spectator.setInput('id', 'foo');
+      expect(spectator.component.id).toEqual('foo');
+    });
+
+    test(`should fall back to UID`, () => {
+      spectator.setInput('id', 'foo');
+      expect(spectator.component.id).toEqual('foo');
+      spectator.setInput('id', undefined);
+      expect(spectator.component.id).toEqual(expect.stringContaining('ts-change-indicator-'));
+    });
+  });
+});
