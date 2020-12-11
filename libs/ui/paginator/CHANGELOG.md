@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@3.0.0...@terminus/ui-paginator@3.0.1) (2020-12-11)
+
+
+### Bug Fixes
+
+* **Paginator:** add correct right margin between pages and next button ([3ec54cf](https://github.com/GetTerminus/terminus-oss/commit/3ec54cf3e974a22c65c142611ae3e05c0f2919c6))
+* **Paginator:** don't show ellipsis for less than 4 pages ([c5f0b83](https://github.com/GetTerminus/terminus-oss/commit/c5f0b838d7ca541f8f53b6cdb668ac887dbcf562))
+
+
+
+
+
 # [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@2.2.6...@terminus/ui-paginator@3.0.0) (2020-11-24)
 
 
