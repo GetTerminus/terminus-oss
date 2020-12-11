@@ -13,6 +13,7 @@ import {
   TsHeaderCellDefDirective,
   TsHeaderCellDirective,
 } from './cell/cell';
+import { TsChangeIndicatorComponent } from './change-indicator/change-indicator.component';
 import { TsColumnDefDirective } from './column/column';
 import {
   TsFooterRowComponent,
@@ -24,11 +25,38 @@ import {
 } from './row/row';
 import { TsTableComponent } from './table/table.component';
 
-export * from './data-source/table-data-source';
 export * from './cell/cell';
+export * from './change-indicator/change-indicator.component';
 export * from './column/column';
+export * from './data-source/table-data-source';
 export * from './row/row';
 export * from './table/table.component';
+
+const DECLARATIONS_EXPORTS = [
+  // Table
+  TsTableComponent,
+
+  // Template definitions
+  TsHeaderCellDefDirective,
+  TsHeaderRowDefDirective,
+  TsColumnDefDirective,
+  TsCellDefDirective,
+  TsRowDefDirective,
+  TsFooterCellDefDirective,
+  TsFooterRowDefDirective,
+
+  // Cell directives
+  TsHeaderCellDirective,
+  TsCellDirective,
+  TsFooterCellDirective,
+
+  // Row directives
+  TsHeaderRowComponent,
+  TsRowComponent,
+  TsFooterRowComponent,
+
+  TsChangeIndicatorComponent,
+];
 
 // NOTE: Moving declarations/exports items into shared array breaks documentation generation.
 @NgModule({
@@ -38,51 +66,7 @@ export * from './table/table.component';
     TsPaginatorModule,
     TsSortModule,
   ],
-  declarations: [
-    // Table
-    TsTableComponent,
-
-    // Template definitions
-    TsHeaderCellDefDirective,
-    TsHeaderRowDefDirective,
-    TsColumnDefDirective,
-    TsCellDefDirective,
-    TsRowDefDirective,
-    TsFooterCellDefDirective,
-    TsFooterRowDefDirective,
-
-    // Cell directives
-    TsHeaderCellDirective,
-    TsCellDirective,
-    TsFooterCellDirective,
-
-    // Row directives
-    TsHeaderRowComponent,
-    TsRowComponent,
-    TsFooterRowComponent,
-  ],
-  exports: [
-    // Table
-    TsTableComponent,
-
-    // Template definitions
-    TsHeaderCellDefDirective,
-    TsHeaderRowDefDirective,
-    TsColumnDefDirective,
-    TsCellDefDirective,
-    TsRowDefDirective,
-    TsFooterCellDefDirective,
-    TsFooterRowDefDirective,
-
-    // Cell directives
-    TsHeaderCellDirective,
-    TsCellDirective,
-    TsFooterCellDirective,
-
-    // Row directives
-    TsHeaderRowComponent,
-    TsRowComponent,
-    TsFooterRowComponent,
-  ],
+  declarations: [...DECLARATIONS_EXPORTS],
+  exports: [...DECLARATIONS_EXPORTS],
 })
 export class TsTableModule {}

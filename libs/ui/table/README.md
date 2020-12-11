@@ -8,8 +8,6 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be installed](#packages-that-need-to-be-installed)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
@@ -37,45 +35,12 @@
     - [Table](#table)
     - [Cell](#cell)
   - [Full example with pagination, sorting, and dynamic columns](#full-example-with-pagination-sorting-and-dynamic-columns)
+- [Change indicator](#change-indicator)
 - [Test Helpers](#test-helpers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Installation
-
-### Packages that need to be installed
-
-- `@angular/cdk`
-- `@angular/common`
-- `@angular/core`
-- `@angular/flex-layout`
-- `@angular/forms`
-- `@angular/material`
-- `@angular/platform-browser`
-- `@terminus/design-tokens`
-- `@terminus/fe-utilities`
-- `@terminus/ui-button`
-- `@terminus/ui-checkbox`
-- `@terminus/ui-chip`
-- `@terminus/ui-form-field`
-- `@terminus/ui-icon`
-- `@terminus/ui-input`
-- `@terminus/ui-menu`
-- `@terminus/ui-option`
-- `@terminus/ui-paginator`
-- `@terminus/ui-pipes`
-- `@terminus/ui-selection-list`
-- `@terminus/ui-sort`
-- `@terminus/ui-spacing`
-- `@terminus/ui-styles`
-- `@terminus/ui-table`
-- `@terminus/ui-tooltip`
-- `@terminus/ui-utilities`
-- `@terminus/ui-validation-messages`
-- `@terminus/ui-validators`
-- `date-fns`
-- `text-mask-addons`
-- `text-mask-core`
 
 Use the `ng add` command to quickly install all the needed dependencies:
 
@@ -83,19 +48,9 @@ Use the `ng add` command to quickly install all the needed dependencies:
 ng add @terminus/ui-table
 ```
 
-### Modules that need to be in NgModule
-
-- `TsTableModule`
-- `TsIconModule`
-- `DragDropModule`
-- `FlexLayoutModule`
-- `FormsModule`
-- `ReactiveFormsModule`
-- `TsPaginatorModule`
-
 ### CSS imports
 
-In your top level stylesheet, add these imports:
+In your top-level stylesheet, add these imports:
 
 ```css
 @import '~@terminus/design-tokens/css/library-design-tokens.css';
@@ -842,6 +797,16 @@ export class ExampleHttpDao {
     return this.http.get<GithubApi>(`${requestUrl}${requestParams}`);
   }
 }
+```
+
+## Change indicator
+
+A component to easily show the sentiment for a change. This is most often used in a footer summary row.
+
+```html
+<!-- The sentiment is 'positive' by default -->
+<ts-change-indicator>42%</ts-change-indicator>
+<ts-change-indicator sentiment="negative">3 per week</ts-change-indicator>
 ```
 
 ## Test Helpers

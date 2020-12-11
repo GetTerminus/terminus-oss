@@ -1,0 +1,43 @@
+:root {
+  --ts-change-indicator-typography: 400 13px / 16px var(--ts-typography-family-base-roboto);
+  --ts-change-indicator-color-positive: #2d8734;
+  --ts-change-indicator-color-negative: #d23d46;
+  --ts-change-indicator-icon-size: 12px;
+  --ts-change-indicator-icon-rotationDegrees: 0deg;
+}
+
+.ts-change-indicator {
+  display: inline-block;
+  font: var(--ts-change-indicator-typography);
+
+  &__wrapper {
+    display: inline-block;
+    transition: color 200ms ease-out;
+
+    &--positive {
+      --ts-change-indicator-icon-rotationDegrees: -45deg;
+      color: var(--ts-change-indicator-color-positive);
+    }
+
+    &--negative {
+      --ts-change-indicator-icon-rotationDegrees: 45deg;
+      color: var(--ts-change-indicator-color-negative);
+    }
+  }
+
+  &__arrow {
+    display: inline-block;
+    height: var(--ts-change-indicator-icon-size);
+    margin-right: 1px;
+    position: relative;
+    top: 2px;
+    transform: rotate(var(--ts-change-indicator-icon-rotationDegrees));
+    transition: transform 200ms ease-out;
+    width: var(--ts-change-indicator-icon-size);
+
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

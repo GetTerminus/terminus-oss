@@ -91,7 +91,7 @@
     <ng-container tsColumnDef="updated" alignment="right">
       <th ts-header-cell *tsHeaderCellDef ts-sort-header>Updated</th>
       <td ts-cell *tsCellDef="let item">{{ item.updated_at | date:"shortDate" }}</td>
-      <td ts-footer-cell *tsFooterCellDef>-</td>
+      <td ts-footer-cell *tsFooterCellDef><ts-change-indicator sentiment="negative">4 weeks</ts-change-indicator></td>
     </ng-container>
 
     <ng-container tsColumnDef="comments" alignment="right">
@@ -109,7 +109,7 @@
     <ng-container tsColumnDef="number" alignment="right">
       <th ts-header-cell *tsHeaderCellDef ts-sort-header>Number</th>
       <td ts-cell *tsCellDef="let item">{{ item.number }}</td>
-      <td ts-footer-cell *tsFooterCellDef>-</td>
+      <td ts-footer-cell *tsFooterCellDef><ts-change-indicator>42%</ts-change-indicator></td>
     </ng-container>
 
     <ng-container tsColumnDef="labels">
