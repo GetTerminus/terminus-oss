@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.1.7...@terminus/ui-table@3.2.0) (2020-12-11)
+
+
+### Features
+
+* **Table:** expose new change indicator component ([1929ea3](https://github.com/GetTerminus/terminus-oss/commit/1929ea349b9ca8808cc9b3470f77cbfceca6ec88)), closes [#496](https://github.com/GetTerminus/terminus-oss/issues/496)
+
+
+
+
+
 ## [3.1.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.1.6...@terminus/ui-table@3.1.7) (2020-11-11)
 
 
