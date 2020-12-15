@@ -1,7 +1,5 @@
-import {
-  CdkOverlayOrigin,
-  ConnectionPositionPair,
-} from '@angular/cdk/overlay';
+import { ConnectionPositionPair } from '@angular/cdk/overlay';
+import type { CdkOverlayOrigin } from '@angular/cdk/overlay';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -17,7 +15,7 @@ import type {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import type { FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 import { untilComponentDestroyed } from '@terminus/fe-utilities';
