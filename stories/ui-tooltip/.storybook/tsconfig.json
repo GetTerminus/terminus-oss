@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/tooltip/src/test.ts", "../../../libs/ui/tooltip/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/tooltip/src/test.ts",
+    "../../../libs/ui/tooltip/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/tooltip/src/**/*"]
 }
