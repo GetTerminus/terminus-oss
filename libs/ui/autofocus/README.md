@@ -10,8 +10,6 @@ A directive that gives focus to an element on load.
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be included](#packages-that-need-to-be-included)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
 - [Usage](#usage)
   - [Binding](#binding)
 
@@ -19,22 +17,11 @@ A directive that gives focus to an element on load.
 
 ## Installation
 
-### Packages that need to be included
-
-- `@terminus/ui-autofocus`
-- `@terminus/ui-utilities`
-- `@terminus/fe-utilities`
-- `date-fns`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-autofocus
 ```
-
-### Modules that need to be in NgModule
-
-- `TsAutofocusModule`
 
 ## Usage
 
