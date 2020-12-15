@@ -4,11 +4,7 @@
     "module": "commonjs",
     "outDir": "../../dist/out-tsc",
     "declaration": true,
-    "lib": [
-      "dom",
-      "es2018"
-    ],
-    "rootDir": "./src",
+    "lib": ["dom", "es2018"],
     "target": "ES2015",
     "types": ["node"]
   },
