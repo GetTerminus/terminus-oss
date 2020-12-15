@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/confirmation/src/test.ts", "../../../libs/ui/confirmation/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/confirmation/src/test.ts",
+    "../../../libs/ui/confirmation/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/confirmation/src/**/*"]
 }
