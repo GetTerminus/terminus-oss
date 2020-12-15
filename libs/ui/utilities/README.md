@@ -7,6 +7,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
 
+- [Installation](#installation)
 - [CVA provider factory & Reactive form base](#cva-provider-factory--reactive-form-base)
 - [TsUILibraryError](#tsuilibraryerror)
 - [Merge](#merge)
@@ -14,6 +15,14 @@
 - [Types](#types)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Installation
+
+Use the `ng add` command to quickly install all the needed dependencies:
+
+```bash
+ng add @terminus/ui-utilities
+```
 
 ## CVA provider factory & Reactive form base
 
