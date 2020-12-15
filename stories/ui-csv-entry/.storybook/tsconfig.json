@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/csv-entry/src/test.ts", "../../../libs/ui/csv-entry/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/csv-entry/src/test.ts",
+    "../../../libs/ui/csv-entry/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/csv-entry/src/**/*"]
 }
