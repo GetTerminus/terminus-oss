@@ -18,13 +18,13 @@
     "directory": "../../../dist/libs/ui/button"
   },
   "dependencies": {
-    "tslib": "^1.10.0"
+    "tslib": "^2.0.3"
   },
   "peerDependencies": {
-    "@angular/common": "^9.1.0",
-    "@angular/core": "^9.1.0",
+    "@angular/common": "^11.0.4",
+    "@angular/core": "^11.0.4",
     "@terminus/design-tokens": "^3.1.0",
-    "@terminus/ui-styles": "^1.1.0"
+    "@terminus/ui-styles": "^2.0.0"
   },
   "scripts": {
     "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
