@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/checkbox/src/test.ts", "../../../libs/ui/checkbox/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/checkbox/src/test.ts",
+    "../../../libs/ui/checkbox/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/checkbox/src/**/*"]
 }

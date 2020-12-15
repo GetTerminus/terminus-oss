@@ -8,8 +8,6 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages to be installed](#packages-to-be-installed)
-  - [Modules that need to be included in your application](#modules-that-need-to-be-included-in-your-application)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
@@ -32,24 +30,11 @@
 
 ## Installation
 
-### Packages to be installed
-
-- `@terminus/design-tokens`
-- `@terminus/fe-utilities`
-- `@terminus/ui-checkbox`
-- `@terminus/ui-utilities`
-- `@terminus/ui-styles`
-- `date-fns`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-checkbox
 ```
-
-### Modules that need to be included in your application
-
-- `TsCheckboxModule`
   
 ### CSS imports
 
