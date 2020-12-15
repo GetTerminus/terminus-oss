@@ -1,14 +1,24 @@
 module.exports = {
-  name: 'ui-navigation',
-  preset: '../../../jest.config.js',
+  displayName: 'ui-navigation',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/libs/ui/navigation',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
     'jest-preset-angular/build/HTMLCommentSerializer.js',
   ],
-  roots: [
-    './src/lib',
-    '../../../specs/ui-navigation',
-  ],
+  roots: ['./src/lib', '../../../specs/ui-navigation'],
+  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
+  globals: {
+    'ts-jest': {
+      tsconfig: '<rootDir>/tsconfig.spec.json',
+      stringifyContentPathRegex: '\\.(html|svg)$',
+      astTransformers: {
+        before: [
+          'jest-preset-angular/build/InlineFilesTransformer',
+          'jest-preset-angular/build/StripStylesTransformer',
+        ],
+      },
+    },
+  },
 };
