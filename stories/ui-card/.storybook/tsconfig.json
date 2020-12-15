@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/card/src/test.ts", "../../../libs/ui/card/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/card/src/test.ts",
+    "../../../libs/ui/card/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/card/src/**/*"]
 }

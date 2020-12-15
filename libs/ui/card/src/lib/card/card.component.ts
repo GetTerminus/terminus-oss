@@ -4,9 +4,9 @@ import {
   ElementRef,
   HostBinding,
   Input,
-  TemplateRef,
   ViewEncapsulation,
 } from '@angular/core';
+import type { TemplateRef } from '@angular/core';
 
 /**
  * Define the allowed aspect ratios. Used in {@link TsCardComponent}
