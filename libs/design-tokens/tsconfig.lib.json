@@ -5,13 +5,8 @@
     "outDir": "../../dist/out-tsc",
     "declaration": true,
     "rootDir": "./src",
-    "types": [
-      "node"
-    ]
+    "types": ["node"]
   },
   "exclude": ["**/*.spec.ts"],
-  "include": [
-    "**/*.js",
-    "**/*.ts"
-  ]
+  "include": ["**/*.js", "**/*.ts"]
 }
