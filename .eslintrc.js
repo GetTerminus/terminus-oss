@@ -1,16 +1,20 @@
 const SEVERITY = 'error';
 const DISABLED = 'off';
 
-
 module.exports = {
   root: true,
   extends: ['@terminus/eslint-config-frontend'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2020,
-    project: './tsconfig.json',
+    project: './tsconfig.*?.json',
     sourceType: 'module',
-    tsconfigRootDir: './',
+    tsconfigRootDir: __dirname,
+  },
+  settings: {
+    'import/resolver': {
+      typescript: { project: ['./tsconfig.base.json'] },
+    },
   },
   rules: {
     'jsdoc/require-jsdoc': SEVERITY,
@@ -23,7 +27,7 @@ module.exports = {
         'stories/**/*.ts',
       ],
       parserOptions: {
-        project: './tsconfig.json',
+        project: './tsconfig.base.json',
         tsconfigRootDir: __dirname,
       },
       rules: {
@@ -58,22 +62,22 @@ module.exports = {
 
     // Design token files
     {
-      'files': [
+      files: [
         'libs/design-tokens/**/*.{ts,js}',
       ],
-      'rules': {
+      rules: {
         '@typescript-eslint/no-magic-numbers': DISABLED,
       },
     },
 
     // Test helper files
     {
-      'files': [
+      files: [
         '**/*.spec.ts',
         '**/*.mock.ts',
         '**/test-*.ts',
       ],
-      'rules': {
+      rules: {
         '@angular-eslint/prefer-on-push-component-change-detection': DISABLED,
         'import/no-unassigned-import': DISABLED,
         'no-return-assign': DISABLED,
@@ -156,6 +160,16 @@ module.exports = {
           SEVERITY,
           'never',
         ],
+      },
+    },
+
+    {
+      files: [
+        '.eslintrc.js',
+      ],
+      parserOptions: {
+        project: './tsconfig.eslint.json',
+        tsconfigRootDir: __dirname,
       },
     },
   ],

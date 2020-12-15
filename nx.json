@@ -1,27 +1,17 @@
 {
-  "npmScope": "terminus",
   "affected": {
-    "defaultBase": "release"
+    "defaultBase": "master"
   },
   "implicitDependencies": {
+    ".eslintrc.json": "*",
+    "nx.json": "*",
     "package.json": {
       "dependencies": "*"
     },
-    "tsconfig.json": "*",
-    "tslint.json": "*",
-    "nx.json": "*"
+    "tsconfig.base.json": "*",
+    "tslint.json": "*"
   },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/nx-cloud",
-      "options": {
-        "cacheableOperations": ["build", "test", "lint", "e2e"],
-        "canTrackAnalytics": false,
-        "showUsageWarnings": true,
-        "scan": true
-      }
-    }
-  },
+  "npmScope": "terminus",
   "projects": {
     "design-tokens": {
       "tags": []
@@ -29,13 +19,16 @@
     "eslint-config-frontend": {
       "tags": []
     },
-    "fe-utilities": {
-      "tags": []
-    },
     "fe-jwt": {
       "tags": []
     },
     "fe-testing": {
+      "tags": []
+    },
+    "fe-utilities": {
+      "tags": []
+    },
+    "storybook-dummy": {
       "tags": []
     },
     "stylelint-config-frontend": {
@@ -50,13 +43,13 @@
     "ui-button": {
       "tags": []
     },
-    "ui-checkbox": {
-      "tags": []
-    },
     "ui-card": {
       "tags": []
     },
     "ui-chart": {
+      "tags": []
+    },
+    "ui-checkbox": {
       "tags": []
     },
     "ui-chip": {
@@ -93,6 +86,9 @@
       "tags": []
     },
     "ui-icon-button": {
+      "tags": []
+    },
+    "ui-info-carousel": {
       "tags": []
     },
     "ui-input": {
@@ -155,6 +151,9 @@
     "ui-spacing": {
       "tags": []
     },
+    "ui-storybook": {
+      "tags": []
+    },
     "ui-styles": {
       "tags": []
     },
@@ -178,15 +177,22 @@
     },
     "ui-validators": {
       "tags": []
-    },
-    "storybook-dummy": {
-      "tags": []
-    },
-    "ui-storybook": {
-      "tags": []
-    },
-    "ui-info-carousel": {
-      "tags": []
+    }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "test",
+          "lint",
+          "e2e"
+        ],
+        "canTrackAnalytics": false,
+        "scan": true,
+        "showUsageWarnings": true
+      },
+      "runner": "@nrwl/nx-cloud"
     }
   }
 }

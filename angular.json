@@ -30,9 +30,11 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/design-tokens/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "libs/design-tokens/tsconfig.spec.json"
-          }
+            "passWithNoTests": true
+          },
+          "outputs": [
+            "coverage/libs/design-tokens"
+          ]
         }
       },
       "projectType": "library",
@@ -66,9 +68,11 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/eslint-config-frontend/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "libs/eslint-config-frontend/tsconfig.spec.json"
-          }
+            "passWithNoTests": true
+          },
+          "outputs": [
+            "coverage/libs/eslint-config-frontend"
+          ]
         }
       },
       "prefix": "ts",
@@ -88,8 +92,12 @@
             "main": "libs/fe-jwt/src/index.ts",
             "outputPath": "dist/libs/fe-jwt",
             "packageJson": "libs/fe-jwt/package.json",
+            "srcRootForCompilationRoot": "libs/fe-jwt/src",
             "tsConfig": "libs/fe-jwt/tsconfig.lib.json"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -105,9 +113,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/fe-jwt/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/fe-jwt/src/test-setup.ts",
-            "tsConfig": "libs/fe-jwt/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/fe-jwt"
@@ -129,6 +135,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/fe-testing/ng-package.json",
             "tsConfig": "libs/fe-testing/tsconfig.lib.json"
           }
@@ -150,9 +157,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/fe-testing/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/fe-testing/src/test-setup.ts",
-            "tsConfig": "libs/fe-testing/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/fe-testing"
@@ -180,8 +185,12 @@
             "main": "libs/fe-utilities/src/index.ts",
             "outputPath": "dist/libs/fe-utilities",
             "packageJson": "libs/fe-utilities/package.json",
+            "srcRootForCompilationRoot": "libs/fe-utilities/src",
             "tsConfig": "libs/fe-utilities/tsconfig.lib.json"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -197,9 +206,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/fe-utilities/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/fe-utilities/src/test-setup.ts",
-            "tsConfig": "libs/fe-utilities/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/fe-utilities"
@@ -219,7 +226,6 @@
             "production": {
               "budgets": [],
               "buildOptimizer": true,
-              "extractCss": true,
               "extractLicenses": true,
               "fileReplacements": [
                 {
@@ -246,7 +252,10 @@
               "apps/storybook-dummy/src/styles.scss"
             ],
             "tsConfig": "apps/storybook-dummy/tsconfig.app.json"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -292,9 +301,11 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/stylelint-config-frontend/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "libs/stylelint-config-frontend/tsconfig.spec.json"
-          }
+            "passWithNoTests": true
+          },
+          "outputs": [
+            "coverage/libs/stylelint-config-frontend"
+          ]
         }
       },
       "prefix": "ts",
@@ -313,6 +324,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/autocomplete/ng-package.json",
             "tsConfig": "libs/ui/autocomplete/tsconfig.lib.json"
           }
@@ -343,9 +355,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/autocomplete/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/autocomplete/src/test-setup.ts",
-            "tsConfig": "libs/ui/autocomplete/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/autocomplete"
@@ -372,6 +382,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/autofocus/ng-package.json",
             "tsConfig": "libs/ui/autofocus/tsconfig.lib.json"
           }
@@ -399,7 +410,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-autofocus",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -431,9 +445,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/autofocus/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/autofocus/src/test-setup.ts",
-            "tsConfig": "libs/ui/autofocus/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/autofocus"
@@ -460,6 +472,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/button/ng-package.json",
             "tsConfig": "libs/ui/button/tsconfig.lib.json"
           }
@@ -487,7 +500,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-button",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -522,9 +538,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/button/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/button/src/test-setup.ts",
-            "tsConfig": "libs/ui/button/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/button"
@@ -551,6 +565,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/card/ng-package.json",
             "tsConfig": "libs/ui/card/tsconfig.lib.json"
           }
@@ -578,7 +593,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-card",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -613,9 +631,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/card/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/card/src/test-setup.ts",
-            "tsConfig": "libs/ui/card/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/card"
@@ -642,6 +658,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/chart/ng-package.json",
             "tsConfig": "libs/ui/chart/tsconfig.lib.json"
           }
@@ -669,7 +686,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-chart",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -704,9 +724,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/chart/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/chart/src/test-setup.ts",
-            "tsConfig": "libs/ui/chart/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/chart"
@@ -733,6 +751,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/checkbox/ng-package.json",
             "tsConfig": "libs/ui/checkbox/tsconfig.lib.json"
           }
@@ -760,7 +779,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-checkbox",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -795,9 +817,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/checkbox/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/checkbox/src/test-setup.ts",
-            "tsConfig": "libs/ui/checkbox/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/checkbox"
@@ -824,6 +844,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/chip/ng-package.json",
             "tsConfig": "libs/ui/chip/tsconfig.lib.json"
           }
@@ -851,7 +872,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-chip",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -886,9 +910,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/chip/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/chip/src/test-setup.ts",
-            "tsConfig": "libs/ui/chip/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/chip"
@@ -915,6 +937,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/cohort-date-range/ng-package.json",
             "tsConfig": "libs/ui/cohort-date-range/tsconfig.lib.json"
           }
@@ -942,7 +965,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-cohort-date-range",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -977,9 +1003,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/cohort-date-range/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/cohort-date-range/src/test-setup.ts",
-            "tsConfig": "libs/ui/cohort-date-range/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/cohort-date-range"
@@ -1006,6 +1030,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/confirmation/ng-package.json",
             "tsConfig": "libs/ui/confirmation/tsconfig.lib.json"
           }
@@ -1033,7 +1058,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-confirmation",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1068,9 +1096,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/confirmation/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/confirmation/src/test-setup.ts",
-            "tsConfig": "libs/ui/confirmation/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/confirmation"
@@ -1097,6 +1123,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/copy/ng-package.json",
             "tsConfig": "libs/ui/copy/tsconfig.lib.json"
           }
@@ -1124,7 +1151,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-copy",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1159,9 +1189,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/copy/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/copy/src/test-setup.ts",
-            "tsConfig": "libs/ui/copy/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/copy"
@@ -1188,6 +1216,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/csv-entry/ng-package.json",
             "tsConfig": "libs/ui/csv-entry/tsconfig.lib.json"
           }
@@ -1215,7 +1244,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-csv-entry",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1250,9 +1282,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/csv-entry/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/csv-entry/src/test-setup.ts",
-            "tsConfig": "libs/ui/csv-entry/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/csv-entry"
@@ -1279,6 +1309,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/date-range/ng-package.json",
             "tsConfig": "libs/ui/date-range/tsconfig.lib.json"
           }
@@ -1306,7 +1337,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-date-range",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1341,9 +1375,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/date-range/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/date-range/src/test-setup.ts",
-            "tsConfig": "libs/ui/date-range/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/date-range"
@@ -1370,6 +1402,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/drawer/ng-package.json",
             "tsConfig": "libs/ui/drawer/tsconfig.lib.json"
           }
@@ -1397,7 +1430,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-drawer",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1432,9 +1468,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/drawer/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/drawer/src/test-setup.ts",
-            "tsConfig": "libs/ui/drawer/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/drawer"
@@ -1461,6 +1495,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/expansion-panel/ng-package.json",
             "tsConfig": "libs/ui/expansion-panel/tsconfig.lib.json"
           }
@@ -1488,7 +1523,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-expansion-panel",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1523,9 +1561,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/expansion-panel/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/expansion-panel/src/test-setup.ts",
-            "tsConfig": "libs/ui/expansion-panel/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/expansion-panel"
@@ -1552,6 +1588,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/file-upload/ng-package.json",
             "tsConfig": "libs/ui/file-upload/tsconfig.lib.json"
           }
@@ -1579,7 +1616,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-file-upload",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1614,9 +1654,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/file-upload/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/file-upload/src/test-setup.ts",
-            "tsConfig": "libs/ui/file-upload/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/file-upload"
@@ -1643,6 +1681,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/form-field/ng-package.json",
             "tsConfig": "libs/ui/form-field/tsconfig.lib.json"
           }
@@ -1664,9 +1703,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/form-field/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/form-field/src/test-setup.ts",
-            "tsConfig": "libs/ui/form-field/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/form-field"
@@ -1693,6 +1730,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/icon/ng-package.json",
             "tsConfig": "libs/ui/icon/tsconfig.lib.json"
           }
@@ -1720,7 +1758,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-icon",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1755,9 +1796,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/icon/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/icon/src/test-setup.ts",
-            "tsConfig": "libs/ui/icon/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/icon"
@@ -1784,6 +1823,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/icon-button/ng-package.json",
             "tsConfig": "libs/ui/icon-button/tsconfig.lib.json"
           }
@@ -1811,7 +1851,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-icon-button",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1846,9 +1889,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/icon-button/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/icon-button/src/test-setup.ts",
-            "tsConfig": "libs/ui/icon-button/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/icon-button"
@@ -1875,6 +1916,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/info-carousel/ng-package.json",
             "tsConfig": "libs/ui/info-carousel/tsconfig.lib.json"
           }
@@ -1902,7 +1944,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-info-carousel",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1937,10 +1982,11 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/info-carousel/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/info-carousel/src/test-setup.ts",
-            "tsConfig": "libs/ui/info-carousel/tsconfig.spec.json"
-          }
+            "passWithNoTests": true
+          },
+          "outputs": [
+            "coverage/libs/ui/info-carousel"
+          ]
         }
       },
       "prefix": "ts",
@@ -1963,6 +2009,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/input/ng-package.json",
             "tsConfig": "libs/ui/input/tsconfig.lib.json"
           }
@@ -1990,7 +2037,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-input",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2025,9 +2075,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/input/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/input/src/test-setup.ts",
-            "tsConfig": "libs/ui/input/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/input"
@@ -2054,6 +2102,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/link/ng-package.json",
             "tsConfig": "libs/ui/link/tsconfig.lib.json"
           }
@@ -2081,7 +2130,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-link",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2116,9 +2168,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/link/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/link/src/test-setup.ts",
-            "tsConfig": "libs/ui/link/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/link"
@@ -2145,6 +2195,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/loading-overlay/ng-package.json",
             "tsConfig": "libs/ui/loading-overlay/tsconfig.lib.json"
           }
@@ -2172,7 +2223,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-loading-overlay",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2207,9 +2261,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/loading-overlay/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/loading-overlay/src/test-setup.ts",
-            "tsConfig": "libs/ui/loading-overlay/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/loading-overlay"
@@ -2236,6 +2288,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/login-form/ng-package.json",
             "tsConfig": "libs/ui/login-form/tsconfig.lib.json"
           }
@@ -2266,9 +2319,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/login-form/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/login-form/src/test-setup.ts",
-            "tsConfig": "libs/ui/login-form/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/login-form"
@@ -2295,6 +2346,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/logo/ng-package.json",
             "tsConfig": "libs/ui/logo/tsconfig.lib.json"
           }
@@ -2322,7 +2374,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-logo",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2357,9 +2412,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/logo/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/logo/src/test-setup.ts",
-            "tsConfig": "libs/ui/logo/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/logo"
@@ -2386,6 +2439,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/menu/ng-package.json",
             "tsConfig": "libs/ui/menu/tsconfig.lib.json"
           }
@@ -2413,7 +2467,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-menu",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2448,9 +2505,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/menu/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/menu/src/test-setup.ts",
-            "tsConfig": "libs/ui/menu/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/menu"
@@ -2477,6 +2532,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/navigation/ng-package.json",
             "tsConfig": "libs/ui/navigation/tsconfig.lib.json"
           }
@@ -2504,7 +2560,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-navigation",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2539,9 +2598,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/navigation/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/navigation/src/test-setup.ts",
-            "tsConfig": "libs/ui/navigation/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/navigation"
@@ -2568,6 +2625,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/option/ng-package.json",
             "tsConfig": "libs/ui/option/tsconfig.lib.json"
           }
@@ -2598,9 +2656,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/option/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/option/src/test-setup.ts",
-            "tsConfig": "libs/ui/option/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/option"
@@ -2627,6 +2683,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/page-header/ng-package.json",
             "tsConfig": "libs/ui/page-header/tsconfig.lib.json"
           }
@@ -2654,7 +2711,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-page-header",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2689,9 +2749,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/page-header/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/page-header/src/test-setup.ts",
-            "tsConfig": "libs/ui/page-header/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/page-header"
@@ -2718,6 +2776,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/paginator/ng-package.json",
             "tsConfig": "libs/ui/paginator/tsconfig.lib.json"
           }
@@ -2745,7 +2804,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-paginator",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2780,9 +2842,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/paginator/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/paginator/src/test-setup.ts",
-            "tsConfig": "libs/ui/paginator/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/paginator"
@@ -2809,6 +2869,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/pipes/ng-package.json",
             "tsConfig": "libs/ui/pipes/tsconfig.lib.json"
           }
@@ -2836,7 +2897,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-pipes",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2868,9 +2932,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/pipes/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/pipes/src/test-setup.ts",
-            "tsConfig": "libs/ui/pipes/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/pipes"
@@ -2897,6 +2959,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/popover/ng-package.json",
             "tsConfig": "libs/ui/popover/tsconfig.lib.json"
           }
@@ -2924,7 +2987,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-popover",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2959,9 +3025,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/popover/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/popover/src/test-setup.ts",
-            "tsConfig": "libs/ui/popover/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/popover"
@@ -2988,6 +3052,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/radio-group/ng-package.json",
             "tsConfig": "libs/ui/radio-group/tsconfig.lib.json"
           }
@@ -3015,7 +3080,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-radio-group",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3050,9 +3118,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/radio-group/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/radio-group/src/test-setup.ts",
-            "tsConfig": "libs/ui/radio-group/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/radio-group"
@@ -3079,6 +3145,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/scrollbars/ng-package.json",
             "tsConfig": "libs/ui/scrollbars/tsconfig.lib.json"
           }
@@ -3106,7 +3173,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-scrollbars",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3141,9 +3211,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/scrollbars/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/scrollbars/src/test-setup.ts",
-            "tsConfig": "libs/ui/scrollbars/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/scrollbars"
@@ -3170,6 +3238,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/search/ng-package.json",
             "tsConfig": "libs/ui/search/tsconfig.lib.json"
           }
@@ -3197,7 +3266,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-search",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3232,9 +3304,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/search/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/search/src/test-setup.ts",
-            "tsConfig": "libs/ui/search/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/search"
@@ -3261,6 +3331,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/select/ng-package.json",
             "tsConfig": "libs/ui/select/tsconfig.lib.json"
           }
@@ -3291,9 +3362,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/select/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/select/src/test-setup.ts",
-            "tsConfig": "libs/ui/select/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/select"
@@ -3320,6 +3389,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/selection-list/ng-package.json",
             "tsConfig": "libs/ui/selection-list/tsconfig.lib.json"
           }
@@ -3347,7 +3417,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-selection-list",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3382,9 +3455,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/selection-list/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/selection-list/src/test-setup.ts",
-            "tsConfig": "libs/ui/selection-list/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/selection-list"
@@ -3411,6 +3482,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/sidenav/ng-package.json",
             "tsConfig": "libs/ui/sidenav/tsconfig.lib.json"
           }
@@ -3438,7 +3510,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-sidenav",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3473,9 +3548,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/sidenav/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/sidenav/src/test-setup.ts",
-            "tsConfig": "libs/ui/sidenav/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/sidenav"
@@ -3502,6 +3575,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/sort/ng-package.json",
             "tsConfig": "libs/ui/sort/tsconfig.lib.json"
           }
@@ -3532,9 +3606,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/sort/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/sort/src/test-setup.ts",
-            "tsConfig": "libs/ui/sort/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/sort"
@@ -3561,6 +3633,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/spacing/ng-package.json",
             "tsConfig": "libs/ui/spacing/tsconfig.lib.json"
           }
@@ -3579,7 +3652,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-spacing",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3611,9 +3687,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/spacing/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/spacing/src/test-setup.ts",
-            "tsConfig": "libs/ui/spacing/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/spacing"
@@ -3665,7 +3739,6 @@
                 }
               ],
               "buildOptimizer": true,
-              "extractCss": true,
               "extractLicenses": true,
               "fileReplacements": [
                 {
@@ -3695,7 +3768,10 @@
               "apps/ui-storybook/src/styles.scss"
             ],
             "tsConfig": "apps/ui-storybook/tsconfig.app.json"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "build-allstorybook": {
           "builder": "@nrwl/storybook:build",
@@ -3711,7 +3787,10 @@
             "docsMode": true,
             "outputPath": "dist/storybook",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -3747,10 +3826,11 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/ui-storybook/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "apps/ui-storybook/src/test-setup.ts",
-            "tsConfig": "apps/ui-storybook/tsconfig.spec.json"
-          }
+            "passWithNoTests": true
+          },
+          "outputs": [
+            "coverage/apps/ui-storybook"
+          ]
         }
       },
       "prefix": "tsdt",
@@ -3797,10 +3877,11 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/styles/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/styles/src/test-setup.ts",
-            "tsConfig": "libs/ui/styles/tsconfig.spec.json"
-          }
+            "passWithNoTests": true
+          },
+          "outputs": [
+            "coverage/libs/ui/styles"
+          ]
         }
       },
       "prefix": "ts",
@@ -3823,6 +3904,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/table/ng-package.json",
             "tsConfig": "libs/ui/table/tsconfig.lib.json"
           }
@@ -3850,7 +3932,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-table",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3885,9 +3970,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/table/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/table/src/test-setup.ts",
-            "tsConfig": "libs/ui/table/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/table"
@@ -3914,6 +3997,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/tabs/ng-package.json",
             "tsConfig": "libs/ui/tabs/tsconfig.lib.json"
           }
@@ -3941,7 +4025,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-tabs",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3976,9 +4063,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/tabs/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/tabs/src/test-setup.ts",
-            "tsConfig": "libs/ui/tabs/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/tabs"
@@ -4005,6 +4090,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/toggle/ng-package.json",
             "tsConfig": "libs/ui/toggle/tsconfig.lib.json"
           }
@@ -4032,7 +4118,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-toggle",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -4067,9 +4156,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/toggle/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/toggle/src/test-setup.ts",
-            "tsConfig": "libs/ui/toggle/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/toggle"
@@ -4096,6 +4183,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/tooltip/ng-package.json",
             "tsConfig": "libs/ui/tooltip/tsconfig.lib.json"
           }
@@ -4123,7 +4211,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-tooltip",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -4158,9 +4249,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/tooltip/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/tooltip/src/test-setup.ts",
-            "tsConfig": "libs/ui/tooltip/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/tooltip"
@@ -4187,6 +4276,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/utilities/ng-package.json",
             "tsConfig": "libs/ui/utilities/tsconfig.lib.json"
           }
@@ -4205,9 +4295,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/utilities/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/utilities/src/test-setup.ts",
-            "tsConfig": "libs/ui/utilities/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/utilities"
@@ -4234,6 +4322,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/validation-messages/ng-package.json",
             "tsConfig": "libs/ui/validation-messages/tsconfig.lib.json"
           }
@@ -4264,9 +4353,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/validation-messages/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/validation-messages/src/test-setup.ts",
-            "tsConfig": "libs/ui/validation-messages/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/validation-messages"
@@ -4293,6 +4380,7 @@
             }
           },
           "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/ui/validators/ng-package.json",
             "tsConfig": "libs/ui/validators/tsconfig.lib.json"
           }
@@ -4311,7 +4399,10 @@
             "docsMode": false,
             "outputPath": "dist/storybook/ui-validators",
             "uiFramework": "@storybook/angular"
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -4343,9 +4434,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/validators/jest.config.js",
-            "passWithNoTests": true,
-            "setupFile": "libs/ui/validators/src/test-setup.ts",
-            "tsConfig": "libs/ui/validators/tsconfig.spec.json"
+            "passWithNoTests": true
           },
           "outputs": [
             "coverage/libs/ui/validators"
