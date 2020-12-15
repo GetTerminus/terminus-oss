@@ -18,8 +18,8 @@
     "directory": "../../../dist/libs/ui/spacing"
   },
   "peerDependencies": {
-    "@angular/common": "^9.1.0",
-    "@angular/core": "^9.1.0",
+    "@angular/common": "^11.0.4",
+    "@angular/core": "^11.0.4",
     "@terminus/design-tokens": "^3.1.0"
   },
   "scripts": {
