@@ -8,8 +8,6 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be installed](#packages-that-need-to-be-installed)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
 - [Usage](#usage)
   - [Theme](#theme)
@@ -19,28 +17,15 @@
 
 ## Installation
 
-### Packages that need to be installed
-
-- `@angular/material`
-- `@terminus/design-tokens`
-- `@terminus/fe-utilities`
-- `@terminus/ui-icon`
-- `@terminus/ui-icon-button`
-- `@terminus/ui-utilities`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-icon-button
 ```
 
-### Modules that need to be in NgModule
-
-- `TsIconButtonModule`
-
 ### CSS imports
 
-In your top level stylesheet, add these imports:
+In your top-level stylesheet, add these imports:
 
 ```css
 @import '~@terminus/design-tokens/css/library-design-tokens.css';
