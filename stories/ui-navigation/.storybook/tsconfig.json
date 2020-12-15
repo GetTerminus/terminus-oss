@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/navigation/src/test.ts", "../../../libs/ui/navigation/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/navigation/src/test.ts",
+    "../../../libs/ui/navigation/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/navigation/src/**/*"]
 }

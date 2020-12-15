@@ -2,19 +2,19 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef,
   EventEmitter,
   HostListener,
   Input,
   Output,
-  QueryList,
   ViewChild,
   ViewChildren,
   ViewEncapsulation,
 } from '@angular/core';
 import type {
   AfterViewInit,
+  ElementRef,
   OnInit,
+  QueryList,
 } from '@angular/core';
 import { faCaretDown } from '@fortawesome/pro-solid-svg-icons';
 import { BehaviorSubject } from 'rxjs';
