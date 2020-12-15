@@ -1,7 +1,5 @@
-import {
-  CdkOverlayOrigin,
-  ConnectionPositionPair,
-} from '@angular/cdk/overlay';
+import { ConnectionPositionPair } from '@angular/cdk/overlay';
+import type { CdkOverlayOrigin } from '@angular/cdk/overlay';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -15,7 +13,7 @@ import {
 } from '@angular/core';
 
 import { tsSidenavPanelAnimations } from '../sidenav-panel.animations';
-import { TS_SIDENAV_PLATFORM_SWITCHER_CONTENT } from '../sidenav-platform-switcher/sidenav-platform-switcher.component';
+import type { TS_SIDENAV_PLATFORM_SWITCHER_CONTENT } from '../sidenav-platform-switcher/sidenav-platform-switcher.component';
 
 /**
  * Define the user object structure for {@link TsSidenavComponent}

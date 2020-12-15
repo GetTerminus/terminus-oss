@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/sidenav/src/test.ts", "../../../libs/ui/sidenav/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/sidenav/src/test.ts",
+    "../../../libs/ui/sidenav/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/sidenav/src/**/*"]
 }
