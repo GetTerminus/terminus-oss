@@ -14,7 +14,6 @@ import {
   Input,
   Optional,
   Output,
-  QueryList,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -24,11 +23,10 @@ import type {
   OnDestroy,
   OnInit,
   Provider,
+  QueryList,
 } from '@angular/core';
-import {
-  FormControl,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import type { FormControl } from '@angular/forms';
 
 /**
  * Provider Expression that allows mat-radio-group to register as a ControlValueAccessor. This allows it to support [(ngModel)] and
