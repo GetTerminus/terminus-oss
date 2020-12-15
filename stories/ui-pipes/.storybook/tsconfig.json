@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/pipes/src/test.ts", "../../../libs/ui/pipes/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/pipes/src/test.ts",
+    "../../../libs/ui/pipes/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/pipes/src/**/*"]
 }

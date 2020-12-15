@@ -8,8 +8,6 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be installed](#packages-that-need-to-be-installed)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
 - [Available pipes](#available-pipes)
 - [Usage](#usage)
   - [HTML](#html)
@@ -19,27 +17,11 @@
 
 ## Installation
 
-### Packages that need to be installed
-
-- `@angular/cdk`
-- `@angular/common`
-- `@angular/core`
-- `@angular/forms`
-- `@angular/platform-browser`
-- `@terminus/fe-utilities`
-- `@terminus/ui-utilities`
-- `@terminus/ui-pipes`
-- `date-fns`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-pipes
 ```
-
-### Modules that need to be in NgModule
-
-- `TsPipesModule`
 
 ## Available pipes
 
