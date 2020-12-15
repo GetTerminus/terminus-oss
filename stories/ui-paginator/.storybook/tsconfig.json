@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/paginator/src/test.ts", "../../../libs/ui/paginator/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/paginator/src/test.ts",
+    "../../../libs/ui/paginator/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/paginator/src/**/*"]
 }
