@@ -8,8 +8,6 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be installed](#packages-that-need-to-be-installed)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
@@ -23,24 +21,11 @@
 
 ## Installation
 
-### Packages that need to be installed
-
-- `@angular/router`
-- `@angular/cdk`
-- `@terminus/fe-utilities`
-- `@terminus/ui-page-header`
-- `@terminus/ui-pipes`
-- `date-fns`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-page-header
 ```
-
-### Modules that need to be in NgModule
-
-- `TsPageHeaderModule`
 
 ### CSS imports
 

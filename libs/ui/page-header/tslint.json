@@ -1,10 +1,22 @@
 {
   "extends": "../../../tslint.json",
   "rules": {
-    "directive-selector": [true, "attribute", "ts", "camelCase"],
-    "component-selector": [true, "element", "ts", "kebab-case"]
+    "directive-selector": [
+      true,
+      "attribute",
+      "ts",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "ts",
+      "kebab-case"
+    ]
   },
   "linterOptions": {
-    "exclude": ["!**/*"]
+    "exclude": [
+      "!**/*"
+    ]
   }
 }
