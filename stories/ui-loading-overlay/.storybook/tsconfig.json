@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/loading-overlay/src/test.ts", "../../../libs/ui/loading-overlay/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/loading-overlay/src/test.ts",
+    "../../../libs/ui/loading-overlay/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/loading-overlay/src/**/*"]
 }
