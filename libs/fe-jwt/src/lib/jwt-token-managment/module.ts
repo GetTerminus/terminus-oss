@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import type { ModuleWithProviders } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import {
   ActionReducerMap,
@@ -18,11 +19,9 @@ import { RetryWithEscalation } from './utilities/retry-with-escalation';
 import { TokenEscalator } from './utilities/token-escalator';
 import { TokenExtractor } from './utilities/token-extractor';
 
-
 // NOTE: Not sure why this second param is required in strict mode
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const reducers: ActionReducerMap<State, any> = { jwtTokens: jwtTokenProviderReducer };
-
 
 @NgModule({
   imports: [
@@ -43,7 +42,9 @@ export const reducers: ActionReducerMap<State, any> = { jwtTokens: jwtTokenProvi
   ],
 })
 export class JwtTokenManagementModule {
-  public static forRoot<CM>(options: {initialTokenName: keyof CM}) {
+  public static forRoot<CM>(options: {
+    initialTokenName: keyof CM;
+}): ModuleWithProviders<JwtTokenManagementModule> {
     return {
       ngModule: JwtTokenManagementModule,
       providers: [
