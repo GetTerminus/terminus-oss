@@ -2302,6 +2302,25 @@
             "parallel": false
           }
         },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-login-form/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-login-form",
+            "uiFramework": "@storybook/angular"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -2313,6 +2332,22 @@
                 "command": "yarn run lint:scss:base 'libs/ui/login-form/**/!(*.spec).scss'"
               }
             ]
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-login-form/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
         "test": {

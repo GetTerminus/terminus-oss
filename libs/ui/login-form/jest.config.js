@@ -1,14 +1,24 @@
 module.exports = {
-  name: 'ui-login-form',
-  preset: '../../../jest.config.js',
+  displayName: 'ui-login-form',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/libs/ui/login-form',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
     'jest-preset-angular/build/HTMLCommentSerializer.js',
   ],
-  roots: [
-    './src/lib',
-    '../../../specs/ui-login-form',
-  ],
+  roots: ['./src/lib', '../../../specs/ui-login-form'],
+  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
+  globals: {
+    'ts-jest': {
+      tsconfig: '<rootDir>/tsconfig.spec.json',
+      stringifyContentPathRegex: '\\.(html|svg)$',
+      astTransformers: {
+        before: [
+          'jest-preset-angular/build/InlineFilesTransformer',
+          'jest-preset-angular/build/StripStylesTransformer',
+        ],
+      },
+    },
+  },
 };

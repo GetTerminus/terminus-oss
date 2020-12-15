@@ -4,13 +4,13 @@ import {
   EventEmitter,
   Input,
   Output,
-  QueryList,
   ViewChild,
   ViewChildren,
   ViewEncapsulation,
 } from '@angular/core';
 import type {
   OnChanges,
+  QueryList,
   SimpleChanges,
 } from '@angular/core';
 import {

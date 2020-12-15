@@ -4,7 +4,6 @@
   fxLayout="column"
   (keydown.enter)="loginForm?.valid && submission.emit(loginForm?.value)"
 >
-
   <ts-input
     label="Email"
     name="email"
@@ -36,9 +35,7 @@
     tabindex="-1"
     tabIndex="3"
     tsVerticalSpacing
-  >
-    Remember me
-  </ts-checkbox>
+  >Remember me</ts-checkbox>
 
   <ts-link
     [destination]="forgotPasswordLink"
@@ -56,9 +53,7 @@
       (clicked)="submission.emit(loginForm?.value)"
       tabindex="-1"
       tabIndex="4"
-    >
-      {{ loginCTA }}
-    </ts-button>
+    >{{ loginCTA }}</ts-button>
   </div>
 
 </form>
