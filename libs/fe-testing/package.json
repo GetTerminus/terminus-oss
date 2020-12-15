@@ -18,16 +18,16 @@
     "tag": "next",
     "directory": "../../dist/libs/fe-testing"
   },
-  "peerDependencies": {
-    "@angular/common": "^9.1.12",
-    "@angular/core": "^9.1.12",
-    "@angular/forms": "^9.1.11",
-    "@angular/platform-browser": "^9.1.11",
-    "@terminus/fe-utilities": "^0.1.0",
-    "date-fns": "^2.14.0",
-    "rxjs": "^6.5.5"
-  },
   "dependencies": {
-    "tslib": "^1.10.0"
+    "tslib": "^2.0.3"
+  },
+  "peerDependencies": {
+    "@angular/common": "^11.0.4",
+    "@angular/core": "^11.0.4",
+    "@angular/forms": "^11.0.4",
+    "@angular/platform-browser": "^11.0.4",
+    "@terminus/fe-utilities": "^2.0.0",
+    "date-fns": "^2.16.1",
+    "rxjs": "^6.6.3"
   }
 }
