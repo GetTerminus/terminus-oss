@@ -19,10 +19,10 @@
     "directory": "../../dist/libs/fe-utilities"
   },
   "peerDependencies": {
-    "@angular/common": "^9.1.11",
-    "@angular/core": "^9.1.11",
-    "@angular/forms": "^9.1.11",
-    "date-fns": "^2.14.0",
-    "rxjs": "^6.5.5"
+    "@angular/common": "^11.0.4",
+    "@angular/core": "^11.0.4",
+    "@angular/forms": "^11.0.4",
+    "date-fns": "^2.16.1",
+    "rxjs": "^6.6.3"
   }
 }
