@@ -16,8 +16,6 @@ An autocomplete that allows single or multiple selections.
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be included](#packages-that-need-to-be-included)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
@@ -33,43 +31,15 @@ An autocomplete that allows single or multiple selections.
 
 ## Installation
 
-### Packages that need to be included
-
-- `@angular/cdk`
-- `@angular/flex-layout`
-- `@angular/material`
-- `@terminus/design-tokens`
-- `@terminus/ui-styles`
-- `@terminus/ui-checkbox`
-- `@terminus/ui-chip`
-- `@terminus/ui-form-field`
-- `@terminus/ui-icon`
-- `@terminus/ui-input`
-- `@terminus/ui-option`
-- `@terminus/ui-spacing`
-- `@terminus/ui-pipes`
-- `@terminus/ui-validation-messages`
-- `@terminus/ui-validators`
-- `@terminus/ui-utilities`
-- `@terminus/fe-utilities`
-- `text-mask-addons`
-- `text-mask-core`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-autocomplete
 ```
 
-### Modules that need to be in NgModule
-
-- `ReactiveFormsModule`
-- `TsAutocompleteModule`
-- `TsOptionModule`
-
 ### CSS imports
 
-In your top level stylesheet, add these imports:
+In your top-level stylesheet, add these imports:
 
 ```css
 @import '~@terminus/design-tokens/css/library-design-tokens.css';

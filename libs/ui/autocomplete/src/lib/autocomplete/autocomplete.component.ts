@@ -9,7 +9,6 @@ import {
   Input,
   Optional,
   Output,
-  QueryList,
   Self,
   ViewChild,
   ViewEncapsulation,
@@ -18,6 +17,7 @@ import type {
   AfterViewInit,
   OnDestroy,
   OnInit,
+  QueryList,
 } from '@angular/core';
 import {
   FormControl,
@@ -43,10 +43,8 @@ import {
   TsDocumentService,
   untilComponentDestroyed,
 } from '@terminus/fe-utilities';
-import {
-  TsChipCollectionComponent,
-  TsChipComponent,
-} from '@terminus/ui-chip';
+import { TsChipComponent } from '@terminus/ui-chip';
+import type { TsChipCollectionComponent } from '@terminus/ui-chip';
 import { TsFormFieldControl } from '@terminus/ui-form-field';
 import {
   TS_OPTION_PARENT_COMPONENT,
