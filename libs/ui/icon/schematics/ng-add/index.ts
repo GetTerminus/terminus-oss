@@ -11,15 +11,17 @@ import {
 
 export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
   [
-    '@angular/common: ^9.1.0',
-    '@angular/core: ^9.1.0',
-    '@angular/material: ^9.2.4',
-    '@angular/platform-browser: ^9.1.0',
-    '@fortawesome/angular-fontawesome: ^0.6.0',
-    '@fortawesome/fontawesome-svg-core: ^1.2.30',
+    '@angular/common: ^11.0.4',
+    '@angular/core: ^11.0.4',
+    '@angular/material: ^11.0.3',
+    '@angular/platform-browser: ^11.0.4',
+    '@fortawesome/angular-fontawesome: ^0.8.1',
+    '@fortawesome/fontawesome-svg-core: ^1.2.32',
+    '@fortawesome/pro-solid-svg-icons: ^5.15.1',
     '@terminus/design-tokens: ^3.1.0',
-    '@terminus/fe-utilities: ^1.0.0',
-    '@terminus/ui-styles: ^1.1.0',
+    '@terminus/fe-utilities: ^2.0.0',
+    '@terminus/ui-icon: ^3.0.0',
+    '@terminus/ui-styles: ^2.0.0',
   ].map(p => {
     const individualPackage = p.split(':');
     const nodeDependency: NodeDependency = {
