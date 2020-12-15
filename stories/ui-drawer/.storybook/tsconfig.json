@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/drawer/src/test.ts", "../../../libs/ui/drawer/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/drawer/src/test.ts",
+    "../../../libs/ui/drawer/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/drawer/src/**/*"]
 }
