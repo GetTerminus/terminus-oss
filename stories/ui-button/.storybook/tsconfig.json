@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/button/src/test.ts", "../../../libs/ui/button/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/button/src/test.ts",
+    "../../../libs/ui/button/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/button/src/**/*"]
 }
