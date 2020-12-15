@@ -247,20 +247,6 @@ export class TsFileUploadComponent extends TsReactiveFormBaseComponent implement
   private _sizeConstraints: TsFileImageDimensionConstraints | undefined;
 
   /**
-   * Create a form control to manage validation messages
-   *
-   * @param ctrl
-   */
-  @Input()
-  public set formControl(ctrl: FormControl) {
-    this._formControl = ctrl ? ctrl : new FormControl();
-  }
-  public get formControl(): FormControl {
-    return this._formControl;
-  }
-  private _formControl: FormControl = new FormControl();
-
-  /**
    * Define if the 'select files' button should be visible. DO NOT USE.
    */
   @Input()

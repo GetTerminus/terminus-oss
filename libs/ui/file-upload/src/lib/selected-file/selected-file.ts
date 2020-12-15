@@ -58,7 +58,7 @@ export class TsSelectedFile {
   /**
    * BehaviorSubject to alert consumers when all calculations are complete
    */
-  public fileLoaded$: BehaviorSubject<TsSelectedFile | undefined> = new BehaviorSubject(this.fileReference);
+  public fileLoaded$ = new BehaviorSubject<TsSelectedFile | undefined>(undefined);
 
 
   constructor(

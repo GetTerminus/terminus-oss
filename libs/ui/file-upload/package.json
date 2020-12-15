@@ -18,26 +18,26 @@
     "directory": "../../../dist/libs/ui/file-upload"
   },
   "dependencies": {
-    "tslib": "^1.10.0"
+    "tslib": "^2.0.3"
   },
   "peerDependencies": {
-    "@angular/common": "^9.1.0",
-    "@angular/core": "^9.1.0",
-    "@angular/flex-layout": "~9.0.0-beta.29",
-    "@angular/forms": "^9.1.0",
-    "@angular/material": "^9.2.4",
-    "@angular/platform-browser": "^9.1.0",
+    "@angular/common": "^11.0.4",
+    "@angular/core": "^11.0.4",
+    "@angular/flex-layout": "~11.0.0-beta.33",
+    "@angular/forms": "^11.0.4",
+    "@angular/material": "^11.0.3",
+    "@angular/platform-browser": "^11.0.4",
     "@terminus/design-tokens": "^3.1.0",
-    "@terminus/fe-utilities": "^1.0.0",
-    "@terminus/ui-button": "^3.0.0",
-    "@terminus/ui-pipes": "^1.0.9",
-    "@terminus/ui-spacing": "^1.0.11",
-    "@terminus/ui-styles": "^1.1.0",
-    "@terminus/ui-tooltip": "^1.0.13",
-    "@terminus/ui-utilities": "^1.0.9",
-    "@terminus/ui-validation-messages": "^1.0.14",
-    "date-fns": "^2.13.0",
-    "rxjs": "^6.5.0"
+    "@terminus/fe-utilities": "^2.0.0",
+    "@terminus/ui-button": "^4.0.0",
+    "@terminus/ui-pipes": "^2.0.0",
+    "@terminus/ui-spacing": "^2.0.0",
+    "@terminus/ui-styles": "^2.0.0",
+    "@terminus/ui-tooltip": "^2.0.0",
+    "@terminus/ui-utilities": "^2.0.0",
+    "@terminus/ui-validation-messages": "^2.0.0",
+    "date-fns": "^2.16.1",
+    "rxjs": "^6.6.3"
   },
   "scripts": {
     "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
