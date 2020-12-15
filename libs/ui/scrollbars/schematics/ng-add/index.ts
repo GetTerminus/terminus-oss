@@ -11,14 +11,14 @@ import {
 
 export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
   [
-    '@angular/common: ^9.1.0',
-    '@angular/core: ^9.1.0',
+    '@angular/common: ^11.0.4',
+    '@angular/core: ^11.0.4',
     '@terminus/design-tokens: ^3.1.0',
-    '@terminus/fe-utilities: ^1.0.0',
-    '@terminus/ui-scrollbars: ^1.0.10',
-    '@terminus/ui-spacing: ^1.1.3',
-    '@terminus/ui-styles: ^1.1.0',
-    'ngx-perfect-scrollbar: ^9.0.0',
+    '@terminus/fe-utilities: ^2.0.0',
+    '@terminus/ui-scrollbars: ^2.0.0',
+    '@terminus/ui-spacing: ^2.0.0',
+    '@terminus/ui-styles: ^2.0.0',
+    'ngx-perfect-scrollbar: ^10.0.0',
   ].map(p => {
     const individualPackage = p.split(':');
     const nodeDependency: NodeDependency = {

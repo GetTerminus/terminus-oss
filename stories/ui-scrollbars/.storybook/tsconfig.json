@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/scrollbars/src/test.ts", "../../../libs/ui/scrollbars/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/scrollbars/src/test.ts",
+    "../../../libs/ui/scrollbars/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/scrollbars/src/**/*"]
 }
