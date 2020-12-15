@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/validators/src/test.ts", "../../../libs/ui/validators/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/validators/src/test.ts",
+    "../../../libs/ui/validators/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/validators/src/**/*"]
 }

@@ -9,11 +9,20 @@ A collection of form validators.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
 
+- [Installation](#installation)
 - [Usage](#usage)
   - [Available validators](#available-validators)
 - [Mocking](#mocking)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Installation
+
+Use the `ng add` command to quickly install all the needed dependencies:
+
+```bash
+ng add @terminus/ui-validators
+```
 
 NOTE: This service is provided as a singleton by defining the `providedIn` property as `root`.
 
@@ -26,10 +35,7 @@ import {
 } from '@angular/forms';
 import { TsValidatorsService } from '@terminus/ui-validators';
 
-
-@Component({
-  ...
-})
+@Component({...})
 export class MyComponent {
   // Create a form
   myForm: FormGroup = this.formBuilder.group({
