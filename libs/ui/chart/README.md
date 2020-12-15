@@ -8,8 +8,6 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages to be installed](#packages-to-be-installed)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
@@ -24,29 +22,15 @@
 
 ## Installation
 
-### Packages to be installed
-
-- `@amcharts/amcharts4`
-- `@amcharts/amcharts4-geodata`
-- `@terminus/design-tokens`
-- `@terminus/fe-utilities`
-- `@terminus/ui-utilities`
-- `@terminus/ui-chart`
-- `date-fns`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-chart
 ```
 
-### Modules that need to be in NgModule
-
-- `TsChartModule`
-
 ### CSS imports
 
-In your top level stylesheet, add these imports:
+In your top-level stylesheet, add these imports:
 
 ```css
 @import '~@terminus/design-tokens/css/library-design-tokens.css';
