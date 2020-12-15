@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/spacing/src/test.ts", "../../../libs/ui/spacing/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/spacing/src/test.ts",
+    "../../../libs/ui/spacing/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/spacing/src/**/*"]
 }

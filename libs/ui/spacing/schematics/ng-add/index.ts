@@ -11,9 +11,10 @@ import {
 
 export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
   [
-    '@angular/common: ^9.1.0',
-    '@angular/core: ^9.1.0',
+    '@angular/common: ^11.0.4',
+    '@angular/core: ^11.0.4',
     '@terminus/design-tokens: ^3.1.0',
+    '@terminus/ui-spacing: ^2.0.0',
   ].map(p => {
     const individualPackage = p.split(':');
     const nodeDependency: NodeDependency = {
