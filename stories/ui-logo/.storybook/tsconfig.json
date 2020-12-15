@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/logo/src/test.ts", "../../../libs/ui/logo/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/logo/src/test.ts",
+    "../../../libs/ui/logo/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/logo/src/**/*"]
 }
