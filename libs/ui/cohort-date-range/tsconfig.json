@@ -1,14 +1,21 @@
 {
-  "extends": "../../../tsconfig.json",
+  "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
-    "types": [
-      "node",
-      "jest"
-    ],
+    "types": ["node", "jest"],
     "resolveJsonModule": true,
     "esModuleInterop": true
   },
-  "include": [
-    "**/*.ts"
+  "include": [],
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "../../../stories/ui-cohort-date-range/.storybook/tsconfig.json"
+    }
   ]
 }

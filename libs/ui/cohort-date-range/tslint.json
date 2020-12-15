@@ -4,13 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "terminus",
+      "ts",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "terminus",
+      "ts",
       "kebab-case"
     ]
   },
