@@ -11,16 +11,16 @@ import {
 
 export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
   [
-    '@angular/common: ^9.1.0',
-    '@angular/core: ^9.1.0',
-    '@angular/forms: ^9.1.0',
-    '@popperjs/core: 2.4.4',
+    '@angular/common: ^11.0.4',
+    '@angular/core: ^11.0.4',
+    '@angular/forms: ^11.0.4',
+    '@popperjs/core: 2.6.0',
     '@terminus/design-tokens: ^3.1.0',
-    '@terminus/fe-utilities: ^1.0.0',
-    '@terminus/ui-utilities: ^1.0.9',
-    '@terminus/ui-popover: ^2.0.4',
-    '@terminus/ui-styles: ^1.1.0',
-    'date-fns: ^2.14.0',
+    '@terminus/fe-utilities: ^2.0.0',
+    '@terminus/ui-popover: ^3.0.0',
+    '@terminus/ui-utilities: ^2.0.0',
+    '@terminus/ui-styles: ^2.0.0',
+    'date-fns: ^2.16.1',
     'rxjs: ^6.5.5',
   ].map(p => {
     const individualPackage = p.split(':');
