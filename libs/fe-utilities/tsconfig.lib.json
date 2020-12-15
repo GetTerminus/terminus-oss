@@ -1,17 +1,23 @@
 {
-  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "outDir": "../../dist/out-tsc",
     "declaration": true,
     "lib": [
       "dom",
       "es2018"
     ],
-    "rootDir": "./src",
-    "types": ["node"],
-    "target": "ES2015"
+    "module": "commonjs",
+    "outDir": "../../dist/out-tsc",
+    "target": "ES2015",
+    "types": [
+      "node"
+    ]
   },
-  "exclude": ["**/*.spec.ts"],
-  "include": ["**/*.ts"]
+  "exclude": [
+    "src/test-setup.ts",
+    "**/*.spec.ts"
+  ],
+  "extends": "./tsconfig.json",
+  "include": [
+    "**/*.ts"
+  ]
 }
