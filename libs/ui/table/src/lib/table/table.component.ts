@@ -20,7 +20,6 @@ import {
   NgZone,
   Optional,
   Output,
-  QueryList,
   Renderer2,
   ViewEncapsulation,
 } from '@angular/core';
@@ -30,6 +29,7 @@ import type {
   AfterViewChecked,
   OnDestroy,
   OnInit,
+  QueryList,
 } from '@angular/core';
 import {
   defer,
@@ -457,7 +457,7 @@ export class TsTableComponent<T = any> extends CdkTable<T> implements
    */
   private setColumnWidthStyle(columnName: string, width: number, updateStickCells = true): void {
     // eslint-disable-next-line no-underscore-dangle
-    const columnDirective = this.headerCells.find(cell => cell.columnDef._name === columnName);
+    const columnDirective = this.headerCells.find(cell => cell.columnDef.name === columnName);
     // istanbul ignore else
     if (columnDirective) {
       columnDirective.setColumnWidth(width);

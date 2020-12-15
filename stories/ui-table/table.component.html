@@ -162,6 +162,7 @@
     <ng-container
       tsColumnDef="expanded"
       sticky
+      *ngIf="isExpandable"
     >
       <td
         ts-cell
@@ -189,8 +190,10 @@
     </ng-container>
 
     <tr ts-header-row *tsHeaderRowDef="myTable.columnNames; sticky: headerSticky"></tr>
-    <tr (click)="expand(row)" ts-row *tsRowDef="let row; columns: myTable.columnNames;"></tr>
-    <tr ts-row *tsRowDef="let row; columns: ['expanded']" class="expanded-row"></tr>
+    <tr (click)="isExpandable && expand(row)" ts-row *tsRowDef="let row; columns: myTable.columnNames;"></tr>
+    <ng-container *ngIf="isExpandable">
+      <tr ts-row *tsRowDef="let row; columns: ['expanded']" class="expanded-row"></tr>
+    </ng-container>
     <tr ts-footer-row *tsFooterRowDef="myTable.columnNames; sticky: footerSticky"></tr>
   </table>
 </div>

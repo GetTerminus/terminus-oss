@@ -42,12 +42,29 @@ export const tsTableColumnAlignmentTypesArray: TsTableColumnAlignment[] = [
   ],
 })
 export class TsColumnDefDirective extends CdkColumnDef {
+
   /**
    * Define a unique name for this column
+   *
+   * NOTE: We must rename here so that the property matches the extended CdkColumnDef class
+   *
+   * FIXME:
+   * `ERROR in /Users/bc/code/Terminus/terminus-oss/libs/ui/table/src/lib/column/column.ts
+   *  ERROR in /Users/bc/code/Terminus/terminus-oss/libs/ui/table/src/lib/column/column.ts(51,10):
+   *  TS2610: 'name' is defined as an accessor in class 'CdkColumnDef', but is overridden here in 'TsColumnDefDirective' as an instance
+   *  property.`
    */
-  // NOTE: We must rename here so that the property matches the extended CdkColumnDef class
+  // @ts-ignore - See above
+  // @Input('tsColumnDef') public name!: string;
+
   @Input('tsColumnDef')
-  public name!: string;
+  public set columnName(value: string) {
+    this.name = value;
+  }
+  public get columnName(): string {
+    return this.name;
+  }
+
 
   /**
    * Define an alignment type for the cell.
@@ -67,14 +84,7 @@ export class TsColumnDefDirective extends CdkColumnDef {
   @Input()
   public sticky = false;
 
-  /**
-   * Define if a column should stick to the end
-   */
-  @Input()
-  public stickyEnd = false;
-
   constructor(public elementRef: ElementRef) {
     super();
   }
-
 }

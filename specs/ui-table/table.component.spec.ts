@@ -301,7 +301,7 @@ describe(`TsTableComponent`, function() {
       instance['setColumnWidthStyle']('column_a', 100);
       fixture.detectChanges();
       // 5: 1 initial by the base cdk class, then 1 for each of the 4 columns
-      expect(instance.updateStickyColumnStyles).toHaveBeenCalledTimes(5);
+      expect(instance.updateStickyColumnStyles).toHaveBeenCalledTimes(4);
     });
 
     test(`should not call to update sticky columns if none are marked as sticky`, () => {
