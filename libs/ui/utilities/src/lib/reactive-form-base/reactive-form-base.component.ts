@@ -38,7 +38,13 @@ export class TsReactiveFormBaseComponent {
    * Define the form control to get access to validators
    */
   @Input()
-  public formControl: FormControl = new FormControl();
+  public set formControl(ctrl: FormControl) {
+    this._formControl = ctrl ? ctrl : new FormControl();
+  }
+  public get formControl(): FormControl {
+    return this._formControl;
+  }
+  private _formControl: FormControl = new FormControl();
 
   /**
    * Set the accessor and call the onchange callback
