@@ -1,14 +1,24 @@
 module.exports = {
-  name: 'ui-card',
-  preset: '../../../jest.config.js',
+  displayName: 'ui-card',
+  preset: '../../../jest.preset.js',
   coverageDirectory: '../../../coverage/libs/ui/card',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
     'jest-preset-angular/build/HTMLCommentSerializer.js',
   ],
-  roots: [
-    './src/lib',
-    '../../../specs/ui-card',
-  ],
+  roots: ['./src/lib', '../../../specs/ui-card'],
+  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
+  globals: {
+    'ts-jest': {
+      tsconfig: '<rootDir>/tsconfig.spec.json',
+      stringifyContentPathRegex: '\\.(html|svg)$',
+      astTransformers: {
+        before: [
+          'jest-preset-angular/build/InlineFilesTransformer',
+          'jest-preset-angular/build/StripStylesTransformer',
+        ],
+      },
+    },
+  },
 };
