@@ -3,11 +3,13 @@ import {
   Component,
   ElementRef,
   Input,
-  TemplateRef,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import type { AfterViewInit } from '@angular/core';
+import type {
+  AfterViewInit,
+  TemplateRef,
+} from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 
 import type { TsButtonThemeTypes } from '@terminus/ui-button';
