@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/info-carousel/src/test.ts", "../../../libs/ui/info-carousel/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/info-carousel/src/test.ts",
+    "../../../libs/ui/info-carousel/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/info-carousel/src/**/*"]
 }

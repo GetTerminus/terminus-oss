@@ -18,12 +18,14 @@ import {
   Input,
   NgZone,
   Output,
-  QueryList,
   ViewChild,
   ViewChildren,
   ViewEncapsulation,
 } from '@angular/core';
-import type { AfterViewInit } from '@angular/core';
+import type {
+  AfterViewInit,
+  QueryList,
+} from '@angular/core';
 
 import { coerceNumberProperty } from '@terminus/fe-utilities';
 import type { TS_PAGINATOR_PAGE } from '@terminus/ui-paginator';
