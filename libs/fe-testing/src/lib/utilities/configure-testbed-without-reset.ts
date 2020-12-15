@@ -1,9 +1,8 @@
 import {
-  async,
   TestBed,
-  TestModuleMetadata,
+  waitForAsync,
 } from '@angular/core/testing';
-
+import type { TestModuleMetadata } from '@angular/core/testing';
 
 /**
  * Set up the TestBed without resetting the TestBed for every test
@@ -24,7 +23,7 @@ export function configureTestBedWithoutReset(moduleDef: TestModuleMetadata) {
   };
 
   // eslint-disable-next-line no-undef
-  beforeAll(async(
+  beforeAll(waitForAsync(
     async function() {
       resetTestingModule();
       preventAngularFromResetting();
