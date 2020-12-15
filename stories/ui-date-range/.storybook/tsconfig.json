@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/date-range/src/test.ts", "../../../libs/ui/date-range/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/date-range/src/test.ts",
+    "../../../libs/ui/date-range/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/date-range/src/**/*"]
 }
