@@ -17,20 +17,20 @@
     "tag": "next",
     "directory": "../../../dist/libs/ui/page-header"
   },
-  "peerDependencies": {
-    "@angular/cdk": "^9.2.4",
-    "@angular/common": "^9.1.0",
-    "@angular/core": "^9.1.0",
-    "@angular/forms": "^9.1.0",
-    "@angular/router": "^9.1.0",
-    "@terminus/fe-utilities": "^1.2.0",
-    "@terminus/ui-pipes": "^1.2.0",
-    "@terminus/ui-styles": "^1.1.0",
-    "date-fns": "^2.16.1",
-    "rxjs": "^6.5.0"
-  },
   "dependencies": {
-    "tslib": "^1.10.0"
+    "tslib": "^2.0.3"
+  },
+  "peerDependencies": {
+    "@angular/cdk": "^11.0.3",
+    "@angular/common": "^11.0.4",
+    "@angular/core": "^11.0.4",
+    "@angular/forms": "^11.0.4",
+    "@angular/router": "^11.0.4",
+    "@terminus/fe-utilities": "^2.0.0",
+    "@terminus/ui-pipes": "^2.0.0",
+    "@terminus/ui-styles": "^2.0.0",
+    "date-fns": "^2.16.1",
+    "rxjs": "^6.6.3"
   },
   "scripts": {
     "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
