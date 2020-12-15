@@ -474,7 +474,7 @@ describe(`TsInputComponent Original`, function() {
       test(`should set a filter for valid days of the week`, () => {
         const fixture = createComponentLegacy(TestComponents.DateFilter);
         const comp = fixture.componentInstance.inputComponent;
-        const func = (d: Date) => d.getDay() === 6;
+        const func = (d: Date) => d?.getDay() === 6;
         fixture.detectChanges();
 
         expect(comp.dateFilter).toBeUndefined();
@@ -483,8 +483,6 @@ describe(`TsInputComponent Original`, function() {
         fixture.detectChanges();
 
         expect(comp.dateFilter).toEqual(expect.any(Function));
-        // FIXME??
-        // @ts-ignore
         expect(comp.dateFilter(new Date(2018, 1, 1))).toEqual(false);
 
         expect.assertions(3);
