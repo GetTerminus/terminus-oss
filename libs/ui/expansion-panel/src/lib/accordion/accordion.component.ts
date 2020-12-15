@@ -7,12 +7,12 @@ import {
   EventEmitter,
   Input,
   Output,
-  QueryList,
   ViewEncapsulation,
 } from '@angular/core';
 import type {
   AfterContentInit,
   OnDestroy,
+  QueryList,
 } from '@angular/core';
 
 import { KEYS } from '@terminus/fe-utilities';
