@@ -7,7 +7,6 @@ import {
   EventEmitter,
   Input,
   Output,
-  QueryList,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -15,6 +14,7 @@ import type {
   AfterContentChecked,
   AfterContentInit,
   OnDestroy,
+  QueryList,
 } from '@angular/core';
 import {
   merge,
