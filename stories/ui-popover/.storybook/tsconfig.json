@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/popover/src/test.ts", "../../../libs/ui/popover/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/popover/src/test.ts",
+    "../../../libs/ui/popover/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/popover/src/**/*"]
 }
