@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/autofocus/src/test.ts", "../../../libs/ui/autofocus/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/autofocus/src/test.ts",
+    "../../../libs/ui/autofocus/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/autofocus/src/**/*"]
 }
