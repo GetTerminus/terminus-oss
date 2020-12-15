@@ -8,8 +8,6 @@
 ## Table of Contents
 
 - [Installation](#installation)
-  - [Packages that need to be installed](#packages-that-need-to-be-installed)
-  - [Modules that need to be in NgModule](#modules-that-need-to-be-in-ngmodule)
   - [CSS imports](#css-imports)
 - [Usage](#usage)
   - [Disable](#disable)
@@ -24,34 +22,15 @@
 
 ## Installation
 
-### Packages that need to be installed
-
-- `@angular/cdk`
-- `@angular/common`
-- `@angular/core`
-- `@angular/flex-layout`
-- `@angular/forms`
-- `@angular/platform-browser`
-- `@terminus/design-tokens`
-- `@terminus/fe-utilities`
-- `@terminus/ui-utilities`
-- `@terminus/ui-scrollbars`
-- `date-fns`
-- `ngx-perfect-scrollbar`
-
 Use the `ng add` command to quickly install all the needed dependencies:
 
 ```bash
 ng add @terminus/ui-scrollbars
 ```
 
-### Modules that need to be in NgModule
-
-- `TsScrollbarsModule`
-
 ### CSS imports
 
-In your top level stylesheet, add these imports:
+In your top-level stylesheet, add these imports:
 
 ```css
 @import '~@terminus/design-tokens/css/library-design-tokens.css';
