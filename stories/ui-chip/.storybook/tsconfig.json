@@ -3,6 +3,9 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-  "exclude": ["../../../libs/ui/chip/src/test.ts", "../../../libs/ui/chip/**/*.spec.ts"],
+  "exclude": [
+    "../../../libs/ui/chip/src/test.ts",
+    "../../../libs/ui/chip/**/*.spec.ts"
+  ],
   "include": ["../../../libs/ui/chip/src/**/*"]
 }
