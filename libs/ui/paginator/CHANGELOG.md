@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@3.0.1...@terminus/ui-paginator@4.0.0) (2020-12-16)
+
+
+### Bug Fixes
+
+* **Paginator:** upgrade to NG11 & TS4 ([46601bd](https://github.com/GetTerminus/terminus-oss/commit/46601bd7c1d43e5c3eb971eb80ff2b8c9432c5da))
+
+
+### BREAKING CHANGES
+
+* **Paginator:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-paginator@3.0.0...@terminus/ui-paginator@3.0.1) (2020-12-11)
 
 

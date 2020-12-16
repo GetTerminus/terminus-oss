@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@4.0.2...@terminus/ui-selection-list@5.0.0) (2020-12-16)
+
+
+### Bug Fixes
+
+* **SelectionList:** upgrade to NG11 & TS4 ([08836a4](https://github.com/GetTerminus/terminus-oss/commit/08836a4c8e94ab14648c1a7502f596daee5c998b))
+
+
+### BREAKING CHANGES
+
+* **SelectionList:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [4.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-selection-list@4.0.1...@terminus/ui-selection-list@4.0.2) (2020-12-08)
 
 

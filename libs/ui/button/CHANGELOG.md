@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@3.0.2...@terminus/ui-button@4.0.0) (2020-12-16)
+
+
+### Bug Fixes
+
+* **Button:** upgrade to NG11 & TS4 ([1c0e7eb](https://github.com/GetTerminus/terminus-oss/commit/1c0e7eb3d73962053fb718bee01f276ba738a254))
+
+
+### BREAKING CHANGES
+
+* **Button:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-button@3.0.1...@terminus/ui-button@3.0.2) (2020-12-04)
 
 

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2020-12-16)
+
+
+### Bug Fixes
+
+* **Button:** background now has correct transition ([38f4afd](https://github.com/GetTerminus/terminus-oss/commit/38f4afd779813eab15ceea23b760ff5e6940c7bc))
+* **ESLintConfig:** move to ESLint 7 ([a78eb9b](https://github.com/GetTerminus/terminus-oss/commit/a78eb9b910eaeba655271d88e9de2e2e525694e1))
+
+
+### BREAKING CHANGES
+
+* **ESLintConfig:** Now requires >= ESLint 7
+
+
+
+
+
 # 4.0.0 (2020-10-29)
 
 

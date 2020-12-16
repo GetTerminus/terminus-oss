@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0 (2020-12-16)
+
+
+### Bug Fixes
+
+* **Button:** background now has correct transition ([38f4afd](https://github.com/GetTerminus/terminus-oss/commit/38f4afd779813eab15ceea23b760ff5e6940c7bc))
+* **CSVEntry:** upgrade to NG11 & TS4 ([a95eee1](https://github.com/GetTerminus/terminus-oss/commit/a95eee120efd068560c4f25e44a2779801c12f4c))
+
+
+### BREAKING CHANGES
+
+* **CSVEntry:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [2.1.9](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-csv-entry@2.1.8...@terminus/ui-csv-entry@2.1.9) (2020-11-17)
 
 

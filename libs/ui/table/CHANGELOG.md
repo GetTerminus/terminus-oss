@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.2.0...@terminus/ui-table@4.0.0) (2020-12-16)
+
+
+### Bug Fixes
+
+* **Table:** upgrade to NG11 & TS4 ([d9fe477](https://github.com/GetTerminus/terminus-oss/commit/d9fe477f2fa884106e092089915e0e151f01d4ee))
+
+
+### BREAKING CHANGES
+
+* **Table:** Now requires NG11+ and TS4+
+
+
+
+
+
 # [3.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.1.7...@terminus/ui-table@3.2.0) (2020-12-11)
 
 

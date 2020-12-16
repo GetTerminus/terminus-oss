@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-cohort-date-range@3.0.1...@terminus/ui-cohort-date-range@4.0.0) (2020-12-16)
+
+
+### Bug Fixes
+
+* **CohortDateRange:** upgrade to NG11 & TS4 ([1a608c8](https://github.com/GetTerminus/terminus-oss/commit/1a608c82668b69917000710993ab41a4e1190bda))
+
+
+### BREAKING CHANGES
+
+* **CohortDateRange:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-cohort-date-range@3.0.0...@terminus/ui-cohort-date-range@3.0.1) (2020-12-08)
 
 

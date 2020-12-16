@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2020-12-16)
+
+
+### Bug Fixes
+
+* **Button:** background now has correct transition ([38f4afd](https://github.com/GetTerminus/terminus-oss/commit/38f4afd779813eab15ceea23b760ff5e6940c7bc))
+* **ExpansionPanel:** upgrade to NG11 & TS4 ([7d025a4](https://github.com/GetTerminus/terminus-oss/commit/7d025a4df5df64145f4dffb9ea36fa4ec153bfaa))
+
+
+### BREAKING CHANGES
+
+* **ExpansionPanel:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-expansion-panel@1.1.4...@terminus/ui-expansion-panel@1.1.5) (2020-11-11)
 
 

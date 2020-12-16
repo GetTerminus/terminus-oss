@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 4.0.0 (2020-12-16)
+
+
+### Bug Fixes
+
+* **Button:** background now has correct transition ([38f4afd](https://github.com/GetTerminus/terminus-oss/commit/38f4afd779813eab15ceea23b760ff5e6940c7bc))
+* **Copy:** upgrade to NG11 & TS4 ([d7866cc](https://github.com/GetTerminus/terminus-oss/commit/d7866cc576f6ef897ac4d0fe8ea40bfcf982cf26))
+
+
+### BREAKING CHANGES
+
+* **Copy:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [3.0.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-copy@3.0.4...@terminus/ui-copy@3.0.5) (2020-11-16)
 
 

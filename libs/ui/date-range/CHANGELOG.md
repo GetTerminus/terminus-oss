@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-date-range@3.0.0...@terminus/ui-date-range@4.0.0) (2020-12-16)
+
+
+### Bug Fixes
+
+* **DateRange:** upgrade to NG11 & TS4 ([0a2d442](https://github.com/GetTerminus/terminus-oss/commit/0a2d44221e23d2d543514c10bf982e68e903ba60))
+
+
+### BREAKING CHANGES
+
+* **DateRange:** Now requires NG11+ and TS4+
+
+
+
+
+
 # [3.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-date-range@2.0.3...@terminus/ui-date-range@3.0.0) (2020-12-04)
 
 

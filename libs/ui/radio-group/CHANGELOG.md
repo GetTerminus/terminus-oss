@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 4.0.0 (2020-12-16)
+
+
+### Bug Fixes
+
+* **Button:** background now has correct transition ([38f4afd](https://github.com/GetTerminus/terminus-oss/commit/38f4afd779813eab15ceea23b760ff5e6940c7bc))
+* **RadioGroup:** upgrade to NG11 & TS4 ([020c4ce](https://github.com/GetTerminus/terminus-oss/commit/020c4ce98b4a67c9893b236200824bbb52aed873))
+
+
+### BREAKING CHANGES
+
+* **RadioGroup:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [3.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-radio-group@3.1.2...@terminus/ui-radio-group@3.1.3) (2020-11-11)
 
 

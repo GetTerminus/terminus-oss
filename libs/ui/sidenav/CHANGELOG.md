@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@1.1.6...@terminus/ui-sidenav@2.0.0) (2020-12-16)
+
+
+### Bug Fixes
+
+* **Sidenav:** upgrade to NG11 & TS4 ([ba59877](https://github.com/GetTerminus/terminus-oss/commit/ba59877101ebfdde296099ab3577bef6be6cdb73))
+
+
+### BREAKING CHANGES
+
+* **Sidenav:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [1.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@1.1.5...@terminus/ui-sidenav@1.1.6) (2020-12-08)
 
 

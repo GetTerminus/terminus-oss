@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2020-12-16)
+
+
+### Bug Fixes
+
+* **Button:** background now has correct transition ([38f4afd](https://github.com/GetTerminus/terminus-oss/commit/38f4afd779813eab15ceea23b760ff5e6940c7bc))
+* **LoadingOverlay:** upgrade to NG11 & TS4 ([70f929f](https://github.com/GetTerminus/terminus-oss/commit/70f929ff675260f94bf0cac0a7d6db3570950378))
+
+
+### BREAKING CHANGES
+
+* **LoadingOverlay:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-loading-overlay@1.1.4...@terminus/ui-loading-overlay@1.1.5) (2020-11-11)
 
 

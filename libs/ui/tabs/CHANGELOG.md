@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 4.0.0 (2020-12-16)
+
+
+### Bug Fixes
+
+* **Button:** background now has correct transition ([38f4afd](https://github.com/GetTerminus/terminus-oss/commit/38f4afd779813eab15ceea23b760ff5e6940c7bc))
+* **Tabs:** upgrade to NG11 & TS4 ([ce52feb](https://github.com/GetTerminus/terminus-oss/commit/ce52feb6a95fd9f0efce185505f918ef84315a61))
+
+
+### BREAKING CHANGES
+
+* **Tabs:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-tabs@3.0.1...@terminus/ui-tabs@3.0.2) (2020-11-11)
 
 

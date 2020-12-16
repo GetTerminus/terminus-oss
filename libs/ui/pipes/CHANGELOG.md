@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-pipes@1.2.2...@terminus/ui-pipes@2.0.0) (2020-12-16)
+
+
+### Bug Fixes
+
+* **Pipes:** upgrade to NG11 & TS4 ([75f7bcc](https://github.com/GetTerminus/terminus-oss/commit/75f7bccfcdee04ed6ab3b352f5423a689e1277a4))
+
+
+### BREAKING CHANGES
+
+* **Pipes:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## 1.2.2 (2020-12-08)
 
 

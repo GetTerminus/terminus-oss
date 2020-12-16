@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0 (2020-12-16)
+
+
+### Bug Fixes
+
+* **Button:** background now has correct transition ([38f4afd](https://github.com/GetTerminus/terminus-oss/commit/38f4afd779813eab15ceea23b760ff5e6940c7bc))
+* **Popover:** upgrade to NG11 & TS4 ([2321e5f](https://github.com/GetTerminus/terminus-oss/commit/2321e5f4b81825c6bf9795070d7a9e9676369a6f))
+
+
+### BREAKING CHANGES
+
+* **Popover:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [2.2.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-popover@2.2.4...@terminus/ui-popover@2.2.5) (2020-11-11)
 
 

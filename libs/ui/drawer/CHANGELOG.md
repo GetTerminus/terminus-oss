@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2020-12-16)
+
+
+### Bug Fixes
+
+* **Button:** background now has correct transition ([38f4afd](https://github.com/GetTerminus/terminus-oss/commit/38f4afd779813eab15ceea23b760ff5e6940c7bc))
+* **Drawer:** upgrade to NG11 & TS4 ([3e5b671](https://github.com/GetTerminus/terminus-oss/commit/3e5b6711d8499f4d27f04343d48b6fc7523b7895))
+
+
+### BREAKING CHANGES
+
+* **Drawer:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [1.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-drawer@1.1.4...@terminus/ui-drawer@1.1.5) (2020-11-11)
 
 

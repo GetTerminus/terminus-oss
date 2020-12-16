@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0 (2020-12-16)
+
+
+### Bug Fixes
+
+* **Button:** background now has correct transition ([38f4afd](https://github.com/GetTerminus/terminus-oss/commit/38f4afd779813eab15ceea23b760ff5e6940c7bc))
+* **FEJwt:** upgrade to NG11 & TS4 ([5746364](https://github.com/GetTerminus/terminus-oss/commit/57463648fba92a8fc30949c69c28d42860c5bc7c))
+
+
+### BREAKING CHANGES
+
+* **FEJwt:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [2.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/fe-jwt@2.0.0...@terminus/fe-jwt@2.0.1) (2020-10-30)
 
 **Note:** Version bump only for package @terminus/fe-jwt

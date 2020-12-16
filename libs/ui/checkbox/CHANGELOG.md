@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 4.0.0 (2020-12-16)
+
+
+### Bug Fixes
+
+* **Button:** background now has correct transition ([38f4afd](https://github.com/GetTerminus/terminus-oss/commit/38f4afd779813eab15ceea23b760ff5e6940c7bc))
+* **Checkbox:** upgrade to NG11 & TS4 ([2fe1786](https://github.com/GetTerminus/terminus-oss/commit/2fe17864b439e0531c692ce91a82431f2c8a12eb))
+
+
+### BREAKING CHANGES
+
+* **Checkbox:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@3.0.1...@terminus/ui-checkbox@3.0.2) (2020-11-11)
 
 

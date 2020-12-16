@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0 (2020-12-16)
+
+
+### Bug Fixes
+
+* **Button:** background now has correct transition ([38f4afd](https://github.com/GetTerminus/terminus-oss/commit/38f4afd779813eab15ceea23b760ff5e6940c7bc))
+* **FormField:** upgrade to NG11 & TS4 ([6d8c648](https://github.com/GetTerminus/terminus-oss/commit/6d8c648e26954f11ca4dbd3b9f5fb1d36c7c0816))
+
+
+### BREAKING CHANGES
+
+* **FormField:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## 2.1.1 (2020-11-11)
 
 

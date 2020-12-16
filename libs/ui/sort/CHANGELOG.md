@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2020-12-16)
+
+
+### Bug Fixes
+
+* **Button:** background now has correct transition ([38f4afd](https://github.com/GetTerminus/terminus-oss/commit/38f4afd779813eab15ceea23b760ff5e6940c7bc))
+* **Sort:** upgrade to NG11 & TS4 ([ec5fc7a](https://github.com/GetTerminus/terminus-oss/commit/ec5fc7a5a5de4d95d5d0224be31e57c2c72dfbb2))
+
+
+### BREAKING CHANGES
+
+* **Sort:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [1.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sort@1.1.5...@terminus/ui-sort@1.1.6) (2020-11-17)
 
 

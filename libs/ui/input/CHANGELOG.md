@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@3.0.1...@terminus/ui-input@4.0.0) (2020-12-16)
+
+
+### Bug Fixes
+
+* **Input:** upgrade to NG11 & TS4 ([64763c4](https://github.com/GetTerminus/terminus-oss/commit/64763c4d7f529699cd671adac2f44e0e6e76170f))
+
+
+### BREAKING CHANGES
+
+* **Input:** Now requires NG11+ and TS4+
+
+
+
+
+
 ## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@3.0.0...@terminus/ui-input@3.0.1) (2020-12-08)
 
 **Note:** Version bump only for package @terminus/ui-input

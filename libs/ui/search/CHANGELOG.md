@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@4.1.0...@terminus/ui-search@5.0.0) (2020-12-16)
+
+
+### Bug Fixes
+
+* **Search:** upgrade to NG11 & TS4 ([3dc2e99](https://github.com/GetTerminus/terminus-oss/commit/3dc2e998049e0fc219863eae4060dcee236739ba))
+
+
+### BREAKING CHANGES
+
+* **Search:** Now requires NG11+ and TS4+
+
+
+
+
+
 # [4.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@4.0.0...@terminus/ui-search@4.1.0) (2020-12-08)
 
 
