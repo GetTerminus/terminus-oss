@@ -33,7 +33,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
       - run: git fetch --no-tags --prune --depth=50 origin +refs/heads/release:refs/remotes/origin/release
-      - name: Set SHOULD_RUN flag
+      - name: "Set SHOULD_RUN flag"
         run: |
           if [[ "${{github.event.head_commit.message}}" =~ (skip\ ci|ci\ skip) ]]; then
             echo "SHOULD_RUN=false" >> $GITHUB_ENV
@@ -70,18 +70,21 @@ jobs:
       - name: "Test affected projects"
         run: yarn nx affected:test --base=origin/release --head=HEAD
         if: env.SHOULD_RUN == 'true'
+      - name: "Build styles before regression testing"
+        run: yarn nx build ui-styles --prod --skip-nx-cache
+        if: env.SHOULD_RUN == 'true'
       - name: "Regression test on affected projects"
         run: tools/ci/run-chromatic-with-changed-projects.sh ${GITHUB_REF#refs/*/}
         env:
           CHROMATIC_BRANCH: ${{ github.event.pull_request.head.ref }}
           CHROMATIC_SHA: ${{ github.event.pull_request.head.sha }}
         if: env.SHOULD_RUN == 'true'
-      - name: Determine if Storybook log was generated
+      - name: "Determine if Storybook log was generated"
         id: check_files
         uses: andstor/file-existence-action@v1.0.1
         with:
           files: "/home/runner/work/terminus-oss/terminus-oss/build-storybook.log"
-      - name: Upload Storybook Log (if exists)
+      - name: "Upload Storybook Log (if exists)"
         uses: actions/upload-artifact@v2
         with:
           name: storybook-log
@@ -98,19 +101,16 @@ jobs:
       #
       # Build affected
       #
-      - name: Build styles before all packages
-        run: yarn nx build ui-styles --prod --skip-nx-cache
-        if: env.SHOULD_RUN == 'true'
-      - name: Build affected projects
+      - name: "Build affected projects"
         run: yarn nx affected:build --prod --withDeps --base=origin/release --head=HEAD
         if: env.SHOULD_RUN == 'true'
-      - name: Build affected projects schematics
+      - name: "Build affected projects schematics"
         run: yarn affected:build-schematics --base=origin/release --head=HEAD
         if: env.SHOULD_RUN == 'true'
 
       #
       # Upload coverage reports
       #
-      - name: Upload coverage results to CodeCov
+      - name: "Upload coverage results to CodeCov"
         run: tools/ci/coverage-upload.sh
         if: env.SHOULD_RUN == 'true'
