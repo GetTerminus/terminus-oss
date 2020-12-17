@@ -1,0 +1,55 @@
+// --------------------------------------------------
+// Flexbox SASS mixins
+// The spec: http://www.w3.org/TR/css3-flexbox
+// --------------------------------------------------
+
+/**
+ * Flex container
+ *
+ * @param $direction
+ *  row (default) | row-reverse | column | column-reverse | inherit | initial | unset
+ * @param $wrap
+ *  nowrap (default) | wrap | wrap-reverse | inherit | initial | unset
+ * @param $mainAxisAlign
+ *  center | start | end | flex-start | flex-end | left | right | normal | space-between | space-around | space-evenly | stretch |
+ *  safe center | unsafe center | inherit | initial (default) | unset
+ * @param $crossAxisAlign
+ *  normal | stretch | center | start | end | flex-start | flex-end | baseline | first baseline | last baseline | safe center |
+ *  unsafe center | inherit | initial (default) | unset
+ *
+ * @example
+ *  @include flex-container($direction: row-reverse, $crossAxisAlign: center);
+ *  @include flex-container(row, nowrap, flex-start, center);
+ */
+@mixin flex-container($direction: row, $wrap: nowrap, $mainAxis: normal, $crossAxis: normal) {
+  align-items: $crossAxis;
+  display: flex;
+  flex-direction: $direction;
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  flex-wrap: $wrap;
+  justify-content: $mainAxis;
+}
+
+/**
+ * Flex item
+ *
+ * @param $flexGrow
+ *  <positive-number> (default 0) | initial | inherit | unset
+ * @param $flexShrink
+ *  <positive-number> (default 1) | auto | inherit | initial | unset | content | fill | min-content | max-content | fit-content
+ * @param $flexBasis
+ *  <positive-number> | fill | max-content | min-content | fit-content | content | inherit | initial | unset | auto (default)
+ * @param $order
+ *  <positive-number> | initial (default) | inherit | unset
+ * @param $alignSelf
+ *  auto (default) | normal | center | start | end | self-start | self-end | flex-start | flex-end | baseline | first baseline |
+ *  last baseline | stretch | safe center | unsafe center | inherit | initial | unset
+ *
+ * @example
+ *  @include flex-item($flexGrow: 1, $flexBasis: 50%, $alignSelf: baseline);
+ *  @include flex-item(1, 1, 100%);
+ */
+@mixin flex-item($flexGrow: 0, $flexShrink: 1, $flexBasis: auto, $order: 0, $alignSelf: auto) {
+  flex: $flexGrow $flexShrink $flexBasis;
+  order: $order;
+}

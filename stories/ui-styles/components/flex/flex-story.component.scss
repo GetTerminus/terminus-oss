@@ -1,0 +1,225 @@
+@import '~@terminus/ui-styles/helpers';
+
+h1 {
+  color: inherit;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.demos {
+  --fd-color: #444;
+  --fd-container-backgroundColor: #34495e;
+  --fd-item-backgroundColor: #95a5a6;
+  color: var(--fd-color);
+}
+
+.demo {
+  margin-bottom: 2rem;
+
+  h2 {
+    color: inherit;
+    font-size: 1rem;
+    margin-bottom: .5em;
+  }
+}
+
+.example {
+  @include flex-container(row, nowrap, stretch, stretch);
+  height: 100%;
+  pre {
+    flex-grow: 0;
+  }
+  .container {
+    @include flex-item(1);
+  }
+}
+
+pre {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-left: 3px solid #f36d33;
+  color: #666;
+  display: block;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 1.4rem;
+  max-width: 100%;
+  overflow: auto;
+  padding: .8em;
+  page-break-inside: avoid;
+  word-wrap: break-word;
+}
+
+.container {
+  background-color: var(--fd-container-backgroundColor);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.item {
+  background-color: var(--fd-item-backgroundColor);
+  border-radius: 4px;
+  height: 100px;
+}
+
+.demo1 {
+  .container {
+    @include flex-container;
+  }
+
+  .item {
+    @include flex-item(1);
+
+    + .item {
+      margin-left: 2%;
+    }
+  }
+}
+
+
+.demo2 {
+  .container {
+    @include flex-container;
+  }
+
+  .item {
+    width: 100px;
+
+    + .item {
+      margin-left: 2%;
+    }
+
+    &.center {
+      @include flex-item(1);
+    }
+  }
+}
+
+.demo3 {
+  .container {
+    @include flex-container(row, wrap, space-between);
+    padding-bottom: 0;
+  }
+
+  .item {
+    margin-bottom: 2%;
+    margin-left: 0;
+    width: 48%;
+
+    &:nth-child(3n) {
+      width: 100%;
+    }
+  }
+}
+
+.demo4 {
+  .container {
+    @include flex-container(row, wrap, space-between);
+    padding-bottom: 0;
+  }
+
+  .item {
+    @include flex-item(0, 1, 32%);
+    margin-bottom: 2%;
+  }
+}
+
+.demo5 {
+  .container {
+    @include flex-container($mainAxis: space-between, $crossAxis: flex-end);
+    height: 300px;
+  }
+
+  .item {
+    width: 14%;
+
+    $heights: ('1': '40%', '2': '50%', '3': '60%', '4': '20%', '5': '30%');
+    @each $number, $height in $heights {
+      &-#{$number} {
+        height: #{$height};
+      }
+    }
+  }
+}
+
+.demo6 {
+  .container {
+    @include flex-container($direction: column, $mainAxis: space-between);
+    height: 300px;
+  }
+
+  .item {
+    height: 14%;
+
+    $widths: ('1': '40%', '2': '50%', '3': '60%', '4': '20%', '5': '30%');
+    @each $number, $width in $widths {
+      &-#{$number} {
+        width: #{$width};
+      }
+    }
+  }
+}
+
+.demo7 {
+  .container {
+    @include flex-container($direction: column, $crossAxis: center);
+  }
+
+  .item {
+    height: 40px;
+    margin-bottom: 10px;
+    width: 40%;
+  }
+}
+
+.demo8 {
+  .container {
+    @include flex-container(column, wrap, $crossAxis: space-between);
+    height: 630px;
+    padding: 1rem;
+
+    &::before,
+    &::after {
+      border: 1px solid var(--fd-item-backgroundColor);
+      content: '';
+      flex-basis: 100%;
+      opacity: .2;
+      order: 2;
+      width: 0;
+    }
+  }
+
+  .item {
+    margin-bottom: 2%;
+    width: 32%;
+
+    &:nth-child(3n+1) {
+      order: 1;
+    }
+    &:nth-child(3n+2) {
+      order: 2;
+    }
+    &:nth-child(3n) {
+      order: 3;
+    }
+
+    $heights: (
+      '1': '200px',
+      '2': '250px',
+      '3': '225px',
+      '4': '100px',
+      '5': '100px',
+      '6': '125px',
+      '7': '100px',
+      '8': '75px',
+      '9': '100px',
+      '10': '100px'
+    );
+    @each $number, $height in $heights {
+      &-#{$number} {
+        height: #{$height};
+      }
+    }
+  }
+}

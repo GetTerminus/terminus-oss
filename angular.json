@@ -3898,6 +3898,25 @@
             "tsConfig": "libs/ui/styles/tsconfig.lib.json"
           }
         },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-styles/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-styles",
+            "uiFramework": "@storybook/angular"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
@@ -3906,6 +3925,32 @@
                 "command": "yarn run lint:scss:base 'libs/ui/styles/src/lib/**/!(helpers*).scss'"
               }
             ]
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run watch:ui-styles"
+              }
+            ]
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-styles/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
           }
         },
         "test": {
