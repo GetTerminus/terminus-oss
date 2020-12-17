@@ -1,0 +1,59 @@
+// --------------------------------------------------
+// Flexbox SASS mixins
+// The spec: https://www.w3.org/TR/2020/CRD-css-grid-1-20201021/
+// --------------------------------------------------
+
+/**
+ * Grid container
+ *
+ * @param $columns
+ *   null (default) | <values> | inherit | unset
+ * @param $rows
+ *   null (default) | <values> | inherit | unset
+ * @param $gap
+ *   <length|percentage> (default 1em) | inherit | unset
+ *
+ * @example
+ *  @include grid-container(150px auto 150px, repeat(3, 100px));
+ *  @include grid-container(repeat(5, 6vw), repeat(5, 6vw));
+ */
+@mixin grid-container($columns: null, $rows: auto, $gap: 1em) {
+  display: grid;
+  grid-gap: $gap;
+  @if $columns {
+    grid-template-columns: $columns;
+  }
+  @if $rows {
+    grid-template-rows: $rows;
+  }
+}
+
+/**
+ * Grid column
+ *
+ * @param $start
+ *   null (default) | <grid-line values> | inherit | unset
+ * @param $end
+ *   null (default) | <grid-line values> | inherit | unset
+ * @param $gap
+ *   <length|percentage> (default 1em) | inherit | unset
+ *
+ * NOTE: If neither param is passed in, the grid-column is set to `unset`
+ *
+ * @example
+ *  @include grid-column(1, 4);
+ *  @include grid-column(1, span 3);
+ *  @include grid-column;
+ */
+@mixin grid-column($start: null, $end: null) {
+  $startEndIdentical: $end == $start;
+
+  @if not $start and not $end {
+    grid-column: unset;
+  } @else if not $end or $startEndIdentical {
+    grid-column: $start;
+  }
+  @else {
+    grid-column: #{$start} / #{$end};
+  }
+}

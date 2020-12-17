@@ -1,0 +1,110 @@
+<h1>Grid Mixins</h1>
+
+<section class="demos">
+  <div class="demo demo1">
+    <h2>1. Holy grail (flexible)</h2>
+    <div class="example">
+      <pre><code>{{ code1 }}</code></pre>
+      <div class="container">
+        <div class="item">header</div>
+        <div class="item">aside</div>
+        <div class="item">main</div>
+        <div class="item">aside</div>
+        <div class="item">footer</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo demo2">
+    <h2>2. Holy grail (responsive)</h2>
+    <div class="example">
+      <pre><code>{{ code2 }}</code></pre>
+      <div class="container">
+        <div class="item">header</div>
+        <div class="item">aside</div>
+        <div class="item">main</div>
+        <div class="item">aside</div>
+        <div class="item">footer</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo demo3">
+    <h2>3. 2 column (flexible)</h2>
+    <div class="example">
+      <pre><code>{{ code3 }}</code></pre>
+      <div class="container">
+        <div class="item item-1">header</div>
+        <div class="item item-2">main</div>
+        <div class="item item-3">aside</div>
+        <div class="item item-4">footer</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo demo4">
+    <h2>4. 2 column (responsive)</h2>
+    <div class="example">
+      <pre><code>{{ code4 }}</code></pre>
+      <div class="container">
+        <div class="item item-1">header</div>
+        <div class="item item-2">main</div>
+        <div class="item item-3">aside</div>
+        <div class="item item-4">footer</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo demo5">
+    <h2>5. Evenly distributed, fit as needed</h2>
+    <div class="example">
+      <pre><code>{{ code5 }}</code></pre>
+      <div class="container">
+        <div
+          *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]"
+          class="item item-{{ item }}"
+        >{{ item }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo demo6">
+    <h2>6. Basic calendar</h2>
+    <div class="example">
+      <pre><code>{{ code6 }}</code></pre>
+      <div class="container">
+        <ul class="weekdays">
+          <li><abbr title="S">Sunday</abbr></li>
+          <li><abbr title="M">Monday</abbr></li>
+          <li><abbr title="T">Tuesday</abbr></li>
+          <li><abbr title="W">Wednesday</abbr></li>
+          <li><abbr title="T">Thursday</abbr></li>
+          <li><abbr title="F">Friday</abbr></li>
+          <li><abbr title="S">Saturday</abbr></li>
+        </ul>
+
+        <ul class="day-grid">
+          <li class="month-prev" data-day="29"></li>
+          <li class="month-prev" data-day="30"></li>
+          <li class="month-prev" data-day="31"></li>
+          <li
+            *ngFor="let day of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]"
+            [attr.data-day]="day"
+          ></li>
+          <li class="month-next" data-day="1"></li>
+          <li class="month-next" data-day="2"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo demo7">
+    <h2>7. Monopoly board</h2>
+    <div class="example">
+      <pre><code>{{ code7 }}</code></pre>
+      <div class="container">
+        <div class="item item-{{ number }}" *ngFor="let number of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]">{{ number }}</div>
+      </div>
+    </div>
+  </div>
+</section>
