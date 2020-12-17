@@ -83,6 +83,9 @@
     "//////// Section: Custom builds: ": "==============================",
     "eslint:build": "tools/ci/prepare-eslint-build.sh",
     "stylelint:build": "tools/ci/prepare-stylelint-build.sh",
+    "//////// Section: SCSS: ": "==============================",
+    "watch:ui-styles": "watch 'yarn run build:ui-styles' libs/ui/styles/src/lib/style-helpers",
+    "build:ui-styles": "tools/ci/build-styles.sh",
     "//////// Section: Storybook": "==============================",
     "storybook:serve": "start-storybook",
     "storybook:build": "yarn run docs:json && build-storybook -c .storybook -o dist/storybook",
@@ -266,6 +269,7 @@
     "ts-node": "9.1.1",
     "tslint": "6.1.3",
     "typescript": "4.0.5",
-    "validate-commit-msg": "2.14.0"
+    "validate-commit-msg": "2.14.0",
+    "watch": "1.0.2"
   }
 }
