@@ -201,18 +201,3 @@ $typography-body-levels: (
     line-height: 1.5;
   }
 }
-
-
-/**
- * Truncate overflowing text with an ellipsis
- *
- * @mixin typography
- * @section Style Helpers
- * @example
- *  @include truncate-overflow;
- */
-@mixin truncate-overflow() {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}

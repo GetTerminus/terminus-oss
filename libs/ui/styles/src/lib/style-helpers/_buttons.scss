@@ -1,8 +1,5 @@
-@import 'cursors';
-
-
 /**
- * Reset button styles
+ * Reset button base styles
  *
  * @example
  *  @include button-base;
@@ -10,7 +7,7 @@
 @mixin button-base {
   background-color: transparent;
   border: 0;
-  cursor: cursor(pointer);
+  cursor: pointer;
   outline: 0;
   text-align: center;
 
