@@ -62,13 +62,17 @@ jobs:
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Install NX globally"
-        run: yarn global add @nrwl/cli@9.6.0
+        run: yarn global add @nrwl/cli@11.0.4
         if: env.SHOULD_RUN == 'true'
       - name: "Set NX affected base"
         run: tools/ci/set-nx-base.sh
         if: env.SHOULD_RUN == 'true'
       - name: "List affected LIBS"
         run: yarn run affected:libs --base=${{ env.NX_BASE }} --head=origin/release
+        working-directory: ${{ env.working-directory }}
+        if: env.SHOULD_RUN == 'true'
+      - name: "Build styles before testing"
+        run: yarn nx build ui-styles --prod --skip-nx-cache
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Test affected projects"
@@ -120,7 +124,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Install NX globally"
-        run: yarn global add @nrwl/cli@9.6.0
+        run: yarn global add @nrwl/cli@11.0.4
         if: env.SHOULD_RUN == 'true'
       - name: "Set NX affected base"
         run: tools/ci/set-nx-base.sh
@@ -176,7 +180,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Install NX globally"
-        run: yarn global add @nrwl/cli@9.6.0
+        run: yarn global add @nrwl/cli@11.0.4
         if: env.SHOULD_RUN == 'true'
       - name: "Set NX affected base"
         run: tools/ci/set-nx-base.sh
@@ -274,7 +278,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
         if: env.SHOULD_RUN == 'true'
       - name: "Install NX globally"
-        run: yarn global add @nrwl/cli@9.6.0
+        run: yarn global add @nrwl/cli@11.0.4
         if: env.SHOULD_RUN == 'true'
       - name: "Download code coverage results"
         continue-on-error: true
