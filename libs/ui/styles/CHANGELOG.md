@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-styles@2.0.0...@terminus/ui-styles@2.1.0) (2020-12-18)
+
+
+### Features
+
+* **Styles:** add flexbox mixins and storybook ([4753f58](https://github.com/GetTerminus/terminus-oss/commit/4753f58f848e944b8481c97334c21b6e8d211d6c))
+* **Styles:** add grid mixins ([47e58c3](https://github.com/GetTerminus/terminus-oss/commit/47e58c3bca4a177f6bdcfbe22d46f3d7600faebb))
+
+
+
+
+
 # 2.0.0 (2020-12-16)
 
 
