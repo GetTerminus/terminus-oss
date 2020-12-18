@@ -5,7 +5,6 @@
  */
 $g-spacing: 16px !default;
 
-
 /**
  * The map of layout spacings
  *
@@ -34,7 +33,6 @@ $g-spacings: (
     6: ceil($g-spacing / 2 * 12),
   )
 );
-
 
 /**
  * Retrieve a space from the $g-spacings map

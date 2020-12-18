@@ -1,0 +1,30 @@
+/**
+ * Styles to make scrollbars always hidden on webkit browsers
+ */
+@mixin hidden-scrollbars() {
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+
+    &:vertical {
+      width: 0;
+    }
+
+    &:horizontal {
+      height: 0;
+    }
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+}

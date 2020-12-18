@@ -2,8 +2,8 @@
  * A mixin to correctly nest placeholder styles
  *
  * @example
- *  input-placeholder {
- *    transition: all 200ms ease;
+ *  @include input-placeholder {
+ *    color: red;
  *  }
  */
 @mixin input-placeholder {

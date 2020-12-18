@@ -4,8 +4,8 @@
  * @param $margin
  *  The amount of space between the edge of the parent. Default: 0
  * @example
- *  @include fill-parent;
- *  @include fill-parent(1em);
+ *  @include take-space;
+ *  @include take-space(1em);
  */
 @mixin take-space($margin: 0) {
   bottom: $margin;
