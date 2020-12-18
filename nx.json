@@ -1,6 +1,6 @@
 {
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "release"
   },
   "implicitDependencies": {
     ".eslintrc.json": "*",
@@ -186,7 +186,9 @@
           "build",
           "test",
           "lint",
-          "e2e"
+          "e2e",
+          "storybook",
+          "build-storybook"
         ],
         "canTrackAnalytics": false,
         "scan": true,
