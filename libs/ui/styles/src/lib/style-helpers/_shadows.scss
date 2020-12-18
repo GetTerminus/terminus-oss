@@ -1,5 +1,3 @@
-// stylelint-disable max-line-length
-
 /**
  * Box Shadow values from Material Shadow Interpolator
  *
@@ -7,9 +5,6 @@
  * - Angular Material design notes here: https://docs.google.com/document/d/1W3NGSLqDZzjbBBLW2C6y_6NUxtvdZAVaJvg58LY3Q0E/preview
  * - Reference CodePen: https://codepen.io/shyndman/pen/ojxmdY?editors=001
  */
-
-// stylelint-enable max-line-length
-
 
 /**
  * Shadow colors.
@@ -19,9 +14,6 @@
  * part of the shadow of a celestial body excluding all light from the primary source"
  * - PENUMBRA: "A space of partial illumination (as in an eclipse) between the perfect shadow on all
  * sides and the full light"
- *
- * @nuclide Shadow-Colors
- * @section Config > Shadows
  */
 // stylelint-disable plugin/stylelint-no-indistinguishable-colors
 $key-umbra: rgba(0, 0, 0, .2);
@@ -29,14 +21,10 @@ $key-penumbra: rgba(0, 0, 0, .14);
 $ambient: rgba(0, 0, 0, .12);
 // stylelint-enable plugin/stylelint-no-indistinguishable-colors
 
-
 /**
  * Hand-designed reference shadow sets
  *
  * Source: http://codepen.io/shyndman/pen/ojxmdY
- *
- * @nuclide Shadow-Sets
- * @section Config > Shadows
  */
 $reference-shadows: (
   (
@@ -97,24 +85,16 @@ $reference-shadows: (
   )
 );
 
-
 /**
  * Animation durations
- *
- * @nuclide Shadow-Animation-Durations
- * @section Config > Shadows
  */
 $min-animation-length: 250ms;
 $max-animation-length: 400ms;
-
 
 /**
  * Material Design element elevations
  *
  * Source: https://material.io/guidelines/material-design/elevation-shadows.html#elevation-shadows-elevation-android
- *
- * @nuclide Shadow-Elements-Map
- * @section Config > Shadows
  */
 $material-elements: (
   dialog: (24),
@@ -138,15 +118,12 @@ $material-elements: (
   switch: 1
 );
 
-
 /**
  * Returns the two reference shadows whose elevations bound the specified elevation
  *
  * In the case where the supplied elevation exceeds the maximum reference elevation, the last two
  * reference shadows are returned.
  *
- * @mixin find-bounding-shadow-sets
- * @section Shadow-Functions
  * @param $elevation
  *  The elevation
  * @example
@@ -156,7 +133,6 @@ $material-elements: (
   @if $elevation < 0 {
     @error 'find-bounding-shadow-sets: Elevation is less than zero';
   }
-
   $lower: nth($reference-shadows, length($reference-shadows) - 1);
   $upper: nth($reference-shadows, length($reference-shadows));
 
@@ -171,7 +147,6 @@ $material-elements: (
 
   @return ($lower, $upper);
 }
-
 
 /**
  * Performs linear interpolation between values a and b
@@ -194,15 +169,12 @@ $material-elements: (
   @return $a + $x * ($b - $a);
 }
 
-
 /**
  * Performs linear interpolation between shadows by interpolating each property individually
  *
  * Returns the value between shadow1 and shadow2 proportional to x (when x is between 0 and 1. When
  * x is outside this range, the return value is a linear extrapolation).
  *
- * @mixin lerp-shadow
- * @section Shadow-Functions
  * @param $x
  *  The proportional control
  * @param $shadow1
@@ -223,12 +195,9 @@ $material-elements: (
   @return (#{$new-x + px} #{$new-y + px} #{$new-blur + px} #{$new-spread + px} $new-color);
 }
 
-
 /**
  * Calculates the set of shadows at a given elevation
  *
- * @mixin calculate-shadow-set-at-depth
- * @section Shadow-Functions
  * @param $elevation
  *  The desired elevation
  * @example
@@ -249,15 +218,11 @@ $material-elements: (
   @return $elevation-shadows;
 }
 
-
-
 /**
  * Generates the transition for a change between 2 elevations
  *
  * The larger the elevation change the longer the animation takes
  *
- * @mixin elevation-transition
- * @section Shadow-Mixins
  * @param $elevation-change
  *  The elevation change amount
  * @param $easing
@@ -267,10 +232,8 @@ $material-elements: (
  */
 @mixin elevation-transition($elevation-change: 6, $easing: cubic-bezier(.4, 0, .2, 1)) {
   $duration: lerp($elevation-change / 24, $min-animation-length, $max-animation-length);
-
   transition: box-shadow $duration $easing;
 }
-
 
 /**
  * Generates box-shadow and the transition for a given elevation
@@ -279,8 +242,6 @@ $material-elements: (
  * - Two elevations and a state will generate a default box-shadow set and another set that is
  * activated by the state tested with :hover and :active
  *
- * @mixin elevation
- * @section Shadow-Mixins
  * @param $elevation1
  *  The starting elevation
  * @param $elevation2
@@ -315,12 +276,9 @@ $material-elements: (
   }
 }
 
-
 /**
  * Returns box-shadow and transition properties for specific elements. See $material-elements.
  *
- * @mixin elevation-element
- * @section Shadow-Mixins
  * @param $element-name
  *  The element to add a shadow to
  * @example
@@ -335,4 +293,3 @@ $material-elements: (
     @include elevation(nth($attr, 1), nth($attr, 2), nth($attr, 3));
   }
 }
-
