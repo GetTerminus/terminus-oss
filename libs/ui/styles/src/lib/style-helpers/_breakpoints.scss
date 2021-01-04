@@ -6,11 +6,14 @@ $breakpoints: (
   'layout-gt-xs',
   'layout-sm',
   'layout-gt-sm',
-  // @deprecated Incorrect name. Please use `layout-med`
+  // @deprecated Incorrect name. Please use `layout-md`
   'layout-mat',
-  // @deprecated Incorrect name. Please use `layout-gt-med`
+  // @deprecated Incorrect name. Please use `layout-gt-md`
   'layout-gt-mat',
+  // @deprecated Incorrect name. Please use `layout-md`
   'layout-med',
+  'layout-md',
+  // @deprecated Incorrect name. Please use `layout-gt-md`
   'layout-gt-med',
   'layout-lg',
   'layout-gt-lg',
@@ -57,13 +60,13 @@ $breakpoints: (
       }
     }
 
-    @if ($point == 'layout-mat') or ($point == 'layout-med') {
+    @if ($point == 'layout-mat') or ($point == 'layout-med') or ($point == 'layout-md') {
       @media (min-width: 960px) and (max-width: 1279px) {
         @content;
       }
     }
 
-    @if ($point == 'layout-gt-mat') or ($point == 'layout-gt-med') {
+    @if ($point == 'layout-gt-mat') or ($point == 'layout-gt-med') or ($point == 'layout-gt-md') {
       @media (min-width: 1280px) {
         @content;
       }
