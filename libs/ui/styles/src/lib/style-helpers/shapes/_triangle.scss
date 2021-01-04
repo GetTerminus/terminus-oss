@@ -1,23 +1,22 @@
 @import '../layout/opposite-direction';
 @import '../z-index';
 
-
 /**
  * Create a triangle shape using CSS
  *
  * @mixin triangle
  * @section Style Helpers
  * @param $direction
- *  Triangle direction, either `top`, `right`, `bottom` or `left`.
+ *  Triangle direction, either `top`, `right`, `bottom` or `left`. Default: top
  * @param $color
  *  Triangle color. Default: currentcolor
  * @param $size
  *  Triangle size. Default: 1em
  * @example
- *  @include triangle(top);
+ *  @include triangle;
  *  @include triangle(left, red, 2em);
  */
-@mixin triangle($direction, $color: currentcolor, $size: 1em) {
+@mixin triangle($direction: top, $color: currentcolor, $size: 1em) {
   $perpendicular-borders: $size solid transparent;
   content: '';
   height: 0;
