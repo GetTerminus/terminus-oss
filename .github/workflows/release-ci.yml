@@ -10,6 +10,8 @@ env:
   NPM_TOKEN: "${{ secrets.NPM_TOKEN }}"
   NODE_AUTH_TOKEN: "${{ secrets.NPM_TOKEN }}"
   CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+  NX_BRANCH: ${{ github.event.number }}
+  NX_RUN_GROUP: ${{ github.run_id }}
 
 # Note: 'affected' packages are determined by files changes since the last tag
 # 1) test affected packages
