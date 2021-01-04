@@ -308,7 +308,7 @@ Create a triangle element. Useful for tooltips etc.
 Parameters and their defaults:
 
 ```scss
-triangle($direction, $color: currentcolor, $size: 1em)
+triangle($direction: top, $color: currentcolor, $size: 1em)
 ```
 
 ```scss

@@ -1,7 +1,4 @@
-import {
-  withKnobs,
-} from '@storybook/addon-knobs';
-import { moduleMetadata } from '@storybook/angular';
+import { withKnobs } from '@storybook/addon-knobs';
 
 import { FlexStoryComponent } from './components/flex/flex-story.component';
 import { GridStoryComponent } from './components/grid/grid-story.component';
@@ -10,7 +7,6 @@ export default {
   title: 'Utilities/Style Helpers/Layout',
   decorators: [
     withKnobs,
-    moduleMetadata(),
   ],
 };
 
