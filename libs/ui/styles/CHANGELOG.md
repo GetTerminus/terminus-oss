@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-styles@2.1.2...@terminus/ui-styles@2.1.3) (2021-01-05)
+
+
+### Bug Fixes
+
+* **Styles:** add defaults to responsive ratio mixins ([33e27a1](https://github.com/GetTerminus/terminus-oss/commit/33e27a14369b944b64de365033769807d1bd1eba))
+
+
+
+
+
 ## [2.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-styles@2.1.1...@terminus/ui-styles@2.1.2) (2021-01-04)
 
 **Note:** Version bump only for package @terminus/ui-styles
