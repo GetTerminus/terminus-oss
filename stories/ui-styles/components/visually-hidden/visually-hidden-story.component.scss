@@ -1,0 +1,68 @@
+@import '~@terminus/ui-styles/helpers';
+
+h1 {
+  color: inherit;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.demos {
+  --fd-color: #444;
+  --fd-container-backgroundColor: #34495e;
+  --fd-item-backgroundColor: #95a5a6;
+  color: var(--fd-color);
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.demo {
+  margin-bottom: 2rem;
+
+  h2 {
+    color: inherit;
+    font-size: 1rem;
+    margin-bottom: .5em;
+  }
+}
+
+.example {
+  @include flex-container(row, nowrap, stretch, stretch);
+  height: 100%;
+
+  pre {
+    flex-grow: 0;
+  }
+}
+
+pre {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-left: 3px solid #f36d33;
+  color: #666;
+  display: block;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 1.4rem;
+  max-width: 100%;
+  overflow: auto;
+  padding: .8em;
+  page-break-inside: avoid;
+  word-wrap: break-word;
+}
+
+.container {
+  @include flex-item(1);
+  background-color: var(--fd-container-backgroundColor);
+  border-radius: 4px;
+  color: #fff;
+  padding: 3rem;
+}
+
+.demo1 {
+  .hidden {
+    @include visually-hidden;
+  }
+}
