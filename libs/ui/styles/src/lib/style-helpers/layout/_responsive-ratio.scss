@@ -4,9 +4,9 @@
  * Control the ratio for responsive elements
  *
  * @param $x
- *  The x ratio
+ *  The x ratio. Default: 1
  * @param $y
- *  The y ratio
+ *  The y ratio. Default: 1
  * @param $pseudo
  *  Determine if a pseudo element should be used to control the ratio. Default: true
  * @param $image
@@ -15,7 +15,7 @@
  *  @include responsive-ratio(3, 4);
  *  @include responsive-ratio(20, 9, true, url('/images/landing-hero.jpg'));
  */
-@mixin responsive-ratio($x, $y, $pseudo: true, $image: null) {
+@mixin responsive-ratio($x: 1, $y: 1, $pseudo: true, $image: null) {
   $padding: unquote((( $y / $x ) * 100) + '%');
 
   @if $x == null or $y == null {
