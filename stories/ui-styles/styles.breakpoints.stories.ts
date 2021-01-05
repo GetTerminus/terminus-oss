@@ -3,7 +3,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { BreakpointsStoryComponent } from './components/breakpoints/breakpoints-story.component';
 
 export default {
-  title: 'Utilities/Style Helpers/Breakpoints',
+  title: 'Utilities/Style Helpers',
   decorators: [
     withKnobs,
   ],
