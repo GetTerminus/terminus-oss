@@ -7,10 +7,10 @@ export default {
   decorators: [withKnobs],
 };
 
-export const visibleScrollbars = () => ({
+export const scrollbars = () => ({
   component: ScrollbarsStoryComponent,
 });
-visibleScrollbars.parameters = {
+scrollbars.parameters = {
   actions: { disabled: true },
   docs: { iframeHeight: 3100 },
   knobs: { disabled: true },
