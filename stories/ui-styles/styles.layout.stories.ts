@@ -2,6 +2,8 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 import { FlexStoryComponent } from './components/flex/flex-story.component';
 import { GridStoryComponent } from './components/grid/grid-story.component';
+import { ResponsiveRatioStoryComponent } from './components/responsive-ratio/responsive-ratio-story.component';
+import { TakeSpaceStoryComponent } from './components/take-space/take-space-story.component';
 
 export default {
   title: 'Utilities/Style Helpers/Layout',
@@ -25,5 +27,23 @@ export const grid = () => ({
 grid.parameters = {
   actions: { disabled: true },
   docs: { iframeHeight: 3100 },
+  knobs: { disabled: true },
+};
+
+export const responsiveRatio = () => ({
+  component: ResponsiveRatioStoryComponent,
+});
+responsiveRatio.parameters = {
+  actions: { disabled: true },
+  docs: { iframeHeight: 2000 },
+  knobs: { disabled: true },
+};
+
+export const takeSpace = () => ({
+  component: TakeSpaceStoryComponent,
+});
+takeSpace.parameters = {
+  actions: { disabled: true },
+  docs: { iframeHeight: 2000 },
   knobs: { disabled: true },
 };
