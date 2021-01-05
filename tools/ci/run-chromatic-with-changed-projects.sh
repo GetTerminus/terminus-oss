@@ -1,7 +1,7 @@
 #!/bin/bash
-
 . ~/.bashrc
 
+set -e
 BRANCH=$1
 echo "BRANCH: $BRANCH"
 
