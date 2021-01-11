@@ -1,3 +1,5 @@
+@import '~@terminus/ui-styles/helpers';
+
 :root {
   --ts-menu-typography: var(--ts-typography-compound-body);
   --ts-menu-trigger-color: var(--ts-color-primary-500);
@@ -9,9 +11,19 @@
   --ts-menu-boxShadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 5px 0 rgba(0, 0, 0, .12);
   --ts-menu-caret-icon-adjustment: 0;
   --ts-menu-maxHeight: 12rem;
-  --ts-menu-drag-placeholder-minHeight: 50px;
+  --ts-menu-drag-placeholder-minHeight: 32px;
   --ts-menu-checkbox-drag-padding: 0 var(--ts-space-inset-500);
   --ts-menu-card-utility-horizontalOffset: var(--ts-space-inset-200);
+  --ts-menu-panel-padding: 8px;
+  --ts-menu-borderRadius: var(--ts-border-radius-base);
+  --ts-menu-panel-typography: 400 13px var(--ts-typography-stack-base);
+  --ts-menu-panel-item-drag-paddingRight: 32px;
+  --ts-menu-panel-preview-backgroundColor: var(--ts-color-utility-100);
+  --ts-menu-panel-preview-border: 1px solid var(--ts-color-utility-300);
+  --ts-menu-utilityTrigger-borderRadius: var(--ts-border-radius-circle);
+  --ts-menu-utilityTrigger-xy: 40px;
+  --ts-menu-utilityTrigger-transition: color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+  --ts-menu-utilityTrigger-hover-color: var(--ts-color-primary-500);
 }
 
 .ts-menu {
@@ -56,8 +68,21 @@
   }
 
   .c-menu__trigger {
-    .mat-button-wrapper {
-      display: inline-block;
+    &--utility {
+      @include button-base;
+      border-radius: var(--ts-menu-utilityTrigger-borderRadius);
+      flex-shrink: 0;
+      height: var(--ts-menu-utilityTrigger-xy);
+      line-height: var(--ts-menu-utilityTrigger-xy);
+      min-width: 0;
+      padding: 0;
+      transition: var(--ts-menu-utilityTrigger-transition);
+      width: var(--ts-menu-utilityTrigger-xy);
+
+      &:focus,
+      &:hover {
+        color: var(--ts-menu-utilityTrigger-hover-color);
+      }
     }
 
     // For the dropdown caret, lessen the right side whitespace
@@ -69,43 +94,30 @@
   }
 }
 
-// Target button instances nested inside a TsMenuComponent
-.mat-menu-panel {
-  // Needed for specificity
-  .ts-button {
-    button {
-      &.c-button {
-        --tsb-color: var(--ts-menu-trigger-color);
-        background-color: var(--ts-menu-trigger-backgroundColor);
-        border-color: transparent;
-        border-radius: 0;
-        text-align: left;
-        width: 100%;
+.ts-menu__panel {
+  border-radius: var(--ts-menu-borderRadius);
+  box-shadow: var(--ts-menu-boxShadow);
+  font: var(--ts-menu-panel-typography);
+  padding: var(--ts-menu-panel-padding);
 
-        &:focus,
-        &:active,
-        &:hover {
-          --tsb-color: var(--ts-menu-trigger-hover-color);
-          background-color: var(--ts-menu-trigger-backgroundColor);
-          border-color: transparent;
-        }
-      }
+  button {
+    &.ts-menu__item {
+      @include button-base;
     }
   }
-}
-
-.ts-menu__panel {
-  box-shadow: var(--ts-menu-boxShadow);
 
   &.mat-menu-panel {
     min-height: auto;
-  }
+    min-width: auto;
 
-  .mat-menu-content {
-    background-color: var(--ts-menu-trigger-backgroundColor);
-    // NOTE: Universal selector needed since we don't know what the first child will be
-    > * {
-      display: block;
+    .mat-menu-content {
+      @include flex-container(column, nowrap, start, stretch);
+      background-color: var(--ts-menu-trigger-backgroundColor);
+      padding: 0;
+
+      [cdk-droplist] {
+        @include flex-container(column, nowrap, start, stretch);
+      }
     }
   }
 
@@ -116,10 +128,59 @@
 
   // Drop area
   .cdk-drag-placeholder {
+    background-color: var(--ts-menu-panel-preview-backgroundColor);
+    border: var(--ts-menu-panel-preview-border);
+    border-radius: var(--ts-menu-borderRadius);
     // Match the height of the default checkbox
     min-height: var(--ts-menu-drag-placeholder-minHeight);
   }
 }
+
+.ts-menu__item,
+.ts-menu__item--transparent {
+  // Make the item shorter
+  --ts-checkbox-component-height: 24px;
+  --ts-checkbox-outer-margin: 0;
+
+  // Make the entire horizontal space interactive
+  .c-checkbox,
+  .c-checkbox__label {
+    width: 100%;
+  }
+}
+
+.ts-menu__item {
+  &:not(.ts-checkbox) {
+    @include menu-item;
+  }
+
+  &.ts-checkbox {
+    .c-checkbox__label {
+      --ts-checkbox-box-left: 8px;
+      --ts-checkbox-svg-left: 10px;
+      @include menu-item;
+      padding-left: calc(26px + 8px);
+    }
+  }
+
+  // Create space for drag indicator
+  &.cdk-drag {
+    padding-right: var(--ts-menu-panel-item-drag-paddingRight);
+  }
+
+  // Draggable preview
+  &.cdk-drag-preview {
+    align-items: center;
+    background-color: var(--ts-menuItem-backgroundColor-hover);
+    display: flex;
+    flex-direction: row;
+    min-height: auto;
+    // NOTE: Important is needed to override underlying important
+    /* stylelint-disable-next-line declaration-no-important */
+    padding: var(--ts-menuItem-padding) !important;
+  }
+}
+
 
 // NOTE: When being dragged the element is not nested inside the panel
 .ts-checkbox {
@@ -131,7 +192,6 @@
     padding: var(--ts-menu-checkbox-drag-padding);
   }
 }
-
 
 // Target a utility instance within a card
 .c-card {

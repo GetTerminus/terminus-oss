@@ -80,11 +80,6 @@ export class TsMenuComponent implements AfterViewInit {
   }
 
   /**
-   * Define if the menu should overlap the trigger
-   */
-  public shouldOverlapTrigger = false;
-
-  /**
    * Provide access to the trigger
    */
   @ViewChild(MatMenuTrigger)
@@ -143,4 +138,6 @@ export class TsMenuComponent implements AfterViewInit {
       this.trigger.openMenu();
     }
   }
+
+  constructor(public elementRef: ElementRef) {}
 }

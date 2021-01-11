@@ -11,6 +11,9 @@
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
+  - [Option styles](#option-styles)
+    - [Style overrides](#style-overrides)
+    - [Layout styles](#layout-styles)
   - [Checkbox menu](#checkbox-menu)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -61,6 +64,39 @@ proxied through event emitters.
 
 > NOTE: `<ts-link>` and `<ts-button>` will be styled the same within a menu.
 
+### Option styles
+
+By default, no styles are added to the options that appear in the menu. This allows other elements to be easily nested.
+
+A directive is exposed to help with styling menu items.
+
+#### Style overrides
+
+Adding the directive `tsMenuItem` to a `TsButtonComponent`, `TsLinkComponent`, or `TsCheckboxComponent` will overwrite
+the styles, so they will appear like standard list items:
+
+```html
+<ts-menu [menuItemsTemplate]="myTemplate">Select Item</ts-menu>
+
+<ng-template #myTemplate>
+  <ts-button tsMenuItem>Roger, Roger.</ts-button>
+  <ts-link tsMenuItem>A tasty link</ts-link>
+</ng-template>
+```
+
+#### Layout styles
+
+To only add layout styles, define the directive with the `transparent` parameter:
+
+```html
+<ts-menu [menuItemsTemplate]="myTemplate">Select Item</ts-menu>
+
+<ng-template #myTemplate>
+  <ts-button tsMenuItem="transparent">Roger, Roger.</ts-button>
+  <ts-link tsMenuItem="transparent">A tasty link</ts-link>
+</ng-template>
+```
+
 ### Checkbox menu
 
 > This is very similar to the basic usage example, with a few small, key differences.
@@ -81,7 +117,7 @@ myForm = this.formBuilder.group({
 });
 ```
 
-Create the menu trigger and the dropdown contents:
+Create the menu trigger, and the dropdown contents:
 
 ```html
 <!-- Define the menu component. This will be the trigger to open the menu -->
@@ -94,7 +130,8 @@ Create the menu trigger and the dropdown contents:
     <ng-container *ngFor="let control of myForm.controls['showColumns'].controls; let i = index">
       <!-- The menu normally closes after each interaction, so we need to stop propagation here to
       support multiple selections while open -->
-      <ts-checkbox [formControl]="control" (click)="$event.stopPropagation()">
+      <!-- Also, add the tsMenuItem directive for style overrides -->
+      <ts-checkbox [formControl]="control" (click)="$event.stopPropagation()" tsMenuItem>
         <!-- Use the index from the loop to get the appropriate UI text from our array -->
         {{ columns[i] }}
       </ts-checkbox>
