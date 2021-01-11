@@ -52,7 +52,7 @@ Load the needed font families by adding this link to the `<head>` of your applic
 
 This popover component is built on top of a 3rd party library called [popper.js][popper].
 
-`popper.js` can be installed by running: `yarn add popper.js`
+`popper.js` can be installed by running: `yarn add @popperjs/core`
 
 ### popper.js documentation
 
