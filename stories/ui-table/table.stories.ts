@@ -1,26 +1,15 @@
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HttpClientModule } from '@angular/common/http';
-import { APP_INITIALIZER } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   FormControl,
   ReactiveFormsModule,
 } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  FaIconLibrary,
-  FontAwesomeModule,
-} from '@fortawesome/angular-fontawesome';
-import {
-  faExternalLink,
-  faGripLines,
-  faTable,
-} from '@fortawesome/pro-solid-svg-icons';
 import { action } from '@storybook/addon-actions';
 import {
   boolean,
   select,
-  text,
 } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
@@ -134,7 +123,6 @@ export default {
         BrowserAnimationsModule,
         DragDropModule,
         FlexLayoutModule,
-        FontAwesomeModule,
         HttpClientModule,
         ReactiveFormsModule,
         TsCheckboxModule,
@@ -145,20 +133,6 @@ export default {
         TsSortModule,
         TsSpacingModule,
         TsTableModule,
-      ],
-      providers: [
-        {
-          provide: APP_INITIALIZER,
-          useFactory: (iconLibrary: FaIconLibrary) => async() => {
-            // Add the necessary icons inside the initializer body.
-            iconLibrary.addIcons(faExternalLink);
-            iconLibrary.addIcons(faTable);
-            iconLibrary.addIcons(faGripLines);
-          },
-          // When using a factory provider you need to explicitly specify its dependencies.
-          deps: [FaIconLibrary],
-          multi: true,
-        },
       ],
     }),
   ],
