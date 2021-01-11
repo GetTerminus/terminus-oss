@@ -14,15 +14,13 @@
 
       <button (click)="clearCachedData()">Clear cached GitHub data</button>
     </div>
-
-    <p *ngIf="firstColumnNoWrap">Note: The `title` column has `noWrap: false` set.</p>
   </div>
 
   <span fxFlex></span>
 
   <div style="text-align: right;">
     <ts-menu [menuItemsTemplate]="columns" theme="secondary">
-      <ts-icon [icon]="iconTable"></ts-icon>
+      <span class="fas fa-columns"></span>
       Edit Columns
     </ts-menu>
     <small style="display: block; max-width: 220px;">
@@ -47,19 +45,17 @@
           (click)="$event.stopPropagation()"
           theme="accent"
           cdkDrag
+          tsMenuItem
         >
-          <span>
-            {{ column.display }}
-          </span>
+          <span>{{ column.display }}</span>
 
           <!-- Stop drag interactions from affecting the checkbox status -->
-          <ts-icon
+          <span
+            class="fas fa-grip-lines"
             cdkDragHandle
-            transform="shrink-4"
-            [icon]="iconDrag"
             (click)="$event.preventDefault() && $event.stopPropagation()"
-          ></ts-icon>
-
+            data-fa-transform="shrink-4"
+          ></span>
           <div *cdkDragPlaceholder></div>
         </ts-checkbox>
       </ng-container>
@@ -81,11 +77,10 @@
     [trackBy]="trackBy"
     #myTable="tsTable"
   >
-
     <ng-container tsColumnDef="title" [sticky]="firstSticky" [noWrap]="firstColumnNoWrap">
       <th ts-header-cell *tsHeaderCellDef>Title</th>
       <td ts-cell *tsCellDef="let item">{{ item.title }}</td>
-      <td ts-footer-cell *tsFooterCellDef>TEST footer content</td>
+      <td ts-footer-cell *tsFooterCellDef>Footer content</td>
     </ng-container>
 
     <ng-container tsColumnDef="updated" alignment="right">
@@ -148,11 +143,11 @@
       <td ts-footer-cell *tsFooterCellDef>-</td>
     </ng-container>
 
-    <ng-container tsColumnDef="html_url" [stickyEnd]="lastSticky">
+    <ng-container tsColumnDef="html_url" [stickyEnd]="lastSticky" alignment="right">
       <th ts-header-cell *tsHeaderCellDef>View</th>
       <td ts-cell *tsCellDef="let item">
         <a href="{{ item.html_url }}">
-          <ts-icon [icon]="iconExternal"></ts-icon>
+          <span class="fas fa-external-link-alt"></span>
         </a>
       </td>
       <td ts-footer-cell *tsFooterCellDef>-</td>
