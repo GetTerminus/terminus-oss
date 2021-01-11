@@ -12,6 +12,8 @@
   // Custom margin added to match buttons so that both match the vertical offset of the input
   --ts-checkbox-outer-margin: 4px 0;
   --ts-checkbox-check-xy: 10px;
+  --ts-checkbox-box-left: 0;
+  --ts-checkbox-svg-left: calc(var(--ts-checkbox-box-left) + 2px);
   --ts-checkbox-input-xy: 14px;
   --ts-checkbox-label-color: var(--ts-color-utility-600);
   --ts-checkbox-input-disabled-svg-color: var(--ts-color-utility-600);
@@ -185,10 +187,11 @@
       content: '';
       display: inline-block;
       height: var(--ts-checkbox-input-xy);
-      left: 0;
+      left: var(--ts-checkbox-box-left);
       margin-right: var(--ts-checkbox-input-marginRight);
       position: absolute;
-      top: 4px;
+      top: calc(50% - 1px);
+      transform: translateY(-50%);
       transition: all var(--ts-checkbox-transitionDuration) var(--ts-checkbox-transitionFunction);
       width: var(--ts-checkbox-input-xy);
     }
@@ -196,10 +199,11 @@
     // The check (✓)
     svg {
       height: var(--ts-checkbox-check-xy);
-      left: 2px;
+      left: var(--ts-checkbox-svg-left);
       pointer-events: none;
       position: absolute;
-      top: 6px;
+      top: calc(50% - 1px);
+      transform: translateY(-50%);
       width: var(--ts-checkbox-check-xy);
     }
 
