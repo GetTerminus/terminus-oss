@@ -1,0 +1,55 @@
+@import '../typography/truncate-overflow';
+@import '../layout/spacing';
+
+:root {
+  --ts-menuItem-fontSize: 13px;
+  --ts-menuItem-padding: 8px;
+  --ts-menuItem-backgroundColorTransition: background-color 200ms ease-out;
+  --ts-menuItem-backgroundColor-hover: var(--ts-color-primary-100);
+}
+
+/**
+ * Base styles for menu items
+ *
+ * @example
+ *  @include menu-base;
+ */
+@mixin menu-item-base() {
+  @include truncate-overflow;
+  // Needs to be a block for the ellipsis to work.
+  display: block;
+  // Required for Edge not to show scrollbars when setting the width manually.
+  max-width: 100%;
+  padding: 0 spacing(default);
+  position: relative;
+  text-align: left;
+  // Necessary to reset anchor tags:
+  text-decoration: none;
+}
+
+/**
+ * Styles for latest menu items
+ *
+ * @param $padding
+ *  number Default: 8px
+ *
+ * @example
+ *  @include menu-item;
+ *  @include menu-item(16px);
+ */
+@mixin menu-item($padding: var(--ts-menuItem-padding, 8px)) {
+  @include truncate-overflow;
+  border-radius: var(--ts-border-radius-base);
+  color: var(--ts-color-utility-700);
+  font-size: var(--ts-menuItem-fontSize);
+  // Required for Edge not to show scrollbars when setting the width manually.
+  max-width: 100%;
+  padding: $padding;
+  text-decoration: none;
+  transition: var(--ts-menuItem-backgroundColorTransition);
+
+  &:focus,
+  &:hover {
+    background-color: var(--ts-menuItem-backgroundColor-hover);
+  }
+}
