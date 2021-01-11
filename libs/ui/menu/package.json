@@ -26,7 +26,7 @@
     "@angular/material": "^11.0.3",
     "@terminus/design-tokens": "^3.1.0",
     "@terminus/ui-button": "^4.0.0",
-    "@terminus/ui-styles": "^2.0.0"
+    "@terminus/ui-styles": "^2.1.5"
   },
   "scripts": {
     "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",

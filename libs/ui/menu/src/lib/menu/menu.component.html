@@ -6,7 +6,7 @@
     #menu="matMenu"
     [yPosition]="menuPositionY"
     [xPosition]="menuPositionX"
-    [overlapTrigger]="shouldOverlapTrigger"
+    [overlapTrigger]="false"
     backdropClass="ts-menu__backdrop"
     class="ts-menu__panel"
   >
@@ -44,7 +44,6 @@
   <button
     *ngIf="isUtilityMenu"
     class="c-menu__trigger c-menu__trigger--utility"
-    mat-icon-button
     [matMenuTriggerFor]="menu"
     [disabled]="isDisabled"
   >

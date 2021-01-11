@@ -4133,10 +4133,10 @@
   resolved "https://registry.yarnpkg.com/@terminus/stylelint-config-frontend/-/stylelint-config-frontend-1.3.0.tgz#8381ccd4fd0ffecce5bb049f97bf2a57307e5da5"
   integrity sha512-sHa9yAFOIPReL8qZNaqlND5oPbJ7S4VjgNRp1TmDW67tImri95MlGSQ0yfNy2f35Iz1gCUR8jXxnpbS44HyTVQ==
 
-"@terminus/ui-styles@1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@terminus/ui-styles/-/ui-styles-1.1.1.tgz#7b48febbf74fa9287ea5d89d89fcc91b0d82f83e"
-  integrity sha512-iPbOGctVczQPv/FRJcmheJ8gfke+JN/7ZiWbnNkj7lZAlZBog6wCx/6zYFomXy5Je4M1Q80Kmig/lzw2rb+W/g==
+"@terminus/ui-styles@2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@terminus/ui-styles/-/ui-styles-2.1.4.tgz#e4ded48fec6b0e92c4f31763e3b0372a6d41525f"
+  integrity sha512-Hz0yeUkB6Y5YAaIdJNY/rSAKwK7c9+1pPh5YwOLMakAQuDsIxpcH2Us+Ph/IoBcmCM8pdOvzm7X92oidJ3g93Q==
 
 "@testing-library/dom@6.1.0":
   version "6.1.0"
