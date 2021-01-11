@@ -1,7 +1,7 @@
 {
   "extends": [
     "config:base",
-    "schedule:monthly"
+    "schedule:weekly"
   ],
   "masterIssue": true,
   "packageRules": [
