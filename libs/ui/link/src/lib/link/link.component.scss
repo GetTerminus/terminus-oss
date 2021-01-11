@@ -40,28 +40,3 @@
     }
   }
 }
-
-.c-link {
-  // Target links inside a TsMenuComponent
-  .c-menu & {
-    margin: var(--ts-link-menu-margin-adjustment);
-  }
-
-  // Target links inside a TsMenuComponent
-  .mat-menu-content & {
-    background-color: var(--ts-link-menu-item-backgroundColor);
-    display: block;
-    font: var(--ts-link-menu-typography);
-    font-size: 14px;
-    padding: var(--ts-link-menu-padding);
-    transition-duration: var(--ts-link-menu-transitionDuration);
-    transition-property: background-color, color;
-    transition-timing-function: var(--ts-link-menu-transitionFunction);
-
-    &:focus,
-    &:hover {
-      --ts-link-menu-item-color: var(--ts-link-menu-item-hover-color);
-      text-decoration: none;
-    }
-  }
-}
