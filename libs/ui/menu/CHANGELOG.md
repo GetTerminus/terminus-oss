@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@6.0.0...@terminus/ui-menu@6.0.1) (2021-01-12)
+
+**Note:** Version bump only for package @terminus/ui-menu
+
+
+
+
+
 # [6.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@5.0.0...@terminus/ui-menu@6.0.0) (2021-01-12)
 
 
