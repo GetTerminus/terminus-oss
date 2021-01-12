@@ -16,8 +16,41 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **Menu:** No longer overriding default styles of buttons and links within menus.
 
 
+#### Migration Notes 6.0.0
 
+##### Style overrides
 
+If you were previously relying on the menu overriding `<ts-button>` or `<ts-link>` styles, this will be a breaking change:
+
+```diff
+<ts-menu [menuItemsTemplate]="myTemplate">Select Item</ts-menu>
+
+<ng-template #myTemplate>
+-  <ts-button>My button</ts-button>
++  <ts-button tsMenuItem>My button</ts-button>
+
+-  <ts-link>My button</ts-link>
++  <ts-link tsMenuItem>My button</ts-link>
+</ng-template>
+```
+
+If you need to add the layout styles but do not want to override the design itself, pass the `transparent` parameter:
+
+```diff
+<ts-menu [menuItemsTemplate]="myTemplate">Select Item</ts-menu>
+
+<ng-template #myTemplate>
+-  <ts-button>My button</ts-button>
++  <ts-button tsMenuItem="transparent">My button</ts-button>
+
+-  <ts-link>My button</ts-link>
++  <ts-link tsMenuItem="transparent">My button</ts-link>
+</ng-template>
+```
+
+##### Dependency
+
+The depency on `@terminus/ui-styles` has been increased to `2.1.5`. This is the release that contains the new menu styles.
 
 # 5.0.0 (2020-12-16)
 
