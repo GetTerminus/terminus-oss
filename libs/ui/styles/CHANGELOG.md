@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-styles@2.1.4...@terminus/ui-styles@2.1.5) (2021-01-12)
+
+**Note:** Version bump only for package @terminus/ui-styles
+
+
+
+
+
 ## [2.1.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-styles@2.1.3...@terminus/ui-styles@2.1.4) (2021-01-05)
 
 **Note:** Version bump only for package @terminus/ui-styles

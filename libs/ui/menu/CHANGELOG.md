@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@5.0.0...@terminus/ui-menu@6.0.0) (2021-01-12)
+
+
+### Features
+
+* **Menu:** now allows buttons and links without style overrides ([c118b97](https://github.com/GetTerminus/terminus-oss/commit/c118b9731a36ad295a12e8aa0a4870b36cdbf52b)), closes [#495](https://github.com/GetTerminus/terminus-oss/issues/495)
+
+
+### BREAKING CHANGES
+
+* **Menu:** No longer overriding default styles of buttons and links within menus.
+
+
+
+
+
 # 5.0.0 (2020-12-16)
 
 

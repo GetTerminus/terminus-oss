@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@4.0.0...@terminus/ui-table@4.0.1) (2021-01-12)
+
+
+### Bug Fixes
+
+* **Table:** remove fontawesome ([f3d1226](https://github.com/GetTerminus/terminus-oss/commit/f3d1226caf2ec82b993a6b34929e5203cabf9218)), closes [#490](https://github.com/GetTerminus/terminus-oss/issues/490)
+
+
+
+
+
 # [4.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.2.0...@terminus/ui-table@4.0.0) (2020-12-16)
 
 
