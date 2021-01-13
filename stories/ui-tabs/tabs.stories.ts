@@ -1,23 +1,12 @@
-import {
-  APP_INITIALIZER,
-  Component,
-} from '@angular/core';
+import { Component } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  FaIconLibrary,
-  FontAwesomeModule,
-} from '@fortawesome/angular-fontawesome';
-import { faHome } from '@fortawesome/pro-solid-svg-icons/faHome';
-import { faQuestionCircle } from '@fortawesome/pro-solid-svg-icons/faQuestionCircle';
 import { action } from '@storybook/addon-actions';
 import {
   boolean,
-  select,
   withKnobs,
 } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
-import { TsIconModule } from '@terminus/ui-icon';
 import { TsSpacingModule } from '@terminus/ui-spacing';
 import {
   TsTabBodyComponent,
@@ -40,22 +29,8 @@ export default {
     moduleMetadata({
       imports: [
         BrowserAnimationsModule,
-        FontAwesomeModule,
-        TsIconModule,
-        TsTabsModule,
         TsSpacingModule,
-      ],
-      providers: [
-        {
-          provide: APP_INITIALIZER,
-          useFactory: (iconLibrary: FaIconLibrary) => async() => {
-            // Add the necessary icons inside the initializer body.
-            iconLibrary.addIcons(faHome);
-          },
-          // When using a factory provider you need to explicitly specify its dependencies.
-          deps: [FaIconLibrary],
-          multi: true,
-        },
+        TsTabsModule,
       ],
     }),
   ],
@@ -208,7 +183,7 @@ export const customLabels = () => ({
     <ts-tab-collection>
       <ts-tab>
         <ng-template tsTabLabel>
-          <ts-icon [icon]="homeIcon"></ts-icon>
+          <span class="fas fa-igloo"></span>
           First
         </ng-template>
         Content 1
@@ -216,17 +191,13 @@ export const customLabels = () => ({
 
       <ts-tab>
         <ng-template tsTabLabel>
-          <ts-icon [icon]="helpIcon"></ts-icon>
+          <span class="fas fa-dice"></span>
           Second
         </ng-template>
         Content 2
       </ts-tab>
     </ts-tab-collection>
   `,
-  props: {
-    homeIcon: faHome,
-    helpIcon: faQuestionCircle,
-  },
 });
 customLabels.parameters = {
   actions: { disabled: true },
