@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/eslint-config-frontend@5.0.0...@terminus/eslint-config-frontend@5.0.1) (2021-01-19)
+
+
+### Bug Fixes
+
+* **ESLintConfig:** allow 10 as magic number ([8db847d](https://github.com/GetTerminus/terminus-oss/commit/8db847d5bc177ceddede31ccebbe46de3ef76e97))
+
+
+
+
+
 # 5.0.0 (2020-12-16)
 
 

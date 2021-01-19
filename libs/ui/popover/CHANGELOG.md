@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-popover@3.0.1...@terminus/ui-popover@3.1.0) (2021-01-19)
+
+
+### Features
+
+* **Popover:** refactor to only require one instance passed in ([1566bad](https://github.com/GetTerminus/terminus-oss/commit/1566bad30a028ef591069956032f204f0fdc326b)), closes [#530](https://github.com/GetTerminus/terminus-oss/issues/530)
+
+
+
+
+
 ## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-popover@3.0.0...@terminus/ui-popover@3.0.1) (2021-01-12)
 
 **Note:** Version bump only for package @terminus/ui-popover
