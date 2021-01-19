@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@4.0.1...@terminus/ui-checkbox@4.0.2) (2021-01-19)
+
+
+### Bug Fixes
+
+* **Checkbox:** fix left spacing ([44cf062](https://github.com/GetTerminus/terminus-oss/commit/44cf062dc7fb19b296207e706209fec736e26501))
+
+
+
+
+
 ## [4.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-checkbox@4.0.0...@terminus/ui-checkbox@4.0.1) (2021-01-12)
 
 
