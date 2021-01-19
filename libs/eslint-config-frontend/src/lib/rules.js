@@ -372,10 +372,12 @@ module.exports = {
       {
         // `0` is useful for checking existence (eg `index < 0`)
         // `1` is useful in situations where it has no explicit value (eg `arr.length - 1`)
+        // `10` is a needed default for ParseInt
         ignore: [
           -1,
           0,
           1,
+          10,
         ],
         // Allow targeting array indexes without a variable
         ignoreArrayIndexes: true,
