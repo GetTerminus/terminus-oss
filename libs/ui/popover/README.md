@@ -16,7 +16,7 @@ Popover component is designed to pop up simple or complex content based on a use
   - [popper.js documentation](#popperjs-documentation)
 - [Usage](#usage)
   - [Position](#position)
-  - [Popover Trigger](#popover-trigger)
+  - [Popover trigger](#popover-trigger)
   - [Hide on blur](#hide-on-blur)
   - [Open on load](#open-on-load)
   - [Events](#events)
@@ -64,7 +64,7 @@ This popover component is built on top of a 3rd party library called [popper.js]
 Define a popover trigger and popover content:
 
 ```html
-<button tsPopoverTrigger="myPopper">Click me!</button>
+<button [tsPopoverTrigger]="myPopper">Click me!</button>
 
 <ts-popover #myPopper>
   <h1>My Title</h1>
@@ -74,11 +74,11 @@ Define a popover trigger and popover content:
 
 ### Position
 
-Defines where the popover is positioned, relative to current element:
+Defines where the popover is positioned relative to current element:
 
 ```html
 <button
-  tsPopoverTrigger="myPopper"
+  [tsPopoverTrigger]="myPopper"
   [position]="top"
 >Click me!</button>
 
@@ -87,36 +87,32 @@ Defines where the popover is positioned, relative to current element:
 
 The default is `bottom`. For all available positions, please see the [popper.js placement docs][popper-placements].
 
-### Popover Trigger
+### Popover trigger
 
 Popover supports two types of trigger, `click` and `hover`.
 
 ```html
 <button
-  tsPopoverTrigger="myPopper"
-  [popoverTrigger]="click"
+  [tsPopoverTrigger]="myPopper"
+  popoverTrigger="click"
 >Click me!</button>
 
 <ts-popover #myPopper>My popover</ts-popover>
-
 ```
 
 The default is `click`.
 
 ### Hide on blur
 
-By default, the popover will be closed by clicking outside the popover. If this functionality is not desired, it can be
-disabled:
+By default, the popover will be closed by clicking outside the popover. If this is not desired, it can be disabled:
 
 ```html
 <button
-  tsPopoverTrigger="myPopper"
+  [tsPopoverTrigger]="myPopper"
   [hideOnBlur]="false"
 >Click me!</button>
 
-<ts-popover #myPopper>
-  My popover
-</ts-popover>
+<ts-popover #myPopper>My popover</ts-popover>
 ```
 
 It defaults to `true`.
@@ -127,7 +123,7 @@ The popover can be defined to open on load:
 
 ```html
 <button
-  tsPopoverTrigger="myPopper"
+  [tsPopoverTrigger]="myPopper"
   [defaultOpened]="true"
 >Click me!</button>
 

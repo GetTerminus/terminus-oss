@@ -10,9 +10,8 @@ import {
   template: `
     <div class="outside"></div>
     <button
-      tsPopoverTrigger="popper1"
+      [tsPopoverTrigger]="popper1"
       [position]="position"
-      [popover]="popper1"
       [defaultOpened]="defaultOpened"
       [hideOnBlur]="hideOnBlur"
       style="margin: 200px 250px;"
@@ -43,9 +42,8 @@ export class Basic {
   template: `
       <div class="outside"></div>
       <button
-              tsPopoverTrigger="popper1"
+              [tsPopoverTrigger]="popper1"
               [position]="position"
-              [popover]="popper1"
               [popoverTrigger]="showTrigger"
               style="margin: 200px 250px;"
               [id]="id"
@@ -74,9 +72,8 @@ export class TriggerOnHover {
   template: `
       <div class="outside"></div>
       <button
-              tsPopoverTrigger="popper1"
+              [tsPopoverTrigger]="popper1"
               [position]="position"
-              [popover]="popper1"
               [defaultOpened]="defaultOpened"
               [popoverTrigger]="showTrigger"
               (popoverOnShown)="popoverOnShown()"

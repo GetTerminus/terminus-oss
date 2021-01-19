@@ -1,204 +1,290 @@
-import 'tools/jest-mocks/createRange';
-import { PlatformModule } from '@angular/cdk/platform';
-import { CommonModule } from '@angular/common';
 import {
-  DebugElement,
-  Type,
+  Component,
+  Input,
 } from '@angular/core';
 import {
-  ComponentFixture,
   fakeAsync,
   flush,
-  tick,
 } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  createComponent as createComponentInner,
-  dispatchEvent,
-  dispatchKeyboardEvent,
-} from '@terminus/fe-testing';
+  createHostFactory,
+  SpectatorHost,
+} from '@ngneat/spectator/jest';
+
+import { dispatchKeyboardEvent } from '@terminus/fe-testing';
 import { KEYS } from '@terminus/fe-utilities';
 import {
   TsPopoverComponent,
   TsPopoverModule,
+  TsPopoverPosition,
+  TsPopoverTriggerDirective,
+  TsTrigger,
 } from '@terminus/ui-popover';
 
-import {
-  Basic,
-  DefaultOpen,
-  TriggerOnHover,
-} from "./test-components";
+const TEMPLATE = `
+  <div id="wrapper">
+    <button
+      [tsPopoverTrigger]="popper1"
+      [popover]="popper1"
+      [position]="position"
+      [popoverTrigger]="popoverTriggerType"
+      [defaultOpened]="defaultOpened"
+      [id]="id"
+    >My trigger</button>
 
-describe(`popover trigger`, () => {
-  let fixture;
+    <ts-popover #popper1>
+      <h3>My Title</h3>
+      <p>Other random content.</p>
+    </ts-popover>
+  </div>
+`;
+const TEMPLATE_OLD_FORMAT = `
+  <button
+    [tsPopoverTrigger]
+    [popover]="popper1"
+    [position]="position"
+    [popoverTrigger]="popoverTriggerType"
+    [defaultOpened]="defaultOpened"
+  >My trigger {{bop}}}</button>
 
-  /**
-   * Create test host component
-   *
-   * @param component
-   */
-  function createComponent<T>(component: Type<T>): ComponentFixture<T> {
-    const moduleImports = [
-      CommonModule,
-      PlatformModule,
+  <ts-popover #popper1>
+    <h3>My Title</h3>
+    <p>Other random content.</p>
+  </ts-popover>
+`;
+
+@Component({
+  selector: 'popover-host-component',
+  template: '',
+})
+class PopoverHostComponent {
+  @Input() position: TsPopoverPosition;
+  @Input() defaultOpened: boolean;
+  @Input() popoverTriggerType: TsTrigger;
+  @Input() id: string;
+}
+
+describe(`TsPopover`, () => {
+  let spectator: SpectatorHost<TsPopoverTriggerDirective, PopoverHostComponent>;
+  const createHost = createHostFactory({
+    component: TsPopoverTriggerDirective,
+    host: PopoverHostComponent,
+    imports: [
+      NoopAnimationsModule,
       TsPopoverModule,
-    ];
-    const providers = [];
+    ],
+    declareComponent: false,
+  });
 
-    return createComponentInner<T>(component, providers, moduleImports);
-  }
+  test(`should exist`, () => {
+    spectator = createHost(TEMPLATE, {
+      hostProps: {
+        position: 'top',
+        defaultOpened: false,
+        popoverTriggerType: 'click',
+      },
+    });
+    expect(spectator.queryHost('button')).toHaveClass('ts-popover-trigger');
+  });
 
-  describe(`TsPopoverTriggerDirective`, () => {
-    let buttonDebugElement: HTMLElement;
-    let popoverDebugElement: DebugElement;
-    let popoverInstance: TsPopoverComponent;
+  test(`should exist with deprecated format`, () => {
+    spectator = createHost(TEMPLATE_OLD_FORMAT, {
+      hostProps: {
+        position: 'top',
+        defaultOpened: false,
+        popoverTriggerType: 'click',
+      },
+    });
+    expect(spectator.queryHost('button')).toHaveClass('ts-popover-trigger');
+  });
 
-    /**
-     * Set up for tests
-     *
-     * @param component
-     */
-    function setup<T>(component: T) {
-      // TODO: fix this
-      // @ts-ignore
-      fixture = createComponent<T>(component);
-      fixture.detectChanges();
-      popoverDebugElement = fixture.debugElement.query(By.css('.popover__container'));
-      buttonDebugElement = fixture.debugElement.query(By.css('.popover-button')).nativeElement as HTMLElement;
-      popoverInstance = popoverDebugElement.componentInstance;
-    }
-
-    // TODO: In order to get this condition tested, we might have to create a service and token and mock the service
-    test.todo(`should throw error if popper.js was not imported`);
-
-    describe(`ID`, () => {
-      test(`should support a custom ID`, fakeAsync(() => {
-        setup(Basic);
-        fixture.componentInstance.id = 'example10reference1';
-        fixture.detectChanges();
-        tick();
-        expect(popoverDebugElement.componentInstance.id).toEqual('example10reference1');
-      }));
-
-      test(`should fall back to the UID if no ID is passed in`, () => {
-        setup(Basic);
-        fixture.componentInstance.id = undefined as any;
-        fixture.detectChanges();
-
-        expect(popoverDebugElement.nativeElement.getAttribute('aria-labelledby')).toEqual(expect.stringContaining('ts-popover-'));
+  describe(`ID`, () => {
+    test(`should default to UID`, () => {
+      spectator = createHost(TEMPLATE, {
+        hostProps: {
+          position: 'top',
+          defaultOpened: false,
+          popoverTriggerType: 'click',
+          id: undefined,
+        },
       });
-    });
+      expect(spectator.queryHost(TsPopoverTriggerDirective).id).toEqual(expect.stringContaining('ts-popover-trigger-'));
 
-    describe(`position`, () => {
-      let event: MouseEvent;
-      beforeEach(() => {
-        event = document.createEvent('MouseEvent');
-        event.initEvent('click', true, false);
+      spectator.setHostInput('id', 'foo');
+      expect(spectator.queryHost(TsPopoverTriggerDirective).id).toEqual('foo');
+    });
+  });
+
+  describe(`position`, () => {
+    test(`should allow custom position and fall back to the default`, () => {
+      spectator = createHost(TEMPLATE, {
+        hostProps: {
+          position: 'top',
+          defaultOpened: false,
+          popoverTriggerType: 'click',
+          id: 'foo',
+        },
       });
-      test(`should set popover position based on input`, fakeAsync(() => {
-        setup(Basic);
-        fixture.componentInstance.position = 'right';
-        fixture.detectChanges();
-
-        dispatchEvent(buttonDebugElement, event);
-        fixture.detectChanges();
-        tick();
-        expect(popoverDebugElement.nativeElement.getAttribute('data-popper-placement')).toEqual('right');
-      }));
-
-      test(`should throw UI library error if provided position is not allowed`, fakeAsync(() => {
-        setup(Basic);
-        const setPosition = () => {
-          fixture.componentInstance.position = 'foo' as any;
-          fixture.detectChanges();
-          tick();
-        };
-        expect(setPosition).toThrowError();
-      }));
+      expect(spectator.queryHost(TsPopoverTriggerDirective).position).toEqual('top');
+      spectator.setHostInput('position', undefined);
+      expect(spectator.queryHost(TsPopoverTriggerDirective).position).toEqual('bottom');
     });
 
-    describe(`hide on blur`, () => {
-      let event: MouseEvent;
-      beforeEach(() => {
-        event = document.createEvent('MouseEvent');
-        event.initEvent('click', true, false);
+    test(`should throw an error if a bad value is passed in`, () => {
+      spectator = createHost(TEMPLATE, {
+        hostProps: {
+          position: 'top',
+          defaultOpened: false,
+          popoverTriggerType: 'click',
+          id: 'foo',
+        },
       });
-
-      test(`should hide if click outside and hideOnBlur set to true`, fakeAsync(() => {
-        setup(Basic);
-        fixture.componentInstance.popoverOnHidden = jest.fn();
-        fixture.componentInstance.popoverOnShown = jest.fn();
-        fixture.detectChanges();
-        fixture.componentInstance.hideOnBlur = true;
-        fixture.detectChanges();
-        dispatchEvent(buttonDebugElement, event);
-        fixture.detectChanges();
-        tick();
-        expect(fixture.componentInstance.popoverOnShown).toHaveBeenCalled();
-        const outsideElement = fixture.debugElement.query(By.css('.outside')).nativeElement as HTMLElement;
-        dispatchEvent(outsideElement, event);
-        fixture.detectChanges();
-        tick();
-        expect(fixture.componentInstance.popoverOnHidden).toHaveBeenCalled();
-      }));
+      expect(spectator.queryHost(TsPopoverTriggerDirective).position).toEqual('top');
+      const shouldThrow = () => {
+        spectator.setHostInput('position', 'bad value' as any);
+      };
+      expect(shouldThrow).toThrow(`TsPopoverTriggerDirective: "bad value" is not an allowed position value.`);
     });
+  });
 
-    describe(`default opened`, () => {
-      test(`should open on load if defaultOpened set to true`, fakeAsync(() => {
-        setup(DefaultOpen);
-        tick();
-        expect(popoverDebugElement.nativeElement.classList).toContain('c-popover--visible');
-        expect(popoverDebugElement.nativeElement.getAttribute('data-popper-placement')).toEqual('right');
-      }));
-    });
-
-    describe(`popoverTrigger`, () => {
-      let hoverEvent: MouseEvent;
-      beforeEach(() => {
-        hoverEvent = document.createEvent('MouseEvent');
-        hoverEvent.initEvent('mouseenter', true, false);
+  describe(`trigger type`, () => {
+    test(`should toggle based on click`, () => {
+      spectator = createHost(TEMPLATE, {
+        hostProps: {
+          position: 'top',
+          defaultOpened: false,
+          popoverTriggerType: 'click',
+          id: 'foo',
+        },
       });
-      test(`should trigger popover with mouseenter if showTrigger set to hover`, fakeAsync(() => {
-        setup(TriggerOnHover);
-        fixture.componentInstance.popoverOnHidden = jest.fn();
-        fixture.componentInstance.popoverOnShown = jest.fn();
-        fixture.componentInstance.popoverTrigger = 'hover';
-        fixture.detectChanges();
-        tick();
-        dispatchEvent(buttonDebugElement, hoverEvent);
-        fixture.detectChanges();
-        tick();
-        expect(fixture.componentInstance.popoverOnShown).toHaveBeenCalled();
-      }));
+      expect(spectator.queryHost('.ts-popover')).toHaveClass('ts-popover--hidden');
+      spectator.click(spectator.queryHost('button'));
+      expect(spectator.queryHost('.ts-popover')).not.toHaveClass('ts-popover--hidden');
     });
 
-    describe(`escape`, () => {
-      test(`should close popover with escape key down`, fakeAsync(() => {
-        setup(Basic);
-        fixture.componentInstance.popoverOnHidden = jest.fn();
-        fixture.detectChanges();
-        const event = document.createEvent('MouseEvent');
-        event.initEvent('click', true, false);
-        dispatchEvent(buttonDebugElement, event);
-        fixture.detectChanges();
-        tick();
-        const escape = dispatchKeyboardEvent(buttonDebugElement, 'keydown', KEYS.ESCAPE);
-        fixture.detectChanges();
-        flush();
-        expect(escape.defaultPrevented).toBe(true);
-        expect(fixture.componentInstance.popoverOnHidden).toHaveBeenCalled();
-      }));
+    test(`should toggle based on hover`, () => {
+      spectator = createHost(TEMPLATE, {
+        hostProps: {
+          position: 'top',
+          defaultOpened: false,
+          popoverTriggerType: 'hover',
+          id: 'foo',
+        },
+      });
+      expect(spectator.queryHost('.ts-popover')).toHaveClass('ts-popover--hidden');
+      spectator.dispatchMouseEvent(spectator.queryHost('.ts-popover-trigger'), 'mouseenter');
+      expect(spectator.queryHost('.ts-popover')).not.toHaveClass('ts-popover--hidden');
     });
+  });
 
-    test(`should return if referenceObject is null`, () => {
-      setup(Basic);
-      popoverInstance.onUpdate.emit = jest.fn();
-      popoverInstance.referenceObject = undefined as any;
-      fixture.detectChanges();
-      popoverInstance.show({});
-      expect(popoverInstance.onUpdate.emit).not.toHaveBeenCalled();
+  test(`should close on blur`, () => {
+    spectator = createHost(TEMPLATE, {
+      hostProps: {
+        position: 'top',
+        defaultOpened: true,
+        popoverTriggerType: 'click',
+        id: 'foo',
+      },
+    });
+    expect(spectator.queryHost('.ts-popover')).not.toHaveClass('ts-popover--hidden');
+    spectator.click(spectator.queryHost('#wrapper'));
+    expect(spectator.queryHost('.ts-popover')).toHaveClass('ts-popover--hidden');
+  });
+
+  test(`should be able to default to the open state`, () => {
+    spectator = createHost(TEMPLATE, {
+      hostProps: {
+        position: 'top',
+        defaultOpened: true,
+        popoverTriggerType: 'click',
+        id: 'foo',
+      },
+    });
+    expect(spectator.queryHost('.ts-popover')).not.toHaveClass('ts-popover--hidden');
+  });
+
+  test(`should close on ESC`, () => {
+    spectator = createHost(TEMPLATE, {
+      hostProps: {
+        position: 'top',
+        defaultOpened: true,
+        popoverTriggerType: 'click',
+        id: 'foo',
+      },
+    });
+    expect(spectator.queryHost('.ts-popover')).not.toHaveClass('ts-popover--hidden');
+    const escape = dispatchKeyboardEvent(spectator.queryHost('button'), 'keydown', KEYS.ESCAPE);
+    spectator.detectChanges();
+    expect(spectator.queryHost('.ts-popover')).toHaveClass('ts-popover--hidden');
+    expect(escape.defaultPrevented).toBe(true);
+  });
+
+  test(`should throw error if popper.js is not available`, () => {
+    spectator = createHost(TEMPLATE, {
+      hostProps: {
+        position: 'top',
+        defaultOpened: true,
+        popoverTriggerType: 'click',
+        id: 'foo',
+      },
+    });
+    const component = spectator.queryHost(TsPopoverComponent);
+    component['createPopper'] = undefined;
+    const shouldThrowError = () => {
+      component.ngOnInit();
+    };
+    expect(shouldThrowError).toThrow('TsPopoverComponent: popper.js is not available to reference.');
+  });
+
+  test(`should do nothing if no reference object exists`, () => {
+    spectator = createHost(TEMPLATE, {
+      hostProps: {
+        position: 'top',
+        defaultOpened: true,
+        popoverTriggerType: 'click',
+        id: 'foo',
+      },
+    });
+    const component = spectator.queryHost(TsPopoverComponent);
+    component.onUpdate.emit = jest.fn();
+    component.referenceObject = undefined;
+    expect(component.show({})).toEqual(undefined);
+    expect(component.onUpdate.emit).not.toHaveBeenCalled();
+  });
+
+  test(`should toggle to show or hide`, () => {
+    spectator = createHost(TEMPLATE, {
+      hostProps: {
+        position: 'top',
+        defaultOpened: false,
+        popoverTriggerType: 'click',
+        id: 'foo',
+      },
+    });
+    const component = spectator.queryHost(TsPopoverTriggerDirective);
+    expect(spectator.queryHost('.ts-popover')).toHaveClass('ts-popover--hidden');
+    component.toggle();
+    expect(spectator.queryHost('.ts-popover')).not.toHaveClass('ts-popover--hidden');
+    component.toggle();
+    expect(spectator.queryHost('.ts-popover')).toHaveClass('ts-popover--hidden');
+  });
+
+  describe(`ngAfterContentInit`, () => {
+    test(`should set up listeners if not already set up`, () => {
+      spectator = createHost(TEMPLATE, {
+        hostProps: {
+          position: 'top',
+          defaultOpened: false,
+          popoverTriggerType: 'click',
+          id: 'foo',
+        },
+      });
+      const component = spectator.queryHost(TsPopoverTriggerDirective);
+      component['setUpListeners'] = jest.fn();
+      component.eventSubscription = undefined;
+      component.ngAfterContentInit();
+      expect(component['setUpListeners']).toHaveBeenCalled();
     });
   });
 });
-
