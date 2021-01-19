@@ -5,7 +5,6 @@ import {
   ElementRef,
   EventEmitter,
   Output,
-  ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
 import type {
@@ -17,7 +16,7 @@ import {
   Instance as Popper,
 } from '@popperjs/core';
 
-import { TS_SPACE_BASE_SMALL_2 } from '@terminus/design-tokens/js/design-tokens';
+import { TS_SPACE_BASE_BASE } from '@terminus/design-tokens/js/library-design-tokens';
 import { TsUILibraryError } from '@terminus/ui-utilities';
 
 import {
@@ -47,12 +46,18 @@ import {
   selector: 'ts-popover',
   styleUrls: ['./popover.component.scss'],
   templateUrl: './popover.component.html',
-  host: { class: 'ts-popover' },
+  host: {
+    'class': 'ts-popover',
+    '[class.ts-popover--visible]': 'visibility',
+    '[class.ts-popover--hidden]': '!visibility',
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   exportAs: 'tsPopoverComponent',
 })
 export class TsPopoverComponent implements OnDestroy, OnInit {
+  private createPopper = createPopper;
+
   /**
    * The element that passed to popper.js
    */
@@ -97,12 +102,6 @@ export class TsPopoverComponent implements OnDestroy, OnInit {
   };
 
   /**
-   * A reference to the popover view
-   */
-  @ViewChild('popoverViewRef', { static: true })
-  public popoverViewRef!: ElementRef;
-
-  /**
    * Event emitted when the popover is hidden
    */
   // eslint-disable-next-line @angular-eslint/no-output-on-prefix
@@ -129,14 +128,16 @@ export class TsPopoverComponent implements OnDestroy, OnInit {
   public readonly popoverShown = new EventEmitter<Popper>();
 
   constructor(
-    private CDR: ChangeDetectorRef,
+    private changeDetectorRef: ChangeDetectorRef,
+    public elementRef: ElementRef,
   ) {}
 
   /**
    * Check whether popper.js has been properly imported.
    */
   public ngOnInit(): void {
-    if (!createPopper) {
+    // istanbul ignore else
+    if (!this.createPopper) {
       throw new TsUILibraryError('TsPopoverComponent: popper.js is not available to reference.');
     }
   }
@@ -145,6 +146,7 @@ export class TsPopoverComponent implements OnDestroy, OnInit {
    * Destroy the instance when component is destroyed.
    */
   public ngOnDestroy(): void {
+    // istanbul ignore else
     if (this.popoverInstance) {
       this.popoverInstance.destroy();
     }
@@ -171,21 +173,15 @@ export class TsPopoverComponent implements OnDestroy, OnInit {
     if (!this.referenceObject) {
       return;
     }
-
     this.onUpdate.emit(this.popoverInstance);
-    const margin = TS_SPACE_BASE_SMALL_2;
-    // Removing last 2 character of 'px' from design token returns.
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-    const offset = Number(margin.substring(0, margin.length - 2));
-
-    this.popoverInstance = createPopper(
+    this.popoverInstance = this.createPopper(
       this.referenceObject,
-      this.popoverViewRef.nativeElement,
+      this.elementRef.nativeElement,
       {
         ...options,
         modifiers: [{
           name: 'offset',
-          options: { offset: [0, offset] },
+          options: { offset: [0, TS_SPACE_BASE_BASE] },
         }],
       },
     );
@@ -219,8 +215,8 @@ export class TsPopoverComponent implements OnDestroy, OnInit {
     }
     // istanbul ignore else
     // eslint-disable-next-line dot-notation
-    if (!this.CDR['destroyed']) {
-      this.CDR.detectChanges();
+    if (!this.changeDetectorRef['destroyed']) {
+      this.changeDetectorRef.detectChanges();
     }
   }
 }

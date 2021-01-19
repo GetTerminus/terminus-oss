@@ -48,12 +48,10 @@ let nextUniqueId = 0;
  *
  * @example
  * <button
- *              tsPopoverTrigger="popper1"
+ *              [tsPopoverTrigger]="popper1"
  *              [defaultOpened]="defaultOpened"
  *              [hideOnBlur]="false"
  *              id="my-id"
- *              [popover]="popper1"
- *              [position]="position"
  *              (popoverOnCreate)="myFunction($event)"
  *              (popoverOnShown)="myFunction($event)"
  *              (popoverOnHidden)="myFunction($event)"
@@ -63,19 +61,16 @@ let nextUniqueId = 0;
  * <example-url>https://release--5f0ca4e61af3790022cad2fe.chromatic.com/?path=/story/components-structure-popover</example-url>
  */
 @Directive({
-  selector: '[tsPopoverTrigger]',
+  selector: 'tsPopoverTrigger, [tsPopoverTrigger]',
   host: { class: 'ts-popover-trigger' },
   exportAs: 'tsPopoverTrigger',
 })
-export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, AfterContentInit, AfterContentChecked {
-
+export class TsPopoverTriggerDirective implements OnInit, AfterContentInit, AfterContentChecked, OnChanges, OnDestroy {
   /**
    * Define mouse event click subscription.
    */
   private clickSubscription = (fromEvent<MouseEvent>(this.elementRef.nativeElement, 'click'))
-    .pipe(
-      untilComponentDestroyed(this),
-    ).subscribe(event => {
+    .pipe(untilComponentDestroyed(this)).subscribe(event => {
       this.toggle();
       event.stopPropagation();
       event.preventDefault();
@@ -108,6 +103,16 @@ export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, 
   public isOpen = false;
 
   /**
+   * Utility getter to return the popover instance while we have to manage both formats.
+   *
+   * NOTE: This can be removed once `this.popover` has been removed.
+   */
+  public get popoverInstance(): TsPopoverComponent {
+    // eslint-disable-next-line deprecation/deprecation
+    return this.tsPopoverTrigger || this.popover;
+  }
+
+  /**
    * Whether popover is opened on load.
    */
   @Input()
@@ -135,6 +140,8 @@ export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, 
 
   /**
    * TsPopoverComponent provided as an input
+   *
+   * @deprecated Please pass the instance to the directive itself: `[tsPopoverTrigger]="myPopoverInstance"`
    */
   @Input()
   public popover!: TsPopoverComponent;
@@ -146,10 +153,11 @@ export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, 
    */
   @Input()
   public set position(value: TsPopoverPosition) {
+    value = value || TsPopoverPositions.Bottom;
     if (tsPopoverPositions.indexOf(value) < 0) {
-      throw new TsUILibraryError(`"${value}" is not an allowed position value.`);
+      throw new TsUILibraryError(`TsPopoverTriggerDirective: "${value}" is not an allowed position value.`);
     }
-    this._position = value || TsPopoverPositions.Bottom;
+    this._position = value;
   }
   public get position(): TsPopoverPosition {
     return this._position;
@@ -162,41 +170,18 @@ export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, 
   @Input()
   public set popoverTrigger(value: TsTrigger) {
     this._popoverTrigger = value;
-    this.eventSubscription.unsubscribe();
-    switch (this._popoverTrigger) {
-      case TsTriggers.CLICK:
-        this.eventSubscription = (fromEvent<MouseEvent>(this.elementRef.nativeElement, 'click'))
-          .pipe(
-            untilComponentDestroyed(this),
-          ).subscribe(event => {
-            this.toggle();
-            event.stopPropagation();
-            event.preventDefault();
-          });
-        break;
-      case TsTriggers.HOVER:
-        const events = [
-          'mouseenter',
-          'mouseleave',
-          'touchcancel',
-          'touchend',
-        ];
-        const eventStreams = events.map(ev => fromEvent(this.elementRef.nativeElement, ev));
-        this.eventSubscription = merge(...eventStreams)
-          .pipe(
-            untilComponentDestroyed(this),
-          ).subscribe(event => {
-            this.toggle();
-          });
-        break;
-      default:
-        break;
-    }
+    this.setUpListeners(this._popoverTrigger);
   }
   public get popoverTrigger(): TsTrigger {
     return this._popoverTrigger;
   }
   public _popoverTrigger: TsTrigger = 'click';
+
+  /**
+   * TsPopoverComponent provided as an input
+   */
+  @Input()
+  public tsPopoverTrigger: TsPopoverComponent | undefined;
 
   /**
    * Emit when create popover.
@@ -229,7 +214,8 @@ export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, 
    */
   @HostListener('document:click', ['$event.target'])
   public onClick(targetElement: HTMLElement): void {
-    const clickedInside = this.popover.popoverViewRef.nativeElement.contains(targetElement);
+    const clickedInside = this.popoverInstance.elementRef.nativeElement.contains(targetElement);
+    // istanbul ignore else
     if (!clickedInside && this.hideOnBlur) {
       this.hide();
     }
@@ -238,8 +224,8 @@ export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, 
   constructor(
     private viewContainerRef: ViewContainerRef,
     private changeDetectorRef: ChangeDetectorRef,
-    private elementRef: ElementRef,
     private ngZone: NgZone,
+    public elementRef: ElementRef,
   ) {
     /**
      * Listen to `keydown` events outside the zone so that change detection is not run every
@@ -263,16 +249,20 @@ export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, 
    * When directive initiated, it assigns a reference to popover component and also register on click event.
    */
   public ngOnInit(): void {
-    this.popover.referenceObject = this.viewContainerRef.element.nativeElement;
-    this.setContentProperties(this.popover);
+    this.popoverInstance.referenceObject = this.viewContainerRef.element.nativeElement;
+    this.setContentProperties(this.popoverInstance);
   }
 
   /**
    * After the default change detector has completed checking all content, it decides on popover status based on defaultOpened input.
    */
   public ngAfterContentInit(): void {
+    // istanbul ignore else
     if (this.defaultOpened) {
       this.show();
+    }
+    if (this.popoverTrigger && !this.eventSubscription) {
+      this.setUpListeners(this._popoverTrigger);
     }
   }
 
@@ -280,8 +270,9 @@ export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, 
    * Once content is initialized and checked, assign custom id to popover id
    */
   public ngAfterContentChecked(): void {
-    if (this.popover) {
-      this.popover.id = this.id;
+    // istanbul ignore else
+    if (this.popoverInstance) {
+      this.popoverInstance.id = this.id;
     }
   }
 
@@ -290,16 +281,17 @@ export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, 
    *
    * @param changes - SimpleChange
    */
-  public ngOnChanges(changes: { [propertyName: string]: SimpleChange}): void {
-    if (changes.position) {
-      this.popover.popoverOptions.placement = changes.position.currentValue;
+  public ngOnChanges(changes: {[propertyName: string]: SimpleChange}): void {
+    // istanbul ignore else
+    if (changes.position && this.popoverInstance) {
+      this.popoverInstance.popoverOptions.placement = changes.position.currentValue;
     }
   }
 
   /**
-   * Needed for untilComponentDestroyed
+   * Needed for `untilComponentDestroyed`
    */
-  public ngOnDestroy(): void { }
+  public ngOnDestroy(): void {}
 
   /**
    * Set popover options
@@ -313,7 +305,7 @@ export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, 
     };
     popperRef.onHidden
       .pipe(untilComponentDestroyed(this))
-      .subscribe(_ => this.popoverOnUpdate.emit(this.popover));
+      .subscribe(_ => this.popoverOnUpdate.emit(this.popoverInstance));
   }
 
   /**
@@ -329,8 +321,8 @@ export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, 
    */
   public hide(): void {
     this.isOpen = false;
-    this.popover.hide();
-    this.popoverOnHidden.emit(this.popover);
+    this.popoverInstance.hide();
+    this.popoverOnHidden.emit(this.popoverInstance);
   }
 
   /**
@@ -338,7 +330,39 @@ export class TsPopoverTriggerDirective implements OnInit, OnDestroy, OnChanges, 
    */
   public show(): void {
     this.isOpen = true;
-    this.popover.show(this.popover.popoverOptions);
-    this.popoverOnShown.emit(this.popover);
+    this.popoverInstance.show(this.popoverInstance.popoverOptions);
+    this.popoverOnShown.emit(this.popoverInstance);
+  }
+
+  /**
+   * Set up listeners based on the trigger type
+   *
+   * @param trigger - The selected trigger event
+   */
+  private setUpListeners(trigger: TsTrigger): void {
+    // istanbul ignore else
+    if (this.eventSubscription) {
+      this.eventSubscription.unsubscribe();
+    }
+    // istanbul ignore else
+    if (trigger === TsTriggers.CLICK) {
+      this.eventSubscription = (fromEvent<MouseEvent>(this.elementRef.nativeElement, 'click'))
+        .pipe(untilComponentDestroyed(this)).subscribe(event => {
+          this.toggle();
+          event.stopPropagation();
+          event.preventDefault();
+        });
+    } else if (trigger === TsTriggers.HOVER) {
+      const events = [
+        'mouseenter',
+        'mouseleave',
+        'touchcancel',
+        'touchend',
+      ];
+      const eventStreams = events.map(ev => fromEvent(this.elementRef.nativeElement, ev));
+      this.eventSubscription = merge(...eventStreams).pipe(untilComponentDestroyed(this)).subscribe(() => {
+        this.toggle();
+      });
+    }
   }
 }

@@ -13,32 +13,27 @@ import {
 export default {
   title: 'Components/Structure/Popover',
   component: TsPopoverComponent,
-  subcomponents: {
-    TsPopoverTriggerDirective,
-  },
+  subcomponents: { TsPopoverTriggerDirective },
   decorators: [
     withKnobs,
-    moduleMetadata({
-      imports: [TsPopoverModule],
-    }),
+    moduleMetadata({ imports: [TsPopoverModule] }),
   ],
 };
 
 export const basic = () => ({
   template: `
-    <div>
+    <div style="min-height:400px;display:flex;align-items:center;justify-content:center;">
       <button
-        tsPopoverTrigger="popper1"
+        [tsPopoverTrigger]="popper1"
         [position]="position"
         [popoverTrigger]="popoverTrigger"
-        [popover]="popper1"
-        style="margin: 200px 250px;"
+        [defaultOpened]="true"
       >{{ popoverTrigger === 'click' ? 'Click' : 'Hover' }} Me!</button>
     </div>
 
     <ts-popover #popper1>
-      <h1>My Title</h1>
-      <p>Other random content.</p>
+      <h3>My Title</h3>
+      <p style="margin-bottom:0;">Other random content.</p>
     </ts-popover>
   `,
   props: {

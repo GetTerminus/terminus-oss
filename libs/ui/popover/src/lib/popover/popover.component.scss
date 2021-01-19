@@ -1,34 +1,44 @@
 @import '~@terminus/ui-styles/helpers';
 
 :root {
-  --ts-popover-placement-margin: var(--ts-space-base-small2);
+  --ts-popover-placement-margin: 16px;
   --ts-popover-position-adjust: calc(var(--ts-space-base-small2) * -1);
   --ts-popover-backgroundColor: var(--ts-color-base-white);
   --ts-popover-borderRadius: var(--ts-border-radius-base);
   --ts-popover-padding: var(--ts-space-inset-500);
+  --ts-popover-boxShadow: 0 4px 8px rgba(0, 0, 0, .08), 0 0 0 rgba(0, 0, 0, .08);
+  --ts-popover-boxShadow-inverted: 0 0 8px rgba(0, 0, 0, .08), 0 0 0 rgba(0, 0, 0, .08);
 }
 
-.popover__container {
-  @include elevation-element(snackbar);
+.ts-popover {
   background-color: var(--ts-popover-backgroundColor);
   border-radius: var(--ts-popover-borderRadius);
+  box-shadow: var(--ts-popover-boxShadow);
   padding: var(--ts-popover-padding);
   position: absolute;
 
-  .popover__arrow {
-    border-color: var(--ts-popover-backgroundColor);
-    border-style: solid;
-    height: 0;
+  .ts-popover__arrow {
+    height: 30px;
+    overflow: hidden;
     position: absolute;
-    width: 0;
+    width: 30px;
+
+    &::after {
+      background-color: var(--ts-popover-backgroundColor);
+      box-shadow: var(--ts-popover-boxShadow);
+      content: '';
+      display: block;
+      height: 16px;
+      width: 16px;
+    }
   }
 
-  &.c-popover--visible {
+  &--visible {
     display: block;
     opacity: 1;
   }
 
-  &.c-popover--hidden {
+  &--hidden {
     display: none;
     opacity: 0;
   }
@@ -36,61 +46,60 @@
   &[data-popper-placement^='top'] {
     margin-bottom: var(--ts-popover-placement-margin);
 
-    .popover__arrow {
-      border-bottom-color: transparent;
-      border-left-color: transparent;
-      border-right-color: transparent;
-      border-width: var(--ts-popover-placement-margin) var(--ts-popover-placement-margin) 0;
-      bottom: var(--ts-popover-position-adjust);
-      left: calc(50% - var(--ts-popover-placement-margin));
-      margin-bottom: 0;
-      margin-top: 0;
+    .ts-popover__arrow {
+      bottom: -2px;
+      top: 100%;
+
+      &::after {
+        transform: rotate(45deg) translate(-4%, -70%);
+      }
     }
   }
 
   &[data-popper-placement^='bottom'] {
     margin-top: var(--ts-popover-placement-margin);
 
-    .popover__arrow {
-      border-left-color: transparent;
-      border-right-color: transparent;
-      border-top-color: transparent;
-      border-width: 0 var(--ts-popover-placement-margin) var(--ts-popover-placement-margin);
-      left: calc(50% - 5px);
-      margin-bottom: 0;
-      margin-top: 0;
-      top: var(--ts-popover-position-adjust);
+    .ts-popover__arrow {
+      top: -30px;
+
+      &::after {
+        box-shadow: var(--ts-popover-boxShadow-inverted);
+        position: absolute;
+        top: 100%;
+        transform: rotate(45deg) translate(-4%, -70%);
+      }
     }
   }
 
   &[data-popper-placement^='right'] {
     margin-left: var(--ts-popover-placement-margin);
 
-    .popover__arrow {
-      border-bottom-color: transparent;
-      border-left-color: transparent;
-      border-top-color: transparent;
-      border-width: var(--ts-popover-placement-margin) var(--ts-popover-placement-margin) var(--ts-popover-placement-margin) 0;
-      left: var(--ts-popover-position-adjust);
-      margin-left: 0;
-      margin-right: 0;
-      top: calc(50% - var(--ts-popover-placement-margin));
+    .ts-popover__arrow {
+      left: -30px;
+
+      &::after {
+        box-shadow: var(--ts-popover-boxShadow);
+        left: calc(100% - 8px);
+        position: absolute;
+        top: 50%;
+        transform: rotate(45deg) translate(-40%, -40%);
+      }
     }
   }
 
   &[data-popper-placement^='left'] {
-    display: block;
     margin-right: var(--ts-popover-placement-margin);
 
-    .popover__arrow {
-      border-bottom-color: transparent;
-      border-right-color: transparent;
-      border-top-color: transparent;
-      border-width: var(--ts-popover-placement-margin) 0 var(--ts-popover-placement-margin) var(--ts-popover-placement-margin);
-      margin-left: 0;
-      margin-right: 0;
-      right: var(--ts-popover-position-adjust);
-      top: calc(50% - var(--ts-popover-placement-margin));
+    .ts-popover__arrow {
+      right: -30px;
+
+      &::after {
+        box-shadow: var(--ts-popover-boxShadow);
+        position: absolute;
+        right: calc(100% - 8px);
+        top: 50%;
+        transform: rotate(45deg) translate(-40%, -40%);
+      }
     }
   }
 }
