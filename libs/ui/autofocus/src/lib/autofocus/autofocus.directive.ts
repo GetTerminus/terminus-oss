@@ -3,13 +3,10 @@ import {
   Directive,
   ElementRef,
   Input,
-  isDevMode,
 } from '@angular/core';
 import type { AfterViewInit } from '@angular/core';
 
 import { coerceBooleanProperty } from '@terminus/fe-utilities';
-import { TsUILibraryError } from '@terminus/ui-utilities';
-
 
 /**
  * Autofocus any focusable element on-load.
@@ -40,24 +37,19 @@ export class TsAutofocusDirective implements AfterViewInit {
   }
 
   constructor(
-    private elementRef: ElementRef,
     private changeDetectorRef: ChangeDetectorRef,
+    public elementRef: ElementRef,
   ) {}
-
 
   /**
    * Focus the input after the view has initialized
    */
   public ngAfterViewInit(): void {
+    // istanbul ignore else
     if (this.shouldFocus) {
       const el = this.elementRef.nativeElement;
-
-      if (el.focus) {
-        el.focus();
-        this.changeDetectorRef.detectChanges();
-      } else if (isDevMode()) {
-        throw new TsUILibraryError(`TsAutofocusDirective must be used on an element that has a .focus() method.`);
-      }
+      el.focus();
+      this.changeDetectorRef.detectChanges();
     }
   }
 }
