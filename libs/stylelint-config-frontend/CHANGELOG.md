@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/stylelint-config-frontend@1.3.1...@terminus/stylelint-config-frontend@1.3.2) (2021-01-20)
+
+
+### Bug Fixes
+
+* **StylelintConfig:** allow zero unit for custom props ([097367b](https://github.com/GetTerminus/terminus-oss/commit/097367bc4a9865353f942431af0ddb9c4c434008))
+
+
+
+
+
 ## 1.3.1 (2020-12-16)
 
 

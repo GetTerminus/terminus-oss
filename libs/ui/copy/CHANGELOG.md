@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-copy@4.0.0...@terminus/ui-copy@4.0.1) (2021-01-20)
+
+
+### Bug Fixes
+
+* **Copy:** use CDK for clipboard functionality ([e9e6b23](https://github.com/GetTerminus/terminus-oss/commit/e9e6b23f63a710ebda7399caed887fac93f69c4a)), closes [#446](https://github.com/GetTerminus/terminus-oss/issues/446)
+
+
+
+
+
 # 4.0.0 (2020-12-16)
 
 
