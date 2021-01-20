@@ -1,7 +1,12 @@
 module.exports = {
   extends: '@terminus/stylelint-config-frontend',
   rules: {
-    // Calc requires 'px'
-    'length-zero-no-unit': 0,
+    // TODO: remove once package is released
+    'length-zero-no-unit': [
+      true,
+      {
+        ignore: ['custom-properties'],
+      },
+    ],
   },
 };
