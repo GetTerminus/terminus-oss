@@ -61,7 +61,12 @@ module.exports = {
     'function-whitespace-after': 'always',
     'indentation': 2,
     'keyframe-declaration-no-important': true,
-    'length-zero-no-unit': true,
+    'length-zero-no-unit': [
+      true,
+      {
+        ignore: ['custom-properties'],
+      },
+    ],
     'linebreaks': 'unix',
     'max-empty-lines': 4,
     'media-feature-colon-space-after': 'always',
@@ -76,9 +81,7 @@ module.exports = {
     'no-eol-whitespace': [
       true,
       {
-        ignore: [
-          'empty-lines',
-        ],
+        ignore: ['empty-lines'],
       },
     ],
     'no-extra-semicolons': true,
