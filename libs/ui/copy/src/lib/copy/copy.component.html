@@ -1,15 +1,14 @@
 <div
   class="c-copy"
-  fxLayout="row"
   tabindex="0"
-  (click)="selectText(content, hasSelected, disableInitialSelection)"
   (blur)="resetSelection()"
+  (click)="selectText(content, hasSelected, disableInitialSelection)"
+  (focus)="selectText(content, hasSelected, disableInitialSelection)"
 >
     <div
       #content
       tabindex="1"
       class="c-copy__content"
-      fxFlex="auto"
     >
       <ts-tooltip [tooltipValue]="textContent">
         <ng-content></ng-content>
@@ -18,10 +17,7 @@
 
   <div class="c-copy__tooltip">
     <ts-tooltip tooltipValue="Copy to clipboard" *ngIf="enableQuickCopy">
-      <div
-        class="c-copy__icon"
-        (click)="copyToClipboard(textContent)"
-      >
+      <div class="c-copy__icon" [cdkCopyToClipboard]="textContent" (cdkCopyToClipboardCopied)="copied.emit(textContent)">
         <ng-container *ngTemplateOutlet="copyIcon"></ng-container>
       </div>
     </ts-tooltip>

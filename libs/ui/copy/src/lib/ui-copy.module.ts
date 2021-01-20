@@ -1,6 +1,6 @@
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { TsTooltipModule } from '@terminus/ui-tooltip';
 
@@ -10,8 +10,8 @@ export * from './copy/copy.component';
 
 @NgModule({
   imports: [
+    ClipboardModule,
     CommonModule,
-    FlexLayoutModule,
     TsTooltipModule,
   ],
   exports: [TsCopyComponent],

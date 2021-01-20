@@ -1,140 +1,140 @@
+import { Injectable } from '@angular/core';
+import { SpectatorHost } from '@ngneat/spectator';
+import { createHostFactory } from '@ngneat/spectator/jest';
+
 import {
-  ElementRefMock,
-  TsDocumentServiceMock,
-  TsWindowServiceMock,
-} from '@terminus/fe-testing';
-import { noop } from '@terminus/fe-utilities';
-import { TsCopyComponent } from '@terminus/ui-copy';
+  noop,
+  TsWindowService,
+} from '@terminus/fe-utilities';
+import {
+  TsCopyComponent,
+  TsCopyModule,
+} from '@terminus/ui-copy';
+import { TsTooltipModule } from '@terminus/ui-tooltip';
 
-describe(`TsCopyComponent`, function() {
-  let component: TsCopyComponent;
+@Injectable({ providedIn: 'root' })
+export class TsWindowServiceMock {
+  public styleObject: CSSStyleDeclaration = { width: '90px' } as any;
 
-  beforeEach(() => {
-    component = new TsCopyComponent(
-      new TsDocumentServiceMock(),
-      new TsWindowServiceMock(),
-    );
-    component.content = new ElementRefMock();
+  public get nativeWindow(): Window {
+    return {
+      getComputedStyle: e => this.styleObject,
+      open: noop,
+      location: {
+        href: 'foo/bar',
+        protocol: 'https:',
+      },
+      alert: noop,
+      getSelection: () => ({
+        removeAllRanges: noop,
+        addRange: noop,
+      }),
+      scrollTo: (x: number, y: number) => { },
+      prompt: noop,
+    } as any;
+  }
+}
+
+describe(`TsCopyComponent`, () => {
+  let spectator: SpectatorHost<TsCopyComponent>;
+  const createHost = createHostFactory({
+    component: TsCopyComponent,
+    imports: [
+      TsCopyModule,
+      TsTooltipModule,
+    ],
+    providers: [
+      {
+        provide: TsWindowService,
+        useClass: TsWindowServiceMock,
+      },
+    ],
+    declareComponent: false,
   });
 
-  test(`should exist`, () => {
-    expect(component).toBeTruthy();
+  test(`should display the text`, () => {
+    spectator = createHost(`<ts-copy>Foo bar</ts-copy>`);
+    expect(spectator.query('.c-copy__content')).toHaveText('Foo bar');
   });
 
-  describe(`disableInitialSelection`, () => {
-    test(`should set and retrieve`, () => {
-      component.disableInitialSelection = true;
-      expect(component.disableInitialSelection).toEqual(true);
+  describe(`format`, () => {
+    test(`should support minimal format`, () => {
+      spectator = createHost(`<ts-copy format="minimal">Foo bar</ts-copy>`);
+      expect(spectator.component.elementRef.nativeElement).toHaveClass('ts-copy--minimal');
+    });
+
+    test(`should support standard format`, () => {
+      spectator = createHost(`<ts-copy format="standard">Foo bar</ts-copy>`);
+      expect(spectator.component.elementRef.nativeElement).toHaveClass('ts-copy--standard');
+    });
+
+    test(`should fall back to standard format`, () => {
+      spectator = createHost(`<ts-copy format="">Foo bar</ts-copy>`);
+      expect(spectator.component.elementRef.nativeElement).toHaveClass('ts-copy--standard');
+    });
+
+    test(`should support icon format`, () => {
+      spectator = createHost(`<ts-copy format="icon">Foo bar</ts-copy>`);
+      expect(spectator.component.elementRef.nativeElement).toHaveClass('ts-copy--icon');
+    });
+
+    test(`should throw an error if consumer ues icon mode without quick copy enabled`, () => {
+      const actual = () => {
+        spectator = createHost(`<ts-copy [enableQuickCopy]="false" format="icon">Foo bar</ts-copy>`);
+      };
+      expect(actual).toThrowError(Error);
     });
   });
 
-  describe(`enableQuickCopy`, () => {
-    test(`should set and retrieve`, () => {
-      component.enableQuickCopy = true;
-      expect(component.enableQuickCopy).toEqual(true);
-    });
-  });
-
-  describe(`get textContent()`, () => {
-    test(`should return the content if accessible`, () => {
-      component.content.nativeElement.innerText = 'foo';
-      expect(component.textContent).toEqual('foo');
+  describe(`quick copy`, () => {
+    test(`should expose button on hover by default`, () => {
+      spectator = createHost(`<ts-copy>Foo bar</ts-copy>`);
+      expect(spectator.queryHost('svg')).toExist();
     });
 
-    test(`should return an empty string if the content is not accessible`, () => {
-      component.content.nativeElement.innerText = null;
-      expect(component.textContent).toEqual('');
+    test(`should be able to disable quick copy button`, () => {
+      spectator = createHost(`<ts-copy [enableQuickCopy]="false">Foo bar</ts-copy>`);
+      expect(spectator.queryHost('svg')).not.toExist();
     });
   });
 
   describe(`selectText()`, () => {
     test(`should return false if disabled`, () => {
-      expect(component.selectText(component.content.nativeElement, false, true)).toEqual(false);
+      spectator = createHost(`<ts-copy>Foo bar</ts-copy>`);
+      expect(spectator.component.selectText(spectator.component.content.nativeElement, false, true)).toEqual(false);
     });
 
     test(`should return if already selected`, () => {
-      expect(component.selectText(component.content.nativeElement, true, false)).toEqual(false);
+      spectator = createHost(`<ts-copy>Foo bar</ts-copy>`);
+      expect(spectator.component.selectText(spectator.component.content.nativeElement, true, false)).toEqual(false);
     });
 
     test(`should select the text within the passed in element`, () => {
-      component['window'].getSelection = jest.fn().mockReturnValue({
+      spectator = createHost(`<ts-copy>Foo bar</ts-copy>`);
+      spectator.component.window.getSelection = jest.fn().mockReturnValue({
         removeAllRanges: noop,
         addRange: noop,
       });
 
-      component['document'].createRange = jest.fn().mockReturnValue({ selectNodeContents: noop });
-      component.selectText(component.content.nativeElement, false, false);
+      spectator.component.document.createRange = jest.fn().mockReturnValue({ selectNodeContents: noop });
+      spectator.component.selectText(spectator.component.content.nativeElement, false, false);
 
-      expect(component['window'].getSelection).toHaveBeenCalled();
-      expect(component['document'].createRange).toHaveBeenCalled();
-      expect(component.hasSelected).toEqual(true);
+      expect(spectator.component.window.getSelection).toHaveBeenCalled();
+      expect(spectator.component.document.createRange).toHaveBeenCalled();
+      expect(spectator.component.hasSelected).toEqual(true);
     });
   });
 
   describe(`resetSelection()`, () => {
     test(`should set the flag to false`, () => {
-      component.hasSelected = true;
+      spectator = createHost(`<ts-copy>Foo bar</ts-copy>`);
+      spectator.component.hasSelected = true;
 
-      expect(component.hasSelected).toEqual(true);
+      expect(spectator.component.hasSelected).toEqual(true);
 
-      component.resetSelection();
-      expect(component.hasSelected).toEqual(false);
-    });
-  });
-
-  describe(`copyToClipboard()`, () => {
-    beforeEach(() => {
-      // NOTE: I tried letting the mock return this value, but could not get the value returned for
-      // some reason.
-      const MOCK_TEXTAREA = {
-        className: '',
-        style: {},
-        textContent: '',
-        value: 'foo',
-        focus: jest.fn(),
-        remove: jest.fn(),
-        setSelectionRange: jest.fn(),
-      };
-      // eslint-disable-next-line deprecation/deprecation
-      component['document'].createElement = jest.fn().mockReturnValue(MOCK_TEXTAREA);
-    });
-
-    test(`should set the text to the clipboard`, () => {
-      component['document'].body.appendChild = jest.fn();
-      component['document'].execCommand = jest.fn();
-      component.copyToClipboard('foo');
-
-      // eslint-disable-next-line deprecation/deprecation
-      expect(component['document'].createElement).toHaveBeenCalledWith('textarea');
-      expect(component['document'].body.appendChild).toHaveBeenCalled();
-      expect(component['document'].execCommand).toHaveBeenCalledWith('copy');
-      expect(component['document'].execCommand).toHaveBeenCalledWith('copy');
-    });
-
-    test(`should fall back to a prompt if execCommand fails`, () => {
-      component['document'].execCommand = () => {
-        throw new Error('fake error');
-      };
-      component['window'].prompt = jest.fn();
-      component.copyToClipboard('foo');
-
-      expect(component['window'].prompt).toHaveBeenCalled();
-    });
-  });
-
-  describe(`format`, () => {
-    test(`should set a default format and allow custom`, () => {
-      expect(component.format).toEqual('standard');
-      component.format = 'minimal';
-      expect(component.format).toEqual('minimal');
-    });
-
-    test(`should throw an error if consumer ues icon mode without quick copy enabled`, () => {
-      component.enableQuickCopy = false;
-      const actual = () => {
-        component.format = 'icon';
-      };
-      expect(actual).toThrowError(Error);
+      spectator.component.resetSelection();
+      expect(spectator.component.hasSelected).toEqual(false);
     });
   });
 });
+

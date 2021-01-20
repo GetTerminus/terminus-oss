@@ -1,4 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { action } from '@storybook/addon-actions';
 import {
   text,
   withKnobs,
@@ -30,13 +31,13 @@ export default {
 };
 
 export const basic = () => ({
-  template: `<ts-copy>{{ content }}</ts-copy>`,
+  template: `<ts-copy (copied)="didCopy($event)">{{ content }}</ts-copy>`,
   props: {
     content: text('Text to copy', URL_STANDARD),
+    didCopy: action('Text copied'),
   },
 });
 basic.parameters = {
-  actions: { disabled: true },
   docs: { iframeHeight: 180 },
 };
 
