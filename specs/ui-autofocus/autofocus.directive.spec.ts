@@ -1,91 +1,50 @@
 import {
-  ChangeDetectorRefMock,
-  ElementRefMock,
-} from '@terminus/fe-testing';
+  createDirectiveFactory,
+  SpectatorDirective,
+} from '@ngneat/spectator/jest';
+
 import { TsAutofocusDirective } from '@terminus/ui-autofocus';
 
-describe(`TsAutofocusDirective`, function() {
-  let directive: TsAutofocusDirective;
-  const validValues = [
-    true,
-    '',
-    'my string',
-    'true',
-    0,
-  ];
-  const invalidValues = [
-    false,
-    null,
-    undefined,
-    'false',
-  ];
-  const setup = () => {
-    directive = new TsAutofocusDirective(
-      new ElementRefMock(),
-      new ChangeDetectorRefMock(),
-    );
-    directive['elementRef'].nativeElement = { focus: jest.fn() };
-    directive['changeDetectorRef'].detectChanges = jest.fn();
-    directive.tsAutofocus = '';
-  };
-  const teardown = () => {
-    directive = null as any;
-  };
+describe(`TsAutofocusDirective`, () => {
+  let spectator: SpectatorDirective<TsAutofocusDirective>;
+  const createDirective = createDirectiveFactory(TsAutofocusDirective);
 
-  beforeEach(() => {
-    setup();
+  describe(`should autofocus`, () => {
+    test(`should autofocus with no param`, () => {
+      spectator = createDirective(`<input type="text" tsAutofocus />`);
+      expect(document.activeElement).toEqual(spectator.element);
+    });
+
+    test(`should autofocus with empty param`, () => {
+      spectator = createDirective(`<input type="text" tsAutofocus="" />`);
+      expect(document.activeElement).toEqual(spectator.element);
+    });
+
+    test(`should autofocus with random string`, () => {
+      spectator = createDirective(`<input type="text" tsAutofocus="foo" />`);
+      expect(document.activeElement).toEqual(spectator.element);
+    });
+
+    test(`should autofocus with boolean`, () => {
+      spectator = createDirective(`<input type="text" [tsAutofocus]="true" />`);
+      expect(document.activeElement).toEqual(spectator.element);
+    });
   });
 
-  afterEach(() => {
-    teardown();
-  });
+  describe(`should NOT autofocus`, () => {
+    test(`should not autofocus boolean`, () => {
+      spectator = createDirective(`<input type="text" [tsAutofocus]="false" />`);
+      expect(document.activeElement).not.toEqual(spectator.element);
+    });
 
-  test(`should autofocus with valid values`, () => {
-    for (const value of validValues) {
-      if (!directive) {
-        setup();
-      }
-      directive.tsAutofocus = value as any;
-      directive.ngAfterViewInit();
+    test(`should not autofocus with null`, () => {
+      spectator = createDirective(`<input type="text" [tsAutofocus]="null" />`);
+      expect(document.activeElement).not.toEqual(spectator.element);
+    });
 
-      expect(directive['elementRef'].nativeElement.focus).toHaveBeenCalled();
-      expect(directive['changeDetectorRef'].detectChanges).toHaveBeenCalled();
-      teardown();
-    }
-  });
-
-  test(`should NOT autofocus with invalid values`, () => {
-    for (const value of invalidValues) {
-      if (!directive) {
-        setup();
-      }
-      directive.tsAutofocus = value as any;
-      directive.ngAfterViewInit();
-
-      expect(directive['elementRef'].nativeElement.focus).not.toHaveBeenCalled();
-      teardown();
-    }
-  });
-
-  test(`should autofocus with string`, () => {
-    directive.tsAutofocus = 'my string';
-    directive.ngAfterViewInit();
-
-    expect(directive['elementRef'].nativeElement.focus).toHaveBeenCalled();
-  });
-
-  test(`should throw an error if in dev mode and the element is not focusable`, () => {
-    directive['elementRef'].nativeElement.focus = undefined;
-
-    expect(() => {
-      directive.ngAfterViewInit();
-    }).toThrowError(`TsAutofocusDirective must be used on an element that has a .focus() method.`);
-  });
-
-  test(`should not autofocus with falsy value`, () => {
-    directive.tsAutofocus = null as any;
-    directive.ngAfterViewInit();
-
-    expect(directive['elementRef'].nativeElement.focus).not.toHaveBeenCalled();
+    test(`should not autofocus with false string`, () => {
+      spectator = createDirective(`<input type="text" tsAutofocus="false" />`);
+      expect(document.activeElement).not.toEqual(spectator.element);
+    });
   });
 });

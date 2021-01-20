@@ -11,11 +11,7 @@ export default {
   component: TsAutofocusDirective,
   decorators: [
     withKnobs,
-    moduleMetadata({
-      imports: [
-        TsAutofocusModule,
-      ],
-    }),
+    moduleMetadata({ imports: [TsAutofocusModule] }),
   ],
 };
 
