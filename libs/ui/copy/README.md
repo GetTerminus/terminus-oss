@@ -15,6 +15,8 @@ This component is used to contain very long strings that users may need to copy.
 - [Usage](#usage)
   - [Display format](#display-format)
   - [Initial selection](#initial-selection)
+  - [Quick copy](#quick-copy)
+  - [Events](#events)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -70,6 +72,22 @@ It should be extremely rare, but if needed, this functionality can be disabled.
 
 ```html
 <ts-copy [disableInitialSelection]="true">My text to copy!</ts-copy>
+```
+
+### Quick copy
+
+By default, a button will appear on hover that copies the content to the user's clipboard. This functionality can be disabled:
+
+```html
+<ts-copy [enableQuickCopy]="false">My text to copy!</ts-copy>
+```
+
+### Events
+
+On successful copy an event with the copied text is emitted:
+
+```html
+<ts-copy (copied)="didCopy($event)">My text to copy!</ts-copy>
 ```
 
 <!-- Links -->

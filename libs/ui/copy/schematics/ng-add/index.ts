@@ -11,9 +11,9 @@ import {
 
 export const ngAdd = () => (tree: Tree, context: SchematicContext): Tree => {
   [
+    '@angular/cdk: ^11.0.3',
     '@angular/common: ^11.0.4',
     '@angular/core: ^11.0.4',
-    '@angular/flex-layout: ~11.0.0-beta.33',
     '@angular/forms: ^11.0.4',
     '@angular/material: ^11.0.3',
     '@angular/platform-browser: ^11.0.4',

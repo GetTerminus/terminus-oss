@@ -2,8 +2,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  EventEmitter,
   Input,
   isDevMode,
+  Output,
   QueryList,
   ViewChild,
   ViewChildren,
@@ -54,9 +56,14 @@ export type TsCopyDisplayFormat
 })
 export class TsCopyComponent {
   /**
+   * Store a reference to the temporary text area used for copying text
+   */
+  private temporaryTextarea: HTMLTextAreaElement | undefined;
+
+  /**
    * Store a reference to the document object
    */
-  private document: Document = this.documentService.document;
+  public document: Document = this.documentService.document;
 
   /**
    * Internal flag to track if the contents have been selected
@@ -64,14 +71,9 @@ export class TsCopyComponent {
   public hasSelected = false;
 
   /**
-   * Define the color of the material ripple
-   */
-  public rippleColor = '#1a237e';
-
-  /**
    * Store a reference to the window object
    */
-  private window: Window = this.windowService.nativeWindow;
+  public window: Window = this.windowService.nativeWindow;
 
   /**
    * Define access to the wrapper around the content to be copied
@@ -120,9 +122,16 @@ export class TsCopyComponent {
   }
   private _format: TsCopyDisplayFormat = 'standard';
 
+  /**
+   * Emit when text is copied
+   */
+  @Output()
+  public readonly copied = new EventEmitter<string>();
+
   constructor(
-    private documentService: TsDocumentService,
-    private windowService: TsWindowService,
+    public documentService: TsDocumentService,
+    public elementRef: ElementRef,
+    public windowService: TsWindowService,
   ) {}
 
   /**
@@ -149,7 +158,6 @@ export class TsCopyComponent {
     if (disabled || hasSelected) {
       return false;
     }
-
     const selection = this.window.getSelection();
     // NOTE: Adding the type of 'Range' to this causes an error with `range.selectNodeContents`
     // `Argument of type ElementRef is not assignable to type 'Node'`
@@ -165,40 +173,10 @@ export class TsCopyComponent {
 
   /**
    * Reset the text selection
+   *
    * NOTE: The containing div must have a `tabindex` set or no blur event will be fired
    */
   public resetSelection(): void {
     this.hasSelected = false;
-  }
-
-  /**
-   * Copy text to the user's clipboard
-   *
-   * @param text - The text to copy
-   */
-  public copyToClipboard(text: string): void {
-    // Create a hidden textarea to seed with text content
-    const target = this.document.createElement('textarea');
-    target.className = 'targetElement';
-    target.style.position = 'absolute';
-    target.style.left = '101%';
-    target.style.top = '0';
-    target.style.width = '1px';
-    target.style.height = '1px';
-    target.textContent = text;
-
-    // Add the textarea, focus and select the text
-    this.document.body.appendChild(target);
-    target.focus();
-    target.setSelectionRange(0, target.value.length);
-
-    // Copy the selection or fall back to prompt
-    try {
-      this.document.execCommand('copy');
-      target.remove();
-    } catch (error) {
-      // Fall back to the native alert
-      this.window.prompt('Copy to clipboard: Ctrl+C, Enter', text);
-    }
   }
 }

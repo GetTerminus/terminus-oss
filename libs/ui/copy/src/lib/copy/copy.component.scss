@@ -27,6 +27,7 @@
   $ripple-opacity: .4;
   $primary: darken(color(primary), 10%);
   $ripple-primary: rgba($primary, $ripple-opacity);
+  @include flex-container;
   display: block;
   max-width: 100%;
 
@@ -106,6 +107,7 @@
 .c-copy {
   // <div> Container for text content
   .c-copy__content {
+    @include flex-item(1, 1);
     @include hidden-scrollbars;
     align-items: center;
     justify-content: center;
