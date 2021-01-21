@@ -71,7 +71,7 @@ flags:
     paths:
       - libs/ui/drawer/
     carryforward: true
-  expxansionPanel:
+  expansionPanel:
     paths:
       - libs/ui/expansion-panel/
     carryforward: true
