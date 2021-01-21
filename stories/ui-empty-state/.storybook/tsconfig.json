@@ -1,0 +1,11 @@
+{
+  "extends": "../../../libs/ui/empty-state/tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true
+  },
+  "exclude": [
+    "../../../libs/ui/empty-state/src/test.ts",
+    "../../../libs/ui/empty-state/**/*.spec.ts"
+  ],
+  "include": ["../../../libs/ui/empty-state/src/**/*"]
+}

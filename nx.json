@@ -73,6 +73,9 @@
     "ui-drawer": {
       "tags": []
     },
+    "ui-empty-state": {
+      "tags": []
+    },
     "ui-expansion-panel": {
       "tags": []
     },

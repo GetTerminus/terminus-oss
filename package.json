@@ -101,7 +101,8 @@
     "link:eslint-config": "cd dist/libs/eslint-config-frontend && yarn link && cd - && yarn link @terminus/eslint-config-frontend",
     "unlink:eslint-config": "yarn unlink @terminus/eslint-config-frontend && cd dist/libs/eslint-config-frontend && yarn unlink && cd -",
     "cm": "npx git-cz",
-    "contributors:add": "npx all-contributors add"
+    "contributors:add": "npx all-contributors add",
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
   },
   "husky": {
     "hooks": {

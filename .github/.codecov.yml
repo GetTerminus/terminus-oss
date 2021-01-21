@@ -71,6 +71,10 @@ flags:
     paths:
       - libs/ui/drawer/
     carryforward: true
+  emptyState:
+    paths:
+      - libs/ui/empty-state/
+    carryforward: true
   expansionPanel:
     paths:
       - libs/ui/expansion-panel/
