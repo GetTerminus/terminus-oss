@@ -1,4 +1,131 @@
+@import '~@terminus/ui-styles/helpers';
+
+:root {
+  --ts-toggle-backgroundColor: var(--ts-color-utility-600);
+  --ts-toggle-backgroundColor-hover: #1f5e24;
+  --ts-toggle-backgroundColor-on: #2d8734;
+  --ts-toggle-backgroundColor-disabled: var(--ts-color-utility-400);
+  --ts-toggle-outlineColor: transparent;
+  --ts-toggle-outlineColor-focus: #deeddf;
+  --ts-toggle-height: 20px;
+  --ts-toggle-width: 36px;
+  --ts-toggle-borderRadius: 100px;
+  --ts-toggle-spaceForToggle: 44px;
+  --ts-toggle-transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+  --ts-toggle-label-cursor: pointer;
+  --ts-toggle-knob-size: 12px;
+  --ts-toggle-knob-left: 4px;
+  --ts-toggle-knob-left-on: calc(100% - 16px);
+  --ts-toggle-knob-backgroundColor: var(--ts-color-base-white);
+  --ts-toggle-knob-transition: left var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
+  --ts-toggle-knob-borderRadius: var(--ts-border-radius-circle);
+}
+
 .ts-toggle {
   box-sizing: border-box;
   display: inline-block;
+
+  &.ts-toggle--label-before {
+    .ts-toggle__label {
+      padding-left: 0;
+      padding-right: var(--ts-toggle-spaceForToggle);
+    }
+
+    .ts-toggle__thumb-container {
+      left: unset;
+      right: 0;
+    }
+  }
+
+  &:focus {
+    --ts-toggle-outlineColor: var(--ts-toggle-outlineColor-focus);
+    outline: none;
+  }
+
+  &.ts-toggle--checked {
+    .ts-toggle__label {
+      --ts-toggle-knob-left: var(--ts-toggle-knob-left-on);
+    }
+
+    &:not(.ts-toggle--disabled) {
+      .ts-toggle__label {
+        --ts-toggle-backgroundColor: var(--ts-toggle-backgroundColor-on);
+
+        &:hover {
+          --ts-toggle-backgroundColor: var(--ts-toggle-backgroundColor-hover);
+        }
+
+        &:focus {
+          --ts-toggle-backgroundColor: var(--ts-toggle-backgroundColor-hover);
+        }
+      }
+    }
+  }
+
+  &.ts-toggle--disabled {
+    --ts-toggle-backgroundColor: var(--ts-toggle-backgroundColor-disabled);
+
+    .ts-toggle__label {
+      --ts-toggle-label-cursor: not-allowed;
+    }
+  }
+
+  &__input {
+    @include visually-hidden;
+  }
+
+  &__label {
+    cursor: var(--ts-toggle-label-cursor);
+    display: inline-block;
+    padding-left: var(--ts-toggle-spaceForToggle);
+    position: relative;
+  }
+
+  &__thumb-container {
+    display: inline-block;
+    height: var(--ts-toggle-height);
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--ts-toggle-width);
+    z-index: 1;
+
+    &::before {
+      // Spill out 2px on each side to provide the focus outline
+      @include take-space(-2px);
+      background-color: var(--ts-toggle-outlineColor);
+      border-radius: var(--ts-toggle-borderRadius);
+      content: '';
+      display: block;
+      height: calc(100% + 4px);
+      transition: var(--ts-toggle-transition);
+      width: calc(100% + 4px);
+      z-index: -1;
+    }
+
+    &::after {
+      @include take-space;
+      background-color: var(--ts-toggle-backgroundColor);
+      border-radius: var(--ts-toggle-borderRadius);
+      content: '';
+      display: block;
+      z-index: 1;
+    }
+  }
+
+  &__thumb {
+    background-color: var(--ts-toggle-knob-backgroundColor);
+    border-radius: var(--ts-toggle-knob-borderRadius);
+    content: '';
+    display: block;
+    height: var(--ts-toggle-knob-size);
+    left: var(--ts-toggle-knob-left);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: var(--ts-toggle-knob-transition);
+    width: var(--ts-toggle-knob-size);
+    z-index: 2;
+  }
 }
