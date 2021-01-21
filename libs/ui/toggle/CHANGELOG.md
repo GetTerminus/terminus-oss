@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-toggle@3.0.0...@terminus/ui-toggle@3.1.0) (2021-01-21)
+
+
+### Features
+
+* **Toggle:** full style redesign ([c3586b1](https://github.com/GetTerminus/terminus-oss/commit/c3586b1749578ec9b1a49a21f5381eadd6fe81ae)), closes [#532](https://github.com/GetTerminus/terminus-oss/issues/532)
+
+
+
+
+
 # 3.0.0 (2020-12-16)
 
 
