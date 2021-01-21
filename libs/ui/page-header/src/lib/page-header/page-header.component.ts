@@ -24,6 +24,11 @@ export interface TS_PAGE_HEADER_ROUTE extends TS_PAGE_HEADER_STATIC_BREADCRUMB {
 }
 
 /**
+ * Single metadata item inside {@link TsPageHeaderComponent}
+ */
+export type TS_PAGE_HEADER_METADATA = [string, string];
+
+/**
  * Allowed header route types for {@link TsPageHeaderComponent}
  */
 export type TS_PAGE_HEADER_ROUTES = (TS_PAGE_HEADER_ROUTE | TS_PAGE_HEADER_STATIC_BREADCRUMB)[];
@@ -97,6 +102,12 @@ export class TsPageHeaderComponent {
    */
   @Input()
   public isPanelOpen = false;
+
+  /**
+   * Define the pairs of metadata to display below the title
+   */
+  @Input()
+  public metadata: ReadonlyArray<TS_PAGE_HEADER_METADATA>;
 
   /**
    * Define the array of pages that will populate the title dropdown

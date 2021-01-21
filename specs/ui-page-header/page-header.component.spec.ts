@@ -9,6 +9,7 @@ import {
 
 import { TsButtonModule } from '@terminus/ui-button';
 import {
+  TS_PAGE_HEADER_METADATA,
   TS_PAGE_HEADER_ROUTE,
   TS_PAGE_HEADER_ROUTES,
   TS_PAGE_HEADER_STATIC_BREADCRUMB,
@@ -39,6 +40,10 @@ const datePipe = new TsDatePipe();
 const MOCK_DATE = new Date(2020, 8, 12);
 const MOCK_DATE_EXTENDED = datePipe.transform(MOCK_DATE, 'extended');
 const MOCK_DATE_TIMESTAMP = datePipe.transform(MOCK_DATE, 'timestamp');
+const MOCK_METADATA: TS_PAGE_HEADER_METADATA[] = [
+  ['Campaign Type', 'Hosted Event'],
+  ['Created Date', 'May 2, 2021'],
+];
 
 const MODULE_IMPORTS = [
   RouterTestingModule,
@@ -168,6 +173,18 @@ describe(`TsPageHeaderComponent`, function() {
         spectator.setInput('breadcrumbs', MOCK_BREADCRUMBS);
         expect(spectator.query('.ts-ph-breadcrumbs li:last-of-type a')).toContainText(MOCK_BREADCRUMB_WITH_ROUTE.display);
         expect(spectator.query('.ts-ph-breadcrumbs li:last-of-type a')).toHaveAttribute('href', '/reports');
+      });
+    });
+
+    describe(`metadata`, () => {
+      test(`should not exist by default`, () => {
+        expect(spectator.query('.ts-ph-metadata')).not.toExist();
+      });
+
+      test(`should display metadata in a definition list`, () => {
+        spectator.setInput('metadata', MOCK_METADATA);
+        expect(spectator.queryAll('dt').length).toEqual(2);
+        expect(spectator.queryAll('dt')[0]).toHaveText('Campaign Type');
       });
     });
   });
