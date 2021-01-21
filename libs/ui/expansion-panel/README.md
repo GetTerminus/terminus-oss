@@ -370,9 +370,9 @@ Some helpers are exposed to assist with testing. These are imported from `@termi
 [license-image]:       http://img.shields.io/badge/license-MIT-blue.svg
 [codecov-project]:     https://codecov.io/gh/GetTerminus/terminus-oss
 [codecov-badge]:       https://codecov.io/gh/GetTerminus/terminus-oss/branch/release/graph/badge.svg
-[npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-button.svg
-[npm-package]:         https://www.npmjs.com/package/@terminus/ui-button
+[npm-version-image]:   http://img.shields.io/npm/v/@terminus/ui-expansion-panel.svg
+[npm-package]:         https://www.npmjs.com/package/@terminus/ui-expansion-panel
 [github-action-badge]: https://github.com/GetTerminus/terminus-oss/workflows/Release%20CI/badge.svg
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
-[file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-button/bundles/terminus-ui-button.umd.min.js?compression=gzip
-[raw-distribution-js]: https://unpkg.com/@terminus/ui-button/bundles/terminus-ui-button.umd.js
+[file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-button/bundles/terminus-ui-expansion-panel.umd.min.js?compression=gzip
+[raw-distribution-js]: https://unpkg.com/@terminus/ui-button/bundles/terminus-ui-expansion-panel.umd.js
