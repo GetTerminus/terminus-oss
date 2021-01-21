@@ -1,94 +1,63 @@
 import {
-  ElementRefMock,
-  TsWindowServiceMock,
-} from '@terminus/fe-testing';
-import { TsLoadingOverlayDirective } from '@terminus/ui-loading-overlay';
+  Component,
+  Input,
+} from '@angular/core';
+import { Spectator } from '@ngneat/spectator';
+import { createComponentFactory } from '@ngneat/spectator/jest';
 
-describe(`TsLoadingOverlayDirective`, function() {
-  let directive: TsLoadingOverlayDirective;
-  const componentFactoryResolver: any = null;
-  const applicationRef: any = null;
-  const injector: any = null;
+import { TsLoadingOverlayModule } from '@terminus/ui-loading-overlay';
 
-  beforeEach(() => {
-    directive = new TsLoadingOverlayDirective(
-      new ElementRefMock(),
-      new TsWindowServiceMock(),
-      componentFactoryResolver,
-      applicationRef,
-      injector,
-    );
-  });
+@Component({
+  selector: 'loading-overlay-directive-spec',
+  template: `<div class="wrapper" [tsLoadingOverlay]="shouldShow">My content.</div>`,
+})
+class LoadingOverlayDirectiveSpec {
+  @Input() public shouldShow = false;
+}
 
-  describe(`tsLoadingOverlay`, () => {
-    test(`should exist`, () => {
-      expect(directive).toBeDefined();
-      expect(directive['bodyPortalHost']).toBeDefined();
-      expect(directive['loadingOverlayPortal']).toBeDefined();
+@Component({
+  selector: 'loading-overlay-directive-spec-absolute',
+  template: `<div style="position: absolute;" class="wrapper" [tsLoadingOverlay]="true">My content.</div>`,
+})
+class LoadingOverlayDirectiveSpecAbsolute {}
+
+describe(`TsLoadingOverlayDirective`, () => {
+  describe(`standard`, () => {
+    let spectator: Spectator<LoadingOverlayDirectiveSpec>;
+    const createComponent = createComponentFactory({
+      component: LoadingOverlayDirectiveSpec,
+      imports: [TsLoadingOverlayModule],
     });
-  });
 
-  describe(`set tsLoadingOverlay()`, () => {
     beforeEach(() => {
-      directive['bodyPortalHost'].attach = jest.fn();
-      directive['bodyPortalHost'].detach = jest.fn();
+      spectator = createComponent();
     });
 
-    test(`should attach to the host when TRUE`, () => {
-      directive.tsLoadingOverlay = true;
-
-      expect(directive['bodyPortalHost'].attach).toHaveBeenCalled();
-      expect(directive['bodyPortalHost'].detach).not.toHaveBeenCalled();
+    test(`should not load when false`, () => {
+      expect(spectator.query('.wrapper .c-loading-overlay')).not.toExist();
     });
 
-    test(`should detach from the host when FALSE`, () => {
-      directive.tsLoadingOverlay = false;
-
-      expect(directive['bodyPortalHost'].detach).toHaveBeenCalled();
-      expect(directive['bodyPortalHost'].attach).not.toHaveBeenCalled();
+    test(`should load when true`, () => {
+      expect(spectator.query('.wrapper .c-loading-overlay')).not.toExist();
+      spectator.setInput('shouldShow', true);
+      expect(document.querySelector('.c-loading-overlay')).toExist();
     });
-  });
 
-  describe(`ngOnInit()`, () => {
-    test(`should get the current position and pass to determinePosition()`, () => {
-      directive['determinePosition'] = jest.fn();
-      directive.ngOnInit();
-
-      expect(directive['determinePosition']).toHaveBeenCalledWith('static');
+    test(`should set the position of the parent element if not set`, () => {
+      expect(spectator.query('.wrapper')).toHaveStyle({ position: 'relative' });
     });
   });
 
-  describe(`ngOnDestroy()`, () => {
-    beforeEach(() => {
-      directive['bodyPortalHost'].dispose = jest.fn();
+  describe(`position absolute`, () => {
+    let spectator: Spectator<LoadingOverlayDirectiveSpecAbsolute>;
+    const createComponent = createComponentFactory({
+      component: LoadingOverlayDirectiveSpecAbsolute,
+      imports: [TsLoadingOverlayModule],
     });
 
-    test(`should dispose the bodyPortalHost if it exists`, () => {
-      directive.ngOnDestroy();
-
-      expect(directive['bodyPortalHost'].dispose).toHaveBeenCalled();
-    });
-
-    test(`should not throw an error if the bodyPortalHost doesn't exist`, () => {
-      // @ts-ignore
-      directive['bodyPortalHost'] = undefined as any;
-      directive.ngOnDestroy();
-
-      expect(() => {
-        directive.ngOnDestroy();
-      }).not.toThrow();
-    });
-  });
-
-  describe(`determinePosition()`, () => {
-    test(`should return the existing position if it is relative|absolute`, () => {
-      expect(directive['determinePosition']('relative')).toEqual('relative');
-      expect(directive['determinePosition']('absolute')).toEqual('absolute');
-    });
-
-    test(`should return relative if the position is anything other than relative|absolute`, () => {
-      expect(directive['determinePosition']('fixed')).toEqual('relative');
-      expect(directive['determinePosition']('static')).toEqual('relative');
+    test(`should not set the position if absolute`, () => {
+      spectator = createComponent();
+      expect(spectator.query('.wrapper')).toHaveStyle({ position: 'absolute' });
     });
   });
 });

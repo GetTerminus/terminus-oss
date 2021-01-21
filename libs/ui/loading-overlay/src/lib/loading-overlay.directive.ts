@@ -94,6 +94,7 @@ export class TsLoadingOverlayDirective implements OnInit, OnDestroy {
    * Destroy the portal host if it exists
    */
   public ngOnDestroy(): void {
+    // istanbul ignore else
     if (this.bodyPortalHost) {
       this.bodyPortalHost.dispose();
     }
