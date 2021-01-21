@@ -37,6 +37,10 @@ const myPages: TS_PAGE_HEADER_ROUTE[] = [
   },
 ];
 const DATE = new Date(2020, 8, 12);
+const myMetadata = [
+  ['Campaign Type', 'Hosted Event'],
+  ['Created Date', 'May 2, 2021'],
+];
 
 export default {
   title: 'Components/Structure/Page Header',
@@ -64,6 +68,7 @@ export const basic = () => ({
       [title]="title"
       [titleLevel]="titleLevel"
       [pageMenuContents]="showDropdown ? menuPages : undefined"
+      [metadata]="metadata"
     >
       <ts-button>Primary</ts-button>
       <ts-button theme="secondary">Secondary</ts-button>
@@ -76,6 +81,7 @@ export const basic = () => ({
     titleLevel: select('Title level', ['h1', 'h2', 'h3'], 'h1'),
     showDropdown: boolean('Enable title menu', false),
     menuPages: myPages,
+    metadata: myMetadata,
   },
 });
 basic.properties = {

@@ -23,7 +23,7 @@
     </div>
   </div>
 
-  <div class="ts-ph-bottom">
+  <div class="ts-ph-middle">
     <div
       class="ts-ph-trigger"
       [class.ts-ph-trigger--has-menu]="pageMenuContents && pageMenuContents.length"
@@ -45,6 +45,15 @@
     <div class="ts-ph-actions">
       <ng-content></ng-content>
     </div>
+  </div>
+
+  <div class="ts-ph-bottom" *ngIf="metadata">
+    <dl class="ts-ph-metadata">
+      <ng-container *ngFor="let item of metadata;">
+        <dt class="ts-ph-metadata__term">{{ item[0] }}</dt>
+        <dd class="ts-ph-metadata__definition">{{ item[1] }}</dd>
+      </ng-container>
+    </dl>
   </div>
 </header>
 

@@ -16,6 +16,7 @@
     - [Page menu](#page-menu)
   - [Breadcrumbs](#breadcrumbs)
   - [Updated date](#updated-date)
+  - [Metadata](#metadata)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -118,6 +119,21 @@ const myDate = new Date(2020, 9, 14);
 
 ```html
 <ts-page-header title="My page title!" [lastUpdatedDate]="myDate"></ts-page-header>
+```
+
+### Metadata
+
+A list of key-value pairs can be displayed below the title as metadata:
+
+```typescript
+const myMetadata: TS_PAGE_HEADER_METADATA[] = [
+  ['Campaign Type', 'Hosted Event'],
+  ['Created Date', 'May 2, 2021'],
+];
+```
+
+```html
+<ts-page-header [metadata]="myMetadata"></ts-page-header>
 ```
 
 <!-- Links -->
