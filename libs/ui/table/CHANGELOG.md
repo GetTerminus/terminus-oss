@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@4.0.1...@terminus/ui-table@4.0.2) (2021-01-21)
+
+
+### Bug Fixes
+
+* **Table:** decrease font size ([ee734a5](https://github.com/GetTerminus/terminus-oss/commit/ee734a5c73ae43317a89b2f037adc5a405f108cd)), closes [#537](https://github.com/GetTerminus/terminus-oss/issues/537)
+
+
+
+
+
 ## [4.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@4.0.0...@terminus/ui-table@4.0.1) (2021-01-12)
 
 
