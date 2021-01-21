@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-page-header@2.0.0...@terminus/ui-page-header@2.1.0) (2021-01-21)
+
+
+### Features
+
+* **PageHeader:** now supports metadata display ([c82e2c4](https://github.com/GetTerminus/terminus-oss/commit/c82e2c455349672009e4f96c8bed346bebcf4618)), closes [#531](https://github.com/GetTerminus/terminus-oss/issues/531)
+
+
+
+
+
 # 2.0.0 (2020-12-16)
 
 
