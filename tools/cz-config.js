@@ -51,6 +51,7 @@ module.exports = {
     { name: 'CSVEntry' },
     { name: 'DateRange' },
     { name: 'Drawer' },
+    { name: 'EmptyState' },
     { name: 'ExpansionPanel' },
     { name: 'FileUpload' },
     { name: 'FormField' },

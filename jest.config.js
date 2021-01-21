@@ -20,6 +20,7 @@ module.exports = {
     '<rootDir>/libs/ui/csv-entry',
     '<rootDir>/libs/ui/date-range',
     '<rootDir>/libs/ui/drawer',
+    '<rootDir>/libs/ui/empty-state',
     '<rootDir>/libs/ui/expansion-panel',
     '<rootDir>/libs/ui/file-upload',
     '<rootDir>/libs/ui/form-field',

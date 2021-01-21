@@ -1485,6 +1485,98 @@
       },
       "sourceRoot": "libs/ui/drawer/src"
     },
+    "ui-empty-state": {
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui/empty-state/tsconfig.lib.prod.json"
+            }
+          },
+          "options": {
+            "project": "libs/ui/empty-state/ng-package.json",
+            "tsConfig": "libs/ui/empty-state/tsconfig.lib.json"
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/empty-state && yarn build && cd ../../.."
+            ],
+            "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-empty-state/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-empty-state",
+            "uiFramework": "@storybook/angular"
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        },
+        "lint": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run lint:ts 'libs/ui/empty-state/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss:base 'libs/ui/empty-state/**/!(*.spec).scss'"
+              }
+            ]
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-empty-state/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/empty-state/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": [
+            "coverage/libs/ui/empty-state"
+          ]
+        }
+      },
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/empty-state",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "sourceRoot": "libs/ui/empty-state/src"
+    },
     "ui-expansion-panel": {
       "architect": {
         "build": {

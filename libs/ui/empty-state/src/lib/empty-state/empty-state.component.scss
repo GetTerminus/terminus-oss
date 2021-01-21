@@ -1,0 +1,41 @@
+:root {
+  --ts-empty-state-maxWidth: 342px;
+  --ts-empty-state-title-typography: 700 20px / 25px var(--ts-typography-stack-base-roboto);
+  --ts-empty-state-title-marginBottom: var(--ts-space-stack-300);
+  --ts-empty-state-description-typography: 400 14px / 20px var(--ts-typography-stack-base-roboto);
+  --ts-empty-state-description-marginBottom: var(--ts-space-stack-500);
+  --ts-empty-state-description-color: var(--ts-color-utility-700);
+  --ts-empty-state-svg-maxWidth: 230px;
+}
+
+.ts-empty-state {
+  display: block;
+  text-align: center;
+
+  .ts-empty-state-wrapper {
+    margin: auto;
+    max-width: var(--ts-empty-state-maxWidth);
+  }
+
+  &__svg-wrap {
+    margin-bottom: 4px;
+
+    svg {
+      display: block;
+      margin: auto;
+      max-width: var(--ts-empty-state-svg-maxWidth);
+    }
+  }
+
+  &__title {
+    font: var(--ts-empty-state-title-typography);
+    margin-bottom: var(--ts-empty-state-title-marginBottom);
+    text-transform: capitalize;
+  }
+
+  &__description {
+    color: var(--ts-empty-state-description-color);
+    font: var(--ts-empty-state-description-typography);
+    margin-bottom: var(--ts-empty-state-description-marginBottom);
+  }
+}

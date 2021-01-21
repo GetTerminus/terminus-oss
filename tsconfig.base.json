@@ -10,244 +10,117 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2017", "dom"],
     "module": "esnext",
     "moduleResolution": "node",
     "paths": {
-      "@terminus/design-tokens": [
-        "dist/libs/design-tokens"
-      ],
+      "@terminus/design-tokens": ["dist/libs/design-tokens"],
       "@terminus/eslint-config-frontend": [
         "libs/eslint-config-frontend/src/index.ts"
       ],
-      "@terminus/fe-jwt": [
-        "libs/fe-jwt/src/index.ts"
-      ],
-      "@terminus/fe-testing": [
-        "libs/fe-testing/src/index.ts"
-      ],
-      "@terminus/fe-utilities": [
-        "libs/fe-utilities/src/index.ts"
-      ],
+      "@terminus/fe-jwt": ["libs/fe-jwt/src/index.ts"],
+      "@terminus/fe-testing": ["libs/fe-testing/src/index.ts"],
+      "@terminus/fe-utilities": ["libs/fe-utilities/src/index.ts"],
       "@terminus/stylelint-config-frontend": [
         "libs/stylelint-config-frontend/src/index.ts"
       ],
-      "@terminus/ui-autocomplete": [
-        "libs/ui/autocomplete/src/index.ts"
-      ],
+      "@terminus/ui-autocomplete": ["libs/ui/autocomplete/src/index.ts"],
       "@terminus/ui-autocomplete/testing": [
         "libs/ui/autocomplete/testing/src/index.ts"
       ],
-      "@terminus/ui-autofocus": [
-        "libs/ui/autofocus/src/index.ts"
-      ],
-      "@terminus/ui-button": [
-        "libs/ui/button/src/index.ts"
-      ],
-      "@terminus/ui-card": [
-        "libs/ui/card/src/index.ts"
-      ],
-      "@terminus/ui-chart": [
-        "libs/ui/chart/src/index.ts"
-      ],
-      "@terminus/ui-chart/testing": [
-        "libs/ui/chart/testing/src/index.ts"
-      ],
-      "@terminus/ui-checkbox": [
-        "libs/ui/checkbox/src/index.ts"
-      ],
-      "@terminus/ui-chip": [
-        "libs/ui/chip/src/index.ts"
-      ],
-      "@terminus/ui-chip/testing": [
-        "libs/ui/chip/testing/src/index.ts"
-      ],
+      "@terminus/ui-autofocus": ["libs/ui/autofocus/src/index.ts"],
+      "@terminus/ui-button": ["libs/ui/button/src/index.ts"],
+      "@terminus/ui-card": ["libs/ui/card/src/index.ts"],
+      "@terminus/ui-chart": ["libs/ui/chart/src/index.ts"],
+      "@terminus/ui-chart/testing": ["libs/ui/chart/testing/src/index.ts"],
+      "@terminus/ui-checkbox": ["libs/ui/checkbox/src/index.ts"],
+      "@terminus/ui-chip": ["libs/ui/chip/src/index.ts"],
+      "@terminus/ui-chip/testing": ["libs/ui/chip/testing/src/index.ts"],
       "@terminus/ui-cohort-date-range": [
         "libs/ui/cohort-date-range/src/index.ts"
       ],
       "@terminus/ui-cohort-date-range/testing": [
         "libs/ui/cohort-date-range/testing/src/index.ts"
       ],
-      "@terminus/ui-confirmation": [
-        "libs/ui/confirmation/src/index.ts"
-      ],
-      "@terminus/ui-copy": [
-        "libs/ui/copy/src/index.ts"
-      ],
-      "@terminus/ui-csv-entry": [
-        "libs/ui/csv-entry/src/index.ts"
-      ],
-      "@terminus/ui-date-range": [
-        "libs/ui/date-range/src/index.ts"
-      ],
+      "@terminus/ui-confirmation": ["libs/ui/confirmation/src/index.ts"],
+      "@terminus/ui-copy": ["libs/ui/copy/src/index.ts"],
+      "@terminus/ui-csv-entry": ["libs/ui/csv-entry/src/index.ts"],
+      "@terminus/ui-date-range": ["libs/ui/date-range/src/index.ts"],
       "@terminus/ui-date-range/testing": [
         "libs/ui/date-range/testing/src/index.ts"
       ],
-      "@terminus/ui-drawer": [
-        "libs/ui/drawer/src/index.ts"
-      ],
-      "@terminus/ui-drawer/testing": [
-        "libs/ui/drawer/testing/src/index.ts"
-      ],
-      "@terminus/ui-expansion-panel": [
-        "libs/ui/expansion-panel/src/index.ts"
-      ],
+      "@terminus/ui-drawer": ["libs/ui/drawer/src/index.ts"],
+      "@terminus/ui-drawer/testing": ["libs/ui/drawer/testing/src/index.ts"],
+      "@terminus/ui-expansion-panel": ["libs/ui/expansion-panel/src/index.ts"],
       "@terminus/ui-expansion-panel/testing": [
         "libs/ui/expansion-panel/testing/src/index.ts"
       ],
-      "@terminus/ui-file-upload": [
-        "libs/ui/file-upload/src/index.ts"
-      ],
-      "@terminus/ui-form-field": [
-        "libs/ui/form-field/src/index.ts"
-      ],
+      "@terminus/ui-file-upload": ["libs/ui/file-upload/src/index.ts"],
+      "@terminus/ui-form-field": ["libs/ui/form-field/src/index.ts"],
       "@terminus/ui-form-field/testing": [
         "libs/ui/form-field/testing/src/index.ts"
       ],
-      "@terminus/ui-icon": [
-        "libs/ui/icon/src/index.ts"
-      ],
-      "@terminus/ui-icon-button": [
-        "libs/ui/icon-button/src/index.ts"
-      ],
-      "@terminus/ui-info-carousel": [
-        "libs/ui/info-carousel/src/index.ts"
-      ],
-      "@terminus/ui-input": [
-        "libs/ui/input/src/index.ts"
-      ],
-      "@terminus/ui-input/testing": [
-        "libs/ui/input/testing/src/index.ts"
-      ],
-      "@terminus/ui-link": [
-        "libs/ui/link/src/index.ts"
-      ],
-      "@terminus/ui-loading-overlay": [
-        "libs/ui/loading-overlay/src/index.ts"
-      ],
-      "@terminus/ui-login-form": [
-        "libs/ui/login-form/src/index.ts"
-      ],
-      "@terminus/ui-logo": [
-        "libs/ui/logo/src/index.ts"
-      ],
-      "@terminus/ui-menu": [
-        "libs/ui/menu/src/index.ts"
-      ],
-      "@terminus/ui-navigation": [
-        "libs/ui/navigation/src/index.ts"
-      ],
-      "@terminus/ui-option": [
-        "libs/ui/option/src/index.ts"
-      ],
-      "@terminus/ui-page-header": [
-        "libs/ui/page-header/src/index.ts"
-      ],
-      "@terminus/ui-paginator": [
-        "libs/ui/paginator/src/index.ts"
-      ],
+      "@terminus/ui-icon": ["libs/ui/icon/src/index.ts"],
+      "@terminus/ui-icon-button": ["libs/ui/icon-button/src/index.ts"],
+      "@terminus/ui-info-carousel": ["libs/ui/info-carousel/src/index.ts"],
+      "@terminus/ui-input": ["libs/ui/input/src/index.ts"],
+      "@terminus/ui-input/testing": ["libs/ui/input/testing/src/index.ts"],
+      "@terminus/ui-link": ["libs/ui/link/src/index.ts"],
+      "@terminus/ui-loading-overlay": ["libs/ui/loading-overlay/src/index.ts"],
+      "@terminus/ui-login-form": ["libs/ui/login-form/src/index.ts"],
+      "@terminus/ui-logo": ["libs/ui/logo/src/index.ts"],
+      "@terminus/ui-menu": ["libs/ui/menu/src/index.ts"],
+      "@terminus/ui-navigation": ["libs/ui/navigation/src/index.ts"],
+      "@terminus/ui-option": ["libs/ui/option/src/index.ts"],
+      "@terminus/ui-page-header": ["libs/ui/page-header/src/index.ts"],
+      "@terminus/ui-paginator": ["libs/ui/paginator/src/index.ts"],
       "@terminus/ui-paginator/testing": [
         "libs/ui/paginator/testing/src/index.ts"
       ],
-      "@terminus/ui-pipes": [
-        "libs/ui/pipes/src/index.ts"
-      ],
-      "@terminus/ui-popover": [
-        "libs/ui/popover/src/index.ts"
-      ],
-      "@terminus/ui-popover/testing": [
-        "libs/ui/popover/testing/src/index.ts"
-      ],
-      "@terminus/ui-radio-group": [
-        "libs/ui/radio-group/src/index.ts"
-      ],
+      "@terminus/ui-pipes": ["libs/ui/pipes/src/index.ts"],
+      "@terminus/ui-popover": ["libs/ui/popover/src/index.ts"],
+      "@terminus/ui-popover/testing": ["libs/ui/popover/testing/src/index.ts"],
+      "@terminus/ui-radio-group": ["libs/ui/radio-group/src/index.ts"],
       "@terminus/ui-radio-group/testing": [
         "libs/ui/radio-group/testing/src/index.ts"
       ],
-      "@terminus/ui-scrollbars": [
-        "libs/ui/scrollbars/src/index.ts"
-      ],
-      "@terminus/ui-search": [
-        "libs/ui/search/src/index.ts"
-      ],
-      "@terminus/ui-select": [
-        "libs/ui/select/src/index.ts"
-      ],
-      "@terminus/ui-select/testing": [
-        "libs/ui/select/testing/src/index.ts"
-      ],
-      "@terminus/ui-selection-list": [
-        "libs/ui/selection-list/src/index.ts"
-      ],
+      "@terminus/ui-scrollbars": ["libs/ui/scrollbars/src/index.ts"],
+      "@terminus/ui-search": ["libs/ui/search/src/index.ts"],
+      "@terminus/ui-select": ["libs/ui/select/src/index.ts"],
+      "@terminus/ui-select/testing": ["libs/ui/select/testing/src/index.ts"],
+      "@terminus/ui-selection-list": ["libs/ui/selection-list/src/index.ts"],
       "@terminus/ui-selection-list/testing": [
         "libs/ui/selection-list/testing/src/index.ts"
       ],
-      "@terminus/ui-sidenav": [
-        "libs/ui/sidenav/src/index.ts"
-      ],
-      "@terminus/ui-sort": [
-        "libs/ui/sort/src/index.ts"
-      ],
-      "@terminus/ui-spacing": [
-        "libs/ui/spacing/src/index.ts"
-      ],
-      "@terminus/ui-styles": [
-        "libs/ui/styles/src/index.ts"
-      ],
-      "@terminus/ui-table": [
-        "libs/ui/table/src/index.ts"
-      ],
-      "@terminus/ui-table/testing": [
-        "libs/ui/table/testing/src/index.ts"
-      ],
-      "@terminus/ui-tabs": [
-        "libs/ui/tabs/src/index.ts"
-      ],
-      "@terminus/ui-tabs/testing": [
-        "libs/ui/tabs/testing/src/index.ts"
-      ],
-      "@terminus/ui-theme": [
-        "libs/ui/theme/src/terminus-ui.scss"
-      ],
-      "@terminus/ui-toggle": [
-        "libs/ui/toggle/src/index.ts"
-      ],
-      "@terminus/ui-tooltip": [
-        "libs/ui/tooltip/src/index.ts"
-      ],
-      "@terminus/ui-tooltip/testing": [
-        "libs/ui/tooltip/testing/src/index.ts"
-      ],
-      "@terminus/ui-utilities": [
-        "libs/ui/utilities/src/index.ts"
-      ],
+      "@terminus/ui-sidenav": ["libs/ui/sidenav/src/index.ts"],
+      "@terminus/ui-sort": ["libs/ui/sort/src/index.ts"],
+      "@terminus/ui-spacing": ["libs/ui/spacing/src/index.ts"],
+      "@terminus/ui-styles": ["libs/ui/styles/src/index.ts"],
+      "@terminus/ui-table": ["libs/ui/table/src/index.ts"],
+      "@terminus/ui-table/testing": ["libs/ui/table/testing/src/index.ts"],
+      "@terminus/ui-tabs": ["libs/ui/tabs/src/index.ts"],
+      "@terminus/ui-tabs/testing": ["libs/ui/tabs/testing/src/index.ts"],
+      "@terminus/ui-theme": ["libs/ui/theme/src/terminus-ui.scss"],
+      "@terminus/ui-toggle": ["libs/ui/toggle/src/index.ts"],
+      "@terminus/ui-tooltip": ["libs/ui/tooltip/src/index.ts"],
+      "@terminus/ui-tooltip/testing": ["libs/ui/tooltip/testing/src/index.ts"],
+      "@terminus/ui-utilities": ["libs/ui/utilities/src/index.ts"],
       "@terminus/ui-validation-messages": [
         "libs/ui/validation-messages/src/index.ts"
       ],
       "@terminus/ui-validation-messages/testing": [
         "libs/ui/validation-messages/testing/src/index.ts"
       ],
-      "@terminus/ui-validators": [
-        "libs/ui/validators/src/index.ts"
-      ],
-      "@terminus/ui/info-carousel": [
-        "libs/ui/info-carousel/src/index.ts"
-      ]
+      "@terminus/ui-validators": ["libs/ui/validators/src/index.ts"],
+      "@terminus/ui/info-carousel": ["libs/ui/info-carousel/src/index.ts"],
+      "@terminus/ui-empty-state": ["libs/ui/empty-state/src/index.ts"]
     },
     "rootDir": ".",
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ]
+    "typeRoots": ["node_modules/@types"]
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }
