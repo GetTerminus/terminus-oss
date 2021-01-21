@@ -13,6 +13,9 @@ A simple toggle, or 'switch', component.
   - [CSS imports](#css-imports)
   - [CSS resources](#css-resources)
 - [Usage](#usage)
+  - [Label position](#label-position)
+  - [Disabled](#disabled)
+  - [Checked](#checked)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -45,6 +48,38 @@ Load the needed font families by adding this link to the `<head>` of your applic
 
 ```html
 <ts-toggle (selectionChange)="myChange($event)">Toggle</ts-toggle>
+```
+
+### Label position
+
+The label can be displayed before or after the toggle. By default, it is after the toggle.
+
+```html
+<ts-toggle labelPosition="before">Toggle</ts-toggle>
+```
+
+### Disabled
+
+The control can be disabled via Input or by disabling the associated `FormControl`:
+
+```html
+<ts-toggle [isDisabled]="true">Toggle</ts-toggle>
+```
+
+```typescript
+myCtrl = new FormControl({ value: false, disabled: true });
+```
+
+```html
+<ts-toggle [formControl]="myCtrl">Toggle</ts-toggle>
+```
+
+### Checked
+
+The checked value can be set programmatically:
+
+```html
+<ts-toggle [isChecked]="true">Toggle</ts-toggle>
 ```
 
 <!-- Links -->

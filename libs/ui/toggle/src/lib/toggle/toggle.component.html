@@ -1,13 +1,21 @@
-<mat-slide-toggle
-  class="c-toggle qa-toggle"
-  [(ngModel)]="value"
-  [required]="isRequired"
-  [labelPosition]="labelPosition"
-  color="primary"
-  [aria-label]="ariaLabel"
-  [disabled]="isDisabled"
-  [name]="name"
-  (change)="selectionChange.emit($event)"
->
-  <ng-content></ng-content>
-</mat-slide-toggle>
+<label class="ts-toggle__label" [attr.for]="inputId">
+  <input
+    class="ts-toggle__input"
+    type="checkbox"
+    role="switch"
+    [attr.aria-checked]="isChecked.toString()"
+    [attr.aria-labelledby]="ariaLabelledby"
+    [attr.aria-label]="ariaLabel"
+    [attr.name]="name"
+    [checked]="isChecked"
+    [disabled]="isDisabled"
+    [id]="inputId"
+    [required]="isRequired"
+    [tabIndex]="tabIndex"
+    (change)="onChangeEvent($event)"
+    (click)="onInputClick($event)"
+    #input
+  >
+  <span class="ts-toggle__content"><ng-content></ng-content></span>
+  <span class="ts-toggle__thumb-container"><span class="ts-toggle__thumb"></span></span>
+</label>
