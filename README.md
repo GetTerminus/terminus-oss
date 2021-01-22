@@ -446,7 +446,7 @@ Upgrade to the latest stable version regardless of your current ranges: `yarn up
 [badge-latest-csvEntry]:           https://img.shields.io/npm/v/@terminus/ui-csv-entry/latest?color=%2345aaf2
 [badge-latest-dateRange]:          https://img.shields.io/npm/v/@terminus/ui-date-range/latest?color=%2345aaf2
 [badge-latest-drawer]:             https://img.shields.io/npm/v/@terminus/ui-drawer/latest?color=%2345aaf2
-[badge-latest-empty-state]:        https://img.shields.io/npm/v/@terminus/ui-empty-state/latest?color=%2345aaf2
+[badge-latest-emptyState]:         https://img.shields.io/npm/v/@terminus/ui-empty-state/latest?color=%2345aaf2
 [badge-latest-expansionPanel]:     https://img.shields.io/npm/v/@terminus/ui-expansion-panel/latest?color=%2345aaf2
 [badge-latest-fileUpload]:         https://img.shields.io/npm/v/@terminus/ui-file-upload/latest?color=%2345aaf2
 [badge-latest-icon]:               https://img.shields.io/npm/v/@terminus/ui-icon/latest?color=%2345aaf2
