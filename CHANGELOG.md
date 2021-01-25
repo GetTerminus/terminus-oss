@@ -1,6 +1,6 @@
 <h1>Changelog</h1>
 
-You can view the changelog for the packages within this monorepo in `./libs/[ui]<package name>/CHANGELOG.md`.
+You can view the changelog for the packages within this monorepo in `./libs/[ui]/<package name>/CHANGELOG.md`.
 
 |                                  Changelog                                  |
 |-----------------------------------------------------------------------------|
