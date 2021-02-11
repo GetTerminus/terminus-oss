@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-file-upload@5.0.0...@terminus/ui-file-upload@5.0.1) (2021-02-11)
+
+
+### Bug Fixes
+
+* **FileUpload:** Upload dismiss button clears properly ([#548](https://github.com/GetTerminus/terminus-oss/issues/548)) ([c39b72b](https://github.com/GetTerminus/terminus-oss/commit/c39b72b10bf1919684bf980e8fe6847510809a99))
+
+
+
+
+
 # 5.0.0 (2020-12-16)
 
 
