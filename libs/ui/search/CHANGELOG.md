@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@5.0.0...@terminus/ui-search@5.1.0) (2021-02-16)
+
+
+### Features
+
+* **Search:** Provide config option for Search module ([#549](https://github.com/GetTerminus/terminus-oss/issues/549)) ([a340d05](https://github.com/GetTerminus/terminus-oss/commit/a340d05801cb83551e2940bdba2fe86964ec3b50))
+
+
+
+
+
 # [5.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@4.1.0...@terminus/ui-search@5.0.0) (2020-12-16)
 
 
