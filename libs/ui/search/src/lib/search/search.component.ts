@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  Inject,
   Input,
   Output,
   ViewEncapsulation,
@@ -23,6 +24,8 @@ import type {
   TsButtonThemeTypes,
 } from '@terminus/ui-button';
 
+import { TS_SEARCH_DEFAULT_OPTIONS } from '../ui-search.token';
+
 /**
  * Define the user object interface
  */
@@ -33,7 +36,13 @@ export interface TsSearchResponse {
   query: string;
 }
 
-const INPUT_DEBOUNCE_DEFAULT_MS = 200;
+/**
+ * Define component default options interface
+ */
+export interface TsSearchDefaultOptions {
+  debounceTime: number;
+}
+
 const INPUT_MINIMUM_LENGTH = 2;
 
 /**
@@ -97,7 +106,7 @@ export class TsSearchComponent implements OnInit {
   /**
    * Define a debounced method to emit the submission event
    */
-  public debouncedEmit = debounce<TsSearchComponent>(this.emitSubmit, INPUT_DEBOUNCE_DEFAULT_MS);
+  public debouncedEmit = debounce<TsSearchComponent>(this.emitSubmit, this.config.debounceTime);
 
   /**
    * Define the regular expression to validate the query
@@ -208,7 +217,10 @@ export class TsSearchComponent implements OnInit {
   @Output()
   public readonly submitted = new EventEmitter<TsSearchResponse>();
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    @Inject(TS_SEARCH_DEFAULT_OPTIONS) public config: TsSearchDefaultOptions,
+    private formBuilder: FormBuilder,
+  ) { }
 
   /**
    * Seed the value if needed on initialization
