@@ -12,6 +12,7 @@
   - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Auto-submit](#auto-submit)
+  - [Debounce Time](#debounce-time)
   - [Button theme](#button-theme)
   - [Error message](#error-message)
   - [No validation or hint](#no-validation-or-hint)
@@ -59,6 +60,14 @@ When enabled, the submit button will not be shown and debounced queries will be 
 
 ```html
 <ts-search [autoSubmit]="true"></ts-search>
+```
+
+### Debounce Time
+
+Discard emitted values that take less than the specified time between output.
+
+```html
+<ts-search [debounceTime]="400"></ts-search>
 ```
 
 ### Button theme

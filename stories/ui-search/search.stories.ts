@@ -78,12 +78,10 @@ export const autoSubmit = () => ({
   component: TsSearchComponent,
   props: {
     autoSubmit: true,
+    debounceTime: number('Debounce Time', 200),
     submitted: action('Submitted'),
   },
 });
-autoSubmit.parameters = {
-  knobs: { disabled: true },
-};
 
 export const noValidationOrHint = () => ({
   component: TsSearchComponent,

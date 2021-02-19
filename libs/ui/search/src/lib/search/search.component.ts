@@ -191,6 +191,14 @@ export class TsSearchComponent implements OnInit {
   public userCanClear = true;
 
   /**
+   * Define debounce time for emitted values
+   */
+  @Input()
+  public set debounceTime(value: number) {
+    this.debouncedEmit = debounce<TsSearchComponent>(this.emitSubmit, value);
+  }
+
+  /**
    * The event to emit when the internal input value is changed
    */
   @Output()
