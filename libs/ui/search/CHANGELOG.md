@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@5.1.0...@terminus/ui-search@5.1.1) (2021-02-22)
+
+
+### Bug Fixes
+
+* **Search:** add debounce time input ([#550](https://github.com/GetTerminus/terminus-oss/issues/550)) ([39530e6](https://github.com/GetTerminus/terminus-oss/commit/39530e637f6d3ad9eb81f7a078ff245c432d4522))
+
+
+
+
+
 # [5.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-search@5.0.0...@terminus/ui-search@5.1.0) (2021-02-16)
 
 
