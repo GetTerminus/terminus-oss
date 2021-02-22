@@ -12,11 +12,11 @@
   - [CSS resources](#css-resources)
 - [Usage](#usage)
   - [Auto-submit](#auto-submit)
+  - [Debounce Time](#debounce-time)
   - [Button theme](#button-theme)
   - [Error message](#error-message)
   - [No validation or hint](#no-validation-or-hint)
   - [Events](#events)
-  - [Default options](#default-options)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -60,6 +60,14 @@ When enabled, the submit button will not be shown and debounced queries will be 
 
 ```html
 <ts-search [autoSubmit]="true"></ts-search>
+```
+
+### Debounce Time
+
+Discard emitted values that take less than the specified time between output.
+
+```html
+<ts-search [debounceTime]="400"></ts-search>
 ```
 
 ### Button theme
@@ -109,20 +117,3 @@ The space reserved for the validation message or hint can be removed if it is no
 [github-action-link]:  https://github.com/GetTerminus/terminus-oss/actions?query=workflow%3A%22CI+Release%22
 [file-size-badge]:     http://img.badgesize.io/https://unpkg.com/@terminus/ui-search/bundles/terminus-ui-search.umd.min.js?compression=gzip
 [raw-distribution-js]: https://unpkg.com/@terminus/ui-search/bundles/terminus-ui-search.umd.js
-
-### Default options
-
-With the forRoot statement you can configure module.
-
-```html
-@NgModule({
-  imports: [
-    TsSearchModule.forRoot({ debounceTime: 400 })
-  ]
-})
-export class YourModule { }
-```
-
-| Property       | Description                                                                   | Payload            |
-| :------------- | :-----------------------------------------------------------------------------| :----------------- |
-| `debounceTime` | Discard emitted values that take less than the specified time between output  | `number`           |
