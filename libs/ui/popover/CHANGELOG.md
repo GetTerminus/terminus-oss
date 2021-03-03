@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-popover@3.1.0...@terminus/ui-popover@3.1.1) (2021-03-03)
+
+
+### Bug Fixes
+
+* **Popover:** add missed position, remove positions duplicates. ([#552](https://github.com/GetTerminus/terminus-oss/issues/552)) ([3608239](https://github.com/GetTerminus/terminus-oss/commit/36082393c83f21186215d59af47579e57fc7b5c8))
+
+
+
+
+
 # [3.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-popover@3.0.1...@terminus/ui-popover@3.1.0) (2021-01-19)
 
 
