@@ -1102,13 +1102,14 @@ export class TsInputComponent implements AfterViewInit, AfterContentInit, DoChec
    *
    * @param value - The value to write to the model
    */
-  public writeValue(value: string | Date): void {
+  public writeValue(value: string | Date | number): void {
     if (this.mask) {
       this.setUpMask();
     }
 
     // Set the initial value for cases where the mask is disabled
-    let normalizedValue = value ? value : '';
+    // 0 could be a value but it's falsy, so we have to check if value is 0
+    let normalizedValue = value || value === 0 ? value : '';
     this.value = normalizedValue;
 
     // Convert to a string if dealing with a date object

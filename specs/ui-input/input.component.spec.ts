@@ -647,6 +647,30 @@ describe(`TsInputComponent Original`, function() {
       expect(component.value.toISOString()).toEqual(isoDate);
       expect(component['renderer'].setProperty).toHaveBeenCalledWith(expect.any(ElementRef), 'value', isoDate);
     });
+
+    test(`should set empty string if there is no value`, () => {
+      const fixture = createComponentLegacy(TestComponents.SimpleFormControl);
+      fixture.detectChanges();
+      const component = fixture.componentInstance.inputComponent;
+      component['renderer'].setProperty = jest.fn();
+      component.writeValue(null);
+      fixture.detectChanges();
+
+      expect(component.value).toEqual('');
+      expect(component['renderer'].setProperty).toHaveBeenCalledWith(expect.any(ElementRef), 'value', '');
+    });
+
+    test(`should set 0 as value`, () => {
+      const fixture = createComponentLegacy(TestComponents.SimpleFormControl);
+      fixture.detectChanges();
+      const component = fixture.componentInstance.inputComponent;
+      component['renderer'].setProperty = jest.fn();
+      component.writeValue(0);
+      fixture.detectChanges();
+
+      expect(component.value).toEqual(0);
+      expect(component['renderer'].setProperty).toHaveBeenCalledWith(expect.any(ElementRef), 'value', 0);
+    });
   });
 
   describe(`onInput`, () => {
