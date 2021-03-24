@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@4.0.0...@terminus/ui-input@4.0.1) (2021-03-24)
+
+
+### Bug Fixes
+
+* **Input:** set 0 as a value for input ([#554](https://github.com/GetTerminus/terminus-oss/issues/554)) ([a1dc6a6](https://github.com/GetTerminus/terminus-oss/commit/a1dc6a6a71920abaf3664d2ce06b96e9801bda93)), closes [#553](https://github.com/GetTerminus/terminus-oss/issues/553)
+
+
+
+
+
 # [4.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@3.0.1...@terminus/ui-input@4.0.0) (2020-12-16)
 
 
