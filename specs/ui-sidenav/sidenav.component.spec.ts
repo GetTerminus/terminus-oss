@@ -16,7 +16,6 @@ import {
 
 import { createMouseEvent } from '@terminus/fe-testing';
 import {
-  TS_SIDENAV_DEFAULT_OPTIONS,
   TsSidenavComponent,
   TsSidenavModule,
   TsSidenavPlatformSwitcherComponent,
@@ -596,16 +595,12 @@ describe(`User Default Options Override`, () => {
     signOutRoute: '/two',
     academyUrl: '/three',
     knowledgeBaseUrl: '/four',
+    communityUrl: '/five',
   };
   const createHost = createHostFactory({
     component: TsSidenavComponent,
     imports: [...MODULE_IMPORTS],
-    providers: [
-      {
-        provide: TS_SIDENAV_DEFAULT_OPTIONS,
-        useValue: NEW_LINKS,
-      },
-    ],
+    providers: [],
     declareComponent: false,
   });
   let overlay: OverlayContainer;
@@ -615,13 +610,17 @@ describe(`User Default Options Override`, () => {
         [user]="user"
         [switcherCurrentTitle]="currentTitle"
         [switcherContent]="switcherContent"
+        [options]="options"
+        [newSidenavDisplay]="newSidenavDisplay"
       ></ts-sidenav>
     `;
 
-  beforeEach(() => {
+  test(`should allow custom URL destinations when overriding options`, () => {
     spectator = createHost(OVERRIDE_OPTIONS, {
       hostProps: {
         currentTitle: 'Popout Title',
+        newSidenavDisplay: false,
+        options: NEW_LINKS,
         switcherContent: SWITCHER_CONTENT_MOCK,
         user: USER_MOCK,
       },
@@ -629,9 +628,6 @@ describe(`User Default Options Override`, () => {
     overlay = spectator.inject<OverlayContainer>(OverlayContainer);
     overlayContainerElement = overlay.getContainerElement();
     spectator.detectChanges();
-  });
-
-  test(`should allow custom URL destinations when overriding options`, () => {
     spectator.click('.ts-sidenav__user-image');
     spectator.detectChanges();
     expect(spectator.query('.ts-sidenav-panel-wrap--user ul li:nth-of-type(1) a').getAttribute('href'))
@@ -641,6 +637,33 @@ describe(`User Default Options Override`, () => {
     expect(spectator.query('.ts-sidenav-panel-wrap--user ul li:nth-of-type(4) a').getAttribute('href'))
       .toEqual(expect.stringContaining(NEW_LINKS.academyUrl));
     expect(spectator.query('.ts-sidenav-panel-wrap--user ul li:nth-of-type(6) a').getAttribute('href'))
+      .toEqual(expect.stringContaining(NEW_LINKS.signOutRoute));
+  });
+
+  test(`should allow custom URL destinations when overriding options with newSidenavDisplay`, () => {
+    spectator = createHost(OVERRIDE_OPTIONS, {
+      hostProps: {
+        currentTitle: 'Popout Title',
+        newSidenavDisplay: true,
+        options: NEW_LINKS,
+        switcherContent: SWITCHER_CONTENT_MOCK,
+        user: USER_MOCK,
+      },
+    });
+    overlay = spectator.inject<OverlayContainer>(OverlayContainer);
+    overlayContainerElement = overlay.getContainerElement();
+    spectator.detectChanges();
+    spectator.click('.ts-sidenav__user-image');
+    spectator.detectChanges();
+    expect(spectator.query('.ts-sidenav-panel-wrap--user ul li:nth-of-type(1) a').getAttribute('href'))
+      .toEqual(expect.stringContaining(NEW_LINKS.profileRoute));
+    expect(spectator.query('.ts-sidenav-panel-wrap--user ul li:nth-of-type(3) a').getAttribute('href'))
+      .toEqual(expect.stringContaining(NEW_LINKS.knowledgeBaseUrl));
+    expect(spectator.query('.ts-sidenav-panel-wrap--user ul li:nth-of-type(4) a').getAttribute('href'))
+      .toEqual(expect.stringContaining(NEW_LINKS.academyUrl));
+    expect(spectator.query('.ts-sidenav-panel-wrap--user ul li:nth-of-type(5) a').getAttribute('href'))
+      .toEqual(expect.stringContaining(NEW_LINKS.communityUrl));
+    expect(spectator.query('.ts-sidenav-panel-wrap--user ul li:nth-of-type(7) a').getAttribute('href'))
       .toEqual(expect.stringContaining(NEW_LINKS.signOutRoute));
   });
 });

@@ -19,6 +19,7 @@ import {
   TsSidenavTriggerComponent,
   TsSidenavModule,
   TsSidenavComponent,
+  TsSidenavDefaultOptions,
 } from '@terminus/ui-sidenav';
 import type {
   TS_SIDENAV_PLATFORM_SWITCHER_CONTENT,
@@ -112,6 +113,13 @@ const SWITCHER_CONTENT_MOCK: TS_SIDENAV_PLATFORM_SWITCHER_CONTENT = [
     ],
   },
 ];
+const SIDENAV_OPTIONS_MOCK: TsSidenavDefaultOptions = {
+  profileRoute: '/profile',
+  signOutRoute: '/sign-out',
+  academyUrl: 'https://academy.terminus.com',
+  knowledgeBaseUrl: 'https://support.terminus.com',
+  communityUrl: 'https://terminus.zendesk.com/hc/en-us/community/topics',
+};
 
 export const basic = () => ({
   template: `
@@ -1251,6 +1259,200 @@ export const userPanel = () => ({
   },
 });
 userPanel.parameters = {
+  actions: { disabled: true },
+  knobs: { disabled: true },
+  docs: { iframeHeight: 600 },
+};
+
+export const userPanelWithNewDisplay = () => ({
+  template: `
+  <style>
+    ::ng-deep .sb-show-main {
+      padding: 0 !important;
+    }
+    .sidenav-demo-container {
+      background-color: #f1f2f4;
+      display: flex;
+      height: 100%;
+    }
+    .sidenav-wrapper {
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .sidenav-demo-text {
+      flex: 1;
+      overflow-y: scroll;
+      padding: 1em;
+    }
+    .sidenav-demo-text:focus {
+      outline: 0;
+    }
+    .sidenav-demo-text p {
+      margin-bottom: 2rem;
+      max-width: 400px;
+    }
+  </style>
+
+  <!-- This represents the top level page wrapper -->
+  <div class="sidenav-demo-container">
+    <!-- This is a wrapper around just the sidenav; this helps control flexbox and overflow behaviors -->
+    <div class="sidenav-wrapper">
+      <ts-sidenav
+        [user]="user"
+        [switcherCurrentTitle]="currentTitle"
+        [switcherContent]="switcherContent"
+        [isUserPanelOpen]="true"
+        [options]="sidenavOptions"
+        [newSidenavDisplay]="true"
+      >
+        <ts-sidenav-trigger>
+          <ts-tooltip tooltipValue="ABM Scorecard" tooltipPosition="after">
+            <a routerLink="/scorecard"><span class="fas fa-analytics"></span><span class="sr-only">ABM Scorecard</span></a>
+          </ts-tooltip>
+        </ts-sidenav-trigger>
+
+        <ts-sidenav-trigger panelType="drawer">
+          <ts-tooltip tooltipValue="Dashboards" tooltipPosition="after">
+            <button><span class="fas fa-tachometer"></span><span class="sr-only">Dashboards</span></button>
+          </ts-tooltip>
+
+          <div tsTriggerComponentPanelContent>
+            <div class="ts-sidenav-panel-title">Dashboards</div>
+            <ul>
+              <li class="ts-sidenav-bold-title">Dashboards Section 1</li>
+              <li>
+                <a href="#" class="ts-sidenav-panel-action">Link 1</a>
+              </li>
+              <li><hr></li>
+              <li class="ts-sidenav-bold-title">Dashboards Section 2</li>
+              <li>
+                <a href="#" class="ts-sidenav-panel-action">Link 2</a>
+              </li>
+              <li>
+                <a href="#" class="ts-sidenav-panel-action">Link 3</a>
+              </li>
+              <li>
+                <a href="#" class="ts-sidenav-panel-action">Link 4</a>
+              </li>
+            </ul>
+          </div>
+        </ts-sidenav-trigger>
+
+        <ts-sidenav-trigger panelType="drawer">
+          <ts-tooltip tooltipValue="Reports" tooltipPosition="after">
+            <button><span class="fas fa-table"></span><span class="sr-only">Reports</span></button>
+          </ts-tooltip>
+
+          <div tsTriggerComponentPanelContent>
+            <div class="ts-sidenav-panel-title">Settings</div>
+            <ul>
+              <li><a href="#" class="ts-sidenav-panel-action">Configuration</a></li>
+              <li><hr></li>
+              <li><a href="#" class="ts-sidenav-panel-action">Permissions</a></li>
+              <li><a href="#" class="ts-sidenav-panel-action">Stages</a></li>
+              <li><a href="#" class="ts-sidenav-panel-action">Pages and Features</a></li>
+              <li><a href="#" class="ts-sidenav-panel-action">Data Hygiene</a></li>
+              <li><a href="#" class="ts-sidenav-panel-action">Campaign Scoring</a></li>
+              <li><a href="#" class="ts-sidenav-panel-action">Digital Attribution Snippet</a></li>
+            </ul>
+          </div>
+        </ts-sidenav-trigger>
+
+        <ts-sidenav-section-break></ts-sidenav-section-break>
+
+        <ts-sidenav-trigger>
+          <ts-tooltip tooltipValue="Internal Configuration" tooltipPosition="after">
+            <a routerLink="/configuration"><span class="fas fa-tools"></span><span class="sr-only">Internal Configuration</span></a>
+          </ts-tooltip>
+        </ts-sidenav-trigger>
+
+        <ts-sidenav-trigger panelType="popout">
+          <ts-tooltip tooltipValue="Switch User" tooltipPosition="after">
+            <button><span class="fas fa-people-arrows"></span><span class="sr-only">Switch User</span></button>
+          </ts-tooltip>
+
+          <div tsTriggerComponentPanelContent>
+            <div class="ts-sidenav-panel-title">Switch User Menu</div>
+            <ul>
+              <li>
+                <a href="#" class="ts-sidenav-panel-action">Link 1</a>
+              </li>
+              <li>
+                <a href="#" class="ts-sidenav-panel-action">Link 2</a>
+              </li>
+            </ul>
+          </div>
+        </ts-sidenav-trigger>
+
+        <ts-sidenav-trigger panelType="popout" [statusFormGroup]="toggleForm">
+          <ts-tooltip tooltipValue="Do Not Disturb" tooltipPosition="after">
+            <button><span class="fas fa-moon"></span><span class="sr-only">Do Not Disturb</span></button>
+          </ts-tooltip>
+
+          <div tsTriggerComponentPanelContent>
+            <div class="ts-sidenav-panel-section-title">Do Not Disturb</div>
+            <div class="ts-sidenav-panel-section-subtitle">Preferences</div>
+            <hr>
+            <form [formGroup]="toggleForm">
+              <ul>
+                <li><ts-toggle class="ts-sidenav-panel-action" formControlName="acme" labelPosition="before">ACME Co.</ts-toggle></li>
+                <li>
+                  <ts-toggle class="ts-sidenav-panel-action" formControlName="ajax" labelPosition="before">AJAX Corporation</ts-toggle>
+                </li>
+              </ul>
+            </form>
+          </div>
+        </ts-sidenav-trigger>
+      </ts-sidenav>
+    </div>
+    <!-- For a11y, scrollable content needs to be accessible via tabbing -->
+    <div class="sidenav-demo-text" tabindex="0">
+      <p>
+        Optimism co-creation expose the truth greenwashing best practices. Human-centered benefit corporation, energize empower
+        segmentation. Mass incarceration our work milestones invest our work uplift. Entrepreneur, thought leader, data corporate social
+        responsibility circular greenwashing green space blended value scalable ecosystem NGO design thinking thought leadership justice.
+      </p>
+      <p>
+        Thought leadership overcome injustice capacity building sustainable indicators compassion fairness low-hanging fruit correlation
+        granular change-makers segmentation. Social entrepreneurship policymaker granular strengthening infrastructure empathetic movements
+        collaborative cities venture philanthropy. Invest social entrepreneur B-corp when program area fairness white paper technology
+        disrupt optimism.
+      </p>
+      <p>
+        Theory of change disrupt mobilize thought provoking, collaborative consumption rubric human-centered, incubator
+        policymaker society movements synergy resilient. Inspiring innovation strategize capacity building; uplift thought leader. Social
+        intrapreneurship, capacity building, circular paradigm progress shared vocabulary accessibility social innovation peaceful do-gooder
+        inclusive. Peaceful collaborate NGO accessibility; our work.
+      </p>
+      <p>
+        Replicable corporate social responsibility collective impact collaborate, academic overcome injustice issue outcomes storytelling
+        inclusion. Scalable, progress game-changer; living a fully ethical life, systems thinking dynamic state of play outcomes but
+        cultivate circular relief our work. Mobilize society; rubric; resilient outcomes indicators catalyze shared value triple bottom
+        line.
+      </p>
+      <p>
+        Catalyze families bandwidth impact investing inspiring program areas paradigm because philanthropy inspiring. Collaborative
+        consumption and; compassion, collaborative cities then ideate rubric. Granular triple bottom line social enterprise scale and impact
+        innovate communities. Problem-solvers thought partnership living a fully ethical life transparent the resistance initiative. B-corp
+        the grit; impact investing think tank revolutionary, triple bottom line activate indicators.
+      </p>
+    </div>
+  </div>
+  `,
+  props: {
+    user: USER_MOCK,
+    switcherContent: SWITCHER_CONTENT_MOCK,
+    currentTitle: 'Measurement Studio',
+    sidenavOptions: SIDENAV_OPTIONS_MOCK,
+    acmeModel: true,
+    ajaxModel: false,
+    toggleForm: new FormGroup({
+      acme: new FormControl(true),
+      ajax: new FormControl(false),
+    }),
+  },
+});
+userPanelWithNewDisplay.parameters = {
   actions: { disabled: true },
   knobs: { disabled: true },
   docs: { iframeHeight: 600 },
