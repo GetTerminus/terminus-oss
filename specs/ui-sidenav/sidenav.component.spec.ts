@@ -672,9 +672,9 @@ describe(`User Default Options Override`, () => {
     expect(spectator.query('.ts-sidenav-panel-wrap--user ul li:nth-of-type(3) a').getAttribute('href'))
       .toEqual(expect.stringContaining(NEW_LINKS.knowledgeBaseUrl));
     expect(spectator.query('.ts-sidenav-panel-wrap--user ul li:nth-of-type(4) a').getAttribute('href'))
-      .toEqual(expect.stringContaining(NEW_LINKS.academyUrl));
-    expect(spectator.query('.ts-sidenav-panel-wrap--user ul li:nth-of-type(5) a').getAttribute('href'))
       .toEqual(expect.stringContaining(NEW_LINKS.communityUrl));
+    expect(spectator.query('.ts-sidenav-panel-wrap--user ul li:nth-of-type(5) a').getAttribute('href'))
+      .toEqual(expect.stringContaining(NEW_LINKS.academyUrl));
     expect(spectator.query('.ts-sidenav-panel-wrap--user ul li:nth-of-type(7) a').getAttribute('href'))
       .toEqual(expect.stringContaining(NEW_LINKS.signOutRoute));
   });
