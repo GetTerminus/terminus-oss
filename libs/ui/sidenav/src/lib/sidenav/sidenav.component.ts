@@ -34,16 +34,8 @@ export interface TsSidenavDefaultOptions {
   signOutRoute?: string;
   academyUrl?: string;
   knowledgeBaseUrl?: string;
+  communityUrl?: string;
 }
-
-/**
- * Injection token to be used to override the default options for {@link TsSidenavComponent}
- */
-export const TS_SIDENAV_DEFAULT_OPTIONS =
-  new InjectionToken<TsSidenavDefaultOptions>('ts-sidenav-default-options', {
-    providedIn: 'root',
-    factory: TS_SIDENAV_DEFAULT_OPTIONS_FACTORY,
-  });
 
 /**
  * Factory for default {@link TsSidenavComponent} options
@@ -171,6 +163,18 @@ export class TsSidenavComponent {
   public switcherContent: TS_SIDENAV_PLATFORM_SWITCHER_CONTENT;
 
   /**
+   * Define the sidenav option links
+   */
+  @Input()
+  public options: TsSidenavDefaultOptions = TS_SIDENAV_DEFAULT_OPTIONS_FACTORY();
+
+  /**
+   * Define new sidenav display
+   */
+  @Input()
+  public newSidenavDisplay = false;
+
+  /**
    * Define the current user
    */
   @Input()
@@ -185,6 +189,5 @@ export class TsSidenavComponent {
 
   constructor(
     public elementRef: ElementRef,
-    @Optional() @Inject(TS_SIDENAV_DEFAULT_OPTIONS) public options: TsSidenavDefaultOptions,
   ) {}
 }
