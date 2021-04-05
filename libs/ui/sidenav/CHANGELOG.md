@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@2.1.0...@terminus/ui-sidenav@2.1.1) (2021-04-05)
+
+
+### Bug Fixes
+
+* **TsSidenavTriggerComponent:** Don't add overlay for 'basic' panel type ([#557](https://github.com/GetTerminus/terminus-oss/issues/557)) ([1181082](https://github.com/GetTerminus/terminus-oss/commit/1181082c5ecd51779877a12bf7c57baf251e0814))
+
+
+
+
+
 # [2.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@2.0.0...@terminus/ui-sidenav@2.1.0) (2021-04-05)
 
 
