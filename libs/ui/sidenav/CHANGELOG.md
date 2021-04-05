@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@2.0.0...@terminus/ui-sidenav@2.1.0) (2021-04-05)
+
+
+### Features
+
+* **sidenav:** pass options and use new ui ([#555](https://github.com/GetTerminus/terminus-oss/issues/555)) ([072c7d1](https://github.com/GetTerminus/terminus-oss/commit/072c7d13e4aa989ecf70cd9be33e96f86291b6f6))
+
+
+
+
+
 # [2.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@1.1.6...@terminus/ui-sidenav@2.0.0) (2020-12-16)
 
 
