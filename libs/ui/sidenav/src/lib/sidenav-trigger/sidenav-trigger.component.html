@@ -43,7 +43,7 @@
   cdkConnectedOverlayHasBackdrop
   cdkConnectedOverlayBackdropClass="ts-sidenav-panel-backdrop"
   [cdkConnectedOverlayOrigin]="triggerItem"
-  [cdkConnectedOverlayOpen]="panelType !== 'drawer' && isPanelOpen"
+  [cdkConnectedOverlayOpen]="panelType === 'popout' && isPanelOpen"
   [cdkConnectedOverlayPositions]="panelPositions"
   [cdkConnectedOverlayOffsetX]="panelOffsets.x"
   [cdkConnectedOverlayOffsetY]="panelOffsets.y"

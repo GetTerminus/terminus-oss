@@ -346,6 +346,18 @@ describe(`TsSidenavComponent`, function() {
     });
 
     describe(`Trigger`, () => {
+      test(`should not add overlay for basic panel type`, () => {
+        let panel = overlayContainerElement.querySelector('.ts-sidenav-panel-wrap');
+        expect(panel).not.toExist();
+
+        const trigger = spectator.queryLast(TsSidenavTriggerComponent);
+        trigger.toggle();
+
+        spectator.detectChanges();
+        panel = overlayContainerElement.querySelector('.ts-sidenav-panel-wrap');
+        expect(panel).not.toExist();
+      });
+
       test(`should set state state and classes on toggle`, () => {
         const trigger = spectator.query(TsSidenavTriggerComponent);
         trigger.toggle();
