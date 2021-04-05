@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@2.1.1...@terminus/ui-sidenav@2.1.2) (2021-04-05)
+
+
+### Bug Fixes
+
+* **sidenav:** Address product feedback ([#558](https://github.com/GetTerminus/terminus-oss/issues/558)) ([3f0efb9](https://github.com/GetTerminus/terminus-oss/commit/3f0efb901e6f9d4ed1c4efd7bbe80a6b40958a9f))
+
+
+
+
+
 ## [2.1.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@2.1.0...@terminus/ui-sidenav@2.1.1) (2021-04-05)
 
 
