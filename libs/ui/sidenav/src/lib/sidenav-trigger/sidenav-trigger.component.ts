@@ -171,7 +171,7 @@ export class TsSidenavTriggerComponent implements OnInit, OnDestroy {
   public set isPanelOpen(value: boolean) {
     this._isPanelOpen = value;
     // istanbul ignore else
-    if (value) {
+    if (value && this.panelType) {
       this.renderer.addClass(this.elementRef.nativeElement, 'ts-sidenav-trigger--open');
     } else if (this.elementRef?.nativeElement?.classList.contains('ts-sidenav-trigger--open')) {
       this.renderer.removeClass(this.elementRef.nativeElement, 'ts-sidenav-trigger--open');

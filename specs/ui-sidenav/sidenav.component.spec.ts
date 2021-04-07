@@ -346,6 +346,14 @@ describe(`TsSidenavComponent`, function() {
     });
 
     describe(`Trigger`, () => {
+      test(`should not add 'open' class for basic panel type on click`, () => {
+        const trigger = spectator.queryLast(TsSidenavTriggerComponent);
+        trigger.toggle();
+
+        spectator.detectChanges();
+        expect(trigger.elementRef.nativeElement).not.toHaveClass('ts-sidenav-trigger--open');
+      });
+
       test(`should not add overlay for basic panel type`, () => {
         let panel = overlayContainerElement.querySelector('.ts-sidenav-panel-wrap');
         expect(panel).not.toExist();
