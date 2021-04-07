@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@2.1.2...@terminus/ui-sidenav@2.1.3) (2021-04-07)
+
+
+### Bug Fixes
+
+* **TsSidenavTriggerComponent:** Don't add open class for 'basic' panel type ([#559](https://github.com/GetTerminus/terminus-oss/issues/559)) ([357b607](https://github.com/GetTerminus/terminus-oss/commit/357b6076ba9248487b6ba4ca396204de8b6e0dd6))
+
+
+
+
+
 ## [2.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@2.1.1...@terminus/ui-sidenav@2.1.2) (2021-04-05)
 
 
