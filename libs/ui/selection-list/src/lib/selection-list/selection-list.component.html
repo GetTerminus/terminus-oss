@@ -21,6 +21,7 @@
 
       <input
         class="ts-selection-list__input ts-selection-list__input--multiple"
+        [placeholder]="showPlaceholder ? label : ''"
         *ngIf="allowUserInput"
         [tsSelectionListTrigger]="auto"
         [containingElement]="panelContainerElementRef"
@@ -93,6 +94,7 @@
   <input
     type="text"
     *ngIf="!allowUserInput"
+    [placeholder]="showPlaceholder ? label : ''"
     [tsSelectionListTrigger]="auto"
     class="ts-selection-list__input ts-selection-list__custom-trigger"
     [attr.data-disabled]="isDisabled"
@@ -107,7 +109,6 @@
   class="ts-selection-list"
   #auto="tsSelectionListPanel"
   [id]="id + '-panel'"
-  [placeholder]="showPlaceholder ? label : ''"
   [options]="options"
   [optionGroups]="optionGroups"
   [displayWith]="displayFormatter"
