@@ -95,6 +95,7 @@ export type TsSelectionListComparator = (a: unknown, b: unknown) => boolean;
  *              name="product selections"
  *              options="[{}, {}, ...]"
  *              [showProgress]="true"
+ *              [showPlaceholder]="true"
  *              (closed)="panelWasClosed($event)"
  *              (duplicateSelection)="duplicateWasSelected($event)"
  *              (opened)="panelWasOpened($event)"
@@ -364,6 +365,12 @@ export class TsSelectionListComponent implements
    */
   @Input()
   public showProgress = false;
+
+  /**
+   * Define if the input should currently be showing placeholder instead of label
+   */
+  @Input()
+  public showPlaceholder = false;
 
   /**
    * Define if validation messages should be shown immediately or on blur
