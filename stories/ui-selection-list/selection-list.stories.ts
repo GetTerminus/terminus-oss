@@ -65,6 +65,7 @@ import {
       [reopenAfterSelection]="true"
       [displayFormatter]="formatter"
       [showProgress]="inProgress"
+      [showPlaceholder]="showPlaceholder"
       (duplicateSelection)="duplicate.emit($event)"
       (selectionChange)="selectionChange.emit($event)"
       (queryChange)="queryHasChanged($event)"
@@ -79,6 +80,7 @@ import {
 })
 class SelectionListWrapper implements OnInit, OnDestroy {
   @Input() public allowMultiple = true;
+  @Input() public showPlaceholder: boolean;
   @Input() public hint: string;
   @Input() public isDisabled: boolean;
   @Input() public label: string;
@@ -256,6 +258,29 @@ export const userInputSingle = () => ({
   },
 });
 userInputSingle.parameters = {
+  docs: { iframeHeight: 340 },
+};
+
+export const userInputWithPlaceholder = () => ({
+  component: SelectionListWrapper,
+  props: {
+    allowMultiple: false,
+    showPlaceholder: true,
+    emulateLongQuery: boolean('Emulate long-running query', false),
+    hint: 'Begin typing to search..',
+    isDisabled: boolean('Disabled', false),
+    label: 'Select states',
+    closed: action('Closed'),
+    duplicate: action('Duplicate selection'),
+    opened: action('Opened'),
+    queryChange: action('Query changed'),
+    selectionChange: action('Selection changed'),
+    optionSelected: action('Option selected'),
+    optionDeselected: action('Option deselected'),
+    formControl: new FormControl(STATES.slice(0, 4)),
+  },
+});
+userInputWithPlaceholder.parameters = {
   docs: { iframeHeight: 340 },
 };
 
