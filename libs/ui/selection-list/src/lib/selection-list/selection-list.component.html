@@ -1,4 +1,4 @@
-<label class="c-input__label-text" [for]="id">{{ label }}</label>
+<label class="c-input__label-text" [for]="id" *ngIf="!showPlaceholder">{{ label }}</label>
 
 <div
   class="ts-selection-list__input-wrap"
@@ -21,6 +21,7 @@
 
       <input
         class="ts-selection-list__input ts-selection-list__input--multiple"
+        [placeholder]="showPlaceholder ? label : ''"
         *ngIf="allowUserInput"
         [tsSelectionListTrigger]="auto"
         [containingElement]="panelContainerElementRef"
@@ -46,6 +47,7 @@
     <input
       class="ts-selection-list__input"
       *ngIf="allowUserInput"
+      [placeholder]="showPlaceholder ? label : ''"
       [tsSelectionListTrigger]="auto"
       [containingElement]="panelContainerElementRef"
       [attr.data-allow-input]="allowUserInput"
@@ -92,6 +94,7 @@
   <input
     type="text"
     *ngIf="!allowUserInput"
+    [placeholder]="showPlaceholder ? label : ''"
     [tsSelectionListTrigger]="auto"
     class="ts-selection-list__input ts-selection-list__custom-trigger"
     [attr.data-disabled]="isDisabled"
