@@ -20,7 +20,8 @@
       "tags": []
     },
     "fe-jwt": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["fe-utilities"]
     },
     "fe-testing": {
       "tags": []
