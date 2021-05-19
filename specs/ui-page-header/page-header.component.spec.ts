@@ -41,8 +41,15 @@ const MOCK_DATE = new Date(2020, 8, 12);
 const MOCK_DATE_EXTENDED = datePipe.transform(MOCK_DATE, 'extended');
 const MOCK_DATE_TIMESTAMP = datePipe.transform(MOCK_DATE, 'timestamp');
 const MOCK_METADATA: TS_PAGE_HEADER_METADATA[] = [
-  ['Campaign Type', 'Hosted Event'],
-  ['Created Date', 'May 2, 2021'],
+  {
+    key: 'Account',
+    value: 'Blaze',
+    url: '/account/blaze',
+  },
+  {
+    key: 'Created Date',
+    value: 'May 2, 2021',
+  },
 ];
 
 const MODULE_IMPORTS = [
@@ -183,8 +190,11 @@ describe(`TsPageHeaderComponent`, function() {
 
       test(`should display metadata in a definition list`, () => {
         spectator.setInput('metadata', MOCK_METADATA);
-        expect(spectator.queryAll('dt').length).toEqual(2);
-        expect(spectator.queryAll('dt')[0]).toHaveText('Campaign Type');
+        expect(spectator.queryAll('dt').length).toEqual(MOCK_METADATA.length);
+        expect(spectator.queryAll('dt')[0]).toHaveText(MOCK_METADATA[0].key);
+        expect(spectator.queryAll('dd').length).toEqual(MOCK_METADATA.length);
+        expect(spectator.queryAll('dd')[0]).toHaveText(MOCK_METADATA[0].value);
+        expect(spectator.queryAll('a').length).toEqual(1);
       });
     });
   });

@@ -14,6 +14,7 @@ import { TsPageHeaderModule } from '../../libs/ui/page-header/src/lib/page-heade
 import {
   TS_PAGE_HEADER_ROUTE,
   TS_PAGE_HEADER_ROUTES,
+  TS_PAGE_HEADER_METADATA,
   TsPageHeaderComponent,
 } from '../../libs/ui/page-header/src/lib/page-header/page-header.component';
 
@@ -37,9 +38,16 @@ const myPages: TS_PAGE_HEADER_ROUTE[] = [
   },
 ];
 const DATE = new Date(2020, 8, 12);
-const myMetadata = [
-  ['Campaign Type', 'Hosted Event'],
-  ['Created Date', 'May 2, 2021'],
+const myMetadata: TS_PAGE_HEADER_METADATA[] = [
+  {
+    key: 'Account',
+    value: 'Blaze',
+    url: '/account/blaze',
+  },
+  {
+    key: 'Created Date',
+    value: 'May 2, 2021',
+  },
 ];
 
 export default {
@@ -109,6 +117,32 @@ export const defaultOpenMenu = () => ({
   },
 });
 defaultOpenMenu.properties = {
+  actions: { disabled: true },
+  knobs: { disabled: true },
+  chromatic: { delay: 300 },
+  docs: { iframeHeight: 200 },
+};
+
+export const metaDataItems = () => ({
+  template: `
+    <ts-page-header
+      [breadcrumbs]="breadcrumbs"
+      [lastUpdatedDate]="lastUpdatedDate"
+      [title]="title"
+      [metadata]="metadata"
+    >
+      <ts-button>Primary</ts-button>
+      <ts-button theme="secondary">Secondary</ts-button>
+    </ts-page-header>
+  `,
+  props: {
+    breadcrumbs: myBreadcrumbs,
+    lastUpdatedDate: DATE,
+    title: 'My page title',
+    metadata: myMetadata,
+  },
+});
+metaDataItems.properties = {
   actions: { disabled: true },
   knobs: { disabled: true },
   chromatic: { delay: 300 },

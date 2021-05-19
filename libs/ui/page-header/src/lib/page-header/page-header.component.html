@@ -50,8 +50,15 @@
   <div class="ts-ph-bottom" *ngIf="metadata">
     <dl class="ts-ph-metadata">
       <ng-container *ngFor="let item of metadata;">
-        <dt class="ts-ph-metadata__term">{{ item[0] }}</dt>
-        <dd class="ts-ph-metadata__definition">{{ item[1] }}</dd>
+        <dt class="ts-ph-metadata__term">{{ item.key }}</dt>
+        <ng-container *ngIf="item.url; else noUrl">
+          <dd class="ts-ph-metadata__definition">
+            <a [routerLink]="item.url">{{ item.value }}</a>
+          </dd>
+        </ng-container>
+        <ng-template #noUrl>
+          <dd class="ts-ph-metadata__definition">{{ item.value }}</dd>
+        </ng-template>
       </ng-container>
     </dl>
   </div>

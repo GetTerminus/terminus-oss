@@ -26,7 +26,11 @@ export interface TS_PAGE_HEADER_ROUTE extends TS_PAGE_HEADER_STATIC_BREADCRUMB {
 /**
  * Single metadata item inside {@link TsPageHeaderComponent}
  */
-export type TS_PAGE_HEADER_METADATA = [string, string];
+export interface TS_PAGE_HEADER_METADATA {
+  key: string;
+  value: string;
+  url?: string;
+}
 
 /**
  * Allowed header route types for {@link TsPageHeaderComponent}
