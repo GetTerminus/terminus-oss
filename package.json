@@ -242,7 +242,7 @@
     "merge-files": "0.1.2",
     "micromatch": "4.0.2",
     "mockdate": "3.0.2",
-    "ng-packagr": "12.0.0",
+    "ng-packagr": "11.0.3",
     "node-sass-chokidar": "1.5.0",
     "node-sass-tilde-importer": "1.0.2",
     "postcss": "8.2.1",
