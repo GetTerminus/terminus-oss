@@ -1,14 +1,7 @@
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
 import type { CdkOverlayOrigin } from '@angular/cdk/overlay';
 import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  Inject,
-  InjectionToken,
-  Input,
-  Optional,
-  ViewChild,
+  ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
 
@@ -87,7 +80,7 @@ let nextUniqueId = 0;
   encapsulation: ViewEncapsulation.None,
   exportAs: 'tsSidenav',
 })
-export class TsSidenavComponent {
+export class TsSidenavComponent implements OnInit {
   /**
    * Define the default component UID
    */
@@ -187,7 +180,17 @@ export class TsSidenavComponent {
   }
   private _user: TS_SIDENAV_USER;
 
+  @Output() public readonly profileClick = new EventEmitter<void>();
+  @Output() public readonly signOutClick = new EventEmitter<void>();
+  public isProfileClickBound = false;
+  public isSignOutClickBound = false;
+
   constructor(
     public elementRef: ElementRef,
   ) {}
+
+  public ngOnInit() {
+    this.isProfileClickBound = this.profileClick.observers.length > 0;
+    this.isSignOutClickBound = this.signOutClick.observers.length > 0;
+  }
 }

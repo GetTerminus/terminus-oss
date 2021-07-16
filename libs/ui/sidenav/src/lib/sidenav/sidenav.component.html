@@ -70,16 +70,18 @@
       </header>
       <hr>
       <ul>
-        <li>
-          <a [routerLink]="options.profileRoute">
+        <li *ngIf="options.profileRoute || isProfileClickBound">
+          <a [routerLink]="options.profileRoute"
+             (click)="profileClick.emit()">
             <span class="ts-sidenav-user__link-text">Profile</span>
             <span class="ts-sidenav-user__icon">
               <span class="fas fa-user"></span>
             </span>
           </a>
         </li>
-        <li><hr></li>
-        <li>
+        <li *ngIf="options.profileRoute || isProfileClickBound"><hr></li>
+
+        <li *ngIf="options.knowledgeBaseUrl">
           <a [href]="options.knowledgeBaseUrl">
             <span class="ts-sidenav-user__link-text"> {{ newSidenavDisplay ? 'Help Center' : 'Knowledge Base' }}</span>
             <span class="ts-sidenav-user__icon">
@@ -87,6 +89,7 @@
             </span>
           </a>
         </li>
+
         <li *ngIf="newSidenavDisplay && options.communityUrl">
           <a [href]="options.communityUrl">
             <span>Terminus Community</span>
@@ -95,7 +98,8 @@
             </span>
           </a>
         </li>
-        <li>
+
+        <li *ngIf="options.academyUrl">
           <a [href]="options.academyUrl">
             <span>Terminus Academy</span>
             <span class="ts-sidenav-user__icon">
@@ -103,9 +107,11 @@
             </span>
           </a>
         </li>
-        <li><hr></li>
-        <li>
-          <a [routerLink]="options.signOutRoute">
+
+        <li *ngIf="options.signOutRoute || isSignOutClickBound"><hr></li>
+        <li *ngIf="options.signOutRoute || isSignOutClickBound">
+          <a [routerLink]="options.signOutRoute"
+             (click)="signOutClick.emit()">
             <span>Sign Out</span>
             <span class="ts-sidenav-user__icon">
               <span class="fas fa-sign-out"></span>
