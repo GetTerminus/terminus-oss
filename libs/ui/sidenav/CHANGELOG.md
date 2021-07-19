@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@2.1.3...@terminus/ui-sidenav@2.2.0) (2021-07-19)
+
+
+### Features
+
+* **Sidenav:** hide links with no handling, add emitters for custom Profile and SignOut handling ([#570](https://github.com/GetTerminus/terminus-oss/issues/570)) ([9f7e293](https://github.com/GetTerminus/terminus-oss/commit/9f7e29305ed8cfdf0bdde61b713b535641fa4d91)), closes [#569](https://github.com/GetTerminus/terminus-oss/issues/569)
+
+
+
+
+
 ## [2.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@2.1.2...@terminus/ui-sidenav@2.1.3) (2021-04-07)
 
 
