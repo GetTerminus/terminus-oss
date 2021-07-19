@@ -282,6 +282,19 @@ providers: [
 ],
 ```
 
+For Profile and SignOut, you can alternatively handle the click event directly
+within your app by binding to the proper EventEmitter output:
+
+```html
+<ts-sidenav
+  (profileClick)="onProfileClick()"
+  (signOutClick)="onSignOutClick()"
+></ts-sidenav>
+```
+
+Each link will only show if either a Route/URL is passed in or a listener
+is bound to the output emitter.
+
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE
 [license-image]:       http://img.shields.io/badge/license-MIT-blue.svg
