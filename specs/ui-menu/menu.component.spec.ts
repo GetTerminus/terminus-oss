@@ -86,7 +86,15 @@ describe(`TsMenuComponent`, () => {
     test(`should block interaction when disabled`, () => {
       spectator = createHost(`<ts-menu [isDisabled]="true">Select Item</ts-menu>`);
       rootElement = spectator.component.elementRef.nativeElement;
+      expect(rootElement).toHaveClass('ts-menu');
       expect(rootElement).toHaveClass('ts-menu--disabled');
+    });
+
+    test(`should not block interaction when enabled`, () => {
+      spectator = createHost(`<ts-menu [isDisabled]="false">Select Item</ts-menu>`);
+      rootElement = spectator.component.elementRef.nativeElement;
+      expect(rootElement).toHaveClass('ts-menu');
+      expect(rootElement).not.toHaveClass('ts-menu--disabled');
     });
   });
 
@@ -119,8 +127,36 @@ describe(`TsMenuComponent`, () => {
           <a href="#">A tasty link</a>
         </ng-template>
       `);
+      expect(spectator.query('.ts-menu__panel button')).toHaveClass('ts-menu__item');
+      expect(spectator.queryAll('.ts-menu__item').length).toEqual(1);
       expect(spectator.query('.ts-menu__panel button')).toHaveClass('ts-menu__item--transparent');
       expect(spectator.queryAll('.ts-menu__item--transparent').length).toEqual(1);
+    });
+
+    describe('isDisabled flag', () => {
+      test('should set disabled property when true', () => {
+        spectator = createHost(`
+          <ts-menu [menuItemsTemplate]="myTemplate" [defaultOpened]="true">Select Item</ts-menu>
+          <ng-template #myTemplate>
+            <button tsMenuItem [isDisabled]="true">Roger, Roger.</button>
+            <a href="#">A tasty link</a>
+          </ng-template>
+        `);
+        expect(spectator.query('.ts-menu__panel button')).toHaveClass('ts-menu__item--disabled');
+        expect(spectator.query('.ts-menu__panel button')).toHaveProperty('disabled', true);
+      });
+
+      test('should clear disabled property when false', () => {
+        spectator = createHost(`
+          <ts-menu [menuItemsTemplate]="myTemplate" [defaultOpened]="true">Select Item</ts-menu>
+          <ng-template #myTemplate>
+            <button tsMenuItem [isDisabled]="false">Roger, Roger.</button>
+            <a href="#">A tasty link</a>
+          </ng-template>
+        `);
+        expect(spectator.query('.ts-menu__panel button')).not.toHaveClass('ts-menu__item--disabled');
+        expect(spectator.query('.ts-menu__panel button')).toHaveProperty('disabled', false);
+      });
     });
   });
 });

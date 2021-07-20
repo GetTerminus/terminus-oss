@@ -14,15 +14,30 @@ export class TsMenuItemDirective implements OnInit {
   @Input()
   public tsMenuItem: 'default' | 'transparent' = 'default';
 
+  /**
+   * Define if the menu item is disabled
+   */
+  @Input()
+  public isDisabled = false;
+
   constructor(
     private renderer: Renderer2,
     public elementRef: ElementRef,
   ) {}
 
   public ngOnInit(): void {
-    this.renderer.addClass(
-      this.elementRef.nativeElement,
-      this.tsMenuItem === 'transparent' ? 'ts-menu__item--transparent' : 'ts-menu__item',
-    );
+    const rootElement = this.elementRef.nativeElement;
+
+    this.renderer.addClass(rootElement, 'ts-menu__item');
+
+    if (this.tsMenuItem === 'transparent') {
+      this.renderer.addClass(rootElement, 'ts-menu__item--transparent');
+    }
+
+    if (this.isDisabled) {
+      this.renderer.addClass(rootElement, 'ts-menu__item--disabled');
+    }
+
+    this.renderer.setProperty(rootElement, 'disabled', this.isDisabled);
   }
 }
