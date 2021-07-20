@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@6.0.1...@terminus/ui-menu@6.1.0) (2021-07-20)
+
+
+### Features
+
+* **Scoreboard:** Add isDisabled flag to ts-menu-item ([#571](https://github.com/GetTerminus/terminus-oss/issues/571)) ([6dfd02c](https://github.com/GetTerminus/terminus-oss/commit/6dfd02cbb099863083717385f0c93a21af6efa23))
+
+
+
+
+
 ## [6.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-menu@6.0.0...@terminus/ui-menu@6.0.1) (2021-01-12)
 
 **Note:** Version bump only for package @terminus/ui-menu
