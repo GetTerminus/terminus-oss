@@ -6,13 +6,13 @@
   --ts-table-fontSize: 13px;
   --ts-table-width: 100%;
   --ts-table-maxHeight: 100%;
-  --ts-table-header-bg: var(--ts-color-utility-300);
+  --ts-table-header-bg: var(--ts-color-utility-100);
   --ts-table-header-text-color: var(--ts-color-utility-700);
-  --ts-table-border-color: var(--ts-color-utility-300);
+  --ts-table-border-color: var(--ts-color-utility-200);
   --ts-table-header-border-color: var(--ts-color-utility-500);
   --ts-table-header-fontSize: 13px;
   --ts-table-headerRow-background-transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
-  --ts-table-headerCell-color: var(--ts-color-utility-600);
+  --ts-table-headerCell-color: var(--ts-color-utility-700);
   --ts-table-headerCell-sorted-color: var(--ts-color-utility-700);
   --ts-table-headerCell-pseudoElement-transition: opacity var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
   --ts-table-headerCell-unsorted-icon-color: var(--ts-color-utility-600);
@@ -29,7 +29,7 @@
   // Must be greater than 40 as that is the length of the generated z-indexes for header cells
   --ts-table-sticky-end-z: 50;
   --ts-table-grip-vertical-adjustment: 50%;
-  --ts-table-header-row-fontWeight: 500;
+  --ts-table-header-row-fontWeight: 400;
   --ts-table-grabber-icon-font-size: 14px;
   --ts-table-header-borderRadius: var(--ts-border-radius-base);
   --ts-cell-backgroundColor-transition: background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
@@ -161,7 +161,7 @@
     border-color: var(--ts-table-header-border-color);
     box-sizing: border-box;
     color: var(--ts-table-headerCell-color);
-    font-weight: 500;
+    font-weight: var(--ts-table-header-row-fontWeight);
     padding: var(--ts-table-cell-padding);
 
     // Class added when the column is sorted
