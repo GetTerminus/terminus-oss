@@ -26,7 +26,6 @@ import {
   TsCohortDateRangeModule,
   TsDateCohort,
 } from '@terminus/ui-cohort-date-range';
-import { TsDateRangeComponent } from '@terminus/ui-date-range';
 
 export default {
   title: 'Components/Data Entry/Cohort Date Range',
@@ -95,6 +94,31 @@ const COHORTS_ACTIVE: TsDateCohort[] = [
   },
 ];
 
+const COHORTS_WITH_CUSTOM_DATES_ACTIVE: TsDateCohort[] = [
+  {
+    display: 'Last 90 days',
+    range: {
+      start: startOfDay(subDays(DATES.start, 90)),
+      end: DATES.start,
+    },
+  },
+  {
+    display: 'Last full month',
+    range: {
+      start: startOfDay(subMonths(startOfMonth(DATES.end), 1)),
+      end: endOfDay(subDays(startOfMonth(DATES.end), 1)),
+    },
+  },
+  {
+    display: 'Custom Dates',
+    range: {
+      start: startOfDay(subDays(new Date(), 1)),
+      end: endOfDay(new Date()),
+    },
+    active: true,
+  },
+];
+
 export const basic = () => ({
   component: TsCohortDateRangeComponent,
   template: `
@@ -119,6 +143,35 @@ export const basic = () => ({
   },
 });
 basic.parameters = {
+  docs: { iframeHeight: 400 },
+};
+
+export const customDatesActive = () => ({
+  component: TsCohortDateRangeComponent,
+  template: `
+    <div style="margin-bottom: 2rem;">
+      <ts-cohort-date-range
+        [cohorts]="cohorts"
+        (cohortDateRangeChanged)="cohortDateRangeChanged($event)"
+        [allowCustomDates]="false"
+      ></ts-cohort-date-range>
+    </div>
+    <div>
+      <ts-cohort-date-range
+        [cohorts]="cohorts"
+        [isDisabled]="true"
+      ></ts-cohort-date-range>
+    </div>
+  `,
+  props: {
+    dateFormGroup: FORM_GROUP_SEEDED,
+    cohorts: COHORTS_WITH_CUSTOM_DATES_ACTIVE,
+    isDisabled: boolean('Disabled', false),
+    cohortDateRangeChanged: action('Date range changed'),
+    allowCustomDates: false,
+  },
+});
+customDatesActive.parameters = {
   docs: { iframeHeight: 400 },
 };
 

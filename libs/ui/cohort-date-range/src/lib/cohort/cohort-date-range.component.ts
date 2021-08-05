@@ -51,6 +51,11 @@ export interface TsCohortDateChangeEvent {
 }
 
 /**
+ * Custom Dates cohort description
+ */
+export const TS_CUSTOM_DATES_DESCRIPTION = 'Custom Dates';
+
+/**
  * Event object emitted by {@link TsCohortDateRangeComponent} when there is date range change
  */
 export class TsCohortDateRangeChanged {
@@ -106,7 +111,7 @@ export class TsCohortDateRangeComponent implements OnInit, OnDestroy {
    * @internal
    */
   public customDateCohort: TsDateCohort = {
-    display: 'Custom Dates',
+    display: TS_CUSTOM_DATES_DESCRIPTION,
     range: {
       start: '',
       end: '',
@@ -186,7 +191,7 @@ export class TsCohortDateRangeComponent implements OnInit, OnDestroy {
     }
     this.originalCohorts = value;
     this._cohorts = value.slice();
-    if (this.allowCustomDates) {
+    if (this.allowCustomDates && !this.doesContainCustomDatesCohort(value)) {
       this._cohorts.push(this.customDateCohort);
     }
     const activeCohort = value.filter(c => c.active);
@@ -374,5 +379,14 @@ export class TsCohortDateRangeComponent implements OnInit, OnDestroy {
         this.cohortControl.setValue([this.customDateCohort]);
       }
     });
+  }
+
+  /**
+   * Check if Custom Dates exists in the array of date cohorts
+   *
+   * @param cohorts - the array of date cohorts
+   */
+  private doesContainCustomDatesCohort(cohorts: ReadonlyArray<TsDateCohort>): boolean {
+    return cohorts.some(cohort => cohort.display === TS_CUSTOM_DATES_DESCRIPTION);
   }
 }
