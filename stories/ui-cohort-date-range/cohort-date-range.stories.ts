@@ -20,11 +20,11 @@ import {
   subDays,
   subMonths,
 } from 'date-fns';
-
 import {
   TsCohortDateRangeComponent,
   TsCohortDateRangeModule,
   TsDateCohort,
+  TS_CUSTOM_DATES_DESCRIPTION,
 } from '@terminus/ui-cohort-date-range';
 
 export default {
@@ -110,7 +110,7 @@ const COHORTS_WITH_CUSTOM_DATES_ACTIVE: TsDateCohort[] = [
     },
   },
   {
-    display: 'Custom Dates',
+    display: TS_CUSTOM_DATES_DESCRIPTION,
     range: {
       start: startOfDay(subDays(new Date(), 1)),
       end: endOfDay(new Date()),
@@ -153,7 +153,6 @@ export const customDatesActive = () => ({
       <ts-cohort-date-range
         [cohorts]="cohorts"
         (cohortDateRangeChanged)="cohortDateRangeChanged($event)"
-        [allowCustomDates]="false"
       ></ts-cohort-date-range>
     </div>
     <div>
