@@ -31,12 +31,7 @@
   </div>
 
   <ng-template #columns>
-    <form
-      [formGroup]="columnsForm"
-      cdkDropList
-      cdkDropListLockAxis="y"
-      (cdkDropListDropped)="columnDropped($event)"
-    >
+    <form [formGroup]="columnsForm">
       <ng-container *ngFor="let column of allPossibleColumns">
         <!-- The menu normally closes after each interaction, so we need to stop propagation here to
         support multiple selections while open -->
@@ -44,19 +39,9 @@
           [formControl]="column.control"
           (click)="$event.stopPropagation()"
           theme="accent"
-          cdkDrag
           tsMenuItem
         >
           <span>{{ column.display }}</span>
-
-          <!-- Stop drag interactions from affecting the checkbox status -->
-          <span
-            class="fas fa-grip-lines"
-            cdkDragHandle
-            (click)="$event.preventDefault() && $event.stopPropagation()"
-            data-fa-transform="shrink-4"
-          ></span>
-          <div *cdkDragPlaceholder></div>
         </ts-checkbox>
       </ng-container>
     </form>
@@ -76,39 +61,85 @@
     tsSort
     [trackBy]="trackBy"
     #myTable="tsTable"
+    cdkDropList
+    cdkDropListLockAxis="x"
+    cdkDropListOrientation="horizontal"
+    (cdkDropListDropped)="columnDropped($event)"
   >
     <ng-container tsColumnDef="title" [sticky]="firstSticky" [noWrap]="firstColumnNoWrap">
-      <th ts-header-cell *tsHeaderCellDef>Title</th>
+      <th ts-header-cell *tsHeaderCellDef cdkDrag cdkDragHandle>
+        Title
+        <span
+          class="fas fa-grip-lines"
+          data-fa-transform="shrink-4"
+        ></span>
+        <div *cdkDragPlaceholder></div>
+      </th>
       <td ts-cell *tsCellDef="let item">{{ item.title }}</td>
       <td ts-footer-cell *tsFooterCellDef>Footer content</td>
     </ng-container>
 
     <ng-container tsColumnDef="updated" alignment="right">
-      <th ts-header-cell *tsHeaderCellDef ts-sort-header>Updated</th>
+      <th ts-header-cell *tsHeaderCellDef ts-sort-header cdkDrag cdkDragHandle>
+        Updated
+        <span
+          class="fas fa-grip-lines"
+          data-fa-transform="shrink-4"
+        ></span>
+        <div *cdkDragPlaceholder></div>
+      </th>
       <td ts-cell *tsCellDef="let item">{{ item.updated_at | date:"shortDate" }}</td>
       <td ts-footer-cell *tsFooterCellDef><ts-change-indicator sentiment="negative">4 weeks</ts-change-indicator></td>
     </ng-container>
 
     <ng-container tsColumnDef="comments" alignment="right">
-      <th ts-header-cell *tsHeaderCellDef>Comments</th>
+      <th ts-header-cell *tsHeaderCellDef cdkDrag cdkDragHandle>
+        Comments
+        <span
+          class="fas fa-grip-lines"
+          data-fa-transform="shrink-4"
+        ></span>
+        <div *cdkDragPlaceholder></div>
+      </th>
       <td ts-cell *tsCellDef="let item">{{ item.comments }}</td>
       <td ts-footer-cell *tsFooterCellDef>427</td>
     </ng-container>
 
     <ng-container tsColumnDef="assignee">
-      <th ts-header-cell *tsHeaderCellDef ts-sort-header>Assignee</th>
+      <th ts-header-cell *tsHeaderCellDef ts-sort-header cdkDrag cdkDragHandle>
+        Assignee
+        <span
+          class="fas fa-grip-lines"
+          data-fa-transform="shrink-4"
+        ></span>
+        <div *cdkDragPlaceholder></div>
+      </th>
       <td ts-cell *tsCellDef="let item">{{ item.login }}</td>
       <td ts-footer-cell *tsFooterCellDef>-</td>
     </ng-container>
 
     <ng-container tsColumnDef="number" alignment="right">
-      <th ts-header-cell *tsHeaderCellDef ts-sort-header>Number</th>
+      <th ts-header-cell *tsHeaderCellDef ts-sort-header cdkDrag cdkDragHandle>
+        Number
+        <span
+          class="fas fa-grip-lines"
+          data-fa-transform="shrink-4"
+        ></span>
+        <div *cdkDragPlaceholder></div>
+      </th>
       <td ts-cell *tsCellDef="let item">{{ item.number }}</td>
       <td ts-footer-cell *tsFooterCellDef><ts-change-indicator>42%</ts-change-indicator></td>
     </ng-container>
 
     <ng-container tsColumnDef="labels">
-      <th ts-header-cell *tsHeaderCellDef>Labels</th>
+      <th ts-header-cell *tsHeaderCellDef cdkDrag cdkDragHandle>
+        Labels
+        <span
+          class="fas fa-grip-lines"
+          data-fa-transform="shrink-4"
+        ></span>
+        <div *cdkDragPlaceholder></div>
+      </th>
       <td ts-cell *tsCellDef="let item">
         <span *ngFor="let l of item.labels">{{ l.name }},</span>
       </td>
@@ -116,14 +147,26 @@
     </ng-container>
 
     <ng-container tsColumnDef="created">
-      <th ts-header-cell *tsHeaderCellDef ts-sort-header>Created</th>
+      <th ts-header-cell *tsHeaderCellDef ts-sort-header cdkDrag cdkDragHandle>
+        Created
+        <span
+          class="fas fa-grip-lines"
+          data-fa-transform="shrink-4"
+        ></span>
+        <div *cdkDragPlaceholder></div>
+      </th>
       <td ts-cell *tsCellDef="let item">{{ item.created_at | date:"shortDate" }}</td>
       <td ts-footer-cell *tsFooterCellDef>{{ latestCreationDate | tsDate:'short' }}</td>
     </ng-container>
 
     <ng-container tsColumnDef="body">
-      <th ts-header-cell *tsHeaderCellDef>
+      <th ts-header-cell *tsHeaderCellDef cdkDrag cdkDragHandle>
         Body
+        <span
+          class="fas fa-grip-lines"
+          data-fa-transform="shrink-4"
+        ></span>
+        <div *cdkDragPlaceholder></div>
       </th>
       <td ts-cell *tsCellDef="let item">
         <span class="truncate" [innerHTML]="sanitize(item.body)"></span>
@@ -132,19 +175,40 @@
     </ng-container>
 
     <ng-container tsColumnDef="state">
-      <th ts-header-cell *tsHeaderCellDef>State</th>
+      <th ts-header-cell *tsHeaderCellDef cdkDrag cdkDragHandle>
+        State
+        <span
+          class="fas fa-grip-lines"
+          data-fa-transform="shrink-4"
+        ></span>
+        <div *cdkDragPlaceholder></div>
+      </th>
       <td ts-cell *tsCellDef="let item">{{ item.state }}</td>
       <td ts-footer-cell *tsFooterCellDef>-</td>
     </ng-container>
 
     <ng-container tsColumnDef="id" alignment="right">
-      <th ts-header-cell *tsHeaderCellDef>ID</th>
+      <th ts-header-cell *tsHeaderCellDef cdkDrag cdkDragHandle>
+        ID
+        <span
+          class="fas fa-grip-lines"
+          data-fa-transform="shrink-4"
+        ></span>
+        <div *cdkDragPlaceholder></div>
+      </th>
       <td ts-cell *tsCellDef="let item">{{ item.id }}</td>
       <td ts-footer-cell *tsFooterCellDef>-</td>
     </ng-container>
 
     <ng-container tsColumnDef="html_url" [stickyEnd]="lastSticky" alignment="right">
-      <th ts-header-cell *tsHeaderCellDef>View</th>
+      <th ts-header-cell *tsHeaderCellDef cdkDrag cdkDragHandle>
+        View
+        <span
+          class="fas fa-grip-lines"
+          data-fa-transform="shrink-4"
+        ></span>
+        <div *cdkDragPlaceholder></div>
+      </th>
       <td ts-cell *tsCellDef="let item">
         <a href="{{ item.html_url }}">
           <span class="fas fa-external-link-alt"></span>
