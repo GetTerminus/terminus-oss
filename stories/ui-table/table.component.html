@@ -67,12 +67,8 @@
     (cdkDropListDropped)="columnDropped($event)"
   >
     <ng-container tsColumnDef="title" [sticky]="firstSticky" [noWrap]="firstColumnNoWrap">
-      <th ts-header-cell *tsHeaderCellDef cdkDrag cdkDragHandle>
+      <th ts-header-cell tsHeaderCellDraggable *tsHeaderCellDef cdkDrag cdkDragHandle>
         Title
-        <span
-          class="fas fa-grip-lines"
-          data-fa-transform="shrink-4"
-        ></span>
         <div *cdkDragPlaceholder></div>
       </th>
       <td ts-cell *tsCellDef="let item">{{ item.title }}</td>
@@ -80,12 +76,8 @@
     </ng-container>
 
     <ng-container tsColumnDef="updated" alignment="right">
-      <th ts-header-cell *tsHeaderCellDef ts-sort-header cdkDrag cdkDragHandle>
+      <th ts-header-cell tsHeaderCellDraggable *tsHeaderCellDef ts-sort-header cdkDrag cdkDragHandle>
         Updated
-        <span
-          class="fas fa-grip-lines"
-          data-fa-transform="shrink-4"
-        ></span>
         <div *cdkDragPlaceholder></div>
       </th>
       <td ts-cell *tsCellDef="let item">{{ item.updated_at | date:"shortDate" }}</td>
@@ -93,12 +85,8 @@
     </ng-container>
 
     <ng-container tsColumnDef="comments" alignment="right">
-      <th ts-header-cell *tsHeaderCellDef cdkDrag cdkDragHandle>
+      <th ts-header-cell tsHeaderCellDraggable *tsHeaderCellDef cdkDrag cdkDragHandle>
         Comments
-        <span
-          class="fas fa-grip-lines"
-          data-fa-transform="shrink-4"
-        ></span>
         <div *cdkDragPlaceholder></div>
       </th>
       <td ts-cell *tsCellDef="let item">{{ item.comments }}</td>
@@ -106,12 +94,8 @@
     </ng-container>
 
     <ng-container tsColumnDef="assignee">
-      <th ts-header-cell *tsHeaderCellDef ts-sort-header cdkDrag cdkDragHandle>
+      <th ts-header-cell tsHeaderCellDraggable *tsHeaderCellDef ts-sort-header cdkDrag cdkDragHandle>
         Assignee
-        <span
-          class="fas fa-grip-lines"
-          data-fa-transform="shrink-4"
-        ></span>
         <div *cdkDragPlaceholder></div>
       </th>
       <td ts-cell *tsCellDef="let item">{{ item.login }}</td>
@@ -119,12 +103,8 @@
     </ng-container>
 
     <ng-container tsColumnDef="number" alignment="right">
-      <th ts-header-cell *tsHeaderCellDef ts-sort-header cdkDrag cdkDragHandle>
+      <th ts-header-cell tsHeaderCellDraggable *tsHeaderCellDef ts-sort-header cdkDrag cdkDragHandle>
         Number
-        <span
-          class="fas fa-grip-lines"
-          data-fa-transform="shrink-4"
-        ></span>
         <div *cdkDragPlaceholder></div>
       </th>
       <td ts-cell *tsCellDef="let item">{{ item.number }}</td>
@@ -132,12 +112,8 @@
     </ng-container>
 
     <ng-container tsColumnDef="labels">
-      <th ts-header-cell *tsHeaderCellDef cdkDrag cdkDragHandle>
+      <th ts-header-cell tsHeaderCellDraggable *tsHeaderCellDef cdkDrag cdkDragHandle>
         Labels
-        <span
-          class="fas fa-grip-lines"
-          data-fa-transform="shrink-4"
-        ></span>
         <div *cdkDragPlaceholder></div>
       </th>
       <td ts-cell *tsCellDef="let item">
@@ -147,12 +123,8 @@
     </ng-container>
 
     <ng-container tsColumnDef="created">
-      <th ts-header-cell *tsHeaderCellDef ts-sort-header cdkDrag cdkDragHandle>
+      <th ts-header-cell tsHeaderCellDraggable *tsHeaderCellDef ts-sort-header cdkDrag cdkDragHandle>
         Created
-        <span
-          class="fas fa-grip-lines"
-          data-fa-transform="shrink-4"
-        ></span>
         <div *cdkDragPlaceholder></div>
       </th>
       <td ts-cell *tsCellDef="let item">{{ item.created_at | date:"shortDate" }}</td>
@@ -160,12 +132,8 @@
     </ng-container>
 
     <ng-container tsColumnDef="body">
-      <th ts-header-cell *tsHeaderCellDef cdkDrag cdkDragHandle>
+      <th ts-header-cell tsHeaderCellDraggable *tsHeaderCellDef cdkDrag cdkDragHandle>
         Body
-        <span
-          class="fas fa-grip-lines"
-          data-fa-transform="shrink-4"
-        ></span>
         <div *cdkDragPlaceholder></div>
       </th>
       <td ts-cell *tsCellDef="let item">
@@ -175,12 +143,8 @@
     </ng-container>
 
     <ng-container tsColumnDef="state">
-      <th ts-header-cell *tsHeaderCellDef cdkDrag cdkDragHandle>
+      <th ts-header-cell tsHeaderCellDraggable *tsHeaderCellDef cdkDrag cdkDragHandle>
         State
-        <span
-          class="fas fa-grip-lines"
-          data-fa-transform="shrink-4"
-        ></span>
         <div *cdkDragPlaceholder></div>
       </th>
       <td ts-cell *tsCellDef="let item">{{ item.state }}</td>
@@ -188,12 +152,8 @@
     </ng-container>
 
     <ng-container tsColumnDef="id" alignment="right">
-      <th ts-header-cell *tsHeaderCellDef cdkDrag cdkDragHandle>
+      <th ts-header-cell tsHeaderCellDraggable *tsHeaderCellDef cdkDrag cdkDragHandle>
         ID
-        <span
-          class="fas fa-grip-lines"
-          data-fa-transform="shrink-4"
-        ></span>
         <div *cdkDragPlaceholder></div>
       </th>
       <td ts-cell *tsCellDef="let item">{{ item.id }}</td>
@@ -201,12 +161,8 @@
     </ng-container>
 
     <ng-container tsColumnDef="html_url" [stickyEnd]="lastSticky" alignment="right">
-      <th ts-header-cell *tsHeaderCellDef cdkDrag cdkDragHandle>
+      <th ts-header-cell tsHeaderCellDraggable *tsHeaderCellDef cdkDrag cdkDragHandle>
         View
-        <span
-          class="fas fa-grip-lines"
-          data-fa-transform="shrink-4"
-        ></span>
         <div *cdkDragPlaceholder></div>
       </th>
       <td ts-cell *tsCellDef="let item">

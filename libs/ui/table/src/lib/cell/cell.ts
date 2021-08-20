@@ -11,12 +11,14 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
+  Input,
   isDevMode,
   NgZone,
   Output,
   Renderer2,
 } from '@angular/core';
 import type {
+  OnChanges,
   OnDestroy,
   OnInit,
 } from '@angular/core';
@@ -30,6 +32,7 @@ import {
 } from 'rxjs/operators';
 
 import {
+  coerceBooleanProperty,
   TsDocumentService,
   untilComponentDestroyed,
 } from '@terminus/fe-utilities';
@@ -121,7 +124,7 @@ export class TsHeaderCellResizeEvent {
   },
   exportAs: 'tsHeaderCell',
 })
-export class TsHeaderCellDirective extends CdkHeaderCell implements OnInit, OnDestroy {
+export class TsHeaderCellDirective extends CdkHeaderCell implements OnInit, OnChanges, OnDestroy {
   /**
    * Store a reference to the column
    */
@@ -172,6 +175,13 @@ export class TsHeaderCellDirective extends CdkHeaderCell implements OnInit, OnDe
   }
 
   /**
+   * Controls whether a column will be draggable
+   */
+  @Input('tsHeaderCellDraggable')
+  public set draggable(value: any) { this._draggable = coerceBooleanProperty(value); }
+  private _draggable: boolean = false;
+
+  /**
    * Event emitted when the cell is resized
    */
   @Output()
@@ -205,6 +215,19 @@ export class TsHeaderCellDirective extends CdkHeaderCell implements OnInit, OnDe
     }
 
     setColumnAlignment(this.column, this.renderer, this.elementRef);
+  }
+
+  public ngOnChanges(): void {
+    if (this._draggable) {
+      this.appendGripLines();
+    }
+  }
+
+  private appendGripLines(): void {
+    const gripLines = this.renderer.createElement('span');
+    gripLines.classList.add('fas');
+    gripLines.classList.add('fa-grip-lines');
+    this.renderer.appendChild(this.elementRef.nativeElement, gripLines);
   }
 
   /**
