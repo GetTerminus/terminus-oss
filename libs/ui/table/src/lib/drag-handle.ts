@@ -38,10 +38,4 @@ export class TsDragHandleDirective extends CdkDragHandle {
 
   @HostBinding('style.cursor')
   public readonly cursor = 'grab';
-
-  @HostBinding('style.display')
-  public readonly display = 'flex';
-
-  @HostBinding('style.justify-content')
-  public readonly justifyContent = 'space-between';
 }
