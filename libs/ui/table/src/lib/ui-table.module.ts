@@ -15,6 +15,7 @@ import {
 } from './cell/cell';
 import { TsChangeIndicatorComponent } from './change-indicator/change-indicator.component';
 import { TsColumnDefDirective } from './column/column';
+import { TsDragHandleDirective } from './drag-handle';
 import {
   TsFooterRowComponent,
   TsFooterRowDefDirective,
@@ -56,6 +57,7 @@ const DECLARATIONS_EXPORTS = [
   TsFooterRowComponent,
 
   TsChangeIndicatorComponent,
+  TsDragHandleDirective,
 ];
 
 // NOTE: Moving declarations/exports items into shared array breaks documentation generation.

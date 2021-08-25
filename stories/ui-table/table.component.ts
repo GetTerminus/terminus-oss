@@ -214,8 +214,13 @@ export class TableWrapper implements OnInit, AfterViewInit, OnDestroy {
    * @param event - The drop event
    */
   public columnDropped(event: CdkDragDrop<string[]>): void {
+    // The event has indices from visible columns, need to translate
+    // to indices of possible columns
+    const previousIndex = this.allPossibleColumns.indexOf(this.visibleColumns[event.previousIndex]);
+    const currentIndex = this.allPossibleColumns.indexOf(this.visibleColumns[event.currentIndex]);
+
     const columns = this.allPossibleColumns.slice();
-    moveItemInArray(columns, event.previousIndex, event.currentIndex);
+    moveItemInArray(columns, previousIndex, currentIndex);
 
     this.allPossibleColumns = columns;
     this.setVisibleColumns();
