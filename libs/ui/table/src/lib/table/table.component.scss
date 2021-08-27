@@ -290,12 +290,12 @@
     .cdk-drag-handle {
       // Override drag and drop helper styles
       /* stylelint-disable-next-line declaration-no-important */
-      color: inherit;
+      color: inherit !important;
       cursor: grab;
       /* stylelint-disable-next-line declaration-no-important */
-      position: inherit;
+      position: inherit !important;
       /* stylelint-disable-next-line declaration-no-important */
-      right: inherit;
+      right: inherit !important;
     }
   }
 
