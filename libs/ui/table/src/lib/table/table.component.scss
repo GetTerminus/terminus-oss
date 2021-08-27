@@ -286,6 +286,19 @@
 }
 
 .ts-header-cell {
+  &:not(.cdk-drag-previw) {
+    .cdk-drag-handle {
+      // Override drag and drop helper styles
+      /* stylelint-disable-next-line declaration-no-important */
+      color: inherit !important;
+      cursor: grab;
+      /* stylelint-disable-next-line declaration-no-important */
+      position: inherit !important;
+      /* stylelint-disable-next-line declaration-no-important */
+      right: inherit !important;
+    }
+  }
+
   &.cdk-drag-preview {
     // Override drag and drop helper styles
     /* stylelint-disable-next-line declaration-no-important */
