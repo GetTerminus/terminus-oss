@@ -3,156 +3,91 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [4.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@4.0.3...@terminus/ui-table@4.0.4) (2021-08-27)
+## [4.0.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@4.0.4...@terminus/ui-table@4.0.5) (2021-08-27)
 
 **Note:** Version bump only for package @terminus/ui-table
 
+## [4.0.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@4.0.3...@terminus/ui-table@4.0.4) (2021-08-27)
 
-
-
+**Note:** Version bump only for package @terminus/ui-table
 
 ## [4.0.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@4.0.2...@terminus/ui-table@4.0.3) (2021-08-25)
 
 **Note:** Version bump only for package @terminus/ui-table
 
-
-
-
-
 ## [4.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@4.0.1...@terminus/ui-table@4.0.2) (2021-01-21)
-
 
 ### Bug Fixes
 
 * **Table:** decrease font size ([ee734a5](https://github.com/GetTerminus/terminus-oss/commit/ee734a5c73ae43317a89b2f037adc5a405f108cd)), closes [#537](https://github.com/GetTerminus/terminus-oss/issues/537)
 
-
-
-
-
 ## [4.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@4.0.0...@terminus/ui-table@4.0.1) (2021-01-12)
-
 
 ### Bug Fixes
 
 * **Table:** remove fontawesome ([f3d1226](https://github.com/GetTerminus/terminus-oss/commit/f3d1226caf2ec82b993a6b34929e5203cabf9218)), closes [#490](https://github.com/GetTerminus/terminus-oss/issues/490)
 
-
-
-
-
 # [4.0.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.2.0...@terminus/ui-table@4.0.0) (2020-12-16)
-
 
 ### Bug Fixes
 
 * **Table:** upgrade to NG11 & TS4 ([d9fe477](https://github.com/GetTerminus/terminus-oss/commit/d9fe477f2fa884106e092089915e0e151f01d4ee))
 
-
 ### BREAKING CHANGES
 
 * **Table:** Now requires NG11+ and TS4+
 
-
-
-
-
 # [3.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.1.7...@terminus/ui-table@3.2.0) (2020-12-11)
-
 
 ### Features
 
 * **Table:** expose new change indicator component ([1929ea3](https://github.com/GetTerminus/terminus-oss/commit/1929ea349b9ca8808cc9b3470f77cbfceca6ec88)), closes [#496](https://github.com/GetTerminus/terminus-oss/issues/496)
 
-
-
-
-
 ## [3.1.7](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.1.6...@terminus/ui-table@3.1.7) (2020-11-11)
-
 
 ### Bug Fixes
 
 * **Table:** add ui-styles to schematic ([a96a6f5](https://github.com/GetTerminus/terminus-oss/commit/a96a6f5c9bedcfd47695a8dec9e9c69705b4722c))
 
-
-
-
-
 ## [3.1.6](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.1.5...@terminus/ui-table@3.1.6) (2020-11-11)
-
 
 ### Bug Fixes
 
 * **Table:** correct dependencies, move stories ([dee6382](https://github.com/GetTerminus/terminus-oss/commit/dee6382c00a75a3155a5abae0fe547bbd7a8ec31))
 
-
-
-
-
 ## [3.1.5](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.1.4...@terminus/ui-table@3.1.5) (2020-10-30)
 
 **Note:** Version bump only for package @terminus/ui-table
-
-
-
-
 
 ## [3.1.4](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.1.3...@terminus/ui-table@3.1.4) (2020-10-05)
 
 **Note:** Version bump only for package @terminus/ui-table
 
-
-
-
-
 ## [3.1.3](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.1.2...@terminus/ui-table@3.1.3) (2020-09-17)
 
 **Note:** Version bump only for package @terminus/ui-table
-
-
-
-
 
 ## [3.1.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.1.1...@terminus/ui-table@3.1.2) (2020-09-14)
 
 **Note:** Version bump only for package @terminus/ui-table
 
-
-
-
-
 ## [3.1.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.1.0...@terminus/ui-table@3.1.1) (2020-09-11)
 
 **Note:** Version bump only for package @terminus/ui-table
 
-
-
-
-
 # [3.1.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.0.2...@terminus/ui-table@3.1.0) (2020-09-08)
-
 
 ### Bug Fixes
 
 * force material & cdk ^9.2.4 for consumers ([ea09a6f](https://github.com/GetTerminus/terminus-oss/commit/ea09a6ff88a1ea239fe0e24cb011abfb3ffc8908)), closes [#275](https://github.com/GetTerminus/terminus-oss/issues/275)
 
-
 ### Features
 
 * clean all markdown ([5249a59](https://github.com/GetTerminus/terminus-oss/commit/5249a59486be63b6d9a0be7a801defb9b6adcedc))
 
-
-
-
-
 ## [3.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.0.1...@terminus/ui-table@3.0.2) (2020-09-04)
 
 **Note:** Version bump only for package @terminus/ui-table
-
-
-
-
 
 ## [3.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-table@3.0.0...@terminus/ui-table@3.0.1) (2020-09-03)
 
