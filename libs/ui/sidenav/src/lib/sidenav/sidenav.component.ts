@@ -24,6 +24,7 @@ export interface TS_SIDENAV_USER {
  */
 export interface TsSidenavDefaultOptions {
   profileRoute?: string;
+  profileUrl?: string;
   signOutRoute?: string;
   academyUrl?: string;
   knowledgeBaseUrl?: string;

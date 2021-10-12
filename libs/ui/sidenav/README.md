@@ -282,6 +282,9 @@ providers: [
 ],
 ```
 
+For Profile, you can alternatively pass in ProfileUrl which will be interpreted
+as an absolute URL rather than an internal application route.
+
 For Profile and SignOut, you can alternatively handle the click event directly
 within your app by binding to the proper EventEmitter output:
 

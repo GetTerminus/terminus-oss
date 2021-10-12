@@ -70,16 +70,25 @@
       </header>
       <hr>
       <ul>
-        <li *ngIf="options.profileRoute || isProfileClickBound">
-          <a [routerLink]="options.profileRoute"
-             (click)="profileClick.emit()">
+        <li *ngIf="options.profileRoute || options.profileUrl || isProfileClickBound">
+          <a *ngIf="options.profileUrl; else profileRouteOrClick"
+             [href]="options.profileUrl">
             <span class="ts-sidenav-user__link-text">Profile</span>
             <span class="ts-sidenav-user__icon">
               <span class="fas fa-user"></span>
             </span>
           </a>
+          <ng-template #profileRouteOrClick>
+            <a [routerLink]="options.profileRoute"
+              (click)="profileClick.emit()">
+              <span class="ts-sidenav-user__link-text">Profile</span>
+              <span class="ts-sidenav-user__icon">
+                <span class="fas fa-user"></span>
+              </span>
+            </a>
+          </ng-template>
         </li>
-        <li *ngIf="options.profileRoute || isProfileClickBound"><hr></li>
+        <li *ngIf="options.profileRoute || options.profileUrl || isProfileClickBound"><hr></li>
 
         <li *ngIf="options.knowledgeBaseUrl">
           <a [href]="options.knowledgeBaseUrl">
