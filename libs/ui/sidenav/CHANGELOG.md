@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@2.2.0...@terminus/ui-sidenav@2.3.0) (2021-10-12)
+
+
+### Features
+
+* **ts-sidenav:** Add ProfileUrl option ([#580](https://github.com/GetTerminus/terminus-oss/issues/580)) ([a81dbb9](https://github.com/GetTerminus/terminus-oss/commit/a81dbb940964e1d0f43610a0678259dce55e4801))
+
+
+
+
+
 # [2.2.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@2.1.3...@terminus/ui-sidenav@2.2.0) (2021-07-19)
 
 
