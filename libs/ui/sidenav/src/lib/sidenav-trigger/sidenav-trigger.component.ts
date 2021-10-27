@@ -219,7 +219,7 @@ export class TsSidenavTriggerComponent implements OnInit, OnDestroy {
   constructor(
     private renderer: Renderer2,
     public elementRef: ElementRef,
-    public cd: ChangeDetectorRef,
+    private readonly cd: ChangeDetectorRef,
     @Host() public hostSidenav: TsSidenavComponent,
   ) {}
 
