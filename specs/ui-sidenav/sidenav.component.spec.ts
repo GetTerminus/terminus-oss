@@ -401,12 +401,14 @@ describe(`TsSidenavComponent`, function() {
       test(`should call markForCheck when isPanelOpen changes`, () => {
         const trigger = spectator.queryAll(TsSidenavTriggerComponent)[0];
 
+        // @ts-ignore
         trigger.cd.markForCheck = jest.fn();
 
         trigger.isPanelOpen = true;
 
         trigger.isPanelOpen = false;
 
+        // @ts-ignore
         expect(trigger.cd.markForCheck).toHaveBeenCalledTimes(2);
       });
 
