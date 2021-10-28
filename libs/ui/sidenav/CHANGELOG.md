@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@2.3.0...@terminus/ui-sidenav@2.3.1) (2021-10-28)
+
+
+### Bug Fixes
+
+* **ui-sidenav:** Add markForCheck when isPanelOpen state changes ([#581](https://github.com/GetTerminus/terminus-oss/issues/581)) ([60d0d5e](https://github.com/GetTerminus/terminus-oss/commit/60d0d5ed3455ac3e8b1751c414a7bf2eabfcb9a2))
+
+
+
+
+
 # [2.3.0](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-sidenav@2.2.0...@terminus/ui-sidenav@2.3.0) (2021-10-12)
 
 
