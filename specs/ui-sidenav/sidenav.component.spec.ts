@@ -1,4 +1,5 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
+import { ChangeDetectorRef } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -395,6 +396,20 @@ describe(`TsSidenavComponent`, function() {
         trigger.isPanelOpen = true;
         spectator.detectChanges();
         expect(trigger.isPanelOpen).toEqual(true);
+      });
+
+      test(`should call markForCheck when isPanelOpen changes`, () => {
+        const trigger = spectator.queryAll(TsSidenavTriggerComponent)[0];
+
+        // @ts-ignore
+        trigger.cd.markForCheck = jest.fn();
+
+        trigger.isPanelOpen = true;
+
+        trigger.isPanelOpen = false;
+
+        // @ts-ignore
+        expect(trigger.cd.markForCheck).toHaveBeenCalledTimes(2);
       });
 
       test(`should focus the trigger if it is a button`, () => {

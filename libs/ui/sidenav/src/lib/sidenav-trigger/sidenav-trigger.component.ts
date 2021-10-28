@@ -2,6 +2,7 @@ import { ConnectionPositionPair } from '@angular/cdk/overlay';
 import type { CdkOverlayOrigin } from '@angular/cdk/overlay';
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   Host,
@@ -176,6 +177,8 @@ export class TsSidenavTriggerComponent implements OnInit, OnDestroy {
     } else if (this.elementRef?.nativeElement?.classList.contains('ts-sidenav-trigger--open')) {
       this.renderer.removeClass(this.elementRef.nativeElement, 'ts-sidenav-trigger--open');
     }
+
+    this.cd.markForCheck();
   }
   public get isPanelOpen(): boolean {
     return this._isPanelOpen;
@@ -216,6 +219,7 @@ export class TsSidenavTriggerComponent implements OnInit, OnDestroy {
   constructor(
     private renderer: Renderer2,
     public elementRef: ElementRef,
+    private readonly cd: ChangeDetectorRef,
     @Host() public hostSidenav: TsSidenavComponent,
   ) {}
 
