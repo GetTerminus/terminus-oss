@@ -1,0 +1,11 @@
+{
+  "extends": "../../../libs/ui/wizard-step-wrapper/tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true
+  },
+  "exclude": [
+    "../../../libs/ui/wizard-step-wrapper/src/test.ts",
+    "../../../libs/ui/wizard-step-wrapper/**/*.spec.ts"
+  ],
+  "include": ["../../../libs/ui/wizard-step-wrapper/src/**/*"]
+}

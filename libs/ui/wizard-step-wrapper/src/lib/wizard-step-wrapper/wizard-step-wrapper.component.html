@@ -1,0 +1,28 @@
+<ts-expansion-panel class="ts-wsp-step"
+                    [transparentMode]="transparentMode"
+                    [isExpanded]="isExpanded"
+                    [isDisabled]="isDisabled"
+                    (expandedChange)="panelStateChanged($event)">
+
+  <ts-expansion-panel-trigger class="ts-wsp-step__trigger"
+                              #trigger="tsExpansionPanelTrigger"
+                              collapsedHeight="auto">
+
+    <ng-container [ngTemplateOutlet]="stepHeader"></ng-container>
+
+    <div class="ts-wsp-indicator-wrapper">
+      <span class="ts-wsp-indicator"
+            [class.expanded]="trigger.isExpanded">
+      </span>
+    </div>
+
+    <ng-container [ngTemplateOutlet]="stepHeaderAdditions"></ng-container>
+  </ts-expansion-panel-trigger>
+
+  <ng-content></ng-content>
+
+  <div *ngIf="stepFooter"
+       class="ts-wsp-footer">
+    <ng-container [ngTemplateOutlet]="stepFooter"></ng-container>
+  </div>
+</ts-expansion-panel>

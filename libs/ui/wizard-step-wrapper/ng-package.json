@@ -1,0 +1,7 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/libs/ui/wizard-step-wrapper",
+  "lib": {
+    "entryFile": "src/index.ts"
+  }
+}
