@@ -6,10 +6,7 @@ import { isString } from '@terminus/fe-utilities';
 import { ImageRatio } from '../file-upload/file-upload.component';
 import { TsFileImageDimensionConstraints } from '../image-dimension-constraints';
 import { TsImageDimensions } from '../image-dimensions';
-import {
-  TS_ACCEPTED_MIME_TYPES,
-  TsFileAcceptedMimeTypes,
-} from '../mime-types';
+import { TS_ACCEPTED_MIME_TYPES, TsFileAcceptedMimeTypes } from '../mime-types';
 
 /**
  * The structure of the object to track file validations internally
@@ -25,7 +22,7 @@ export interface TsFileValidations {
  * The number of bytes per kilobyte (for calculations)
  */
 const BYTES_PER_KB = 1024;
-const typesWithoutDimensionValidation = ['text/csv', 'video/mp4'];
+const typesWithoutDimensionValidation = ['text/csv', 'video/mp4', 'video/quicktime'];
 
 /**
  * Manage a single selected file
@@ -49,46 +46,47 @@ export class TsSelectedFile {
     imageRatio: false,
   };
   private fileReader: FileReader = new FileReader();
-
-  /**
-   * Only needed to appease TypeScript when defining `fileLoaded$`
-   */
-  private fileReference?: TsSelectedFile;
-
-  /**
-   * BehaviorSubject to alert consumers when all calculations are complete
-   */
-  public fileLoaded$ = new BehaviorSubject<TsSelectedFile | undefined>(undefined);
-
+  public readonly validationFinished$ = new BehaviorSubject<boolean>(false);
 
   constructor(
     public file: File,
-    private imageDimensionConstraints: TsFileImageDimensionConstraints | undefined,
+    private imageDimensionConstraints:
+      | TsFileImageDimensionConstraints
+      | undefined,
     private typeConstraint: TsFileAcceptedMimeTypes[] | undefined,
     private maxSize: number,
     private ratioConstraint: Array<ImageRatio> | undefined,
   ) {
+    this.validate();
+  }
+
+  /**
+   * Runs all validations
+   */
+  private async validate(): Promise<void> {
     this.mimeType = this.file.type;
     this.size = Math.ceil(this.file.size / BYTES_PER_KB);
     this.name = this.file.name;
+    // Validate mime-type
+    // istanbul ignore else
+    if (
+      this.typeConstraint
+      && this.typeConstraint.indexOf(this.file.type as TsFileAcceptedMimeTypes)
+        >= 0
+    ) {
+      this.validations.fileType = true;
+    }
+    // Validate file size
+    // istanbul ignore else
+    if (this.size <= this.maxSize) {
+      this.validations.fileSize = true;
+    }
 
-    // Begin the validation chain by validating image dimensions
-    this.determineImageDimensions(() => {
-      // Validate mime-type
-      // istanbul ignore else
-      if (this.typeConstraint && this.typeConstraint.indexOf(this.file.type as TsFileAcceptedMimeTypes) >= 0) {
-        this.validations.fileType = true;
-      }
-
-      // Validate file size
-      // istanbul ignore else
-      if (this.size <= this.maxSize) {
-        this.validations.fileSize = true;
-      }
-
-      // Emit the file once all calculations are complete
-      this.fileLoaded$.next(this);
+    await new Promise(resolve => {
+      this.determineImageDimensions(resolve);
     });
+
+    this.validationFinished$.next(true);
   }
 
   /**
@@ -157,7 +155,21 @@ export class TsSelectedFile {
    * @returns Is valid
    */
   public get isValid(): boolean {
-    return (this.validations.fileType && this.validations.fileSize && this.validations.imageDimensions && this.validations.imageRatio);
+    return (
+      this.validations.fileType
+      && this.validations.fileSize
+      && this.validations.imageDimensions
+      && this.validations.imageRatio
+    );
+  }
+
+  /**
+   * Get the file extension
+   *
+   * @returns The file
+   */
+  public get fileExtension(): string {
+    return this.name.split('.').pop();
   }
 
   /**
@@ -165,10 +177,12 @@ export class TsSelectedFile {
    *
    * @param callback - A function to call after the dimensions have been calculated (asynchronously)
    */
-  private determineImageDimensions(callback?: Function): void {
+  private determineImageDimensions(callback: Function): void {
     let img: HTMLImageElement | undefined;
 
-    if (typeNeedsDimensionValidation(this.mimeType as TsFileAcceptedMimeTypes)) {
+    if (
+      typeNeedsDimensionValidation(this.mimeType as TsFileAcceptedMimeTypes)
+    ) {
       // Create an image so that dimensions can be determined
       img = new Image();
 
@@ -183,28 +197,32 @@ export class TsSelectedFile {
           }
         }
       };
+
       img.onload = (v: Event) => {
         // istanbul ignore else
         if (img) {
-          this.dimensions = new TsImageDimensions(img.naturalWidth, img.naturalHeight);
+          this.dimensions = new TsImageDimensions(
+            img.naturalWidth,
+            img.naturalHeight,
+          );
         }
 
         // Validate dimensions and ratio
-        this.validations.imageDimensions = this.validateImageDimensions(this.imageDimensionConstraints);
-        this.validations.imageRatio = this.validateImageRatio(this.ratioConstraint);
-        // Call the callback if one exists
-        // istanbul ignore else
+        this.validations.imageDimensions = this.validateImageDimensions(
+          this.imageDimensionConstraints,
+        );
+        this.validations.imageRatio = this.validateImageRatio(
+          this.ratioConstraint,
+        );
+
         if (callback) {
           callback();
         }
       };
     } else {
-      // We are not dealing with an image:
-      // istanbul ignore else
       if (callback) {
         callback();
       }
-
       // Since this is not an image, set dimension/ratio validation to `true` to 'bypass'
       this.validations.imageDimensions = true;
       this.validations.imageRatio = true;
@@ -220,7 +238,9 @@ export class TsSelectedFile {
    * @param constraints - The constraints this the image dimensions must fit
    * @returns The validation result
    */
-  private validateImageDimensions(constraints: TsFileImageDimensionConstraints | undefined): boolean {
+  private validateImageDimensions(
+    constraints: TsFileImageDimensionConstraints | undefined,
+  ): boolean {
     if (!constraints || constraints.length < 1) {
       return true;
     }
@@ -229,8 +249,10 @@ export class TsSelectedFile {
     const height = this.height;
 
     for (const constraint of constraints) {
-      const heightIsValid: boolean = height >= constraint.height.min && height <= constraint.height.max;
-      const widthIsValid: boolean = width >= constraint.width.min && width <= constraint.width.max;
+      const heightIsValid: boolean =
+        height >= constraint.height.min && height <= constraint.height.max;
+      const widthIsValid: boolean =
+        width >= constraint.width.min && width <= constraint.width.max;
 
       if (heightIsValid && widthIsValid) {
         return true;
@@ -246,7 +268,9 @@ export class TsSelectedFile {
    * @param constraints - The constrains that the image ratio must fit
    * @returns The validation result
    */
-  private validateImageRatio(constraints: Array<ImageRatio> | undefined): boolean {
+  private validateImageRatio(
+    constraints: Array<ImageRatio> | undefined,
+  ): boolean {
     if (!constraints) {
       return true;
     }
@@ -270,8 +294,10 @@ export class TsSelectedFile {
    * @returns Whether these two numbers are the same
    */
   private isSame(number1: number, number2: number): boolean {
-    const minimumAmountToConsiderMatch = .001;
-    return Math.abs((number1 - number2) / number1) < minimumAmountToConsiderMatch;
+    const minimumAmountToConsiderMatch = 0.001;
+    return (
+      Math.abs((number1 - number2) / number1) < minimumAmountToConsiderMatch
+    );
   }
 }
 
@@ -283,6 +309,8 @@ export class TsSelectedFile {
  */
 function typeNeedsDimensionValidation(type: TsFileAcceptedMimeTypes): boolean {
   const allTypes = TS_ACCEPTED_MIME_TYPES.slice();
-  const itemsNeedingValidation = allTypes.filter(item => !typesWithoutDimensionValidation.includes(item));
+  const itemsNeedingValidation = allTypes.filter(
+    item => !typesWithoutDimensionValidation.includes(item),
+  );
   return itemsNeedingValidation.indexOf(type) >= 0;
 }

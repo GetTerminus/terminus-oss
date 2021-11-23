@@ -18,7 +18,6 @@ A drag'n'drop file upload component.
   - [File size](#file-size)
   - [Image dimensions](#image-dimensions)
   - [Image ratio constraints](#image-ratio-constraints)
-  - [Clearing a file](#clearing-a-file)
   - [Showing upload progress](#showing-upload-progress)
   - [Enable multiple file selection](#enable-multiple-file-selection)
   - [Handle multiple files](#handle-multiple-files)
@@ -63,7 +62,7 @@ Collect the selected file via the `selected` event:
 
 ...
 
-  handleFile(e: TsSelectedFile) {
+  handleFile(e: TsSelectedFile[]) {
     // e.fileContents is the selected file
   }
 ```
@@ -134,34 +133,7 @@ interface TsFileImageDimensionConstraint {
 }
 ```
 
-For fixed image dimensions set the min and max to the same number. The component will trim ranges before exposing to the user:
-
-```javascript
-// Example:
-{
-  height: {
-    min: 100;
-    max: 100;
-  };
-  width: {
-    min: 300;
-    max: 300;
-  };
-}
-// Will be displayed as: `300x100`
-
-{
-  height: {
-    min: 50;
-    max: 100;
-  };
-  width: {
-    min: 200;
-    max: 300;
-  };
-}
-// Will be displayed as: `200-300x50-100`
-```
+You can pass the array of constraints to the component through the `dimensionConstraints` Input:
 
 Example:
 
@@ -210,47 +182,9 @@ Image ratio validation is controlled by an array of constraints passed to the co
 
 If a file is loaded that do not meet any ratio constraints, a validation message will appear below the file input.
 
-### Clearing a file
-
-The user can clear the selected file by clicking the `X` button next to the filename. An event will be emitted when this occurs:
-
-```html
-<ts-file-upload (cleared)="fileWasCleared()"></ts-file-upload>
-```
-
-```typescript
-...
-
-  fileWasCleared() {
-    ...
-  }
-```
-
 ### Showing upload progress
 
-The progress of an upload can be reflected in the UI by passing a number between 0 and 100 to the `progress` input:
-
-```html
-<ts-file-upload [progress]="myProgress"></ts-file-upload>
-```
-
-```typescript
-...
-  myProgress = 0;
-
-  // For example only. In a real scenario the progress value would be coming from the API.
-  // Start a counter to fake the upload progress value
-  startProgress() {
-    this.myProgress = 0;
-    const counting = setInterval(() => {
-      if (this.myProgress < 100) {
-        this.myProgress++;
-      } else {
-        clearInterval(counting);
-      }
-    }, 14);
-  }
-```
+TODO!!
 
 ### Enable multiple file selection
 
@@ -262,71 +196,7 @@ Set `multiple` to `true`:
 
 ### Handle multiple files
 
-Currently this component does not natively handle multiple file uploads (this support is planned for the future). There are ways to 'fake'
-that functionality in a way.
-
-An example:
-
-```html
-<!--
-  Here is the original file upload. Initially this is all the user sees.
-  When multiple files are selected, they will be emitted through this event:
--->
-<ts-file-upload (selectedMultiple)="selectedMultiple($event)"></ts-file-upload>
-
-<!-- Loop over the files that were collected from the selectedMultiple event -->
-<ng-container *ngFor="let v of files">
-  <ts-file-upload
-    <!-- Only show this upload if the file still exists in our files collection: -->
-    *ngIf="fileExists(v.id)"
-    <!-- Seed the file input with the file from our collection: -->
-    [seedFile]="v.file"
-  ></ts-file-upload>
-</ng-container>
-```
-
-```typescript
-...
-
-  // We'll store the selected files here for reference:
-  files: {id: number; file: File}[] = [];
-
-  // Collect the selected files from the event and store them for reference:
-  selectedMultiple(e: File[]) {
-    let index = -1;
-
-    this.files = e.map((f) => {
-      index = index + 1;
-      return {
-        id: index,
-        file: f,
-      };
-    });
-  }
-
-  // Remove the correct file when the user clicks the clear button
-  clearFile(id: number): void {
-    if (!this.files || this.files.length < 1) {
-      return;
-    }
-
-    this.files = this.files.filter((obj) => {
-      return obj.id !== id;
-    });
-  }
-
-  // Helper function to determine when to hide one of the file upload components:
-  public fileExists(id: number): boolean {
-    if (!this.files || this.files.length < 1) {
-      return false;
-    }
-    const found = this.files.find((v) => {
-      return v.id === id;
-    });
-
-    return found ? true : false;
-  }
-```
+TODO!!
 
 <!-- Links -->
 [license-url]:         https://github.com/GetTerminus/terminus-oss/blob/release/LICENSE

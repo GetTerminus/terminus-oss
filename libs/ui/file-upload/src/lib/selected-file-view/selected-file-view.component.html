@@ -1,0 +1,82 @@
+<div class="c-file-upload-selected-file-view-container">
+    <div class="c-file-upload-selected-file-view">
+
+        <div class="c-file-upload-selected-file-view__icon">
+            <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M21.5 23.5H4V20.5H2V12.25H4V1H15.5L21.5 7V23.5Z"
+                    fill="white"
+                ></path>
+                <path
+                    d="M22.0414 6.28714V6.24857C22.0217 6.20272 21.9942 6.16066 21.96 6.12429L15.96 0.124286C15.9236 0.0901135 15.8816 0.0625565 15.8357 0.0428571H15.7971C15.7568 0.0218426 15.7134 0.0073761 15.6686 0H3.64286C3.52919 0 3.42018 0.045153 3.33981 0.125526C3.25944 0.205898 3.21429 0.314907 3.21429 0.428571V12H1.92857C1.81491 12 1.7059 12.0452 1.62553 12.1255C1.54515 12.2059 1.5 12.3149 1.5 12.4286V20.1429C1.5 20.2565 1.54515 20.3655 1.62553 20.4459C1.7059 20.5263 1.81491 20.5714 1.92857 20.5714H3.21429V23.5714C3.21429 23.6851 3.25944 23.7941 3.33981 23.8745C3.42018 23.9548 3.52919 24 3.64286 24H21.6429C21.7565 24 21.8655 23.9548 21.9459 23.8745C22.0263 23.7941 22.0714 23.6851 22.0714 23.5714V6.42857C22.0714 6.42857 22.0714 6.42857 22.0714 6.40286C22.0669 6.36307 22.0568 6.32412 22.0414 6.28714V6.28714ZM16.0714 1.46143L20.61 6H16.0714V1.46143ZM2.35714 12.8571H15.2143V19.7143H2.35714V12.8571ZM4.07143 23.1429V20.5714H15.6429C15.7565 20.5714 15.8655 20.5263 15.9459 20.4459C16.0263 20.3655 16.0714 20.2565 16.0714 20.1429V12.4286C16.0714 12.3149 16.0263 12.2059 15.9459 12.1255C15.8655 12.0452 15.7565 12 15.6429 12H4.07143V0.857143H15.2143V6.42857C15.2143 6.54224 15.2594 6.65124 15.3398 6.73162C15.4202 6.81199 15.5292 6.85714 15.6429 6.85714H21.2143V23.1429H4.07143Z"
+                    fill="#C4CBCF"
+                ></path>
+
+                <text
+                    style="text-transform:uppercase;"
+                    x="2.5"
+                    y="18.4"
+                    font-size="6px"
+                    fill="#005589"
+                >
+                    {{ file.fileExtension }}
+                </text>
+            </svg>
+
+        </div>
+        <div class="c-file-upload-file-info">
+            <div class="c-file-upload-file-info__name">{{ file.name }}</div>
+            <div class="c-file-upload-file-info__progress">
+
+                <div class="c-file-upload-progress-bar">
+                    <div
+                        class="c-file-upload-progress-bar__progress"
+                        [style.width.%]="uploadStats?.progressPercentage"
+                        [class.c-file-upload-progress-bar__progress--100]="uploadStats?.progressPercentage === 100"
+                    ></div>
+                </div>
+
+            </div>
+        </div>
+        <button
+            (click)="removed.emit()"
+            class="c-file-upload-selected-file-view__close"
+            [class.c-file-upload-selected-file-view__close--progress]="!!uploadStats?.progressPercentage"
+            [class.c-file-upload-selected-file-view__close--100]="uploadStats?.progressPercentage === 100"
+        >
+            <span class="fas fa-times-circle"></span>
+        </button>
+
+    </div>
+
+    <ng-container *ngIf="file.validationFinished$ | async  else validatingTemplate">
+
+        <div
+            class="c-file-upload-selected-file-view-validation"
+            *ngIf="!file.isValid || uploadStats?.customValidationError"
+        >
+            <span class="fas fa-exclamation-circle"></span>
+            <ng-container *ngIf="file.isImage">Image failed to upload</ng-container>
+            <ng-container *ngIf="file.isVideo">Video failed to upload</ng-container>
+            <ng-container *ngIf="!file.isVideo && !file.isImage">File failed to upload</ng-container>
+            <ng-container *ngIf="!file.validations.fileSize">; Invalid file size</ng-container>
+            <ng-container *ngIf="!file.validations.fileType">; Invalid file type</ng-container>
+            <ng-container *ngIf="!file.validations.imageDimensions">; Incorrect dimensions</ng-container>
+            <ng-container *ngIf="!file.validations.imageRatio">; Invalid ratio</ng-container>
+            <ng-container *ngIf="uploadStats?.customValidationError">
+                ; {{ uploadStats?.customValidationError }}
+            </ng-container>
+        </div>
+
+    </ng-container>
+
+    <ng-template #validatingTemplate>
+        <div class="c-file-upload-selected-file-view-validation c-file-upload-selected-file-view-validation--validating">Validating...</div>
+    </ng-template>
+</div>

@@ -1,244 +1,144 @@
 @import '~@terminus/ui-styles/helpers';
 
 :root {
-  --ts-fu-color: var(--ts-color-utility-700);
-  --ts-fu-typography: var(--ts-typography-compound-hint);
-  --ts-fu-fontFamily-override: var(--ts-typography-stack-base-monospaced);
-  --ts-fu-drag-backgroundColor: #d3eaf9;
-  --ts-fu-borderRadius: var(--ts-border-radius-base);
-  --ts-fu-stacked-marginTop: var(--ts-space-stack-600);
-  --ts-fu-border: 1px dashed var(--ts-color-utility-400);
-  --ts-fu-borderColor: var(--ts-color-primary-500);
-  --ts-fu-hover-borderColor: var(--ts-color-utility-500);
-  --ts-fu-error-color: var(--ts-color-warn-500);
-  --ts-fu-removeIcon-color: var(--ts-color-utility-500);
-  --ts-fu-dragOrSelected-borderColor: var(--ts-color-primary-100);
-  --ts-fu-shadow: 0 0 2px 2px var(--ts-color-primary-300);
-  --ts-fu-padding: var(--ts-space-inset-400);
-  --ts-fu-progress-marginTop: var(--ts-space-stack-400);
-  --ts-fu-transitions:
-    background-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut),
-    border-color var(--ts-animation-time-duration-200) var(--ts-animation-easing-easeOut);
-  --ts-fu-empty-color: var(--ts-color-utility-700);
-  --ts-fu-empty-disabled-color: var(--ts-color-utility-600);
-  --ts-fu-empty-icon-marginRight: var(--ts-space-inline-200);
-  --ts-fu-preview-border: 1px solid var(--ts-color-utility-300);
-  --ts-fu-preview-height: 2.375rem;
-  --ts-fu-preview-marginRight: var(--ts-space-inset-400);
-  --ts-fu-preview-padding: var(--ts-space-inset-200);
-  --ts-fu-remove-transitions:
-    color var(--ts-animation-time-duration-200) var(--ts-animation-easing-ease),
-    opacity var(--ts-animation-time-duration-100) var(--ts-animation-easing-ease);
-  --ts-fu-hint-padding: .3em .4em .2em;
-  --ts-fu-hint-color: var(--ts-color-utility-600);
-  --ts-fu-hint-typography: var(--ts-typography-compound-hint);
-  --ts-fu-preview-icon-width: 12px;
-}
+  --ts-fu-wrapper-background: var(--ts-color-base-white);
 
-.ts-file-upload {
-  display: block;
-  position: relative;
+  --ts-fu-drop-area-background: rgba(0, 85, 137, .1);
+  --ts-fu-drop-area-border: 1px solid #bfeaff;
+  --ts-fu-drop-area-height: 460px;
+  --ts-fu-drop-area-max-width: 600px;
+  --ts-fu-drop-area-border-radius: var(--ts-border-radius-base);
 
-  // Top level styles belong here
-  .c-file-upload {
-    &:not(.c-file-upload--disabled) {
-      cursor: pointer;
-    }
-  }
+  --ts-fu-drop-area-message-icon-color: var(--ts-color-base-palette1-500);
+  --ts-fu-drop-area-message-icon-font-size: 68px;
+  --ts-fu-drop-area-message-font-size: 14px;
+  --ts-fu-drop-area-message-font-weight: 400;
+  --ts-fu-drop-area-message-link-color: var(--ts-color-base-palette1-500);
 
-  // If followed directly by another instance, add vertical spacing
-  + .ts-file-upload {
-    margin-top: var(--ts-fu-stacked-marginTop);
-  }
+  --ts-fu-requirements-section-title-font-size: 14px;
+  --ts-fu-requirements-section-title-line-height: 20px;
+  --ts-fu-requirements-section-title-font-weight: 500;
+
+  --ts-fu-requirements-title-font-size: 12px;
+  --ts-fu-requirements-title-font-weight: 500;
+
+  --ts-fu-requirements-subtitle-font-size: 12px;
+  --ts-fu-requirements-subtitle-color: var(--ts-color-base-palette7-600);
 }
 
 .c-file-upload {
-  border: var(--ts-fu-border);
-  border-radius: var(--ts-fu-borderRadius);
-  padding: var(--ts-fu-padding);
-  transition: var(--ts-fu-transitions);
 
-  &:focus {
-    outline: none;
+  background: var(--ts-fu-wrapper-background);
+  display: flex;
+  flex-direction: row;
 
-    &:not(.c-file-upload--disabled) {
-      border-color: var(--ts-fu-borderColor);
-      box-shadow: var(--ts-fu-shadow);
-    }
-  }
+  &__area {
 
-  &:hover {
-    &:not(.c-file-upload--disabled) {
-      border-color: var(--ts-fu-hover-borderColor);
-    }
-  }
+    background: var(--ts-fu-drop-area-background);
+    border: var(--ts-fu-drop-area-border);
+    border-radius: var(--ts-fu-drop-area-border-radius);
+    display: flex;
+    flex-direction: column;
 
-  // Class added when dragging over
-  &--drag {
-    background-color: var(--ts-fu-drag-backgroundColor);
-    border-color: var(--ts-fu-dragOrSelected-borderColor);
+    height: var(--ts-fu-drop-area-height);
+    max-width: var(--ts-fu-drop-area-max-width);
+    overflow-y: auto;
+    padding: spacing();
+    width: 100%;
 
-    // Hide the remove button during a drag if it's visible
-    .c-file-upload__remove {
-      opacity: 0;
-    }
-  }
-
-  // Class added when a file has been selected
-  &--file {
-    border-color: var(--ts-fu-dragOrSelected-borderColor);
-  }
-
-  // Class added if any validation fails
-  &--error {
-    border-color: var(--ts-fu-error-color);
-  }
-
-  &.c-file-upload--disabled {
-    cursor: not-allowed;
-
-    .c-file-upload__empty {
-      color: var(--ts-fu-empty-disabled-color);
-    }
-  }
-
-  // <div> container for the selected file
-  .c-file-upload__file {
-    color: var(--ts-fu-color);
-    font: var(--ts-fu-typography);
-    font-family: var(--ts-fu-fontFamily-override);
-    overflow: auto;
-    // Set up for progress bar
-    position: relative;
-
-    &--hidden {
-      position: absolute;
-      visibility: hidden;
-    }
-  }
-
-  // <div> content shown when no file has been selected
-  .c-file-upload__empty {
-    color: var(--ts-fu-empty-color);
-
-    .c-file-upload__icon {
-      display: inline-block;
-      height: 21px;
-      margin-right: var(--ts-fu-empty-icon-marginRight);
-      width: 21px;
-
-      svg {
-        max-height: 100%;
-        max-width: 100%;
+    .c-file-upload-file {
+      &:not(:first-child) {
+        margin-top: spacing(small);
       }
     }
-  }
 
-  // <div> container for the image preview
-  .c-file-upload__preview {
-    border: var(--ts-fu-preview-border);
-    border-radius: var(--ts-fu-borderRadius);
-    height: var(--ts-fu-preview-height);
-    margin-right: var(--ts-fu-preview-marginRight);
-    max-width: calc(var(--ts-fu-preview-height) * 2);
-    // Don't let alt tag text spill out
-    overflow: hidden;
-    padding: var(--ts-fu-preview-padding);
-    // Set up for remove button
-    position: relative;
-
-    // The selected image preview
-    img {
-      display: block;
-      max-height: 100%;
-      max-width: 100%;
-    }
-
-    .c-file-upload__preview-csv {
+    .c-file-upload-drag-message {
       align-items: center;
       display: flex;
-      height: 100%;
+      flex-direction: column;
       justify-content: center;
-      width: var(--ts-fu-preview-icon-width);
+      margin-top: spacing(large);
+      text-align: center;
 
-      svg {
-        width: var(--ts-fu-preview-icon-width);
+      &__icon {
+        color: var(--ts-fu-drop-area-message-icon-color);
+        font-size: var(--ts-fu-drop-area-message-icon-font-size);
+        opacity: .15;
+      }
+
+      &__mesage {
+        font-size: var(--ts-fu-drop-area-message-font-size);
+        font-weight: var(--ts-fu-drop-area-message-font-weight);
+        margin-top: spacing(small);
+        max-width: 200px;
+
+        a {
+          color: var(--ts-fu-drop-area-message-link-color);
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &--empty {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .c-file-upload-drag-message {
+        margin-top: 0;
+
+        &__icon {
+          opacity: 1;
+        }
       }
     }
   }
 
-  // <div> wrapper for the filename
-  .c-file-upload__filename {
-    overflow: hidden;
-  }
+  &__requirements {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin-left: spacing();
 
-  // <div> Inner wrapper needed since text-overflow must be on a block/inline-block element
-  .c-file-upload__filename-inner {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  // <ts-icon-button> remove the file
-  .c-file-upload__remove {
-    --ts-fu-removeIcon-size: 40px;
-    background-color: transparent;
-    border: 0;
-    color: var(--ts-fu-removeIcon-color);
-    cursor: cursor(pointer);
-    height: var(--ts-fu-removeIcon-size);
-    outline: 0;
-    text-align: center;
-    transition: var(--ts-fu-remove-transitions);
-    width: var(--ts-fu-removeIcon-size);
-
-    &:focus,
-    &:hover {
-      color: var(--ts-fu-error-color);
-      outline: 0;
+    h2 {
+      font-size: var(--ts-fu-requirements-section-title-font-size);
+      font-weight: var(--ts-fu-requirements-section-title-font-weight);
+      line-height: var(--ts-fu-requirements-section-title-line-height);
+      margin: 0;
     }
 
-    svg {
-      height: 18px;
-      position: relative;
-      top: 3px;
-      width: 18px;
+    .c-file-upload-requirement {
+      display: flex;
+      flex-direction: column;
+
+      &:not(:first-child) {
+        margin-top: spacing();
+      }
+
+      &__title {
+        font-size: var(--ts-fu-requirements-title-font-size);
+        font-weight: var(--ts-fu-requirements-title-font-weight);
+      }
+
+      &__subtitle {
+        color: var(--ts-fu-requirements-subtitle-color);
+        font-size: var(--ts-fu-requirements-subtitle-font-size);
+        margin-top: spacing(small, 2);
+      }
     }
 
-    &--disabled {
-      cursor: not-allowed;
-    }
-  }
+    .c-file-upload-note {
 
-  // <mat-progress-bar>
-  .c-file-upload__progress {
-    display: block;
-    margin-top: var(--ts-fu-progress-marginTop);
+      color: var(--ts-fu-requirements-subtitle-color);
+      display: flex;
+      flex-direction: column;
+      font-size: var(--ts-fu-requirements-subtitle-font-size);
+      margin-top: auto;
 
-    // NOTE: By default there is not enough variation between the progress background and progress content
-    .mat-progress-bar-buffer {
-      background-color: var(--ts-fu-drag-backgroundColor);
-    }
-  }
-
-  // <ts-button>
-  .c-file-upload__prompt {
-    // Disable pointer-events to avoid odd bug when hovering the edge of a TsButton while dragging a file.
-    // Since the entire component is clickable the button is really only there for a user-target.
-    pointer-events: none;
-    white-space: nowrap;
-
-    &--hidden {
-      position: absolute;
-      visibility: hidden;
+      &__title {
+        font-weight: var(--ts-fu-requirements-title-font-weight);
+      }
     }
   }
-}
-
-// <div> replication of mat-hint
-.c-file-upload__hints {
-  color: var(--ts-fu-hint-color);
-  font: var(--ts-fu-hint-typography);
-  padding: var(--ts-fu-hint-padding);
-  text-align: right;
 }

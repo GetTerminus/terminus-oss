@@ -1,0 +1,97 @@
+@import '~@terminus/ui-styles/helpers';
+
+:host {
+  display: block;
+}
+
+.c-file-upload-selected-file-view-container {
+  display: flex;
+  flex-direction: column;
+
+  .c-file-upload-selected-file-view-validation {
+    // TODO: use env variables
+    color: #d23d46;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: spacing(small, 2);
+    padding-left: 40px;
+
+    &--validating {
+      // TODO: use env variables
+      color: #005589;
+      font-weight: 300;
+    }
+
+    .fas,
+    .far {
+      margin-right: spacing(small, 2);
+    }
+  }
+
+  .c-file-upload-selected-file-view {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+    &__icon {
+      height: 24px;
+      margin-right: spacing();
+    }
+
+    &__close {
+      background: unset;
+      border: unset;
+
+      // TODO: use env variables
+      color: #3e464c;
+      cursor: pointer;
+      font-size: 20px;
+      height: min-content;
+      line-height: 20px;
+      margin: 0;
+      margin-left: spacing();
+      padding: 0;
+
+      &--progress {
+        color: #005589;
+      }
+
+      &--100 {
+        color: #2d8734;
+      }
+    }
+
+    .c-file-upload-file-info {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+
+      &__name {
+        font-size: 12px;
+        font-weight: 400;
+      }
+
+      .c-file-upload-progress-bar {
+
+        // TODO: use env variables
+        background: rgba(0, 85, 137, .15);
+        border-radius: 8px;
+        height: 4px;
+        overflow: hidden;
+        width: 100%;
+
+        &__progress {
+
+          background: #005589;
+          height: 100%;
+          width: 0;
+
+          &--100 {
+            // TODO: use env variables
+            background: #2d8734;
+          }
+        }
+      }
+    }
+  }
+}
