@@ -195,7 +195,7 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
    */
   public get chipBlurChanges(): Observable<TsChipEvent> {
     // eslint-disable-next-line deprecation/deprecation
-    return merge(...this.chips.map(chip => chip.blurred));
+    return merge<TsChipEvent>(...this.chips.map(chip => chip.blurred));
   }
 
   /**
@@ -395,6 +395,7 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
       .withVerticalOrientation()
       .withHorizontalOrientation('ltr');
 
+    // eslint-disable-next-line deprecation/deprecation
     this.keyManager.tabOut.pipe(untilComponentDestroyed(this)).subscribe(() => {
       this.tabUpdateFocus.emit();
     });
@@ -574,6 +575,7 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
    * Listens to user-generated selection events on each chip.
    */
   private listenToChipsSelection(): void {
+    // eslint-disable-next-line deprecation/deprecation
     this.chipSelectionChanges.pipe(untilComponentDestroyed(this)).subscribe(event => {
       event.source.selected
         ? this.selectionModel.select(event.source)
@@ -594,6 +596,7 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
    * Listens to user-generated selection events on each chip.
    */
   private listenToChipsFocus(): void {
+    // eslint-disable-next-line deprecation/deprecation
     this.chipFocusChanges.pipe(untilComponentDestroyed(this)).subscribe(event => {
       const chipIndex: number = this.chips.toArray().indexOf(event.chip);
 
@@ -603,6 +606,7 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
       }
     });
 
+    // eslint-disable-next-line deprecation/deprecation
     this.chipBlurChanges.pipe(untilComponentDestroyed(this)).subscribe(() => {
       this.blur();
     });
@@ -612,6 +616,7 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
    * Listens to remove events on each chip.
    */
   private listenToChipsRemoved(): void {
+    // eslint-disable-next-line deprecation/deprecation
     this.chipDestroyChanges.pipe(untilComponentDestroyed(this)).subscribe(event => {
       const chip = event.chip;
       const chipIndex = this.chips.toArray().indexOf(event.chip);

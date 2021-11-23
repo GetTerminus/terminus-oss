@@ -888,6 +888,7 @@ export class TsInputComponent implements AfterViewInit, AfterContentInit, DoChec
     this.setDateLocale(this.dateLocale);
 
     // Begin monitoring for the input autofill
+    // eslint-disable-next-line deprecation/deprecation
     this.autofillMonitor.monitor(this.inputElement.nativeElement).subscribe(event => {
       this.autofilled = event.isAutofilled;
     });
@@ -901,10 +902,10 @@ export class TsInputComponent implements AfterViewInit, AfterContentInit, DoChec
     // istanbul ignore else
     // NOTE: Dangle naming controlled by Material
     /* eslint-disable no-underscore-dangle */
-    if (this.picker && !this.picker._datepickerInput) {
+    if (this.picker && !this.picker.datepickerInput) {
       // NOTE: Dangle naming controlled by Material
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      this.picker._registerInput(this as any);
+      this.picker.registerInput(this as any);
     }
     /* eslint-enable no-underscore-dangle */
   }

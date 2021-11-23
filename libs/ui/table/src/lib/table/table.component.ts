@@ -1,10 +1,13 @@
 import { Directionality } from '@angular/cdk/bidi';
+import { _ViewRepeater } from '@angular/cdk/collections';
 import { Platform } from '@angular/cdk/platform';
 import { ViewportRuler } from '@angular/cdk/scrolling';
 import {
   CDK_TABLE_TEMPLATE,
   CdkTable,
 } from '@angular/cdk/table';
+import { _CoalescedStyleScheduler } from '@angular/cdk/table/coalesced-style-scheduler';
+import { RenderRow, RowContext } from '@angular/cdk/table/table';
 import { DOCUMENT } from '@angular/common';
 import {
   Attribute,
@@ -358,7 +361,8 @@ export class TsTableComponent<T = any> extends CdkTable<T> implements
     private windowService: TsWindowService,
     private viewportRuler: ViewportRuler,
   ) {
-    super(differs, changeDetectorRef, elementRef, role, dir, document, platform);
+    super(differs, changeDetectorRef, elementRef, role, dir, document, platform,
+      null, null, viewportRuler, null);
   }
 
 
@@ -369,6 +373,7 @@ export class TsTableComponent<T = any> extends CdkTable<T> implements
     super.ngOnInit();
 
     this.viewportChange$ = this.viewportRuler.change(VIEWPORT_DEBOUNCE).pipe(untilComponentDestroyed(this));
+    // eslint-disable-next-line deprecation/deprecation
     this.viewportChange$.pipe(untilComponentDestroyed(this)).subscribe(() => {
       this.windowService.nativeWindow.requestAnimationFrame(() => {
         this.updateInternalColumns(this.getFreshColumnsCopy());
@@ -389,6 +394,7 @@ export class TsTableComponent<T = any> extends CdkTable<T> implements
    */
   public ngAfterContentInit(): void {
     this.columnResizeChanges$
+      // eslint-disable-next-line deprecation/deprecation
       .subscribe(v => {
         this.updateLastColumnWidth();
         // Update the recorded width for the changed column
@@ -479,6 +485,7 @@ export class TsTableComponent<T = any> extends CdkTable<T> implements
 
     this.headerCellSubscription = this.headerCells.changes
       .pipe(untilComponentDestroyed(this))
+      // eslint-disable-next-line deprecation/deprecation
       .subscribe(() => {
         // 1. Set user widths
         this.setAllColumnsToDefinedWidths(this.getFreshColumnsCopy());
