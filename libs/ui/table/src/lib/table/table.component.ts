@@ -1,13 +1,10 @@
 import { Directionality } from '@angular/cdk/bidi';
-import { _ViewRepeater } from '@angular/cdk/collections';
 import { Platform } from '@angular/cdk/platform';
 import { ViewportRuler } from '@angular/cdk/scrolling';
 import {
   CDK_TABLE_TEMPLATE,
   CdkTable,
 } from '@angular/cdk/table';
-import { _CoalescedStyleScheduler } from '@angular/cdk/table/coalesced-style-scheduler';
-import { RenderRow, RowContext } from '@angular/cdk/table/table';
 import { DOCUMENT } from '@angular/common';
 import {
   Attribute,

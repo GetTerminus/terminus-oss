@@ -9,7 +9,6 @@ import { TsIconButtonModule } from '@terminus/ui-icon-button';
 @Component({
   template: `
     <ts-icon-button
-    <ts-icon-button
       actionName="Menu"
       buttonType="button"
       [icon]="icon"
