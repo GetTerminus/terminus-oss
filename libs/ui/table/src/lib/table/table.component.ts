@@ -359,9 +359,11 @@ export class TsTableComponent<T = any> extends CdkTable<T> implements
     private windowService: TsWindowService,
     private viewportRuler: ViewportRuler,
   ) {
-    // @ts-ignore
     super(differs, changeDetectorRef, elementRef, role, dir, document, platform,
-      null, new _CoalescedStyleScheduler(ngZone), viewportRuler, null);
+      {
+        applyChanges: changes => {},
+        detach: () => {},
+      }, new _CoalescedStyleScheduler(ngZone), viewportRuler, null);
   }
 
 
