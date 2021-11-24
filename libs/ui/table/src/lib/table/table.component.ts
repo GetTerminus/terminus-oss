@@ -2,6 +2,7 @@ import { Directionality } from '@angular/cdk/bidi';
 import { Platform } from '@angular/cdk/platform';
 import { ViewportRuler } from '@angular/cdk/scrolling';
 import {
+  _CoalescedStyleScheduler,
   CDK_TABLE_TEMPLATE,
   CdkTable,
 } from '@angular/cdk/table';
@@ -358,8 +359,9 @@ export class TsTableComponent<T = any> extends CdkTable<T> implements
     private windowService: TsWindowService,
     private viewportRuler: ViewportRuler,
   ) {
+    // @ts-ignore
     super(differs, changeDetectorRef, elementRef, role, dir, document, platform,
-      null, null, viewportRuler, null);
+      null, new _CoalescedStyleScheduler(ngZone), viewportRuler, null);
   }
 
 
