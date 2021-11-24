@@ -38,15 +38,15 @@ import {
 } from 'rxjs/operators';
 
 import { untilComponentDestroyed } from '@terminus/fe-utilities';
-import { TsSortDirective } from '@terminus/ui-sort';
+
+import { TsSortDirective } from '../../libs/ui/sort/src';
 import {
   TsColumn,
   TsTableColumnsChangeEvent,
   TsTableComponent,
   TsTableDataSource,
   TsTableDensity,
-} from '@terminus/ui-table';
-
+} from '../../libs/ui/table/src';
 import {
   GithubApi,
   GithubIssue,
@@ -140,6 +140,7 @@ export class TableWrapper implements OnInit, AfterViewInit, OnDestroy {
   public ngAfterViewInit(): void {
     this.setUpTable();
 
+    // eslint-disable-next-line deprecation/deprecation
     this.allFormControlChanges$.pipe(untilComponentDestroyed(this)).subscribe(() => {
       this.setVisibleColumns();
     });
@@ -189,6 +190,7 @@ export class TableWrapper implements OnInit, AfterViewInit, OnDestroy {
           console.warn('GitHub API rate limit has been reached!');
           return of([]);
         }),
+        // eslint-disable-next-line deprecation/deprecation
       ).subscribe(data => {
         this.dataSource.data = data;
       });

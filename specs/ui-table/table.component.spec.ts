@@ -75,6 +75,7 @@ export function expectTableToMatchContent(tableElement: Element, expectedTableCo
 
   // Check data row cells
   const rows = getRows(tableElement);
+  console.log(tableElement);
   expect(rows.length).toBe(expectedTableContent.length);
   rows.forEach((row, rowIndex) => {
     getCells(row).forEach((cell, cellIndex) => {
