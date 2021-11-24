@@ -217,7 +217,7 @@ describe('TsPaginatorComponent', () => {
         for (const index of pageIndexes) {
           spectator.setInput('activePage', myPagesArray[index]);
           expect(spectator.queryAll('.ts-paginator__page--ellipsis').length).toEqual(2);
-          expect(spectator.queryAll('.ts-paginator__page').length).toEqual(7);
+          expect(spectator.queryAll('.ts-paginator__page--button').length).toEqual(4);
         }
       });
     });

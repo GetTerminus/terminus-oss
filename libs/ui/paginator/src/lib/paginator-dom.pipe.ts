@@ -6,6 +6,8 @@ import {
 
 import { isNumber } from '@terminus/fe-utilities';
 
+import { paginatorPageSanitizers } from './paginator-utilities';
+
 /**
  * The allowed types passed to {@link TsPaginatorDomPipe}
  */
@@ -31,53 +33,22 @@ export class TsPaginatorDomPipe implements PipeTransform {
    * @param type - The type of DOM output being tested for
    * @returns A boolean value for that type
    */
-  // eslint-disable-next-line complexity
   public transform(activePageIndex: number, index: number, pagesLength: number, type: TsPaginatorDomTypes): boolean {
+
     if (!type || !isNumber(activePageIndex) || !isNumber(index) || !isNumber(pagesLength)) {
       return false;
     }
 
-    if (type === 'ellipsis-start') {
-      if (
-        (
-          (
-            (activePageIndex >= 2)
-            && (activePageIndex - 1) === index
-            && (activePageIndex !== (pagesLength - 1))
-          )
-          || ((activePageIndex > (pagesLength - 3)) && (index === (activePageIndex - 3)))
-        )
-        || (activePageIndex === (pagesLength - 1) && (index === pagesLength - 3) && (pagesLength > 3))
-      ) {
-        return true;
-      }
-    }
+    const isOneOfFirstFourPages = index <= 3;
+    const isFirstFourToShow = activePageIndex <= 1 && isOneOfFirstFourPages;
+    const isActiveMoreThenThird = activePageIndex >= 3;
 
-    if (type === 'button') {
-      if (
-        (activePageIndex < 2 && (index < 3 || index === (pagesLength - 1)))
-        || (
-          index === 0
-          || index === (activePageIndex - 1)
-          || index === activePageIndex
-          || index === (activePageIndex + 1)
-          || index === (activePageIndex - 1)
-          || index === (pagesLength - 1)
-          || (index ===  (pagesLength - 3) && (activePageIndex === (pagesLength - 1)))
-        )
-      ) {
-        return true;
-      }
-    }
-
-    return type === 'ellipsis-end'
-      && (
-        (activePageIndex === 0 && (activePageIndex + 2) === index)
-        || (activePageIndex === 1 && (activePageIndex + 1) === index)
-        || (
-          (activePageIndex >= 2 && (activePageIndex + 1) === index)
-          && activePageIndex < (pagesLength - 2)
-        )
-      ) && (index + 1 < pagesLength);
+    return paginatorPageSanitizers[type]({
+      activePageIndex,
+      index,
+      pagesLength,
+      isFirstFourToShow,
+      isActiveMoreThenThird,
+    });
   }
 }

@@ -128,7 +128,7 @@ export const simpleMode = () => ({
     activePageIndex: number('Active page index', 0),
     disablePrev: boolean('Disable previous', false),
     disableNext: boolean('Disable next', false),
-    simpleMode: boolean('Simple mode', false),
+    simpleMode: boolean('Simple mode', true),
     previousPage: action('Previous page clicked'),
     nextPage: action('Next page clicked'),
   },

@@ -17,10 +17,10 @@
   <ol class="ts-paginator__pages" *ngIf="!isSimpleMode">
     <ng-container *ngIf="pages$ | async as domPages">
       <ng-container *ngFor="let page of domPages; let i=index;">
+        <ng-container *ngIf="activePageIndex$.getValue() | tsPaginatorDom:i:domPages.length:'ellipsis-end'">
+          <li class="ts-paginator__page ts-paginator__page--ellipsis">...</li>
+        </ng-container>
         <ng-container *ngIf="activePageIndex$.getValue() | tsPaginatorDom:i:domPages.length:'button'">
-          <ng-container *ngIf="activePageIndex$.getValue() | tsPaginatorDom:i:domPages.length:'ellipsis-start'">
-            <li class="ts-paginator__page ts-paginator__page--ellipsis">...</li>
-          </ng-container>
           <li class="ts-paginator__page ts-paginator__page--button">
             <button
               class="ts-paginator__button"
@@ -28,9 +28,9 @@
               (click)="pageClicked.emit(page.pageNumber)"
             >{{ page.pageDisplay }}</button>
           </li>
-          <ng-container *ngIf="activePageIndex$.getValue() | tsPaginatorDom:i:domPages.length:'ellipsis-end'">
-            <li class="ts-paginator__page ts-paginator__page--ellipsis">... </li>
-          </ng-container>
+        </ng-container>
+        <ng-container *ngIf="activePageIndex$.getValue() | tsPaginatorDom:i:domPages.length:'ellipsis-start'">
+          <li class="ts-paginator__page ts-paginator__page--ellipsis">...</li>
         </ng-container>
       </ng-container>
     </ng-container>
