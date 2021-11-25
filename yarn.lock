@@ -197,17 +197,6 @@
     rxjs "6.6.3"
     source-map "0.7.3"
 
-"@angular-devkit/core@11.2.15":
-  version "11.2.15"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-11.2.15.tgz#3e6d0308e049e47a3b21e42a0f2e8d5c31842665"
-  integrity sha512-6pGblUHg2Hv730cHhUhauTUNbjuviAgn6n23rfYIlfEPV5uxyZib6AUTS1DTcK7ITA0D1PscSsLicMiGaqQ8OA==
-  dependencies:
-    ajv "6.12.6"
-    fast-json-stable-stringify "2.1.0"
-    magic-string "0.25.7"
-    rxjs "6.6.3"
-    source-map "0.7.3"
-
 "@angular-devkit/core@12.0.5":
   version "12.0.5"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-12.0.5.tgz#3d02abd97684434f6e1ffee470b7a9c63987ae51"
@@ -232,26 +221,26 @@
     rxjs "6.6.7"
     source-map "0.7.3"
 
-"@angular-devkit/schematics-cli@0.1102.15":
-  version "0.1102.15"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics-cli/-/schematics-cli-0.1102.15.tgz#897b3b978b0e3a319d7569065636f56fdd1fcab3"
-  integrity sha512-iObOYX4GoTojvC3z6JOTkgI0IjEjy2cl53gv95kgeF/2mnqxvydEhkQS7bKPQcnf7z7Pksa9D1iJmqiI5r38Zw==
+"@angular-devkit/schematics-cli@0.1100.4":
+  version "0.1100.4"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics-cli/-/schematics-cli-0.1100.4.tgz#ec727e5cbcb4b2b3791eba70a6ae40398254cd8a"
+  integrity sha512-hqbZ7sumSJQGBKrxz7W0sz9OAGZW6eeeYvbKYqHsknFnAQaVAmuxHpd9OLZzYqndVfYcXvO+apc6AUpCV/+0gg==
   dependencies:
-    "@angular-devkit/core" "11.2.15"
-    "@angular-devkit/schematics" "11.2.15"
-    "@schematics/schematics" "0.1102.15"
+    "@angular-devkit/core" "11.0.4"
+    "@angular-devkit/schematics" "11.0.4"
+    "@schematics/schematics" "0.1100.4"
     ansi-colors "4.1.1"
     inquirer "7.3.3"
     minimist "1.2.5"
-    symbol-observable "3.0.0"
+    symbol-observable "2.0.3"
 
-"@angular-devkit/schematics@11.2.15":
-  version "11.2.15"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-11.2.15.tgz#a2fb129870c3c8e7b283981743999470bfd4a28e"
-  integrity sha512-cFxtpdpwr9N2gtfIG9VyIMacDNsSuRyiV4pToNl/pyHy0z4zif4j32HydXandylHlrYKG4rBMq0UTD/WzHaUcw==
+"@angular-devkit/schematics@11.0.4":
+  version "11.0.4"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-11.0.4.tgz#0680fe038c66f2ecc3c69a293505fb02b694ce80"
+  integrity sha512-fFC7qW9A1bFAZgpCfkezBA4WCRzfVFgOzwPpyt65rgSrzw0+EeHjcrUIcXlhyOXAFrTHtA9oLCfEeSjSx5HBEA==
   dependencies:
-    "@angular-devkit/core" "11.2.15"
-    ora "5.3.0"
+    "@angular-devkit/core" "11.0.4"
+    ora "5.1.0"
     rxjs "6.6.3"
 
 "@angular-devkit/schematics@12.0.5", "@angular-devkit/schematics@~12.0.0":
@@ -394,12 +383,12 @@
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-9.0.0.tgz#227dc53e1ac81824f998c6e76000b7efc522641e"
   integrity sha512-6Pxgsrf0qF9iFFqmIcWmjJGkkCaCm6V5QNnxMy2KloO3SDq6QuMVRbN9RtC8Urmo25LP+eZ6ZgYqFYpdD8Hd9w==
 
-"@angular/flex-layout@12.0.0-beta.35":
-  version "12.0.0-beta.35"
-  resolved "https://registry.yarnpkg.com/@angular/flex-layout/-/flex-layout-12.0.0-beta.35.tgz#b52c3c82608cbb92a119f8dcde2a5b98186fe558"
-  integrity sha512-nPi2MGDFuCacwWHqxF/G7lUJd2X99HbLjjUvKXnyLwyCIVgH1sfS52su2wYbVYWJRqAVAB2/VMlrtW8Khr8hDA==
+"@angular/flex-layout@11.0.0-beta.33":
+  version "11.0.0-beta.33"
+  resolved "https://registry.yarnpkg.com/@angular/flex-layout/-/flex-layout-11.0.0-beta.33.tgz#c2d08f90164701b66a62b8c4365b4e22c1e95789"
+  integrity sha512-unfhw3abZuKtdwQicRStHCYGbANPTHYg4WNRQk/RC5Mxq+4WOp4Q8HI7GqRHCGUYDCGUP7w1sU/oDt8f09nM8w==
   dependencies:
-    tslib "^2.1.0"
+    tslib "^2.0.0"
 
 "@angular/forms@12.2.13":
   version "12.2.13"
@@ -3721,13 +3710,13 @@
     "@angular-devkit/schematics" "12.0.5"
     jsonc-parser "3.0.0"
 
-"@schematics/schematics@0.1102.15":
-  version "0.1102.15"
-  resolved "https://registry.yarnpkg.com/@schematics/schematics/-/schematics-0.1102.15.tgz#8eff8afa46c9106214942acf8f560834b432be46"
-  integrity sha512-B1bBDBPjv7ETXTXt4RlASGboFa7QdLhmdZmYgEglgD7ryB99sR/ffGth69DYMGNWiyWrfeC2q9SoJChpJ7NSow==
+"@schematics/schematics@0.1100.4":
+  version "0.1100.4"
+  resolved "https://registry.yarnpkg.com/@schematics/schematics/-/schematics-0.1100.4.tgz#c18bc41475fa62e1f11c5cc0cf1bca8913ef0be7"
+  integrity sha512-8xBig6oN9jI/kmtwCUlc4l7R0EOuramUz5t9jhryQBabAMSIzQBG19XmHLGT8V7YC3w13d34DxDRXq7STz7rhw==
   dependencies:
-    "@angular-devkit/core" "11.2.15"
-    "@angular-devkit/schematics" "11.2.15"
+    "@angular-devkit/core" "11.0.4"
+    "@angular-devkit/schematics" "11.0.4"
 
 "@semantic-release/changelog@5.0.1":
   version "5.0.1"
@@ -6869,7 +6858,7 @@ bindings@^1.5.0:
   dependencies:
     file-uri-to-path "1.0.0"
 
-bl@^4.0.3, bl@^4.1.0:
+bl@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/bl/-/bl-4.1.0.tgz#451535264182bec2fbbc83a62ab98cf11d9f7b3a"
   integrity sha512-1W07cM9gS6DcLperZfFSj+bWLtaPGSOHWhPiGzXmvVJbRLdG82sH/Kn8EtW1VqWVA54AKf2h5k5BbnIbwF3h6w==
@@ -17718,20 +17707,6 @@ ora@5.1.0:
     strip-ansi "^6.0.0"
     wcwidth "^1.0.1"
 
-ora@5.3.0:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/ora/-/ora-5.3.0.tgz#fb832899d3a1372fe71c8b2c534bbfe74961bb6f"
-  integrity sha512-zAKMgGXUim0Jyd6CXK9lraBnD3H5yPGBPPOkC23a2BG6hsm4Zu6OQSjQuEtV0BHDf4aKHcUFvJiGRrFuW3MG8g==
-  dependencies:
-    bl "^4.0.3"
-    chalk "^4.1.0"
-    cli-cursor "^3.1.0"
-    cli-spinners "^2.5.0"
-    is-interactive "^1.0.0"
-    log-symbols "^4.0.0"
-    strip-ansi "^6.0.0"
-    wcwidth "^1.0.1"
-
 ora@5.4.0:
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/ora/-/ora-5.4.0.tgz#42eda4855835b9cd14d33864c97a3c95a3f56bf4"
@@ -22856,10 +22831,10 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-symbol-observable@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-3.0.0.tgz#eea8f6478c651018e059044268375c408c15c533"
-  integrity sha512-6tDOXSHiVjuCaasQSWTmHUWn4PuG7qa3+1WT031yTc/swT7+rLiw3GOrFxaH1E3lLP09dH3bVuVDf2gK5rxG3Q==
+symbol-observable@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-2.0.3.tgz#5b521d3d07a43c351055fa43b8355b62d33fd16a"
+  integrity sha512-sQV7phh2WCYAn81oAkakC5qjq2Ml0g8ozqz03wOGnx9dDlG1de6yrF+0RAzSJD8fPUow3PTSMf2SAbOGxb93BA==
 
 symbol-observable@4.0.0:
   version "4.0.0"
