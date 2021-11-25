@@ -1,4 +1,8 @@
-import { CdkTableModule } from '@angular/cdk/table';
+import {
+  _CoalescedStyleScheduler,
+  CdkTableModule,
+  _COALESCED_STYLE_SCHEDULER,
+} from '@angular/cdk/table';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
@@ -70,5 +74,9 @@ const DECLARATIONS_EXPORTS = [
   ],
   declarations: [...DECLARATIONS_EXPORTS],
   exports: [...DECLARATIONS_EXPORTS],
+  providers: [{
+    provide: _COALESCED_STYLE_SCHEDULER,
+    useClass: _CoalescedStyleScheduler,
+  }],
 })
 export class TsTableModule {}
