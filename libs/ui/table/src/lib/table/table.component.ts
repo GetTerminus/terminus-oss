@@ -364,7 +364,15 @@ export class TsTableComponent<T = any> extends CdkTable<T> implements
         applyChanges: changes => {},
         detach: () => {},
       }, new _CoalescedStyleScheduler(ngZone),
-      viewportRuler, null);
+      viewportRuler, {
+        stickyColumnsUpdated: () => {},
+        /** Called when CdkTable updates its sticky end columns. */
+        stickyEndColumnsUpdated: () => {},
+        /** Called when CdkTable updates its sticky header rows. */
+        stickyHeaderRowsUpdated: () => {},
+        /** Called when CdkTable updates its sticky footer rows. */
+        stickyFooterRowsUpdated: () => {},
+      });
   }
 
 
