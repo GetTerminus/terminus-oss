@@ -20,7 +20,7 @@ sed -i.bak "/\/\*.*\*\//d;/\/\*/,/\*\// d" libs/ui/styles/helpers-generated.scss
 sed -i.bak '/\/\//d' libs/ui/styles/helpers-generated.scss
 
 echo "Bundling CSS.."
-npx sass --source-map true libs/ui/styles/src/lib/terminus-ui.scss -o libs/ui/styles
+npx node-sass-chokidar --source-map true libs/ui/styles/src/lib/terminus-ui.scss -o libs/ui/styles --importer=node_modules/node-sass-tilde-importer
 
 echo "Moving CSS file to destination.."
 cp libs/ui/styles/terminus-ui.css dist/libs/ui/styles/terminus-ui.css

@@ -1,19 +1,19 @@
-@use '~@angular/material' as mat;
 @import 'custom-properties';
 
 @import 'style-helpers/color';
 @import '~@angular/material/theming';
+@import '~@angular/material/core';
 
-$ts-default-primary: mat.define-palette($ts-material-primary, 500, 100, 700);
-$ts-default-accent:  mat.define-palette($ts-material-accent, 500, 100, 700);
-$ts-default-warn:    mat.define-palette($ts-material-warn, 500, 100, 700);
-$ts-app-theme: mat.define-light-theme($ts-default-primary, $ts-default-accent, $ts-default-warn);
+$ts-default-primary: define-palette($ts-material-primary, 500, 100, 700);
+$ts-default-accent:  define-palette($ts-material-accent, 500, 100, 700);
+$ts-default-warn:    define-palette($ts-material-warn, 500, 100, 700);
+$ts-app-theme: define-light-theme($ts-default-primary, $ts-default-accent, $ts-default-warn);
 
-@include mat.core;
+@include core;
 @import 'generated-classes';
 
 // Include our custom theme
-@include mat.angular-material-theme($ts-app-theme);
+@include angular-material-theme($ts-app-theme);
 
 
 .fake-change {
