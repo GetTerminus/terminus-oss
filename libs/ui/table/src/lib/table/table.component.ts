@@ -363,7 +363,8 @@ export class TsTableComponent<T = any> extends CdkTable<T> implements
       {
         applyChanges: changes => {},
         detach: () => {},
-      }, new _CoalescedStyleScheduler(ngZone), viewportRuler, null);
+      }, new _CoalescedStyleScheduler(ngZone),
+      viewportRuler, null);
   }
 
 
