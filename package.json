@@ -32,7 +32,7 @@
     "update": "nx migrate latest",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "build:all": "nx run-many --all --target build --withDeps --prod",
+    "build:all": "nx run-many --all --target build --withDeps --configuration production",
     "build:all:schematics": "nx run-many --all --target build-schematics",
     "test:all": "nx run-many --all --target test --skip-nx-cache --codeCoverage",
     "workspace-generator": "nx workspace-generator",
@@ -164,7 +164,7 @@
     "text-mask-addons": "3.8.0",
     "text-mask-core": "5.1.2",
     "tslib": "2.3.1",
-    "zone.js": "0.11.4"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "12.2.13",

@@ -241,7 +241,6 @@
             }
           },
           "options": {
-            "aot": true,
             "assets": [],
             "index": "apps/storybook-dummy/src/index.html",
             "main": "apps/storybook-dummy/src/main.ts",
@@ -251,11 +250,18 @@
             "styles": [
               "apps/storybook-dummy/src/styles.scss"
             ],
-            "tsConfig": "apps/storybook-dummy/tsconfig.app.json"
+            "tsConfig": "apps/storybook-dummy/tsconfig.app.json",
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "outputs": [
             "{options.outputPath}"
-          ]
+          ],
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -3881,7 +3887,6 @@
             }
           },
           "options": {
-            "aot": true,
             "assets": [
               "apps/ui-storybook/src/favicon.ico",
               "apps/ui-storybook/src/assets"
@@ -3894,11 +3899,18 @@
             "styles": [
               "apps/ui-storybook/src/styles.scss"
             ],
-            "tsConfig": "apps/ui-storybook/tsconfig.app.json"
+            "tsConfig": "apps/ui-storybook/tsconfig.app.json",
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "outputs": [
             "{options.outputPath}"
-          ]
+          ],
+          "defaultConfiguration": ""
         },
         "build-allstorybook": {
           "builder": "@nrwl/storybook:build",
