@@ -1,3 +1,4 @@
+@use '~@angular/cdk' as cdk;
 @import '~@terminus/ui-styles/helpers';
 
 :root {
@@ -16,7 +17,7 @@
 }
 
 .ts-selection-list-panel__inner {
-  @include cdk-high-contrast {
+  @include cdk.high-contrast {
     outline: solid 1px;
   }
   background-color: var(--ts-sl-panel-backgroundColor);
