@@ -157,7 +157,7 @@
     "@terminus/ui-styles": "2.1.4",
     "core-js": "3.8.1",
     "date-fns": "2.16.1",
-    "ngx-clipboard": "14.0.1",
+    "ngx-clipboard": "14.0.2",
     "ngx-perfect-scrollbar": "10.0.1",
     "ngx-webstorage-service": "4.1.0",
     "rxjs": "6.6.3",
