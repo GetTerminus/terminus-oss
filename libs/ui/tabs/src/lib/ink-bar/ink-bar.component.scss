@@ -1,4 +1,4 @@
-@use '~@angular/cdk' as cdk;
+@import '~@angular/cdk/a11y';
 @import '~@terminus/ui-styles/helpers';
 
 :root {
@@ -10,7 +10,7 @@
 
 // The ink bar that displays under the active tab label
 .ts-ink-bar {
-  @include cdk.high-contrast {
+  @include high-contrast {
     height: 0;
     outline: solid var(--ts-inkBar-height);
   }
