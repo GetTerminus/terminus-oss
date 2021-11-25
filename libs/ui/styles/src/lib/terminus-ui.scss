@@ -1,4 +1,4 @@
-@use '~@angular/material' as mat;
+@import '~@angular/material';
 @import 'custom-properties';
 
 @import 'style-helpers/color';
@@ -10,9 +10,6 @@ $ts-default-warn:    define-palette($ts-material-warn, 500, 100, 700);
 $ts-app-theme: define-light-theme($ts-default-primary, $ts-default-accent, $ts-default-warn);
 
 @import 'generated-classes';
-
-// Include our custom theme
-@include angular-material-theme($ts-app-theme);
 
 .fake-change {
   color: var(--ts-color-base-white);
