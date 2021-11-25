@@ -1,4 +1,4 @@
-@import '~@angular/cdk/a11y';
+@use '~@angular/cdk' as cdk;
 @import '~@terminus/ui-styles/helpers';
 
 :root {
@@ -35,7 +35,7 @@
 
 // Wraps each tab label
 .ts-tab-label {
-  @include high-contrast {
+  @include cdk.high-contrast {
     opacity: 1;
   }
   align-items: center;
@@ -60,7 +60,7 @@
 
   &:not(.ts-tab-label--disabled) {
     &:focus {
-      @include high-contrast {
+      @include cdk.high-contrast {
         outline: dotted 2px;
       }
       color: var(--ts-tab-label-color);
@@ -75,7 +75,7 @@
   }
 
   &.ts-tab-label--disabled {
-    @include high-contrast {
+    @include cdk.high-contrast {
       opacity: .5;
     }
     --ts-tab-label-color: var(--ts-tab-label-disabled-color);
