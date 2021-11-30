@@ -106,8 +106,9 @@ export class TsTableColumnsChangeEvent {
 // Unique ID for each instance
 let nextUniqueId = 0;
 
-const token = new InjectionToken('token');
-const token2 = new InjectionToken('token2');
+// We need those because angular 12 version of table made 4 more values required
+const styleSchedulerToken = new InjectionToken('token');
+const viewRepeaterToken = new InjectionToken('token2');
 
 /**
  * The primary data table implementation
@@ -160,11 +161,11 @@ const token2 = new InjectionToken('token2');
     useExisting: TsTableComponent,
   },
   {
-    provide: token2,
+    provide: styleSchedulerToken,
     useClass: _CoalescedStyleScheduler,
   },
   {
-    provide: token,
+    provide: viewRepeaterToken,
     useClass: _DisposeViewRepeaterStrategy,
   }],
   encapsulation: ViewEncapsulation.None,
@@ -375,8 +376,8 @@ export class TsTableComponent<T = any> extends CdkTable<T> implements
     private ngZone: NgZone,
     private windowService: TsWindowService,
     private viewportRuler: ViewportRuler,
-    @Inject(token) private viewRepeater: _ViewRepeater<T, RenderRow<T>, RowContext<T>>,
-    @Inject(token2) private coalescedStyleScheduler: _CoalescedStyleScheduler,
+    @Inject(viewRepeaterToken) private viewRepeater: _ViewRepeater<T, RenderRow<T>, RowContext<T>>,
+    @Inject(styleSchedulerToken) private coalescedStyleScheduler: _CoalescedStyleScheduler,
   ) {
     super(differs, changeDetectorRef, elementRef, role, dir, document, platform,
       viewRepeater, coalescedStyleScheduler, viewportRuler, null);
