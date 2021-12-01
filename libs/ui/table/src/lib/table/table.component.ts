@@ -1,9 +1,16 @@
 import { Directionality } from '@angular/cdk/bidi';
+import {
+  _DisposeViewRepeaterStrategy,
+  _ViewRepeater,
+} from '@angular/cdk/collections';
 import { Platform } from '@angular/cdk/platform';
 import { ViewportRuler } from '@angular/cdk/scrolling';
 import {
+  _CoalescedStyleScheduler,
   CDK_TABLE_TEMPLATE,
   CdkTable,
+  RenderRow,
+  RowContext,
 } from '@angular/cdk/table';
 import { DOCUMENT } from '@angular/common';
 import {
@@ -15,6 +22,7 @@ import {
   ElementRef,
   EventEmitter,
   Inject,
+  InjectionToken,
   Input,
   IterableDiffers,
   NgZone,
@@ -98,6 +106,9 @@ export class TsTableColumnsChangeEvent {
 // Unique ID for each instance
 let nextUniqueId = 0;
 
+// We need those because angular 12 version of table made 4 more values required
+const styleSchedulerToken = new InjectionToken('token');
+const viewRepeaterToken = new InjectionToken('token2');
 
 /**
  * The primary data table implementation
@@ -148,6 +159,14 @@ let nextUniqueId = 0;
   providers: [{
     provide: CdkTable,
     useExisting: TsTableComponent,
+  },
+  {
+    provide: styleSchedulerToken,
+    useClass: _CoalescedStyleScheduler,
+  },
+  {
+    provide: viewRepeaterToken,
+    useClass: _DisposeViewRepeaterStrategy,
   }],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -357,8 +376,11 @@ export class TsTableComponent<T = any> extends CdkTable<T> implements
     private ngZone: NgZone,
     private windowService: TsWindowService,
     private viewportRuler: ViewportRuler,
+    @Inject(viewRepeaterToken) private viewRepeater: _ViewRepeater<T, RenderRow<T>, RowContext<T>>,
+    @Inject(styleSchedulerToken) private coalescedStyleScheduler: _CoalescedStyleScheduler,
   ) {
-    super(differs, changeDetectorRef, elementRef, role, dir, document, platform);
+    super(differs, changeDetectorRef, elementRef, role, dir, document, platform,
+      viewRepeater, coalescedStyleScheduler, viewportRuler, null);
   }
 
 

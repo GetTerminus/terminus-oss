@@ -1,3 +1,4 @@
+@use '~@angular/cdk' as cdk;
 @import '~@terminus/ui-styles/helpers';
 
 
@@ -14,7 +15,7 @@
   $offset-for-divider-line: -1px;
 
   @include elevation-element(menu);
-  @include cdk-high-contrast {
+  @include cdk.high-contrast {
     outline: solid 1px;
   }
   background: color(pure);

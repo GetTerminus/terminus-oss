@@ -1,3 +1,4 @@
+@use '~@angular/cdk' as cdk;
 @import '~@terminus/ui-styles/helpers';
 
 .ts-form-field {
@@ -81,8 +82,7 @@
       --translate: calc(var(--formField-infix-marginTop-negative) - (var(--formField-infix-padding) + var(--formField-outline-labelOffset)));
       transform:
         translateY(var(--translate))
-        scale(var(--formField-fontScale-subscript))
-      ;
+        scale(var(--formField-fontScale-subscript));
       width: 100% / #{var(--formField-fontScale-subscript)};
     }
 
@@ -229,7 +229,7 @@
     // In high contrast mode IE/Edge will render all of the borders, even if they're transparent. Since we can't remove the border
     // altogether or replace it with a margin, because it'll throw off the baseline, and we can't use a base64-encoded 1x1 transparent image
     // because of CSP, we work around it by setting a linear gradient that goes from `transparent` to `transparent`.
-    @include cdk-high-contrast {
+    @include cdk.high-contrast {
       border-image: linear-gradient(transparent, transparent);
     }
     // Throws off the baseline if we do it as a real margin, so we do it as a border instead.

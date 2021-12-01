@@ -195,7 +195,7 @@ export class TsChipCollectionComponent implements OnInit, AfterViewInit, AfterCo
    */
   public get chipBlurChanges(): Observable<TsChipEvent> {
     // eslint-disable-next-line deprecation/deprecation
-    return merge(...this.chips.map(chip => chip.blurred));
+    return merge<TsChipEvent>(...this.chips.map(chip => chip.blurred));
   }
 
   /**
