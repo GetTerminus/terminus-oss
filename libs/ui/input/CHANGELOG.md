@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.2](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@4.0.1...@terminus/ui-input@4.0.2) (2021-12-01)
+
+**Note:** Version bump only for package @terminus/ui-input
+
+
+
+
+
 ## [4.0.1](https://github.com/GetTerminus/terminus-oss/compare/@terminus/ui-input@4.0.0...@terminus/ui-input@4.0.1) (2021-03-24)
 
 
