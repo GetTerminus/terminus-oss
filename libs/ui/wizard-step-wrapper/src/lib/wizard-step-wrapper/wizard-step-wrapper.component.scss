@@ -1,0 +1,110 @@
+:root {
+  --ts-wsw-base-color: var(--ts-color-base-palette1-500);
+  --ts-wsw-focused-box-shadow: var(--ts-color-base-palette1-300);
+  --ts-wsw-background-color: var(--ts-color-base-white);
+  --ts-wsw-border-color: var(--ts-color-base-palette7-600);
+  --ts-wsw-arrow-color: var(--ts-color-base-palette7-700);
+  --ts-wsp-disabled-color: var(--ts-color-utility-300);
+}
+
+@mixin focused-step {
+  background: transparent;
+  border: 2px solid var(--ts-wsw-base-color);
+  box-shadow: 1px 1px 0 3px var(--ts-wsw-focused-box-shadow);
+}
+
+.ts-wizard-step-wrapper {
+  background-color: var(--ts-wsw-background-color);
+
+  .ts-expansion-panel--shadow .ts-expansion-panel__body {
+    padding: 0;
+  }
+
+  .ts-wsp-step {
+    &[class*='expanded'],
+    &:not([class*='expanded']) &__trigger[class*='focused'] {
+      @include focused-step;
+    }
+
+    &[class*='expanded'] {
+      padding: 0 24px;
+
+      .ts-wsp-step__trigger {
+        border: none;
+        padding: 0;
+      }
+    }
+  }
+
+  .ts-wsp-step__trigger {
+    border: 1px solid var(--ts-wsw-border-color);
+    border-radius: 4px;
+    padding: 24px;
+
+    &:hover {
+      background: transparent !important;
+    }
+
+    &[aria-disabled='true'] {
+      border: 1px solid var(--ts-wsp-disabled-color);
+
+      .ts-wsp-indicator {
+        color: var(--ts-wsp-disabled-color);
+      }
+    }
+
+    .ts-expansion-panel__trigger-content {
+      align-items: center;
+      flex: 0 1 auto;
+    }
+
+    .ts-expansion-panel__indicator {
+      display: none;
+    }
+
+    &[class*='hover'] {
+      background: transparent;
+    }
+  }
+
+  .ts-wsp-indicator-wrapper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 36px;
+  }
+
+  .ts-wsp-indicator {
+    color: var(--ts-wsw-arrow-color);
+    height: 12px;
+    width: 12px;
+
+    &::after {
+      border-style: solid;
+      border-width: 0 2px 2px 0;
+      content: '';
+      display: inline-block;
+      left: 2px;
+      padding: 3px;
+      position: relative;
+      top: -4px;
+      transform: rotate(-45deg);
+      transform-origin: center;
+      transition: .15s transform;
+      vertical-align: middle;
+    }
+
+    &.expanded {
+      &::after {
+        top: -6px;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  .ts-wsp-footer {
+    border-top: 1px solid var(--ts-color-base-palette7-300);
+    margin: 0 -24px;
+    padding: 16px 24px;
+  }
+}

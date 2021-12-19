@@ -32,9 +32,7 @@
             "jestConfig": "libs/design-tokens/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/design-tokens"
-          ]
+          "outputs": ["coverage/libs/design-tokens"]
         }
       },
       "projectType": "library",
@@ -70,9 +68,7 @@
             "jestConfig": "libs/eslint-config-frontend/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/eslint-config-frontend"
-          ]
+          "outputs": ["coverage/libs/eslint-config-frontend"]
         }
       },
       "prefix": "ts",
@@ -86,18 +82,14 @@
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "assets": [
-              "libs/fe-jwt/*.md"
-            ],
+            "assets": ["libs/fe-jwt/*.md"],
             "main": "libs/fe-jwt/src/index.ts",
             "outputPath": "dist/libs/fe-jwt",
             "packageJson": "libs/fe-jwt/package.json",
             "srcRootForCompilationRoot": "libs/fe-jwt/src",
             "tsConfig": "libs/fe-jwt/tsconfig.lib.json"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -115,9 +107,7 @@
             "jestConfig": "libs/fe-jwt/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/fe-jwt"
-          ]
+          "outputs": ["coverage/libs/fe-jwt"]
         }
       },
       "projectType": "library",
@@ -143,10 +133,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/fe-testing/**/*"
-            ],
+            "exclude": ["**/node_modules/**", "!libs/fe-testing/**/*"],
             "tsConfig": [
               "libs/fe-testing/tsconfig.lib.json",
               "libs/fe-testing/tsconfig.spec.json"
@@ -159,9 +146,7 @@
             "jestConfig": "libs/fe-testing/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/fe-testing"
-          ]
+          "outputs": ["coverage/libs/fe-testing"]
         }
       },
       "prefix": "ts",
@@ -179,18 +164,14 @@
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "assets": [
-              "libs/fe-utilities/*.md"
-            ],
+            "assets": ["libs/fe-utilities/*.md"],
             "main": "libs/fe-utilities/src/index.ts",
             "outputPath": "dist/libs/fe-utilities",
             "packageJson": "libs/fe-utilities/package.json",
             "srcRootForCompilationRoot": "libs/fe-utilities/src",
             "tsConfig": "libs/fe-utilities/tsconfig.lib.json"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -208,9 +189,7 @@
             "jestConfig": "libs/fe-utilities/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/fe-utilities"
-          ]
+          "outputs": ["coverage/libs/fe-utilities"]
         }
       },
       "projectType": "library",
@@ -248,14 +227,10 @@
             "outputPath": "dist/apps/storybook-dummy",
             "polyfills": "apps/storybook-dummy/src/polyfills.ts",
             "scripts": [],
-            "styles": [
-              "apps/storybook-dummy/src/styles.scss"
-            ],
+            "styles": ["apps/storybook-dummy/src/styles.scss"],
             "tsConfig": "apps/storybook-dummy/tsconfig.app.json"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -303,9 +278,7 @@
             "jestConfig": "libs/stylelint-config-frontend/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/stylelint-config-frontend"
-          ]
+          "outputs": ["coverage/libs/stylelint-config-frontend"]
         }
       },
       "prefix": "ts",
@@ -357,9 +330,7 @@
             "jestConfig": "libs/ui/autocomplete/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/autocomplete"
-          ]
+          "outputs": ["coverage/libs/ui/autocomplete"]
         }
       },
       "prefix": "ts",
@@ -390,9 +361,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/autofocus && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/autofocus && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -411,9 +380,7 @@
             "outputPath": "dist/storybook/ui-autofocus",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -447,9 +414,7 @@
             "jestConfig": "libs/ui/autofocus/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/autofocus"
-          ]
+          "outputs": ["coverage/libs/ui/autofocus"]
         }
       },
       "prefix": "ts",
@@ -480,9 +445,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/button && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/button && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -501,9 +464,7 @@
             "outputPath": "dist/storybook/ui-button",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -540,9 +501,7 @@
             "jestConfig": "libs/ui/button/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/button"
-          ]
+          "outputs": ["coverage/libs/ui/button"]
         }
       },
       "prefix": "ts",
@@ -573,9 +532,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/card && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/card && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -594,9 +551,7 @@
             "outputPath": "dist/storybook/ui-card",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -633,9 +588,7 @@
             "jestConfig": "libs/ui/card/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/card"
-          ]
+          "outputs": ["coverage/libs/ui/card"]
         }
       },
       "prefix": "ts",
@@ -666,9 +619,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/chart && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/chart && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -687,9 +638,7 @@
             "outputPath": "dist/storybook/ui-chart",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -726,9 +675,7 @@
             "jestConfig": "libs/ui/chart/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/chart"
-          ]
+          "outputs": ["coverage/libs/ui/chart"]
         }
       },
       "prefix": "ts",
@@ -759,9 +706,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/checkbox && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/checkbox && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -780,9 +725,7 @@
             "outputPath": "dist/storybook/ui-checkbox",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -819,9 +762,7 @@
             "jestConfig": "libs/ui/checkbox/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/checkbox"
-          ]
+          "outputs": ["coverage/libs/ui/checkbox"]
         }
       },
       "prefix": "ts",
@@ -852,9 +793,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/chip && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/chip && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -873,9 +812,7 @@
             "outputPath": "dist/storybook/ui-chip",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -912,9 +849,7 @@
             "jestConfig": "libs/ui/chip/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/chip"
-          ]
+          "outputs": ["coverage/libs/ui/chip"]
         }
       },
       "prefix": "ts",
@@ -966,9 +901,7 @@
             "outputPath": "dist/storybook/ui-cohort-date-range",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1005,9 +938,7 @@
             "jestConfig": "libs/ui/cohort-date-range/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/cohort-date-range"
-          ]
+          "outputs": ["coverage/libs/ui/cohort-date-range"]
         }
       },
       "prefix": "ts",
@@ -1059,9 +990,7 @@
             "outputPath": "dist/storybook/ui-confirmation",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1098,9 +1027,7 @@
             "jestConfig": "libs/ui/confirmation/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/confirmation"
-          ]
+          "outputs": ["coverage/libs/ui/confirmation"]
         }
       },
       "prefix": "ts",
@@ -1131,9 +1058,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/copy && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/copy && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1152,9 +1077,7 @@
             "outputPath": "dist/storybook/ui-copy",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1191,9 +1114,7 @@
             "jestConfig": "libs/ui/copy/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/copy"
-          ]
+          "outputs": ["coverage/libs/ui/copy"]
         }
       },
       "prefix": "ts",
@@ -1224,9 +1145,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/csv-entry && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/csv-entry && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1245,9 +1164,7 @@
             "outputPath": "dist/storybook/ui-csv-entry",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1284,9 +1201,7 @@
             "jestConfig": "libs/ui/csv-entry/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/csv-entry"
-          ]
+          "outputs": ["coverage/libs/ui/csv-entry"]
         }
       },
       "prefix": "ts",
@@ -1317,9 +1232,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/date-range && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/date-range && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1338,9 +1251,7 @@
             "outputPath": "dist/storybook/ui-date-range",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1377,9 +1288,7 @@
             "jestConfig": "libs/ui/date-range/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/date-range"
-          ]
+          "outputs": ["coverage/libs/ui/date-range"]
         }
       },
       "prefix": "ts",
@@ -1410,9 +1319,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/drawer && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/drawer && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1431,9 +1338,7 @@
             "outputPath": "dist/storybook/ui-drawer",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1470,9 +1375,7 @@
             "jestConfig": "libs/ui/drawer/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/drawer"
-          ]
+          "outputs": ["coverage/libs/ui/drawer"]
         }
       },
       "prefix": "ts",
@@ -1502,9 +1405,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/empty-state && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/empty-state && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1523,9 +1424,7 @@
             "outputPath": "dist/storybook/ui-empty-state",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1562,9 +1461,7 @@
             "jestConfig": "libs/ui/empty-state/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/empty-state"
-          ]
+          "outputs": ["coverage/libs/ui/empty-state"]
         }
       },
       "prefix": "ts",
@@ -1616,9 +1513,7 @@
             "outputPath": "dist/storybook/ui-expansion-panel",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1655,9 +1550,7 @@
             "jestConfig": "libs/ui/expansion-panel/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/expansion-panel"
-          ]
+          "outputs": ["coverage/libs/ui/expansion-panel"]
         }
       },
       "prefix": "ts",
@@ -1688,9 +1581,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/file-upload && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/file-upload && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1709,9 +1600,7 @@
             "outputPath": "dist/storybook/ui-file-upload",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1748,9 +1637,7 @@
             "jestConfig": "libs/ui/file-upload/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/file-upload"
-          ]
+          "outputs": ["coverage/libs/ui/file-upload"]
         }
       },
       "prefix": "ts",
@@ -1797,9 +1684,7 @@
             "jestConfig": "libs/ui/form-field/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/form-field"
-          ]
+          "outputs": ["coverage/libs/ui/form-field"]
         }
       },
       "prefix": "ts",
@@ -1830,9 +1715,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/icon && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/icon && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1851,9 +1734,7 @@
             "outputPath": "dist/storybook/ui-icon",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1890,9 +1771,7 @@
             "jestConfig": "libs/ui/icon/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/icon"
-          ]
+          "outputs": ["coverage/libs/ui/icon"]
         }
       },
       "prefix": "ts",
@@ -1923,9 +1802,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/icon-button && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/icon-button && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -1944,9 +1821,7 @@
             "outputPath": "dist/storybook/ui-icon-button",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -1983,9 +1858,7 @@
             "jestConfig": "libs/ui/icon-button/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/icon-button"
-          ]
+          "outputs": ["coverage/libs/ui/icon-button"]
         }
       },
       "prefix": "ts",
@@ -2037,9 +1910,7 @@
             "outputPath": "dist/storybook/ui-info-carousel",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2076,9 +1947,7 @@
             "jestConfig": "libs/ui/info-carousel/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/info-carousel"
-          ]
+          "outputs": ["coverage/libs/ui/info-carousel"]
         }
       },
       "prefix": "ts",
@@ -2109,9 +1978,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/input && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/input && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2130,9 +1997,7 @@
             "outputPath": "dist/storybook/ui-input",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2169,9 +2034,7 @@
             "jestConfig": "libs/ui/input/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/input"
-          ]
+          "outputs": ["coverage/libs/ui/input"]
         }
       },
       "prefix": "ts",
@@ -2202,9 +2065,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/link && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/link && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2223,9 +2084,7 @@
             "outputPath": "dist/storybook/ui-link",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2262,9 +2121,7 @@
             "jestConfig": "libs/ui/link/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/link"
-          ]
+          "outputs": ["coverage/libs/ui/link"]
         }
       },
       "prefix": "ts",
@@ -2316,9 +2173,7 @@
             "outputPath": "dist/storybook/ui-loading-overlay",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2355,9 +2210,7 @@
             "jestConfig": "libs/ui/loading-overlay/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/loading-overlay"
-          ]
+          "outputs": ["coverage/libs/ui/loading-overlay"]
         }
       },
       "prefix": "ts",
@@ -2388,9 +2241,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/login-form && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/login-form && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2409,9 +2260,7 @@
             "outputPath": "dist/storybook/ui-login-form",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2448,9 +2297,7 @@
             "jestConfig": "libs/ui/login-form/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/login-form"
-          ]
+          "outputs": ["coverage/libs/ui/login-form"]
         }
       },
       "prefix": "ts",
@@ -2481,9 +2328,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/logo && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/logo && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2502,9 +2347,7 @@
             "outputPath": "dist/storybook/ui-logo",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2541,9 +2384,7 @@
             "jestConfig": "libs/ui/logo/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/logo"
-          ]
+          "outputs": ["coverage/libs/ui/logo"]
         }
       },
       "prefix": "ts",
@@ -2574,9 +2415,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/menu && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/menu && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2595,9 +2434,7 @@
             "outputPath": "dist/storybook/ui-menu",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2634,9 +2471,7 @@
             "jestConfig": "libs/ui/menu/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/menu"
-          ]
+          "outputs": ["coverage/libs/ui/menu"]
         }
       },
       "prefix": "ts",
@@ -2667,9 +2502,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/navigation && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/navigation && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2688,9 +2521,7 @@
             "outputPath": "dist/storybook/ui-navigation",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2727,9 +2558,7 @@
             "jestConfig": "libs/ui/navigation/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/navigation"
-          ]
+          "outputs": ["coverage/libs/ui/navigation"]
         }
       },
       "prefix": "ts",
@@ -2760,9 +2589,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/option && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/option && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2785,9 +2612,7 @@
             "jestConfig": "libs/ui/option/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/option"
-          ]
+          "outputs": ["coverage/libs/ui/option"]
         }
       },
       "prefix": "ts",
@@ -2818,9 +2643,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/page-header && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/page-header && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2839,9 +2662,7 @@
             "outputPath": "dist/storybook/ui-page-header",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2878,9 +2699,7 @@
             "jestConfig": "libs/ui/page-header/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/page-header"
-          ]
+          "outputs": ["coverage/libs/ui/page-header"]
         }
       },
       "prefix": "ts",
@@ -2911,9 +2730,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/paginator && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/paginator && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -2932,9 +2749,7 @@
             "outputPath": "dist/storybook/ui-paginator",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -2971,9 +2786,7 @@
             "jestConfig": "libs/ui/paginator/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/paginator"
-          ]
+          "outputs": ["coverage/libs/ui/paginator"]
         }
       },
       "prefix": "ts",
@@ -3004,9 +2817,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/pipes && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/pipes && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -3025,9 +2836,7 @@
             "outputPath": "dist/storybook/ui-pipes",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3061,9 +2870,7 @@
             "jestConfig": "libs/ui/pipes/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/pipes"
-          ]
+          "outputs": ["coverage/libs/ui/pipes"]
         }
       },
       "prefix": "ts",
@@ -3094,9 +2901,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/popover && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/popover && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -3115,9 +2920,7 @@
             "outputPath": "dist/storybook/ui-popover",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3154,9 +2957,7 @@
             "jestConfig": "libs/ui/popover/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/popover"
-          ]
+          "outputs": ["coverage/libs/ui/popover"]
         }
       },
       "prefix": "ts",
@@ -3187,9 +2988,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/radio-group && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/radio-group && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -3208,9 +3007,7 @@
             "outputPath": "dist/storybook/ui-radio-group",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3247,9 +3044,7 @@
             "jestConfig": "libs/ui/radio-group/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/radio-group"
-          ]
+          "outputs": ["coverage/libs/ui/radio-group"]
         }
       },
       "prefix": "ts",
@@ -3280,9 +3075,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/scrollbars && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/scrollbars && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -3301,9 +3094,7 @@
             "outputPath": "dist/storybook/ui-scrollbars",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3340,9 +3131,7 @@
             "jestConfig": "libs/ui/scrollbars/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/scrollbars"
-          ]
+          "outputs": ["coverage/libs/ui/scrollbars"]
         }
       },
       "prefix": "ts",
@@ -3373,9 +3162,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/search && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/search && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -3394,9 +3181,7 @@
             "outputPath": "dist/storybook/ui-search",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3433,9 +3218,7 @@
             "jestConfig": "libs/ui/search/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/search"
-          ]
+          "outputs": ["coverage/libs/ui/search"]
         }
       },
       "prefix": "ts",
@@ -3466,9 +3249,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/select && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/select && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -3491,9 +3272,7 @@
             "jestConfig": "libs/ui/select/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/select"
-          ]
+          "outputs": ["coverage/libs/ui/select"]
         }
       },
       "prefix": "ts",
@@ -3545,9 +3324,7 @@
             "outputPath": "dist/storybook/ui-selection-list",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3584,9 +3361,7 @@
             "jestConfig": "libs/ui/selection-list/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/selection-list"
-          ]
+          "outputs": ["coverage/libs/ui/selection-list"]
         }
       },
       "prefix": "ts",
@@ -3617,9 +3392,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/sidenav && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/sidenav && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -3638,9 +3411,7 @@
             "outputPath": "dist/storybook/ui-sidenav",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3677,9 +3448,7 @@
             "jestConfig": "libs/ui/sidenav/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/sidenav"
-          ]
+          "outputs": ["coverage/libs/ui/sidenav"]
         }
       },
       "prefix": "ts",
@@ -3710,9 +3479,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/sort && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/sort && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -3735,9 +3502,7 @@
             "jestConfig": "libs/ui/sort/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/sort"
-          ]
+          "outputs": ["coverage/libs/ui/sort"]
         }
       },
       "prefix": "ts",
@@ -3780,9 +3545,7 @@
             "outputPath": "dist/storybook/ui-spacing",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -3816,9 +3579,7 @@
             "jestConfig": "libs/ui/spacing/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/spacing"
-          ]
+          "outputs": ["coverage/libs/ui/spacing"]
         }
       },
       "prefix": "ts",
@@ -3891,14 +3652,10 @@
             "outputPath": "dist/apps/ui-storybook",
             "polyfills": "apps/ui-storybook/src/polyfills.ts",
             "scripts": [],
-            "styles": [
-              "apps/ui-storybook/src/styles.scss"
-            ],
+            "styles": ["apps/ui-storybook/src/styles.scss"],
             "tsConfig": "apps/ui-storybook/tsconfig.app.json"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "build-allstorybook": {
           "builder": "@nrwl/storybook:build",
@@ -3915,9 +3672,7 @@
             "outputPath": "dist/storybook",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -3928,10 +3683,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/ui-storybook/**/*"
-            ],
+            "exclude": ["**/node_modules/**", "!apps/ui-storybook/**/*"],
             "tsConfig": [
               "apps/ui-storybook/tsconfig.app.json",
               "apps/ui-storybook/tsconfig.spec.json"
@@ -3955,9 +3707,7 @@
             "jestConfig": "apps/ui-storybook/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/apps/ui-storybook"
-          ]
+          "outputs": ["coverage/apps/ui-storybook"]
         }
       },
       "prefix": "tsdt",
@@ -4005,9 +3755,7 @@
             "outputPath": "dist/storybook/ui-styles",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -4051,9 +3799,7 @@
             "jestConfig": "libs/ui/styles/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/styles"
-          ]
+          "outputs": ["coverage/libs/ui/styles"]
         }
       },
       "prefix": "ts",
@@ -4084,9 +3830,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/table && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/table && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -4105,9 +3849,7 @@
             "outputPath": "dist/storybook/ui-table",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -4144,9 +3886,7 @@
             "jestConfig": "libs/ui/table/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/table"
-          ]
+          "outputs": ["coverage/libs/ui/table"]
         }
       },
       "prefix": "ts",
@@ -4177,9 +3917,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/tabs && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/tabs && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -4198,9 +3936,7 @@
             "outputPath": "dist/storybook/ui-tabs",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -4237,9 +3973,7 @@
             "jestConfig": "libs/ui/tabs/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/tabs"
-          ]
+          "outputs": ["coverage/libs/ui/tabs"]
         }
       },
       "prefix": "ts",
@@ -4270,9 +4004,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/toggle && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/toggle && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -4291,9 +4023,7 @@
             "outputPath": "dist/storybook/ui-toggle",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -4330,9 +4060,7 @@
             "jestConfig": "libs/ui/toggle/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/toggle"
-          ]
+          "outputs": ["coverage/libs/ui/toggle"]
         }
       },
       "prefix": "ts",
@@ -4363,9 +4091,7 @@
         "build-schematics": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "cd libs/ui/tooltip && yarn build && cd ../../.."
-            ],
+            "commands": ["cd libs/ui/tooltip && yarn build && cd ../../.."],
             "parallel": false
           }
         },
@@ -4384,9 +4110,7 @@
             "outputPath": "dist/storybook/ui-tooltip",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -4423,9 +4147,7 @@
             "jestConfig": "libs/ui/tooltip/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/tooltip"
-          ]
+          "outputs": ["coverage/libs/ui/tooltip"]
         }
       },
       "prefix": "ts",
@@ -4469,9 +4191,7 @@
             "jestConfig": "libs/ui/utilities/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/utilities"
-          ]
+          "outputs": ["coverage/libs/ui/utilities"]
         }
       },
       "prefix": "ts",
@@ -4527,9 +4247,7 @@
             "jestConfig": "libs/ui/validation-messages/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/validation-messages"
-          ]
+          "outputs": ["coverage/libs/ui/validation-messages"]
         }
       },
       "prefix": "ts",
@@ -4572,9 +4290,7 @@
             "outputPath": "dist/storybook/ui-validators",
             "uiFramework": "@storybook/angular"
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -4608,9 +4324,7 @@
             "jestConfig": "libs/ui/validators/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/ui/validators"
-          ]
+          "outputs": ["coverage/libs/ui/validators"]
         }
       },
       "prefix": "ts",
@@ -4622,6 +4336,93 @@
         }
       },
       "sourceRoot": "libs/ui/validators/src"
+    },
+    "ui-wizard-step-wrapper": {
+      "prefix": "ts",
+      "projectType": "library",
+      "root": "libs/ui/wizard-step-wrapper",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "sourceRoot": "libs/ui/wizard-step-wrapper/src",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
+            "tsConfig": "libs/ui/wizard-step-wrapper/tsconfig.lib.json",
+            "project": "libs/ui/wizard-step-wrapper/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui/wizard-step-wrapper/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "build-schematics": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": ["cd libs/ui/wizard-step-wrapper && yarn build && cd ../../.."],
+            "parallel": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-wizard-step-wrapper/.storybook"
+            },
+            "docsMode": false,
+            "outputPath": "dist/storybook/ui-wizard-step-wrapper",
+            "uiFramework": "@storybook/angular"
+          },
+          "outputs": ["{options.outputPath}"]
+        },
+        "lint": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "yarn run lint:ts 'libs/ui/wizard-step-wrapper/**/*.{js,ts}'"
+              },
+              {
+                "command": "yarn run lint:scss:base 'libs/ui/wizard-step-wrapper/**/!(*.spec).scss'"
+              }
+            ]
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "options": {
+            "config": {
+              "configFolder": "stories/ui-wizard-step-wrapper/.storybook"
+            },
+            "docsMode": false,
+            "port": 4400,
+            "uiFramework": "@storybook/angular"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/wizard-step-wrapper/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/ui/wizard-step-wrapper"]
+        }
+      }
     }
   },
   "schematics": {

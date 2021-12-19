@@ -180,6 +180,9 @@
     },
     "ui-validators": {
       "tags": []
+    },
+    "ui-wizard-step-wrapper": {
+      "tags": []
     }
   },
   "tasksRunnerOptions": {

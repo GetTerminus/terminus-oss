@@ -1,0 +1,40 @@
+{
+  "name": "@terminus/ui-wizard-step-wrapper",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "@terminus",
+  "private": false,
+  "homepage": "https://github.com/GetTerminus/terminus-oss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GetTerminus/terminus-oss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GetTerminus/terminus-oss/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "next",
+    "directory": "../../../dist/libs/ui/wizard-step-wrapper"
+  },
+  "dependencies": {
+    "tslib": "^2.0.3"
+  },
+  "peerDependencies": {
+    "@angular/common": "^11.0.4",
+    "@angular/core": "^11.0.4",
+    "@angular/platform-browser": "^11.0.4",
+    "@terminus/design-tokens": "^3.1.0",
+    "@terminus/fe-utilities": "^2.0.0",
+    "@terminus/ui-expansion-panel": "^2.0.0",
+    "@terminus/ui-styles": "^2.0.0",
+    "date-fns": "^2.16.1",
+    "rxjs": "^6.6.3"
+  },
+  "scripts": {
+    "build": "../../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:collection": "cp schematics/collection.json ../../../dist/libs/ui/wizard-step-wrapper/schematics/collection.json",
+    "postbuild": "npm run copy:collection"
+  },
+  "schematics": "./schematics/collection.json"
+}
