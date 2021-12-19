@@ -740,7 +740,7 @@ module.exports = {
         '@angular-eslint/use-lifecycle-interface': SEVERITY,
 
         // Interfaces prescribe typed method signatures. Use those signatures to flag spelling and syntax mistakes.
-        '@angular-eslint/use-pipe-decorator': SEVERITY,
+        // '@angular-eslint/use-pipe-decorator': SEVERITY,
 
         // Interfaces prescribe typed method signatures. Use those signatures to flag spelling and syntax mistakes.
         '@angular-eslint/use-pipe-transform-interface': SEVERITY,
