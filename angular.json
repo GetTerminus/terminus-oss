@@ -84,20 +84,17 @@
     "fe-jwt": {
       "architect": {
         "build": {
-          "builder": "@nrwl/node:package",
-          "options": {
-            "assets": [
-              "libs/fe-jwt/*.md"
-            ],
-            "main": "libs/fe-jwt/src/index.ts",
-            "outputPath": "dist/libs/fe-jwt",
-            "packageJson": "libs/fe-jwt/package.json",
-            "srcRootForCompilationRoot": "libs/fe-jwt/src",
-            "tsConfig": "libs/fe-jwt/tsconfig.lib.json"
+          "builder": "@nrwl/angular:package",
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/fe-jwt/tsconfig.lib.prod.json"
+            }
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
+            "project": "libs/fe-jwt/ng-package.json",
+            "tsConfig": "libs/fe-jwt/tsconfig.lib.json"
+          }
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -120,9 +117,14 @@
           ]
         }
       },
+      "prefix": "fe",
       "projectType": "library",
       "root": "libs/fe-jwt",
-      "schematics": {},
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
       "sourceRoot": "libs/fe-jwt/src"
     },
     "fe-testing": {
@@ -177,20 +179,17 @@
     "fe-utilities": {
       "architect": {
         "build": {
-          "builder": "@nrwl/node:package",
-          "options": {
-            "assets": [
-              "libs/fe-utilities/*.md"
-            ],
-            "main": "libs/fe-utilities/src/index.ts",
-            "outputPath": "dist/libs/fe-utilities",
-            "packageJson": "libs/fe-utilities/package.json",
-            "srcRootForCompilationRoot": "libs/fe-utilities/src",
-            "tsConfig": "libs/fe-utilities/tsconfig.lib.json"
+          "builder": "@nrwl/angular:package",
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/fe-utilities/tsconfig.lib.prod.json"
+            }
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "options": {
+            "buildableProjectDepsInPackageJsonType": "dependencies",
+            "project": "libs/fe-utilities/ng-package.json",
+            "tsConfig": "libs/fe-utilities/tsconfig.lib.json"
+          }
         },
         "lint": {
           "builder": "@nrwl/workspace:run-commands",
@@ -213,9 +212,14 @@
           ]
         }
       },
+      "prefix": "fe",
       "projectType": "library",
       "root": "libs/fe-utilities",
-      "schematics": {},
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
       "sourceRoot": "libs/fe-utilities/src"
     },
     "storybook-dummy": {

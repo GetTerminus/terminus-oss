@@ -1,13 +1,24 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
     "outDir": "../../dist/out-tsc",
+    "target": "es2015",
     "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
     "lib": ["dom", "es2018"],
-    "target": "ES2015",
-    "types": ["node"]
+    "types": ["node"],
+
   },
-  "exclude": ["**/*.spec.ts"],
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
+    "enableResourceInlining": true,
+    "fullTemplateTypeCheck": true
+  },
+  "exclude": [
+    "src/test-setup.ts",
+    "**/*.spec.ts"
+  ],
   "include": ["**/*.ts"]
 }
