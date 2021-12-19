@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  FormControl,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { action } from '@storybook/addon-actions';
 import {
@@ -18,6 +15,7 @@ import {
   TsFileUploadComponent,
   TsFileUploadModule,
   TsSelectedFile,
+  TsSelectedFileUploadStats,
 } from '@terminus/ui-file-upload';
 
 function dataURLtoFile(dataUrl: string, filename: string): File {
@@ -61,26 +59,24 @@ export const basic = () => ({
   props: {
     formControl: new FormControl(),
     isDisabled: boolean('Disabled', false),
-    cleared: action('File cleared'),
     enter: action('Drag: Enter'),
     exit: action('Drag: Exit'),
     selected: action('File selected'),
   },
 });
 basic.parameters = {
-  docs: { iframeHeight: 160 },
+  docs: { iframeHeight: 508 },
 };
 
-export const progressAndSeededFile = () => ({
+export const seededFile = () => ({
   component: TsFileUploadComponent,
   props: {
     formControl: new FormControl(),
-    seedFile: SEED_FILE,
-    progress: number('Upload progress', 23),
+    files: [SEED_FILE],
   },
 });
-progressAndSeededFile.parameters = {
-  docs: { iframeHeight: 160 },
+seededFile.parameters = {
+  docs: { iframeHeight: 508 },
   actions: { disabled: true },
 };
 
@@ -127,101 +123,91 @@ export const constraints = () => ({
     accept: array('Accepted mime types', ALL_MIME_TYPES),
     maximumKilobytesPerFile: number('Maximum kilobytes per file', 10240),
     ratioConstraints: array('Ratio constraints', ['1:2', '1.9:1', '5:1']),
+    enter: action('Drag: Enter'),
+    exit: action('Drag: Exit'),
+    selected: action('File selected'),
   },
 });
 constraints.parameters = {
-  docs: { iframeHeight: 160 },
-  actions: { disabled: true },
-};
-
-export const hideUploadButton = () => ({
-  component: TsFileUploadComponent,
-  props: {
-    formControl: new FormControl(),
-    hideButton: boolean('Hide button', true),
-  },
-});
-hideUploadButton.parameters = {
-  docs: { iframeHeight: 160 },
+  docs: { iframeHeight: 508 },
   actions: { disabled: true },
 };
 
 @Component({
-  selector: 'ts-file-upload-wrapper',
+  selector: 'ts-progress-file-upload-wrapper',
+  template: `
+    <ts-file-upload
+      (selected)="selected($event)"
+      [uploadStats]="uploadStats"
+    ></ts-file-upload>
+  `,
+})
+class ProgressFileUploadWrapper {
+  files: TsSelectedFile[] = [];
+  uploadStats: TsSelectedFileUploadStats[] = [];
+
+  startUpload(): void {
+    this.uploadStats = this.files.map(() => ({ progressPercentage: 0 }));
+
+    const counting = setInterval(() => {
+      if (
+        !this.uploadStats
+        || this.uploadStats.length === 0
+        || this.uploadStats[0]?.progressPercentage === 100
+      ) {
+        clearInterval(counting);
+        return;
+      }
+
+      this.uploadStats = this.uploadStats.map(stats => ({
+        ...stats,
+        progressPercentage: (stats.progressPercentage as number) + 10,
+      }));
+    }, 1000);
+  }
+
+  selected(es: TsSelectedFile[]): void {
+    console.log('DEMO: selected multiple: ', es);
+    this.files = es;
+    this.startUpload();
+  }
+}
+
+export const progress = () => ({
+  component: ProgressFileUploadWrapper,
+});
+progress.parameters = {
+  docs: { iframeHeight: 508 },
+  actions: { disabled: true },
+  knobs: { disabled: true },
+};
+
+@Component({
+  selector: 'ts-multiple-file-upload-wrapper',
   template: `
     <ts-file-upload
       [multiple]="true"
       (selected)="selected($event)"
-      (selectedMultiple)="selectedMultiple($event)"
-      (cleared)="file = null"
+      [uploadStats]="uploadStats"
     ></ts-file-upload>
-
-    <ng-container *ngFor="let v of files">
-      <ts-file-upload
-        *ngIf="fileExists(v.id)"
-        [seedFile]="v.file"
-        (selected)="selected($event)"
-        (cleared)="clearFile(v.id)"
-      ></ts-file-upload>
-    </ng-container>
   `,
 })
-class FileUploadWrapper {
-  file: any;
-  files: {id: number; file: File}[] = [];
-  progress = 0;
+class MultipleFileUploadWrapper {
+  files: TsSelectedFile[] = [];
+  uploadStats: TsSelectedFileUploadStats[] = [];
 
-  selected(e: TsSelectedFile): void {
-    console.log('DEMO: selected: ', e);
-    this.file = e;
-    this.startProgress();
-  }
-
-  startProgress(): void {
-    this.progress = 0;
-    const counting = setInterval(() => {
-      if (this.progress < 100) {
-        this.progress++;
-      } else {
-        clearInterval(counting);
-      }
-    }, 20);
-  }
-
-  selectedMultiple(e: File[]): void {
-    console.log('DEMO: selected multiple: ', e);
-    let index = -1;
-
-    this.files = e.map(f => {
-      index = index + 1;
-      return {
-        id: index,
-        file: f,
-      };
-    });
-  }
-
-  clearFile(id: number): void {
-    if (!this.files || this.files.length < 1) {
-      return;
-    }
-    this.files = this.files.filter(obj => obj.id !== id);
-  }
-
-  fileExists(id: number): boolean {
-    if (!this.files || this.files.length < 1) {
-      return false;
-    }
-    const found = this.files.find(v => v.id === id);
-    return !!found;
+  selected(es: TsSelectedFile[]): void {
+    console.log('DEMO: selected multiple: ', es);
+    this.files = es;
+    this.uploadStats = this.files.map(() => ({ progressPercentage: 100 }));
   }
 }
 
 export const multiple = () => ({
-  component: FileUploadWrapper,
+  component: MultipleFileUploadWrapper,
 });
 multiple.parameters = {
-  docs: { iframeHeight: 600 },
+  docs: { iframeHeight: 508 },
   actions: { disabled: true },
   knobs: { disabled: true },
 };

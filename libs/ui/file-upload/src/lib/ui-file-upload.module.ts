@@ -12,6 +12,7 @@ import { TsValidationMessagesModule } from '@terminus/ui-validation-messages';
 
 import { TsDropProtectionService } from './drop-protection/drop-protection.service';
 import { TsFileUploadComponent } from './file-upload/file-upload.component';
+import { SelectedFileViewComponent } from './selected-file-view/selected-file-view.component';
 
 export * from './drop-protection/drop-protection.service';
 export * from './file-upload/file-upload.component';
@@ -31,7 +32,7 @@ export * from './selected-file/selected-file';
     TsTooltipModule,
     TsValidationMessagesModule,
   ],
-  declarations: [TsFileUploadComponent],
+  declarations: [TsFileUploadComponent, SelectedFileViewComponent],
   providers: [
     TsDocumentService,
     TsDropProtectionService,
