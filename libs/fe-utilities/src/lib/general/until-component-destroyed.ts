@@ -16,21 +16,21 @@ export interface WithOnDestroy {
  * Decorator
  * Patch the component with unsubscribe behavior
  *
- * @param component - The component class (`this` context)
+ * @param constructor - The component class constructor
  */
-export function WithDestroy(component: WithOnDestroy): void {
+export function WithDestroy(constructor: Function): void {
   // eslint-disable-next-line @angular-eslint/no-lifecycle-call
-  const originalDestroy = component.prototype.ngOnDestroy;
+  const originalDestroy = constructor.prototype.ngOnDestroy;
 
-  component.prototype.componentDestroy = function() {
+  constructor.prototype.componentDestroy = function() {
     this._destroy$ = this._destroy$ || new Subject<void>();
     return this._destroy$.asObservable();
   };
 
   // eslint-disable-next-line @angular-eslint/no-lifecycle-call
-  component.prototype.ngOnDestroy = function() {
+  constructor.prototype.ngOnDestroy = function() {
     if (typeof originalDestroy === 'function') {
-      originalDestroy.apply(component);
+      originalDestroy.apply(this);
     }
 
     if (this._destroy$) {
