@@ -5,7 +5,7 @@ import { takeUntil } from 'rxjs/operators';
  * An interface that requires ngOnDestroy
  */
 export interface WithOnDestroy {
-  ngOnDestroy(): void;
+  ngOnDestroy?(): void;
   componentDestroy?: () => Observable<void>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
