@@ -1,51 +1,44 @@
-import {
-  Observable,
-  ReplaySubject,
-} from 'rxjs';
+import { Observable,  Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-
 
 /**
  * An interface that requires ngOnDestroy
  */
 export interface WithOnDestroy {
   ngOnDestroy(): void;
-  componentDestroyed$?: Observable<true>;
+  componentDestroy?: () => Observable<void>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
 
 
 /**
+ * Decorator
  * Patch the component with unsubscribe behavior
  *
  * @param component - The component class (`this` context)
- * @returns An observable representing the unsubscribe event
  */
-export function componentDestroyed(component: WithOnDestroy): Observable<true> {
-  if (component.componentDestroyed$) {
-    return component.componentDestroyed$;
-  }
-
+export function WithDestroy(component: WithOnDestroy): void {
   // eslint-disable-next-line @angular-eslint/no-lifecycle-call
-  const oldNgOnDestroy: Function | undefined = component.ngOnDestroy;
-  const stop$: ReplaySubject<true> = new ReplaySubject<true>();
+  const originalDestroy = component.prototype.ngOnDestroy;
 
-  // eslint-disable-next-line @angular-eslint/no-lifecycle-call
-  component.ngOnDestroy = () => {
-    // istanbul ignore else
-    if (oldNgOnDestroy) {
-      oldNgOnDestroy.apply(component);
-    }
-
-    stop$.next(true);
-    stop$.complete();
+  component.prototype.componentDestroy = function() {
+    this._destroy$ = this._destroy$ || new Subject<void>();
+    return this._destroy$.asObservable();
   };
 
-  component.componentDestroyed$ = stop$.asObservable();
-  return component.componentDestroyed$;
-}
+  // eslint-disable-next-line @angular-eslint/no-lifecycle-call
+  component.prototype.ngOnDestroy = function() {
+    if (typeof originalDestroy === 'function') {
+      originalDestroy.apply(component);
+    }
 
+    if (this._destroy$) {
+      this._destroy$.next();
+      this._destroy$.complete();
+    }
+  };
+}
 
 /**
  * A pipe-able operator to unsubscribe during OnDestroy lifecycle event
@@ -56,6 +49,10 @@ export function componentDestroyed(component: WithOnDestroy): Observable<true> {
  * @example
  * source.pipe(untilComponentDestroyed(this)).subscribe...
  */
-export const untilComponentDestroyed =
-  // eslint-disable-next-line max-len
-  <T>(component: WithOnDestroy): (source: Observable<T>) => Observable<T> => (source: Observable<T>) => source.pipe(takeUntil(componentDestroyed(component)));
+export function untilComponentDestroyed<C, T>(component: C & WithOnDestroy): (source: Observable<T>) => Observable<T> {
+  if (typeof component.componentDestroy !== 'function') {
+    throw Error('@WithDestroy decorator is not used');
+  }
+
+  return (source: Observable<T>): Observable<T> => source.pipe(takeUntil(component.componentDestroy()));
+}
