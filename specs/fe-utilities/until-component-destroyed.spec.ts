@@ -8,9 +8,10 @@ import {
   Subscription,
 } from 'rxjs';
 
-import { untilComponentDestroyed } from '@terminus/fe-utilities';
+import { untilComponentDestroyed, WithDestroy } from '@terminus/fe-utilities';
 
 @Component({ template: `` })
+@WithDestroy
 class TestHostComponent implements OnDestroy, OnInit {
   public stub = jest.fn();
   public myInterval!: Subscription;
@@ -25,6 +26,7 @@ class TestHostComponent implements OnDestroy, OnInit {
 }
 
 @Component({ template: `` })
+@WithDestroy
 class TestHostDoubleComponent implements OnDestroy, OnInit {
   public stub1 = jest.fn();
   public stub2 = jest.fn();
