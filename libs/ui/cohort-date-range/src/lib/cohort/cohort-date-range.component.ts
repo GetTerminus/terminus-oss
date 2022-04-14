@@ -191,7 +191,7 @@ export class TsCohortDateRangeComponent implements OnInit, OnDestroy {
     }
     this.originalCohorts = value;
     this._cohorts = value.slice();
-    if (this.allowCustomDates && !this.doesContainCustomDatesCohort(value)) {
+    if (this.allowCustomDates && !this.doesContainCustomDatesCohort(this._cohorts)) {
       this._cohorts.push(this.customDateCohort);
     }
     const activeCohort = value.filter(c => c.active);
